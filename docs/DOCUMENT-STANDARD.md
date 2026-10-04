@@ -101,6 +101,51 @@ Slugs ändern sich selten. Umbenennung = Redirect-Hinweis in alter Datei oder In
 3. Audit verlinkt auf Inventar-Zeilen und genutzte Methoden.
 4. Keine zyklischen Detailkopien: eine Faktenquelle pro Aspekt.
 
+## Wissens-Ebenen (A / B / C)
+
+Jede Aussage in Sheets und Applications gehört in genau eine Ebene:
+
+| Ebene | Name | Inhalt | Typischer Ort |
+|-------|------|--------|---------------|
+| **A** | Allgemein | Spec-/domänenweite Fakten (gilt unabhängig vom Projekt) | Technology Sheet |
+| **B** | Projekt-Implementierung | Wie *dieses* Projekt die Tech baut | Project Application |
+| **C** | Host-/Feld-Evidenz | Empirisches Verhalten eines konkreten Hosts (z. B. BMW HU) | Application (Abschnitt C) oder später Sheet `bmw-nbt-evo` |
+
+**Harte Regel:** Aus „die HU macht X“ darf nicht still „USB-MSC macht X“ werden. Ebene-C-Claims brauchen Evidence-ID und Epistemic-Status.
+
+## Epistemic-Status
+
+| Status | Bedeutung |
+|--------|-----------|
+| `FACT` | Allgemein akzeptiertes Spec-/Domänenwissen (A) |
+| `MEASURED` | Gemessen, reproduzierbar (Lab/Feld) |
+| `INFERRED` | Aus Messungen abgeleitet, nicht direkt beobachtet |
+| `HYPOTHESIS` | Arbeitshypothese, noch offen |
+| `UNKNOWN` | Bewusst ungeklärt |
+| `REJECTED` | Früher angenommen, später widerlegt (behalten!) |
+
+## Evidence-IDs
+
+Format: `EVID-<AREA>-<YYYY-MM-DD>-<nnn>`  
+Beispiel: `EVID-USBMSC-2026-10-04-001`
+
+- Kurzregister unter `audits/<kampagne>/evidence.md` oder im Application-Abschnitt.
+- Rohdaten bleiben im Ursprungsrepo; hier nur ID + Claim + Link + Status.
+
+## Reifegrade
+
+Pro Technology/Application-Paar mitführen:
+
+| Dimension | Skala | Bedeutung (kurz) |
+|-----------|-------|------------------|
+| Technology | R0–R5 | Wie gut die *allgemeine* Tech verstanden ist |
+| Implementation | R0–R5 | Wie klar die *Projekt*-Implementierung beschrieben/stabil ist |
+| Field evidence | R0–R5 | Stärke der Lab/Feld-Belege |
+| Reusability | W0–W5 | Wie weit als generische Komponente übertragbar |
+
+Orientierung: R0 unbekannt · R1 Signale · R2 beschrieben · R3 Lab · R4 Feld · R5 mehrfach validiert.  
+W0 kein Transfer · W2 projektgebunden nutzbar · W4 eigenständiges Modul denkbar · W5 in Folgeprojekt belegt.
+
 ## Was nicht hierhin gehört
 
 - Vollständige Projekt-Quelltexte oder Firmware-Binaries

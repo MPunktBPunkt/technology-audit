@@ -7,4 +7,8 @@ ID-Schema: `<project>-<YYYY>` oder `<project>-<YYYY>-<kurzname>`.
 
 ## Index
 
-Noch keine Kampagnenordner. Sinnvoller erster Eintrag später: `pidrive-2026` (Gesamtaudit) oder `pidrive-2026-msc` (MSC-Fokus).
+| ID | Status | Fokus |
+|----|--------|-------|
+| [`pidrive-2026-msc`](pidrive-2026-msc/) | active | Pilot 1 — USB-MSC Schema-Validation |
+
+Geplant: `pidrive-2026-bmw-hu` (`bmw-nbt-evo`), danach AVRCP-Kampagne.

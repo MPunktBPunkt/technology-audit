@@ -8,7 +8,14 @@ tags: [example-tag]
 type: protocol   # technology | protocol | format | implementation | pattern
 status: draft    # draft | active | deprecated
 seen_in: []      # z.B. [projects/pidrive]
+maturity:
+  technology: R0
+  implementation: R0
+  field_evidence: R0
+  reusability: W0
 ```
+
+Nur Ebene **A** (allgemein). Projekt- und Host-Details gehören in die Project Application (B/C).
 
 ## Kurzfassung
 
@@ -28,7 +35,9 @@ seen_in: []      # z.B. [projects/pidrive]
 
 ## Typische Fallstricke
 
-- …
+| Claim | Status | Hinweis |
+|-------|--------|---------|
+| … | `FACT` / `HYPOTHESIS` / `REJECTED` | … |
 
 ## Transfer
 

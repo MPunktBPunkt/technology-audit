@@ -93,6 +93,23 @@ Ein Audit-Durchlauf gilt als belastbar, wenn:
 3. Mindestens die priorisierten Sheets + Applications geschrieben sind.
 4. Offene Fragen explizit gelistet sind (nicht implizit „fertig“).
 
+## Pilot-Reihenfolge (Schema-Validation)
+
+Nicht viele Sheets parallel öffnen. Zuerst einen **vollen Zyklus** durch das Framework:
+
+```
+Technology Sheet → Project Application → Evidence Review
+  → Architecture/Dataflow → Maturity → Reusability → Lessons
+```
+
+| # | Pilot | Profil | Warum |
+|---|-------|--------|-------|
+| 1 | `usb-msc` | Protokoll + Streaming + Lab/Feld-Messkette | dichteste Evidenzlage in PiDrive |
+| 2 | `bmw-nbt-evo` | Empirisches Host-Verhalten (USB, später BT) | erzwingt Ebene **C** getrennt von Spec |
+| 3 | `avrcp` | BT-Protokoll / State Machine / Metadaten | anderes Profil als MSC |
+
+Kampagne für Pilot 1: [`audits/pidrive-2026-msc/`](../audits/pidrive-2026-msc/).
+
 ## Werkzeuge
 
 Methoden (Tracing, Korrelation, Replay, …) als eigene Notes unter `methods/` führen und aus Applications/Audits verlinken — nicht in jedem Sheet wiederholen.

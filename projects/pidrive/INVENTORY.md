@@ -3,9 +3,10 @@
 ```yaml
 project_id: pidrive
 updated: 2026-10-04
+pilot_order: [usb-msc, bmw-nbt-evo, avrcp]
 ```
 
-Gerüst aus dem bekannten Stack. Status überwiegend `candidate`/`observed` — noch keine Technology Sheets oder Applications in diesem Repo.
+Pilot 1 (`usb-msc`) läuft: Sheet + Application + Evidence. Übrige Slugs weiter Gerüst.
 
 ## Übersicht
 
@@ -15,7 +16,7 @@ Gerüst aus dem bekannten Stack. Status überwiegend `candidate`/`observed` — 
 | `rtl-sdr` | RTL-SDR | A | `sdr`, `usb-host` | observed | none | [SHEET](../../technologies/rtl-sdr/SHEET.md) | — |
 | `webradio` | Webradio | A | `streaming` | observed | none | [SHEET](../../technologies/webradio/SHEET.md) | — |
 | `pipewire` | PipeWire | B | `linux-userspace`, `realtime` | observed | none | [SHEET](../../technologies/pipewire/SHEET.md) | — |
-| `usb-msc` | USB Mass Storage Class | C | `usb-device`, `automotive` | observed | none | [SHEET](../../technologies/usb-msc/SHEET.md) | — |
+| `usb-msc` | USB Mass Storage Class | C | `usb-device`, `automotive` | applied | partial | [SHEET](../../technologies/usb-msc/SHEET.md) | [app](applications/usb-msc.md) |
 | `scsi` | SCSI (über MSC/BOT) | C | `usb-device` | observed | none | [SHEET](../../technologies/scsi/SHEET.md) | — |
 | `bluetooth-a2dp` | Bluetooth A2DP | C | `bluetooth-classic`, `streaming` | observed | none | [SHEET](../../technologies/bluetooth-a2dp/SHEET.md) | — |
 | `avrcp` | AVRCP | C | `bluetooth-classic`, `metadata` | observed | none | [SHEET](../../technologies/avrcp/SHEET.md) | — |
@@ -71,10 +72,10 @@ noch keine eigenen Slugs (Producer-Consumer/Bridge bei Applications vertiefen)
 
 | Bereich | Warum offen | Nächster Schritt |
 |---------|-------------|------------------|
-| MSC/SCSI/FAT | Priorität, aber Sheets fehlen | Sheets + Application `usb-msc` |
-| AVRCP/A2DP | komplex, BT-Gateway-Transfer | Sheet `avrcp`, Application Pi + ESP-Plan |
-| DAB+/SDR | stabiler Teilstack, wenig verdichtet | Sheet `dab-plus` |
-| Alle | Coverage `none` | Phase 3/4 laut Methodik |
+| `usb-msc` | Pilot 1 partial — Feld-AV, scsi/fat-Sheets | Feld-AV im Ursprungsrepo; Pilot 2 `bmw-nbt-evo` |
+| `bmw-nbt-evo` | Host-Claims noch in MSC-Application C | eigener Pilot / Sheet |
+| `avrcp` | Pilot 3 | nach BMW-HU |
+| DAB+/SDR | stabiler Teilstack, wenig verdichtet | später Sheet `dab-plus` |
 
 ## Signale ohne Eintrag
 

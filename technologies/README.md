@@ -7,7 +7,11 @@ Regeln: [`docs/DOCUMENT-STANDARD.md`](../docs/DOCUMENT-STANDARD.md) · Taxonomie
 
 ## Index
 
-Noch keine Sheets. Geplante Slugs aus PiDrive-Inventar:
+| Slug | Primary | Status |
+|------|---------|--------|
+| [`usb-msc`](usb-msc/SHEET.md) | C | active (Pilot 1) |
+
+Geplante weitere Slugs (noch ohne Sheet):
 
 | Slug | Primary |
 |------|---------|
@@ -15,7 +19,6 @@ Noch keine Sheets. Geplante Slugs aus PiDrive-Inventar:
 | `rtl-sdr` | A |
 | `webradio` | A |
 | `pipewire` | B |
-| `usb-msc` | C |
 | `scsi` | C |
 | `bluetooth-a2dp` | C |
 | `avrcp` | C |
@@ -25,4 +28,4 @@ Noch keine Sheets. Geplante Slugs aus PiDrive-Inventar:
 | `mpris2` | G |
 | `bmw-nbt-evo` | I |
 
-Sheets werden angelegt, wenn Phase 3 für den jeweiligen Slug startet — nicht auf Vorrat leer committen.
+Pilot-Reihenfolge: `usb-msc` → `bmw-nbt-evo` → `avrcp`.
