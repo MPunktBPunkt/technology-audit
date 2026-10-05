@@ -16,7 +16,7 @@ maturity:
 pilot: audits/pidrive-2026-msc
 ```
 
-Ebene **A** (allgemein). PiDrive-Implementierung → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md). BMW-Host-Verhalten → dort Abschnitt **C** bzw. später Sheet `bmw-nbt-evo`.
+Ebene **A** (allgemein). PiDrive-Implementierung → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md). BMW-Host-Verhalten → [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) + Sheet [`bmw-nbt-evo`](../bmw-nbt-evo/SHEET.md).
 
 ## Kurzfassung
 

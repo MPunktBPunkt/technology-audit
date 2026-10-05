@@ -33,7 +33,7 @@ Vorlagen liegen unter [`templates/`](templates/).
 | Feld | Wert |
 |------|------|
 | Version | siehe [`VERSION`](VERSION) |
-| Phase | Pilot 1 — USB-MSC (Sheet + Application + Evidence) |
+| Phase | Pilot 2 — BMW NBT Evo (Host / C); Pilot 1 MSC closed (Schema) |
 | Pilot-Reihenfolge | `usb-msc` → `bmw-nbt-evo` → `avrcp` |
 | Erstes Projekt | PiDrive |
 

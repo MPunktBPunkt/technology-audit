@@ -9,7 +9,8 @@ Regeln: [`docs/DOCUMENT-STANDARD.md`](../docs/DOCUMENT-STANDARD.md) · Taxonomie
 
 | Slug | Primary | Status |
 |------|---------|--------|
-| [`usb-msc`](usb-msc/SHEET.md) | C | active (Pilot 1) |
+| [`usb-msc`](usb-msc/SHEET.md) | C | active (Pilot 1 closed) |
+| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | I | active (Pilot 2) |
 
 Geplante weitere Slugs (noch ohne Sheet):
 
@@ -26,6 +27,4 @@ Geplante weitere Slugs (noch ohne Sheet):
 | `fat` | E |
 | `systemd` | F |
 | `mpris2` | G |
-| `bmw-nbt-evo` | I |
-
 Pilot-Reihenfolge: `usb-msc` → `bmw-nbt-evo` → `avrcp`.

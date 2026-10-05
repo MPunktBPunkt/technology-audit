@@ -9,6 +9,7 @@ ID-Schema: `<project>-<YYYY>` oder `<project>-<YYYY>-<kurzname>`.
 
 | ID | Status | Fokus |
 |----|--------|-------|
-| [`pidrive-2026-msc`](pidrive-2026-msc/) | active | Pilot 1 — USB-MSC Schema-Validation |
+| [`pidrive-2026-msc`](pidrive-2026-msc/) | closed | Pilot 1 — USB-MSC Schema-Validation |
+| [`pidrive-2026-bmw-hu`](pidrive-2026-bmw-hu/) | active | Pilot 2 — BMW NBT Evo (Host / C) |
 
-Geplant: `pidrive-2026-bmw-hu` (`bmw-nbt-evo`), danach AVRCP-Kampagne.
+Geplant: AVRCP-Kampagne (Pilot 3).

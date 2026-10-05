@@ -62,31 +62,9 @@ Details und Zahlen immer über Evidence-IDs, nicht als „MSC-Wahrheit“.
 
 ## Ebene C — BMW NBT Evo Host-Verhalten
 
-**Nicht** in [`usb-msc` Sheet](../../technologies/usb-msc/SHEET.md) verschieben. Vollpilot Host: `bmw-nbt-evo` (nächste Kampagne nach diesem MSC-Pilot).
+Liegt bei Pilot 2: [`applications/bmw-nbt-evo.md`](bmw-nbt-evo.md) · Audit [`pidrive-2026-bmw-hu`](../../audits/pidrive-2026-bmw-hu/) · Sheet [`bmw-nbt-evo`](../../technologies/bmw-nbt-evo/SHEET.md).
 
-| Claim | Evidence | Status |
-|-------|----------|--------|
-| HU liest Medien-Slots blockweise über MSC/SCSI-READ; Prefetch/Burst vor Wiedergabe beobachtbar | `EVID-USBMSC-2026-10-04-001` | `MEASURED` |
-| Auto-Next (Kurzdatei zu Ende) triggert vorhersagbaren Cold-Body-Burst des nächsten Slots (LBA-Fenster, mehrfach) | `EVID-USBMSC-2026-10-04-002` | `MEASURED` |
-| Türöffnen kann zusätzlichen Cold-Body-/Re-Read auslösen | `EVID-USBMSC-2026-10-04-003` | `MEASURED` (Kausalität noch `INFERRED`) |
-| Seed-Bytes können an die HU gehen (`bytesServed` ↑, Body-LBAs im Trace) — Lauf 17:32 PASS | `EVID-USBMSC-2026-10-04-004` | `MEASURED` |
-| Seed bei GO tot / Reboot → C′ FAIL (17:38) | `EVID-USBMSC-2026-10-04-005` | `MEASURED` |
-| Lab: MPEG-Bytes am Host-dd im Live-Fenster (A+B PASS) ≠ Feld-Ohr/Decoder | `EVID-USBMSC-2026-10-04-006` | `MEASURED` |
-| Feld-AV/hörbarer Ton über MSC-Pfad | — | `UNKNOWN` / Ziel offen (Ampel FAIL) |
-| „Warm-konfundierte Trace = Sequenz tot“ | frühere Fehlinterpretation | `REJECTED` (Trace-Korrektur 2026-10-04) |
-
-### Evidence-Register (Auszug)
-
-| ID | Quelle (Ursprungsrepo) | Kurz |
-|----|------------------------|------|
-| `EVID-USBMSC-2026-10-04-001` | `pidrive` Feldtraces / Q3b-Berichte | Host-Reads / Burst |
-| `EVID-USBMSC-2026-10-04-002` | `feld-q3b-next-1732`, `1738`, PD0056/57 | Auto-Next → LBA 761-Fenster |
-| `EVID-USBMSC-2026-10-04-003` | Feld 17:55 Tür | zusätzlicher Burst |
-| `EVID-USBMSC-2026-10-04-004` | `GESAMTBERICHT-FELD-Q3B-1732` | Seed +8 MiB |
-| `EVID-USBMSC-2026-10-04-005` | `GESAMTBERICHT-FELD-Q3B-1738` | Seed inactive bei GO |
-| `EVID-USBMSC-2026-10-04-006` | `lab88-av-mpeg-2035` | Lab AV A+B PASS |
-
-Vollständige Pfade: [`audits/pidrive-2026-msc/evidence.md`](../../audits/pidrive-2026-msc/evidence.md).
+Kurz: HU-Reads/Prefetch/Auto-Next/Seed sind **gemessen**; Feld-AV/Ohr ist **offen** (upstream `MSC-AKTUELL`, Stand 2026-10-04). MSC-Evidence-IDs siehe [`audits/pidrive-2026-msc/evidence.md`](../../audits/pidrive-2026-msc/evidence.md) (historisch) und [`audits/pidrive-2026-bmw-hu/evidence.md`](../../audits/pidrive-2026-bmw-hu/evidence.md) (C-Register).
 
 ---
 
@@ -105,5 +83,6 @@ Vollständige Pfade: [`audits/pidrive-2026-msc/evidence.md`](../../audits/pidriv
 ## Verwandte
 
 - Sheet: [`technologies/usb-msc`](../../technologies/usb-msc/SHEET.md)
-- Geplant: Applications/Sheets `scsi`, `fat`, `bmw-nbt-evo`
+- Host: [`bmw-nbt-evo`](bmw-nbt-evo.md)
+- Geplant: Sheets/Applications `scsi`, `fat`
 - Methods (noch anzulegen): `msc-trace-correlation`, `field-av-correlation`

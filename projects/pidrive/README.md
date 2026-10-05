@@ -7,8 +7,9 @@ Erstes Audit-Zielprojekt. Raspberry-Pi-/ESP32-Infotainment mit BMW-iDrive-Anbind
 | [SCOPE.md](SCOPE.md) | Grenzen und Quellen |
 | [INVENTORY.md](INVENTORY.md) | Technologie-Inventar (Gerüst) |
 | [FOLLOW-ON-IDEAS.md](FOLLOW-ON-IDEAS.md) | Folgeprojekt-Ideen |
-| [applications/usb-msc.md](applications/usb-msc.md) | Pilot 1: MSC-Anwendung (B/C) |
-| Audit | [`audits/pidrive-2026-msc/`](../../audits/pidrive-2026-msc/) |
+| [applications/usb-msc.md](applications/usb-msc.md) | MSC-Anwendung (B) |
+| [applications/bmw-nbt-evo.md](applications/bmw-nbt-evo.md) | Pilot 2: NBT Host (C) |
+| Audits | [`pidrive-2026-msc`](../../audits/pidrive-2026-msc/) (closed) · [`pidrive-2026-bmw-hu`](../../audits/pidrive-2026-bmw-hu/) (active) |
 
 **Pilot-Reihenfolge:** `usb-msc` → `bmw-nbt-evo` → `avrcp` (siehe Methodik).
 

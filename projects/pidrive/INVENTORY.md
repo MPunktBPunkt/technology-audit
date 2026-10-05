@@ -2,11 +2,11 @@
 
 ```yaml
 project_id: pidrive
-updated: 2026-10-04
+updated: 2026-10-05
 pilot_order: [usb-msc, bmw-nbt-evo, avrcp]
 ```
 
-Pilot 1 (`usb-msc`) läuft: Sheet + Application + Evidence. Übrige Slugs weiter Gerüst.
+Pilot 1 (`usb-msc`) Schema-Validation **closed** (Feld-AV upstream offen). Pilot 2 (`bmw-nbt-evo`) **active**.
 
 ## Übersicht
 
@@ -24,7 +24,7 @@ Pilot 1 (`usb-msc`) läuft: Sheet + Application + Evidence. Übrige Slugs weiter
 | `fat` | FAT / LBA-Geometrie | E | — | observed | none | [SHEET](../../technologies/fat/SHEET.md) | — |
 | `systemd` | systemd | F | `linux-userspace` | observed | none | [SHEET](../../technologies/systemd/SHEET.md) | — |
 | `mpris2` | MPRIS2 | G | `metadata`, `linux-userspace` | observed | none | [SHEET](../../technologies/mpris2/SHEET.md) | — |
-| `bmw-nbt-evo` | BMW NBT Evo Host-Verhalten | I | `automotive`, `field-verified` | observed | none | [SHEET](../../technologies/bmw-nbt-evo/SHEET.md) | — |
+| `bmw-nbt-evo` | BMW NBT Evo Host-Verhalten | I | `automotive`, `field-verified` | applied | partial | [SHEET](../../technologies/bmw-nbt-evo/SHEET.md) | [app](applications/bmw-nbt-evo.md) |
 
 ## Nach Kategorie
 
@@ -72,8 +72,8 @@ noch keine eigenen Slugs (Producer-Consumer/Bridge bei Applications vertiefen)
 
 | Bereich | Warum offen | Nächster Schritt |
 |---------|-------------|------------------|
-| `usb-msc` | Pilot 1 partial — Feld-AV, scsi/fat-Sheets | Feld-AV im Ursprungsrepo; Pilot 2 `bmw-nbt-evo` |
-| `bmw-nbt-evo` | Host-Claims noch in MSC-Application C | eigener Pilot / Sheet |
+| `usb-msc` | Schema-Pilot done; Feld-AV, scsi/fat-Sheets | Feld-AV `pidrive`; C → `bmw-nbt-evo` |
+| `bmw-nbt-evo` | C migriert; Feld-AV/Ohr offen | Evidence + Feld-AV upstream |
 | `avrcp` | Pilot 3 | nach BMW-HU |
 | DAB+/SDR | stabiler Teilstack, wenig verdichtet | später Sheet `dab-plus` |
 

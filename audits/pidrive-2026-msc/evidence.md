@@ -22,3 +22,4 @@ Basis-URL pidrive Docs: `https://github.com/MPunktBPunkt/pidrive/blob/main/docs/
 | 2026-10-02–03 | Lab-Geometrie L0, Prefill/Oracle-Arbeit |
 | 2026-10-04 | Feld Q3b 17:32 PASS Seed · 17:38 FAIL Seed · Lab AV A+B PASS · Feld-Ohr offen |
 | 2026-10-04 | Dieser Pilot: Wissen nach A/B/C + Evidence-IDs strukturiert |
+| 2026-10-05 | Kampagne closed; C-Register canonical → [`pidrive-2026-bmw-hu/evidence.md`](../pidrive-2026-bmw-hu/evidence.md) |
