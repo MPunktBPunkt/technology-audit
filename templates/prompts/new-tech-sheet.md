@@ -5,7 +5,7 @@ prompt_type: new-tech-sheet
 mode: native
 ```
 
-Platzhalter: `{{project_id}}` · `{{slug}}` · `{{inventory_excerpt}}` · `{{today}}`
+Platzhalter: `{{project_id}}` · `{{slug}}` · `{{today}}`
 
 ---
 

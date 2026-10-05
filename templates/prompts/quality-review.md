@@ -5,7 +5,7 @@ prompt_type: quality-review
 mode: native
 ```
 
-Platzhalter: `{{target_paths}}` · `{{doc_types}}` · `{{today}}`
+Platzhalter: `{{doc_types}}` · `{{today}}`
 
 ---
 

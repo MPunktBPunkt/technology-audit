@@ -182,6 +182,12 @@ def generate_prompt(
     scan = scan_native(root) if (root / "docs" / "DOCUMENT-STANDARD.md").is_file() else None
     bootstrap = scan_bootstrap(source_repo) if source_repo else None
 
+    # bootstrap prompts should not inherit native project naming
+    if prompt_type == "bootstrap-repo":
+        scan_for_vars = None
+    else:
+        scan_for_vars = scan
+
     if prompt_type == "next-step" and scan is not None and not slug and not audit_id:
         suggested_type, params = suggest_next(scan)
         # still emit next-step prompt, but enrich repo_status with suggestion
@@ -202,11 +208,11 @@ def generate_prompt(
         variables = build_variables(
             root,
             prompt_type,
-            project_id=project_id,
+            project_id=project_id if prompt_type != "bootstrap-repo" else "",
             slug=slug,
             audit_id=audit_id,
             source_repo=source_repo,
-            scan=scan,
+            scan=scan_for_vars,
             bootstrap=bootstrap,
         )
 

@@ -5,7 +5,7 @@ prompt_type: evidence-update
 mode: native
 ```
 
-Platzhalter: `{{project_id}}` · `{{audit_id}}` · `{{slug}}` · `{{upstream_pointers}}` · `{{evidence_excerpt}}` · `{{today}}`
+Platzhalter: `{{project_id}}` · `{{audit_id}}` · `{{slug}}` · `{{today}}`
 
 ---
 

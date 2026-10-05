@@ -5,7 +5,7 @@ prompt_type: pilot-prep
 mode: native
 ```
 
-Platzhalter: `{{project_id}}` · `{{slug}}` · `{{suggested_audit_id}}` · `{{inventory_excerpt}}` · `{{prior_audits}}` · `{{today}}`
+Platzhalter: `{{project_id}}` · `{{slug}}` · `{{suggested_audit_id}}` · `{{today}}`
 
 ---
 

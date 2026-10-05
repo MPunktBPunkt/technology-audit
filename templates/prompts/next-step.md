@@ -5,7 +5,7 @@ prompt_type: next-step
 mode: native
 ```
 
-Platzhalter: `{{project_id}}` · `{{repo_status}}` · `{{today}}`
+Platzhalter: `{{project_id}}` · `{{today}}`
 
 ---
 

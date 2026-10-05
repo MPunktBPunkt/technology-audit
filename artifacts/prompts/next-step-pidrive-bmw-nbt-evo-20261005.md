@@ -7,34 +7,7 @@ prompt_type: next-step
 mode: native
 ```
 
-Platzhalter: `pidrive` · `root: /home/martin/projects/technology-audit
-mode: native
-projects: pidrive
-sheets: 2
-applications: 2
-audits: 2
-inventory_items: 13
-evidence_ids: 14
-audits_active: ['pidrive-2026-bmw-hu']
-audits_closed: ['pidrive-2026-msc']
-inv dab-plus: status=observed coverage=none sheet=no app=no
-inv rtl-sdr: status=observed coverage=none sheet=no app=no
-inv webradio: status=observed coverage=none sheet=no app=no
-inv pipewire: status=observed coverage=none sheet=no app=no
-inv usb-msc: status=applied coverage=partial sheet=yes app=yes
-inv scsi: status=observed coverage=none sheet=no app=no
-inv bluetooth-a2dp: status=observed coverage=none sheet=no app=no
-inv avrcp: status=observed coverage=none sheet=no app=no
-inv esp32: status=observed coverage=none sheet=no app=no
-inv fat: status=observed coverage=none sheet=no app=no
-inv systemd: status=observed coverage=none sheet=no app=no
-inv mpris2: status=observed coverage=none sheet=no app=no
-inv bmw-nbt-evo: status=applied coverage=partial sheet=yes app=yes
-
-suggested_followup_type: evidence-update
-suggested_param_project_id: pidrive
-suggested_param_audit_id: pidrive-2026-bmw-hu
-suggested_param_slug: bmw-nbt-evo` · `2026-10-05`
+Platzhalter: `pidrive` · `2026-10-05`
 
 ---
 

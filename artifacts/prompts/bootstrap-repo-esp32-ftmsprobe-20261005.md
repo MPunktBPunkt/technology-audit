@@ -7,59 +7,7 @@ prompt_type: bootstrap-repo
 mode: bootstrap
 ```
 
-Platzhalter: `https://github.com/MPunktBPunkt/esp32.ftmsprobe` · `esp32-ftmsprobe` · `github: MPunktBPunkt/esp32.ftmsprobe
-description: None
-language: C++
-pushed_at: 2026-09-10T20:21:19Z
-default_branch: main
-top_level: .gitignore, README.md, docs, include, platformio.ini, src, tools
-README excerpt:
-  # esp32.ftmsprobe
-  
-  Fernsteuerbarer GATT-Explorer am Ergometer. Die Sonde funkt, die Cursor-CLI im
-  Debian-LXC fuehrt Protokoll: sie faehrt die vier Schritte aus der BLE-Scan-
-  Checkliste per HTTP ab und legt Rohbytes plus ausgefuellten Bericht in
-  `docs/ergometer/scan-<datum>/`.
-  
-  **Laborergebnis Hammer Varon XTR II (2026-09-10):**
-  [docs/ergometer/ERGEBNISBERICHT.md](docs/ergometer/ERGEBNISBERICHT.md) —
-  Ausgang 1 (Standard-FTMS, Control offen). Rohdaten unter
-  [docs/ergometer/scan-20260910/](docs/ergometer/scan-20260910/).
-  **Datenfelder erklärt:** [docs/ergometer/DATEN.md](docs/ergometer/DATEN.md).
-  Erweiterte Tests & Abruf: [docs/ergometer/TESTS.md](docs/ergometer/TESTS.md).
-  
-  Kein Wegwurf-Code. Die Firmware ist die erste Iteration der BLE-Schicht von
-  `esp32.ergo`; `BleProbe` wird dort zu `BleCentral` plus `FtmsClient`, und
-  `tools/ftms.py` ist die ausfuehrbare Referenz fuer `FtmsCodec`.
-  
-  ## Warum eine Sonde und nicht das Host-Bluetooth
-  
-  Bluetooth ist im Linux-Kernel nicht namespace-faehig: ein HCI-Adapter ist aus
-  dem Container heraus nicht erreichbar, auch nicht per Device-Passthrough. Die
-  Auswege (BlueZ auf dem PVE-Host plus D-Bus-Proxy in den Container, oder eine VM
-  mit USB-Passthrough) sind invasiv und legen die Antenne an den Standort des
-  ThinkCentre statt an das Bike. Die Sonde umgeht das und laeuft auf genau dem
-  Funkstack, der spaeter tragen muss.
-  
-  Ob ein unabhaengiger Gegencheck per `bleak` auf dem Host ueberhaupt moeglich
-  ist, klaert `tools/ble-host-precheck.sh` — auf dem PVE-Host, nicht im LXC.
-  
-  ```
-  CLI (LXC) ──HTTP──> ESP32-Sonde ──BLE──> Varon XTR II
-      │                    ▲    └─────BLE──> Polar H9
-      └──HTTP──> ESP-Hub ──┘ (otaUrl im Heartbeat)
-  ```
-  
-  ## Erstflash
-  
-  Einmal Kabel, danach nie wieder:
-  
-signal: esp32
-signal: ftms
-signal: gatt/ble
-signal: bluetooth
-signal: ble
-signal: usb-msc` · `2026-10-05`
+Platzhalter: `https://github.com/MPunktBPunkt/esp32.ftmsprobe` · `esp32-ftmsprobe` · `2026-10-05`
 
 ---
 
@@ -140,7 +88,6 @@ signal: ftms
 signal: gatt/ble
 signal: bluetooth
 signal: ble
-signal: usb-msc
 ```
 
 (Nur Datei-/Strukturhinweise und explizit sichtbare Technologie-Signale. Keine Spekulation als Fakt.)

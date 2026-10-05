@@ -5,7 +5,7 @@ prompt_type: bootstrap-repo
 mode: bootstrap
 ```
 
-Platzhalter: `{{source_repo}}` · `{{suggested_project_id}}` · `{{scan_findings}}` · `{{today}}`
+Platzhalter: `{{source_repo}}` · `{{suggested_project_id}}` · `{{today}}`
 
 ---
 

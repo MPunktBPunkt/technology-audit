@@ -228,12 +228,16 @@ def scan_bootstrap(source: str, work_dir: Path | None = None) -> ScanResult:
                 ("ftms", "signal: ftms"),
                 ("gatt", "signal: gatt/ble"),
                 ("bluetooth", "signal: bluetooth"),
-                ("ble", "signal: ble"),
+                (r"\bble\b", "signal: ble"),
                 ("platformio", "signal: platformio"),
-                ("msc", "signal: usb-msc"),
+                ("usb-msc", "signal: usb-msc"),
+                ("mass storage", "signal: usb-msc"),
                 ("avrcp", "signal: avrcp"),
             ]:
-                if token in blob:
+                if token.startswith(r"\b"):
+                    if re.search(token, blob):
+                        findings.append(label)
+                elif token in blob:
                     findings.append(label)
     else:
         findings.append(f"non-github or unparsed URL: {url}")
