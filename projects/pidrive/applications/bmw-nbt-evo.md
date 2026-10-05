@@ -66,7 +66,7 @@ BMW NBT Evo (Host, C)
 | Feld-AV / hörbarer Ton (Exit „Ohr“) | — | `UNKNOWN` (Gate Sender-Slots; Abend-EAR upstream) |
 | „Warm-konfundierte Trace = Sequenz tot“ | `EVID-USBMSC-2026-10-04-007` | `REJECTED` |
 
-Ältere HU-Reads: `EVID-USBMSC-*` (Pilot 1). Neue Claims ab 2026-10-05: `EVID-BMWHU-*`.
+Ältere HU-Reads: Pilot-1-IDs (Präfix USBMSC in Tabelle). Ab 2026-10-05: Präfix BMWHU.
 
 ## Beobachtungen (Lab / Feld)
 

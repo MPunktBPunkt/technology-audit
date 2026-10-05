@@ -51,6 +51,6 @@ Pilot 1: [`pidrive-2026-msc/`](../pidrive-2026-msc/) — Schema-Validation MSC; 
 
 ## Offene Punkte
 
-- Evidence 2026-10-05 nachgezogen (`EVID-BMWHU-*`); Exit #6 bleibt bis Feld-Ohr PASS upstream
+- Evidence 2026-10-05 nachgezogen (5× `EVID-BMWHU-2026-10-05-00n`); Exit #6 bleibt bis Feld-Ohr PASS upstream
 - Nach Feld-AV PASS: Maturity (field_evidence R4+) + ggf. Method Note `field-av-correlation`
 - Pilot 3 `avrcp` — BT-Host-Profil ergänzen (nicht USB-C duplizieren)
