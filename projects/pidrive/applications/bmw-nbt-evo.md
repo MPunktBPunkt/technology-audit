@@ -11,7 +11,7 @@ related_applications:
 maturity:
   technology: R2
   implementation: R0      # HU ist Host; „Implementation“ = Beobachtungs- und Korrelationsmodell
-  field_evidence: R3      # Reads/Seed/Auto-Next; Feld-AV/Ohr noch offen
+  field_evidence: R3      # C′ Feld PASS; Lab Menü/Lock; Exit Ohr/AV-Feld noch offen
   reusability: W1
 ```
 
@@ -32,7 +32,7 @@ esp32.pidrive (MSC Device, B)
 BMW NBT Evo (Host, C)
   Prefetch / Burst / Auto-Next / Decode
         ▼
-  Lautsprecher (Erfolgskriterium: hörbarer Ton — noch offen im Feld)
+  Lautsprecher (Erfolgskriterium: hörbarer Ton — AV-Feld blockiert, C′ Feld PASS)
 ```
 
 ## Relevante Pfade
@@ -40,8 +40,10 @@ BMW NBT Evo (Host, C)
 | Repo | Pfad | Rolle |
 |------|------|-------|
 | `pidrive` | `docs/betrieb/MSC-AKTUELL.md` | Ampel, Lesereihenfolge |
-| `pidrive` | `docs/betrieb/artifacts-2026-10-04-feld/` | Feld Q3b, Traces |
-| `pidrive` | `docs/betrieb/artifacts-2026-10-04-lab/` | Lab AV, Seed-Gate |
+| `pidrive` | `docs/betrieb/artifacts-2026-10-05-feld/` | C′ PASS, AV-Menü-Hindernis |
+| `pidrive` | `docs/betrieb/artifacts-2026-10-05-lab/` | Menü-Seite, Correlate, Lock-after-RST |
+| `pidrive` | `docs/betrieb/artifacts-2026-10-04-feld/` | Feld Q3b (Historie) |
+| `pidrive` | `docs/betrieb/artifacts-2026-10-04-lab/` | Lab AV MPEG @ Host |
 | `esp32.pidrive` | `tools/nbt_*.py`, `tools/traces/` | Replay / Lab-Host |
 
 ## Ebene C — empirisches Host-Verhalten (NBT Evo, USB-MSC)
@@ -56,10 +58,15 @@ BMW NBT Evo (Host, C)
 | Seed-Bytes können an die HU gehen (`bytesServed` ↑, Body-LBAs im Trace) — Lauf 17:32 PASS | `EVID-USBMSC-2026-10-04-004` | `MEASURED` |
 | Seed bei GO tot / Reboot → C′ FAIL (17:38) — HU-seitig sichtbar als fehlende Seed-Lieferung | `EVID-USBMSC-2026-10-04-005` | `MEASURED` |
 | Lab: MPEG-Bytes am Host-dd im Live-Fenster (A+B PASS) ≠ Feld-Ohr/Decoder | `EVID-USBMSC-2026-10-04-006` | `MEASURED` |
-| Feld-AV / hörbarer Ton über MSC-Pfad | — | `UNKNOWN` (Ampel FAIL, Stand upstream 2026-10-04) |
+| Feld-Oracle C′ (Seed/Settle im Auto) | `EVID-BMWHU-2026-10-05-001` | `MEASURED` |
+| Feld-AV blockiert (Meta-Menü, kein Live-Stream) | `EVID-BMWHU-2026-10-05-002` | `MEASURED` |
+| Lab: Menü-Seite / Sender-Slots für AV-Vorbereitung | `EVID-BMWHU-2026-10-05-003` | `MEASURED` |
+| Lab: Meta vs. Sender Correlate | `EVID-BMWHU-2026-10-05-004` | `MEASURED` |
+| Lab: Meta-Erstsiegel / Menü-Lock nach RST | `EVID-BMWHU-2026-10-05-005` | `MEASURED` |
+| Feld-AV / hörbarer Ton (Exit „Ohr“) | — | `UNKNOWN` (Gate Sender-Slots; Abend-EAR upstream) |
 | „Warm-konfundierte Trace = Sequenz tot“ | `EVID-USBMSC-2026-10-04-007` | `REJECTED` |
 
-Evidence-IDs bleiben vorerst `EVID-USBMSC-*` (aus Pilot 1); neue HU-only Claims erhalten künftig `EVID-BMWHU-*`.
+Ältere HU-Reads: `EVID-USBMSC-*` (Pilot 1). Neue Claims ab 2026-10-05: `EVID-BMWHU-*`.
 
 ## Beobachtungen (Lab / Feld)
 
@@ -67,12 +74,15 @@ Evidence-IDs bleiben vorerst `EVID-USBMSC-*` (aus Pilot 1); neue HU-only Claims 
 |------------------|-------------|
 | 2026-10-04 17:32 | C′ Seed PASS — `bytesServed` ≈ +8 MiB |
 | 2026-10-04 17:38 | C′ FAIL — Seed inactive bei GO |
-| 2026-10-04 Lab | AV A+B PASS am Host-dd; Feld-Ohr offen |
-| 2026-10-05 | Kein neuer upstream-Commit zu Feld-AV (GitHub `pidrive`) |
+| 2026-10-04 Lab | AV A+B PASS am Host-dd |
+| 2026-10-05 07:45 | C′ Feld **PASS** — siehe `EVID-BMWHU-2026-10-05-001` |
+| 2026-10-05 07:50 | Feld-AV blockiert (Meta-Menü) — `EVID-BMWHU-2026-10-05-002` |
+| 2026-10-05 Lab | Menü-Seite, Correlate, Lock-after-RST — `EVID-BMWHU-2026-10-05-003`–`005` |
 
 ## Offene Fragen
 
-- Feld-AV: Korrelation `fileOff`/`hostAbs` × `liveBytes` × Underruns × Ton
+- Feld-AV/Ohr: Gate Rock/Bayern/BOB + erstes `MSC_MAP_FROZEN` loggen (Abend-EAR upstream)
+- Korrelation `fileOff`/`hostAbs` × `liveBytes` × Underruns × Ton (nach Gate)
 - Auto-Next vs. manueller Track-Wechsel — gleiches Read-Muster?
 - BT-Pfad (A2DP/AVRCP) vs. MSC — getrennte Host-Profile unter einem Sheet?
 

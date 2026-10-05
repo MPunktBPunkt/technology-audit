@@ -131,4 +131,6 @@ Siehe Beispiele in [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md#reifegrade-beispi
 
 - Manuell: Checkliste beim Review eines PRs oder Prompt-Laufs.
 - Prompt-Typ `quality-review`: diese Datei als verbindliche Prüfliste einbinden.
-- Später CLI/`ta-assist check`: `error` → Exit ≠ 0; `warning`/`info` → Report.
+- CLI [`tools/ta-assist`](../tools/README.md) `check`: `error` → Exit ≠ 0; `warning`/`info` → Report.
+
+Neue Check-IDs hier anlegen → optional in `tools/ta_assist/checker.py` spiegeln (siehe tools/README).

@@ -304,10 +304,11 @@ def _check_evidence(root: Path, scan: ScanResult) -> list[Finding]:
         for line in text.splitlines():
             if "EVID-" not in line:
                 continue
-            for m in EVIDENCE_ID.finditer(line):
-                pass  # valid
-            # catch broken IDs
-            for bad in re.findall(r"EVID-[A-Za-z0-9_-]+", line):
+            if "*" in line and "`EVID-" in line:
+                continue  # prose wildcard, e.g. EVID-USBMSC-*
+            for bad in re.findall(
+                r"EVID-[A-Z0-9]+-\d{4}-\d{2}-\d{2}-\d{3,}", line
+            ):
                 if not EVIDENCE_ID.fullmatch(bad):
                     out.append(
                         Finding(
@@ -317,6 +318,9 @@ def _check_evidence(root: Path, scan: ScanResult) -> list[Finding]:
                             evid_rel,
                         )
                     )
+            for m in EVIDENCE_ID.finditer(line):
+                if not m.group(0):
+                    continue
             # status tokens in table rows
             if line.strip().startswith("|") and "EVID-" in line:
                 cells = [c.strip().strip("`") for c in line.strip().strip("|").split("|")]

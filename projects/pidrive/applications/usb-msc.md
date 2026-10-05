@@ -9,7 +9,7 @@ audit: ../../../audits/pidrive-2026-msc/
 maturity:
   technology: R4          # Sheet
   implementation: R3      # Lab-stabil, Feld-AV noch offen
-  field_evidence: R4      # Read/Seed/LED vielfach belegt; Ton/AV Feld noch FAIL
+  field_evidence: R3      # C′ Feld PASS; Exit AV/Ohr noch offen (→ bmw-nbt-evo C)
   reusability: W2         # noch eng an PiDrive/BMW-Geometrie
 ```
 
@@ -17,7 +17,7 @@ maturity:
 
 `esp32.pidrive` (ESP32-S3) erscheint am **USB-Host der BMW-HU** als Mass-Storage-Device mit virtuellem FAT und on-the-fly-MP3-Sektoren. PiDrive bleibt Quellen-/Menü-Gehirn; Audio kann perspektivisch über `audio_output=usb_gadget` laufen (BT-Pfad bleibt parallel wählbar, nicht gleichzeitig).
 
-Referenz-Einstieg Betrieb: [`MSC-AKTUELL.md`](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/MSC-AKTUELL.md) (Stand 2026-10-04).
+Referenz-Einstieg Betrieb: [`MSC-AKTUELL.md`](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/MSC-AKTUELL.md) (Stand 2026-10-05).
 
 ## Architektur / Datenfluss (B)
 
@@ -64,7 +64,7 @@ Details und Zahlen immer über Evidence-IDs, nicht als „MSC-Wahrheit“.
 
 Liegt bei Pilot 2: [`applications/bmw-nbt-evo.md`](bmw-nbt-evo.md) · Audit [`pidrive-2026-bmw-hu`](../../../audits/pidrive-2026-bmw-hu/) · Sheet [`bmw-nbt-evo`](../../../technologies/bmw-nbt-evo/SHEET.md).
 
-Kurz: HU-Reads/Prefetch/Auto-Next/Seed sind **gemessen**; Feld-AV/Ohr ist **offen** (upstream `MSC-AKTUELL`, Stand 2026-10-04). MSC-Evidence-IDs siehe [`audits/pidrive-2026-msc/evidence.md`](../../../audits/pidrive-2026-msc/evidence.md) (historisch) und [`audits/pidrive-2026-bmw-hu/evidence.md`](../../../audits/pidrive-2026-bmw-hu/evidence.md) (C-Register).
+Kurz: HU-Reads/Prefetch/Auto-Next/Seed **gemessen**; C′ Feld **PASS** (2026-10-05); Feld-AV/Ohr **offen** (Meta-Menü-Gate). C-Register: [`audits/pidrive-2026-bmw-hu/evidence.md`](../../../audits/pidrive-2026-bmw-hu/evidence.md) · MSC-Pilot historisch: [`pidrive-2026-msc`](../../../audits/pidrive-2026-msc/evidence.md).
 
 ---
 

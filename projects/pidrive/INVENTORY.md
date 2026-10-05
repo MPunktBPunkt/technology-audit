@@ -6,7 +6,7 @@ updated: 2026-10-05
 pilot_order: [usb-msc, bmw-nbt-evo, avrcp]
 ```
 
-Pilot 1 (`usb-msc`) Schema-Validation **closed** (Feld-AV upstream offen). Pilot 2 (`bmw-nbt-evo`) **active**.
+Pilot 1 (`usb-msc`) Schema-Validation **closed**. Pilot 2 (`bmw-nbt-evo`) **active** — Evidence 2026-10-05 nachgezogen; Exit Ohr/AV-Feld offen.
 
 ## Übersicht
 
@@ -73,7 +73,7 @@ noch keine eigenen Slugs (Producer-Consumer/Bridge bei Applications vertiefen)
 | Bereich | Warum offen | Nächster Schritt |
 |---------|-------------|------------------|
 | `usb-msc` | Schema-Pilot done; Feld-AV, scsi/fat-Sheets | Feld-AV `pidrive`; C → `bmw-nbt-evo` |
-| `bmw-nbt-evo` | C migriert; Feld-AV/Ohr offen | Evidence + Feld-AV upstream |
+| `bmw-nbt-evo` | Evidence 2026-10-05; C′ Feld PASS; AV/Ohr offen | Feld-AV PASS upstream → Maturity |
 | `avrcp` | Pilot 3 | nach BMW-HU |
 | DAB+/SDR | stabiler Teilstack, wenig verdichtet | später Sheet `dab-plus` |
 

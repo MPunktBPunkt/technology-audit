@@ -159,6 +159,15 @@ W0 kein Transfer · W2 projektgebunden nutzbar · W4 eigenständiges Modul denkb
 
 **Regel:** Lab-PASS allein begründet kein R4. Offenes Exit-Kriterium „Feld-AV PASS“ und `field_evidence: R4` widersprechen sich — siehe [REVIEW-CHECKS.md](REVIEW-CHECKS.md) R1–R2.
 
+**Negativbeispiele (nicht verwechseln):**
+
+| Angabe | Falsch | Richtig |
+|--------|--------|---------|
+| Lab AV am Host-dd PASS | `field_evidence: R4` | R3 — Feld-Ohr/Exit noch offen |
+| Einzelnes Feld-Oracle (z. B. C′) PASS | pauschal R4 für gesamtes AV | R3 mit Claim-Tabelle; R4 erst wenn Exit-Kriterium erfüllt |
+| Sheet + Application existieren | `reusability: W4` | W1–W2 bis Transfer/Modul belegt |
+| Nur im PiDrive-Repo beschrieben | `reusability: W5` | W2 projektgebunden; W5 nur mit Folgeprojekt-Nachweis |
+
 Sheets dürfen `implementation`/`field_evidence` auf R0 lassen, wenn die Bewertung in der Application geführt wird.
 
 ## Assistenz / Prompts

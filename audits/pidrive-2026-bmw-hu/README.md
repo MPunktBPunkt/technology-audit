@@ -30,7 +30,7 @@ tech_slug: bmw-nbt-evo
 | 3 | Evidence-Register (C-Layer) | erfüllt |
 | 4 | MSC-Application: C gekürzt, Verweis hierher | erfüllt |
 | 5 | Inventar / Indexe aktualisiert | erfüllt |
-| 6 | Feld-AV PASS (Ohr) | offen — Ursprungsrepo `pidrive` |
+| 6 | Feld-AV PASS (Ohr) | offen — Lab A+B PASS; Feld blockiert (Meta-Menü / Sender-Gate). C′ Feld PASS 2026-10-05 · [MSC-AKTUELL](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/MSC-AKTUELL.md) |
 
 ## Artefakte
 
@@ -51,5 +51,6 @@ Pilot 1: [`pidrive-2026-msc/`](../pidrive-2026-msc/) — Schema-Validation MSC; 
 
 ## Offene Punkte
 
-- Nach Feld-AV PASS: Evidence + Maturity nachziehen; ggf. Method Note `field-av-correlation`
+- Evidence 2026-10-05 nachgezogen (`EVID-BMWHU-*`); Exit #6 bleibt bis Feld-Ohr PASS upstream
+- Nach Feld-AV PASS: Maturity (field_evidence R4+) + ggf. Method Note `field-av-correlation`
 - Pilot 3 `avrcp` — BT-Host-Profil ergänzen (nicht USB-C duplizieren)
