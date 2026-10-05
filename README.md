@@ -24,18 +24,31 @@ audits/<kampagne> ──► Inventar + Methoden
 1. [`docs/DOCUMENT-STANDARD.md`](docs/DOCUMENT-STANDARD.md) — verbindliche Dokumenttypen und Regeln  
 2. [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) — Phasen 0–5  
 3. [`docs/TAXONOMY.md`](docs/TAXONOMY.md) — Kategorien und Tags  
-4. [`projects/pidrive/`](projects/pidrive/) — erstes Projekt-Gerüst  
+4. [`docs/PROMPT-CONTRACT.md`](docs/PROMPT-CONTRACT.md) — standardisierte Audit-Prompts (Assistenz, kein Schreib-Bot)  
+5. [`docs/REVIEW-CHECKS.md`](docs/REVIEW-CHECKS.md) — Qualitätsprüfungen pro Dokumenttyp  
+6. [`projects/pidrive/`](projects/pidrive/) — erstes Projekt-Gerüst  
 
-Vorlagen liegen unter [`templates/`](templates/).
+Vorlagen: [`templates/`](templates/) · Prompt-Vorlagen: [`templates/prompts/`](templates/prompts/) · generierte Aufträge: [`artifacts/prompts/`](artifacts/prompts/).
+
+### Assistenz-CLI
+
+```bash
+python3 tools/ta-assist check
+python3 tools/ta-assist prepare next
+python3 tools/ta-assist prepare bootstrap https://github.com/MPunktBPunkt/esp32.ftmsprobe
+```
+
+Details: [`tools/README.md`](tools/README.md).
 
 ## Status
 
 | Feld | Wert |
 |------|------|
 | Version | siehe [`VERSION`](VERSION) |
-| Phase | Pilot 2 — BMW NBT Evo (Host / C); Pilot 1 MSC closed (Schema) |
+| Phase | Pilot 2 — BMW NBT Evo (Host / C); Pilot 1 MSC closed (Schema); Prompt-Contract v1 |
 | Pilot-Reihenfolge | `usb-msc` → `bmw-nbt-evo` → `avrcp` |
 | Erstes Projekt | PiDrive |
+| Assistenz | Prompt-Contract + `tools/ta-assist` (check / prepare) |
 
 ## Herkunft
 

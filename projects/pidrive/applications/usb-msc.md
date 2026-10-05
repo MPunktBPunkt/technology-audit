@@ -4,8 +4,8 @@
 project_id: pidrive
 tech_slug: usb-msc
 status: active
-sheet: ../../technologies/usb-msc/SHEET.md
-audit: ../../audits/pidrive-2026-msc/
+sheet: ../../../technologies/usb-msc/SHEET.md
+audit: ../../../audits/pidrive-2026-msc/
 maturity:
   technology: R4          # Sheet
   implementation: R3      # Lab-stabil, Feld-AV noch offen
@@ -62,9 +62,9 @@ Details und Zahlen immer über Evidence-IDs, nicht als „MSC-Wahrheit“.
 
 ## Ebene C — BMW NBT Evo Host-Verhalten
 
-Liegt bei Pilot 2: [`applications/bmw-nbt-evo.md`](bmw-nbt-evo.md) · Audit [`pidrive-2026-bmw-hu`](../../audits/pidrive-2026-bmw-hu/) · Sheet [`bmw-nbt-evo`](../../technologies/bmw-nbt-evo/SHEET.md).
+Liegt bei Pilot 2: [`applications/bmw-nbt-evo.md`](bmw-nbt-evo.md) · Audit [`pidrive-2026-bmw-hu`](../../../audits/pidrive-2026-bmw-hu/) · Sheet [`bmw-nbt-evo`](../../../technologies/bmw-nbt-evo/SHEET.md).
 
-Kurz: HU-Reads/Prefetch/Auto-Next/Seed sind **gemessen**; Feld-AV/Ohr ist **offen** (upstream `MSC-AKTUELL`, Stand 2026-10-04). MSC-Evidence-IDs siehe [`audits/pidrive-2026-msc/evidence.md`](../../audits/pidrive-2026-msc/evidence.md) (historisch) und [`audits/pidrive-2026-bmw-hu/evidence.md`](../../audits/pidrive-2026-bmw-hu/evidence.md) (C-Register).
+Kurz: HU-Reads/Prefetch/Auto-Next/Seed sind **gemessen**; Feld-AV/Ohr ist **offen** (upstream `MSC-AKTUELL`, Stand 2026-10-04). MSC-Evidence-IDs siehe [`audits/pidrive-2026-msc/evidence.md`](../../../audits/pidrive-2026-msc/evidence.md) (historisch) und [`audits/pidrive-2026-bmw-hu/evidence.md`](../../../audits/pidrive-2026-bmw-hu/evidence.md) (C-Register).
 
 ---
 
@@ -82,7 +82,7 @@ Kurz: HU-Reads/Prefetch/Auto-Next/Seed sind **gemessen**; Feld-AV/Ohr ist **offe
 
 ## Verwandte
 
-- Sheet: [`technologies/usb-msc`](../../technologies/usb-msc/SHEET.md)
+- Sheet: [`technologies/usb-msc`](../../../technologies/usb-msc/SHEET.md)
 - Host: [`bmw-nbt-evo`](bmw-nbt-evo.md)
 - Geplant: Sheets/Applications `scsi`, `fat`
 - Methods (noch anzulegen): `msc-trace-correlation`, `field-av-correlation`

@@ -146,6 +146,36 @@ Pro Technology/Application-Paar mitführen:
 Orientierung: R0 unbekannt · R1 Signale · R2 beschrieben · R3 Lab · R4 Feld · R5 mehrfach validiert.  
 W0 kein Transfer · W2 projektgebunden nutzbar · W4 eigenständiges Modul denkbar · W5 in Folgeprojekt belegt.
 
+### Reifegrade (Beispiele)
+
+| Situation | Typische Werte |
+|-----------|----------------|
+| Inventareintrag, noch kein Sheet | Technology R0–R1 · Rest R0 · W0 |
+| Sheet geschrieben, nur Spec/Abgrenzung | Technology R2 · Implementation/Field R0 (Details in Application) · W1 |
+| Lab-Messungen reproduzierbar, Feld offen | Field evidence R3 · nicht R4 |
+| Feld-Oracle/Ohr dokumentiert PASS | Field evidence R4 möglich |
+| Mehrere Hosts/Projekte bestätigen dasselbe A-Muster | Technology R5 / W4–W5 prüfen |
+| Wissen in Folgeprojekt übernommen | Reusability W5 · Status `transferred` |
+
+**Regel:** Lab-PASS allein begründet kein R4. Offenes Exit-Kriterium „Feld-AV PASS“ und `field_evidence: R4` widersprechen sich — siehe [REVIEW-CHECKS.md](REVIEW-CHECKS.md) R1–R2.
+
+Sheets dürfen `implementation`/`field_evidence` auf R0 lassen, wenn die Bewertung in der Application geführt wird.
+
+## Assistenz / Prompts
+
+- Vertrag: [PROMPT-CONTRACT.md](PROMPT-CONTRACT.md)
+- Prüffragen: [REVIEW-CHECKS.md](REVIEW-CHECKS.md)
+- Vorlagen: [`templates/prompts/`](../templates/prompts/)
+- Generierte Aufträge: [`artifacts/prompts/`](../artifacts/prompts/)
+
+Assistenz darf Wissensdateien nicht autonom schreiben — nur strukturierte Arbeitsaufträge erzeugen.
+
+## Externe Quellen
+
+Kein Pflichtordner „Wiki/Google“. Referenzen gehören ins Technology Sheet (Abschnitt Referenzen). Optional später `technologies/<slug>/REFERENCES.md`, wenn die Quellenlage komplex ist.
+
+Quellenarten kennzeichnen: **normativ** (Spec/Hersteller) · **projektintern** (Code/Evidence-Links) · **sekundär** (Wiki/Blog, sparsam).
+
 ## Was nicht hierhin gehört
 
 - Vollständige Projekt-Quelltexte oder Firmware-Binaries

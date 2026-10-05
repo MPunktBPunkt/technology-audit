@@ -4,10 +4,10 @@
 project_id: pidrive
 tech_slug: bmw-nbt-evo
 status: active
-sheet: ../../technologies/bmw-nbt-evo/SHEET.md
-audit: ../../audits/pidrive-2026-bmw-hu/
+sheet: ../../../technologies/bmw-nbt-evo/SHEET.md
+audit: ../../../audits/pidrive-2026-bmw-hu/
 related_applications:
-  - ../../projects/pidrive/applications/usb-msc.md
+  - usb-msc.md
 maturity:
   technology: R2
   implementation: R0      # HU ist Host; „Implementation“ = Beobachtungs- und Korrelationsmodell
@@ -46,7 +46,7 @@ BMW NBT Evo (Host, C)
 
 ## Ebene C — empirisches Host-Verhalten (NBT Evo, USB-MSC)
 
-**Nicht** ins [`usb-msc` Sheet](../../technologies/usb-msc/SHEET.md). Evidence-Register: [`audits/pidrive-2026-bmw-hu/evidence.md`](../../audits/pidrive-2026-bmw-hu/evidence.md).
+**Nicht** ins [`usb-msc` Sheet](../../../technologies/usb-msc/SHEET.md). Evidence-Register: [`audits/pidrive-2026-bmw-hu/evidence.md`](../../../audits/pidrive-2026-bmw-hu/evidence.md).
 
 | Claim | Evidence | Status |
 |-------|----------|--------|
@@ -78,6 +78,6 @@ Evidence-IDs bleiben vorerst `EVID-USBMSC-*` (aus Pilot 1); neue HU-only Claims 
 
 ## Verwandte
 
-- Sheet: [`bmw-nbt-evo`](../../technologies/bmw-nbt-evo/SHEET.md)
+- Sheet: [`bmw-nbt-evo`](../../../technologies/bmw-nbt-evo/SHEET.md)
 - MSC Application (B): [`usb-msc.md`](usb-msc.md)
-- Audit: [`pidrive-2026-bmw-hu`](../../audits/pidrive-2026-bmw-hu/)
+- Audit: [`pidrive-2026-bmw-hu`](../../../audits/pidrive-2026-bmw-hu/)

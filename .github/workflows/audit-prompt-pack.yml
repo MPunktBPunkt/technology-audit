@@ -1,0 +1,84 @@
+name: audit-prompt-pack
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "prepare next | bootstrap | or prompt type"
+        required: true
+        default: next
+        type: choice
+        options:
+          - next
+          - bootstrap
+          - evidence-update
+          - pilot-prep
+          - new-tech-sheet
+          - quality-review
+      repo:
+        description: "Source repo URL (bootstrap only)"
+        required: false
+        default: ""
+      project:
+        description: "project_id"
+        required: false
+        default: pidrive
+      slug:
+        description: "tech slug"
+        required: false
+        default: ""
+      audit:
+        description: "audit campaign id"
+        required: false
+        default: ""
+
+jobs:
+  prompt:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate prompt pack
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          MODE="${{ inputs.mode }}"
+          case "$MODE" in
+            next)
+              python3 tools/ta-assist prepare next --project "${{ inputs.project }}" --stdout | tee /tmp/prompt-out.md
+              ;;
+            bootstrap)
+              if [ -z "${{ inputs.repo }}" ]; then
+                echo "repo input required for bootstrap" >&2
+                exit 2
+              fi
+              python3 tools/ta-assist prepare bootstrap "${{ inputs.repo }}" --stdout | tee /tmp/prompt-out.md
+              ;;
+            *)
+              EXTRA=()
+              [ -n "${{ inputs.project }}" ] && EXTRA+=(--project "${{ inputs.project }}")
+              [ -n "${{ inputs.slug }}" ] && EXTRA+=(--slug "${{ inputs.slug }}")
+              [ -n "${{ inputs.audit }}" ] && EXTRA+=(--audit "${{ inputs.audit }}")
+              [ -n "${{ inputs.repo }}" ] && EXTRA+=(--repo "${{ inputs.repo }}")
+              python3 tools/ta-assist prompt "$MODE" "${EXTRA[@]}" --stdout | tee /tmp/prompt-out.md
+              ;;
+          esac
+          {
+            echo "## Prompt pack ($MODE)"
+            echo
+            echo '```markdown'
+            # body may be huge; summarize path from last write line in log — full file as artifact
+            echo "(see artifact prompt-pack)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload prompt artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: prompt-pack
+          path: artifacts/prompts/
+          if-no-files-found: warn

@@ -113,3 +113,9 @@ Pilot 1 (closed): [`audits/pidrive-2026-msc/`](../audits/pidrive-2026-msc/). Pil
 ## Werkzeuge
 
 Methoden (Tracing, Korrelation, Replay, …) als eigene Notes unter `methods/` führen und aus Applications/Audits verlinken — nicht in jedem Sheet wiederholen.
+
+## Assistenz-Prompts
+
+Standardisierte Arbeitsaufträge (kein Schreib-Bot): [PROMPT-CONTRACT.md](PROMPT-CONTRACT.md), Prüfliste [REVIEW-CHECKS.md](REVIEW-CHECKS.md), Vorlagen [`templates/prompts/`](../templates/prompts/).
+
+Typischer Ablauf: Befund/Prompt erzeugen → KI oder Mensch arbeitet den Auftrag ab → optional `quality-review` gegen den Standard.

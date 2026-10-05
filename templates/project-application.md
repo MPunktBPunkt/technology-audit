@@ -4,7 +4,7 @@
 project_id: example
 tech_slug: example-tech
 status: draft
-sheet: ../../technologies/example-tech/SHEET.md
+sheet: ../../../technologies/example-tech/SHEET.md
 maturity:
   technology: R0
   implementation: R0
