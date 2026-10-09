@@ -83,6 +83,7 @@ Kurz: HU-Reads/Prefetch/Auto-Next/Seed **gemessen**; C′ Feld **PASS** (2026-10
 ## Verwandte
 
 - Sheet: [`technologies/usb-msc`](../../../technologies/usb-msc/SHEET.md)
+- Firmware-Desk: [`esp32-pidrive/applications/usb-msc`](../../esp32-pidrive/applications/usb-msc.md) · PUMP [`pump-control-link`](../../esp32-pidrive/applications/pump-control-link.md)
 - Host: [`bmw-nbt-evo`](bmw-nbt-evo.md)
 - Geplant: Sheets/Applications `scsi`, `fat`
 - Methods (noch anzulegen): `msc-trace-correlation`, `field-av-correlation`

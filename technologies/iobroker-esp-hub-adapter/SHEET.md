@@ -22,7 +22,7 @@ ioBroker-Adapter als **Zentrale** der ESP-Hub-Familie: HTTP :8093 (Register, Fir
 ## Abgrenzung
 
 - **Ist:** Adapter-Produkt + Betriebsflächen um den Hub-Contract herum.
-- **Ist nicht:** der HTTP-Register-Contract allein (→ `esp-hub-telemetry`); Simple-API; MeterMaster-Adapter; Node-Firmware.
+- **Ist nicht:** der HTTP-Register-Contract allein (→ `esp-hub-telemetry`); Simple-API; MeterMaster-Adapter (→ `iobroker-metermaster-adapter`); Node-Firmware.
 
 ## Schnittstellen und Abhängigkeiten
 

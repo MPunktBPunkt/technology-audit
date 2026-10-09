@@ -27,10 +27,27 @@ Gemeinsame Sheets: `esp-hub-telemetry`, oft `esp-embedded-web-sse`.
 | Projekt-ID | Rolle |
 |------------|-------|
 | `pidrive` | Ops/Feld: USB-MSC, BMW NBT Evo, AVRCP, … |
+| `esp32-pidrive` | Firmware: TinyUSB MSC-Gadget + PUMP + HubClient |
+| `esp32-bt-gateway` | Planung A2DP/AVRCP (auch ESP-Hub-Familie) |
+
+## ioBroker-Adapter (Produkt)
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `iobroker-esp-hub` | ESP-Hub-Zentrale :8093 |
+| `iobroker-metermaster` | Zähler-App + ESP-OLED-Nodes :8089 |
+| `iobroker-kostalpiko` | Kostal PIKO lokal HTTP |
+| `iobroker-fritzwireguard` | WireGuard + TCP-Tunnel zur Remote-FritzBox |
+| `iobroker-freeair100` | bluMartin freeAir Cloud-Portal |
+| `iobroker-kalender` | Kalender / Trigger / ICS / Alexa |
+| `iobroker-linuxdashboard` | Linux Host-Ops Dashboard |
+| `iobroker-mbrepository` | GitHub-Adapter Install-Manager |
+| `metermaster-app` | Android-App Ökosystem (Submodule) |
+| `iobroker-repositories` | Catalog-Fork (Ops, kein Produktcode) |
 
 ## Querschnitt (nicht familiegebunden)
 
-`bluetooth-*`, `ble-*`, `usb-msc`, `iobroker-simple-api`, `fritzbox-tr064`, …
+`bluetooth-*`, `ble-*`, `usb-msc`, `iobroker-simple-api`, `kostal-piko-http`, `fritzbox-tr064`, …
 
 ## Pflege
 

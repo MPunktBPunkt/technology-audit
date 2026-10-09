@@ -15,7 +15,7 @@ pilot_order: [iobroker-simple-api, esp-hub-telemetry, ssd1306-oled-ui]
 | `getPlainValue` Port 8087 | `iobroker-simple-api` | **neu** |
 | ESP-Hub Heartbeat Port 8093 `fwType` MeterMaster | `esp-hub-telemetry` | wachsen |
 | SSD1306 64×48 OLED UI | `ssd1306-oled-ui` | **neu** |
-| MeterMaster-Adapter :8089 register/config/cmd | `metermaster-adapter-http` | observed (produktspezifisch) |
+| MeterMaster-Adapter :8089 register/config/cmd | `iobroker-metermaster-adapter` | Sheet + Adapter-Projekt (war observed) |
 | Eingebettete Web-UI (ohne SSE) | `embedded-web-ui` | observed — **nicht** `esp-embedded-web-sse` |
 | WiFiManager | `wifi-manager-captive` | observed |
 | Arduino `.ino` Monolith | Layout-Hinweis REUSE | — |
@@ -30,7 +30,7 @@ Kampagne: [esp32-metermaster-2026-pilot](../../audits/esp32-metermaster-2026-pil
 | `iobroker-simple-api` | ioBroker Simple-API | F | — | applied | partial | [SHEET](../../technologies/iobroker-simple-api/SHEET.md) | [app](applications/iobroker-simple-api.md) |
 | `esp-hub-telemetry` | ESP-Hub Telemetry | F | `esp-idf` | applied | partial | [SHEET](../../technologies/esp-hub-telemetry/SHEET.md) | [app](applications/esp-hub-telemetry.md) |
 | `ssd1306-oled-ui` | SSD1306 OLED UI | G | — | applied | partial | [SHEET](../../technologies/ssd1306-oled-ui/SHEET.md) | [app](applications/ssd1306-oled-ui.md) |
-| `metermaster-adapter-http` | MeterMaster Adapter HTTP | F | — | observed | none | — | — |
+| `iobroker-metermaster-adapter` | MeterMaster Adapter | F | `iobroker` | documented | partial | [SHEET](../../technologies/iobroker-metermaster-adapter/SHEET.md) | [Adapter-Projekt](../iobroker-metermaster/applications/iobroker-metermaster-adapter.md) |
 | `embedded-web-ui` | Embedded Web (poll) | G | — | observed | none | — | — |
 | `wifi-manager-captive` | WiFiManager | F | — | observed | none | — | — |
 

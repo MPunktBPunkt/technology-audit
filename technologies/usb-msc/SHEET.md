@@ -7,7 +7,7 @@ primary: C
 tags: [usb-device, automotive, streaming]
 type: protocol
 status: active
-seen_in: [projects/pidrive]
+seen_in: [projects/pidrive, esp32-pidrive]
 maturity:
   technology: R4
   implementation: R0   # siehe Project Application
@@ -16,7 +16,7 @@ maturity:
 pilot: audits/pidrive-2026-msc
 ```
 
-Ebene **A** (allgemein). PiDrive-Implementierung → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md). BMW-Host-Verhalten → [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) + Sheet [`bmw-nbt-evo`](../bmw-nbt-evo/SHEET.md).
+Ebene **A** (allgemein). Ops/Feld → [`pidrive/applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md). Firmware-Desk → [`esp32-pidrive/applications/usb-msc.md`](../../projects/esp32-pidrive/applications/usb-msc.md). BMW-Host → [`bmw-nbt-evo`](../../projects/pidrive/applications/bmw-nbt-evo.md) + Sheet [`bmw-nbt-evo`](../bmw-nbt-evo/SHEET.md).
 
 ## Kurzfassung
 

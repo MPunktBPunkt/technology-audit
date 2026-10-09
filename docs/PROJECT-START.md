@@ -57,3 +57,10 @@ Wenn der Index > ~40 Sheets wird: nach Primary (TAXONOMY A–J) gruppieren und F
 - [ ] Adapter-Fähigkeiten brauchen? [`iobroker-esp-hub-adapter`](../technologies/iobroker-esp-hub-adapter/SHEET.md)
 - [ ] Web SSE? [`esp-embedded-web-sse`](../technologies/esp-embedded-web-sse/SHEET.md)
 - [ ] Fach-Tech schon im Index? (RF, Lab, LAN, …)
+
+## Checkliste „PiDrive / USB-MSC-Gadget“
+
+- [ ] Ops vs. Firmware trennen: [`pidrive`](../projects/pidrive/) · [`esp32-pidrive`](../projects/esp32-pidrive/)
+- [ ] [`usb-msc`](../technologies/usb-msc/SHEET.md) + Host [`bmw-nbt-evo`](../technologies/bmw-nbt-evo/SHEET.md)
+- [ ] Control-Link? [`pump-control-link`](../technologies/pump-control-link/SHEET.md)
+- [ ] Hub? [`esp-hub-telemetry`](../technologies/esp-hub-telemetry/SHEET.md) — Web ohne SSE bleibt observed

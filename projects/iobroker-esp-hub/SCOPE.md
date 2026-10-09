@@ -13,7 +13,7 @@ profile: adapter
 | | |
 |--|--|
 | **In scope** | `main.js`, `Schnittstellen.md`, README (API, States, USB/LXC), `admin/`, `firmware/` |
-| **Nicht in scope** | Node-Firmware-Logik; andere ioBroker-Adapter (MeterMaster, Simple-API) |
+| **Nicht in scope** | Node-Firmware-Logik; andere ioBroker-Adapter (→ [`iobroker-metermaster`](../iobroker-metermaster/), Simple-API) |
 | **Hardware / Runtime** | Node.js ≥18 auf ioBroker-Host; optional USB-UART |
 | **Version** | 0.5.12 |
 
