@@ -5,6 +5,7 @@ id: pidrive-2026-bmw-hu
 project_id: pidrive
 started: 2026-10-05
 ended: null
+profile: ops-field
 status: active
 pilot: 2
 prior_audit: pidrive-2026-msc

@@ -39,6 +39,13 @@ Indoor-Bike „Hammer Varon XTR II“ (BLE-Name oft `TC174`, Hersteller `ASR`): 
 
 Nützlich als Negativ-/Positivbeispiel für Capability-first-Clients. Andere ASR/ähnliche Konsolen ggf. vergleichen — nicht pauschal auf alle Indoor-Bikes übertragen.
 
+### Projektstart-Checkliste
+
+- [ ] Als Host-Sheet nutzen, nicht FTMS-Spec erweitern
+- [ ] Caps/Wirkung aus Method `ftms-capability-probe` oder Evidence zitieren
+- [ ] Marketing-Watt/Stufen ≠ FTMS-Raster
+- [ ] Application + `seen_in` nachziehen
+
 ## Referenzen
 
 - Messungen: `esp32.ftmsprobe` Scan-Artefakte; `esp32.ergo` `docs/ergometer/GERAETEPROFIL.md`

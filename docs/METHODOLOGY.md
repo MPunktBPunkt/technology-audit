@@ -14,7 +14,7 @@ Nicht linear erzwingen: Rücksprünge sind normal (neue Signale aus der Historie
 
 **Ziel:** Herausfinden, was überhaupt existiert — noch keine Bewertung.
 
-**Zuerst:** bestehende Wissensbasis konsultieren — [`docs/REUSE.md`](REUSE.md) und [`technologies/README.md`](../technologies/README.md). Signale gegen bekannte Slugs matchen, bevor neue Sheets vorgeschlagen werden.
+**Zuerst:** bestehende Wissensbasis konsultieren — [`docs/REUSE.md`](REUSE.md) und [`technologies/README.md`](../technologies/README.md). Signale gegen bekannte Slugs matchen, bevor neue Sheets vorgeschlagen werden. **Profil wählen:** [`AUDIT-PROFILES.md`](AUDIT-PROFILES.md) (`firmware` / `lab-tool` / `planning` / `ops-field`).
 
 Untersuchungsbereiche:
 

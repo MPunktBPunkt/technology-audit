@@ -2,11 +2,14 @@
 
 ```yaml
 project_id: pidrive
-updated: 2026-10-05
+updated: 2026-10-09
+reviewed_commit: none
 pilot_order: [usb-msc, bmw-nbt-evo, avrcp]
 ```
 
 Pilot 1 (`usb-msc`) Schema-Validation **closed**. Pilot 2 (`bmw-nbt-evo`) **active** — Evidence 2026-10-05 nachgezogen; Exit Ohr/AV-Feld offen.
+
+**Reuse / Parität (Nachzug 2026-10-09):** Definitionsphase-Inventar an Mindest-Parität angeglichen (`reviewed_commit`/`REUSE`-Hinweis). Sheets `usb-msc`/`bmw-nbt-evo` um Projektstart-Checklisten ergänzt. Transfer-Nachbarn: [`esp32-bt-gateway`](../esp32-bt-gateway/) (Planung A2DP/AVRCP/Hub). Siehe [`docs/AUDIT-PROFILES.md`](../../docs/AUDIT-PROFILES.md), [`docs/REUSE.md`](../../docs/REUSE.md).
 
 ## Übersicht
 

@@ -7,7 +7,7 @@ primary: I
 tags: [automotive, field-verified, usb-host]
 type: technology
 status: active
-seen_in: [projects/pidrive]
+seen_in: [projects/pidrive, esp32-bt-gateway]
 maturity:
   technology: R2          # Plattform-Rolle verstanden; kein vollständiges HU-Reverse-Engineering
   implementation: R0      # PiDrive spricht HU an — siehe usb-msc Application (B)
@@ -48,6 +48,13 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 ## Transfer
 
 Wiederverwendbar als **Vorlage „automotive HU als MSC-Host“**: Trace-Korrelation, Claim-Trennung C vs. MSC-A. Konkrete LBA-/Timing-Profile **nur** mit Evidence aus diesem Host — nicht auf andere Fahrzeuge übertragen.
+
+### Projektstart-Checkliste
+
+- [ ] Nur Host-/Feldclaims (C); keine stillen Spec-Transfers nach `usb-msc`/`avrcp`
+- [ ] Evidence-IDs aus Betrieb/Lab verlinken
+- [ ] Ampel/Exit (Ohr/AV) von Lab-PASS unterscheiden
+- [ ] Application + `seen_in` nachziehen
 
 ## Referenzen
 

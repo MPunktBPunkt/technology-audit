@@ -45,6 +45,13 @@ Muster: ein Gerät empfängt HR/RR als BLE Central und bietet denselben Heart Ra
 
 Nützlich wenn Sensoren single-link sind und mehrere Apps/Nodes gleichzeitig Puls brauchen (z. B. Trainer-App + Coach-Node). Vermeiden auf Chips ohne genug Connections/RAM.
 
+### Projektstart-Checkliste
+
+- [ ] Consumer vs. Implementierer klären (externer Node möglich)
+- [ ] Connection-Budget / Advertising-Restart beachten
+- [ ] Notify nicht aus BLE-Callback speisen
+- [ ] Application + `seen_in` nachziehen
+
 ## Referenzen
 
 - Bluetooth HR Service (wie `ble-hrm-gatt`)

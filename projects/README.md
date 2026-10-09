@@ -1,12 +1,13 @@
 # projects/
 
-Projektkontext: Scope, Inventar, Applications. Technologie-Wissen gehört nach [`technologies/`](../technologies/).
+Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-| Projekt | Fokus | Status |
-|---------|-------|--------|
-| [`pidrive`](pidrive/) | Infotainment / BMW HU — Maßstab | Pilot 1 closed · Pilot 2 active |
-| [`esp32-heartrate`](esp32-heartrate/) | BLE HR Gateway / Relay / Hub | Desk-Pilot active |
-| [`esp32-ergo`](esp32-ergo/) | FTMS Coach / Bridge / Hub | Desk-Pilot active — wächst shared Sheets |
-| [`esp32-ftmsprobe`](esp32-ftmsprobe/) | HTTP-GATT-Sonde / Lab | Desk-Pilot — Method + Probe-Pattern |
+| Projekt | Fokus | Profil | Status |
+|---------|-------|--------|--------|
+| [`pidrive`](pidrive/) | Infotainment / BMW HU | ops-field | Pilot 1 closed · Pilot 2 active |
+| [`esp32-heartrate`](esp32-heartrate/) | BLE HR Gateway / Relay | firmware | Desk-Pilot |
+| [`esp32-ergo`](esp32-ergo/) | FTMS Coach / Bridge | firmware | Desk-Pilot |
+| [`esp32-ftmsprobe`](esp32-ftmsprobe/) | HTTP-GATT-Sonde | lab-tool | Desk-Pilot + Method |
+| [`esp32-bt-gateway`](esp32-bt-gateway/) | A2DP/AVRCP Gateway | **planning** | Planung V2.0+ |
 
-Ursprungsrepos bleiben read-only. Neues Projekt: [REUSE.md](../docs/REUSE.md).
+Neues Projekt: [`REUSE.md`](../docs/REUSE.md) · [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md).

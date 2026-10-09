@@ -124,8 +124,22 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) · [PROMPT-CONTRACT.md](P
 | G3 | A-Claims aus dem neuen Projekt sind generalisierbar (sonst nur Application B/C) | warning |
 | G4 | `REJECTED`-Zeilen bleiben erhalten; kein stilles Löschen widerlegter Claims | warning |
 | G5 | `reusability` ≥ W3 nur wenn ≥2 `seen_in` mit belastbarer Application **oder** Transfer belegt | warning |
+| G6 | Active Sheet ohne Projektstart-Checkliste | warning |
+| G7 | Projekt-Inventar ohne Reuse-/Match-Hinweis (bei ≥1 existierendem Sheet im Repo) | warning |
+| G8 | Audit ohne `profile` in YAML wenn Kampagne nach 2026-10-09 | info |
 
-Siehe Beispiele in [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md#reifegrade-beispiele).
+Siehe Beispiele in [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md#reifegrade-beispiele) · Profile: [AUDIT-PROFILES.md](AUDIT-PROFILES.md).
+
+---
+
+## Planning-Profile (`profile: planning`)
+
+| # | Check | Stufe |
+|---|-------|-------|
+| PL1 | Status der Inventarzeilen ≤ `documented` solange keine FW-Evidence (außer Sheet aus Spec) | warning |
+| PL2 | Keine `MEASURED`-Evidence ohne verlinktes Artefakt | error |
+| PL3 | Offene Architekturentscheidungen (`UNKNOWN`/Exit) explizit | warning |
+| PL4 | Transfer zu Nachbarprojekten (z. B. pidrive) verlinkt | info |
 
 ---
 

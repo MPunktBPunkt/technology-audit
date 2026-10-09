@@ -7,7 +7,7 @@ primary: F
 tags: [esp-idf]
 type: pattern
 status: active
-seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway]
 maturity:
   technology: R3
   implementation: R0
@@ -40,16 +40,20 @@ LAN-Hub-Muster: Nodes senden periodische HTTP-Heartbeats (`fwType`, Metriken, St
 | Config-Änderungen dürfen bis zum nächsten Intervall warten | `HYPOTHESIS` | Oft schlechte UX; besser send-now |
 | OTA aus Heartbeat-Response ist spezifiziert überall gleich | `UNKNOWN` | Projekt-/Hub-Version prüfen |
 | Ein `fwType` reicht für alle Nodes | `REJECTED` | Pro Node-Familie eigener Typ (`heartrate`, `ergo`, …) und IO-Schema |
+| Hub-Anbindung erfordert Arduino-`esp-hub-base` | `REJECTED` | Contract ist HTTP; IDF-/dünner Client reicht (Register, otaUrl-Pull, `ios`) |
+| OTA-URL im Heartbeat ist dauerhaft gültig | `REJECTED` | typisch einmalig konsumiert — sofort persistieren |
+| Hub-OTA funktioniert immer im Feld (Auto) | `REJECTED` | oft nur Heim-WLAN; lokaler Upload/Depot als Stufe 2 |
 
 ## Transfer
 
-Wiederkehrendes Muster in ESP-Node-Familien. Voraussetzung: stabile Hub-URL im LAN, dokumentierte IO-Keys **pro** `fwType`. Client-Code oft ähnlich; Payload-Builder projektspezifisch (Application B).
+Wiederkehrendes Muster in ESP-Node-Familien. Voraussetzung: stabile Hub-URL im LAN, dokumentierte IO-Keys **pro** `fwType`. Client-Code oft ähnlich; Payload-Builder projektspezifisch (Application B). Stack (Arduino vs. ESP-IDF) ist austauschbar solange der **HTTP-Contract** stimmt.
 
 ### Projektstart-Checkliste
 
-- [ ] `fwType` festlegen (nicht hören/ergo/probe vermischen)
+- [ ] `fwType` festlegen (nicht Familien vermischen)
 - [ ] Heartbeat-Payload-Keys dokumentieren (Application)
-- [ ] OTA-Pfad: direkt vs. Hub; Verhalten bei offenen BLE-Links klären
+- [ ] OTA: Hub-Pull (einmalige URL) vs. lokaler Upload; Auto ohne Hub-Route bedenken
+- [ ] USB-Flash-Erwartungen (merged image / Adresse) mit Hub-UI abgleichen
 - [ ] NVS-Namespace-Kompatibilität zu Geschwister-Nodes prüfen
 - [ ] Application + `seen_in` nachziehen
 

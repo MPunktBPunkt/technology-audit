@@ -6,10 +6,11 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) (Wissenswachstum) · [MET
 
 ## Einstieg in 5 Schritten
 
+0. **Profil** — [`AUDIT-PROFILES.md`](AUDIT-PROFILES.md): Firmware, Lab-Tool, **Planung** oder Ops/Feld? Exit-Tiefe danach bemessen.
 1. **Index lesen** — [`technologies/README.md`](../technologies/README.md): welche Sheets existieren schon?
 2. **Fremdrepo scannen** — Signale sammeln (`prepare bootstrap` oder manuell Phase 0).
 3. **Matchen, nicht neu erfinden** — jedes Signal einem bestehenden Slug zuordnen oder bewusst neuen Slug beantragen.
-4. **Sheet nur um A erweitern** — neue Fallstricke/Transfer/Referenzen; `seen_in` ergänzen; Reusability prüfen (G5).
+4. **Sheet nur um A erweitern** — neue Fallstricke/Transfer/Referenzen; `seen_in` ergänzen; Reusability prüfen (G5). Bei `planning`: Spec-/Design-A erlaubt, keine erfundenen Messungen.
 5. **Application neu** — B/C nur für *dieses* Projekt; Evidence-IDs neu, Querverweise auf ältere Kampagnen erlaubt.
 
 ```text

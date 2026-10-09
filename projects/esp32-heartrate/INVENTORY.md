@@ -13,6 +13,8 @@ Ursprungsrepo: [esp32.heartrate](https://github.com/MPunktBPunkt/esp32.heartrate
 Kampagne: [esp32-heartrate-2026-pilot](../../audits/esp32-heartrate-2026-pilot/).  
 Taxonomie: Primary A–J wie in [`docs/TAXONOMY.md`](../../docs/TAXONOMY.md).
 
+**Reuse / Match:** Erstes ESP-Node-Bootstrap; Slugs später von `esp32-ergo` / `esp32-ftmsprobe` **mitgewachsen** (keine Forks). Parität-Nachzug: Reuse-Hinweis. Siehe [`docs/REUSE.md`](../../docs/REUSE.md).
+
 ## Übersicht
 
 | Slug | Name | Primary | Tags | Status | Coverage | Sheet | Application |

@@ -7,6 +7,7 @@ started: 2026-10-09
 ended: null
 status: active
 reviewed_commit: edaeb19
+profile: firmware
 ```
 
 ## Ziel

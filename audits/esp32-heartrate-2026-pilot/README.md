@@ -7,6 +7,7 @@ started: 2026-10-08
 ended: null
 status: active
 reviewed_commit: 72acae4
+profile: firmware
 ```
 
 ## Ziel

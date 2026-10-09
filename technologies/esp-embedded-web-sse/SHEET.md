@@ -46,6 +46,13 @@ On-device HTTP-Server mit REST für Steuerung/Config und Server-Sent Events für
 
 Muster für ESP-Nodes mit Erstsetup und Live-Charts/Ride-UI. Voraussetzung: stabiles WiFi oder SoftAP; klare API-Tabelle; bei großen UIs Pack-Schritt und Partition mitdenken.
 
+### Projektstart-Checkliste
+
+- [ ] SSE + Polling-Fallback einplanen
+- [ ] Flash-/Pack-Budget für UI prüfen
+- [ ] REST-Mutationen → sofortiger Status/Hub-Push?
+- [ ] Application + `seen_in` nachziehen
+
 ## Referenzen
 
 - HTML Living Standard — Server-Sent Events

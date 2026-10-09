@@ -28,6 +28,7 @@ REQUIRED_DOCS = [
     "docs/PROMPT-CONTRACT.md",
     "docs/REVIEW-CHECKS.md",
     "docs/REUSE.md",
+    "docs/AUDIT-PROFILES.md",
     "README.md",
     "VERSION",
 ]
@@ -79,6 +80,18 @@ def _check_inventory(root: Path, scan: ScanResult) -> list[Finding]:
             continue
         if not (root / "projects" / proj / "SCOPE.md").is_file():
             out.append(Finding("warning", "P1", "SCOPE.md missing", f"projects/{proj}/SCOPE.md"))
+        inv_text = read_text(inv)
+        if scan.sheets and not any(
+            t in inv_text for t in ("Reuse", "Match", "Wissenswachstum", "REUSE")
+        ):
+            out.append(
+                Finding(
+                    "warning",
+                    "G7",
+                    "INVENTORY missing Reuse/Match note",
+                    f"projects/{proj}/INVENTORY.md",
+                )
+            )
 
     for item in scan.inventory:
         path = f"inventory:{item.slug}"
@@ -180,6 +193,15 @@ def _check_sheets(root: Path, scan: ScanResult) -> list[Finding]:
                     "warning",
                     "S4",
                     "sheet mentions multiple project/field tokens — check A-only rule",
+                    rel,
+                )
+            )
+        if "Projektstart-Checkliste" not in text:
+            out.append(
+                Finding(
+                    "warning",
+                    "G6",
+                    "sheet missing Projektstart-Checkliste (reuse)",
                     rel,
                 )
             )

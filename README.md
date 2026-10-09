@@ -23,6 +23,7 @@ audits/<kampagne> ──► Inventar + Methoden
 
 1. [`technologies/`](technologies/) — **Übersicht extrahierter Technologien**  
 2. [`docs/REUSE.md`](docs/REUSE.md) — **Wissensbasis bei neuem Projekt nutzen**  
+3. [`docs/AUDIT-PROFILES.md`](docs/AUDIT-PROFILES.md) — Firmware / Lab / **Planung** / Ops  
 3. [`docs/DOCUMENT-STANDARD.md`](docs/DOCUMENT-STANDARD.md) — verbindliche Dokumenttypen und Regeln  
 4. [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) — Phasen 0–5  
 5. [`docs/TAXONOMY.md`](docs/TAXONOMY.md) — Kategorien und Tags  
@@ -51,7 +52,7 @@ Details: [`tools/README.md`](tools/README.md).
 | Version | siehe [`VERSION`](VERSION) |
 | Phase | Pilot 2 — BMW NBT Evo (Host / C); Pilot 1 MSC closed (Schema); Prompt-Contract v1 |
 | Pilot-Reihenfolge | `usb-msc` → `bmw-nbt-evo` → `avrcp` |
-| Projekte | [pidrive](projects/pidrive/) · [heartrate](projects/esp32-heartrate/) · [ergo](projects/esp32-ergo/) · [ftmsprobe](projects/esp32-ftmsprobe/) |
+| Projekte | [pidrive](projects/pidrive/) · [heartrate](projects/esp32-heartrate/) · [ergo](projects/esp32-ergo/) · [ftmsprobe](projects/esp32-ftmsprobe/) · [bt-gateway](projects/esp32-bt-gateway/) |
 | Technologien | [Index](technologies/) · Reuse: [REUSE.md](docs/REUSE.md) |
 | Assistenz | Prompt-Contract + `tools/ta-assist` (check / prepare / bootstrap) |
 

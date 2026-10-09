@@ -5,6 +5,7 @@ id: pidrive-2026-msc
 project_id: pidrive
 started: 2026-10-04
 ended: 2026-10-05
+profile: ops-field
 status: closed
 pilot: 1
 next_pilots: [bmw-nbt-evo, avrcp]

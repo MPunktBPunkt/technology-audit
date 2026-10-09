@@ -7,6 +7,7 @@ started: 2026-10-09
 ended: null
 status: active
 reviewed_commit: 70c3c25
+profile: lab-tool
 ```
 
 ## Ziel
