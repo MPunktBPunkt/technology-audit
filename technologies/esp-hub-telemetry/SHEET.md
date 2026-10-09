@@ -7,7 +7,7 @@ primary: F
 tags: [esp-idf]
 type: pattern
 status: active
-seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway, esp32-rfmonitor, esp32-toolnode, esp32-metermaster]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway, esp32-rfmonitor, esp32-toolnode, esp32-metermaster, esp32-webradio, esp32-io-control, esp32-communicator, esp32-network]
 maturity:
   technology: R3
   implementation: R0
@@ -45,6 +45,8 @@ LAN-Hub-Muster: Nodes senden periodische HTTP-Heartbeats (`fwType`, Metriken, St
 | Hub-OTA funktioniert immer im Feld (Auto) | `REJECTED` | oft nur Heim-WLAN; lokaler Upload/Depot als Stufe 2 |
 | Produkt-Adapter-Register = ESP-Hub-Heartbeat | `REJECTED` | oft getrennte Ports/Contracts (z. B. MeterMaster 8089 vs. Hub 8093); Hub nur Dashboard-Sichtbarkeit |
 | Simple-API ersetzt `/api/register` | `REJECTED` | Simple-API liest States; Register legt nodes.* erst an (Henne-Ei) |
+| Jeder Hub-Node sendet `fwType` | `REJECTED` | Arduino-Monolith-Familie oft nur `name`/`hwType`/`mac`/`ios` — Hub erkennt über MAC/Name |
+| Fehlendes `fwType` = kein Hub-Muster | `REJECTED` | Contract ist HTTP Register + ios; Identity-Felder variieren |
 
 ## Transfer
 
@@ -52,7 +54,7 @@ Wiederkehrendes Muster in ESP-Node-Familien. Voraussetzung: stabile Hub-URL im L
 
 ### Projektstart-Checkliste
 
-- [ ] `fwType` festlegen (nicht Familien vermischen)
+- [ ] Identity: `fwType` **oder** dokumentiertes `name`/`hwType`-Schema
 - [ ] Heartbeat-Payload-Keys dokumentieren (Application)
 - [ ] Zweiter Produkt-Adapter? Ports/Contracts trennen (Hub ≠ Simple-API ≠ Adapter)
 - [ ] OTA: Hub-Pull (einmalige URL) vs. lokaler Upload; Auto ohne Hub-Route bedenken

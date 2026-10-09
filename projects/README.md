@@ -12,5 +12,9 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-rfmonitor`](esp32-rfmonitor/) | WLAN/BLE RF-Monitor | firmware | Desk-Pilot (std 0.6.0) |
 | [`esp32-toolnode`](esp32-toolnode/) | Modular RF/Lab/MQTT Node | firmware | Desk-Pilot (std 0.6.1) |
 | [`esp32-metermaster`](esp32-metermaster/) | OLED Zähler / Triple-HTTP | firmware | Desk-Pilot (std 0.6.1) |
+| [`esp32-webradio`](esp32-webradio/) | Browser-Web-Radio-Host | firmware | Desk-Pilot (std 0.6.2) |
+| [`esp32-io-control`](esp32-io-control/) | GPIO/I²C/SPI Lab-UI | firmware | Desk-Pilot (std 0.6.2) |
+| [`esp32-communicator`](esp32-communicator/) | ESP-NOW Messenger | firmware | Desk-Pilot (std 0.6.2) |
+| [`esp32-network`](esp32-network/) | LAN-Inventar + TR-064 | firmware | Desk-Pilot (std 0.6.2) |
 
 Neues Projekt: [`REUSE.md`](../docs/REUSE.md) · [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md).

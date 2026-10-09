@@ -52,7 +52,7 @@ Details: [`tools/README.md`](tools/README.md).
 | Version | [`VERSION`](VERSION) (= Audit-Standard) · [`STANDARD-CHANGELOG`](docs/STANDARD-CHANGELOG.md) |
 | Phase | Pilot 2 — BMW NBT Evo (Host / C); Pilot 1 MSC closed (Schema); Prompt-Contract v1 |
 | Pilot-Reihenfolge | `usb-msc` → `bmw-nbt-evo` → `avrcp` |
-| Projekte | [pidrive](projects/pidrive/) · [heartrate](projects/esp32-heartrate/) · [ergo](projects/esp32-ergo/) · [ftmsprobe](projects/esp32-ftmsprobe/) · [bt-gateway](projects/esp32-bt-gateway/) · [rfmonitor](projects/esp32-rfmonitor/) · [toolnode](projects/esp32-toolnode/) · [metermaster](projects/esp32-metermaster/) |
+| Projekte | [pidrive](projects/pidrive/) · [heartrate](projects/esp32-heartrate/) · [ergo](projects/esp32-ergo/) · [ftmsprobe](projects/esp32-ftmsprobe/) · [bt-gateway](projects/esp32-bt-gateway/) · [rfmonitor](projects/esp32-rfmonitor/) · [toolnode](projects/esp32-toolnode/) · [metermaster](projects/esp32-metermaster/) · [webradio](projects/esp32-webradio/) · [io-control](projects/esp32-io-control/) · [communicator](projects/esp32-communicator/) · [network](projects/esp32-network/) |
 | Technologien | [Index](technologies/) · Reuse: [REUSE.md](docs/REUSE.md) |
 | Assistenz | Prompt-Contract + `tools/ta-assist` (check / prepare / bootstrap) |
 

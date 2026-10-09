@@ -15,5 +15,9 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`esp32-rfmonitor-2026-pilot`](esp32-rfmonitor-2026-pilot/) | active | firmware | RF-Monitor · **standard_version 0.6.0** |
 | [`esp32-toolnode-2026-pilot`](esp32-toolnode-2026-pilot/) | active | firmware | Modular Node · **0.6.1** Geschwister-RF |
 | [`esp32-metermaster-2026-pilot`](esp32-metermaster-2026-pilot/) | active | firmware | OLED + Triple-HTTP · **0.6.1** |
+| [`esp32-webradio-2026-pilot`](esp32-webradio-2026-pilot/) | active | firmware | Browser-Radio · **0.6.2** |
+| [`esp32-io-control-2026-pilot`](esp32-io-control-2026-pilot/) | active | firmware | Lab-GPIO · **0.6.2** |
+| [`esp32-communicator-2026-pilot`](esp32-communicator-2026-pilot/) | active | firmware | ESP-NOW · **0.6.2** |
+| [`esp32-network-2026-pilot`](esp32-network-2026-pilot/) | active | firmware | LAN-Scan + TR-064 · **0.6.2** |
 
 Geplant: AVRCP-Feldmessung (Pilot 3) sobald Phase −1/Gateway greift.

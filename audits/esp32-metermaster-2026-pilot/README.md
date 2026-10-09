@@ -8,6 +8,7 @@ ended: null
 status: active
 profile: firmware
 standard_version: "0.6.1"
+standard_gaps: ["0.6.2 Hub-ohne-fwType / Scan-Schichten / G12–G14"]
 reviewed_commit: 60fa14b
 ```
 
@@ -23,7 +24,8 @@ Siehe [SCOPE](../../projects/esp32-metermaster/SCOPE.md).
 
 | # | Kriterium | Status |
 |---|-----------|--------|
-| 1 | YAML `standard_version: "0.6.1"` + profile | erfüllt |
+| 1 | YAML `standard_version: "0.6.1"
+standard_gaps: ["0.6.2 Hub-ohne-fwType / Scan-Schichten / G12–G14"]` + profile | erfüllt |
 | 2 | Reuse-Match: Hub wachsen; Simple-API + OLED neu | erfüllt |
 | 3 | Web-UI ohne SSE → nicht `esp-embedded-web-sse` | erfüllt |
 | 4 | `ta-assist check` 0 errors | erfüllt (lokal) |

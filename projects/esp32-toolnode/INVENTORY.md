@@ -17,7 +17,7 @@ pilot_order: [esp-module-host, rf-environment-monitor, esp-hub-telemetry, esp-em
 | Hub `fwType=toolnode` | `esp-hub-telemetry` | wachsen |
 | Web REST + SSE + Wizard | `esp-embedded-web-sse` | wachsen |
 | MQTT `esphub/toolnode/<device>/…` | `mqtt-node-telemetry` | **neu** |
-| I²C/UART/OW/Signal Lab | `esp-lab-bus-tools` | observed |
+| I²C/UART/OW/Signal Lab | `esp-lab-bus-tools` | **wachsen** (Geschwister io-control) |
 | WiFiManager | `wifi-manager-captive` | observed |
 
 Ursprung: [esp32.toolnode](https://github.com/MPunktBPunkt/esp32.toolnode).  
@@ -32,7 +32,7 @@ Kampagne: [esp32-toolnode-2026-pilot](../../audits/esp32-toolnode-2026-pilot/).
 | `esp-hub-telemetry` | ESP-Hub Telemetry | F | `esp-idf` | applied | partial | [SHEET](../../technologies/esp-hub-telemetry/SHEET.md) | [app](applications/esp-hub-telemetry.md) |
 | `esp-embedded-web-sse` | Embedded Web + SSE | G | `streaming` | applied | partial | [SHEET](../../technologies/esp-embedded-web-sse/SHEET.md) | [app](applications/esp-embedded-web-sse.md) |
 | `mqtt-node-telemetry` | MQTT Node Telemetry | F | `streaming` | applied | partial | [SHEET](../../technologies/mqtt-node-telemetry/SHEET.md) | [app](applications/mqtt-node-telemetry.md) |
-| `esp-lab-bus-tools` | I²C/UART/OW/Signal Lab | H | `lab-only` | observed | none | — | — |
+| `esp-lab-bus-tools` | I²C/UART/OW/Signal Lab | H | `lab-only` | applied | partial | [SHEET](../../technologies/esp-lab-bus-tools/SHEET.md) | [app](applications/esp-lab-bus-tools.md) |
 | `wifi-manager-captive` | WiFiManager | F | — | observed | none | — | — |
 | `esp32-arduino-pio` | PlatformIO ESP32 | D | `esp-idf` | observed | none | — | — |
 

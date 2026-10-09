@@ -16,6 +16,15 @@ CLI `tools/ta-assist` hat eine **eigene** Semver und ist davon unabhängig.
 
 ## Versionen
 
+### 0.6.2 — 2026-10-09
+
+**Neu:**
+
+- Hub: Identity oft über `name`/`hwType`/`mac` — `fwType` **nicht** Pflicht (Arduino-Monolith-Familie)
+- Schicht-Abgrenzung Scan: **RF** (`rf-environment-monitor`) ≠ **LAN/TCP** (`lan-device-inventory`) ≠ **ESP-NOW Peers**
+- Browser-Media-Host ≠ A2DP / PipeWire / DAB (webradio-ESP)
+- Sheets: `webradio-browser-host`, `esp-lab-bus-tools`, `esp-now-messaging`, `lan-device-inventory`, `fritzbox-tr064`
+
 ### 0.6.1 — 2026-10-09
 
 **Neu:**

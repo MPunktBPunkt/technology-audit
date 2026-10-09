@@ -62,6 +62,21 @@ Inventar-Match-Tabellen: Spalte **nicht** `Slug` nennen (Parser greift sonst) �
 | Arduino `.ino` Monolith | z. B. MeterMaster | Application-Pfade auf `.ino` + `docs/`; kein erzwungenes `src/` |
 | Nur `docs/planung/` | planning-Profil | keine FW-Claims |
 
+## Schicht-Abgrenzung: „Scanner“-Produkte
+
+| Schicht | Sheet | Typische Signale |
+|---------|-------|------------------|
+| RF/WLAN/BLE Environment | `rf-environment-monitor` | RSSI, AP-Liste, RF-Score, Adv-Scan |
+| LAN/IP Geräteinventur | `lan-device-inventory` | Subnetz, TCP-Ports, Online-Labels |
+| ESP-NOW Peer/Mesh-artig | `esp-now-messaging` | MAC-Peers, Hello, kein Router |
+| Produkt-Lab-IO | `esp-lab-bus-tools` | GPIO/I²C/SPI/PWM UI (Einzweck oder Modul) |
+
+Nicht denselben Slug für RF- und LAN-Scanner forken oder vermischen.
+
+## Hub-Identity ohne `fwType`
+
+Ältere Arduino-Monolithen senden oft nur `mac`/`name`/`hwType`/`version`/`ios`. Das bleibt `esp-hub-telemetry` — Application dokumentiert fehlendes `fwType`. Nicht „kein Hub“ oder neues Sheet erfinden.
+
 ## Assistenz
 
 ```bash
