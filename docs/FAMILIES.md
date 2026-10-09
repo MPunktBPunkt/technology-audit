@@ -26,9 +26,11 @@ Gemeinsame Sheets: `esp-hub-telemetry`, oft `esp-embedded-web-sse`.
 
 | Projekt-ID | Rolle |
 |------------|-------|
-| `pidrive` | Ops/Feld: USB-MSC, BMW NBT Evo, AVRCP, … |
+| `pidrive` | Ops/Feld: USB-MSC, BMW HU, DAB+/SDR/PMR/Airband/FFT, A2DP/AVRCP |
 | `esp32-pidrive` | Firmware: TinyUSB MSC-Gadget + PUMP + HubClient |
 | `esp32-bt-gateway` | Planung A2DP/AVRCP (auch ESP-Hub-Familie) |
+
+Radio-Sheets: `dab-plus`, `rtl-sdr`, `pmr446`, `airband-am`, `sdr-spectrum-fft`.
 
 ## ioBroker-Adapter (Produkt)
 

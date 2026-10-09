@@ -4,8 +4,8 @@
 project_id: pidrive
 title: PiDrive
 updated: 2026-10-09
-reviewed_commit: none
-reviewed_commit_note: multi-repo ops/field; Evidence verweist auf pidrive docs/betrieb Stände (z. B. 2026-10-05), kein Einzel-SHA für gesamtes Inventar
+reviewed_commit: b61df4d
+reviewed_commit_note: Radio/BT-Vertiefung gegen pidrive@b61df4d; MSC/HU-Evidence weiter multi-Artefakt (docs/betrieb)
 repos:
   - https://github.com/MPunktBPunkt/pidrive
   - https://github.com/MPunktBPunkt/esp32.pidrive
@@ -46,9 +46,9 @@ Infotainment-Stack (Quellen, Audio, Steuerung, Metadaten) für den Betrieb an BM
 ## Prioritäten für die Analyse
 
 1. USB-MSC / SCSI / FAT / LBA und HU-Leseverhalten  
-2. Audio-Pipeline und Bluetooth (A2DP/AVRCP)  
-3. Empfang (DAB+/SDR) und Metadaten (MPRIS)  
-4. Systemintegration (systemd, Trigger, ESP↔Pi)
+2. Empfang/Funk: DAB+, RTL-SDR, PMR446, Airband, Spektrum-FFT (`pidrive-2026-radio-bt`)  
+3. Audio-Pipeline und Bluetooth (A2DP/AVRCP) — Pi BlueZ vs. ESP-Gateway  
+4. Metadaten (MPRIS) und Systemintegration (systemd, Trigger, ESP↔Pi)
 
 ## Offene Scope-Fragen
 

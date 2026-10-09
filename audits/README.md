@@ -8,6 +8,7 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 |----|--------|--------|-------|
 | [`pidrive-2026-msc`](pidrive-2026-msc/) | closed | ops-field | Pilot 1 — USB-MSC |
 | [`pidrive-2026-bmw-hu`](pidrive-2026-bmw-hu/) | active | ops-field | Pilot 2 — BMW NBT Evo |
+| [`pidrive-2026-radio-bt`](pidrive-2026-radio-bt/) | active | ops-field | DAB+/PMR/Airband/FFT + A2DP/AVRCP · **0.6.3** |
 | [`esp32-heartrate-2026-pilot`](esp32-heartrate-2026-pilot/) | active | firmware | HR Desk-Pilot |
 | [`esp32-ergo-2026-pilot`](esp32-ergo-2026-pilot/) | active | firmware | Ergo + Sheet-Wachstum |
 | [`esp32-ftmsprobe-2026-pilot`](esp32-ftmsprobe-2026-pilot/) | active | lab-tool | Sonde + Method |
@@ -32,4 +33,4 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`metermaster-app-2026-pilot`](metermaster-app-2026-pilot/) | active | ops-field | MeterMaster Android · **0.6.3** |
 | [`iobroker-repositories-2026-ops`](iobroker-repositories-2026-ops/) | active | ops-field | Catalog-Fork · **0.6.3** |
 
-Geplant: AVRCP-Feldmessung (Pilot 3) sobald Phase −1/Gateway greift.
+Feldmessung AVRCP/A2DP: Desk in [`pidrive-2026-radio-bt`](pidrive-2026-radio-bt/); Gateway-Phase −1 weiter in [`esp32-bt-gateway-2026-planning`](esp32-bt-gateway-2026-planning/).
