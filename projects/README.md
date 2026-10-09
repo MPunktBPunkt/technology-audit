@@ -16,5 +16,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-io-control`](esp32-io-control/) | GPIO/I²C/SPI Lab-UI | firmware | Desk-Pilot (std 0.6.2) |
 | [`esp32-communicator`](esp32-communicator/) | ESP-NOW Messenger | firmware | Desk-Pilot (std 0.6.2) |
 | [`esp32-network`](esp32-network/) | LAN-Inventar + TR-064 | firmware | Desk-Pilot (std 0.6.2) |
+| [`esp32-esp-hub`](esp32-esp-hub/) | esp-hub-base Vorlage | firmware | Desk-Pilot (std 0.6.3) |
+| [`iobroker-esp-hub`](iobroker-esp-hub/) | Hub-Adapter :8093 | **adapter** | Desk-Pilot (std 0.6.3) |
 
 Neues Projekt: [`REUSE.md`](../docs/REUSE.md) · [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md).

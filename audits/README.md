@@ -19,5 +19,7 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`esp32-io-control-2026-pilot`](esp32-io-control-2026-pilot/) | active | firmware | Lab-GPIO · **0.6.2** |
 | [`esp32-communicator-2026-pilot`](esp32-communicator-2026-pilot/) | active | firmware | ESP-NOW · **0.6.2** |
 | [`esp32-network-2026-pilot`](esp32-network-2026-pilot/) | active | firmware | LAN-Scan + TR-064 · **0.6.2** |
+| [`esp32-esp-hub-2026-pilot`](esp32-esp-hub-2026-pilot/) | active | firmware | esp-hub-base · **0.6.3** |
+| [`iobroker-esp-hub-2026-pilot`](iobroker-esp-hub-2026-pilot/) | active | adapter | Hub-Adapter · **0.6.3** |
 
 Geplant: AVRCP-Feldmessung (Pilot 3) sobald Phase −1/Gateway greift.

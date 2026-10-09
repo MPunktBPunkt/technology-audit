@@ -12,6 +12,7 @@ Verwandt: [METHODOLOGY.md](METHODOLOGY.md) · [REUSE.md](REUSE.md) · [REVIEW-CH
 | `lab-tool` | Mess-/Sonden-Repo | wie firmware, Method Note stark | + `methods/<slug>.md` verlinkt |
 | `planning` | nur Konzept/Pflichtenheft, **keine** FW | oft `none`/`partial`; Status ≤ `observed` oder `documented` (Sheet aus Spec/Plan) | SCOPE, INVENTORY, Kampagne; Apps dürfen **Design-B** sein; Feld-C meist `UNKNOWN` |
 | `ops-field` | Betriebs-/Feldrepo (z. B. PiDrive) | Evidence-lastig | Evidence-IDs auf Upstream-Artefakte; Sheets nur A |
+| `adapter` | ioBroker-/Dienst-Adapter (Node/TS/…) | Sheets partial+; Contract stark | SCOPE, INVENTORY, Kampagne; Apps dürfen JS/TS-Pfade; Hub-Contract als A mit FW teilen |
 
 Profil in Audit-YAML setzen: `profile: planning` (o. Ä.).
 
@@ -21,6 +22,7 @@ Profil in Audit-YAML setzen: `profile: planning` (o. Ä.).
 |--------|---------|
 | PlatformIO `src/` | Standardpfade in Applications |
 | Arduino `.ino` Monolith | Pfade auf `.ino` + `docs/` ok (siehe [REUSE.md](REUSE.md)) |
+| Node.js Adapter (`main.js`, `admin/`) | Application-Pfade auf JS/TS; Contract-Sheets stack-neutral |
 
 ## Gemeinsame Mindest-Parität (alle Profile)
 

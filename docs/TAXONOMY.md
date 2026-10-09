@@ -38,7 +38,7 @@ Technology Sheets eignen sich für Technologie/Protokoll/Format/Implementierungs
 
 Empfohlene Tags (erweiterbar):
 
-`realtime` · `automotive` · `bluetooth-classic` · `usb-device` · `usb-host` · `sdr` · `linux-userspace` · `esp-idf` · `streaming` · `metadata` · `field-verified` · `lab-only` · `fragile`
+`realtime` · `automotive` · `bluetooth-classic` · `usb-device` · `usb-host` · `sdr` · `linux-userspace` · `esp-idf` · `arduino` · `nodejs` · `iobroker` · `streaming` · `metadata` · `field-verified` · `lab-only` · `fragile`
 
 Schreibweise: `kebab-case`, Plural vermeiden.
 

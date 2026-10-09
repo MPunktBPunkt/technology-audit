@@ -8,6 +8,7 @@ ended: null
 status: active
 profile: firmware
 standard_version: "0.6.2"
+standard_gaps: ["0.6.3 language-agnostic A / adapter profile / PROJECT-START"]
 reviewed_commit: 429f20e
 ```
 
