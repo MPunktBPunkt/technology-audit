@@ -42,6 +42,26 @@ Bevor ein neues Sheet entsteht:
 4. Welche Sheet-Fallstricke muss der neue Code bewusst behandeln?
 5. Welche Method Note liefert den ersten Lab-Pfad?
 
+## Geschwister-Produkte (gleiche Tech, anderer Produktzuschnitt)
+
+Wenn zwei Repos dieselbe Tech nutzen, aber unterschiedlich zuschneiden (z. B. `esp32.rfmonitor` = Einzweck-RF vs. `esp32.toolnode` = RF-Modul in Modular-Firmware):
+
+| Tun | Nicht |
+|-----|--------|
+| **Denselben** Sheet-Slug verwenden; `seen_in` erweitern | `rf-environment-monitor-toolnode` forken |
+| In Applications den Zuschnitt kontrastieren (Einzweck vs. Modul, Flags, BLE an/aus) | Sheet in „unser Modulsystem“ umschreiben |
+| A-Fallstricke nur generalisieren (z. B. shared radio) | Produktnamen als Spec |
+
+Inventar-Match-Tabellen: Spalte **nicht** `Slug` nennen (Parser greift sonst) — besser `Ziel-Sheet`.
+
+## Repo-Layout-Hinweise
+
+| Layout | Typisch | Audit-Hinweis |
+|--------|---------|---------------|
+| PlatformIO `src/` | die meisten `esp32.*` | Pfade wie gewohnt |
+| Arduino `.ino` Monolith | z. B. MeterMaster | Application-Pfade auf `.ino` + `docs/`; kein erzwungenes `src/` |
+| Nur `docs/planung/` | planning-Profil | keine FW-Claims |
+
 ## Assistenz
 
 ```bash

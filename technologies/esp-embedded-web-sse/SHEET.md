@@ -7,7 +7,7 @@ primary: G
 tags: [streaming]
 type: pattern
 status: active
-seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-rfmonitor]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-rfmonitor, esp32-toolnode]
 maturity:
   technology: R3
   implementation: R0
@@ -41,10 +41,11 @@ On-device HTTP-Server mit REST für Steuerung/Config und Server-Sent Events für
 | Eingebettete UI skaliert wie ein SPA-Build | `REJECTED` | Speicher/Flash-Budget dominiert |
 | REST-Mutationen brauchen keinen sofortigen Telemetry-Push | `HYPOTHESIS` | UX oft besser mit sofortigem Heartbeat/Event |
 | Eine UI-Rolle reicht immer | `REJECTED` | Trainings-Nodes brauchen oft Ride- vs. Setup-/Debug-Flächen |
+| Eingebettete HTML-UI = dieses Sheet | `REJECTED` | ohne SSE/Live-Stream nur observed Web-UI — Sheet erst bei REST+SSE-Muster |
 
 ## Transfer
 
-Muster für ESP-Nodes mit Erstsetup und Live-Charts/Ride-UI. Voraussetzung: stabiles WiFi oder SoftAP; klare API-Tabelle; bei großen UIs Pack-Schritt und Partition mitdenken.
+Muster für ESP-Nodes mit Erstsetup und Live-Charts/Ride-UI. Voraussetzung: stabiles WiFi oder SoftAP; klare API-Tabelle; bei großen UIs Pack-Schritt und Partition mitdenken. Wizard/First-Run-Routen (`/wizard`) gehören zur Application, nicht zu einem eigenen Sheet.
 
 ### Projektstart-Checkliste
 

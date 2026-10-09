@@ -15,13 +15,17 @@ Wiederverwendbare Technology Sheets.
 | [`bluetooth-a2dp`](bluetooth-a2dp/SHEET.md) | C | W2 | pidrive, esp32-bt-gateway |
 | [`bluetooth-ftms`](bluetooth-ftms/SHEET.md) | C | W3 | esp32-ftmsprobe, esp32-ergo |
 | [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | I | W1 | pidrive, esp32-bt-gateway |
-| [`esp-embedded-web-sse`](esp-embedded-web-sse/SHEET.md) | G | W3 | esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-rfmonitor |
-| [`esp-hub-telemetry`](esp-hub-telemetry/SHEET.md) | F | W3 | esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway, esp32-rfmonitor |
+| [`esp-embedded-web-sse`](esp-embedded-web-sse/SHEET.md) | G | W3 | heartrate, ergo, ftmsprobe, rfmonitor, toolnode |
+| [`esp-hub-telemetry`](esp-hub-telemetry/SHEET.md) | F | W3 | heartrate, ergo, ftmsprobe, bt-gateway, rfmonitor, toolnode, metermaster |
+| [`esp-module-host`](esp-module-host/SHEET.md) | J | W2 | esp32-toolnode |
 | [`hammer-varon-xtr`](hammer-varon-xtr/SHEET.md) | I | W2 | esp32-ftmsprobe, esp32-ergo |
+| [`iobroker-simple-api`](iobroker-simple-api/SHEET.md) | F | W2 | esp32-metermaster |
+| [`mqtt-node-telemetry`](mqtt-node-telemetry/SHEET.md) | F | W2 | esp32-toolnode |
 | [`pdap`](pdap/SHEET.md) | J | W1 | esp32-bt-gateway |
-| [`rf-environment-monitor`](rf-environment-monitor/SHEET.md) | H | W2 | esp32-rfmonitor |
+| [`rf-environment-monitor`](rf-environment-monitor/SHEET.md) | H | W3 | esp32-rfmonitor, esp32-toolnode |
+| [`ssd1306-oled-ui`](ssd1306-oled-ui/SHEET.md) | G | W2 | esp32-metermaster |
 | [`usb-msc`](usb-msc/SHEET.md) | C | W2 | pidrive |
 
 ## Geplant (ohne Sheet)
 
-`dab-plus` · `rtl-sdr` · `webradio` · `pipewire` · `scsi` · `esp32` · `fat` · `systemd` · `mpris2`
+`dab-plus` · `rtl-sdr` · `webradio` · `pipewire` · `scsi` · `esp32` · `fat` · `systemd` · `mpris2` · `esp-lab-bus-tools`

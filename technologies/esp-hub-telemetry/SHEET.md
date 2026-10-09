@@ -7,7 +7,7 @@ primary: F
 tags: [esp-idf]
 type: pattern
 status: active
-seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway, esp32-rfmonitor]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway, esp32-rfmonitor, esp32-toolnode, esp32-metermaster]
 maturity:
   technology: R3
   implementation: R0
@@ -43,6 +43,8 @@ LAN-Hub-Muster: Nodes senden periodische HTTP-Heartbeats (`fwType`, Metriken, St
 | Hub-Anbindung erfordert Arduino-`esp-hub-base` | `REJECTED` | Contract ist HTTP; IDF-/dünner Client reicht (Register, otaUrl-Pull, `ios`) |
 | OTA-URL im Heartbeat ist dauerhaft gültig | `REJECTED` | typisch einmalig konsumiert — sofort persistieren |
 | Hub-OTA funktioniert immer im Feld (Auto) | `REJECTED` | oft nur Heim-WLAN; lokaler Upload/Depot als Stufe 2 |
+| Produkt-Adapter-Register = ESP-Hub-Heartbeat | `REJECTED` | oft getrennte Ports/Contracts (z. B. MeterMaster 8089 vs. Hub 8093); Hub nur Dashboard-Sichtbarkeit |
+| Simple-API ersetzt `/api/register` | `REJECTED` | Simple-API liest States; Register legt nodes.* erst an (Henne-Ei) |
 
 ## Transfer
 
@@ -52,6 +54,7 @@ Wiederkehrendes Muster in ESP-Node-Familien. Voraussetzung: stabile Hub-URL im L
 
 - [ ] `fwType` festlegen (nicht Familien vermischen)
 - [ ] Heartbeat-Payload-Keys dokumentieren (Application)
+- [ ] Zweiter Produkt-Adapter? Ports/Contracts trennen (Hub ≠ Simple-API ≠ Adapter)
 - [ ] OTA: Hub-Pull (einmalige URL) vs. lokaler Upload; Auto ohne Hub-Route bedenken
 - [ ] USB-Flash-Erwartungen (merged image / Adresse) mit Hub-UI abgleichen
 - [ ] NVS-Namespace-Kompatibilität zu Geschwister-Nodes prüfen

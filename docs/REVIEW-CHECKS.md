@@ -130,6 +130,9 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) · [PROMPT-CONTRACT.md](P
 | G6 | Active Sheet ohne Projektstart-Checkliste | warning |
 | G7 | Projekt-Inventar ohne Reuse-/Match-Hinweis (bei ≥1 existierendem Sheet im Repo) | warning |
 | G8 | Audit ohne `profile` in YAML wenn Kampagne nach 2026-10-09 | info |
+| G9 | Geschwister-Produkt (gleicher Primary, anderer Zuschnitt) ⇒ gleicher Slug + kontrastierende Apps, kein Suffix-Fork | error |
+| G10 | Inventar-Match-Tabelle: Spalte nicht `Slug` nennen (Parser) — `Ziel-Sheet` o. Ä. | warning |
+| G11 | Arduino-`.ino`-Monolith: Application-Pfade auf `.ino`/`docs/` ok; kein erzwungenes `src/` | info |
 
 Siehe Beispiele in [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md#reifegrade-beispiele) · Profile: [AUDIT-PROFILES.md](AUDIT-PROFILES.md).
 

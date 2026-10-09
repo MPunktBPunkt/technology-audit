@@ -15,6 +15,13 @@ Verwandt: [METHODOLOGY.md](METHODOLOGY.md) · [REUSE.md](REUSE.md) · [REVIEW-CH
 
 Profil in Audit-YAML setzen: `profile: planning` (o. Ä.).
 
+## Layout-Varianten (firmware)
+
+| Layout | Hinweis |
+|--------|---------|
+| PlatformIO `src/` | Standardpfade in Applications |
+| Arduino `.ino` Monolith | Pfade auf `.ino` + `docs/` ok (siehe [REUSE.md](REUSE.md)) |
+
 ## Gemeinsame Mindest-Parität (alle Profile)
 
 Jedes Projekt unter `projects/<id>/` braucht:

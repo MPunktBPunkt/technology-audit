@@ -13,5 +13,7 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`esp32-ftmsprobe-2026-pilot`](esp32-ftmsprobe-2026-pilot/) | active | lab-tool | Sonde + Method |
 | [`esp32-bt-gateway-2026-planning`](esp32-bt-gateway-2026-planning/) | active | planning | A2DP/AVRCP/PDAP Planung |
 | [`esp32-rfmonitor-2026-pilot`](esp32-rfmonitor-2026-pilot/) | active | firmware | RF-Monitor · **standard_version 0.6.0** |
+| [`esp32-toolnode-2026-pilot`](esp32-toolnode-2026-pilot/) | active | firmware | Modular Node · **0.6.1** Geschwister-RF |
+| [`esp32-metermaster-2026-pilot`](esp32-metermaster-2026-pilot/) | active | firmware | OLED + Triple-HTTP · **0.6.1** |
 
 Geplant: AVRCP-Feldmessung (Pilot 3) sobald Phase −1/Gateway greift.

@@ -10,5 +10,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-ftmsprobe`](esp32-ftmsprobe/) | HTTP-GATT-Sonde | lab-tool | Desk-Pilot + Method |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | A2DP/AVRCP Gateway | **planning** | Planung V2.0+ |
 | [`esp32-rfmonitor`](esp32-rfmonitor/) | WLAN/BLE RF-Monitor | firmware | Desk-Pilot (std 0.6.0) |
+| [`esp32-toolnode`](esp32-toolnode/) | Modular RF/Lab/MQTT Node | firmware | Desk-Pilot (std 0.6.1) |
+| [`esp32-metermaster`](esp32-metermaster/) | OLED Zähler / Triple-HTTP | firmware | Desk-Pilot (std 0.6.1) |
 
 Neues Projekt: [`REUSE.md`](../docs/REUSE.md) · [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md).

@@ -9,6 +9,7 @@ status: active
 reviewed_commit: edaeb19
 profile: firmware
 standard_version: "0.6.0"
+standard_gaps: ["0.6.1 Geschwister-Reuse / G9–G11 / Arduino-Layout — Kampagne vor Regelstand"]
 ```
 
 ## Ziel

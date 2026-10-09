@@ -198,7 +198,7 @@ Sheets dürfen `implementation`/`field_evidence` auf R0 lassen, wenn die Bewertu
 
 ## Assistenz / Prompts
 
-- Reuse bei neuem Projekt: [REUSE.md](REUSE.md)
+- Reuse bei neuem Projekt: [REUSE.md](REUSE.md) (Geschwister-Produkte, Arduino-`.ino`, Match-Spalte `Ziel-Sheet`)
 - Vertrag: [PROMPT-CONTRACT.md](PROMPT-CONTRACT.md)
 - Prüffragen: [REVIEW-CHECKS.md](REVIEW-CHECKS.md)
 - Vorlagen: [`templates/prompts/`](../templates/prompts/)

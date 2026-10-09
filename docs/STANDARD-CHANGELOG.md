@@ -16,6 +16,15 @@ CLI `tools/ta-assist` hat eine **eigene** Semver und ist davon unabhängig.
 
 ## Versionen
 
+### 0.6.1 — 2026-10-09
+
+**Neu:**
+
+- Reuse: **Geschwister-Produkte** (gleicher Slug, kontrastierende Applications)
+- Reuse: Inventar-Match-Tabellen ohne Spaltenname `Slug` (Parser-Kollision)
+- Reuse: Repo-Layout Arduino-`.ino` vs. PlatformIO
+- Sheet-Muster für Modular-Firmware / MQTT / ioBroker Simple-API / OLED (aus toolnode + MeterMaster)
+
 ### 0.6.0 — 2026-10-09
 
 **Neu / Pflicht:**
