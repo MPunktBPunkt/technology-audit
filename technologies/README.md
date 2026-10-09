@@ -5,14 +5,18 @@ Wiederverwendbare Technology Sheets. Ein Ordner pro Slug: `technologies/<slug>/S
 Vorlage: [`templates/technology-sheet.md`](../templates/technology-sheet.md)  
 Regeln: [`docs/DOCUMENT-STANDARD.md`](../docs/DOCUMENT-STANDARD.md) · Taxonomie: [`docs/TAXONOMY.md`](../docs/TAXONOMY.md)
 
-## Index
+## Index (extrahiert)
 
-| Slug | Primary | Status |
-|------|---------|--------|
-| [`usb-msc`](usb-msc/SHEET.md) | C | active (Pilot 1 closed) |
-| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | I | active (Pilot 2) |
+| Slug | Primary | Status | Gesehen in |
+|------|---------|--------|------------|
+| [`usb-msc`](usb-msc/SHEET.md) | C | active (Pilot 1 closed) | [pidrive](../projects/pidrive/) |
+| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | I | active (Pilot 2) | [pidrive](../projects/pidrive/) |
+| [`ble-hrm-gatt`](ble-hrm-gatt/SHEET.md) | C | active | [esp32-heartrate](../projects/esp32-heartrate/) |
+| [`ble-hr-relay`](ble-hr-relay/SHEET.md) | C | active | [esp32-heartrate](../projects/esp32-heartrate/) |
+| [`esp-embedded-web-sse`](esp-embedded-web-sse/SHEET.md) | G | active | [esp32-heartrate](../projects/esp32-heartrate/) |
+| [`esp-hub-telemetry`](esp-hub-telemetry/SHEET.md) | F | active | [esp32-heartrate](../projects/esp32-heartrate/) |
 
-Geplante weitere Slugs (noch ohne Sheet):
+## Geplant (noch ohne Sheet)
 
 | Slug | Primary |
 |------|---------|
@@ -27,4 +31,6 @@ Geplante weitere Slugs (noch ohne Sheet):
 | `fat` | E |
 | `systemd` | F |
 | `mpris2` | G |
-Pilot-Reihenfolge: `usb-msc` → `bmw-nbt-evo` → `avrcp`.
+
+PiDrive-Pilot-Reihenfolge: `usb-msc` → `bmw-nbt-evo` → `avrcp`.  
+Zusätzlich: Bootstrap-Projekt [`esp32-heartrate`](../projects/esp32-heartrate/).

@@ -21,14 +21,17 @@ audits/<kampagne> ──► Inventar + Methoden
 
 ## Einstieg
 
-1. [`docs/DOCUMENT-STANDARD.md`](docs/DOCUMENT-STANDARD.md) — verbindliche Dokumenttypen und Regeln  
-2. [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) — Phasen 0–5  
-3. [`docs/TAXONOMY.md`](docs/TAXONOMY.md) — Kategorien und Tags  
-4. [`docs/PROMPT-CONTRACT.md`](docs/PROMPT-CONTRACT.md) — standardisierte Audit-Prompts (Assistenz, kein Schreib-Bot)  
-5. [`docs/REVIEW-CHECKS.md`](docs/REVIEW-CHECKS.md) — Qualitätsprüfungen pro Dokumenttyp  
-6. [`projects/pidrive/`](projects/pidrive/) — erstes Projekt-Gerüst  
+1. [`technologies/`](technologies/) — **Übersicht extrahierter Technologien**  
+2. [`docs/DOCUMENT-STANDARD.md`](docs/DOCUMENT-STANDARD.md) — verbindliche Dokumenttypen und Regeln  
+3. [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) — Phasen 0–5  
+4. [`docs/TAXONOMY.md`](docs/TAXONOMY.md) — Kategorien und Tags  
+5. [`docs/PROMPT-CONTRACT.md`](docs/PROMPT-CONTRACT.md) — standardisierte Audit-Prompts (Assistenz, kein Schreib-Bot)  
+6. [`docs/REVIEW-CHECKS.md`](docs/REVIEW-CHECKS.md) — Qualitätsprüfungen pro Dokumenttyp  
+7. [`projects/`](projects/) — Projekte (`pidrive`, `esp32-heartrate`, …)  
 
 Vorlagen: [`templates/`](templates/) · Prompt-Vorlagen: [`templates/prompts/`](templates/prompts/) · generierte Aufträge: [`artifacts/prompts/`](artifacts/prompts/).
+
+Fremdrepos werden nur **gelesen** (Scan / Evidence-Links). Wissen und Tools leben hier — nicht im Zielrepo.
 
 ### Assistenz-CLI
 
@@ -47,8 +50,9 @@ Details: [`tools/README.md`](tools/README.md).
 | Version | siehe [`VERSION`](VERSION) |
 | Phase | Pilot 2 — BMW NBT Evo (Host / C); Pilot 1 MSC closed (Schema); Prompt-Contract v1 |
 | Pilot-Reihenfolge | `usb-msc` → `bmw-nbt-evo` → `avrcp` |
-| Erstes Projekt | PiDrive |
-| Assistenz | Prompt-Contract + `tools/ta-assist` (check / prepare) |
+| Projekte | [PiDrive](projects/pidrive/) · [esp32-heartrate](projects/esp32-heartrate/) (Desk-Pilot) |
+| Technologien | siehe [Index](technologies/) |
+| Assistenz | Prompt-Contract + `tools/ta-assist` (check / prepare / bootstrap) |
 
 ## Herkunft
 
