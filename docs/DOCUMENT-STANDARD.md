@@ -196,12 +196,13 @@ Sheets dürfen `implementation`/`field_evidence` auf R0 lassen, wenn die Bewertu
 
 ## Assistenz / Prompts
 
+- Reuse bei neuem Projekt: [REUSE.md](REUSE.md)
 - Vertrag: [PROMPT-CONTRACT.md](PROMPT-CONTRACT.md)
 - Prüffragen: [REVIEW-CHECKS.md](REVIEW-CHECKS.md)
 - Vorlagen: [`templates/prompts/`](../templates/prompts/)
 - Generierte Aufträge: [`artifacts/prompts/`](../artifacts/prompts/)
 
-Assistenz darf Wissensdateien nicht autonom schreiben — nur strukturierte Arbeitsaufträge erzeugen.
+Assistenz darf Wissensdateien nicht autonom schreiben — nur strukturierte Arbeitsaufträge erzeugen. Bootstrap-Prompts müssen den bestehenden Sheet-Katalog einbinden.
 
 ## Externe Quellen
 

@@ -27,6 +27,7 @@ REQUIRED_DOCS = [
     "docs/TAXONOMY.md",
     "docs/PROMPT-CONTRACT.md",
     "docs/REVIEW-CHECKS.md",
+    "docs/REUSE.md",
     "README.md",
     "VERSION",
 ]

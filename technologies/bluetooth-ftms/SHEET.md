@@ -7,12 +7,12 @@ primary: C
 tags: [esp-idf, streaming]
 type: protocol
 status: active
-seen_in: [esp32-ergo]
+seen_in: [esp32-ftmsprobe, esp32-ergo]
 maturity:
   technology: R3
   implementation: R0
   field_evidence: R0
-  reusability: W2
+  reusability: W3
 ```
 
 Nur Ebene **A**. Konkrete Trainer (z. B. Varon) und App-Bridges → Applications / Host-Sheets.
@@ -59,9 +59,19 @@ Capabilities zur Connect-Zeit ableiten — nicht als Firmware-Konstanten „dies
 
 Wiederverwendbar für ESP-Central (Bike) und ESP-Peripheral (App-Bridge). Probe-/Scan-Repos (Capability-Messung) vor Coach-Logik trennen. Host-Quirks (konkretes Bike) nicht still als Spec behandeln.
 
+### Projektstart-Checkliste
+
+- [ ] Method [`ftms-capability-probe`](../../methods/ftms-capability-probe.md) gelesen (oder gleichwertiger Lab-Lauf)
+- [ ] Zur Connect-Zeit: `0x2ACC` / `0x2AD6` / `0x2AD8` / IBD-Flags → Steuerstrategie wählen
+- [ ] Success auf Control Point **nicht** als Wirkungsbeweis behandeln
+- [ ] Host-Quirks (Advertising, Notify-vs-Indicate, fehlende Felder) in Application C / Host-Sheet, nicht hier als Spec
+- [ ] Wenn Resistance-only: Kennfläche/Emulation planen — kein stilles Hardcode „alle Bikes können ERG“
+- [ ] `seen_in` + Application nachziehen
+
 ## Referenzen
 
 - Bluetooth Fitness Machine Service / Indoor Bike Profile (SIG)
+- Method: [`ftms-capability-probe`](../../methods/ftms-capability-probe.md)
 - Projektmessungen als Evidence in Ursprungsrepos (nicht hier roh spiegeln)
 
 ## Offene Fragen

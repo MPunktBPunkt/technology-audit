@@ -7,7 +7,7 @@ primary: C
 tags: [esp-idf, streaming]
 type: protocol
 status: active
-seen_in: [esp32-heartrate, esp32-ergo]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe]
 maturity:
   technology: R3
   implementation: R0
@@ -55,6 +55,13 @@ Bluetooth LE Heart Rate Service (`0x180D`) mit Characteristic Heart Rate Measure
 ## Transfer
 
 Geeignet für ESP-/NimBLE-Gateways und Trainings-Nodes. Voraussetzung: Central-Rolle, Heap für Scan+Connection, klare Trennung Parser vs. UI. Bei Multi-Consumer: Sheet `ble-hr-relay` mitdenken.
+
+### Projektstart-Checkliste
+
+- [ ] Variante wählen: Direct / Relay / FTMS-IBD-HR (siehe Varianten-Tabelle)
+- [ ] Single-link-Gurte einplanen (kein stilles Multi-Central)
+- [ ] RR-Einheiten 1/1024 s; Contact-Bit nicht voraussetzen
+- [ ] Application + `seen_in` nachziehen
 
 ## Referenzen
 

@@ -7,12 +7,12 @@ primary: I
 tags: [field-verified]
 type: technology
 status: active
-seen_in: [esp32-ergo]
+seen_in: [esp32-ftmsprobe, esp32-ergo]
 maturity:
   technology: R3
   implementation: R0
   field_evidence: R0
-  reusability: W1
+  reusability: W2
 ```
 
 Ebene **A nur soweit geräteklasse-übergreifend nutzbar**; die meisten Aussagen sind **gerätetypisch** und gehören primär in die Project Application / Evidence. Dieses Sheet hält die verdichteten, wiederkehrenden Quirks des Varon-Profils, damit sie nicht in `bluetooth-ftms` als Spec wandern.

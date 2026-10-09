@@ -7,7 +7,7 @@ primary: F
 tags: [esp-idf]
 type: pattern
 status: active
-seen_in: [esp32-heartrate, esp32-ergo]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe]
 maturity:
   technology: R3
   implementation: R0
@@ -44,6 +44,14 @@ LAN-Hub-Muster: Nodes senden periodische HTTP-Heartbeats (`fwType`, Metriken, St
 ## Transfer
 
 Wiederkehrendes Muster in ESP-Node-Familien. Voraussetzung: stabile Hub-URL im LAN, dokumentierte IO-Keys **pro** `fwType`. Client-Code oft ähnlich; Payload-Builder projektspezifisch (Application B).
+
+### Projektstart-Checkliste
+
+- [ ] `fwType` festlegen (nicht hören/ergo/probe vermischen)
+- [ ] Heartbeat-Payload-Keys dokumentieren (Application)
+- [ ] OTA-Pfad: direkt vs. Hub; Verhalten bei offenen BLE-Links klären
+- [ ] NVS-Namespace-Kompatibilität zu Geschwister-Nodes prüfen
+- [ ] Application + `seen_in` nachziehen
 
 ## Referenzen
 

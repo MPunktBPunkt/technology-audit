@@ -14,6 +14,8 @@ Nicht linear erzwingen: Rücksprünge sind normal (neue Signale aus der Historie
 
 **Ziel:** Herausfinden, was überhaupt existiert — noch keine Bewertung.
 
+**Zuerst:** bestehende Wissensbasis konsultieren — [`docs/REUSE.md`](REUSE.md) und [`technologies/README.md`](../technologies/README.md). Signale gegen bekannte Slugs matchen, bevor neue Sheets vorgeschlagen werden.
+
 Untersuchungsbereiche:
 
 - Quellcode (Python, C/C++, Shell, JS, …)
@@ -33,7 +35,7 @@ Drei Zustände unterscheiden:
 | Historisch relevant | Frühere Implementierung mit bleibender Erkenntnis |
 | Verworfen | Bewusst aufgegebener Weg (kurz notieren, warum) |
 
-**Artefakt:** Rohnotizen / Arbeitsliste (noch kein formalisiertes Inventar nötig). Optional: Coverage-Skizze, welche Bäume angefasst wurden.
+**Artefakt:** Rohnotizen / Arbeitsliste (noch kein formalisiertes Inventar nötig). Optional: Coverage-Skizze, welche Bäume angefasst wurden. Plus: Liste „Signal → bestehender Slug | neuer Slug-Kandidat“.
 
 ## Phase 1 — Inventar
 

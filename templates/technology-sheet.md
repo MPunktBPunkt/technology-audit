@@ -43,6 +43,14 @@ Nur Ebene **A** (allgemein). Projekt- und Host-Details gehören in die Project A
 
 Wann und wie lässt sich dieses Wissen in ein anderes Projekt übernehmen?
 
+### Projektstart-Checkliste
+
+- [ ] Sheet gelesen (Abgrenzung + Fallstricke)
+- [ ] Entscheiden: bestehender Slug wiederverwenden vs. neuer Slug (Begründung)
+- [ ] Application anlegen; nur B/C hier, kein A-Copy-Paste
+- [ ] `seen_in` im Sheet ergänzen, wenn Application steht
+- [ ] Offene Fragen aus dem Sheet, die dieses Projekt klären kann, notieren
+
 ## Referenzen
 
 - Specs / Docs / RFCs

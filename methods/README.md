@@ -6,7 +6,11 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 
 ## Index
 
-Noch keine Method Notes. Kandidaten aus PiDrive-Arbeit:
+| Slug | Thema | Status |
+|------|--------|--------|
+| [`ftms-capability-probe`](ftms-capability-probe.md) | FTMS Caps/Wirkung vor Coach-Firmware | active |
+
+## Kandidaten (noch ohne Note)
 
 | Slug | Thema |
 |------|--------|
