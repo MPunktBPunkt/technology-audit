@@ -12,5 +12,6 @@ ID-Schema: `<project>-<YYYY>` oder `<project>-<YYYY>-<kurzname>`.
 | [`pidrive-2026-msc`](pidrive-2026-msc/) | closed | Pilot 1 — USB-MSC Schema-Validation |
 | [`pidrive-2026-bmw-hu`](pidrive-2026-bmw-hu/) | active | Pilot 2 — BMW NBT Evo (Host / C) |
 | [`esp32-heartrate-2026-pilot`](esp32-heartrate-2026-pilot/) | active | Bootstrap — esp32.heartrate Desk-Audit |
+| [`esp32-ergo-2026-pilot`](esp32-ergo-2026-pilot/) | active | Bootstrap — esp32.ergo + Sheet-Wachstum |
 
 Geplant: AVRCP-Kampagne (Pilot 3, PiDrive).

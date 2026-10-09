@@ -50,8 +50,8 @@ Details: [`tools/README.md`](tools/README.md).
 | Version | siehe [`VERSION`](VERSION) |
 | Phase | Pilot 2 — BMW NBT Evo (Host / C); Pilot 1 MSC closed (Schema); Prompt-Contract v1 |
 | Pilot-Reihenfolge | `usb-msc` → `bmw-nbt-evo` → `avrcp` |
-| Projekte | [PiDrive](projects/pidrive/) · [esp32-heartrate](projects/esp32-heartrate/) (Desk-Pilot) |
-| Technologien | siehe [Index](technologies/) |
+| Projekte | [PiDrive](projects/pidrive/) · [esp32-heartrate](projects/esp32-heartrate/) · [esp32-ergo](projects/esp32-ergo/) |
+| Technologien | siehe [Index](technologies/) (Wachstum bei Wiederbegegnung) |
 | Assistenz | Prompt-Contract + `tools/ta-assist` (check / prepare / bootstrap) |
 
 ## Herkunft

@@ -7,12 +7,12 @@ primary: C
 tags: [esp-idf, streaming]
 type: pattern
 status: active
-seen_in: [esp32-heartrate]
+seen_in: [esp32-heartrate, esp32-ergo]
 maturity:
-  technology: R2
+  technology: R3
   implementation: R0
   field_evidence: R0
-  reusability: W2
+  reusability: W3
 ```
 
 ## Kurzfassung
@@ -22,13 +22,13 @@ Muster: ein Gerät empfängt HR/RR als BLE Central und bietet denselben Heart Ra
 ## Abgrenzung
 
 - **Ist:** Protokoll-Brücke / GATT-Server-Spiegelung für `0x180D`/`0x2A37`.
-- **Ist nicht:** proprietäre Fitness-Cloud; Ersatz für Multi-Connect im Sensor selbst.
+- **Ist nicht:** FTMS-Bridge (Indoor Bike ↔ App); proprietäre Fitness-Cloud; Ersatz für Multi-Connect im Sensor selbst.
 
 ## Schnittstellen und Abhängigkeiten
 
 | Richtung | Schnittstelle | Bemerkung |
 |----------|---------------|-----------|
-| oben | Consumer (Phone, Bike Computer) | NOTIFY auf `0x2A37` |
+| oben | Consumer (Phone, Bike Computer, Trainings-Node) | NOTIFY auf `0x2A37` |
 | unten | Quell-Central / Parser | Rohbytes oder normalisierte HR/RR |
 | lateral | Connection-Budget des Controllers | Central + N Peripheral-Links |
 
@@ -39,10 +39,11 @@ Muster: ein Gerät empfängt HR/RR als BLE Central und bietet denselben Heart Ra
 | Advertising bleibt nach erstem Peripheral-Connect automatisch connectable | `HYPOTHESIS` | Stack-abhängig; oft expliziter Restart nötig |
 | Notify aus dem BLE-Callback ist immer sicher | `REJECTED` | Besser Einspeisung aus App-Loop (Reentrancy/Heap) |
 | Beliebig viele Relay-Clients | `REJECTED` | Controller-`MAX_CONNECTIONS` begrenzt |
+| Relay muss imselben Firmware-Binary stecken wie der Consumer | `REJECTED` | Kann eigenständiger Node sein; Consumer sieht normales `0x180D` |
 
 ## Transfer
 
-Nützlich wenn Sensoren single-link sind und mehrere Apps gleichzeitig Puls brauchen. Vermeiden auf Chips ohne genug Connections/RAM.
+Nützlich wenn Sensoren single-link sind und mehrere Apps/Nodes gleichzeitig Puls brauchen (z. B. Trainer-App + Coach-Node). Vermeiden auf Chips ohne genug Connections/RAM.
 
 ## Referenzen
 

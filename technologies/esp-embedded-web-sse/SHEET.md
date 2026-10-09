@@ -7,17 +7,17 @@ primary: G
 tags: [streaming]
 type: pattern
 status: active
-seen_in: [esp32-heartrate]
+seen_in: [esp32-heartrate, esp32-ergo]
 maturity:
   technology: R3
   implementation: R0
   field_evidence: R0
-  reusability: W2
+  reusability: W3
 ```
 
 ## Kurzfassung
 
-On-device HTTP-Server mit REST für Steuerung/Config und Server-Sent Events für Live-Metriken — UI oft als eingebettete statische Seiten in der Firmware, ohne separates Frontend-Repo.
+On-device HTTP-Server mit REST für Steuerung/Config und Server-Sent Events für Live-Metriken — UI oft als eingebettete oder gepackte statische Seiten in der Firmware, ohne separates Frontend-Deploy.
 
 ## Abgrenzung
 
@@ -29,8 +29,9 @@ On-device HTTP-Server mit REST für Steuerung/Config und Server-Sent Events für
 | Richtung | Schnittstelle | Bemerkung |
 |----------|---------------|-----------|
 | oben | Browser | REST + `text/event-stream` |
-| unten | App-State / Sensorik | Status, History, Commands |
+| unten | App-State / Sensorik / Regelung | Status, History, Commands |
 | lateral | WiFi STA/AP | Captive-Portal oft separat |
+| lateral | Build-Pipeline | optional UI-Pack-Script → Flash-Budget |
 
 ## Typische Fallstricke
 
@@ -39,10 +40,11 @@ On-device HTTP-Server mit REST für Steuerung/Config und Server-Sent Events für
 | SSE allein reicht ohne Polling-Fallback | `HYPOTHESIS` | Single-client HTTP auf ESP kann SSE stallen |
 | Eingebettete UI skaliert wie ein SPA-Build | `REJECTED` | Speicher/Flash-Budget dominiert |
 | REST-Mutationen brauchen keinen sofortigen Telemetry-Push | `HYPOTHESIS` | UX oft besser mit sofortigem Heartbeat/Event |
+| Eine UI-Rolle reicht immer | `REJECTED` | Trainings-Nodes brauchen oft Ride- vs. Setup-/Debug-Flächen |
 
 ## Transfer
 
-Muster für ESP-Nodes mit Erstsetup und Live-Charts. Voraussetzung: stabiles WiFi oder SoftAP; klare API-Tabelle.
+Muster für ESP-Nodes mit Erstsetup und Live-Charts/Ride-UI. Voraussetzung: stabiles WiFi oder SoftAP; klare API-Tabelle; bei großen UIs Pack-Schritt und Partition mitdenken.
 
 ## Referenzen
 

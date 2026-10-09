@@ -64,6 +64,8 @@ Regeln:
 
 Priorisierung: Technologien mit hohem Transferwert oder hohem Projektrisiko zuerst (bei PiDrive z. B. USB-MSC, AVRCP, DAB+-Pipeline).
 
+**Wiederbegegnung:** Existiert der Slug schon, Sheet **erweitern** (nicht forken) — siehe [Wissenswachstum](DOCUMENT-STANDARD.md#wissenswachstum-wiederbegegnung-mit-bekannter-tech). Projektunterschiede → Phase 4.
+
 **Artefakt:** Sheets nach [`templates/technology-sheet.md`](../templates/technology-sheet.md). Inventar-Status → `documented`.
 
 ## Phase 4 — Project Applications

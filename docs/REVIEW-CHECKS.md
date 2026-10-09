@@ -113,6 +113,18 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) · [PROMPT-CONTRACT.md](P
 | R3 | Technology-Sheet `implementation`/`field_evidence` oft R0, wenn Details in Application liegen — das ist ok | info |
 | R4 | Coverage `full` bei offenen kritischen Fragen / fehlender Evidence ⇒ eher `partial` | warning |
 
+---
+
+## Wissenswachstum (übergreifend)
+
+| # | Check | Stufe |
+|---|-------|-------|
+| G1 | Bekannte Tech erneut getroffen ⇒ kein paralleles Sheet mit Suffix (`-ergo`, `-v2`, Projektname) | error |
+| G2 | Zweites Projekt mit Application ⇒ Sheet `seen_in` enthält beide Projekt-IDs | warning |
+| G3 | A-Claims aus dem neuen Projekt sind generalisierbar (sonst nur Application B/C) | warning |
+| G4 | `REJECTED`-Zeilen bleiben erhalten; kein stilles Löschen widerlegter Claims | warning |
+| G5 | `reusability` ≥ W3 nur wenn ≥2 `seen_in` mit belastbarer Application **oder** Transfer belegt | warning |
+
 Siehe Beispiele in [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md#reifegrade-beispiele).
 
 ---

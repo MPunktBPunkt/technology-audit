@@ -101,6 +101,30 @@ Slugs ändern sich selten. Umbenennung = Redirect-Hinweis in alter Datei oder In
 3. Audit verlinkt auf Inventar-Zeilen und genutzte Methoden.
 4. Keine zyklischen Detailkopien: eine Faktenquelle pro Aspekt.
 
+## Wissenswachstum (Wiederbegegnung mit bekannter Tech)
+
+Wissen darf **nur wachsen**, nie still überschrieben oder projektweise verdoppelt werden.
+
+| Situation | Tun | Nicht tun |
+|-----------|-----|-----------|
+| Dieselbe Tech, zweites Projekt | Bestehendes Sheet (Slug) behalten; `seen_in` erweitern; nur **neue Ebene-A-Fakten** ergänzen | Neues Sheet `…-ergo` / `…-v2` anlegen |
+| Andere Implementierung derselben Tech | Neue **Project Application** (B); Varianten im Sheet unter Fallstricke/Transfer als Alternativen | Sheet in „unseren Code-Pfad“ umschreiben |
+| Anderes Host-/Geräteverhalten | Ebene **C** in Application oder eigenes Host-Sheet (wie `bmw-nbt-evo`); Evidence-IDs | C-Claims als allgemeines Spec-Wissen ins Sheet schieben |
+| Früherer Irrtum | Claim behalten, Status → `REJECTED` (+ kurzer Hinweis) | Zeile löschen |
+| Spec bestätigt / widerlegt | Epistemic-Status und Reifegrade anheben (`R*`, `W*`) | Maturity „schönrechnen“ ohne Evidence |
+
+**Slug-Stabilität:** Ein Slug = eine Technologie. Ähnlichkeit allein reicht nicht für Merge — wenn Primary + Abgrenzung klar auseinanderfallen, neuer Slug; sonst bestehendes Sheet pflegen.
+
+**Reusability:** `W2` = in einem Projekt beschrieben; erst ab **zweitem** unabhängigen `seen_in` mit Application typischerweise `W3` prüfen. Feld/Lab multi-host → `W4`/`W5` nach [Reifegrade](#reifegrade).
+
+**Audit-Checkliste bei Treffer auf bestehenden Slug:**
+
+1. Inventar: Status mindestens `observed`; Sheet-Link auf **bestehenden** Pfad.
+2. Sheet: A-Delta (Fallstricke, Transfer, Referenzen) — oder bewusst „kein A-Delta“.
+3. Application: nur B/C für *dieses* Projekt.
+4. Evidence: neue IDs; Querverweis auf ältere Kampagne erlaubt.
+5. `seen_in` + Indexes (`technologies/README.md`) aktualisieren.
+
 ## Wissens-Ebenen (A / B / C)
 
 Jede Aussage in Sheets und Applications gehört in genau eine Ebene:
