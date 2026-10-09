@@ -16,6 +16,15 @@ CLI `tools/ta-assist` hat eine **eigene** Semver und ist davon unabhängig.
 
 ## Versionen
 
+### 0.6.3 — 2026-10-09
+
+**Neu:**
+
+- **Sprache/Stack ist Application-B**, nicht Sheet-A: gleicher Contract (C++/Arduino und Node.js) → gleicher Slug wo Abgrenzung passt
+- Profil **`adapter`** für ioBroker-/Dienst-Repos
+- Navigations-Einstieg [`PROJECT-START.md`](PROJECT-START.md) + Familienkarte
+- Sheets: `iobroker-esp-hub-adapter`, `esp-hub-base-template`; Hub-Contract A geschärft (Server+Client)
+
 ### 0.6.2 — 2026-10-09
 
 **Neu:**

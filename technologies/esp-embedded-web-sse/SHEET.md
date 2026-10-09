@@ -7,7 +7,7 @@ primary: G
 tags: [streaming]
 type: pattern
 status: active
-seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-rfmonitor, esp32-toolnode, esp32-io-control, esp32-communicator, esp32-network]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-rfmonitor, esp32-toolnode, esp32-io-control, esp32-communicator, esp32-network, esp32-esp-hub]
 maturity:
   technology: R3
   implementation: R0

@@ -4,6 +4,14 @@ Wie man bei einem **neuen** Projekt auf bestehendes Wissen zurückgreift — ohn
 
 Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) (Wissenswachstum) · [METHODOLOGY.md](METHODOLOGY.md) · [technologies/](../technologies/) · Assistenz: `tools/ta-assist prepare bootstrap <url>`
 
+## Sprache / Stack
+
+Die **Programmiersprache spielt auf Ebene A keine Rolle.** Sheets beschreiben Contracts und Fallstricke. C++/Arduino-Firmware und ein Node.js-Adapter können denselben Slug teilen, wenn die Abgrenzung gleich ist (Beispiel: Hub-HTTP). Sprache, Build und Dateipfade gehören in die **Application (B)**.
+
+Secondary-Tags: `esp-idf`, `arduino`, `nodejs`, `iobroker`, `typescript` — keine Slug-Suffixe `-js` / `-cpp`.
+
+Ausführlicher Einstieg für Neuprojekte: [`PROJECT-START.md`](PROJECT-START.md) · Familien: [`FAMILIES.md`](FAMILIES.md).
+
 ## Einstieg in 5 Schritten
 
 0. **Profil** — [`AUDIT-PROFILES.md`](AUDIT-PROFILES.md): Firmware, Lab-Tool, **Planung** oder Ops/Feld? Exit-Tiefe danach bemessen.

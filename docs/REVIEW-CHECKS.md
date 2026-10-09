@@ -136,6 +136,8 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) · [PROMPT-CONTRACT.md](P
 | G12 | RF-Scan / LAN-Scan / ESP-NOW nicht in denselben Slug pressen | error |
 | G13 | Hub ohne `fwType` aber mit `/api/register` → trotzdem `esp-hub-telemetry` + App-Hinweis | warning |
 | G14 | Browser-HTML5-Audio-Host nicht als `bluetooth-a2dp` / PipeWire-Webradio matchen | error |
+| G15 | Stack-Wechsel (C++↔JS) allein kein neues Sheet — nur wenn Abgrenzung/Primary anders | error |
+| G16 | Adapter-Profil: Contract-Sheet mit Node-Clients teilen; Admin/USB/Compile = Adapter-Sheet oder Application | warning |
 
 Siehe Beispiele in [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md#reifegrade-beispiele) · Profile: [AUDIT-PROFILES.md](AUDIT-PROFILES.md).
 

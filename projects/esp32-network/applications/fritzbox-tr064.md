@@ -23,3 +23,7 @@ Hostliste mergen; HTTPS :49443 (FritzOS ≥7.50); Digest-Auth.
 |-------|-------------|--------|
 | TR-064 HTTPS 49443 | `EVID-FB-2026-10-09-001` | `FACT` |
 | Legacy 49000 oft tot | `EVID-FB-2026-10-09-002` | `FACT` (.ino Changelog) |
+
+## Verwandte
+
+- Remote/VPN-TR-064: [`iobroker-fritzwireguard` App](../../iobroker-fritzwireguard/applications/fritzbox-tr064.md)

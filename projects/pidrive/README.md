@@ -13,4 +13,5 @@ Erstes Audit-Zielprojekt. Raspberry-Pi-/ESP32-Infotainment mit BMW-iDrive-Anbind
 
 **Pilot-Reihenfolge:** `usb-msc` → `bmw-nbt-evo` → `avrcp` (siehe Methodik).
 
-Ursprungsrepos: `MPunktBPunkt/pidrive`, `MPunktBPunkt/esp32.pidrive` (und verwandte ESP-/BT-Arbeiten).
+Ursprungsrepos: `MPunktBPunkt/pidrive`, `MPunktBPunkt/esp32.pidrive` (und verwandte ESP-/BT-Arbeiten).  
+Firmware-Desk von `esp32.pidrive`: [`esp32-pidrive`](../esp32-pidrive/) · Audit [`esp32-pidrive-2026-pilot`](../../audits/esp32-pidrive-2026-pilot/).
