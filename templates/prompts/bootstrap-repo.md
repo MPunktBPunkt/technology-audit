@@ -23,10 +23,12 @@ Erzeuge einen belastbaren Startplan und Entwürfe für `SCOPE.md` und `INVENTORY
 
 - Dokumentenstandard: `docs/DOCUMENT-STANDARD.md`
 - Methodik: `docs/METHODOLOGY.md`
+- Reuse-Playbook: `docs/REUSE.md`
 - Taxonomie: `docs/TAXONOMY.md`
 - Prompt-Contract: `docs/PROMPT-CONTRACT.md`
 - Review-Checks: `docs/REVIEW-CHECKS.md`
 - Vorlagen: `templates/project-scope.md`, `templates/project-inventory.md`
+- Bestehende Sheets: `technologies/README.md`
 
 ## Repo-Befund (Scanner)
 
@@ -39,14 +41,20 @@ Datum: `{{today}}`
 
 (Nur Datei-/Strukturhinweise und explizit sichtbare Technologie-Signale. Keine Spekulation als Fakt.)
 
+## Bereits in der Wissensbasis
+
+```text
+{{existing_sheets}}
+```
+
 ## Aufgabe
 
 1. Schlage eine kurze `project_id` (kebab-case) vor, falls `{{suggested_project_id}}` unpassend ist.
 2. Skizziere Scope: Systeme, Grenzen, Nicht-Ziele, Ursprungsrepo-Links.
-3. Liste Technologie-**Kandidaten** (Slug, Name, vermutete Primary, Tags, Status `candidate` oder `observed` nur wenn im Code/README bestätigt).
+3. Liste Technologie-**Kandidaten** und **ordne jeden** einem bestehenden Sheet-Slug zu **oder** markiere „neu“ mit Abgrenzungsgrund (siehe `docs/REUSE.md`). Keine Forks (`…-v2`, Projektname im Slug).
 4. Trenne klar: was wäre Ebene A (allgemein) vs. B (dieses Projekt) vs. C (Host/Gerät/Feld), ohne Inhalte auszufüllen, die du nicht belegen kannst.
-5. Nenne die nächsten 3 Audit-Schritte nach Phase 0–1 der Methodik.
-6. Erzeuge **keine** fertigen Technology Sheets, außer als leere Pfadvorschläge.
+5. Nenne die nächsten 3 Audit-Schritte nach Phase 0–1 der Methodik (inkl. welche bestehenden Sheets zuerst gelesen werden).
+6. Erzeuge **keine** fertigen Technology Sheets, außer als leere Pfadvorschläge für wirklich neue Slugs.
 
 ## Regeln
 
@@ -54,15 +62,17 @@ Datum: `{{today}}`
 - Status nicht höher als `observed`, wenn nur Signale im Repo sichtbar sind.
 - Spec-Wissen nicht aus dem Gedächtnis als `FACT` behaupten — als offene Referenz markieren.
 - A/B/C nicht vermischen.
+- Bekannte Tech → bestehendes Sheet wachsen lassen; Unterschiede nur in Applications.
 
 ## Outputformat
 
 1. Kurzbefund (5–10 Zeilen)
-2. Entwurf `projects/<id>/SCOPE.md` (an Vorlage)
-3. Entwurf `projects/<id>/INVENTORY.md` (Tabelle, Coverage meist `none`)
-4. Liste vorgeschlagener Sheet-Pfade `technologies/<slug>/SHEET.md` (noch nicht anlegen müssen)
-5. Offene Fragen / Risiken
-6. Empfohlener nächster Prompt-Typ (`new-tech-sheet` oder `pilot-prep`)
+2. Match-Tabelle: Signal → bestehender Slug | neu (Begründung)
+3. Entwurf `projects/<id>/SCOPE.md` (an Vorlage)
+4. Entwurf `projects/<id>/INVENTORY.md` (Tabelle; Sheet-Spalte auf bestehende Pfade zeigen wo match)
+5. Liste nur *neuer* Sheet-Pfade `technologies/<slug>/SHEET.md`
+6. Offene Fragen / Risiken
+7. Empfohlener nächster Prompt-Typ (`new-application` für Matches, `new-tech-sheet` nur für neue Slugs, oder `pilot-prep`)
 
 ## Review-Checkliste
 

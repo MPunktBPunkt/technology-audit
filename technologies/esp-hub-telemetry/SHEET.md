@@ -7,12 +7,12 @@ primary: F
 tags: [esp-idf]
 type: pattern
 status: active
-seen_in: [esp32-heartrate]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway, esp32-rfmonitor, esp32-toolnode, esp32-metermaster, esp32-webradio, esp32-io-control, esp32-communicator, esp32-network]
 maturity:
-  technology: R2
+  technology: R3
   implementation: R0
   field_evidence: R0
-  reusability: W2
+  reusability: W3
 ```
 
 ## Kurzfassung
@@ -29,8 +29,8 @@ LAN-Hub-Muster: Nodes senden periodische HTTP-Heartbeats (`fwType`, Metriken, St
 | Richtung | Schnittstelle | Bemerkung |
 |----------|---------------|-----------|
 | oben | Hub HTTP API | Heartbeat, session-export, OTA-URL |
-| unten | Config / Sensor-State | fwType, live metrics, relay flags |
-| lateral | Web-UI Config | Host/Port, sofortiger Heartbeat nach Save |
+| unten | Config / Sensor-State | `fwType`, live metrics, node-spezifische IO-Keys |
+| lateral | Web-UI Config | Host/Port, oft sofortiger Heartbeat nach Save |
 
 ## Typische Fallstricke
 
@@ -39,10 +39,28 @@ LAN-Hub-Muster: Nodes senden periodische HTTP-Heartbeats (`fwType`, Metriken, St
 | Hub ist immer erreichbar | `REJECTED` | Nodes brauchen lastOk/Backoff |
 | Config-Änderungen dürfen bis zum nächsten Intervall warten | `HYPOTHESIS` | Oft schlechte UX; besser send-now |
 | OTA aus Heartbeat-Response ist spezifiziert überall gleich | `UNKNOWN` | Projekt-/Hub-Version prüfen |
+| Ein `fwType` reicht für alle Nodes | `REJECTED` | Pro Node-Familie eigener Typ (`heartrate`, `ergo`, …) und IO-Schema |
+| Hub-Anbindung erfordert Arduino-`esp-hub-base` | `REJECTED` | Contract ist HTTP; IDF-/dünner Client reicht (Register, otaUrl-Pull, `ios`) |
+| OTA-URL im Heartbeat ist dauerhaft gültig | `REJECTED` | typisch einmalig konsumiert — sofort persistieren |
+| Hub-OTA funktioniert immer im Feld (Auto) | `REJECTED` | oft nur Heim-WLAN; lokaler Upload/Depot als Stufe 2 |
+| Produkt-Adapter-Register = ESP-Hub-Heartbeat | `REJECTED` | oft getrennte Ports/Contracts (z. B. MeterMaster 8089 vs. Hub 8093); Hub nur Dashboard-Sichtbarkeit |
+| Simple-API ersetzt `/api/register` | `REJECTED` | Simple-API liest States; Register legt nodes.* erst an (Henne-Ei) |
+| Jeder Hub-Node sendet `fwType` | `REJECTED` | Arduino-Monolith-Familie oft nur `name`/`hwType`/`mac`/`ios` — Hub erkennt über MAC/Name |
+| Fehlendes `fwType` = kein Hub-Muster | `REJECTED` | Contract ist HTTP Register + ios; Identity-Felder variieren |
 
 ## Transfer
 
-Wiederkehrendes Muster in ESP-Node-Familien. Voraussetzung: stabile Hub-URL im LAN, dokumentierte IO-Keys.
+Wiederkehrendes Muster in ESP-Node-Familien. Voraussetzung: stabile Hub-URL im LAN, dokumentierte IO-Keys **pro** `fwType`. Client-Code oft ähnlich; Payload-Builder projektspezifisch (Application B). Stack (Arduino vs. ESP-IDF) ist austauschbar solange der **HTTP-Contract** stimmt.
+
+### Projektstart-Checkliste
+
+- [ ] Identity: `fwType` **oder** dokumentiertes `name`/`hwType`-Schema
+- [ ] Heartbeat-Payload-Keys dokumentieren (Application)
+- [ ] Zweiter Produkt-Adapter? Ports/Contracts trennen (Hub ≠ Simple-API ≠ Adapter)
+- [ ] OTA: Hub-Pull (einmalige URL) vs. lokaler Upload; Auto ohne Hub-Route bedenken
+- [ ] USB-Flash-Erwartungen (merged image / Adresse) mit Hub-UI abgleichen
+- [ ] NVS-Namespace-Kompatibilität zu Geschwister-Nodes prüfen
+- [ ] Application + `seen_in` nachziehen
 
 ## Referenzen
 
@@ -51,5 +69,5 @@ Wiederkehrendes Muster in ESP-Node-Familien. Voraussetzung: stabile Hub-URL im L
 
 ## Offene Fragen
 
-- Einheitliches Schema der IO-Keys über Node-Typen?
+- Einheitliches Meta-Schema der IO-Keys über Node-Typen?
 - Authentifizierung/Trust im LAN?

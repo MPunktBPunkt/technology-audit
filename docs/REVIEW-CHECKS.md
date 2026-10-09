@@ -78,6 +78,9 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) · [PROMPT-CONTRACT.md](P
 | C4 | Artefakte (Sheet/Application/Evidence) verlinkt | warning |
 | C5 | Lessons Learned bei `closed` vorhanden | warning |
 | C6 | Offene Punkte / Transfer nach Abschluss | info |
+| C7 | YAML `standard_version` gesetzt (Semver) | error |
+| C8 | `standard_version` &lt; aktuelle [`VERSION`](../VERSION) ohne `standard_gaps` → warning (Lag sichtbar machen) | warning |
+| C9 | YAML `profile` gesetzt | warning |
 
 ---
 
@@ -113,7 +116,39 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) · [PROMPT-CONTRACT.md](P
 | R3 | Technology-Sheet `implementation`/`field_evidence` oft R0, wenn Details in Application liegen — das ist ok | info |
 | R4 | Coverage `full` bei offenen kritischen Fragen / fehlender Evidence ⇒ eher `partial` | warning |
 
-Siehe Beispiele in [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md#reifegrade-beispiele).
+---
+
+## Wissenswachstum (übergreifend)
+
+| # | Check | Stufe |
+|---|-------|-------|
+| G1 | Bekannte Tech erneut getroffen ⇒ kein paralleles Sheet mit Suffix (`-ergo`, `-v2`, Projektname) | error |
+| G2 | Zweites Projekt mit Application ⇒ Sheet `seen_in` enthält beide Projekt-IDs | warning |
+| G3 | A-Claims aus dem neuen Projekt sind generalisierbar (sonst nur Application B/C) | warning |
+| G4 | `REJECTED`-Zeilen bleiben erhalten; kein stilles Löschen widerlegter Claims | warning |
+| G5 | `reusability` ≥ W3 nur wenn ≥2 `seen_in` mit belastbarer Application **oder** Transfer belegt | warning |
+| G6 | Active Sheet ohne Projektstart-Checkliste | warning |
+| G7 | Projekt-Inventar ohne Reuse-/Match-Hinweis (bei ≥1 existierendem Sheet im Repo) | warning |
+| G8 | Audit ohne `profile` in YAML wenn Kampagne nach 2026-10-09 | info |
+| G9 | Geschwister-Produkt (gleicher Primary, anderer Zuschnitt) ⇒ gleicher Slug + kontrastierende Apps, kein Suffix-Fork | error |
+| G10 | Inventar-Match-Tabelle: Spalte nicht `Slug` nennen (Parser) — `Ziel-Sheet` o. Ä. | warning |
+| G11 | Arduino-`.ino`-Monolith: Application-Pfade auf `.ino`/`docs/` ok; kein erzwungenes `src/` | info |
+| G12 | RF-Scan / LAN-Scan / ESP-NOW nicht in denselben Slug pressen | error |
+| G13 | Hub ohne `fwType` aber mit `/api/register` → trotzdem `esp-hub-telemetry` + App-Hinweis | warning |
+| G14 | Browser-HTML5-Audio-Host nicht als `bluetooth-a2dp` / PipeWire-Webradio matchen | error |
+
+Siehe Beispiele in [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md#reifegrade-beispiele) · Profile: [AUDIT-PROFILES.md](AUDIT-PROFILES.md).
+
+---
+
+## Planning-Profile (`profile: planning`)
+
+| # | Check | Stufe |
+|---|-------|-------|
+| PL1 | Status der Inventarzeilen ≤ `documented` solange keine FW-Evidence (außer Sheet aus Spec) | warning |
+| PL2 | Keine `MEASURED`-Evidence ohne verlinktes Artefakt | error |
+| PL3 | Offene Architekturentscheidungen (`UNKNOWN`/Exit) explizit | warning |
+| PL4 | Transfer zu Nachbarprojekten (z. B. pidrive) verlinkt | info |
 
 ---
 

@@ -22,12 +22,14 @@ audits/<kampagne> ──► Inventar + Methoden
 ## Einstieg
 
 1. [`technologies/`](technologies/) — **Übersicht extrahierter Technologien**  
-2. [`docs/DOCUMENT-STANDARD.md`](docs/DOCUMENT-STANDARD.md) — verbindliche Dokumenttypen und Regeln  
-3. [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) — Phasen 0–5  
-4. [`docs/TAXONOMY.md`](docs/TAXONOMY.md) — Kategorien und Tags  
-5. [`docs/PROMPT-CONTRACT.md`](docs/PROMPT-CONTRACT.md) — standardisierte Audit-Prompts (Assistenz, kein Schreib-Bot)  
-6. [`docs/REVIEW-CHECKS.md`](docs/REVIEW-CHECKS.md) — Qualitätsprüfungen pro Dokumenttyp  
-7. [`projects/`](projects/) — Projekte (`pidrive`, `esp32-heartrate`, …)  
+2. [`docs/REUSE.md`](docs/REUSE.md) — **Wissensbasis bei neuem Projekt nutzen**  
+3. [`docs/AUDIT-PROFILES.md`](docs/AUDIT-PROFILES.md) — Firmware / Lab / **Planung** / Ops  
+4. [`docs/DOCUMENT-STANDARD.md`](docs/DOCUMENT-STANDARD.md) — verbindliche Dokumenttypen und Regeln  
+5. [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) — Phasen 0–5  
+6. [`docs/TAXONOMY.md`](docs/TAXONOMY.md) — Kategorien und Tags  
+7. [`docs/PROMPT-CONTRACT.md`](docs/PROMPT-CONTRACT.md) — standardisierte Audit-Prompts (Assistenz, kein Schreib-Bot)  
+8. [`docs/REVIEW-CHECKS.md`](docs/REVIEW-CHECKS.md) — Qualitätsprüfungen pro Dokumenttyp  
+9. [`projects/`](projects/) — Projekte (`pidrive`, heartrate, ergo, ftmsprobe, bt-gateway, …)  
 
 Vorlagen: [`templates/`](templates/) · Prompt-Vorlagen: [`templates/prompts/`](templates/prompts/) · generierte Aufträge: [`artifacts/prompts/`](artifacts/prompts/).
 
@@ -47,11 +49,11 @@ Details: [`tools/README.md`](tools/README.md).
 
 | Feld | Wert |
 |------|------|
-| Version | siehe [`VERSION`](VERSION) |
+| Version | [`VERSION`](VERSION) (= Audit-Standard) · [`STANDARD-CHANGELOG`](docs/STANDARD-CHANGELOG.md) |
 | Phase | Pilot 2 — BMW NBT Evo (Host / C); Pilot 1 MSC closed (Schema); Prompt-Contract v1 |
 | Pilot-Reihenfolge | `usb-msc` → `bmw-nbt-evo` → `avrcp` |
-| Projekte | [PiDrive](projects/pidrive/) · [esp32-heartrate](projects/esp32-heartrate/) (Desk-Pilot) |
-| Technologien | siehe [Index](technologies/) |
+| Projekte | [pidrive](projects/pidrive/) · [heartrate](projects/esp32-heartrate/) · [ergo](projects/esp32-ergo/) · [ftmsprobe](projects/esp32-ftmsprobe/) · [bt-gateway](projects/esp32-bt-gateway/) · [rfmonitor](projects/esp32-rfmonitor/) · [toolnode](projects/esp32-toolnode/) · [metermaster](projects/esp32-metermaster/) · [webradio](projects/esp32-webradio/) · [io-control](projects/esp32-io-control/) · [communicator](projects/esp32-communicator/) · [network](projects/esp32-network/) |
+| Technologien | [Index](technologies/) · Reuse: [REUSE.md](docs/REUSE.md) |
 | Assistenz | Prompt-Contract + `tools/ta-assist` (check / prepare / bootstrap) |
 
 ## Herkunft

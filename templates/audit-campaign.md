@@ -6,6 +6,9 @@ project_id: example
 started: YYYY-MM-DD
 ended: null
 status: planned   # planned | active | closed
+profile: firmware   # firmware | lab-tool | planning | ops-field — siehe docs/AUDIT-PROFILES.md
+standard_version: "0.6.0"   # = Inhalt von VERSION zum Audit-Zeitpunkt; Changelog: docs/STANDARD-CHANGELOG.md
+# standard_gaps: []         # optional: was gegenüber neuerem Standard noch fehlt
 ```
 
 ## Ziel

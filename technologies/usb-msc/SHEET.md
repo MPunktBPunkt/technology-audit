@@ -53,6 +53,13 @@ Wiederverwendbar überall, wo ein MCU/SoC einem USB-Host als Stick erscheinen so
 
 Folgeprojekt-Skizze: generisches ESP32-USB-MSC-Gadget / Host-Behavior-Toolkit (ohne BMW-Semantik).
 
+### Projektstart-Checkliste
+
+- [ ] BOT+SCSI vs. Dateisystem/FAT klar trennen (eigene Slugs wenn nötig)
+- [ ] Host-Prefetch/Timing **nicht** als MSC-Spec behandeln → Host-Sheet / Application C
+- [ ] Lab-/Feld-Evidence-IDs planen bevor Coverage `full`
+- [ ] Application + `seen_in` nachziehen
+
 ## Referenzen
 
 - USB Mass Storage Class specification (Bulk-Only Transport)

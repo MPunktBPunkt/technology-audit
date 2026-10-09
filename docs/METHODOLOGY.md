@@ -14,6 +14,8 @@ Nicht linear erzwingen: Rücksprünge sind normal (neue Signale aus der Historie
 
 **Ziel:** Herausfinden, was überhaupt existiert — noch keine Bewertung.
 
+**Zuerst:** bestehende Wissensbasis konsultieren — [`docs/REUSE.md`](REUSE.md) und [`technologies/README.md`](../technologies/README.md). Signale gegen bekannte Slugs matchen, bevor neue Sheets vorgeschlagen werden. **Profil wählen:** [`AUDIT-PROFILES.md`](AUDIT-PROFILES.md) (`firmware` / `lab-tool` / `planning` / `ops-field`).
+
 Untersuchungsbereiche:
 
 - Quellcode (Python, C/C++, Shell, JS, …)
@@ -33,7 +35,7 @@ Drei Zustände unterscheiden:
 | Historisch relevant | Frühere Implementierung mit bleibender Erkenntnis |
 | Verworfen | Bewusst aufgegebener Weg (kurz notieren, warum) |
 
-**Artefakt:** Rohnotizen / Arbeitsliste (noch kein formalisiertes Inventar nötig). Optional: Coverage-Skizze, welche Bäume angefasst wurden.
+**Artefakt:** Rohnotizen / Arbeitsliste (noch kein formalisiertes Inventar nötig). Optional: Coverage-Skizze, welche Bäume angefasst wurden. Plus: Liste „Signal → bestehender Slug | neuer Slug-Kandidat“.
 
 ## Phase 1 — Inventar
 
@@ -63,6 +65,8 @@ Regeln:
 **Ziel:** Wiederverwendbares Wissen in `technologies/<slug>/SHEET.md`.
 
 Priorisierung: Technologien mit hohem Transferwert oder hohem Projektrisiko zuerst (bei PiDrive z. B. USB-MSC, AVRCP, DAB+-Pipeline).
+
+**Wiederbegegnung:** Existiert der Slug schon, Sheet **erweitern** (nicht forken) — siehe [Wissenswachstum](DOCUMENT-STANDARD.md#wissenswachstum-wiederbegegnung-mit-bekannter-tech). Projektunterschiede → Phase 4.
 
 **Artefakt:** Sheets nach [`templates/technology-sheet.md`](../templates/technology-sheet.md). Inventar-Status → `documented`.
 

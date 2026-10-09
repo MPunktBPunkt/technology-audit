@@ -10,7 +10,15 @@ Vertrag: [`docs/PROMPT-CONTRACT.md`](../docs/PROMPT-CONTRACT.md) · Prüfliste: 
 | Was | Wo | Bedeutung |
 |-----|-----|-----------|
 | **Framework** | [`VERSION`](../VERSION) | Dokumentenstandard, Methodik, Repo-Reife (z. B. 0.5.x) |
-| **CLI** | `tools/ta_assist/__init__.py` → `__version__` | Assistenz-Tool semver (unabhängig, z. B. 0.1.x) |
+| **CLI** | `tools/ta_assist/__init__.py` → `__version__` | Assistenz-Tool semver (unabhängig, z. B. 0.1.4) |
+
+### CLI 0.1.4
+
+- Audit YAML: `standard_version` (C7–C9); `docs/STANDARD-CHANGELOG.md`.
+
+### CLI 0.1.3
+
+- Bootstrap-Prompts erhalten `{{existing_sheets}}` (Katalog aus `technologies/`) für Reuse-Matching.
 
 Die Versionen müssen nicht identisch sein. Bei Breaking-Änderungen am Checker/Prompt-Format: CLI semver erhöhen und kurz in diesem README notieren.
 

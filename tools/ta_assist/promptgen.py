@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 from .scanner import ScanResult, scan_bootstrap, scan_native
-from .util import read_text, repo_root, today
+from .util import extract_yaml_blocks, read_text, repo_root, today
 
 
 PROMPT_TYPES = {
@@ -22,6 +22,35 @@ PROMPT_TYPES = {
 
 def template_path(root: Path, prompt_type: str) -> Path:
     return root / "templates" / "prompts" / f"{prompt_type}.md"
+
+
+def _existing_sheets_catalog(root: Path) -> str:
+    """Compact list of technology sheets for bootstrap reuse matching."""
+    tech = root / "technologies"
+    if not tech.is_dir():
+        return "(no technologies/ directory)"
+    lines: list[str] = []
+    for p in sorted(tech.iterdir()):
+        sheet = p / "SHEET.md"
+        if not sheet.is_file():
+            continue
+        primary = ""
+        title = p.name
+        text = read_text(sheet)
+        for block in extract_yaml_blocks(text):
+            if "slug" in block or "primary" in block:
+                primary = str(block.get("primary", ""))
+                title = str(block.get("title", title))
+                break
+        seen = ""
+        m = re.search(r"seen_in:\s*\[([^\]]*)\]", text)
+        if m:
+            seen = m.group(1).strip()
+        lines.append(
+            f"- {p.name}: primary={primary or '?'} title={title}"
+            + (f" seen_in=[{seen}]" if seen else "")
+        )
+    return "\n".join(lines) or "(no sheets yet)"
 
 
 def render(template: str, variables: dict[str, str]) -> str:
@@ -94,6 +123,7 @@ def build_variables(
         "source_repo": source_repo,
         "suggested_project_id": "",
         "scan_findings": "",
+        "existing_sheets": _existing_sheets_catalog(root),
         "repo_status": "",
         "inventory_excerpt": "",
         "prior_audits": "",

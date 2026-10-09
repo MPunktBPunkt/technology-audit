@@ -83,6 +83,8 @@ Enthält: relevante Pfade, Datenflüsse, Konfiguration, Feldbelege, offene Frage
 
 ID-Schema: `<project>-<YYYY>` oder `<project>-<YYYY>-<kurzname>` (z. B. `pidrive-2026`, `pidrive-2026-msc`).
 
+**Pflicht in der YAML:** `standard_version` — Semver aus [`VERSION`](../VERSION) zum Zeitpunkt des Audits. Changelog der Pflichtregeln: [`STANDARD-CHANGELOG.md`](STANDARD-CHANGELOG.md). Optional `standard_gaps` für bekannte Abweichungen gegenüber neueren Ständen. So erkennt man später, welche Checks/Profile damals noch nicht galten.
+
 ## Namenskonventionen
 
 | Element | Regel | Beispiele |
@@ -100,6 +102,30 @@ Slugs ändern sich selten. Umbenennung = Redirect-Hinweis in alter Datei oder In
 2. Application verlinkt auf dasselbe Sheet und auf den Inventareintrag.
 3. Audit verlinkt auf Inventar-Zeilen und genutzte Methoden.
 4. Keine zyklischen Detailkopien: eine Faktenquelle pro Aspekt.
+
+## Wissenswachstum (Wiederbegegnung mit bekannter Tech)
+
+Wissen darf **nur wachsen**, nie still überschrieben oder projektweise verdoppelt werden.
+
+| Situation | Tun | Nicht tun |
+|-----------|-----|-----------|
+| Dieselbe Tech, zweites Projekt | Bestehendes Sheet (Slug) behalten; `seen_in` erweitern; nur **neue Ebene-A-Fakten** ergänzen | Neues Sheet `…-ergo` / `…-v2` anlegen |
+| Andere Implementierung derselben Tech | Neue **Project Application** (B); Varianten im Sheet unter Fallstricke/Transfer als Alternativen | Sheet in „unseren Code-Pfad“ umschreiben |
+| Anderes Host-/Geräteverhalten | Ebene **C** in Application oder eigenes Host-Sheet (wie `bmw-nbt-evo`); Evidence-IDs | C-Claims als allgemeines Spec-Wissen ins Sheet schieben |
+| Früherer Irrtum | Claim behalten, Status → `REJECTED` (+ kurzer Hinweis) | Zeile löschen |
+| Spec bestätigt / widerlegt | Epistemic-Status und Reifegrade anheben (`R*`, `W*`) | Maturity „schönrechnen“ ohne Evidence |
+
+**Slug-Stabilität:** Ein Slug = eine Technologie. Ähnlichkeit allein reicht nicht für Merge — wenn Primary + Abgrenzung klar auseinanderfallen, neuer Slug; sonst bestehendes Sheet pflegen.
+
+**Reusability:** `W2` = in einem Projekt beschrieben; erst ab **zweitem** unabhängigen `seen_in` mit Application typischerweise `W3` prüfen. Feld/Lab multi-host → `W4`/`W5` nach [Reifegrade](#reifegrade).
+
+**Audit-Checkliste bei Treffer auf bestehenden Slug:**
+
+1. Inventar: Status mindestens `observed`; Sheet-Link auf **bestehenden** Pfad.
+2. Sheet: A-Delta (Fallstricke, Transfer, Referenzen) — oder bewusst „kein A-Delta“.
+3. Application: nur B/C für *dieses* Projekt.
+4. Evidence: neue IDs; Querverweis auf ältere Kampagne erlaubt.
+5. `seen_in` + Indexes (`technologies/README.md`) aktualisieren.
 
 ## Wissens-Ebenen (A / B / C)
 
@@ -172,12 +198,13 @@ Sheets dürfen `implementation`/`field_evidence` auf R0 lassen, wenn die Bewertu
 
 ## Assistenz / Prompts
 
+- Reuse bei neuem Projekt: [REUSE.md](REUSE.md) (Geschwister-Produkte, Arduino-`.ino`, Match-Spalte `Ziel-Sheet`)
 - Vertrag: [PROMPT-CONTRACT.md](PROMPT-CONTRACT.md)
 - Prüffragen: [REVIEW-CHECKS.md](REVIEW-CHECKS.md)
 - Vorlagen: [`templates/prompts/`](../templates/prompts/)
 - Generierte Aufträge: [`artifacts/prompts/`](../artifacts/prompts/)
 
-Assistenz darf Wissensdateien nicht autonom schreiben — nur strukturierte Arbeitsaufträge erzeugen.
+Assistenz darf Wissensdateien nicht autonom schreiben — nur strukturierte Arbeitsaufträge erzeugen. Bootstrap-Prompts müssen den bestehenden Sheet-Katalog einbinden.
 
 ## Externe Quellen
 

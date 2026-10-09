@@ -3,10 +3,14 @@
 ```yaml
 project_id: pidrive
 title: PiDrive
+updated: 2026-10-09
+reviewed_commit: none
+reviewed_commit_note: multi-repo ops/field; Evidence verweist auf pidrive docs/betrieb Stände (z. B. 2026-10-05), kein Einzel-SHA für gesamtes Inventar
 repos:
   - https://github.com/MPunktBPunkt/pidrive
   - https://github.com/MPunktBPunkt/esp32.pidrive
 status: active
+profile_hint: ops-field
 ```
 
 ## Zweck

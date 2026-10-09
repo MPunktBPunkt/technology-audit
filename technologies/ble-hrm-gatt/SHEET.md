@@ -7,15 +7,15 @@ primary: C
 tags: [esp-idf, streaming]
 type: protocol
 status: active
-seen_in: [esp32-heartrate]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe]
 maturity:
   technology: R3
   implementation: R0
   field_evidence: R0
-  reusability: W2
+  reusability: W3
 ```
 
-Nur Ebene **A**. Projektpfade und Sensor-Quirks → Application.
+Nur Ebene **A**. Projektpfade und Sensor-Quirks → jeweilige Application.
 
 ## Kurzfassung
 
@@ -23,8 +23,8 @@ Bluetooth LE Heart Rate Service (`0x180D`) mit Characteristic Heart Rate Measure
 
 ## Abgrenzung
 
-- **Ist:** GATT-Profil für Puls-/RR-Daten von Wearables.
-- **Ist nicht:** AVRCP/A2DP, medizinische Zertifizierung, HRV-Analyse oberhalb der Roh-RR-Pipeline.
+- **Ist:** GATT-Profil für Puls-/RR-Daten von Wearables (und von Relays, die denselben Service spiegeln).
+- **Ist nicht:** AVRCP/A2DP, FTMS Indoor-Bike-HR-Feld (`0x2AD2`), medizinische Zertifizierung, HRV-Analyse oberhalb der Roh-RR-Pipeline.
 
 ## Schnittstellen und Abhängigkeiten
 
@@ -33,18 +33,35 @@ Bluetooth LE Heart Rate Service (`0x180D`) mit Characteristic Heart Rate Measure
 | oben | App / Session-Pipeline | BPM, RR, Battery, RSSI |
 | unten | BLE Stack (z. B. NimBLE) | Scan, Connect, GATT Subscribe |
 | lateral | optional Peripheral-Relay | gleicher Service nach außen spiegeln |
+| lateral | alternative HR-Quellen | z. B. FTMS `0x2AD2` HR-Bit — anderes Profil, anderer Slug |
 
 ## Typische Fallstricke
 
 | Claim | Status | Hinweis |
 |-------|--------|---------|
 | Sensor Contact Bit ist überall gesetzt | `REJECTED` | Viele Gurte (u. a. Polar H9) liefern es nicht |
-| Ein Gurt erlaubt beliebig viele gleichzeitige Centrals | `HYPOTHESIS` | Geräteabhängig; oft nur ein Link |
+| Ein Gurt erlaubt beliebig viele gleichzeitige Centrals | `REJECTED` | H9 typischerweise single-link; Multi-Consumer braucht Relay (`ble-hr-relay`) |
 | RR-Einheiten sind immer Millisekunden | `REJECTED` | Spec: 1/1024 s Einheiten |
+| „HR vom Bike“ ist immer `0x180D` | `REJECTED` | Manche Trainer liefern HR nur in Indoor Bike Data |
+
+## Varianten (A)
+
+| Ansatz | Wann | Trade-off |
+|--------|------|-----------|
+| Direkter Central auf Gurt | Ein Consumer reicht | Einfach; blockiert andere Apps am Gurt |
+| Central hinter HR-Relay | Mehrere Consumer (App + Node) | Extra Hop; braucht Peripheral-Budget |
+| HR aus FTMS IBD | Bike speist Puls (z. B. GymLink) | Kein eigener `0x180D`-Link; andere Semantik |
 
 ## Transfer
 
-Geeignet für ESP-/NimBLE-Gateways und RR-Vorverarbeitung. Voraussetzung: Central-Rolle, Heap für Scan+Connection, klare Trennung Parser vs. UI.
+Geeignet für ESP-/NimBLE-Gateways und Trainings-Nodes. Voraussetzung: Central-Rolle, Heap für Scan+Connection, klare Trennung Parser vs. UI. Bei Multi-Consumer: Sheet `ble-hr-relay` mitdenken.
+
+### Projektstart-Checkliste
+
+- [ ] Variante wählen: Direct / Relay / FTMS-IBD-HR (siehe Varianten-Tabelle)
+- [ ] Single-link-Gurte einplanen (kein stilles Multi-Central)
+- [ ] RR-Einheiten 1/1024 s; Contact-Bit nicht voraussetzen
+- [ ] Application + `seen_in` nachziehen
 
 ## Referenzen
 
