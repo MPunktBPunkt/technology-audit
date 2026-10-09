@@ -29,6 +29,7 @@ REQUIRED_DOCS = [
     "docs/REVIEW-CHECKS.md",
     "docs/REUSE.md",
     "docs/AUDIT-PROFILES.md",
+    "docs/STANDARD-CHANGELOG.md",
     "README.md",
     "VERSION",
 ]
@@ -292,6 +293,39 @@ def _check_audits(root: Path, scan: ScanResult) -> list[Finding]:
                 out.append(Finding("error", "C1", f"audit YAML missing '{key}'", rel))
         if "Exit-Kriterien" not in text and "Exit" not in text and "| # |" not in text:
             out.append(Finding("error", "C2", "exit criteria table not found", rel))
+        std = str(meta.get("standard_version") or "").strip().strip('"').strip("'")
+        if not std:
+            out.append(
+                Finding(
+                    "error",
+                    "C7",
+                    "audit YAML missing standard_version (see VERSION / STANDARD-CHANGELOG)",
+                    rel,
+                )
+            )
+        else:
+            if not re.match(r"^\d+\.\d+\.\d+$", std):
+                out.append(
+                    Finding(
+                        "error",
+                        "C7",
+                        f"standard_version '{std}' is not semver X.Y.Z",
+                        rel,
+                    )
+                )
+            else:
+                current = read_text(root / "VERSION").strip()
+                if current and std != current and not meta.get("standard_gaps"):
+                    out.append(
+                        Finding(
+                            "warning",
+                            "C8",
+                            f"standard_version {std} < repo VERSION {current} and no standard_gaps listed",
+                            rel,
+                        )
+                    )
+        if not meta.get("profile"):
+            out.append(Finding("warning", "C9", "audit YAML missing profile", rel))
         status = meta.get("status")
         if status == "closed":
             if "Lessons" not in text and "Lessons Learned" not in text:

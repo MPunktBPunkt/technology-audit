@@ -8,6 +8,7 @@ ended: null
 status: active
 reviewed_commit: edaeb19
 profile: firmware
+standard_version: "0.6.0"
 ```
 
 ## Ziel

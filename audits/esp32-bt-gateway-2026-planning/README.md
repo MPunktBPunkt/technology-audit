@@ -7,6 +7,7 @@ started: 2026-10-09
 ended: null
 status: active
 profile: planning
+standard_version: "0.6.0"
 reviewed_commit: 7a7e8a4
 ```
 

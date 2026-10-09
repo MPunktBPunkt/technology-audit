@@ -83,6 +83,8 @@ Enthält: relevante Pfade, Datenflüsse, Konfiguration, Feldbelege, offene Frage
 
 ID-Schema: `<project>-<YYYY>` oder `<project>-<YYYY>-<kurzname>` (z. B. `pidrive-2026`, `pidrive-2026-msc`).
 
+**Pflicht in der YAML:** `standard_version` — Semver aus [`VERSION`](../VERSION) zum Zeitpunkt des Audits. Changelog der Pflichtregeln: [`STANDARD-CHANGELOG.md`](STANDARD-CHANGELOG.md). Optional `standard_gaps` für bekannte Abweichungen gegenüber neueren Ständen. So erkennt man später, welche Checks/Profile damals noch nicht galten.
+
 ## Namenskonventionen
 
 | Element | Regel | Beispiele |

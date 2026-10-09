@@ -78,6 +78,9 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) · [PROMPT-CONTRACT.md](P
 | C4 | Artefakte (Sheet/Application/Evidence) verlinkt | warning |
 | C5 | Lessons Learned bei `closed` vorhanden | warning |
 | C6 | Offene Punkte / Transfer nach Abschluss | info |
+| C7 | YAML `standard_version` gesetzt (Semver) | error |
+| C8 | `standard_version` &lt; aktuelle [`VERSION`](../VERSION) ohne `standard_gaps` → warning (Lag sichtbar machen) | warning |
+| C9 | YAML `profile` gesetzt | warning |
 
 ---
 

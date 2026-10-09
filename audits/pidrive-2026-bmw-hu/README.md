@@ -6,6 +6,8 @@ project_id: pidrive
 started: 2026-10-05
 ended: null
 profile: ops-field
+standard_version: "0.5.1"
+standard_gaps: [reuse-playbook, audit-profiles, sheet-checklists, standard_version-field]
 status: active
 pilot: 2
 prior_audit: pidrive-2026-msc

@@ -1,13 +1,10 @@
 # technologies/
 
-Wiederverwendbare Technology Sheets. Ein Ordner pro Slug: `technologies/<slug>/SHEET.md`.
+Wiederverwendbare Technology Sheets.
 
-Vorlage: [`templates/technology-sheet.md`](../templates/technology-sheet.md)  
-**Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Profile:** [`docs/AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md) · Taxonomie: [`docs/TAXONOMY.md`](../docs/TAXONOMY.md)
+**Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Profile:** [`docs/AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md) · **Standard-Version:** [`VERSION`](../VERSION) / [`STANDARD-CHANGELOG.md`](../docs/STANDARD-CHANGELOG.md)
 
-Bei neuem Projekt: Index → Match → Sheet wachsen oder begründet neu — keine Forks. Jedes Sheet: Projektstart-Checkliste.
-
-## Index (extrahiert)
+## Index
 
 | Slug | Primary | Reuse | Gesehen in |
 |------|---------|-------|------------|
@@ -18,25 +15,13 @@ Bei neuem Projekt: Index → Match → Sheet wachsen oder begründet neu — kei
 | [`bluetooth-a2dp`](bluetooth-a2dp/SHEET.md) | C | W2 | pidrive, esp32-bt-gateway |
 | [`bluetooth-ftms`](bluetooth-ftms/SHEET.md) | C | W3 | esp32-ftmsprobe, esp32-ergo |
 | [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | I | W1 | pidrive, esp32-bt-gateway |
-| [`esp-embedded-web-sse`](esp-embedded-web-sse/SHEET.md) | G | W3 | esp32-heartrate, esp32-ergo, esp32-ftmsprobe |
-| [`esp-hub-telemetry`](esp-hub-telemetry/SHEET.md) | F | W3 | esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway |
+| [`esp-embedded-web-sse`](esp-embedded-web-sse/SHEET.md) | G | W3 | esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-rfmonitor |
+| [`esp-hub-telemetry`](esp-hub-telemetry/SHEET.md) | F | W3 | esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway, esp32-rfmonitor |
 | [`hammer-varon-xtr`](hammer-varon-xtr/SHEET.md) | I | W2 | esp32-ftmsprobe, esp32-ergo |
 | [`pdap`](pdap/SHEET.md) | J | W1 | esp32-bt-gateway |
+| [`rf-environment-monitor`](rf-environment-monitor/SHEET.md) | H | W2 | esp32-rfmonitor |
 | [`usb-msc`](usb-msc/SHEET.md) | C | W2 | pidrive |
 
-## Geplant (noch ohne Sheet)
+## Geplant (ohne Sheet)
 
-| Slug | Primary |
-|------|---------|
-| `dab-plus` | A |
-| `rtl-sdr` | A |
-| `webradio` | A |
-| `pipewire` | B |
-| `scsi` | C |
-| `esp32` | D |
-| `fat` | E |
-| `systemd` | F |
-| `mpris2` | G |
-
-PiDrive-Pilot: `usb-msc` → `bmw-nbt-evo` → **`avrcp`** (Sheet jetzt vorhanden).  
-ESP: heartrate → ergo → ftmsprobe → **bt-gateway (planning)**.
+`dab-plus` · `rtl-sdr` · `webradio` · `pipewire` · `scsi` · `esp32` · `fat` · `systemd` · `mpris2`

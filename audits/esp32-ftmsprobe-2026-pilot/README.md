@@ -8,6 +8,7 @@ ended: null
 status: active
 reviewed_commit: 70c3c25
 profile: lab-tool
+standard_version: "0.6.0"
 ```
 
 ## Ziel

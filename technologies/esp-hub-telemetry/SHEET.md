@@ -7,7 +7,7 @@ primary: F
 tags: [esp-idf]
 type: pattern
 status: active
-seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway, esp32-rfmonitor]
 maturity:
   technology: R3
   implementation: R0

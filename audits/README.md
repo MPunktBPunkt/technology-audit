@@ -1,6 +1,6 @@
 # audits/
 
-Zeitlich begrenzte Analyse-Kampagnen. `audits/<id>/README.md` · Profile: [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md).
+Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VERSION`](../VERSION) / [`STANDARD-CHANGELOG`](../docs/STANDARD-CHANGELOG.md)). `audits/<id>/README.md` · Profile: [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md).
 
 ## Index
 
@@ -12,5 +12,6 @@ Zeitlich begrenzte Analyse-Kampagnen. `audits/<id>/README.md` · Profile: [`AUDI
 | [`esp32-ergo-2026-pilot`](esp32-ergo-2026-pilot/) | active | firmware | Ergo + Sheet-Wachstum |
 | [`esp32-ftmsprobe-2026-pilot`](esp32-ftmsprobe-2026-pilot/) | active | lab-tool | Sonde + Method |
 | [`esp32-bt-gateway-2026-planning`](esp32-bt-gateway-2026-planning/) | active | planning | A2DP/AVRCP/PDAP Planung |
+| [`esp32-rfmonitor-2026-pilot`](esp32-rfmonitor-2026-pilot/) | active | firmware | RF-Monitor · **standard_version 0.6.0** |
 
 Geplant: AVRCP-Feldmessung (Pilot 3) sobald Phase −1/Gateway greift.

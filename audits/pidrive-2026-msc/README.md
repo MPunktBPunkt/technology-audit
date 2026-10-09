@@ -6,6 +6,8 @@ project_id: pidrive
 started: 2026-10-04
 ended: 2026-10-05
 profile: ops-field
+standard_version: "0.5.0"
+standard_gaps: [reuse-playbook, audit-profiles, sheet-checklists, standard_version-field]
 status: closed
 pilot: 1
 next_pilots: [bmw-nbt-evo, avrcp]
