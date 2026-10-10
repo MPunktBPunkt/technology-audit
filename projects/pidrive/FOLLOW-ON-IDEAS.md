@@ -4,10 +4,14 @@ Ideen, die aus PiDrive-Technologiewissen entstehen können — noch keine Projek
 
 | Idee | Baut auf | Kurz |
 |------|----------|------|
-| ESP32 BT-Gateway | `bluetooth-a2dp`, `avrcp`, `esp32` | Classic-BT vom Pi auf ESP auslagern (`esp32.bt-gateway`) |
-| Generische MSC-Gadgets | `usb-msc`, `scsi`, `fat`, `esp32` | USB-Storage-Emulation ohne BMW-Kontext |
-| SDR-Empfangsbaustein | `dab-plus`, `rtl-sdr` | DAB+/SDR-Pipeline als eigenes Modul |
-| Trace-/Korrelations-Toolkit | Methods (H) | Lab/Feld-Traces unabhängig vom Infotainment |
-| Metadaten-Bridge | `mpris2`, `avrcp` | Titel/Artist über verschiedene Senken |
+| ESP32 BT-Gateway | `bluetooth-a2dp`, `avrcp` | Classic-BT vom Pi auf ESP (`esp32.bt-gateway`) — Apps kontrastiert |
+| Generische MSC-Gadgets | `usb-msc`, `scsi`, `fat` | USB-Storage ohne BMW-Kontext |
+| SDR-Empfangsbaustein | `dab-plus`, `rtl-sdr`, `sdr-spectrum-fft` | DAB+/Scanner/FFT als Modul |
+| Freenet/LPD/CB Sheets | Scanner-Tabellen | eigene Slugs nur bei Transferbedarf |
+| Trace-/Korrelations-Toolkit | Methods | MSC + Spektrum-Watch |
+| Metadaten-Bridge | `mpris2`, `avrcp` | Titel/Artist über Senken |
+| DAB→BT Audio-Politik | `dab-plus`, `bluetooth-a2dp` | AUFTRAG-DAB-AUDIOWEG schließen |
+| FM-Meta-Kontrast RDS | `fm-rds` (Fremd `pi-fm-tx`) | nicht als PiDrive-TX; nur Protokoll-Vergleich zu DLS |
 
-Ableitung: Technology Sheets zuerst für die linke Spalte schreiben; Applications bleiben bei PiDrive, bis ein Folgeprojekt eigenen `projects/`-Ordner bekommt.
+Radio/BT-Kampagne: [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/) · Method [`sdr-spectrum-channel-watch`](../../methods/sdr-spectrum-channel-watch.md).  
+Fremd-TX-Kontrast: [`pi-fm-tx`](../pi-fm-tx/).

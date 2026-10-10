@@ -13,6 +13,7 @@ maturity:
   implementation: R0
   field_evidence: R0
   reusability: W2
+pilot: audits/pidrive-2026-radio-bt
 ```
 
 Nur Ebene **A**. Host-/Fahrzeugverhalten → Application C oder Host-Sheet.
@@ -38,6 +39,9 @@ Advanced Audio Distribution Profile: punkt-zu-punkt Streaming komprimierter Audi
 
 | Claim | Status | Hinweis |
 |-------|--------|---------|
+| A2DP-Sink ohne Default-Route = hörbar | `REJECTED` | Streams/Card-Profil oft explizit setzen (PipeWire/pactl) |
+| Jede Audioquelle folgt automatisch BT | `REJECTED` | Demods können eigenen ALSA-Pfad haben |
+| BT und USB-Gadget-Output gleichzeitig | `HYPOTHESIS` | Produkt-Policy trennen |
 | Ein Gerät kann gleichzeitig A2DP Sink und Source sein | `REJECTED` | Classic-Rollen schließen sich am ESP typischerweise aus |
 | WiFi + Classic-BT Coexistence ist überall gratis | `HYPOTHESIS` | stack- und antennaabhängig — hartes Gate |
 | Sink-Stabilität ist rein Codec-Sache | `REJECTED` | Buffering, Link-Supervision, Host-Policies dominieren oft |
@@ -52,6 +56,7 @@ Geeignet wenn Audio-Pfad von fragilem Desktop-BT (BlueZ+PW) auf dedizierte Hardw
 - [ ] Host-Stack-Entscheidung (A17 o. Ä.) dokumentieren
 - [ ] Coexistence WiFi+BT als Gate, nicht als Nachgedanke
 - [ ] AVRCP als eigenen Slug planen
+- [ ] PipeWire/BlueZ-Routing und Profil `a2dp_sink` prüfen
 - [ ] Application + `seen_in` nachziehen
 
 ## Referenzen

@@ -22,7 +22,8 @@ pilot_order: [bluetooth-a2dp, avrcp, pdap, esp-hub-telemetry, bmw-nbt-evo]
 | ESP-IDF / Classic ESP32 | `esp32` | observed, noch kein Sheet-Zwang |
 
 Ursprungsrepo: [esp32.bt-gateway](https://github.com/MPunktBPunkt/esp32.bt-gateway).  
-Kampagne: [esp32-bt-gateway-2026-planning](../../audits/esp32-bt-gateway-2026-planning/).
+Kampagne: [esp32-bt-gateway-2026-planning](../../audits/esp32-bt-gateway-2026-planning/).  
+**Pi-Betrieb (Kontrast):** [`pidrive` A2DP/AVRCP Apps](../pidrive/applications/) · Audit [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/).
 
 ## Übersicht
 

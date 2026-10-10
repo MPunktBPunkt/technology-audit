@@ -9,6 +9,7 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | Slug | Thema | Status |
 |------|--------|--------|
 | [`ftms-capability-probe`](ftms-capability-probe.md) | FTMS Caps/Wirkung vor Coach-Firmware | active |
+| [`sdr-spectrum-channel-watch`](sdr-spectrum-channel-watch.md) | RTL-SDR FFT + Kanal-Watch (PMR/Airband) | active |
 
 ## Kandidaten (noch ohne Note)
 

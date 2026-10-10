@@ -3,89 +3,81 @@
 ```yaml
 project_id: pidrive
 updated: 2026-10-09
-reviewed_commit: none
-pilot_order: [usb-msc, bmw-nbt-evo, avrcp]
+reviewed_commit: b61df4d
+pilot_order: [usb-msc, bmw-nbt-evo, dab-plus, sdr-spectrum-fft, pmr446, airband-am, bluetooth-a2dp, avrcp]
 ```
 
-Pilot 1 (`usb-msc`) Schema-Validation **closed**. Pilot 2 (`bmw-nbt-evo`) **active** — Evidence 2026-10-05 nachgezogen; Exit Ohr/AV-Feld offen.
+Pilot 1 (`usb-msc`) **closed**. Pilot 2 (`bmw-nbt-evo`) **active**.  
+**Radio/BT-Vertiefung 2026-10-09:** Kampagne [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/) — DAB+/RTL-SDR/PMR/Airband/FFT + A2DP/AVRCP Applications. Transfer-BT: [`esp32-bt-gateway`](../esp32-bt-gateway/).
 
-**Reuse / Parität (Nachzug 2026-10-09):** Definitionsphase-Inventar an Mindest-Parität angeglichen (`reviewed_commit`/`REUSE`-Hinweis). Sheets `usb-msc`/`bmw-nbt-evo` um Projektstart-Checklisten ergänzt. Transfer-Nachbarn: [`esp32-bt-gateway`](../esp32-bt-gateway/) (Planung A2DP/AVRCP/Hub). Siehe [`docs/AUDIT-PROFILES.md`](../../docs/AUDIT-PROFILES.md), [`docs/REUSE.md`](../../docs/REUSE.md).
+**Reuse / Match** ([REUSE.md](../../docs/REUSE.md), Standard [0.6.3](../../docs/STANDARD-CHANGELOG.md)):
+
+| Signal | Ziel-Sheet | Aktion |
+|--------|------------|--------|
+| welle-cli DAB+ Ensemble/DLS | `dab-plus` | **neu** + App |
+| RTL2832 Stick Lock/Reset/PPM | `rtl-sdr` | **neu** + App |
+| PMR446 16ch + Spektrum-Monitor | `pmr446` | **neu** + App |
+| VHF Airband AM + Presets | `airband-am` | **neu** + App |
+| IQ-FFT Peaks / channelized watch | `sdr-spectrum-fft` | **neu** + App + Method |
+| BlueZ A2DP + PipeWire | `bluetooth-a2dp` | wachsen + App (Kontrast ESP-Gateway) |
+| AVRCP Controller → Trigger | `avrcp` | wachsen + App (Kontrast ESP-Gateway) |
+| Freenet/LPD/CB Raster | — | observed in Scanner (kein eigenes Sheet) |
+| UKW WBFM | — | observed (teilweise unter rtl-sdr/fm) |
 
 ## Übersicht
 
 | Slug | Name | Primary | Tags | Status | Coverage | Sheet | Application |
 |------|------|---------|------|--------|----------|-------|-------------|
-| `dab-plus` | DAB+ | A | `sdr`, `streaming` | observed | none | [SHEET](../../technologies/dab-plus/SHEET.md) | — |
-| `rtl-sdr` | RTL-SDR | A | `sdr`, `usb-host` | observed | none | [SHEET](../../technologies/rtl-sdr/SHEET.md) | — |
-| `webradio` | Webradio | A | `streaming` | observed | none | [SHEET](../../technologies/webradio/SHEET.md) | — |
-| `pipewire` | PipeWire | B | `linux-userspace`, `realtime` | observed | none | [SHEET](../../technologies/pipewire/SHEET.md) | — |
-| `usb-msc` | USB Mass Storage Class | C | `usb-device`, `automotive` | applied | partial | [SHEET](../../technologies/usb-msc/SHEET.md) | [app](applications/usb-msc.md) |
-| `scsi` | SCSI (über MSC/BOT) | C | `usb-device` | observed | none | [SHEET](../../technologies/scsi/SHEET.md) | — |
-| `bluetooth-a2dp` | Bluetooth A2DP | C | `bluetooth-classic`, `streaming` | observed | none | [SHEET](../../technologies/bluetooth-a2dp/SHEET.md) | — |
-| `avrcp` | AVRCP | C | `bluetooth-classic`, `metadata` | observed | none | [SHEET](../../technologies/avrcp/SHEET.md) | — |
-| `esp32` | ESP32 | D | `esp-idf` | observed | none | [SHEET](../../technologies/esp32/SHEET.md) | — |
-| `fat` | FAT / LBA-Geometrie | E | — | observed | none | [SHEET](../../technologies/fat/SHEET.md) | — |
-| `systemd` | systemd | F | `linux-userspace` | observed | none | [SHEET](../../technologies/systemd/SHEET.md) | — |
-| `mpris2` | MPRIS2 | G | `metadata`, `linux-userspace` | observed | none | [SHEET](../../technologies/mpris2/SHEET.md) | — |
-| `bmw-nbt-evo` | BMW NBT Evo Host-Verhalten | I | `automotive`, `field-verified` | applied | partial | [SHEET](../../technologies/bmw-nbt-evo/SHEET.md) | [app](applications/bmw-nbt-evo.md) |
+| `dab-plus` | DAB+ | A | `sdr`, `streaming` | applied | partial | [SHEET](../../technologies/dab-plus/SHEET.md) | [app](applications/dab-plus.md) |
+| `rtl-sdr` | RTL-SDR Host | A | `sdr`, `usb-host` | applied | partial | [SHEET](../../technologies/rtl-sdr/SHEET.md) | [app](applications/rtl-sdr.md) |
+| `pmr446` | PMR446 | A | `sdr`, `radio` | applied | partial | [SHEET](../../technologies/pmr446/SHEET.md) | [app](applications/pmr446.md) |
+| `airband-am` | Airband AM | A | `sdr`, `radio` | applied | partial | [SHEET](../../technologies/airband-am/SHEET.md) | [app](applications/airband-am.md) |
+| `sdr-spectrum-fft` | SDR Spectrum FFT | H | `sdr`, `lab-only` | applied | partial | [SHEET](../../technologies/sdr-spectrum-fft/SHEET.md) | [app](applications/sdr-spectrum-fft.md) |
+| `webradio` | Webradio | A | `streaming` | observed | none | — | — |
+| `pipewire` | PipeWire | B | `linux-userspace` | observed | none | — | — |
+| `usb-msc` | USB Mass Storage | C | `usb-device`, `automotive` | applied | partial | [SHEET](../../technologies/usb-msc/SHEET.md) | [app](applications/usb-msc.md) |
+| `scsi` | SCSI (MSC/BOT) | C | `usb-device` | observed | none | — | — |
+| `bluetooth-a2dp` | Bluetooth A2DP | C | `bluetooth-classic` | applied | partial | [SHEET](../../technologies/bluetooth-a2dp/SHEET.md) | [app](applications/bluetooth-a2dp.md) |
+| `avrcp` | AVRCP | C | `bluetooth-classic` | applied | partial | [SHEET](../../technologies/avrcp/SHEET.md) | [app](applications/avrcp.md) |
+| `esp32` | ESP32 | D | `esp-idf` | observed | none | — | — |
+| `fat` | FAT / LBA | E | — | observed | none | — | — |
+| `systemd` | systemd | F | `linux-userspace` | observed | none | — | — |
+| `mpris2` | MPRIS2 | G | `metadata` | observed | none | — | — |
+| `bmw-nbt-evo` | BMW NBT Evo Host | I | `automotive` | applied | partial | [SHEET](../../technologies/bmw-nbt-evo/SHEET.md) | [app](applications/bmw-nbt-evo.md) |
 
 ## Nach Kategorie
 
 ### A — Empfang
 
-`dab-plus`, `rtl-sdr`, `webradio` (+ Kandidaten: FM/Scanner, Airband — bei Bedarf eigene Slugs)
+`dab-plus`, `rtl-sdr`, `pmr446`, `airband-am`, `webradio` (+ observed: UKW-FM, Freenet/LPD/CB)
 
 ### B — Audio
 
-`pipewire` (+ Kandidaten: ALSA-Routen, EQ)
+`pipewire`
 
 ### C — Protokolle
 
 `usb-msc`, `scsi`, `bluetooth-a2dp`, `avrcp`
 
-### D — Embedded
-
-`esp32` (+ Kandidaten: TinyUSB, Ringbuffer/DMA in MSC-Pfad)
-
-### E — Speicher / Formate
-
-`fat`
-
-### F — Systemintegration
-
-`systemd` (+ Kandidaten: udev, WiFi-Hilfen)
-
-### G — Steuerung / UI
-
-`mpris2` (+ Kandidaten: Trigger-System, WebUI, CLI)
-
 ### H — Test / Analyse
 
-noch keine Einträge — Methoden eher unter `methods/` (z. B. MSC-Trace-Korrelation)
+`sdr-spectrum-fft` · Method [`sdr-spectrum-channel-watch`](../../methods/sdr-spectrum-channel-watch.md)
 
-### I — Fahrzeug / Geräte
+### I — Fahrzeug
 
 `bmw-nbt-evo`
-
-### J — Architektur
-
-noch keine eigenen Slugs (Producer-Consumer/Bridge bei Applications vertiefen)
 
 ## Coverage-Lücken
 
 | Bereich | Warum offen | Nächster Schritt |
 |---------|-------------|------------------|
-| `usb-msc` | Schema-Pilot done; Feld-AV, scsi/fat-Sheets | Feld-AV `pidrive`; C → `bmw-nbt-evo` |
-| `bmw-nbt-evo` | Evidence 2026-10-05; C′ Feld PASS; AV/Ohr offen | Feld-AV PASS upstream → Maturity |
-| `avrcp` | Pilot 3 | nach BMW-HU |
-| DAB+/SDR | stabiler Teilstack, wenig verdichtet | später Sheet `dab-plus` |
+| DAB→BT hörbar | Audio-Politik historisch | AUFTRAG-DAB nachziehen |
+| Antennenvergleich JSON | Artefakte roh | Evidence verdichten |
+| Freenet/LPD/CB Sheets | nur Scanner-Tabellen | bei Bedarf eigene Slugs |
+| MPRIS2 Sheet | observed | nach Meta-Pilot |
 
 ## Signale ohne Eintrag
 
-Bei Vertiefung ggf. eigene Slugs:
-
-- Airband / Scanner
 - Spotify / raspotify
-- Trigger-Dispatcher / Lenkrad-Mapping
-- SoftAP / Diagnose-HTTP auf ESP
-- Prefill / Body-Seed (MSC-Implementierungsdetail → eher Application als Tech)
+- Trigger-Dispatcher / Lenkrad-Mapping (teilweise in AVRCP-App)
+- SoftAP Diagnose auf ESP (→ `esp32-pidrive`)

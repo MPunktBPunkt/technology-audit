@@ -13,6 +13,7 @@ maturity:
   implementation: R0
   field_evidence: R0
   reusability: W2
+pilot: audits/pidrive-2026-radio-bt
 ```
 
 Nur Ebene **A**. Konkretes HU-Tasten-/Browse-Verhalten → Host-Sheet / Application C.
@@ -42,6 +43,8 @@ Audio/Video Remote Control Profile: Steuerung und Metadaten zwischen Controller 
 | Metadata-Zeilen = vollständige Playlist | `REJECTED` | oft nur markierter Eintrag (Titel/Artist/Album) |
 | BlueZ Target liefert immer Browsing | `REJECTED` | Browsing/Target-Lücken sind ein typischer Gateway-Treiber |
 | Observe-first ist optional | `HYPOTHESIS` | empirisch oft nötig bevor Mapping |
+| Lenkrad = immer AVRCP Pass-Through | `REJECTED` | Mapping oft App-seitig (D-Bus → Trigger) |
+| Metadata-Pfad = MPRIS automatisch | `REJECTED` | getrennte Abstraktionen; explizit bridgen |
 
 ## Transfer
 
@@ -53,12 +56,14 @@ Nutzen wenn Steuerung/Meta vom Audio-Host entkoppelt oder BlueZ-Target unzureich
 - [ ] Welche Tasten wirklich als AVRCP ankommen (messen)
 - [ ] Browsing-Ambition (S3) vs. Skip=Cursor-Workaround trennen
 - [ ] Semantik des Menübaums im Client behalten — Transport generisch
+- [ ] BlueZ Target vs. dediziertes Gateway (ESP) entscheiden
 - [ ] Application + `seen_in` nachziehen
 
 ## Referenzen
 
 - Bluetooth AVRCP Spezifikation (SIG)
-- Host-Notizen: PiDrive `iDriveBt` / Runtime-Flows (projektintern)
+- Host-Notizen: PiDrive `avrcp_trigger.py`, `BMW-AVRCP-PROBE.md`
+- Planung Gateway: `esp32.bt-gateway`
 
 ## Offene Fragen
 
