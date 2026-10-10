@@ -23,7 +23,7 @@ Günstiger USB-SDR (typisch **RTL2832U + R820T/R820T2**): ein Stick, viele Nutze
 ## Abgrenzung
 
 - **Ist:** Host-seitige Stick-Verwaltung und Sample-Quelle.
-- **Ist nicht:** DAB-/FM-/PMR-Semantik selbst; FFT-Algorithmus (→ `sdr-spectrum-fft`).
+- **Ist nicht:** DAB-/FM-/PMR-Semantik selbst; FFT-Algorithmus (→ `sdr-spectrum-fft`); Pi-GPIO-**Sendung** (→ `rpi-gpio-fm-tx`).
 
 ## Fallstricke
 

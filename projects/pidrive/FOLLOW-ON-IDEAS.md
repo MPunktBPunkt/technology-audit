@@ -11,5 +11,7 @@ Ideen, die aus PiDrive-Technologiewissen entstehen können — noch keine Projek
 | Trace-/Korrelations-Toolkit | Methods | MSC + Spektrum-Watch |
 | Metadaten-Bridge | `mpris2`, `avrcp` | Titel/Artist über Senken |
 | DAB→BT Audio-Politik | `dab-plus`, `bluetooth-a2dp` | AUFTRAG-DAB-AUDIOWEG schließen |
+| FM-Meta-Kontrast RDS | `fm-rds` (Fremd `pi-fm-tx`) | nicht als PiDrive-TX; nur Protokoll-Vergleich zu DLS |
 
-Radio/BT-Kampagne: [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/) · Method [`sdr-spectrum-channel-watch`](../../methods/sdr-spectrum-channel-watch.md).
+Radio/BT-Kampagne: [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/) · Method [`sdr-spectrum-channel-watch`](../../methods/sdr-spectrum-channel-watch.md).  
+Fremd-TX-Kontrast: [`pi-fm-tx`](../pi-fm-tx/).

@@ -25,6 +25,7 @@ Wiederverwendbare Technology Sheets.
 | [`esp-now-messaging`](esp-now-messaging/SHEET.md) | C | W2 | communicator |
 | [`fritzbox-tr064`](fritzbox-tr064/SHEET.md) | F | W2 | network, fritzwireguard |
 | [`iobroker-fritzwireguard-adapter`](iobroker-fritzwireguard-adapter/SHEET.md) | F | W2 | iobroker-fritzwireguard |
+| [`fm-rds`](fm-rds/SHEET.md) | C | W2 | pi-fm-tx |
 | [`freeair-connect-portal`](freeair-connect-portal/SHEET.md) | F | W1 | iobroker-freeair100 |
 | [`hammer-varon-xtr`](hammer-varon-xtr/SHEET.md) | I | W2 | ftmsprobe, ergo |
 | [`iobroker-esp-hub-adapter`](iobroker-esp-hub-adapter/SHEET.md) | F | W3 | iobroker-esp-hub |
@@ -41,6 +42,8 @@ Wiederverwendbare Technology Sheets.
 | [`pmr446`](pmr446/SHEET.md) | A | W2 | pidrive |
 | [`pump-control-link`](pump-control-link/SHEET.md) | C | W2 | esp32-pidrive |
 | [`rf-environment-monitor`](rf-environment-monitor/SHEET.md) | H | W3 | rfmonitor, toolnode |
+| [`rpi-gpio-fm-tx`](rpi-gpio-fm-tx/SHEET.md) | D | W3 | pi-fm-tx |
+| [`rpitx`](rpitx/SHEET.md) | D | W2 | pi-fm-tx |
 | [`rtl-sdr`](rtl-sdr/SHEET.md) | A | W3 | pidrive |
 | [`sdr-spectrum-fft`](sdr-spectrum-fft/SHEET.md) | H | W3 | pidrive |
 | [`ssd1306-oled-ui`](ssd1306-oled-ui/SHEET.md) | G | W2 | metermaster |

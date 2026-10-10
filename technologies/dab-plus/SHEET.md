@@ -25,7 +25,7 @@ Nur Ebene **A**. PiDrive-Pfad (`welle-cli`, Gain-Index, Audio-Route) → Applica
 ## Abgrenzung
 
 - **Ist:** Digitaler Rundfunk-Empfang + Ensemble/Service-Modell.
-- **Ist nicht:** UKW-FM; PMR/Airband; generisches FFT-Spektrum über beliebige MHz (→ `sdr-spectrum-fft`); Stick-Locking (→ `rtl-sdr`).
+- **Ist nicht:** UKW-FM; PMR/Airband; generisches FFT-Spektrum über beliebige MHz (→ `sdr-spectrum-fft`); Stick-Locking (→ `rtl-sdr`); Pi-GPIO-FM-TX (→ `rpi-gpio-fm-tx`).
 
 ## Schnittstellen
 
