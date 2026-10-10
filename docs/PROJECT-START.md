@@ -48,7 +48,13 @@ Tags wie `esp-idf` / `nodejs` / `iobroker` sind **Secondary**, keine eigenen Slu
 5. **Lag sichtbar:** `standard_version` + optional `standard_gaps` in Kampagnen.
 6. **Observed ohne Sheet** ist ok** — nicht jedes Signal sofort A verdienen.
 
-Wenn der Index > ~40 Sheets wird: nach Primary (TAXONOMY A–J) gruppieren und FAMILIES pflegen — nicht flach weiterlisten ohne Karte.
+Sheet-Index ist **nach Primary gruppiert** (`technologies/README.md` + `index.yaml`). Nach Sheet-Änderungen:
+
+```bash
+python3 tools/ta-assist index && python3 tools/ta-assist check
+```
+
+Pflege-SoT: [`MAINTENANCE.md`](MAINTENANCE.md). FAMILIES weiter kurz halten.
 
 ## Checkliste „neues ESP-Hub-Node“
 

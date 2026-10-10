@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from .indexer import collect_sheets, index_slugs_from_yaml
 from .scanner import Finding, ScanResult, scan_native
 from .util import (
     EVIDENCE_ID,
@@ -30,8 +31,11 @@ REQUIRED_DOCS = [
     "docs/REUSE.md",
     "docs/AUDIT-PROFILES.md",
     "docs/STANDARD-CHANGELOG.md",
+    "docs/MAINTENANCE.md",
+    "docs/KB-FIT.md",
     "README.md",
     "VERSION",
+    "LICENSE",
 ]
 
 
@@ -69,6 +73,8 @@ def run_checks(root: Path | None = None) -> list[Finding]:
     findings.extend(_check_audits(root, scan))
     findings.extend(_check_evidence(root, scan))
     findings.extend(_check_pilot_hints(scan))
+    findings.extend(_check_tech_index(root, scan))
+    findings.extend(_check_seen_in_apps(root, scan))
     return findings
 
 
@@ -316,14 +322,40 @@ def _check_audits(root: Path, scan: ScanResult) -> list[Finding]:
             else:
                 current = read_text(root / "VERSION").strip()
                 if current and std != current and not meta.get("standard_gaps"):
-                    out.append(
-                        Finding(
-                            "warning",
-                            "C8",
-                            f"standard_version {std} < repo VERSION {current} and no standard_gaps listed",
-                            rel,
+
+                    def _semver(s: str) -> tuple[int, int, int] | None:
+                        m = re.match(r"^(\d+)\.(\d+)\.(\d+)$", s.strip())
+                        return (int(m.group(1)), int(m.group(2)), int(m.group(3))) if m else None
+
+                    cur_t, std_t = _semver(current), _semver(std)
+                    if cur_t and std_t and std_t[:2] < cur_t[:2]:
+                        out.append(
+                            Finding(
+                                "warning",
+                                "C8",
+                                f"standard_version {std} behind major.minor of repo {current} — list standard_gaps or refresh",
+                                rel,
+                            )
                         )
-                    )
+                    elif cur_t and std_t and std_t < cur_t:
+                        # Collect later as one PILOT-style info — mark via code C8p
+                        out.append(
+                            Finding(
+                                "info",
+                                "C8p",
+                                f"{std}",
+                                rel,
+                            )
+                        )
+                    elif std != current:
+                        out.append(
+                            Finding(
+                                "warning",
+                                "C8",
+                                f"standard_version {std} ≠ repo VERSION {current} and no standard_gaps listed",
+                                rel,
+                            )
+                        )
         if not meta.get("profile"):
             out.append(Finding("warning", "C9", "audit YAML missing profile", rel))
         status = meta.get("status")
@@ -409,7 +441,6 @@ def _check_pilot_hints(scan: ScanResult) -> list[Finding]:
     out: list[Finding] = []
     active = [a for a in scan.audits if a.get("status") == "active"]
     if not active:
-        # look for next pilot avrcp
         for item in scan.inventory:
             if item.slug == "avrcp" and item.status == "observed" and not item.sheet_exists:
                 out.append(
@@ -421,15 +452,117 @@ def _check_pilot_hints(scan: ScanResult) -> list[Finding]:
                     )
                 )
     else:
-        for a in active:
-            out.append(
-                Finding(
-                    "info",
-                    "PILOT",
-                    f"active campaign {a.get('id')} — prefer evidence-update before new pilot",
-                    str(a.get("path")),
-                )
+        ids = [str(a.get("id")) for a in active]
+        sample = ", ".join(ids[:5])
+        more = f" (+{len(ids) - 5} more)" if len(ids) > 5 else ""
+        out.append(
+            Finding(
+                "info",
+                "PILOT",
+                f"{len(ids)} active campaign(s) — prefer evidence-update / close desk-complete before new pilots: {sample}{more}",
+                "audits/",
             )
+        )
+    return out
+
+
+def _check_tech_index(root: Path, scan: ScanResult) -> list[Finding]:
+    """NAV: Sheet dirs ↔ index.yaml ↔ README (generated catalog)."""
+    out: list[Finding] = []
+    index_path = root / "technologies" / "index.yaml"
+    readme_path = root / "technologies" / "README.md"
+    disk_slugs = {Path(s).parent.name for s in scan.sheets}
+    if not index_path.is_file():
+        out.append(
+            Finding(
+                "warning",
+                "NAV1",
+                "technologies/index.yaml missing — run `python3 tools/ta-assist index`",
+                "technologies/",
+            )
+        )
+        return out
+    indexed = index_slugs_from_yaml(root)
+    missing_in_index = sorted(disk_slugs - indexed)
+    extra_in_index = sorted(indexed - disk_slugs)
+    for slug in missing_in_index:
+        out.append(
+            Finding(
+                "error",
+                "NAV2",
+                f"sheet on disk not in index.yaml — run `ta-assist index`: {slug}",
+                f"technologies/{slug}/SHEET.md",
+            )
+        )
+    for slug in extra_in_index:
+        out.append(
+            Finding(
+                "error",
+                "NAV3",
+                f"index.yaml lists slug without SHEET.md — run `ta-assist index`: {slug}",
+                "technologies/index.yaml",
+            )
+        )
+    if readme_path.is_file():
+        readme = read_text(readme_path)
+        for slug in sorted(disk_slugs):
+            if f"`{slug}`" not in readme and f"]({slug}/SHEET.md)" not in readme:
+                out.append(
+                    Finding(
+                        "warning",
+                        "NAV4",
+                        f"technologies/README.md missing link for {slug} — run `ta-assist index`",
+                        "technologies/README.md",
+                    )
+                )
+    # Soft: index.yaml generated date lag (info only if parseable)
+    entries = collect_sheets(root)
+    if indexed and len(entries) != len(indexed) and not missing_in_index and not extra_in_index:
+        out.append(
+            Finding(
+                "info",
+                "NAV5",
+                "index sheet_count mismatch vs collect_sheets — re-run index",
+                "technologies/index.yaml",
+            )
+        )
+    return out
+
+
+def _check_seen_in_apps(root: Path, scan: ScanResult) -> list[Finding]:
+    """G2 soft: sheet seen_in should have Application when project exists."""
+    out: list[Finding] = []
+    app_pairs = set()
+    for rel in scan.applications:
+        # projects/<id>/applications/<slug>.md
+        parts = Path(rel).parts
+        if len(parts) >= 4 and parts[0] == "projects":
+            app_pairs.add((parts[1], Path(parts[-1]).stem))
+    for rel in scan.sheets:
+        text = read_text(root / rel)
+        blocks = extract_yaml_blocks(text)
+        if not blocks:
+            continue
+        meta = blocks[0]
+        slug = str(meta.get("slug") or Path(rel).parent.name)
+        seen = meta.get("seen_in") or []
+        if isinstance(seen, str):
+            seen = [seen]
+        if not isinstance(seen, list):
+            continue
+        for proj in seen:
+            proj = str(proj).strip().replace("projects/", "")
+            if not proj or proj not in scan.projects:
+                continue
+            if (proj, slug) not in app_pairs:
+                out.append(
+                    Finding(
+                        "warning",
+                        "S8",
+                        f"sheet seen_in has `{proj}` but no applications/{slug}.md",
+                        rel,
+                    )
+                )
     return out
 
 
@@ -440,7 +573,38 @@ def summarize(findings: list[Finding]) -> tuple[int, int, int]:
     return e, w, i
 
 
+def _collapse_findings(findings: list[Finding]) -> list[Finding]:
+    """Reduce duplicate noise (I6, C8p) while keeping one actionable line."""
+    c8p = [f for f in findings if f.code == "C8p"]
+    i6 = [f for f in findings if f.code == "I6"]
+    other = [f for f in findings if f.code not in {"C8p", "I6"}]
+    if i6:
+        slugs = sorted({f.path.replace("inventory:", "") for f in i6})
+        sample = ", ".join(slugs[:8])
+        more = f" (+{len(slugs) - 8} more)" if len(slugs) > 8 else ""
+        other.append(
+            Finding(
+                "warning",
+                "I6",
+                f"{len(i6)} observed/candidate row(s) without sheet ({len(slugs)} unique) — ok until triage: {sample}{more}",
+                "projects/*/INVENTORY.md",
+            )
+        )
+    if c8p:
+        vers = sorted({f.message for f in c8p})
+        other.append(
+            Finding(
+                "info",
+                "C8p",
+                f"{len(c8p)} campaign(s) on patch-lag vs VERSION ({', '.join(vers)}) — ok for docs/nav bumps",
+                "audits/",
+            )
+        )
+    return other
+
+
 def format_report(findings: list[Finding]) -> str:
+    findings = _collapse_findings(findings)
     e, w, i = summarize(findings)
     lines = [
         "## technology-audit check",

@@ -1,3 +1,3 @@
-"""technology-audit assist — structure check + prompt prep (no content writing)."""
+"""technology-audit assist — structure check, prompt prep, catalog index."""
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"

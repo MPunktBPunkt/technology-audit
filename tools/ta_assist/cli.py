@@ -1,4 +1,4 @@
-"""CLI entry: check / prompt / scan / prepare."""
+"""CLI entry: check / prompt / scan / prepare / index."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ from pathlib import Path
 
 from . import __version__
 from .checker import format_report, run_checks, summarize
+from .indexer import regenerate
 from .promptgen import PROMPT_TYPES, generate_prompt, suggest_next
 from .scanner import scan_bootstrap, scan_native
 from .util import is_native, repo_root
@@ -17,8 +18,8 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         prog="ta-assist",
         description=(
-            "technology-audit assist: structure check + standardized prompt prep. "
-            "Does not write knowledge files."
+            "technology-audit assist: structure check, prompt prep, and index generation. "
+            "Does not invent Sheet/Application content — only regenerates catalogs from Sheet YAML."
         ),
     )
     parser.add_argument("--version", action="version", version=f"ta-assist {__version__}")
@@ -80,6 +81,11 @@ def main(argv: list[str] | None = None) -> int:
     p_prep.add_argument("--project", default="")
     p_prep.add_argument("--stdout", action="store_true")
 
+    sub.add_parser(
+        "index",
+        help="regenerate technologies/index.yaml + README.md from Sheet YAML",
+    )
+
     args = parser.parse_args(argv)
     root = repo_root(args.root) if args.root else repo_root()
 
@@ -87,6 +93,8 @@ def main(argv: list[str] | None = None) -> int:
         return cmd_scan(root, args.path)
     if args.cmd == "check":
         return cmd_check(root, args.format)
+    if args.cmd == "index":
+        return cmd_index(root)
     if args.cmd == "prompt":
         ptype = "next-step" if args.type == "next" else args.type
         return cmd_prompt(
@@ -146,6 +154,15 @@ def cmd_scan(root: Path, path: str | None) -> int:
         print(f"\nsuggested_next_prompt: {typ}")
         for k, v in params.items():
             print(f"  {k}: {v}")
+    return 0
+
+
+def cmd_index(root: Path) -> int:
+    info = regenerate(root)
+    print(
+        f"index: {info['sheet_count']} sheets → {info['index_yaml']} + {info['readme']} "
+        f"(planned={info['planned']})"
+    )
     return 0
 
 
