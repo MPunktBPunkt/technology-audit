@@ -19,4 +19,6 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | `field-av-correlation` | Audio/Video-Fenster vs. Dateioffset |
 | `lab-prefill-oracle` | Lab-Prefill-/Seed-Validierung |
 
-Anlegen bei erstem konkreten Einsatz, nicht spekulativ.
+Anlegen bei erstem **konkreten** Einsatz, nicht spekulativ. Reviews: Methoden sind die transferierbarsten Assets — lieber wenige belastbare Notes als eine Kandidatenliste ohne Ablauf.
+
+**Wann eine Note verdient ist:** derselbe Lab-/Feldablauf wird in ≥2 Projekten oder Kampagnen gebraucht, oder ein Pilot scheitert ohne reproduzierbares Verfahren.

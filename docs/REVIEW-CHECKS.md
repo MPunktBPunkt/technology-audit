@@ -25,7 +25,20 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) · [PROMPT-CONTRACT.md](P
 | S5 | Fallstricke mit Epistemic-Status (`FACT` / `HYPOTHESIS` / `REJECTED` / …) | warning |
 | S6 | Referenzen: Specs/Docs verlinkt oder als offen markiert | warning |
 | S7 | Offene Fragen explizit gelistet (oder bewusst „keine“) | info |
-| S8 | `seen_in` listet Projekte, die eine Application haben (sonst Nachzug) | info |
+| S8 | `seen_in` listet Projekte, die eine Application haben (sonst Nachzug) | warning |
+
+---
+
+## Technology catalog (`technologies/index.yaml` + README)
+
+| # | Check | Stufe |
+|---|-------|-------|
+| NAV1 | `index.yaml` existiert | warning |
+| NAV2 | Jedes `SHEET.md` auf Disk ist in `index.yaml` | error |
+| NAV3 | Jeder `index.yaml`-Slug hat `SHEET.md` | error |
+| NAV4 | `technologies/README.md` verlinkt jeden Sheet-Slug | warning |
+
+Regenerieren: `python3 tools/ta-assist index` · SoT: [`MAINTENANCE.md`](MAINTENANCE.md)
 
 ---
 
@@ -79,7 +92,8 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) · [PROMPT-CONTRACT.md](P
 | C5 | Lessons Learned bei `closed` vorhanden | warning |
 | C6 | Offene Punkte / Transfer nach Abschluss | info |
 | C7 | YAML `standard_version` gesetzt (Semver) | error |
-| C8 | `standard_version` &lt; aktuelle [`VERSION`](../VERSION) ohne `standard_gaps` → warning (Lag sichtbar machen) | warning |
+| C8 | `standard_version` major.minor hinter [`VERSION`](../VERSION) ohne `standard_gaps` → warning | warning |
+| C8p | nur Patch-Lag vs. VERSION → info (Docs/Nav-Bumps) | info |
 | C9 | YAML `profile` gesetzt | warning |
 
 ---

@@ -16,6 +16,17 @@ CLI `tools/ta-assist` hat eine **eigene** Semver und ist davon unabhängig.
 
 ## Versionen
 
+### 0.6.4 — 2026-10-10
+
+**Neu (Navigation / Wartung):**
+
+- Pflicht-Katalog: `python3 tools/ta-assist index` → `technologies/index.yaml` + README **nach Primary**
+- Checks NAV1–NAV4 (Index↔Sheets), S8 (`seen_in` ohne Application)
+- Pflege-SoT: [`MAINTENANCE.md`](MAINTENANCE.md); KB-FIT aktualisiert
+- CLI `ta-assist` 0.1.5; C8 warnt nur bei major.minor-Lag (Patch-Lag = info C8p)
+
+**Keine** Änderung an A/B/C-Inhaltspflicht — bestehende Kampagnen auf 0.6.3 bleiben gültig.
+
 ### 0.6.3 — 2026-10-09
 
 **Neu:**

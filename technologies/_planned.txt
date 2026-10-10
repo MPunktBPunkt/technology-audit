@@ -1,0 +1,9 @@
+# Observed/planned slugs without SHEET.md yet.
+# One entry per line. Regenerates into technologies/README.md via `ta-assist index`.
+pipewire
+scsi
+esp32
+fat
+systemd
+mpris2
+webradio (Pi-Stack; ESP hat webradio-browser-host)
