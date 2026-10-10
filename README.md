@@ -57,9 +57,10 @@ Details: [`tools/README.md`](tools/README.md).
 | Version | [`VERSION`](VERSION) (= Audit-Standard) · [`STANDARD-CHANGELOG`](docs/STANDARD-CHANGELOG.md) |
 | Phase | Pilot 2 — BMW NBT Evo (Host / C); Pilot 1 MSC closed (Schema); Prompt-Contract v1 |
 | Pilot-Reihenfolge | `usb-msc` → `bmw-nbt-evo` → `avrcp` |
-| Projekte | [pidrive](projects/pidrive/) · [pi-fm-tx](projects/pi-fm-tx/) · [esp32-pidrive](projects/esp32-pidrive/) · [heartrate](projects/esp32-heartrate/) · [ergo](projects/esp32-ergo/) · [ftmsprobe](projects/esp32-ftmsprobe/) · [bt-gateway](projects/esp32-bt-gateway/) · [rfmonitor](projects/esp32-rfmonitor/) · [toolnode](projects/esp32-toolnode/) · [metermaster](projects/esp32-metermaster/) · [webradio](projects/esp32-webradio/) · [io-control](projects/esp32-io-control/) · [communicator](projects/esp32-communicator/) · [network](projects/esp32-network/) · [esp-hub-base](projects/esp32-esp-hub/) · [iobroker.esp-hub](projects/iobroker-esp-hub/) · [iobroker.metermaster](projects/iobroker-metermaster/) · [iobroker.kostalpiko](projects/iobroker-kostalpiko/) · [iobroker.fritzwireguard](projects/iobroker-fritzwireguard/) · [freeair100](projects/iobroker-freeair100/) · [kalender](projects/iobroker-kalender/) · [linuxdashboard](projects/iobroker-linuxdashboard/) · [mbrepository](projects/iobroker-mbrepository/) · [metermaster-app](projects/metermaster-app/) · [repositories](projects/iobroker-repositories/) |
-| Technologien | [Index](technologies/) · [`index.yaml`](technologies/index.yaml) · Reuse: [REUSE.md](docs/REUSE.md) |
-| Assistenz | `ta-assist` index / check / prepare / bootstrap |
+| Projekte | generierter Katalog: [`projects/`](projects/) · [`projects/index.yaml`](projects/index.yaml) |
+| Technologien | [`technologies/`](technologies/) · [`index.yaml`](technologies/index.yaml) · Reuse: [REUSE.md](docs/REUSE.md) |
+| Retrieval-Tests | [`docs/retrieval-tests.yaml`](docs/retrieval-tests.yaml) |
+| Assistenz | `ta-assist` index / check / prepare / bootstrap · Pflege: [MAINTENANCE.md](docs/MAINTENANCE.md) |
 
 ## Herkunft
 

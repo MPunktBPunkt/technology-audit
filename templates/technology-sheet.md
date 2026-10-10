@@ -7,7 +7,7 @@ primary: C
 tags: [example-tag]
 type: protocol   # technology | protocol | format | implementation | pattern
 status: draft    # draft | active | deprecated
-seen_in: []      # z.B. [projects/pidrive]
+seen_in: []      # kanonische project_id, z.B. [pidrive] — nie projects/…
 maturity:
   technology: R0
   implementation: R0

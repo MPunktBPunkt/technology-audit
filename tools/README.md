@@ -13,10 +13,15 @@ Vertrag: [`docs/PROMPT-CONTRACT.md`](../docs/PROMPT-CONTRACT.md) · Prüfliste: 
 | **Framework** | [`VERSION`](../VERSION) | Dokumentenstandard (z. B. 0.6.4) |
 | **CLI** | `tools/ta_assist/__init__.py` → `__version__` | Assistenz-Tool (z. B. 0.1.5) |
 
+### CLI 0.1.6
+
+- Indexer: YAML/MD-Escaping; Projektkatalog `projects/index.yaml`
+- Checks S9/S10/G2 bidirektional, RT1 retrieval-fixtures, R5 maturity hint
+
 ### CLI 0.1.5
 
 - `ta-assist index` — Primary-gruppierte README + `index.yaml`
-- Checks NAV1–NAV4, S8 (`seen_in`↔App), C8 nur major.minor-Lag, PILOT als Sammel-Info
+- Checks NAV1–NAV4, S8, C8 patch-lag info
 
 ### CLI 0.1.4
 

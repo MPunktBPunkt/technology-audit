@@ -2,6 +2,15 @@
 
 Ideen, die aus PiDrive-Technologiewissen entstehen können — noch keine Projekte.
 
+## Transfer-Nachweis
+
+```yaml
+reuse_outcomes:
+  reused: [usb-msc, bmw-nbt-evo, dab-plus, rtl-sdr, bluetooth-a2dp, avrcp]
+  new: [pmr446, airband-am, sdr-spectrum-fft]
+  not_helped: []  # bisher keine Folgeprojekte gegen diese Kampagne gemessen
+```
+
 | Idee | Baut auf | Kurz |
 |------|----------|------|
 | ESP32 BT-Gateway | `bluetooth-a2dp`, `avrcp` | Classic-BT vom Pi auf ESP (`esp32.bt-gateway`) — Apps kontrastiert |

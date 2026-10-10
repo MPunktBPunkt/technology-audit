@@ -26,17 +26,22 @@ Verwandt: [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md) · [PROMPT-CONTRACT.md](P
 | S6 | Referenzen: Specs/Docs verlinkt oder als offen markiert | warning |
 | S7 | Offene Fragen explizit gelistet (oder bewusst „keine“) | info |
 | S8 | `seen_in` listet Projekte, die eine Application haben (sonst Nachzug) | warning |
+| S9 | `seen_in` nur kanonische `project_id` (kein `projects/…`), kebab-case | error |
+| S10 | `seen_in`-ID existiert als `projects/<id>/` | error |
 
 ---
 
-## Technology catalog (`technologies/index.yaml` + README)
+## Technology / project catalogs
 
 | # | Check | Stufe |
 |---|-------|-------|
-| NAV1 | `index.yaml` existiert | warning |
-| NAV2 | Jedes `SHEET.md` auf Disk ist in `index.yaml` | error |
-| NAV3 | Jeder `index.yaml`-Slug hat `SHEET.md` | error |
+| NAV1 | `technologies/index.yaml` existiert | warning |
+| NAV2 | Jedes `SHEET.md` auf Disk ist in Tech-Index | error |
+| NAV3 | Jeder Tech-Index-Slug hat `SHEET.md` | error |
 | NAV4 | `technologies/README.md` verlinkt jeden Sheet-Slug | warning |
+| NAV6 | `projects/index.yaml` ↔ Projektverzeichnisse | warning |
+| RT1 | Pfade in `docs/retrieval-tests.yaml` existieren | error |
+| R5 | active + `seen_in` + `field_evidence=R0` | info |
 
 Regenerieren: `python3 tools/ta-assist index` · SoT: [`MAINTENANCE.md`](MAINTENANCE.md)
 
@@ -137,7 +142,7 @@ Regenerieren: `python3 tools/ta-assist index` · SoT: [`MAINTENANCE.md`](MAINTEN
 | # | Check | Stufe |
 |---|-------|-------|
 | G1 | Bekannte Tech erneut getroffen ⇒ kein paralleles Sheet mit Suffix (`-ergo`, `-v2`, Projektname) | error |
-| G2 | Zweites Projekt mit Application ⇒ Sheet `seen_in` enthält beide Projekt-IDs | warning |
+| G2 | Application existiert ⇒ Sheet `seen_in` enthält die `project_id` (bidirektional zu S8) | warning |
 | G3 | A-Claims aus dem neuen Projekt sind generalisierbar (sonst nur Application B/C) | warning |
 | G4 | `REJECTED`-Zeilen bleiben erhalten; kein stilles Löschen widerlegter Claims | warning |
 | G5 | `reusability` ≥ W3 nur wenn ≥2 `seen_in` mit belastbarer Application **oder** Transfer belegt | warning |

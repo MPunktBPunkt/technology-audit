@@ -160,10 +160,11 @@ def cmd_scan(root: Path, path: str | None) -> int:
 def cmd_index(root: Path) -> int:
     info = regenerate(root)
     print(
-        f"index: {info['sheet_count']} sheets → {info['index_yaml']} + {info['readme']} "
-        f"(planned={info['planned']})"
+        f"index: {info['sheet_count']} sheets → {info['index_yaml']} + {info['readme']}; "
+        f"{info['project_count']} projects → {info['projects_index']} + {info['projects_readme']} "
+        f"(planned={info['planned']}, sheet_errors={info.get('sheet_errors', 0)})"
     )
-    return 0
+    return 1 if info.get("sheet_errors") else 0
 
 
 def cmd_check(root: Path, fmt: str) -> int:

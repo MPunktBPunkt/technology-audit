@@ -30,7 +30,7 @@ Wiederverwendbare Technology Sheets.
 | [`fm-rds`](fm-rds/SHEET.md) | FM-RDS (Radio Data System) | W2 | `pi-fm-tx` |
 | [`kostal-piko-http`](kostal-piko-http/SHEET.md) | Kostal PIKO Local HTTP Interface | W2 | `iobroker-kostalpiko` |
 | [`pump-control-link`](pump-control-link/SHEET.md) | PUMP Control Link | W2 | `esp32-pidrive` |
-| [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W2 | `projects/pidrive`, `esp32-pidrive` |
+| [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W2 | `pidrive`, `esp32-pidrive` |
 
 ### D — Embedded
 
@@ -78,7 +78,7 @@ Wiederverwendbare Technology Sheets.
 
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
-| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | BMW NBT Evo Head Unit — Host-Plattform | W1 | `projects/pidrive`, `esp32-bt-gateway` |
+| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | BMW NBT Evo Head Unit — Host-Plattform | W1 | `pidrive`, `esp32-bt-gateway` |
 | [`hammer-varon-xtr`](hammer-varon-xtr/SHEET.md) | Hammer Varon XTR II (FTMS Host) | W2 | `esp32-ftmsprobe`, `esp32-ergo` |
 
 ### J — Architektur

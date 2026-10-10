@@ -14,10 +14,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Regenerate tech index (must be committed)
+      - name: Regenerate catalogs (must be committed)
         run: |
           python3 tools/ta-assist index
-          git diff --exit-code -- technologies/index.yaml technologies/README.md technologies/_planned.txt \
-            || (echo "::error::technologies catalog out of date — run: python3 tools/ta-assist index" && exit 1)
+          git diff --exit-code -- \
+            technologies/index.yaml technologies/README.md technologies/_planned.txt \
+            projects/index.yaml projects/README.md \
+            || (echo "::error::catalogs out of date — run: python3 tools/ta-assist index" && exit 1)
       - name: Run ta-assist check
         run: python3 tools/ta-assist check --format github

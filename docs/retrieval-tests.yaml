@@ -1,0 +1,137 @@
+# Retrieval / usability fixtures for the knowledge base (standard 0.6.5+)
+# Structural CI: expected paths must exist (ta-assist check RT1).
+# Semantic pass: a human/agent answering the question should cite expect.paths
+# and must not treat reject.slugs as equally primary.
+#
+# Run mentally with: docs/PROJECT-START.md → technologies/index.yaml → FAMILIES
+
+version: 1
+updated: 2026-10-10
+
+cases:
+  - id: usb-msc-host-caching
+    question: "Welche Erkenntnisse zu USB-MSC und Host-Caching existieren bereits?"
+    expect:
+      paths:
+        - technologies/usb-msc/SHEET.md
+        - technologies/bmw-nbt-evo/SHEET.md
+        - projects/pidrive/applications/usb-msc.md
+        - audits/pidrive-2026-msc/README.md
+    reject:
+      slugs: [dab-plus, bluetooth-a2dp, rpitx]
+
+  - id: ble-ftms-esp32
+    question: "Welche BLE-FTMS-Erkenntnisse kann ich für eine neue ESP32-Firmware übernehmen?"
+    expect:
+      paths:
+        - technologies/bluetooth-ftms/SHEET.md
+        - technologies/ble-hrm-gatt/SHEET.md
+        - methods/ftms-capability-probe.md
+        - projects/esp32-ftmsprobe/applications/bluetooth-ftms.md
+    reject:
+      slugs: [usb-msc, dab-plus]
+
+  - id: esp-hub-node-start
+    question: "Welche Voraussetzungen und Fallstricke gelten für einen neuen ESP-Hub-Node?"
+    expect:
+      paths:
+        - technologies/esp-hub-telemetry/SHEET.md
+        - technologies/esp-hub-base-template/SHEET.md
+        - docs/PROJECT-START.md
+        - docs/FAMILIES.md
+    reject:
+      slugs: [rpi-gpio-fm-tx, kostal-piko-http]
+
+  - id: lab-vs-field
+    question: "Was wurde im Labor bestätigt, aber noch nicht im Feld?"
+    expect:
+      paths:
+        - docs/KB-FIT.md
+        - docs/MAINTENANCE.md
+        - methods/ftms-capability-probe.md
+    reject:
+      slugs: []
+
+  - id: rejected-hypotheses
+    question: "Welche früheren Hypothesen wurden widerlegt (Fallstricke REJECTED)?"
+    expect:
+      paths:
+        - technologies/usb-msc/SHEET.md
+        - technologies/rpi-gpio-fm-tx/SHEET.md
+        - technologies/dab-plus/SHEET.md
+    reject:
+      slugs: []
+
+  - id: dab-radio-stack
+    question: "Wie hängt DAB+ mit RTL-SDR und Spektrum-FFT in PiDrive zusammen?"
+    expect:
+      paths:
+        - technologies/dab-plus/SHEET.md
+        - technologies/rtl-sdr/SHEET.md
+        - technologies/sdr-spectrum-fft/SHEET.md
+        - audits/pidrive-2026-radio-bt/README.md
+    reject:
+      slugs: [rpi-gpio-fm-tx, rpitx]
+
+  - id: fm-tx-foreign
+    question: "Was gilt für Raspberry-Pi-FM-Sender (GPIO/Clock) vs. Empfang?"
+    expect:
+      paths:
+        - technologies/rpi-gpio-fm-tx/SHEET.md
+        - technologies/rpitx/SHEET.md
+        - technologies/fm-rds/SHEET.md
+        - projects/pi-fm-tx/INVENTORY.md
+    reject:
+      slugs: [rtl-sdr, dab-plus]
+
+  - id: a2dp-avrcp-pi-vs-esp
+    question: "Bluetooth A2DP/AVRCP — Pi BlueZ vs. ESP-Gateway Planung?"
+    expect:
+      paths:
+        - technologies/bluetooth-a2dp/SHEET.md
+        - technologies/avrcp/SHEET.md
+        - projects/pidrive/applications/bluetooth-a2dp.md
+        - projects/esp32-bt-gateway/applications/avrcp.md
+    reject:
+      slugs: [ble-hrm-gatt]
+
+  - id: adapter-vs-contract
+    question: "Wie trenne ich Hub-HTTP-Contract und ioBroker-Adapter-Wissen?"
+    expect:
+      paths:
+        - technologies/esp-hub-telemetry/SHEET.md
+        - technologies/iobroker-esp-hub-adapter/SHEET.md
+        - docs/REUSE.md
+    reject:
+      slugs: [usb-msc]
+
+  - id: pmr-airband
+    question: "PMR446 und Airband — Empfangspfad und Abgrenzung?"
+    expect:
+      paths:
+        - technologies/pmr446/SHEET.md
+        - technologies/airband-am/SHEET.md
+        - methods/sdr-spectrum-channel-watch.md
+    reject:
+      slugs: [fm-rds, rpitx]
+
+  - id: reuse-entry
+    question: "Wie starte ich ein neues Repo gegen diese Wissensbasis?"
+    expect:
+      paths:
+        - docs/PROJECT-START.md
+        - docs/REUSE.md
+        - docs/MAINTENANCE.md
+        - technologies/index.yaml
+    reject:
+      slugs: []
+
+  - id: maturity-trust
+    question: "Wann darf ich einem Sheet vertrauen (R*/W*)?"
+    expect:
+      paths:
+        - docs/DOCUMENT-STANDARD.md
+        - docs/KB-FIT.md
+        - docs/MAINTENANCE.md
+    reject:
+      slugs: []

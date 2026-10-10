@@ -1,6 +1,6 @@
 # Eignung der Wissensbasis für Neuentwicklung
 
-Stand: **2026-10-10** · Audit-Standard [`0.6.4`](../VERSION) · nach externen Reviews (Mistral / GPT / Claude) + Index-Prozess.
+Stand: **2026-10-10** · Audit-Standard [`0.6.5`](../VERSION) · Härtung nach Zweit-Reviews (Links, Retrieval-Fixtures, Projektkatalog).
 
 ## Kurzurteil
 

@@ -16,6 +16,16 @@ CLI `tools/ta-assist` hat eine **eigene** Semver und ist davon unabhängig.
 
 ## Versionen
 
+### 0.6.5 — 2026-10-10
+
+**Härtung (Reviews nach 0.6.4):**
+
+- `seen_in` nur kanonische `project_id` (S9/S10 error); bidirektional Sheet↔App (S8/G2)
+- Indexer: YAML/Markdown-Escaping, Primary/Slug-Validierung; **Projektkatalog** `projects/index.yaml`
+- Retrieval-Fixtures: [`retrieval-tests.yaml`](retrieval-tests.yaml) + Check RT1
+- Transfer-Nachweis: `reuse_outcomes` in Kampagne/FOLLOW-ON ([`MAINTENANCE.md`](MAINTENANCE.md))
+- Info R5: active Sheet mit `seen_in` aber `field_evidence=R0`
+
 ### 0.6.4 — 2026-10-10
 
 **Neu (Navigation / Wartung):**
