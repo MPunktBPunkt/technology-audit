@@ -230,7 +230,9 @@ Assistenz darf Wissensdateien nicht autonom schreiben — nur strukturierte Arbe
 
 Kein Pflichtordner „Wiki/Google“. Referenzen gehören ins Technology Sheet (Abschnitt Referenzen). Optional später `technologies/<slug>/REFERENCES.md`, wenn die Quellenlage komplex ist.
 
-Quellenarten kennzeichnen: **normativ** (Spec/Hersteller) · **projektintern** (Code/Evidence-Links) · **sekundär** (Wiki/Blog, sparsam).
+Quellenarten kennzeichnen: **normativ** (Spec/Hersteller) · **projektintern** (Code/Evidence-Links) · **sekundär** (Wiki/Blog/Tutorial-Katalog, sparsam).
+
+**Web-Kataloge** (z. B. Tutorial-Indexe): wie Fremd-Upstream scannen — `reviewed_snapshot` + URL statt Git-Commit; Match gegen Sheet-Index; **keine** Artikeltexte/Code spiegeln; Claims aus Tutorials allein höchstens `INFERRED`/`HYPOTHESIS` bis TRM/Code. Beispiel: [`rnt-esp32`](../projects/rnt-esp32/).
 
 ## Was nicht hierhin gehört
 

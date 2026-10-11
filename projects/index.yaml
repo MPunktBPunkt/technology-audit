@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-11
-project_count: 27
+project_count: 28
 projects:
   - id: esp-fm-tx
     title: ESP FM / APLL Clock Transmit (Fremd)
@@ -161,6 +161,12 @@ projects:
     status: active
     applications: 9
     path: projects/pidrive/
+  - id: rnt-esp32
+    title: Random Nerd Tutorials — ESP32 Projects Catalog (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 0
+    path: projects/rnt-esp32/
   - id: welle-io
     title: welle.io — DAB/DAB+ SDR Receiver (Fremd)
     profile: lab-tool

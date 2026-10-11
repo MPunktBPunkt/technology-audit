@@ -43,6 +43,14 @@ Radio-Sheets (Empfang): `dab-plus`, `rtl-sdr`, `pmr446`, `airband-am`, `sdr-spec
 RX-Reuse: `dab-plus`, `rtl-sdr` (nicht mit TX vermischen).  
 TX-Sheets: `rpi-gpio-fm-tx`, `fm-rds`, `rpitx`, `esp32-apll-fm-tx` (Classic only; S3 = Gate). Kein Antennen-Sendepfad in der KB.
 
+## Lab / Fremd — sekundäre Web-Kataloge
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `rnt-esp32` | Desk: [RNT ESP32 Projects Index](https://randomnerdtutorials.com/projects-esp32/) — Match gegen Sheet-Katalog; **kein** Tutorial-Text; Snapshot statt Commit |
+
+Quellenart **sekundär**. Reuse/Signale nur; `seen_in` erst mit Application. Chip-Scope: Arduino-„ESP32“ ≠ S3/C3 automatisch.
+
 ## ioBroker-Adapter (Produkt)
 
 | Projekt-ID | Rolle |

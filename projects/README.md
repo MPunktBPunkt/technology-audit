@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-11`, 27 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-11`, 28 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -32,6 +32,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`metermaster-app`](metermaster-app/) | metermaster-app | ops-field | — | 1 |
 | [`pi-fm-tx`](pi-fm-tx/) | Pi FM / RF Transmit (Fremd) | lab-tool | active | 3 |
 | [`pidrive`](pidrive/) | PiDrive | ops-field | active | 9 |
+| [`rnt-esp32`](rnt-esp32/) | Random Nerd Tutorials — ESP32 Projects Catalog (Fremd) | lab-tool | active | 0 |
 | [`welle-io`](welle-io/) | welle.io — DAB/DAB+ SDR Receiver (Fremd) | lab-tool | active | 2 |
 
 Neues Projekt: [`REUSE.md`](../docs/REUSE.md) · [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md) · [`MAINTENANCE.md`](../docs/MAINTENANCE.md).
