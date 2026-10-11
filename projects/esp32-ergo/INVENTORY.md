@@ -2,17 +2,26 @@
 
 ```yaml
 project_id: esp32-ergo
-updated: 2026-10-09
+updated: 2026-10-11
 reviewed_commit: edaeb19
+profile: firmware
 pilot_order: [bluetooth-ftms, hammer-varon-xtr, ble-hrm-gatt, esp-embedded-web-sse, esp-hub-telemetry]
 ```
 
-Desk-Audit 2026-10-09 gegen `edaeb19`.  
+Desk-Audit 2026-10-09 gegen `edaeb19`; Revalidation **0.6.6** 2026-10-11.  
 Ursprungsrepo: [esp32.ergo](https://github.com/MPunktBPunkt/esp32.ergo) (read-only).  
-Kampagne: [esp32-ergo-2026-pilot](../../audits/esp32-ergo-2026-pilot/).  
+Kampagne: [esp32-ergo-2026-pilot](../../audits/esp32-ergo-2026-pilot/) · [DELTA](../../audits/esp32-ergo-2026-pilot/DELTA.md).  
 Taxonomie: [`docs/TAXONOMY.md`](../../docs/TAXONOMY.md).
 
-**Wissenswachstum:** Slugs `ble-hrm-gatt`, `ble-hr-relay`, `esp-hub-telemetry`, `esp-embedded-web-sse` existierten aus `esp32-heartrate` — Sheets erweitert (`seen_in`, Fallstricke), **keine** Forks.
+**Wissenswachstum / Reuse** ([REUSE.md](../../docs/REUSE.md), Standard [0.6.6](../../docs/STANDARD-CHANGELOG.md)):
+
+| Signal | Ziel-Sheet | Aktion |
+|--------|------------|--------|
+| FTMS Coach/Bridge | `bluetooth-ftms` | neu + App (S3 Dual-Role) |
+| Varon Host-Quirks | `hammer-varon-xtr` | Host-Sheet (nicht Spec) |
+| HR / Relay / Hub / Web | heartrate-Slugs | wachsen, keine Forks |
+| HR-Relay | `ble-hr-relay` | **Consumer** von heartrate-S3 Deploy |
+| ERG-Regler | `ftms-erg-control` | observed — kein Sheet (G19) |
 
 ## Übersicht
 
@@ -70,7 +79,8 @@ Legende Coverage: `none` · `partial` · `full`
 |---------|-------------|------------------|
 | `bluetooth-ftms` Bridge | MyWhoosh-Abnahme laut STATE offen | Lab-PASS + Evidence-IDs |
 | `hammer-varon-xtr` | Nachtest 6 (Crash unter Last) offen | Feldnotiz |
-| `ftms-erg-control` | nur observed | eigenes Sheet wenn Transferbedarf |
+| `ftms-erg-control` | nur observed | Sheet nur bei Transferbedarf + Gate |
+| Classic Dual-Role Ergo | nicht im Produkt-Scope | Gate — kein Claim |
 | shared Hub/Web | IO-Keys ergo vs heartrate | Schema-Abgleich im Hub-Repo |
 
 ## Signale ohne Eintrag

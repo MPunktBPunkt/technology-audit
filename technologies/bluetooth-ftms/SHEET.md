@@ -15,7 +15,8 @@ maturity:
   reusability: W3
 ```
 
-Nur Ebene **A**. Konkrete Trainer (z. B. Varon) und App-Bridges → Applications / Host-Sheets.
+Nur Ebene **A**. Konkrete Trainer (z. B. Varon) und App-Bridges → Applications / Host-Sheets.  
+**Chip-Scope:** GATT-Profil ist chip-neutral. **Dual-Role** (Central zum Bike + Peripheral-Bridge zur App) ist controller-/build-abhängig — in der Ergo-Familie belegt auf **ESP32-S3**, nicht still auf Classic übertragen (G17).
 
 ## Kurzfassung
 
@@ -24,7 +25,7 @@ Bluetooth LE Fitness Machine Service (`0x1826`): Features (`0x2ACC`), Indoor Bik
 ## Abgrenzung
 
 - **Ist:** GATT-Profil für Indoor-Trainer / Fitnessgeräte (Messwerte + Sollwerte).
-- **Ist nicht:** Heart Rate Service (`0x180D`); herstellerspezifische Vendor-UUIDs; Trainingslogik (ERG-Regler, Zonen) — die sitzt darüber.
+- **Ist nicht:** Heart Rate Service (`0x180D`); herstellerspezifische Vendor-UUIDs; Trainingslogik (ERG-Regler, Zonen) — die sitzt darüber; automatische Dual-Role-Bridge auf jedem ESP32.
 
 ## Schnittstellen und Abhängigkeiten
 
@@ -44,6 +45,7 @@ Bluetooth LE Fitness Machine Service (`0x1826`): Features (`0x2ACC`), Indoor Bik
 | `0x2AD9` ist immer Indicate | `HYPOTHESIS` | Manche Geräte Notify statt Indicate — CCCD `0x0001` |
 | Feature-Bit „Resistance“ ⇒ IBD liefert Resistance-Feld | `REJECTED` | Bits und Payload-Felder können auseinanderlaufen |
 | Advertising enthält zuverlässig Name/Services | `HYPOTHESIS` | Manche Bikes nur über gemerkte MAC + AddrType reconnectbar |
+| FTMS-Bridge+Central auf Classic wie auf S3 | `UNKNOWN` / Gate | Connection-Budget; Ergo-Produkt = S3 |
 
 ## Steuerstrategien (A)
 
@@ -66,6 +68,7 @@ Wiederverwendbar für ESP-Central (Bike) und ESP-Peripheral (App-Bridge). Probe-
 - [ ] Success auf Control Point **nicht** als Wirkungsbeweis behandeln
 - [ ] Host-Quirks (Advertising, Notify-vs-Indicate, fehlende Felder) in Application C / Host-Sheet, nicht hier als Spec
 - [ ] Wenn Resistance-only: Kennfläche/Emulation planen — kein stilles Hardcode „alle Bikes können ERG“
+- [ ] Bei Bridge: Chip-Scope / Dual-Role-Budget prüfen (Familie: S3)
 - [ ] `seen_in` + Application nachziehen
 
 ## Referenzen

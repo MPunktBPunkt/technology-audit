@@ -2,18 +2,28 @@
 
 ```yaml
 project_id: esp32-heartrate
-updated: 2026-10-09
+updated: 2026-10-11
 reviewed_commit: 72acae4
+profile: firmware
 pilot_order: [ble-hrm-gatt, ble-hr-relay, esp-embedded-web-sse, esp-hub-telemetry]
 ```
 
-Desk-Audit-Lauf 2026-10-08, Nacharbeit/Re-Audit 2026-10-09 (Struktur Review-Checks, Claim-Abgleich).
+Desk-Audit-Lauf 2026-10-08, Nacharbeit/Re-Audit 2026-10-09; Revalidation **0.6.6** 2026-10-11 (Chip-Scope Relay, Geschwister).
 
 Ursprungsrepo: [esp32.heartrate](https://github.com/MPunktBPunkt/esp32.heartrate) (read-only).  
-Kampagne: [esp32-heartrate-2026-pilot](../../audits/esp32-heartrate-2026-pilot/).  
+Kampagne: [esp32-heartrate-2026-pilot](../../audits/esp32-heartrate-2026-pilot/) · [DELTA](../../audits/esp32-heartrate-2026-pilot/DELTA.md).  
 Taxonomie: Primary A–J wie in [`docs/TAXONOMY.md`](../../docs/TAXONOMY.md).
 
-**Reuse / Match:** Erstes ESP-Node-Bootstrap; Slugs später von `esp32-ergo` / `esp32-ftmsprobe` **mitgewachsen** (keine Forks). Parität-Nachzug: Reuse-Hinweis. Siehe [`docs/REUSE.md`](../../docs/REUSE.md).
+**Reuse / Match** ([REUSE.md](../../docs/REUSE.md), Standard [0.6.6](../../docs/STANDARD-CHANGELOG.md)):
+
+| Signal | Ziel-Sheet | Aktion |
+|--------|------------|--------|
+| BLE HR Central / Polar H9 | `ble-hrm-gatt` | Sheet + App |
+| Dual-Role Relay | `ble-hr-relay` | **Chip-Scope S3**; Classic Mini unsupported |
+| REST + SSE WebUI | `esp-embedded-web-sse` | Sheet + App |
+| Hub Heartbeat / OTA | `esp-hub-telemetry` | Sheet + App (HTTP-A) |
+| RR/Session/LittleFS | observed | kein Sheet ohne Transferbedarf (G19) |
+| Geschwister ergo / ftmsprobe | dieselben Slugs | wachsen, keine Forks |
 
 ## Übersicht
 
@@ -82,9 +92,10 @@ noch kein eigener Slug (Session/Producer-Consumer in Applications)
 | Bereich | Warum offen | Nächster Schritt |
 |---------|-------------|------------------|
 | `ble-hrm-gatt` | Lab/README Polar H9; keine Evidence-Rohlogs im Repo | Feldnotiz + Continuity-KPIs vs. PFLICHTENHEFT |
-| `ble-hr-relay` | Abnahmekriterien 1–15 dokumentiert, nicht als PASS protokolliert | Lab-Lauf nRF Connect + zweiter Consumer |
+| `ble-hr-relay` | Abnahmekriterien 1–15 dokumentiert, nicht als PASS protokolliert | Lab-Lauf nRF Connect + zweiter Consumer (S3) |
+| Classic dual-role | S3-Evidence nicht übertragbar | Gate / eigene Messung — kein Sheet-Ausweiten |
 | `esp-hub-telemetry` | Schnittstelle beschrieben; Hub-Repo out of scope | Sample-Heartbeat gegen laufenden Hub |
-| observed-only Slugs | kein Sheet-Priorität im Pilot | Sheets bei Transferbedarf nachziehen |
+| observed-only Slugs | kein Sheet-Priorität im Pilot | Sheets bei Transferbedarf + Gate (G19) |
 
 ## Signale ohne Eintrag
 

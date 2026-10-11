@@ -2,7 +2,7 @@
 
 ```yaml
 project_id: esp32-ftmsprobe
-updated: 2026-10-09
+updated: 2026-10-11
 source_repo: https://github.com/MPunktBPunkt/esp32.ftmsprobe
 reviewed_commit: 70c3c25
 ```
@@ -27,3 +27,5 @@ ESP-Hub OTA ─────┘
 ## Ziel dieses Audit-Laufs
 
 Sonde als **wiederverwendbares Lab-Muster** + Method Note verankern; FTMS/Varon-Evidence dem Wissenswachstum zuordnen (kein zweites Spec-Sheet). Transferpfad Sonde → Ergo (`BleProbe` → `BleCentral`/`FtmsClient`, `ftms.py` → Codec) dokumentieren.
+
+**Revalidation 0.6.6:** Chip-/Build-Scope `probe` vs `probe-s3` + Dual-Link-Budget ([DELTA](../../audits/esp32-ftmsprobe-2026-pilot/DELTA.md)).

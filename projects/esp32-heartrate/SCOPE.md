@@ -2,7 +2,7 @@
 
 ```yaml
 project_id: esp32-heartrate
-updated: 2026-10-09
+updated: 2026-10-11
 source_repo: https://github.com/MPunktBPunkt/esp32.heartrate
 reviewed_commit: 72acae4
 ```
@@ -27,3 +27,5 @@ Polar H9 ──BLE Central──▶ ESP32 ──BLE Peripheral──▶ Handy / 
 ## Ziel dieses Audit-Laufs
 
 Desk-Inventar + priorisierte Technology Sheets/Applications für die vier Kernpfade (HR-Central, HR-Relay, Embedded-Web/SSE, Hub). Feld-Abnahme gegen PFLICHTENHEFT-v0.3 bleibt Folgearbeit.
+
+**Revalidation 0.6.6:** Chip-Scope HR-Relay = ESP32-S3; Classic Mini ohne Dual-Role-Transfer ([DELTA](../../audits/esp32-heartrate-2026-pilot/DELTA.md)).

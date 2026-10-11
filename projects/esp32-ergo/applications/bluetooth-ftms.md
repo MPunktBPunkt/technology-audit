@@ -50,6 +50,7 @@ App (MyWhoosh) ◀──FtmsServer── ESP (Bridge Exclusive/Observer)
 | Varon: kein Power Target / kein `0x2AD8` | `EVID-FTMS-2026-10-09-001` | `MEASURED` |
 | Control-Point-Success ≠ Wirkung (`0x05`) | `EVID-FTMS-2026-10-09-002` | `MEASURED` |
 | Bridge Exclusive: Coach-Last → HTTP 409 solange App controlling | `EVID-FTMS-2026-10-09-003` | `INFERRED` (BRIDGE.md + Code) |
+| Produkt-Chip-Scope: ESP32-S3 Dual-Role (Central+Bridge) | `EVID-SCOPE-2026-10-11-001` | `FACT` |
 | Formale MyWhoosh-Abnahme abgeschlossen | — | `UNKNOWN` (STATE offen) |
 
 ## Beobachtungen (Lab / Feld)

@@ -1,6 +1,6 @@
 # Evidence — esp32-ftmsprobe-2026-pilot
 
-Desk-Audit 2026-10-09 @ `70c3c25`. Rohdaten: `docs/ergometer/scan-20260910/` im Quellenrepo.
+Desk-Audit 2026-10-09 @ `70c3c25`; Revalidation **0.6.6** 2026-10-11. Rohdaten: `docs/ergometer/scan-20260910/` im Quellenrepo.
 
 Basis: `https://github.com/MPunktBPunkt/esp32.ftmsprobe/blob/70c3c25/`
 
@@ -13,6 +13,9 @@ Basis: `https://github.com/MPunktBPunkt/esp32.ftmsprobe/blob/70c3c25/`
 | `EVID-HRM-2026-10-09-002` | Polar H9 parallel scanbar/koppelbar | `MEASURED` | ERGEBNISBERICHT Kurzfazit |
 | `EVID-HUB-2026-10-09-003` | Firmware-Schema `ftmsprobe.<ver>.<family>.bin` | `FACT` | README / deploy.sh |
 | `EVID-HUB-2026-10-09-004` | NVS `esphub` überlebt Familienwechsel | `INFERRED` | README Erstflash |
+| `EVID-SCOPE-2026-10-11-001` | Dual-Env: `probe` (Classic D1 Mini) · `probe-s3` (ESP32-S3); Central-only Probe | `FACT` | SCOPE / platformio; Revalidation |
+| `EVID-SCOPE-2026-10-11-002` | Dual-Link Bike+H9 mit `MAX_CONNECTIONS=3` als Produkt-Budget dokumentiert — Chip-/Build-gebunden | `FACT` | Application `ble-hrm-gatt`; Revalidation |
+| `EVID-MATCH-2026-10-11-001` | Evidence-Ursprung für ergo FTMS/Varon; Pattern `ble-http-gatt-probe` eigenständig | `FACT` | Inventare + Sheets; Revalidation |
 
 Geteilte FTMS/Varon-Claims (ergo-Kampagne): `EVID-FTMS-2026-10-09-001/002`, `EVID-VARON-2026-10-09-001` — Ursprung Messung hier.
 
@@ -22,6 +25,7 @@ Geteilte FTMS/Varon-Claims (ergo-Kampagne): `EVID-FTMS-2026-10-09-001/002`, `EVI
 |-------|--------|---------|
 | Zweites Nicht-Varon-Gerät mit gleicher Method | `UNKNOWN` | Exit 6 |
 | Sim `0x11` Wirkungsmessung vollständig | `UNKNOWN` | ERGEBNISBERICHT Option |
+| Dual-Link-Budget identisch Classic vs S3 ohne Env-Check | `UNKNOWN` | G17 — pro Env belegen |
 
 ## Wissens-Chronik
 
@@ -29,3 +33,4 @@ Geteilte FTMS/Varon-Claims (ergo-Kampagne): `EVID-FTMS-2026-10-09-001/002`, `EVI
 |-------|----------|
 | 2026-09-10 | Lab-Lauf Varon (Upstream) |
 | 2026-10-09 | Import in technology-audit; Method + Probe-Pattern; REUSE-Prozess |
+| 2026-10-11 | Revalidation **0.6.6**: Chip-/Build-Scope Dual-Env, [DELTA](DELTA.md) |

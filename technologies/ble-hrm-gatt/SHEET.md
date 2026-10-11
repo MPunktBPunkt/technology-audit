@@ -15,7 +15,8 @@ maturity:
   reusability: W3
 ```
 
-Nur Ebene **A**. Projektpfade und Sensor-Quirks → jeweilige Application.
+Nur Ebene **A**. Projektpfade und Sensor-Quirks → jeweilige Application.  
+**Chip-Scope:** GATT-Central-Protokoll (`0x180D`/`0x2A37`) ist spezseitig chip-neutral. **Dual-Role** (Central + gleichzeitig Peripheral-Relay) und Connection-Budget sind **chip-/build-abhängig** — siehe `ble-hr-relay` (S3 belegt; Classic Mini in heartrate ohne Peripheral).
 
 ## Kurzfassung
 
@@ -24,7 +25,7 @@ Bluetooth LE Heart Rate Service (`0x180D`) mit Characteristic Heart Rate Measure
 ## Abgrenzung
 
 - **Ist:** GATT-Profil für Puls-/RR-Daten von Wearables (und von Relays, die denselben Service spiegeln).
-- **Ist nicht:** AVRCP/A2DP, FTMS Indoor-Bike-HR-Feld (`0x2AD2`), medizinische Zertifizierung, HRV-Analyse oberhalb der Roh-RR-Pipeline.
+- **Ist nicht:** AVRCP/A2DP, FTMS Indoor-Bike-HR-Feld (`0x2AD2`), medizinische Zertifizierung, HRV-Analyse oberhalb der Roh-RR-Pipeline; automatische Dual-Role-Annahme auf jedem ESP32.
 
 ## Schnittstellen und Abhängigkeiten
 
@@ -59,6 +60,7 @@ Geeignet für ESP-/NimBLE-Gateways und Trainings-Nodes. Voraussetzung: Central-R
 ### Projektstart-Checkliste
 
 - [ ] Variante wählen: Direct / Relay / FTMS-IBD-HR (siehe Varianten-Tabelle)
+- [ ] Bei Relay: Chip-Scope / Connection-Budget prüfen (`ble-hr-relay`)
 - [ ] Single-link-Gurte einplanen (kein stilles Multi-Central)
 - [ ] RR-Einheiten 1/1024 s; Contact-Bit nicht voraussetzen
 - [ ] Application + `seen_in` nachziehen

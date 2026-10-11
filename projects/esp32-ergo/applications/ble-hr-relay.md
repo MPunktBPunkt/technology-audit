@@ -36,6 +36,7 @@ H9 → esp32.heartrate (Peripheral) → esp32.ergo HrClient
 | Claim | Evidence-ID | Status |
 |-------|-------------|--------|
 | Dual-HR + Heartrate-Relay mit MyWhoosh „auf Hardware bewährt“ | `EVID-RELAY-2026-10-09-001` | `INFERRED` (STATE.md) |
+| Relay = Geschwister-Deploy (heartrate S3), kein Relay-Code in ergo | `EVID-SCOPE-2026-10-11-002` | `FACT` |
 
 ## Abweichungen vom „Lehrbuch“
 

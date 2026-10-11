@@ -2,18 +2,28 @@
 
 ```yaml
 project_id: esp32-ftmsprobe
-updated: 2026-10-09
+updated: 2026-10-11
 reviewed_commit: 70c3c25
+profile: lab-tool
 pilot_order: [ble-http-gatt-probe, bluetooth-ftms, hammer-varon-xtr, esp-hub-telemetry]
 ```
 
-Desk-Audit 2026-10-09 @ `70c3c25`.  
+Desk-Audit 2026-10-09 @ `70c3c25`; Revalidation **0.6.6** 2026-10-11.  
 Ursprungsrepo: [esp32.ftmsprobe](https://github.com/MPunktBPunkt/esp32.ftmsprobe) (read-only).  
-Kampagne: [esp32-ftmsprobe-2026-pilot](../../audits/esp32-ftmsprobe-2026-pilot/).  
+Kampagne: [esp32-ftmsprobe-2026-pilot](../../audits/esp32-ftmsprobe-2026-pilot/) · [DELTA](../../audits/esp32-ftmsprobe-2026-pilot/DELTA.md).  
 Method: [ftms-capability-probe](../../methods/ftms-capability-probe.md).  
-Reuse: [docs/REUSE.md](../../docs/REUSE.md).
+Reuse: [docs/REUSE.md](../../docs/REUSE.md), Standard [0.6.6](../../docs/STANDARD-CHANGELOG.md).
 
-**Match (Signal → Slug):** HTTP-GATT-Sonde → **neu** `ble-http-gatt-probe`; FTMS Caps/Wirkung → `bluetooth-ftms`; Varon-Lauf → `hammer-varon-xtr`; Hub/OTA/WiFi/SSE/HR → bestehende Slugs.
+**Match (Signal → Slug):**
+
+| Signal | Ziel-Sheet | Aktion |
+|--------|------------|--------|
+| HTTP-GATT-Sonde | `ble-http-gatt-probe` | neu (Pilot) |
+| FTMS Caps/Wirkung | `bluetooth-ftms` | wachsen |
+| Varon-Lauf | `hammer-varon-xtr` | wachsen (Host) |
+| Dual-Env probe / probe-s3 | — | Chip-/Build-Scope in Apps |
+| Hub/OTA/HR | bestehende Slugs | Applications |
+| Web/SSE Sonde | `esp-embedded-web-sse` | observed (kein App-Zwang) |
 
 ## Übersicht
 
@@ -34,7 +44,8 @@ Reuse: [docs/REUSE.md](../../docs/REUSE.md).
 |---------|-------------|------------------|
 | Web/SSE | observed, UI lab-only | Application wenn Transferbedarf |
 | Codec `tools/ftms.py` | Referenz für Ergo | in FTMS-Application verlinken |
-| Weitere Bikes | nur Varon belegt | Method erneut fahren |
+| Weitere Bikes | nur Varon belegt | Method erneut fahren (kein Sheet-Ausweiten) |
+| Dual-Link Classic vs S3 | Budget dokumentiert, Env-Parität offen | pro Env belegen (G17) |
 
 ## Signale ohne Eintrag
 

@@ -12,9 +12,9 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`pi-fm-tx-2026-foreign`](pi-fm-tx-2026-foreign/) | active | lab-tool | Fremd: pifm + PiFmRds (GPIO-FM/RDS) · **0.6.6** revalidated (from 0.6.3) |
 | [`esp-fm-tx-2026-foreign`](esp-fm-tx-2026-foreign/) | active | lab-tool | Fremd: ESP32 APLL/MCLK-FM (Alexxdal + hiperiondev) · **0.6.6** |
 | [`welle-io-2026-foreign`](welle-io-2026-foreign/) | active | lab-tool | Fremd: AlbrechtL/welle.io DAB+ Upstream · **0.6.5** |
-| [`esp32-heartrate-2026-pilot`](esp32-heartrate-2026-pilot/) | active | firmware | HR Desk-Pilot |
-| [`esp32-ergo-2026-pilot`](esp32-ergo-2026-pilot/) | active | firmware | Ergo + Sheet-Wachstum |
-| [`esp32-ftmsprobe-2026-pilot`](esp32-ftmsprobe-2026-pilot/) | active | lab-tool | Sonde + Method |
+| [`esp32-heartrate-2026-pilot`](esp32-heartrate-2026-pilot/) | active | firmware | HR Desk-Pilot · **0.6.6** revalidated (from 0.6.0) |
+| [`esp32-ergo-2026-pilot`](esp32-ergo-2026-pilot/) | active | firmware | Ergo + Sheet-Wachstum · **0.6.6** revalidated (from 0.6.0) |
+| [`esp32-ftmsprobe-2026-pilot`](esp32-ftmsprobe-2026-pilot/) | active | lab-tool | Sonde + Method · **0.6.6** revalidated (from 0.6.0) |
 | [`esp32-bt-gateway-2026-planning`](esp32-bt-gateway-2026-planning/) | active | planning | A2DP/AVRCP/PDAP Planung |
 | [`esp32-rfmonitor-2026-pilot`](esp32-rfmonitor-2026-pilot/) | active | firmware | RF-Monitor · **standard_version 0.6.0** |
 | [`esp32-toolnode-2026-pilot`](esp32-toolnode-2026-pilot/) | active | firmware | Modular Node · **0.6.1** Geschwister-RF |

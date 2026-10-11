@@ -43,6 +43,8 @@ probe-run.py ──HTTP /api/probe/*──▶ App / BleProbe ──NimBLE──�
 | Varon-Lauf 2026-09-10 vollständig mit Rohordner | `EVID-PROBE-2026-10-09-001` | `MEASURED` |
 | OTA abgelehnt solange BLE-Links offen (Deploy-Pfad) | `EVID-PROBE-2026-10-09-002` | `INFERRED` (README) |
 | Panic `08 01` + Disconnect | `EVID-PROBE-2026-10-09-003` | `FACT` (API/README) |
+| Dual-Env `probe` / `probe-s3`; Central-only | `EVID-SCOPE-2026-10-11-001` | `FACT` |
+| Dual-Link-Budget `MAX_CONNECTIONS=3` chip-/build-gebunden | `EVID-SCOPE-2026-10-11-002` | `FACT` |
 
 ## Abweichungen vom „Lehrbuch“
 

@@ -22,6 +22,7 @@ Dual-Scan/Connect: Bike + Polar H9 parallel (`dual`), Verbindungsbudget wie Prod
 | Claim | Evidence-ID | Status |
 |-------|-------------|--------|
 | H9 im Labor parallel zum Bike sichtbar/koppelbar | `EVID-HRM-2026-10-09-002` | `MEASURED` |
+| Dual-Link-Budget wie Produkt (`MAX_CONNECTIONS=3`) — Env-Scope beachten | `EVID-SCOPE-2026-10-11-002` | `FACT` |
 
 ## Verwandte
 

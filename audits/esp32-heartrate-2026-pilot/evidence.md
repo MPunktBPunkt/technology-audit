@@ -1,6 +1,6 @@
 # Evidence — esp32-heartrate-2026-pilot
 
-Desk-Audit 2026-10-08 gegen Commit `72acae4`; Claim-Abgleich und Struktur-Nacharbeit 2026-10-09. Rohdaten bleiben im Quellenrepo; hier nur Register.
+Desk-Audit 2026-10-08 gegen Commit `72acae4`; Claim-Abgleich und Struktur-Nacharbeit 2026-10-09; Revalidation **0.6.6** 2026-10-11. Rohdaten bleiben im Quellenrepo; hier nur Register.
 
 Basis: `https://github.com/MPunktBPunkt/esp32.heartrate/blob/72acae4/`
 
@@ -13,6 +13,9 @@ Basis: `https://github.com/MPunktBPunkt/esp32.heartrate/blob/72acae4/`
 | `EVID-WEB-2026-10-08-001` | REST + SSE `/events` sind dokumentierte Lieferbestandteile v0.3.1 | `INFERRED` | README Features/API; `App.cpp` `/events` |
 | `EVID-HUB-2026-10-08-001` | Hub-IO-Keys und `fwType=heartrate` dokumentiert | `INFERRED` | README Hub-IO |
 | `EVID-CI-2026-10-08-001` | PlatformIO-Matrix-Build für beide Envs existiert | `FACT` | `.github/workflows/build.yml` |
+| `EVID-SCOPE-2026-10-11-001` | Chip-Scope: HR-Relay-Build = `heartrate-s3` (`HR_RELAY=1`, `MAX_CONNECTIONS=3`); Mini `heartrate` = Peripheral disabled | `FACT` | `platformio.ini` + Application/SCOPE; Revalidation |
+| `EVID-SCOPE-2026-10-11-002` | Classic Mini meldet Relay unsupported (`501` / `relay.supported == false`) — kein stiller S3-Transfer | `FACT` | Application `ble-hr-relay`; Revalidation |
+| `EVID-MATCH-2026-10-11-001` | Geschwister `esp32-ergo` / `esp32-ftmsprobe` wachsen dieselben Slugs (keine Forks) | `FACT` | Sheet `seen_in` + Inventare |
 
 ## Offene Claims (noch ohne ID)
 
@@ -22,6 +25,7 @@ Basis: `https://github.com/MPunktBPunkt/esp32.heartrate/blob/72acae4/`
 | Relay mit Radcomputer im Feld | `UNKNOWN` | Folgearbeit |
 | Continuity-KPIs vs. Pflichtenheft | `UNKNOWN` | Folgearbeit |
 | Heartbeat gegen live Hub | `UNKNOWN` | Hub out of scope dieses Laufs |
+| Classic ESP32 dual-role Relay wie S3 | `UNKNOWN` | Gate — kein Sheet-Ausweiten vor Evidence |
 
 ## Wissens-Chronik
 
@@ -31,3 +35,4 @@ Basis: `https://github.com/MPunktBPunkt/esp32.heartrate/blob/72acae4/`
 | 2026-10-08 | Struktur an technology-audit Review-Checks angeglichen (Status/Coverage, Sheets A, Apps B/C, Evidence) |
 | 2026-10-09 | Re-Audit: Validator/Scan nachgezogen; Reconnect-Claim (`kReconnectGiveUpMs`) korrigiert; Scan ohne Self-Hits |
 | 2026-10-09 | Inhalt nach `technology-audit` verlagert; `esp32.heartrate` wieder ohne `docs/audit/` |
+| 2026-10-11 | Revalidation **0.6.6**: Chip-Scope Relay S3≠Classic, Geschwister-Reuse, [DELTA](DELTA.md) |

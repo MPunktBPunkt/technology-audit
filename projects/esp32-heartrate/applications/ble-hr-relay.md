@@ -48,8 +48,11 @@ Parallel: WebUI /api/relay · Hub heartbeat relay_*
 | Claim | Evidence-ID | Status |
 |-------|-------------|--------|
 | S3-Env inkl. Relay „getestet“ (Projekt-Doku) | `EVID-RELAY-2026-10-08-001` | `MEASURED` |
+| Chip-Scope: Relay-Build = `heartrate-s3` (`HR_RELAY=1`, `MAX_CONNECTIONS=3`) | `EVID-SCOPE-2026-10-11-001` | `FACT` |
+| Classic Mini: Relay unsupported (`501` / `relay.supported == false`) | `EVID-SCOPE-2026-10-11-002` | `FACT` |
 | Abnahmekriterien 1–15 (nRF Connect, 2 Consumer, Idle-Sperre, …) als PASS protokolliert | — | `UNKNOWN` |
 | Radcomputer als zweiter Consumer im Feld | — | `UNKNOWN` |
+| Classic dual-role Relay wie S3 | — | `UNKNOWN` (Gate) |
 
 ## Beobachtungen (Lab / Feld)
 

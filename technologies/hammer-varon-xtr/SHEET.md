@@ -37,13 +37,14 @@ Indoor-Bike „Hammer Varon XTR II“ (BLE-Name oft `TC174`, Hersteller `ASR`): 
 
 ## Transfer
 
-Nützlich als Negativ-/Positivbeispiel für Capability-first-Clients. Andere ASR/ähnliche Konsolen ggf. vergleichen — nicht pauschal auf alle Indoor-Bikes übertragen.
+Nützlich als Negativ-/Positivbeispiel für Capability-first-Clients. Andere ASR/ähnliche Konsolen ggf. vergleichen — nicht pauschal auf alle Indoor-Bikes übertragen. Zweites Gerät = Method erneut fahren, **kein** Ausweiten dieses Sheets zum Universal-Trainer (G19).
 
 ### Projektstart-Checkliste
 
 - [ ] Als Host-Sheet nutzen, nicht FTMS-Spec erweitern
 - [ ] Caps/Wirkung aus Method `ftms-capability-probe` oder Evidence zitieren
 - [ ] Marketing-Watt/Stufen ≠ FTMS-Raster
+- [ ] Neues Bike ≠ dieses Sheet verbiegen — neues Host-Sheet oder Application-C
 - [ ] Application + `seen_in` nachziehen
 
 ## Referenzen

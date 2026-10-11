@@ -2,7 +2,7 @@
 
 ```yaml
 project_id: esp32-ergo
-updated: 2026-10-09
+updated: 2026-10-11
 source_repo: https://github.com/MPunktBPunkt/esp32.ergo
 reviewed_commit: edaeb19
 ```
@@ -28,3 +28,5 @@ HR-Relay / Polar H9 ──0x180D───────┘         │
 ## Ziel dieses Audit-Laufs
 
 Desk-Inventar + priorisierte Sheets/Applications: FTMS (neu), Geräteprofil Varon, Wiederverwendung/Wachstum der Heartrate-Sheets (HR, Relay, Hub, Web/SSE). Offene Feldpunkte (Nachtest 6, Bridge-Abnahme) bleiben als Exit-Kriterien.
+
+**Revalidation 0.6.6:** Produkt-Chip-Scope ESP32-S3; HR-Relay = Geschwister-Deploy ([DELTA](../../audits/esp32-ergo-2026-pilot/DELTA.md)).

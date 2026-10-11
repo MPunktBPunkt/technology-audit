@@ -1,6 +1,6 @@
 # Evidence — esp32-ergo-2026-pilot
 
-Desk-Audit 2026-10-09 gegen Commit `edaeb19`. Rohdaten im Quellenrepo / ftmsprobe.
+Desk-Audit 2026-10-09 gegen Commit `edaeb19`; Revalidation **0.6.6** 2026-10-11. Rohdaten im Quellenrepo / ftmsprobe.
 
 Basis: `https://github.com/MPunktBPunkt/esp32.ergo/blob/edaeb19/`
 
@@ -17,6 +17,9 @@ Basis: `https://github.com/MPunktBPunkt/esp32.ergo/blob/edaeb19/`
 | `EVID-WEB-2026-10-09-002` | App-Partition ~75 % bei 0.3.24-dev | `MEASURED` | STATE.md |
 | `EVID-HUB-2026-10-09-001` | `fwType: ergo`, Hub Port 8093 | `MEASURED` | STATE / platformio.ini |
 | `EVID-HUB-2026-10-09-002` | OTA beide Richtungen bewährt | `INFERRED` | STATE.md |
+| `EVID-SCOPE-2026-10-11-001` | Produkt-Chip-Scope: ESP32-S3 (`env:ergo`) — Central FTMS + optional Peripheral Bridge | `FACT` | SCOPE / platformio; Revalidation |
+| `EVID-SCOPE-2026-10-11-002` | HR-Relay = Deployment-Geschwister (`esp32.heartrate` S3), kein Relay-Code in ergo | `FACT` | Application `ble-hr-relay`; Revalidation |
+| `EVID-MATCH-2026-10-11-001` | Shared Slugs aus heartrate gewachsen; Caps-Evidence aus ftmsprobe — keine Forks | `FACT` | Inventare / `seen_in`; Revalidation |
 
 ## Offene Claims (noch ohne ID)
 
@@ -25,9 +28,11 @@ Basis: `https://github.com/MPunktBPunkt/esp32.ergo/blob/edaeb19/`
 | MyWhoosh Bridge-Abnahme formal PASS | `UNKNOWN` | STATE offen |
 | Nachtest 6 Crash unter Last | `UNKNOWN` | STATE offen |
 | SIM-Passthrough implementiert | `UNKNOWN` | STATE: Code fehlt |
+| Classic-ESP32 als Ergo-Host (Dual-Role) | `UNKNOWN` | nicht im Produkt-Scope; Gate |
 
 ## Wissens-Chronik
 
 | Datum | Ereignis |
 |-------|----------|
 | 2026-10-09 | Desk-Pilot; FTMS + Varon neu; Heartrate-Sheets `seen_in`/`W3` gewachsen (keine Forks) |
+| 2026-10-11 | Revalidation **0.6.6**: S3-Chip-Scope, Geschwister-Relay, [DELTA](DELTA.md) |
