@@ -157,8 +157,11 @@ Regenerieren: `python3 tools/ta-assist index` · SoT: [`MAINTENANCE.md`](MAINTEN
 | G14 | Browser-HTML5-Audio-Host nicht als `bluetooth-a2dp` / PipeWire-Webradio matchen | error |
 | G15 | Stack-Wechsel (C++↔JS) allein kein neues Sheet — nur wenn Abgrenzung/Primary anders | error |
 | G16 | Adapter-Profil: Contract-Sheet mit Node-Clients teilen; Admin/USB/Compile = Adapter-Sheet oder Application | warning |
+| G17 | Peripherie-/Clock-Claim nennt Chip-/SoC-Scope (z. B. ESP32 classic ≠ S3) oder ist als `UNKNOWN` markiert | warning |
+| G18 | Absolute Formulierungen („einziger Kandidat“, „funktioniert auf allen ESP32“) ohne Evidence → abschwächen oder `HYPOTHESIS` | warning |
+| G19 | Neues Sheet / Sheet-Ausweitung für unbelegte Chip-Variante ohne benanntes Gate (Desk/Lab) → zurückweisen | warning |
 
-Siehe Beispiele in [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md#reifegrade-beispiele) · Profile: [AUDIT-PROFILES.md](AUDIT-PROFILES.md).
+Siehe Beispiele in [DOCUMENT-STANDARD.md](DOCUMENT-STANDARD.md#reifegrade-beispiele) · Profile: [AUDIT-PROFILES.md](AUDIT-PROFILES.md) · Gates: [METHODOLOGY.md](METHODOLOGY.md#chipsoc-varianten-und-transfer-gates).
 
 ---
 

@@ -23,4 +23,4 @@ reuse_outcomes:
 | FM-Meta-Kontrast RDS | `fm-rds` (Fremd `pi-fm-tx`) | nicht als PiDrive-TX; nur Protokoll-Vergleich zu DLS |
 
 Radio/BT-Kampagne: [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/) · Method [`sdr-spectrum-channel-watch`](../../methods/sdr-spectrum-channel-watch.md).  
-Fremd-TX-Kontrast: [`pi-fm-tx`](../pi-fm-tx/).
+Fremd-TX-Kontrast: [`pi-fm-tx`](../pi-fm-tx/) · Fremd-RX-Upstream: [`welle-io`](../welle-io/).

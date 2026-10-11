@@ -23,7 +23,7 @@ Muster: IQ von RTL-SDR → **FFT** → dB-Kurve / Peaks / kanalisierte Energie �
 ## Abgrenzung
 
 - **Ist:** Mess-/Analyse-Pfad (Snapshot, Sweep, channelized watch).
-- **Ist nicht:** Audio-Demod; DAB-OFDM-Interna allein; RF-Environment-WLAN-Scan (→ `rf-environment-monitor`).
+- **Ist nicht:** Audio-Demod; DAB-OFDM-Interna allein; welle.io-Web `/spectrum` (kanalgebundenes OFDM-FFT — → `dab-plus`); RF-Environment-WLAN-Scan (→ `rf-environment-monitor`).
 
 ## Fallstricke
 

@@ -41,6 +41,7 @@ Ausgabeorte für generierte Prompts:
 | `evidence-update` | Evidence/Maturity anhand Upstream-Signale nachziehen | [`evidence-update.md`](../templates/prompts/evidence-update.md) |
 | `pilot-prep` | neue Audit-Kampagne vorbereiten | [`pilot-prep.md`](../templates/prompts/pilot-prep.md) |
 | `quality-review` | Dokumentqualität gegen Review-Checks prüfen | [`quality-review.md`](../templates/prompts/quality-review.md) |
+| `kb-cross-check` | Sheets als Reasoning-Bausteine prüfen (inkl. Blindtest) | [`kb-cross-check.md`](../templates/prompts/kb-cross-check.md) |
 
 Weitere Typen (später): `maturity-review`, `method-candidate`, `close-audit-review`.
 

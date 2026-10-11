@@ -26,7 +26,7 @@ Muster: VHF-FM-Träger aus dem **BCM-Clock-/PLL-Pfad** auf einem GPIO (klassisch
 ## Abgrenzung
 
 - **Ist:** SoC-Clock/GPIO als **UKW-FM**-Träger + Audio (WAV/stdin).
-- **Ist nicht:** Empfang (`rtl-sdr`, `dab-plus`); allgemeine RF-Plattform (`rpitx`); RDS allein (`fm-rds`); Pi 5/RP1 (anderer Peripheral-Chip — Upstream markondej); legale Sendestation.
+- **Ist nicht:** Empfang (`rtl-sdr`, `dab-plus`); allgemeine RF-Plattform (`rpitx`); RDS allein (`fm-rds`); Pi 5/RP1 (anderer Peripheral-Chip — Upstream markondej); ESP32 APLL/MCLK-FM (`esp32-apll-fm-tx` — Analogie nur im Muster, anderer Chip-Contract); legale Sendestation.
 
 ## Schnittstellen
 

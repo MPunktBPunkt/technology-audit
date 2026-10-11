@@ -16,6 +16,19 @@ CLI `tools/ta-assist` hat eine **eigene** Semver und ist davon unabhängig.
 
 ## Versionen
 
+### 0.6.6 — 2026-10-11
+
+**Qualität nach KB-Cross-Check (ESP-FM / Pi-TX Transfer):**
+
+- **Chip-/SoC-Varianten-Regel:** Claims gelten nur für die belegte Variante; keine automatische Übertragung (z. B. Classic ESP32 APLL ↛ ESP32-S3). Siehe [`REUSE.md`](REUSE.md), [`METHODOLOGY.md`](METHODOLOGY.md).
+- **Signalpfad-Kette:** Bei RF/Clock-Technologien optionale Stufe Source→…→Pad mit Claim-Status pro Stufe ([`DOCUMENT-STANDARD.md`](DOCUMENT-STANDARD.md)).
+- **Gate vor Sheet-Ausweitung:** Unbelegte Chip-/Pfad-Varianten bleiben `UNKNOWN`/`HYPOTHESIS` bis Desk-Gate (Register/TRM) und/oder Lab-Gate (Messung); kein neues Sheet nur aus Architekturidee.
+- **KB-Cross-Check / Blindtest:** Prompt-Typ `kb-cross-check` + Method `kb-cross-check`; Ziel = Reasoning-Bausteine prüfen, nicht Zusammenfassung wiederholen.
+- Review-Checks: G17 (Chip-Scope), G18 (absolute „einzige Kandidat“-Claims), G19 (Gate vor Varianten-Sheet).
+- Fremd-Audit-Beispiel: [`esp-fm-tx-2026-foreign`](../audits/esp-fm-tx-2026-foreign/) + Sheet `esp32-apll-fm-tx`.
+
+**Keine** Änderung an A/B/C-Pflichtfeldern — bestehende Kampagnen auf 0.6.x bleiben gültig.
+
 ### 0.6.5 — 2026-10-10
 
 **Härtung (Reviews nach 0.6.4):**

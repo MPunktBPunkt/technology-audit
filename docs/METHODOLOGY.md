@@ -114,6 +114,38 @@ Technology Sheet → Project Application → Evidence Review
 
 Pilot 1 (closed): [`audits/pidrive-2026-msc/`](../audits/pidrive-2026-msc/). Pilot 2 (active): [`audits/pidrive-2026-bmw-hu/`](../audits/pidrive-2026-bmw-hu/).
 
+## Chip-/SoC-Varianten und Transfer-Gates
+
+Desk-Wissen darf **nicht** still von einer Chip-Variante auf eine andere springen.
+
+| Stufe | Erlaubt | Nicht |
+|-------|---------|-------|
+| Belegte Variante (Code + Docs) | Sheet/Claims mit klarem Chip-Scope | „ESP32 kann X ⇒ S3 kann X“ |
+| Verwandte Variante ohne Beleg | `UNKNOWN` / `HYPOTHESIS` + Gate benennen | neues Sheet als wäre es bewiesen |
+| Architekturidee (Hub-Knoten, Netzwerk-TX) | FOLLOW-ON / Application-Skizze | Technology Sheet vor Lab-/Pfad-Evidence |
+
+**Gate-Reihenfolge (RF/Clock, typisch):**
+
+```text
+E-0  Desk: TRM/IDF bis Register + Pin-Mux (kein RF nötig)
+E-1  Lab: konstanter Träger messbar (Frequenz vorhanden)
+E-2  Raster / Stabilität
+E-3  Modulation (Teiler-/Frac-Updates → hörbarer/messbarer Hub)
+```
+
+Erst nach positivem Gate darf ein Varianten-Sheet (oder Sheet-Ausweitung) entstehen. Methode: [`methods/hw-path-gate.md`](../methods/hw-path-gate.md).
+
+## KB-Cross-Check (Wissensqualität)
+
+Um zu prüfen, ob Sheets als **Reasoning-Bausteine** taugen (nicht nur als Wiki):
+
+1. Primärquelle = Audit-Repo (Sheets, Evidence, Applications).
+2. Modell/Mensch muss FACT / INFERRED / HYPOTHESIS / UNKNOWN / REJECTED trennen.
+3. Keine Zielarchitektur vorgeben beim **Blindtest** — nur Frage + erlaubte Pfade.
+4. Ergebnis auswerten: Reproduzierbarkeit, Transfer-Bremse, erkannte Absolutismen.
+
+Prompt: [`templates/prompts/kb-cross-check.md`](../templates/prompts/kb-cross-check.md) · Method: [`methods/kb-cross-check.md`](../methods/kb-cross-check.md).
+
 ## Werkzeuge
 
 Methoden (Tracing, Korrelation, Replay, …) als eigene Notes unter `methods/` führen und aus Applications/Audits verlinken — nicht in jedem Sheet wiederholen.

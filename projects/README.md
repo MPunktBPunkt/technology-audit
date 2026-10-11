@@ -2,10 +2,11 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-10`, 25 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-11`, 27 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
+| [`esp-fm-tx`](esp-fm-tx/) | ESP FM / APLL Clock Transmit (Fremd) | lab-tool | active | 1 |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | esp32-bt-gateway | planning | — | 5 |
 | [`esp32-communicator`](esp32-communicator/) | esp32-communicator | firmware | — | 3 |
 | [`esp32-ergo`](esp32-ergo/) | esp32-ergo | — | — | 6 |
@@ -31,5 +32,6 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`metermaster-app`](metermaster-app/) | metermaster-app | ops-field | — | 1 |
 | [`pi-fm-tx`](pi-fm-tx/) | Pi FM / RF Transmit (Fremd) | lab-tool | active | 3 |
 | [`pidrive`](pidrive/) | PiDrive | ops-field | active | 9 |
+| [`welle-io`](welle-io/) | welle.io — DAB/DAB+ SDR Receiver (Fremd) | lab-tool | active | 2 |
 
 Neues Projekt: [`REUSE.md`](../docs/REUSE.md) · [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md) · [`MAINTENANCE.md`](../docs/MAINTENANCE.md).

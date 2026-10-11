@@ -32,13 +32,16 @@ Gemeinsame Sheets: `esp-hub-telemetry`, oft `esp-embedded-web-sse`.
 
 Radio-Sheets (Empfang): `dab-plus`, `rtl-sdr`, `pmr446`, `airband-am`, `sdr-spectrum-fft`.
 
-## Lab / Fremd — Pi FM / RF Transmit
+## Lab / Fremd — Radio (RX/TX)
 
 | Projekt-ID | Rolle |
 |------------|-------|
+| `welle-io` | Desk: AlbrechtL/welle.io — Upstream DAB/DAB+ SDR (welle-cli/gui) |
 | `pi-fm-tx` | Desk: pifm, PiFmRds, markondej/fm_transmitter, zoroxide, pi-fm-player, F5OEO/rpitx |
+| `esp-fm-tx` | Desk: Alexxdal/ESP32FMRadio, hiperiondev/esp32_fm_radio — Classic ESP32 APLL/MCLK-FM |
 
-TX-Sheets: `rpi-gpio-fm-tx`, `fm-rds`, `rpitx` — **nicht** mit Empfangs-Slugs vermischen. Kein Antennen-Sendepfad in der KB.
+RX-Reuse: `dab-plus`, `rtl-sdr` (nicht mit TX vermischen).  
+TX-Sheets: `rpi-gpio-fm-tx`, `fm-rds`, `rpitx`, `esp32-apll-fm-tx` (Classic only; S3 = Gate). Kein Antennen-Sendepfad in der KB.
 
 ## ioBroker-Adapter (Produkt)
 

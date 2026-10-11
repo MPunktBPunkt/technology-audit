@@ -150,6 +150,26 @@ Jede Aussage in Sheets und Applications gehört in genau eine Ebene:
 | `UNKNOWN` | Bewusst ungeklärt |
 | `REJECTED` | Früher angenommen, später widerlegt (behalten!) |
 
+**Chip-Scope:** Ein `FACT` ohne genannte Chip-/SoC-Variante ist bei Peripherie-Claims unvollständig. Variantenübertragung ohne eigenen Beleg → höchstens `HYPOTHESIS`, sonst `UNKNOWN`.
+
+## Signalpfad-Kette (RF / Clock, optional)
+
+Für Technologien, deren Kern ein Hardware-Clock-/RF-Pfad ist, darf das Sheet eine Kette führen — **jede Stufe mit eigenem Status**:
+
+```text
+Clock source → PLL/Divider → Peripheral clock → MCLK/CLK_OUT
+  → GPIO matrix / IOMUX → physical pad → (Lab) measured RF
+```
+
+| Spalte | Inhalt |
+|--------|--------|
+| Stufe | Name der Stufe |
+| Claim | was behauptet wird |
+| Status | Epistemic-Status |
+| Evidence | ID oder Quelle |
+
+Stufen ohne Lab bleiben `FACT` (Code/TRM) oder `UNKNOWN` — nie still `MEASURED`.
+
 ## Evidence-IDs
 
 Format: `EVID-<AREA>-<YYYY-MM-DD>-<nnn>`  

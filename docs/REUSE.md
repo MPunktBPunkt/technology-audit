@@ -98,6 +98,18 @@ python3 tools/ta-assist prompt new-application --project <id> --slug <slug>
 
 Der Bootstrap-Prompt verlangt explizit den Abgleich mit dem Sheet-Index (`{{existing_sheets}}`).
 
+## Chip-/SoC-Varianten (Transfer-Bremse)
+
+Gleiche Produktfamilie ≠ gleiche Peripherie.
+
+| Situation | Aktion |
+|-----------|--------|
+| Claim gilt nur für Classic ESP32 (z. B. APLL) | Sheet-Scope und Fallstrick explizit; S2/S3/C3 = `UNKNOWN` bis Gate |
+| Pi BCM-GPCLK vs. ESP Clock-Out | getrennte Slugs (`rpi-gpio-fm-tx` ≠ `esp32-apll-fm-tx`); Analogie nur als Transfer-Hinweis |
+| Idee „S3 als Hub-FM-Knoten“ | FOLLOW-ON + Gate E-0/E-1; **kein** Sheet vor Evidence |
+
+Match-Frage zusätzlich: *Welcher Chip / welche Clock-Quelle ist belegt?*
+
 ## Qualitätsmaß für „wiederverwendbar“
 
 | Stufe | Bedeutung |

@@ -84,6 +84,17 @@ cases:
     reject:
       slugs: [rtl-sdr, dab-plus]
 
+  - id: esp-apll-fm-tx
+    question: "Kann der klassische ESP32 UKW-FM über APLL/MCLK erzeugen — und gilt das für ESP32-S3?"
+    expect:
+      paths:
+        - technologies/esp32-apll-fm-tx/SHEET.md
+        - projects/esp-fm-tx/INVENTORY.md
+        - audits/esp-fm-tx-2026-foreign/evidence.md
+        - methods/hw-path-gate.md
+    reject:
+      slugs: [rpi-gpio-fm-tx, rtl-sdr]
+
   - id: a2dp-avrcp-pi-vs-esp
     question: "Bluetooth A2DP/AVRCP — Pi BlueZ vs. ESP-Gateway Planung?"
     expect:

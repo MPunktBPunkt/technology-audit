@@ -12,5 +12,6 @@ Vertrag: [`docs/PROMPT-CONTRACT.md`](../../docs/PROMPT-CONTRACT.md).
 | [evidence-update.md](evidence-update.md) | Evidence/Maturity nachziehen | native |
 | [pilot-prep.md](pilot-prep.md) | Neue Kampagne vorbereiten | native |
 | [quality-review.md](quality-review.md) | Dokumentqualität prüfen | native |
+| [kb-cross-check.md](kb-cross-check.md) | Sheets als Reasoning-Bausteine / Blindtest | native |
 
 Generierte, ausgefüllte Prompts landen unter [`artifacts/prompts/`](../../artifacts/prompts/) — nicht in diesen Vorlagen.
