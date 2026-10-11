@@ -1,6 +1,6 @@
 # Evidence — welle-io-2026-foreign
 
-Desk 2026-10-11 · **standard_version 0.6.5** · Profile `lab-tool`.
+Desk 2026-10-11 · Original **0.6.5** · Revalidation **0.6.6** · Profile `lab-tool`.
 
 | Repo | Commit | Version |
 |------|--------|---------|
@@ -20,6 +20,8 @@ Desk 2026-10-11 · **standard_version 0.6.5** · Profile `lab-tool`.
 | `EVID-WELLE-2026-10-11-010` | CLI `-g` Index oder `-1` auto; `-F rtl_tcp,host:port` | `FACT` | `welle-cli.cpp` help/getopt |
 | `EVID-WELLE-2026-10-11-011` | Fork-Historie qt-dab (Acknowledgement) | `FACT` | README Acknowledgement |
 | `EVID-WELLE-2026-10-11-012` | CMake kann `welle-cli` ohne Qt bauen | `FACT` | README CMake / `BUILD_WELLE_IO=OFF` |
+| `EVID-SCOPE-2026-10-11-003` | RTL Gain-Index-Contract gilt nicht still für Soapy/Airspy/Lime | `FACT` | input_factory + rtl_sdr vs. andere Treiber; Revalidation |
+| `EVID-MATCH-2026-10-11-002` | RX≠TX zu `rpi-gpio-fm-tx`/`esp32-apll-fm-tx`; kein Input-Sheet aus Factory-Liste | `FACT` | Inventar G19 + Sheet-Abgrenzung; Revalidation |
 
 ## Offene Claims
 
@@ -33,3 +35,4 @@ Desk 2026-10-11 · **standard_version 0.6.5** · Profile `lab-tool`.
 | Datum | Ereignis |
 |-------|----------|
 | 2026-10-11 | Bootstrap + Kampagne; Apps `dab-plus`/`rtl-sdr`; Sheets gewachsen |
+| 2026-10-11 | Revalidation **0.6.6**: Input-Scope, RX≠TX, [DELTA](DELTA.md) |

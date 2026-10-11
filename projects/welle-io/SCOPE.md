@@ -47,7 +47,8 @@ KB-Reuse-Test für den Upstream von PiDrive-DAB (`welle-cli`): Desk-Audit von [A
 1. Match: kein neues DAB-Sheet — bestehendes `dab-plus` wachsen lassen  
 2. Gain-Index + Software-AGC aus Upstream belegen (nicht nur PiDrive-Doku)  
 3. `/spectrum` vs. `sdr-spectrum-fft` klar abgrenzen  
-4. Evidence auf Commit `512558d`
+4. Evidence auf Commit `512558d`  
+5. Revalidation 0.6.6: Input-Scope + RX≠TX ([DELTA](../../audits/welle-io-2026-foreign/DELTA.md))
 
 ## Offene Scope-Fragen
 

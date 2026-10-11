@@ -43,7 +43,8 @@ USB RTL-SDR → librtlsdr @ INPUT_RATE 2.048 MHz → Backend
 | Sample-Rate = `INPUT_RATE` 2048000 | `EVID-WELLE-2026-10-11-006` | `FACT` |
 | CLI `-g` Index / `-1` auto; `-F rtl_tcp,host:port` | `EVID-WELLE-2026-10-11-010` | `FACT` |
 | Factory: RTL_SDR, RTL_TCP, AIRSPY, SOAPYSDR, RAW, … | `EVID-WELLE-2026-10-11-002` | `FACT` |
+| RTL Gain-Index-Contract ≠ Soapy/Airspy/Lime | `EVID-SCOPE-2026-10-11-003` | `FACT` |
 
 ## Kontrast
 
-Andere Inputs (Airspy, Soapy) teilen die Virtual-Input-API, haben aber **eigene** Gain-Semantik — nicht mit RTL-Index verwechseln. Stick-Exklusivität / DVB-Blacklist bleibt Host-Ops (PiDrive), nicht in diesem Upstream gelöst.
+Andere Inputs (Airspy, Soapy) teilen die Virtual-Input-API, haben aber **eigene** Gain-Semantik — nicht mit RTL-Index verwechseln (G17 Input-Scope). Stick-Exklusivität / DVB-Blacklist bleibt Host-Ops (PiDrive), nicht in diesem Upstream gelöst. Kein Sheet für Airspy/Soapy nur aus der Factory-Liste (G19).

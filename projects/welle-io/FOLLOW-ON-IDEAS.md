@@ -3,6 +3,7 @@
 ```yaml
 reuse_outcomes:
   reused: [dab-plus, rtl-sdr]
+  process: "parity 0.6.5 → 0.6.6; DELTA in audits/welle-io-2026-foreign/"
   new: []
   not_helped: []
 ```
