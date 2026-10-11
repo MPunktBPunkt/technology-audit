@@ -20,6 +20,13 @@ Desk 2026-10-11 · **standard_version 0.6.6** · Profile `lab-tool`.
 | `EVID-ESPAPLL-2026-10-11-009` | hiperion: Carrier-Range-Check bis 125 MHz; Default 108 MHz | `FACT` | `fm_apll_init` + `main.c` |
 | `EVID-ESPAPLL-2026-10-11-010` | Alexxdal PlatformIO `board = esp32dev` (classic) | `FACT` | `platformio.ini` |
 | `EVID-MATCH-2026-10-11-001` | Vor Audit kein ESP-APLL-FM-Sheet; Pi-TX ≠ ESP-TX | `FACT` | technologies Index vor Import |
+| `EVID-ESPAPLL-2026-10-11-011` | S2 APLL→I2S→CLK_OUT CW + I2S÷2 Hinweis | `FACT` | cibomahto gist |
+| `EVID-ESPAPLL-2026-10-11-012` | Classic APLL→CLK_OUT1→GPIO0 @38.4 MHz Beispiel | `FACT` | benpeoples gist |
+| `EVID-ESPAPLL-2026-10-11-013` | IDF APLL calc accuracy Historie (audio rates) | `FACT` | esp-idf#2634 |
+| `EVID-ESPAPLL-2026-10-11-014` | S3: kein APLL in IDF clk_tree/soc_caps | `FACT` | IDF S3; Forum t=27214 als Kontext |
+| `EVID-ESPAPLL-2026-10-11-015` | LEDC fractional → Jitter für Nicht-Integer | `INFERRED` | esp32.com thread |
+| `EVID-ESPAPLL-2026-10-11-016` | PixelRadio RF = QN8027 (nicht APLL); RDS via MQTT/HTTP | `FACT` | dkulp/PixelRadio |
+| `EVID-ESPAPLL-2026-10-11-017` | bitluni AM via I2S built-in DAC (Classic) | `FACT` | ESP32AMRadioTransmitter |
 
 ## Offene Claims
 
@@ -35,3 +42,4 @@ Desk 2026-10-11 · **standard_version 0.6.6** · Profile `lab-tool`.
 |-------|----------|
 | 2026-10-11 | KB-Cross-Check (Prompt gegen Audit) → Prozess 0.6.6 |
 | 2026-10-11 | Desk-Audit zwei Upstreams; Sheet `esp32-apll-fm-tx` |
+| 2026-10-11 | Nachzug Prio2–4 Kandidaten: Gists, IDF#2634, S3-Forum, PixelRadio, bitluni |

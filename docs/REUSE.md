@@ -104,7 +104,8 @@ Gleiche Produktfamilie ≠ gleiche Peripherie.
 
 | Situation | Aktion |
 |-----------|--------|
-| Claim gilt nur für Classic ESP32 (z. B. APLL) | Sheet-Scope und Fallstrick explizit; S2/S3/C3 = `UNKNOWN` bis Gate |
+| Claim gilt nur für Classic ESP32 (z. B. APLL) | Sheet-Scope und Fallstrick explizit; S3 ohne APLL = `REJECTED` Transfer; S2 APLL≠UKW-FM ohne Gate |
+| Undoc I/Q Dump / polar PHY TX | eigene Slugs (`esp32-undoc-iq-rx`, `esp32-polar-phy-tx`); C5/S31 Matrix-Zellen `UNKNOWN` Qualität bis Lab |
 | Dual-Role BLE / Connection-Budget (z. B. HR-Relay) | belegte Familie nennen (oft ESP32-S3); Classic Mini mit `PERIPHERAL_DISABLED` ≠ S3-Transfer |
 | Automotive Host-Plattform (z. B. NBT Evo) | Host-Sheet + C-Evidence; andere HU-Generationen = Gate, nicht still übertragen |
 | Multi-Input SDR (welle Factory) | Gain/API-Contract pro Treiber (RTL-Index ≠ Soapy); Inputs ohne Vertiefung = observed, kein Sheet |

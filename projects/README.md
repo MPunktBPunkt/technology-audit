@@ -2,10 +2,11 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-11`, 28 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-11`, 31 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
+| [`c5vrx`](c5vrx/) | C5VRX — ESP32-C5 5.8 GHz FPV Analog RX (Fremd) | lab-tool | active | 1 |
 | [`esp-fm-tx`](esp-fm-tx/) | ESP FM / APLL Clock Transmit (Fremd) | lab-tool | active | 1 |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | esp32-bt-gateway | planning | — | 5 |
 | [`esp32-communicator`](esp32-communicator/) | esp32-communicator | firmware | — | 3 |
@@ -18,8 +19,10 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-network`](esp32-network/) | esp32-network | firmware | — | 4 |
 | [`esp32-pidrive`](esp32-pidrive/) | esp32-pidrive | firmware | — | 3 |
 | [`esp32-rfmonitor`](esp32-rfmonitor/) | esp32-rfmonitor | firmware | — | 3 |
+| [`esp32-sdr-trx`](esp32-sdr-trx/) | ESP32-S3 SDR Transceiver — polar PHY TX + narrowband RX (Fremd) | lab-tool | active | 2 |
 | [`esp32-toolnode`](esp32-toolnode/) | esp32-toolnode | firmware | — | 6 |
 | [`esp32-webradio`](esp32-webradio/) | esp32-webradio | firmware | — | 2 |
+| [`espargos-espsdr`](espargos-espsdr/) | ESPARGOS ESP-SDR — Multi-Chip Undocumented I/Q RX (Fremd) | lab-tool | active | 1 |
 | [`iobroker-esp-hub`](iobroker-esp-hub/) | iobroker-esp-hub | adapter | — | 2 |
 | [`iobroker-freeair100`](iobroker-freeair100/) | iobroker-freeair100 | adapter | — | 1 |
 | [`iobroker-fritzwireguard`](iobroker-fritzwireguard/) | iobroker-fritzwireguard | adapter | — | 2 |

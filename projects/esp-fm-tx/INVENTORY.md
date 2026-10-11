@@ -18,6 +18,11 @@ pilot_order: [esp32-apll-fm-tx]
 | Pi BCM-GPCLK FM | `rpi-gpio-fm-tx` | **Abgrenzung** |
 | RDS-Protokoll | `fm-rds` | Abgrenzung (hier nicht implementiert) |
 | ESP32-S3 Clock-Out UKW | — | FOLLOW-ON / `hw-path-gate` — kein Sheet |
+| APLL calc / I2S÷2 / GPIO0 CW (Gists, cnlohr, IDF#2634) | `esp32-apll-fm-tx` | **Evidence** Fallstricke (2026-10-11 Nachzug) |
+| S3 kein APLL + LEDC-Jitter (Forum) | `esp32-apll-fm-tx` | Falsifikation APLL; LEDC=`INFERENCE` |
+| PixelRadio QN8027+RDS | `fm-rds` | Kontrast (externer Chip) — kein Bootstrap |
+| bitluni AM+DAC | — | Kontrast Baseband — kein Sheet |
+| S3 polar PHY TX / Undoc I/Q | `esp32-polar-phy-tx` / `esp32-undoc-iq-rx` | **Abgrenzung** (eigene Projekte) |
 
 Kampagne: [`esp-fm-tx-2026-foreign`](../../audits/esp-fm-tx-2026-foreign/).  
 Kontrast Pi-TX: [`pi-fm-tx`](../pi-fm-tx/).

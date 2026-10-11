@@ -49,5 +49,7 @@ Falsifizierbare Gates, bevor eine Chip-/Pfad-Variante als Technologie behauptet 
 
 | Projekt / Audit | Link / Hinweis |
 |-----------------|----------------|
-| `esp-fm-tx` | Classic APLL belegt; S3-Gate offen in FOLLOW-ON |
+| `esp-fm-tx` | Classic APLL belegt; S3-UKW-Gate offen in FOLLOW-ON |
+| `esp32-sdr-trx` | S3 polar PHY TX Desk-FACT; Power/Spurs Lab-Gate; Nicht-S3 Transfer-Gate |
+| `espargos-espsdr` / `c5vrx` | Undoc I/Q Matrix; C5/S31 Qualitäts-Gates |
 | `pi-fm-tx` | BCM-GPCLK Pi1–4 belegt; **Pi5/RP1-Gate** E-0/E-1 in FOLLOW-ON; Harmonics `UNKNOWN` ohne Lab |

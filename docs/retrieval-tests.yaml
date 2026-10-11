@@ -6,7 +6,7 @@
 # Run mentally with: docs/PROJECT-START.md → technologies/index.yaml → FAMILIES
 
 version: 1
-updated: 2026-10-10
+updated: 2026-10-11
 
 cases:
   - id: usb-msc-host-caching
@@ -93,7 +93,29 @@ cases:
         - audits/esp-fm-tx-2026-foreign/evidence.md
         - methods/hw-path-gate.md
     reject:
-      slugs: [rpi-gpio-fm-tx, rtl-sdr]
+      slugs: [rpi-gpio-fm-tx, rtl-sdr, esp32-polar-phy-tx]
+
+  - id: esp-undoc-iq-matrix
+    question: "Welche ESP32-Chips haben einen undokumentierten I/Q-Dump — inkl. C5/S31?"
+    expect:
+      paths:
+        - technologies/esp32-undoc-iq-rx/SHEET.md
+        - projects/espargos-espsdr/INVENTORY.md
+        - audits/espargos-espsdr-2026-foreign/evidence.md
+        - docs/FAMILIES.md
+    reject:
+      slugs: [esp32-apll-fm-tx, rpi-gpio-fm-tx]
+
+  - id: esp-s3-polar-tx
+    question: "Wie sendet ein ESP32-S3 schmalbandig ohne APLL (polar PHY) — Abgrenzung zu Classic FM?"
+    expect:
+      paths:
+        - technologies/esp32-polar-phy-tx/SHEET.md
+        - projects/esp32-sdr-trx/INVENTORY.md
+        - audits/esp32-sdr-trx-2026-foreign/evidence.md
+        - technologies/esp32-apll-fm-tx/SHEET.md
+    reject:
+      slugs: [rpi-gpio-fm-tx, fm-rds]
 
   - id: a2dp-avrcp-pi-vs-esp
     question: "Bluetooth A2DP/AVRCP — Pi BlueZ vs. ESP-Gateway Planung?"

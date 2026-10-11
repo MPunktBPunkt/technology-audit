@@ -3,8 +3,14 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-11
-project_count: 28
+project_count: 31
 projects:
+  - id: c5vrx
+    title: C5VRX — ESP32-C5 5.8 GHz FPV Analog RX (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 1
+    path: projects/c5vrx/
   - id: esp-fm-tx
     title: ESP FM / APLL Clock Transmit (Fremd)
     profile: lab-tool
@@ -77,6 +83,12 @@ projects:
     status: —
     applications: 3
     path: projects/esp32-rfmonitor/
+  - id: esp32-sdr-trx
+    title: ESP32-S3 SDR Transceiver — polar PHY TX + narrowband RX (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 2
+    path: projects/esp32-sdr-trx/
   - id: esp32-toolnode
     title: esp32-toolnode
     profile: firmware
@@ -89,6 +101,12 @@ projects:
     status: —
     applications: 2
     path: projects/esp32-webradio/
+  - id: espargos-espsdr
+    title: ESPARGOS ESP-SDR — Multi-Chip Undocumented I/Q RX (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 1
+    path: projects/espargos-espsdr/
   - id: iobroker-esp-hub
     title: iobroker-esp-hub
     profile: adapter

@@ -4,7 +4,7 @@
 # Do not hand-edit sheet rows.
 
 generated: 2026-10-11
-sheet_count: 42
+sheet_count: 44
 sheets:
   - slug: airband-am
     title: VHF Airband AM Reception
@@ -102,6 +102,18 @@ sheets:
     reusability: W2
     seen_in: [esp-fm-tx]
     path: technologies/esp32-apll-fm-tx/SHEET.md
+  - slug: esp32-polar-phy-tx
+    title: ESP32-S3 Polar PHY Test-Tone TX
+    primary: D
+    reusability: W2
+    seen_in: [esp32-sdr-trx]
+    path: technologies/esp32-polar-phy-tx/SHEET.md
+  - slug: esp32-undoc-iq-rx
+    title: ESP32 Undocumented I/Q RX Dump
+    primary: A
+    reusability: W2
+    seen_in: [espargos-espsdr, c5vrx, esp32-sdr-trx]
+    path: technologies/esp32-undoc-iq-rx/SHEET.md
   - slug: fm-rds
     title: FM-RDS (Radio Data System)
     primary: C

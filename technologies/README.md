@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-11`, 42 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-11`, 44 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 ## Index nach Primary (TAXONOMY)
 
@@ -14,6 +14,7 @@ Wiederverwendbare Technology Sheets.
 |------|-------|-------|------------|
 | [`airband-am`](airband-am/SHEET.md) | VHF Airband AM Reception | W2 | `pidrive` |
 | [`dab-plus`](dab-plus/SHEET.md) | DAB+ Digital Audio Broadcasting | W3 | `pidrive`, `welle-io` |
+| [`esp32-undoc-iq-rx`](esp32-undoc-iq-rx/SHEET.md) | ESP32 Undocumented I/Q RX Dump | W2 | `espargos-espsdr`, `c5vrx`, `esp32-sdr-trx` |
 | [`pmr446`](pmr446/SHEET.md) | PMR446 (EU License-Free UHF) | W2 | `pidrive` |
 | [`rtl-sdr`](rtl-sdr/SHEET.md) | RTL-SDR (RTL2832U Host Stack) | W3 | `pidrive`, `welle-io` |
 
@@ -37,6 +38,7 @@ Wiederverwendbare Technology Sheets.
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
 | [`esp32-apll-fm-tx`](esp32-apll-fm-tx/SHEET.md) | ESP32 APLL / MCLK FM Transmit | W2 | `esp-fm-tx` |
+| [`esp32-polar-phy-tx`](esp32-polar-phy-tx/SHEET.md) | ESP32-S3 Polar PHY Test-Tone TX | W2 | `esp32-sdr-trx` |
 | [`rpi-gpio-fm-tx`](rpi-gpio-fm-tx/SHEET.md) | Raspberry Pi GPIO / Clock FM Transmit | W3 | `pi-fm-tx` |
 | [`rpitx`](rpitx/SHEET.md) | rpitx — Raspberry Pi Software RF Transmit Platform | W2 | `pi-fm-tx` |
 

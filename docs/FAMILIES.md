@@ -39,9 +39,12 @@ Radio-Sheets (Empfang): `dab-plus`, `rtl-sdr`, `pmr446`, `airband-am`, `sdr-spec
 | `welle-io` | Desk: AlbrechtL/welle.io — Upstream DAB/DAB+ SDR (welle-cli/gui) |
 | `pi-fm-tx` | Desk: pifm, PiFmRds, markondej/fm_transmitter, zoroxide, pi-fm-player, F5OEO/rpitx |
 | `esp-fm-tx` | Desk: Alexxdal/ESP32FMRadio, hiperiondev/esp32_fm_radio — Classic ESP32 APLL/MCLK-FM |
+| `esp32-sdr-trx` | Desk: jochenhammes/esp32-sdr-trx (+ eSpDR) — S3 narrowband RX + polar PHY TX (13 cm) |
+| `espargos-espsdr` | Desk: ESPARGOS/esp-sdr + SoapyESPSDR (+ Cardputer-Port) — Multi-Chip Undoc I/Q Matrix |
+| `c5vrx` | Desk: Twotoz/C5VRX — C5 continuous 5.8 GHz FPV → CVBS |
 
-RX-Reuse: `dab-plus`, `rtl-sdr` (nicht mit TX vermischen).  
-TX-Sheets: `rpi-gpio-fm-tx`, `fm-rds`, `rpitx`, `esp32-apll-fm-tx` (Classic only; S3 = Gate). Kein Antennen-Sendepfad in der KB.
+RX-Reuse: `dab-plus`, `rtl-sdr`, `esp32-undoc-iq-rx` (nicht mit TX vermischen).  
+TX-Sheets: `rpi-gpio-fm-tx`, `fm-rds`, `rpitx`, `esp32-apll-fm-tx` (Classic only; S3-UKW = Gate), `esp32-polar-phy-tx` (S3 13 cm polar — anderer Contract). Kein Antennen-Sendepfad in der KB.
 
 ## Lab / Fremd — sekundäre Web-Kataloge
 
