@@ -16,7 +16,8 @@ maturity:
 pilot: audits/pidrive-2026-bmw-hu
 ```
 
-Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (Reads, Prefetch, Auto-Next, …) → [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) (**C**). MSC-Device-Seite → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md) (**B**).
+Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (Reads, Prefetch, Auto-Next, …) → [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) (**C**). MSC-Device-Seite → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md) (**B**).  
+**Host-Scope:** belegte Plattform = **BMW NBT Evo** (PiDrive-Feld/Lab). Andere Generationen (Evo2, …) / andere OEMs = `UNKNOWN` bis eigene Evidence — kein stiller Transfer (G17-analog).
 
 ## Kurzfassung
 
@@ -25,8 +26,8 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 ## Abgrenzung
 
 - **Ist:** Ziel-Host in PiDrive; USB-MSC-Consumer; Decoder/UI/Playlist-Logik auf HU-Seite (black box mit beobachtbaren I/O-Mustern).
-- **Ist nicht:** Allgemeines USB-MSC-Verhalten aller Hosts; SCSI/FAT-Spec; ESP32-Implementierung.
-- **Grenzt an:** [`usb-msc`](../usb-msc/SHEET.md) (Protokoll), [`avrcp`](../avrcp/SHEET.md) (paralleler BT-Pfad, später Pilot 3).
+- **Ist nicht:** Allgemeines USB-MSC-Verhalten aller Hosts; SCSI/FAT-Spec; ESP32-Implementierung; Universal-„BMW HU“-Profil.
+- **Grenzt an:** [`usb-msc`](../usb-msc/SHEET.md) (Protokoll), [`avrcp`](../avrcp/SHEET.md) / [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/) (BT-Pfad, nicht USB-C duplizieren).
 
 ## Schnittstellen (PiDrive-relevant)
 
@@ -44,16 +45,20 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 | Lab-Host-Replay ersetzt HU-Beweis | `REJECTED` | Lab AV ≠ Feld-Ohr (PiDrive 2026-10-04) |
 | Erfolg = nur SCSI-konforme Antworten | `REJECTED` | HU-Decode + hörbarer Ton ist Projektkriterium |
 | MSC und BT können parallel als PiDrive-Ziel laufen | `INFERRED` | Architekturwahl PiDrive; nicht „NBT-Spec“ |
+| NBT-Evo-Timing gilt für alle BMW-HU | `REJECTED` (als FACT) | Host-Scope; andere Varianten = Gate/Evidence |
+| Lab-Menü-PASS = Feld-Ohr-PASS | `REJECTED` | Exit Ohr bleibt getrennt (siehe Application) |
 
 ## Transfer
 
-Wiederverwendbar als **Vorlage „automotive HU als MSC-Host“**: Trace-Korrelation, Claim-Trennung C vs. MSC-A. Konkrete LBA-/Timing-Profile **nur** mit Evidence aus diesem Host — nicht auf andere Fahrzeuge übertragen.
+Wiederverwendbar als **Vorlage „automotive HU als MSC-Host“**: Trace-Korrelation, Claim-Trennung C vs. MSC-A. Konkrete LBA-/Timing-Profile **nur** mit Evidence aus diesem Host — nicht auf andere Fahrzeuge übertragen. Revalidation: [`DELTA`](../../audits/pidrive-2026-bmw-hu/DELTA.md).
 
 ### Projektstart-Checkliste
 
+- [ ] Host-Variante benennen (NBT Evo vs. andere) — kein stiller Transfer
 - [ ] Nur Host-/Feldclaims (C); keine stillen Spec-Transfers nach `usb-msc`/`avrcp`
 - [ ] Evidence-IDs aus Betrieb/Lab verlinken
 - [ ] Ampel/Exit (Ohr/AV) von Lab-PASS unterscheiden
+- [ ] BT/AVRCP nicht als USB-C-Duplikat führen
 - [ ] Application + `seen_in` nachziehen
 
 ## Referenzen

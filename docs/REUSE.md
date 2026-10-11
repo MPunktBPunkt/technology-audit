@@ -106,6 +106,8 @@ Gleiche Produktfamilie ≠ gleiche Peripherie.
 |-----------|--------|
 | Claim gilt nur für Classic ESP32 (z. B. APLL) | Sheet-Scope und Fallstrick explizit; S2/S3/C3 = `UNKNOWN` bis Gate |
 | Dual-Role BLE / Connection-Budget (z. B. HR-Relay) | belegte Familie nennen (oft ESP32-S3); Classic Mini mit `PERIPHERAL_DISABLED` ≠ S3-Transfer |
+| Automotive Host-Plattform (z. B. NBT Evo) | Host-Sheet + C-Evidence; andere HU-Generationen = Gate, nicht still übertragen |
+| BT-Stack Pi BlueZ vs. ESP Classic | gleicher Profil-Slug; getrennte Applications / Stack-Evidence |
 | Pi BCM-GPCLK (Pi 1–4) vs. RP1 (Pi 5) | Sheet-Scope BCM; Pi5 = `UNKNOWN` bis `hw-path-gate`; **kein** Sheet vor Evidence |
 | Pi BCM-GPCLK vs. ESP Clock-Out | getrennte Slugs (`rpi-gpio-fm-tx` ≠ `esp32-apll-fm-tx`); Analogie nur als Transfer-Hinweis |
 | Idee „S3 als Hub-FM-Knoten“ | FOLLOW-ON + Gate E-0/E-1; **kein** Sheet vor Evidence |

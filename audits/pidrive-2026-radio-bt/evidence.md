@@ -1,6 +1,6 @@
 # Evidence — pidrive-2026-radio-bt
 
-Desk-/Ops-Audit 2026-10-09 @ `b61df4d` · **standard_version 0.6.3**.
+Desk-/Ops-Audit 2026-10-09 @ `b61df4d` · Original **0.6.3** · Revalidation 2026-10-11 · **0.6.6**.
 
 Basis: `https://github.com/MPunktBPunkt/pidrive/blob/b61df4d/`
 
@@ -20,6 +20,9 @@ Basis: `https://github.com/MPunktBPunkt/pidrive/blob/b61df4d/`
 | `EVID-A2DP-2026-10-09-001` | PipeWire/pactl A2DP routing | `FACT` | `bt_audio.py` |
 | `EVID-AVRCP-2026-10-09-001` | D-Bus → pidrive_cmd Bridge | `FACT` | `avrcp_trigger.py` |
 | `EVID-AVRCP-2026-10-09-002` | nicht alle HU-Tasten = AVRCP | `FACT` | Sheet + BMW-AVRCP-PROBE |
+| `EVID-SCOPE-2026-10-11-001` | RX-Sheets ≠ Pi/ESP GPIO-Clock-TX; getrennte Slugs | `FACT` | Sheet-Abgrenzungen + `pi-fm-tx` / `esp-fm-tx`; Revalidation |
+| `EVID-SCOPE-2026-10-11-002` | A2DP/AVRCP Pi BlueZ/PW ≠ ESP Classic-Gateway-Stack | `FACT` | Apps + `esp32-bt-gateway`; Revalidation |
+| `EVID-MATCH-2026-10-11-001` | welle-io Fremd-Audit wächst `dab-plus`/`rtl-sdr`; Freenet/LPD/CB ohne Sheet | `FACT` | Inventar + G19; Revalidation |
 
 ## Offene Claims
 
@@ -33,3 +36,4 @@ Basis: `https://github.com/MPunktBPunkt/pidrive/blob/b61df4d/`
 | Datum | Ereignis |
 |-------|----------|
 | 2026-10-09 | Radio/FFT/BT-Vertiefung; 5 neue Sheets; A2DP/AVRCP Apps |
+| 2026-10-11 | Revalidation **0.6.6**: RX≠TX, Stack-Scope, [DELTA](DELTA.md) |

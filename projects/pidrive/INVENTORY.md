@@ -2,27 +2,30 @@
 
 ```yaml
 project_id: pidrive
-updated: 2026-10-09
+updated: 2026-10-11
 reviewed_commit: b61df4d
+profile: ops-field
 pilot_order: [usb-msc, bmw-nbt-evo, dab-plus, sdr-spectrum-fft, pmr446, airband-am, bluetooth-a2dp, avrcp]
 ```
 
-Pilot 1 (`usb-msc`) **closed**. Pilot 2 (`bmw-nbt-evo`) **active**.  
-**Radio/BT-Vertiefung 2026-10-09:** Kampagne [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/) — DAB+/RTL-SDR/PMR/Airband/FFT + A2DP/AVRCP Applications. Transfer-BT: [`esp32-bt-gateway`](../esp32-bt-gateway/).
+Pilot 1 (`usb-msc`) **closed**. Pilot 2 (`bmw-nbt-evo`) **active** · Revalidation **0.6.6**.  
+**Radio/BT:** [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/) · [DELTA](../../audits/pidrive-2026-radio-bt/DELTA.md). Transfer-BT: [`esp32-bt-gateway`](../esp32-bt-gateway/).  
+**HU:** [`pidrive-2026-bmw-hu`](../../audits/pidrive-2026-bmw-hu/) · [DELTA](../../audits/pidrive-2026-bmw-hu/DELTA.md).
 
-**Reuse / Match** ([REUSE.md](../../docs/REUSE.md), Standard [0.6.3](../../docs/STANDARD-CHANGELOG.md)):
+**Reuse / Match** ([REUSE.md](../../docs/REUSE.md), Standard [0.6.6](../../docs/STANDARD-CHANGELOG.md)):
 
 | Signal | Ziel-Sheet | Aktion |
 |--------|------------|--------|
-| welle-cli DAB+ Ensemble/DLS | `dab-plus` | **neu** + App |
-| RTL2832 Stick Lock/Reset/PPM | `rtl-sdr` | **neu** + App |
-| PMR446 16ch + Spektrum-Monitor | `pmr446` | **neu** + App |
-| VHF Airband AM + Presets | `airband-am` | **neu** + App |
-| IQ-FFT Peaks / channelized watch | `sdr-spectrum-fft` | **neu** + App + Method |
-| BlueZ A2DP + PipeWire | `bluetooth-a2dp` | wachsen + App (Kontrast ESP-Gateway) |
-| AVRCP Controller → Trigger | `avrcp` | wachsen + App (Kontrast ESP-Gateway) |
-| Freenet/LPD/CB Raster | — | observed in Scanner (kein eigenes Sheet) |
-| UKW WBFM | — | observed (teilweise unter rtl-sdr/fm) |
+| welle-cli DAB+ Ensemble/DLS | `dab-plus` | Sheet + App; RX≠TX |
+| RTL2832+R820T Lock/Reset/PPM | `rtl-sdr` | Tuner-Scope; + App |
+| PMR446 16ch + Spektrum-Monitor | `pmr446` | Sheet + App |
+| VHF Airband AM + Presets | `airband-am` | Sheet + App |
+| IQ-FFT Peaks / channelized watch | `sdr-spectrum-fft` | Sheet + App + Method |
+| BlueZ A2DP + PipeWire | `bluetooth-a2dp` | Stack-Scope ≠ ESP-Gateway |
+| AVRCP Controller → Trigger | `avrcp` | wachsen + App (Kontrast ESP) |
+| BMW NBT Evo MSC-Host | `bmw-nbt-evo` | Host-Scope; C in App |
+| Freenet/LPD/CB / UKW WBFM | — | observed (G19, kein Sheet) |
+| Pi/ESP FM-TX | `rpi-gpio-fm-tx` / `esp32-apll-fm-tx` | **Abgrenzung**, nicht Empfang |
 
 ## Übersicht
 
@@ -73,7 +76,8 @@ Pilot 1 (`usb-msc`) **closed**. Pilot 2 (`bmw-nbt-evo`) **active**.
 |---------|-------------|------------------|
 | DAB→BT hörbar | Audio-Politik historisch | AUFTRAG-DAB nachziehen |
 | Antennenvergleich JSON | Artefakte roh | Evidence verdichten |
-| Freenet/LPD/CB Sheets | nur Scanner-Tabellen | bei Bedarf eigene Slugs |
+| Freenet/LPD/CB Sheets | nur Scanner-Tabellen | bei Transferbedarf + Gate (G19) |
+| Feld-AV Ohr (NBT) | Exit bmw-hu #6 | Upstream PASS, dann Maturity |
 | MPRIS2 Sheet | observed | nach Meta-Pilot |
 
 ## Signale ohne Eintrag

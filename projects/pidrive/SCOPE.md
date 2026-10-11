@@ -3,7 +3,7 @@
 ```yaml
 project_id: pidrive
 title: PiDrive
-updated: 2026-10-09
+updated: 2026-10-11
 reviewed_commit: b61df4d
 reviewed_commit_note: Radio/BT-Vertiefung gegen pidrive@b61df4d; MSC/HU-Evidence weiter multi-Artefakt (docs/betrieb)
 repos:

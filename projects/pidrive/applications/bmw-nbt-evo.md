@@ -64,6 +64,7 @@ BMW NBT Evo (Host, C)
 | Lab: Meta vs. Sender Correlate | `EVID-BMWHU-2026-10-05-004` | `MEASURED` |
 | Lab: Meta-Erstsiegel / Menü-Lock nach RST | `EVID-BMWHU-2026-10-05-005` | `MEASURED` |
 | Feld-AV / hörbarer Ton (Exit „Ohr“) | — | `UNKNOWN` (Gate Sender-Slots; Abend-EAR upstream) |
+| Host-Scope: Claims = NBT Evo (nicht still andere BMW-HU) | `EVID-SCOPE-2026-10-11-001` | `FACT` |
 | „Warm-konfundierte Trace = Sequenz tot“ | `EVID-USBMSC-2026-10-04-007` | `REJECTED` |
 
 Ältere HU-Reads: Pilot-1-IDs (Präfix USBMSC in Tabelle). Ab 2026-10-05: Präfix BMWHU.

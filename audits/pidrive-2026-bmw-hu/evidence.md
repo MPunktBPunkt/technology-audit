@@ -1,6 +1,6 @@
 # Evidence — pidrive-2026-bmw-hu
 
-Rohdaten in `pidrive` / `esp32.pidrive`. Register für **Ebene C** (BMW NBT Evo als USB-MSC-Host). Pilot-1-IDs mit Präfix `USBMSC`; ab 2026-10-05 HU-Claims mit Präfix `BMWHU` (siehe Tabelle).
+Rohdaten in `pidrive` / `esp32.pidrive`. Register für **Ebene C** (BMW NBT Evo als USB-MSC-Host). Pilot-1-IDs mit Präfix `USBMSC`; ab 2026-10-05 HU-Claims mit Präfix `BMWHU`. Revalidation **0.6.6** 2026-10-11 = Prozess-Parität, **kein** neuer Feld-Lauf.
 
 Basis-URL: `https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/`
 
@@ -20,6 +20,8 @@ Normativer Ampel-Stand: [MSC-AKTUELL.md](https://github.com/MPunktBPunkt/pidrive
 | `EVID-BMWHU-2026-10-05-003` | Lab Menü-Seite **PASS**: Sender-Slots, Lock, AV-Vorbereitung | `MEASURED` | [GESAMTBERICHT-MENU-PAGE-AV-PREP](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/artifacts-2026-10-05-lab/lab88-menu-page-0816/GESAMTBERICHT-MENU-PAGE-AV-PREP.md) |
 | `EVID-BMWHU-2026-10-05-004` | Lab Correlate: Meta=Negativ / Sender=Positiv **PASS** | `MEASURED` | [GESAMTBERICHT-CORRELATE-META-SENDER](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/artifacts-2026-10-05-lab/lab88-correlate-meta-sender-0855/GESAMTBERICHT-CORRELATE-META-SENDER.md) |
 | `EVID-BMWHU-2026-10-05-005` | Lab: Meta-Erstsiegel überlebt Soft-RST; Rock via `frozen_reject` blockiert | `MEASURED` | [GESAMTBERICHT-LOCK-AFTER-RST](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/artifacts-2026-10-05-lab/lab88-lock-after-rst-1022/GESAMTBERICHT-LOCK-AFTER-RST.md) |
+| `EVID-SCOPE-2026-10-11-001` | Host-Scope: C-Claims gelten für NBT Evo in PiDrive — nicht still andere BMW-HU | `FACT` | Sheet-Abgrenzung; Revalidation 0.6.6 |
+| `EVID-MATCH-2026-10-11-001` | Prozess-Parität: Profile/Reuse/Checklisten/`standard_version` nachgezogen; Gaps 0.5.1 geschlossen | `FACT` | Kampagnen-YAML + DELTA |
 
 ## Offene Claims (noch ohne ID)
 
@@ -34,3 +36,4 @@ Normativer Ampel-Stand: [MSC-AKTUELL.md](https://github.com/MPunktBPunkt/pidrive
 | 2026-10-04 | C-Claims in MSC-Pilot dokumentiert |
 | 2026-10-05 | C-Register → Kampagne `pidrive-2026-bmw-hu` |
 | 2026-10-05 | Nachzug upstream: C′ Feld PASS; AV-Gate/Menü-Lock Lab; Feld-AV noch offen |
+| 2026-10-11 | Revalidation **0.6.6**: Framework-Parität + Host-Scope, [DELTA](DELTA.md); kein neuer Feld-Lauf |

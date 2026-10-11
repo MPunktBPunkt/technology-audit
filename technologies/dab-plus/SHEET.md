@@ -25,7 +25,7 @@ Nur Ebene **A**. Konkrete Pfade (`welle-cli`, Gain-Index-UI, Audio-Route) → Ap
 ## Abgrenzung
 
 - **Ist:** Digitaler Rundfunk-Empfang + Ensemble/Service-Modell.
-- **Ist nicht:** UKW-FM; PMR/Airband; generisches FFT-Spektrum über beliebige MHz (→ `sdr-spectrum-fft`); Stick-Locking (→ `rtl-sdr`); Pi-GPIO-FM-TX (→ `rpi-gpio-fm-tx`).
+- **Ist nicht:** UKW-FM; PMR/Airband; generisches FFT-Spektrum über beliebige MHz (→ `sdr-spectrum-fft`); Stick-Locking (→ `rtl-sdr`); Pi-GPIO-FM-TX (→ `rpi-gpio-fm-tx`); ESP-APLL-FM-TX (→ `esp32-apll-fm-tx`). **RX ≠ TX.**
 
 ## Schnittstellen
 
@@ -45,6 +45,7 @@ Nur Ebene **A**. Konkrete Pfade (`welle-cli`, Gain-Index-UI, Audio-Route) → Ap
 | Scan und Play teilen Stick konfliktfrei ohne Lock | `REJECTED` | exklusiver SDR-Zugriff nötig |
 | Beliebiger SDR ohne Bandbreite/Tunability | `REJECTED` | DAB braucht ~2.048 MS/s und Band-III/L-Frequenzen (z. B. Airspy HF+ explizit ungeeignet) |
 | CLI `-g -1` und manueller Index sind austauschbar ohne Semantik | `REJECTED` | `-1` = Software-AGC; sonst fester Tabellenindex |
+| Empfangs-Sheet deckt Software-FM-TX ab | `REJECTED` | getrennte TX-Slugs; siehe `pi-fm-tx` / `esp-fm-tx` |
 
 ### Projektstart-Checkliste
 
