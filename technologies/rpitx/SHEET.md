@@ -17,7 +17,8 @@ pilot: audits/pi-fm-tx-2026-foreign
 ```
 
 Nur Ebene **A**. Einzelne Modi/Scripts → Application.  
-**Recht:** Bildungs-/Experiment-Software; keine Compliance-Tests; Filter/Lizenz lokal klären — KB beschreibt Technik, nicht Sendebetrieb.
+**Recht:** Bildungs-/Experiment-Software; keine Compliance-Tests; Filter/Lizenz lokal klären — KB beschreibt Technik, nicht Sendebetrieb.  
+**Chip-Scope:** Claims (Bandbreite, GPIO4, Mode-Demos, Pi4‑beta) gelten für die **von Upstream dokumentierte Pi-Matrix** (BCM-SoC-Generationen). **Pi 5 / RP1:** nicht belegt — `UNKNOWN` bis Gate; kein Sheet-Ausweiten (G19).
 
 ## Kurzfassung
 
@@ -25,8 +26,8 @@ Nur Ebene **A**. Einzelne Modi/Scripts → Application.
 
 ## Abgrenzung
 
-- **Ist:** Multi-Mode-TX-Stack inkl. Install/Boot-Tuning (`gpu_freq` o. Ä.).
-- **Ist nicht:** Nur-UKW-WAV-Player (`rpi-gpio-fm-tx`); RDS-Protokoll allein (`fm-rds`); SDR-**Empfang** (`rtl-sdr`); legale Amateurfunk-Station ohne Filter/Lizenz.
+- **Ist:** Multi-Mode-TX-Stack inkl. Install/Boot-Tuning (`gpu_freq` o. Ä.) auf belegter Pi-Matrix.
+- **Ist nicht:** Nur-UKW-WAV-Player (`rpi-gpio-fm-tx`); RDS-Protokoll allein (`fm-rds`); SDR-**Empfang** (`rtl-sdr`); Pi5/RP1-Port ohne Evidence; legale Amateurfunk-Station ohne Filter/Lizenz.
 
 ## Schnittstellen
 
@@ -46,11 +47,13 @@ Nur Ebene **A**. Einzelne Modi/Scripts → Application.
 | rpitx = markondej/fm_transmitter | `REJECTED` | anderer Scope (Multi-Mode vs. FM-WAV) |
 | Easytest auf 434 MHz = überall frei nutzbar | `HYPOTHESIS` | ISM-Hinweis lokal prüfen; kein Freibrief |
 | Pi4 „OK“ wie Pi3 | `REJECTED` | Matrix: Pi4 in beta |
+| Bandbreite/Modes gelten automatisch auf Pi5/RP1 | `UNKNOWN` / Gate | anderer I/O-Chip; `hw-path-gate` |
+| rpitx = ESP32 Multi-Mode-Äquivalent | `REJECTED` | anderer Chip-Contract; siehe `esp32-apll-fm-tx` nur für UKW-Analogie |
 
 ### Projektstart-Checkliste
 
 - [ ] Recht + Filterstrategie vor jedem Mode
-- [ ] Pi-Modell vs. Upstream-Matrix
+- [ ] Pi-Modell vs. Upstream-Matrix (Pi5/RP1 → Stop / Gate)
 - [ ] librpitx/csdr-Build und Boot-Parameter
 - [ ] FM-only? → eher `rpi-gpio-fm-tx` / PiFmRds prüfen
 - [ ] RDS-Claims → zusätzlich `fm-rds`
@@ -66,4 +69,4 @@ Lab-Plattform für Mode-Vergleiche und Spektrum-Demos (mit RX-Monitor). Nicht al
 
 ## Offene Fragen
 
-- Welche Modes auf Pi5/RP1 überhaupt noch tragfähig sind?
+- Welche Modes auf Pi5/RP1 überhaupt noch tragfähig sind? (E-0 Desk → E-1 Lab; kein Sheet vorher)

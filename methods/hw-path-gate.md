@@ -50,4 +50,4 @@ Falsifizierbare Gates, bevor eine Chip-/Pfad-Variante als Technologie behauptet 
 | Projekt / Audit | Link / Hinweis |
 |-----------------|----------------|
 | `esp-fm-tx` | Classic APLL belegt; S3-Gate offen in FOLLOW-ON |
-| `pi-fm-tx` | Analogie BCM-GPCLK; Harmonics weiter `UNKNOWN` ohne Lab |
+| `pi-fm-tx` | BCM-GPCLK Pi1–4 belegt; **Pi5/RP1-Gate** E-0/E-1 in FOLLOW-ON; Harmonics `UNKNOWN` ohne Lab |

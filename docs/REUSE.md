@@ -105,6 +105,7 @@ Gleiche Produktfamilie ≠ gleiche Peripherie.
 | Situation | Aktion |
 |-----------|--------|
 | Claim gilt nur für Classic ESP32 (z. B. APLL) | Sheet-Scope und Fallstrick explizit; S2/S3/C3 = `UNKNOWN` bis Gate |
+| Pi BCM-GPCLK (Pi 1–4) vs. RP1 (Pi 5) | Sheet-Scope BCM; Pi5 = `UNKNOWN` bis `hw-path-gate`; **kein** Sheet vor Evidence |
 | Pi BCM-GPCLK vs. ESP Clock-Out | getrennte Slugs (`rpi-gpio-fm-tx` ≠ `esp32-apll-fm-tx`); Analogie nur als Transfer-Hinweis |
 | Idee „S3 als Hub-FM-Knoten“ | FOLLOW-ON + Gate E-0/E-1; **kein** Sheet vor Evidence |
 

@@ -1,6 +1,6 @@
 # Evidence — pi-fm-tx-2026-foreign
 
-Desk 2026-10-10 · **standard_version 0.6.3** · Profile `lab-tool`.
+Desk 2026-10-10 · **standard_version 0.6.3** (Original) · Revalidation 2026-10-11 · **standard_version 0.6.6** · Profile `lab-tool`.
 
 | Repo | Commit |
 |------|--------|
@@ -34,13 +34,17 @@ Desk 2026-10-10 · **standard_version 0.6.3** · Profile `lab-tool`.
 | `EVID-RPITX-2026-10-10-004` | Pi4 „In beta mode“ | `FACT` | README Matrix |
 | `EVID-RPITX-2026-10-10-005` | FM-RDS via `src/pifmrds` / `testfmrds.sh` | `FACT` | Tree + README |
 | `EVID-RPITX-2026-10-10-006` | GPIO4 Antennenpin | `FACT` | rpitx README Hardware |
+| `EVID-SCOPE-2026-10-11-001` | Chip-Scope: belegte UKW-FM-Upstreams = BCM-SoC-Pi (≤Pi4); Pi5/RP1 unsupported (markondej) | `FACT` | fm_transmitter README + Sheet-Abgrenzung; Revalidation |
+| `EVID-SCOPE-2026-10-11-002` | Kein Desk-Beleg für RP1 Clock→Pad-FM-Pfad; Gate E-0/E-1 nötig vor Sheet | `UNKNOWN` | Revalidation 0.6.6 / `hw-path-gate` |
+| `EVID-MATCH-2026-10-11-001` | Pi-TX ≠ ESP-APLL-TX; getrennte Slugs nach Cross-Check-Linie | `FACT` | `esp32-apll-fm-tx` + Index; Kontrast Sheets |
 
 ## Offene Claims
 
 | Claim | Status | Hinweis |
 |-------|--------|---------|
 | Harmonic-Pegel gemessen | `UNKNOWN` | kein Lab |
-| Pi5-Nachfolger-Pfad | `UNKNOWN` | markondej: anderer Chip |
+| Pi5/RP1 Nachfolger-Pfad (Clock→Pad) | `UNKNOWN` | Gate E-0 Desk / E-1 Lab — kein Sheet |
+| rpitx Modes auf Pi5/RP1 | `UNKNOWN` | Upstream-Matrix + Gate |
 
 ## Wissens-Chronik
 
@@ -48,3 +52,4 @@ Desk 2026-10-10 · **standard_version 0.6.3** · Profile `lab-tool`.
 |-------|----------|
 | 2026-10-10 | Bootstrap pifm + PiFmRds; Sheets `rpi-gpio-fm-tx`, `fm-rds` |
 | 2026-10-10 | + markondej, rpitx, zoroxide, pi-fm-player; Sheet `rpitx` |
+| 2026-10-11 | Revalidation **0.6.6**: Chip-Scope, Signalpfad, RP1-Gate, [DELTA](DELTA.md); kein neues Sheet |

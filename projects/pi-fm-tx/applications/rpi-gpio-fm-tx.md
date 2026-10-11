@@ -58,3 +58,6 @@ GPIO klassisch **4**; markondej Pi4-Workaround: `make GPIO21=1` + Governor/feste
 | zoroxide ≈ markondej-Struktur + Install-Scripts | `EVID-FMTX-2026-10-10-003` | `FACT` |
 | pi-fm-player: systemd + ffmpeg→pifm stdin | `EVID-FMTX-2026-10-10-004` | `FACT` |
 | pi-fm-player vendored classic pifm | `EVID-FMTX-2026-10-10-005` | `FACT` |
+| Chip-Scope ≤Pi4 / BCM; Pi5 unsupported Upstream | `EVID-SCOPE-2026-10-11-001` | `FACT` |
+| RP1 Clock→Pad-FM ohne Desk-Beleg → Gate | `EVID-SCOPE-2026-10-11-002` | `UNKNOWN` |
+| Pi-TX ≠ ESP-APLL-TX (getrennte Slugs) | `EVID-MATCH-2026-10-11-001` | `FACT` |

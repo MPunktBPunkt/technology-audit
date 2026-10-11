@@ -3,7 +3,7 @@
 ```yaml
 project_id: pi-fm-tx
 title: Pi FM / RF Transmit (Fremd)
-updated: 2026-10-10
+updated: 2026-10-11
 profile_hint: lab-tool
 reviewed_commit: "pifm@6c30d00 PiFmRds@2707ecc fm_transmitter@322500e rpitx@ee7ff57 Pi-Fm_transmitter@552f955 pi-fm-player@f602f42"
 reviewed_commit_note: Sechs Upstream-Repos; Desk-Audit ohne Feldaussendung
@@ -38,7 +38,8 @@ KB-Test / Transferwissen: Raspberry-Pi-**Software-TX** (UKW-FM-Linie + rpitx Mul
 
 ## Prioritäten
 
-1. Match: FM-Linie vs. neues `rpitx`-Sheet  
+1. Match: FM-Linie vs. `rpitx`-Sheet  
 2. Forks/Wrapper ohne Sheet-Explosion (zoroxide, pi-fm-player)  
-3. Recht / Filter / Pi-Modell-Fallen  
-4. Evidence auf Commits
+3. Recht / Filter / Pi-Modell-Fallen (Chip-Scope BCM ≠ RP1)  
+4. Evidence auf Commits  
+5. Revalidation 0.6.6: Signalpfad + Gate vor Pi5-Sheet ([DELTA](../../audits/pi-fm-tx-2026-foreign/DELTA.md))

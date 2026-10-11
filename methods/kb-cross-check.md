@@ -52,3 +52,4 @@ Prüfen, ob Technology Sheets und Evidence als **Reasoning-Bausteine** nutzbar s
 | Projekt / Audit | Link / Hinweis |
 |-----------------|----------------|
 | 2026-10-11 ESP-FM Cross-Check | Prompt gegen `pi-fm-tx` + Hub; Ergebnis → Standard 0.6.6 + Audit `esp-fm-tx` |
+| 2026-10-11 Pi-FM Revalidation | `pi-fm-tx-2026-foreign` unter 0.6.6; [DELTA](../audits/pi-fm-tx-2026-foreign/DELTA.md) |
