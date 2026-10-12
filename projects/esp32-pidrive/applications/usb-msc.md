@@ -64,6 +64,8 @@ Primärregister: [`pidrive-2026-bmw-hu/evidence`](../../../audits/pidrive-2026-b
 
 ## Verwandte
 
-- Sheet: [`usb-msc`](../../../technologies/usb-msc/SHEET.md)
+- Sheet: [`usb-msc`](../../../technologies/usb-msc/SHEET.md) · [`virtual-fat`](../../../technologies/virtual-fat/SHEET.md)
 - Ops-Application: [`pidrive` usb-msc](../../pidrive/applications/usb-msc.md)
 - PUMP: [`pump-control-link`](pump-control-link.md)
+- Callback/Perf-Referenzen: [`esp32-msc-gadget-refs`](../../esp32-msc-gadget-refs/)
+- Next Lab: [`msc-lba-timing-instrument`](../../../methods/msc-lba-timing-instrument.md) am `UsbMscGadget`-Read-Pfad

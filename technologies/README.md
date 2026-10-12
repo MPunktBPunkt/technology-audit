@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-12`, 46 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-12`, 47 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 ## Index nach Primary (TAXONOMY)
 
@@ -32,7 +32,7 @@ Wiederverwendbare Technology Sheets.
 | [`fm-rds`](fm-rds/SHEET.md) | FM-RDS (Radio Data System) | W2 | `pi-fm-tx` |
 | [`kostal-piko-http`](kostal-piko-http/SHEET.md) | Kostal PIKO Local HTTP Interface | W2 | `iobroker-kostalpiko` |
 | [`pump-control-link`](pump-control-link/SHEET.md) | PUMP Control Link | W2 | `esp32-pidrive` |
-| [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W2 | `pidrive`, `esp32-pidrive` |
+| [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W3 | `pidrive`, `esp32-pidrive`, `esp32-msc-gadget-refs` |
 
 ### D — Embedded
 
@@ -43,6 +43,12 @@ Wiederverwendbare Technology Sheets.
 | [`esp32-wifi-tone-tx`](esp32-wifi-tone-tx/SHEET.md) | ESP32-S3 Wi-Fi PHY CW Tone Keying TX | W2 | `esp32sdr` |
 | [`rpi-gpio-fm-tx`](rpi-gpio-fm-tx/SHEET.md) | Raspberry Pi GPIO / Clock FM Transmit | W3 | `pi-fm-tx` |
 | [`rpitx`](rpitx/SHEET.md) | rpitx — Raspberry Pi Software RF Transmit Platform | W2 | `pi-fm-tx` |
+
+### E — Speicher / Formate
+
+| Slug | Title | Reuse | Gesehen in |
+|------|-------|-------|------------|
+| [`virtual-fat`](virtual-fat/SHEET.md) | Virtual FAT Disk (Synthetic Geometry) | W3 | `esp32-msc-gadget-refs`, `pidrive`, `esp32-pidrive` |
 
 ### F — Systemintegration
 

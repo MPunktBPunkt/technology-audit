@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-12
-project_count: 43
+project_count: 44
 projects:
   - id: a2dpsinkhfpclient
     title: a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd)
@@ -113,6 +113,12 @@ projects:
     status: —
     applications: 3
     path: projects/esp32-metermaster/
+  - id: esp32-msc-gadget-refs
+    title: ESP32 USB-MSC Gadget References — Callback / Virtual FAT / Perf (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 2
+    path: projects/esp32-msc-gadget-refs/
   - id: esp32-network
     title: esp32-network
     profile: firmware
@@ -123,7 +129,7 @@ projects:
     title: esp32-pidrive
     profile: firmware
     status: —
-    applications: 3
+    applications: 4
     path: projects/esp32-pidrive/
   - id: esp32-rfmonitor
     title: esp32-rfmonitor
@@ -249,7 +255,7 @@ projects:
     title: PiDrive
     profile: ops-field
     status: active
-    applications: 9
+    applications: 10
     path: projects/pidrive/
   - id: rnt-esp32
     title: Random Nerd Tutorials — ESP32 Projects Catalog (Fremd)

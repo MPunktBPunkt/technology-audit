@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-12`, 43 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-12`, 44 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -24,8 +24,9 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-heartrate`](esp32-heartrate/) | esp32-heartrate | — | — | 4 |
 | [`esp32-io-control`](esp32-io-control/) | esp32-io-control | firmware | — | 3 |
 | [`esp32-metermaster`](esp32-metermaster/) | esp32-metermaster | firmware | — | 3 |
+| [`esp32-msc-gadget-refs`](esp32-msc-gadget-refs/) | ESP32 USB-MSC Gadget References — Callback / Virtual FAT / Perf (Fremd) | lab-tool | active | 2 |
 | [`esp32-network`](esp32-network/) | esp32-network | firmware | — | 4 |
-| [`esp32-pidrive`](esp32-pidrive/) | esp32-pidrive | firmware | — | 3 |
+| [`esp32-pidrive`](esp32-pidrive/) | esp32-pidrive | firmware | — | 4 |
 | [`esp32-rfmonitor`](esp32-rfmonitor/) | esp32-rfmonitor | firmware | — | 3 |
 | [`esp32-sdr-trx`](esp32-sdr-trx/) | ESP32-S3 SDR Transceiver — polar PHY TX + narrowband RX (Fremd) | lab-tool | active | 2 |
 | [`esp32-toolnode`](esp32-toolnode/) | esp32-toolnode | firmware | — | 6 |
@@ -46,7 +47,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`iobroker-repositories`](iobroker-repositories/) | iobroker-repositories | ops-field | — | 0 |
 | [`metermaster-app`](metermaster-app/) | metermaster-app | ops-field | — | 1 |
 | [`pi-fm-tx`](pi-fm-tx/) | Pi FM / RF Transmit (Fremd) | lab-tool | active | 3 |
-| [`pidrive`](pidrive/) | PiDrive | ops-field | active | 9 |
+| [`pidrive`](pidrive/) | PiDrive | ops-field | active | 10 |
 | [`rnt-esp32`](rnt-esp32/) | Random Nerd Tutorials — ESP32 Projects Catalog (Fremd) | lab-tool | active | 0 |
 | [`welle-io`](welle-io/) | welle.io — DAB/DAB+ SDR Receiver (Fremd) | lab-tool | active | 2 |
 

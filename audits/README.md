@@ -26,6 +26,7 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`esphome-a2dp-sink-2026-foreign`](esphome-a2dp-sink-2026-foreign/) | active | lab-tool | Fremd: ESPHome a2dp_sink entities · **0.6.6** |
 | [`esp32sdr-2026-foreign`](esp32sdr-2026-foreign/) | active | lab-tool | Fremd: lozaning/ESP32SDR tone-TX + burst RX · **0.6.6** |
 | [`espusbhost-2026-foreign`](espusbhost-2026-foreign/) | active | lab-tool | Fremd: EspUsbHost USB Host S2/S3/P4 · **0.6.6** |
+| [`esp32-msc-gadget-refs-2026-foreign`](esp32-msc-gadget-refs-2026-foreign/) | active | lab-tool | Fremd: ESP32 USB-MSC Gadgets + virtual FAT / Perf · **0.6.6** |
 | [`esp-sdr-bridge-2026-foreign`](esp-sdr-bridge-2026-foreign/) | active | lab-tool | Fremd: esp-sdr-bridge IQS→SpyServer/rtl_tcp · **0.6.6** |
 | [`bluetooth-stack-2026-foreign`](bluetooth-stack-2026-foreign/) | active | lab-tool | Fremd: bluetooth_stack HCI-Host Kontrast · **0.6.6** |
 | [`esp32-heartrate-2026-pilot`](esp32-heartrate-2026-pilot/) | active | firmware | HR Desk-Pilot · **0.6.6** revalidated (from 0.6.0) |

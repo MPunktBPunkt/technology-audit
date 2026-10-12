@@ -19,7 +19,9 @@ reuse_outcomes:
 | Andere HU-Variante | `bmw-nbt-evo` | Gate/Evidence — Sheet nicht verbiegen |
 | SDR-Empfangsbaustein | `dab-plus`, `rtl-sdr`, `sdr-spectrum-fft` | DAB+/Scanner/FFT als Modul |
 | Freenet/LPD/CB Sheets | Scanner-Tabellen | eigene Slugs nur bei Transferbedarf (G19) |
-| Trace-/Korrelations-Toolkit | Methods | MSC + Spektrum-Watch |
+| Trace-/Korrelations-Toolkit | `msc-lba-timing-instrument`, `msc-trace-correlation` | LBA-Bursts + Spektrum-Watch |
+| Host-Behavior Sheet pflegen | `bmw-nbt-evo`, SIB/Forum | Cache/Label/FAT32-Gates |
+| Generische MSC-Gadgets (Desk) | `esp32-msc-gadget-refs` | Callback/Perf ohne BMW |
 | Metadaten-Bridge | `mpris2`, `avrcp` | Titel/Artist über Senken |
 | DAB→BT Audio-Politik | `dab-plus`, `bluetooth-a2dp` | AUFTRAG-DAB-AUDIOWEG schließen |
 | Feld-Ohr AV PASS | `bmw-nbt-evo` | Exit #6; dann Maturity/Method |

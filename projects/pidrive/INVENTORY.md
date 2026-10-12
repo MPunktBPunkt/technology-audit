@@ -24,6 +24,7 @@ Pilot 1 (`usb-msc`) **closed**. Pilot 2 (`bmw-nbt-evo`) **active** · Revalidati
 | BlueZ A2DP + PipeWire | `bluetooth-a2dp` | Stack-Scope ≠ ESP-Gateway |
 | AVRCP Controller → Trigger | `avrcp` | wachsen + App (Kontrast ESP) |
 | BMW NBT Evo MSC-Host | `bmw-nbt-evo` | Host-Scope; C in App |
+| Synthetische FAT-Geometrie / Slots | `virtual-fat` | Sheet + App (Gadget-Refs) |
 | Freenet/LPD/CB / UKW WBFM | — | observed (G19, kein Sheet) |
 | Pi/ESP FM-TX | `rpi-gpio-fm-tx` / `esp32-apll-fm-tx` | **Abgrenzung**, nicht Empfang |
 
@@ -39,11 +40,12 @@ Pilot 1 (`usb-msc`) **closed**. Pilot 2 (`bmw-nbt-evo`) **active** · Revalidati
 | `webradio` | Webradio | A | `streaming` | observed | none | — | — |
 | `pipewire` | PipeWire | B | `linux-userspace` | observed | none | — | — |
 | `usb-msc` | USB Mass Storage | C | `usb-device`, `automotive` | applied | partial | [SHEET](../../technologies/usb-msc/SHEET.md) | [app](applications/usb-msc.md) |
+| `virtual-fat` | Virtual FAT Disk | E | `usb-device`, `filesystem` | applied | partial | [SHEET](../../technologies/virtual-fat/SHEET.md) | [app](applications/virtual-fat.md) |
 | `scsi` | SCSI (MSC/BOT) | C | `usb-device` | observed | none | — | — |
 | `bluetooth-a2dp` | Bluetooth A2DP | C | `bluetooth-classic` | applied | partial | [SHEET](../../technologies/bluetooth-a2dp/SHEET.md) | [app](applications/bluetooth-a2dp.md) |
 | `avrcp` | AVRCP | C | `bluetooth-classic` | applied | partial | [SHEET](../../technologies/avrcp/SHEET.md) | [app](applications/avrcp.md) |
 | `esp32` | ESP32 | D | `esp-idf` | observed | none | — | — |
-| `fat` | FAT / LBA | E | — | observed | none | — | — |
+| `fat` | FAT / LBA (legacy signal) | E | — | observed | none | — | — (→ `virtual-fat`) |
 | `systemd` | systemd | F | `linux-userspace` | observed | none | — | — |
 | `mpris2` | MPRIS2 | G | `metadata` | observed | none | — | — |
 | `bmw-nbt-evo` | BMW NBT Evo Host | I | `automotive` | applied | partial | [SHEET](../../technologies/bmw-nbt-evo/SHEET.md) | [app](applications/bmw-nbt-evo.md) |

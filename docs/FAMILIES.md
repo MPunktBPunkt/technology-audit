@@ -28,8 +28,10 @@ Gemeinsame Sheets: `esp-hub-telemetry`, oft `esp-embedded-web-sse`.
 |------------|-------|
 | `pidrive` | Ops/Feld: USB-MSC, BMW HU, DAB+/SDR/PMR/Airband/FFT, A2DP/AVRCP |
 | `esp32-pidrive` | Firmware: TinyUSB MSC-Gadget + PUMP + HubClient |
+| `esp32-msc-gadget-refs` | Desk: Fremd-MSC-Gadgets (IDF/Arduino/Adafruit/EspTinyUSB, aoscarius, atomic14) |
 | `esp32-bt-gateway` | Planung A2DP/AVRCP (auch ESP-Hub-Familie) |
 
+MSC/FAT: `usb-msc`, `virtual-fat`; Host: `bmw-nbt-evo`. Methods: `msc-lba-timing-instrument`, `msc-trace-correlation`.  
 Radio-Sheets (Empfang): `dab-plus`, `rtl-sdr`, `pmr446`, `airband-am`, `sdr-spectrum-fft`.
 
 ## Lab / Fremd — Radio (RX/TX)

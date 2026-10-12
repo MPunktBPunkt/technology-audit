@@ -113,6 +113,9 @@ Gleiche Produktfamilie ≠ gleiche Peripherie.
 | AVRCP Standalone / Cover Art / Abs Volume | Libraries koppeln an A2DP (`REJECTED` Standalone-Praxis); Cover Art = IDF≥5.4 + PSRAM; Abs Volume nur wenn Peer capability |
 | A2DP Multi-Codec Forks | gleicher `bluetooth-a2dp`-Slug; IDF-Patch/PSRAM/BlueZ-Cache-Gates in Application — kein Codec-Slug-Fork |
 | USB Host (ESP OTG) vs. USB Device/MSC-Gadget | getrennte Slugs (`esp-usb-host` ≠ `usb-msc`); Rolle zuerst klären |
+| Virtual FAT / on-the-fly Body vs. MSC Transport | `virtual-fat` (Geometrie) ≠ `usb-msc` (BOT/SCSI/Callback); Live-MP3 = Application auf gleichem Contract |
+| BMW/HU Cache, Prefetch, Label/Serial | nur `bmw-nbt-evo` Application **C**; nie in `usb-msc` Sheet timing-claims |
+| MSC Read-Perf (USB FS ~0.5–1 MB/s) | A-Budget in `usb-msc`; Burst/Latenz-Messung = Method `msc-lba-timing-instrument` |
 | Pi BCM-GPCLK (Pi 1–4) vs. RP1 (Pi 5) | Sheet-Scope BCM; Pi5 = `UNKNOWN` bis `hw-path-gate`; **kein** Sheet vor Evidence |
 | Pi BCM-GPCLK vs. ESP Clock-Out | getrennte Slugs (`rpi-gpio-fm-tx` ≠ `esp32-apll-fm-tx`); Analogie nur als Transfer-Hinweis |
 | Idee „S3 als Hub-FM-Knoten“ | FOLLOW-ON + Gate E-0/E-1; **kein** Sheet vor Evidence |

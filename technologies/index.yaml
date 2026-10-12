@@ -4,7 +4,7 @@
 # Do not hand-edit sheet rows.
 
 generated: 2026-10-12
-sheet_count: 46
+sheet_count: 47
 sheets:
   - slug: airband-am
     title: VHF Airband AM Reception
@@ -273,9 +273,15 @@ sheets:
   - slug: usb-msc
     title: USB Mass Storage Class
     primary: C
-    reusability: W2
-    seen_in: [pidrive, esp32-pidrive]
+    reusability: W3
+    seen_in: [pidrive, esp32-pidrive, esp32-msc-gadget-refs]
     path: technologies/usb-msc/SHEET.md
+  - slug: virtual-fat
+    title: Virtual FAT Disk (Synthetic Geometry)
+    primary: E
+    reusability: W3
+    seen_in: [esp32-msc-gadget-refs, pidrive, esp32-pidrive]
+    path: technologies/virtual-fat/SHEET.md
   - slug: webradio-browser-host
     title: Web-Radio Browser Host (ESP)
     primary: G

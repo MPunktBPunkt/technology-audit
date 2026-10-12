@@ -47,6 +47,20 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 | MSC und BT können parallel als PiDrive-Ziel laufen | `INFERRED` | Architekturwahl PiDrive; nicht „NBT-Spec“ |
 | NBT-Evo-Timing gilt für alle BMW-HU | `REJECTED` (als FACT) | Host-Scope; andere Varianten = Gate/Evidence |
 | Lab-Menü-PASS = Feld-Ohr-PASS | `REJECTED` | Exit Ohr bleibt getrennt (siehe Application) |
+| Dynamische Datei ohne stabile Geometrie/Index | `REJECTED` (als Strategie) | HU erwartet indexierbares, statisch wirkendes Medium — Live-Body muss Read-Muster bedienen (**C**) |
+
+## Community / SIB-Muster (nicht PiDrive-MEASURED)
+
+Öffentliche Foren/SIBs (keine eigenen Lab-IDs) — in Applications nur als `HYPOTHESIS`/`INFERRED` führen, bis gemessen:
+
+| Muster | Epistemic | Hinweis |
+|--------|-----------|---------|
+| Starkes Caching über Volume-Label + Serial | `HYPOTHESIS` | Änderungen oft erst nach Label-/Stick-Wechsel sichtbar |
+| Re-Index durch mehrere unterschiedliche Sticks | `HYPOTHESIS` | Cache-Flush-Ritual |
+| FAT32 am zuverlässigsten auf älteren NBT/NBT Evo | `HYPOTHESIS` | exFAT/NTFS problematisch berichtet; PiDrive Lab nutzt FAT12/16 — Gate |
+| Track-/Datei-Limits ~6k–26k | `HYPOTHESIS` | generation- und namensabhängig |
+| „Reading data“-Hänger bei großen Libs / langsamen Sticks | `HYPOTHESIS` | passt zu Burst/Latenz-These |
+| SIB 65 08 07 u. a.: Sync großer Sticks Minuten; HDD-USB abraten | `INFERRED` (secondary) | offizielle Service-Hinweise, nicht KB-remeasured |
 
 ## Transfer
 

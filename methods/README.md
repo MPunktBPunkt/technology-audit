@@ -12,12 +12,13 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | [`sdr-spectrum-channel-watch`](sdr-spectrum-channel-watch.md) | RTL-SDR FFT + Kanal-Watch (PMR/Airband) | active |
 | [`hw-path-gate`](hw-path-gate.md) | RF/Clock E-0…E-3 Gates vor Varianten-Sheet | active |
 | [`kb-cross-check`](kb-cross-check.md) | KB als Reasoning-Bausteine prüfen (Blindtest) | active |
+| [`msc-lba-timing-instrument`](msc-lba-timing-instrument.md) | MSC Read-Callback LBA/Burst/Latenz (Lab→HU) | active |
+| [`msc-trace-correlation`](msc-trace-correlation.md) | HU-LBA-Traces vs. Diag/`bytesServed`/AV | active |
 
 ## Kandidaten (noch ohne Note)
 
 | Slug | Thema |
 |------|--------|
-| `msc-trace-correlation` | HU-LBA-Traces vs. Diag/`bytesServed` |
 | `field-av-correlation` | Audio/Video-Fenster vs. Dateioffset |
 | `lab-prefill-oracle` | Lab-Prefill-/Seed-Validierung |
 

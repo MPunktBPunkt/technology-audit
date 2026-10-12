@@ -80,15 +80,31 @@ BMW NBT Evo (Host, C)
 | 2026-10-05 07:50 | Feld-AV blockiert (Meta-Menü) — `EVID-BMWHU-2026-10-05-002` |
 | 2026-10-05 Lab | Menü-Seite, Correlate, Lock-after-RST — `EVID-BMWHU-2026-10-05-003`–`005` |
 
+## Community / SIB (Transfer-Hinweise — nicht MEASURED)
+
+Siehe Sheet-Abschnitt „Community / SIB-Muster“. Für Live-Fake-MP3 relevant:
+
+1. Volume-Label + USB-Serial bewusst versionieren / Cache-Tests planen.  
+2. Re-Index-Ritual (mehrere Sticks) als Experiment, nicht als Spec.  
+3. FAT32-Hypothese vs. bestehende FAT12/16-Labgeometrie — eigener Gate-Lauf.  
+4. Dateizahl/Namen kurz halten; große Libs = Index-Risiko.  
+5. Callback-Latenz/Bursts instrumentieren: [`msc-lba-timing-instrument`](../../../methods/msc-lba-timing-instrument.md).
+
+Referenz-Gadgets (kein HU-Feld): [`esp32-msc-gadget-refs`](../../esp32-msc-gadget-refs/).
+
 ## Offene Fragen
 
 - Feld-AV/Ohr: Gate Rock/Bayern/BOB + erstes `MSC_MAP_FROZEN` loggen (Abend-EAR upstream)
 - Korrelation `fileOff`/`hostAbs` × `liveBytes` × Underruns × Ton (nach Gate)
 - Auto-Next vs. manueller Track-Wechsel — gleiches Read-Muster?
 - BT-Pfad (A2DP/AVRCP) vs. MSC — getrennte Host-Profile unter einem Sheet?
+- Welche Label/Serial-Änderung flush’t NBT-Cache empirisch?
+- Max `onRead`-Latenz vor HU-Abort?
 
 ## Verwandte
 
 - Sheet: [`bmw-nbt-evo`](../../../technologies/bmw-nbt-evo/SHEET.md)
 - MSC Application (B): [`usb-msc.md`](usb-msc.md)
 - Audit: [`pidrive-2026-bmw-hu`](../../../audits/pidrive-2026-bmw-hu/)
+- Gadget-Refs: [`esp32-msc-gadget-refs-2026-foreign`](../../../audits/esp32-msc-gadget-refs-2026-foreign/)
+- Methods: [`msc-lba-timing-instrument`](../../../methods/msc-lba-timing-instrument.md) · [`msc-trace-correlation`](../../../methods/msc-trace-correlation.md)
