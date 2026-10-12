@@ -13,6 +13,7 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | [`hw-path-gate`](hw-path-gate.md) | RF/Clock E-0…E-3 Gates vor Varianten-Sheet | active |
 | [`kb-cross-check`](kb-cross-check.md) | KB als Reasoning-Bausteine prüfen (Blindtest) | active |
 | [`msc-lba-timing-instrument`](msc-lba-timing-instrument.md) | MSC Read-Callback LBA/Burst/Latenz (Lab→HU) | active |
+| [`msc-busy-retry-semantics`](msc-busy-retry-semantics.md) | TinyUSB Busy/`return 0` vs. Block vs. ASYNC testen | active |
 | [`msc-trace-correlation`](msc-trace-correlation.md) | HU-LBA-Traces vs. Diag/`bytesServed`/AV | active |
 
 ## Kandidaten (noch ohne Note)

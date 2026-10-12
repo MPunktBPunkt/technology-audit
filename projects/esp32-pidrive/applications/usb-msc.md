@@ -47,6 +47,19 @@ looksLikePlay ──▶ play_uid an PumpServer
 | Lab L0 | FAT12-klassifiziert, 4 MiB / 1 MiB-Slots (`PIDRIVE_GEO_L0`) | `FACT` |
 | Lab L0-16M / L3 | FAT16 16 MiB; L3 ungleiche Slots | `FACT` |
 | Play-Detect | plugWindow / minSeqBytes / cooldown aus Config | `FACT` (B) |
+| TinyUSB-Port | Arduino-ESP32, TinyUSB **0.15** (kein ASYNC-API) | `FACT` (B) |
+| EP-Buffer | SDK `CONFIG_TINYUSB_MSC_BUFSIZE=4096` → Callback-`bufsize` typ. 4 KiB | `FACT` (B) |
+| Stall/E7-Pfad | `onReadLiveStall`: bei zu wenig `liveAvail` → `vTaskDelay(retryMs)` + **`return 0`**; nie `<0` (kein Device-STALL); nach `maxMs` Silence-Fallback volle `bufsize` | `FACT` (B) · `EVID-TINYUSB-MSC-2026-10-12-010` |
+| Stall-Defaults | `maxMs=500`, `chunkBytes=4096`, `retryMs=2`; Stall default off → Pre-Stall-Verhalten | `FACT` (B) |
+
+### E7-Gates (offen — nicht als PASS)
+
+| Gate | Status | Hinweis |
+|------|--------|---------|
+| Busy-Retry hält READ10 offen ohne CSW (TinyUSB-Vertrag) | Desk `FACT` (A) | Sheet Busy-Zelle · [`tinyusb-msc-busy-retry-2026`](../../../audits/tinyusb-msc-busy-retry-2026/) |
+| Hybrid B′ (`vTaskDelay` + `return 0`) lässt Producer/WiFi laufen | `HYPOTHESIS` / Lab | FreeRTOS-Preemption; reines `return 0` ohne Delay spinnt `tud_task` (#2035) |
+| Host (PC/NBT) toleriert BUSY bis `maxMs` | `UNKNOWN` (C) | Method [`msc-busy-retry-semantics`](../../../methods/msc-busy-retry-semantics.md); NBT → `bmw-nbt-evo` |
+| ASYNC-Pfad nötig | `UNKNOWN` | erst wenn 0.15-Busy unzureichend; Port hat ASYNC nicht |
 
 ## Ebene C — Host- / Feld-Evidenz
 
@@ -61,6 +74,7 @@ Primärregister: [`pidrive-2026-bmw-hu/evidence`](../../../audits/pidrive-2026-b
 
 - Medien virtuell/on-the-fly; nicht Stick-Inhalt auf Flash.
 - Soft-Paging der Menüs liegt in PUMP/Bridge (4 sichtbare Slots), nicht in MSC-Spec.
+- Stall-FW nutzt TinyUSB-BUSY (`return 0`), nicht SCSI-Sense „not ready“ und nicht Upstream-ASYNC.
 
 ## Verwandte
 
@@ -68,4 +82,5 @@ Primärregister: [`pidrive-2026-bmw-hu/evidence`](../../../audits/pidrive-2026-b
 - Ops-Application: [`pidrive` usb-msc](../../pidrive/applications/usb-msc.md)
 - PUMP: [`pump-control-link`](pump-control-link.md)
 - Callback/Perf-Referenzen: [`esp32-msc-gadget-refs`](../../esp32-msc-gadget-refs/)
-- Next Lab: [`msc-lba-timing-instrument`](../../../methods/msc-lba-timing-instrument.md) am `UsbMscGadget`-Read-Pfad
+- Busy-Desk: [`tinyusb-msc-busy-retry-2026`](../../../audits/tinyusb-msc-busy-retry-2026/)
+- Next Lab: [`msc-lba-timing-instrument`](../../../methods/msc-lba-timing-instrument.md) + [`msc-busy-retry-semantics`](../../../methods/msc-busy-retry-semantics.md) am `UsbMscGadget`-Read-Pfad
