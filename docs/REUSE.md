@@ -105,11 +105,14 @@ Gleiche Produktfamilie ≠ gleiche Peripherie.
 | Situation | Aktion |
 |-----------|--------|
 | Claim gilt nur für Classic ESP32 (z. B. APLL) | Sheet-Scope und Fallstrick explizit; S3 ohne APLL = `REJECTED` Transfer; S2 APLL≠UKW-FM ohne Gate |
-| Undoc I/Q Dump / polar PHY TX | eigene Slugs (`esp32-undoc-iq-rx`, `esp32-polar-phy-tx`); C5/S31 Matrix-Zellen `UNKNOWN` Qualität bis Lab |
+| Undoc I/Q Dump / polar PHY TX / Wi-Fi tone TX | eigene Slugs (`esp32-undoc-iq-rx`, `esp32-polar-phy-tx`, `esp32-wifi-tone-tx`); Raw-I/Q-DAC auf S3 = `REJECTED`; C5/S31 Matrix-Zellen `UNKNOWN` bis Lab |
 | Dual-Role BLE / Connection-Budget (z. B. HR-Relay) | belegte Familie nennen (oft ESP32-S3); Classic Mini mit `PERIPHERAL_DISABLED` ≠ S3-Transfer |
 | Automotive Host-Plattform (z. B. NBT Evo) | Host-Sheet + C-Evidence; andere HU-Generationen = Gate, nicht still übertragen |
 | Multi-Input SDR (welle Factory) | Gain/API-Contract pro Treiber (RTL-Index ≠ Soapy); Inputs ohne Vertiefung = observed, kein Sheet |
-| BT-Stack Pi BlueZ vs. ESP Classic | gleicher Profil-Slug; getrennte Applications / Stack-Evidence |
+| BT-Stack Pi BlueZ vs. ESP Bluedroid vs. HCI-Host vs. EspBle Classic | gleicher Profil-Slug; getrennte Applications; ESP32-als-HCI ≠ on-chip A2DP; Dual-Host BLE+Classic = experimental Gate |
+| AVRCP Standalone / Cover Art / Abs Volume | Libraries koppeln an A2DP (`REJECTED` Standalone-Praxis); Cover Art = IDF≥5.4 + PSRAM; Abs Volume nur wenn Peer capability |
+| A2DP Multi-Codec Forks | gleicher `bluetooth-a2dp`-Slug; IDF-Patch/PSRAM/BlueZ-Cache-Gates in Application — kein Codec-Slug-Fork |
+| USB Host (ESP OTG) vs. USB Device/MSC-Gadget | getrennte Slugs (`esp-usb-host` ≠ `usb-msc`); Rolle zuerst klären |
 | Pi BCM-GPCLK (Pi 1–4) vs. RP1 (Pi 5) | Sheet-Scope BCM; Pi5 = `UNKNOWN` bis `hw-path-gate`; **kein** Sheet vor Evidence |
 | Pi BCM-GPCLK vs. ESP Clock-Out | getrennte Slugs (`rpi-gpio-fm-tx` ≠ `esp32-apll-fm-tx`); Analogie nur als Transfer-Hinweis |
 | Idee „S3 als Hub-FM-Knoten“ | FOLLOW-ON + Gate E-0/E-1; **kein** Sheet vor Evidence |

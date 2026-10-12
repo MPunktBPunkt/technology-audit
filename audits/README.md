@@ -16,6 +16,18 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`c5vrx-2026-foreign`](c5vrx-2026-foreign/) | active | lab-tool | Fremd: C5VRX C5 FPV continuous I/Q · **0.6.6** |
 | [`welle-io-2026-foreign`](welle-io-2026-foreign/) | active | lab-tool | Fremd: AlbrechtL/welle.io DAB+ Upstream · **0.6.6** revalidated (from 0.6.5) |
 | [`rnt-esp32-2026-foreign`](rnt-esp32-2026-foreign/) | active | lab-tool | Fremd: RNT ESP32 Tutorial-Index (sekundär) · **0.6.6** |
+| [`esp32-a2dp-2026-foreign`](esp32-a2dp-2026-foreign/) | active | lab-tool | Fremd: pschatzmann/ESP32-A2DP Classic A2DP/AVRCP · **0.6.6** |
+| [`espble-2026-foreign`](espble-2026-foreign/) | active | lab-tool | Fremd: EspBle Classic A2DP + AVRCP CT/TG · **0.6.6** |
+| [`a2dpsinkhfpclient-2026-foreign`](a2dpsinkhfpclient-2026-foreign/) | active | lab-tool | Fremd: A2DP Sink+HFP+AVRC API · **0.6.6** |
+| [`esp-idf-classic-bt-2026-foreign`](esp-idf-classic-bt-2026-foreign/) | active | lab-tool | Fremd: IDF classic_bt AVRCP/A2DP examples · **0.6.6** |
+| [`esp32-a2dp-codecs-2026-foreign`](esp32-a2dp-codecs-2026-foreign/) | active | lab-tool | Fremd: multi-codec A2DP sinks · **0.6.6** |
+| [`esp32-a2dp-source-2026-foreign`](esp32-a2dp-source-2026-foreign/) | active | lab-tool | Fremd: schreibfaul1 A2DP Source · **0.6.6** |
+| [`esp32-bt-iap-2026-foreign`](esp32-bt-iap-2026-foreign/) | active | lab-tool | Fremd: fanthos bt-iap (historisch) · **0.6.6** |
+| [`esphome-a2dp-sink-2026-foreign`](esphome-a2dp-sink-2026-foreign/) | active | lab-tool | Fremd: ESPHome a2dp_sink entities · **0.6.6** |
+| [`esp32sdr-2026-foreign`](esp32sdr-2026-foreign/) | active | lab-tool | Fremd: lozaning/ESP32SDR tone-TX + burst RX · **0.6.6** |
+| [`espusbhost-2026-foreign`](espusbhost-2026-foreign/) | active | lab-tool | Fremd: EspUsbHost USB Host S2/S3/P4 · **0.6.6** |
+| [`esp-sdr-bridge-2026-foreign`](esp-sdr-bridge-2026-foreign/) | active | lab-tool | Fremd: esp-sdr-bridge IQS→SpyServer/rtl_tcp · **0.6.6** |
+| [`bluetooth-stack-2026-foreign`](bluetooth-stack-2026-foreign/) | active | lab-tool | Fremd: bluetooth_stack HCI-Host Kontrast · **0.6.6** |
 | [`esp32-heartrate-2026-pilot`](esp32-heartrate-2026-pilot/) | active | firmware | HR Desk-Pilot · **0.6.6** revalidated (from 0.6.0) |
 | [`esp32-ergo-2026-pilot`](esp32-ergo-2026-pilot/) | active | firmware | Ergo + Sheet-Wachstum · **0.6.6** revalidated (from 0.6.0) |
 | [`esp32-ftmsprobe-2026-pilot`](esp32-ftmsprobe-2026-pilot/) | active | lab-tool | Sonde + Method · **0.6.6** revalidated (from 0.6.0) |

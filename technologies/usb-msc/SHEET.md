@@ -24,9 +24,9 @@ USB Mass Storage Class (MSC) lässt ein USB-Device einem Host als blockorientier
 
 ## Abgrenzung
 
-- **Ist:** Geräteklasse + Protokollstapel Device ↔ Host für Block-I/O.
-- **Ist nicht:** FAT, MP3, Streaming-Semantik, Headunit-UI, PiDrive-Menülogik.
-- **Grenzt an:** SCSI (Kommandos), BOT (USB-Transport), UASP (andere Transportvariante, hier nicht Fokus), Dateisysteme (Ebene darüber).
+- **Ist:** Geräteklasse + Protokollstapel Device ↔ Host für Block-I/O — in dieser KB vor allem die **Device/Gadget**-Rolle (ESP/Pi als Stick).
+- **Ist nicht:** FAT, MP3, Streaming-Semantik, Headunit-UI, PiDrive-Menülogik; ESP als **USB-Host**, der fremde Sticks mountet (`esp-usb-host`).
+- **Grenzt an:** SCSI (Kommandos), BOT (USB-Transport), UASP (andere Transportvariante, hier nicht Fokus), Dateisysteme (Ebene darüber), USB-Host-Stack.
 
 ## Schnittstellen und Abhängigkeiten
 

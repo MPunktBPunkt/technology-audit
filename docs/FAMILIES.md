@@ -40,11 +40,24 @@ Radio-Sheets (Empfang): `dab-plus`, `rtl-sdr`, `pmr446`, `airband-am`, `sdr-spec
 | `pi-fm-tx` | Desk: pifm, PiFmRds, markondej/fm_transmitter, zoroxide, pi-fm-player, F5OEO/rpitx |
 | `esp-fm-tx` | Desk: Alexxdal/ESP32FMRadio, hiperiondev/esp32_fm_radio — Classic ESP32 APLL/MCLK-FM |
 | `esp32-sdr-trx` | Desk: jochenhammes/esp32-sdr-trx (+ eSpDR) — S3 narrowband RX + polar PHY TX (13 cm) |
+| `esp32sdr` | Desk: lozaning/ESP32SDR — S3 burst RX + Wi-Fi tone keying TX (DAC-I/Q `REJECTED`) |
+| `esp-sdr-bridge` | Desk: z2labs/esp-sdr-bridge — IQS USB → SpyServer/rtl_tcp |
 | `espargos-espsdr` | Desk: ESPARGOS/esp-sdr + SoapyESPSDR (+ Cardputer-Port) — Multi-Chip Undoc I/Q Matrix |
 | `c5vrx` | Desk: Twotoz/C5VRX — C5 continuous 5.8 GHz FPV → CVBS |
+| `esp32-a2dp` | Desk: pschatzmann/ESP32-A2DP — Arduino Bluedroid A2DP/AVRCP (Kern-Library) |
+| `espble` | Desk: tanakamasayuki/EspBle — NimBLE + Classic CT/TG AVRCP |
+| `a2dpsinkhfpclient` | Desk: walinsky/a2dpSinkHfpClient — Sink+HFP+explizite AVRC-API |
+| `esp-idf-classic-bt` | Desk: Espressif classic_bt examples — Metadata/CoverArt/AbsVol SoT |
+| `esp32-a2dp-codecs` | Desk: cfint + WillyBilly06 multi-codec sinks |
+| `esp32-a2dp-source` | Desk: schreibfaul1 Source (historisch/dünn AVRCP) |
+| `esp32-bt-iap` | Desk: fanthos IAP (historisch; stale metadata folklore) |
+| `esphome-a2dp-sink` | Desk: PxPert ESPHome A2DP Sink entities |
+| `bluetooth-stack` | Desk: sj15712795029/bluetooth_stack — HCI-Host-Stack (Kontrast) |
+| `espusbhost` | Desk: tanakamasayuki/EspUsbHost — USB Host S2/S3/P4 |
 
 RX-Reuse: `dab-plus`, `rtl-sdr`, `esp32-undoc-iq-rx` (nicht mit TX vermischen).  
-TX-Sheets: `rpi-gpio-fm-tx`, `fm-rds`, `rpitx`, `esp32-apll-fm-tx` (Classic only; S3-UKW = Gate), `esp32-polar-phy-tx` (S3 13 cm polar — anderer Contract). Kein Antennen-Sendepfad in der KB.
+TX-Sheets: `rpi-gpio-fm-tx`, `fm-rds`, `rpitx`, `esp32-apll-fm-tx` (Classic only; S3-UKW = Gate), `esp32-polar-phy-tx` (S3 13 cm polar), `esp32-wifi-tone-tx` (S3 2.4 GHz channel-grid keying). Kein Antennen-Sendepfad in der KB.  
+BT/USB: `bluetooth-a2dp` / `avrcp` stack-neutral; Standalone-AVRCP Praxis `REJECTED`; Cover Art IDF≥5.4+PSRAM; `esp-usb-host` ≠ `usb-msc`.
 
 ## Lab / Fremd — sekundäre Web-Kataloge
 

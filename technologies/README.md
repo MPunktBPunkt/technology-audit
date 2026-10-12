@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-11`, 44 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-12`, 46 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 ## Index nach Primary (TAXONOMY)
 
@@ -14,7 +14,7 @@ Wiederverwendbare Technology Sheets.
 |------|-------|-------|------------|
 | [`airband-am`](airband-am/SHEET.md) | VHF Airband AM Reception | W2 | `pidrive` |
 | [`dab-plus`](dab-plus/SHEET.md) | DAB+ Digital Audio Broadcasting | W3 | `pidrive`, `welle-io` |
-| [`esp32-undoc-iq-rx`](esp32-undoc-iq-rx/SHEET.md) | ESP32 Undocumented I/Q RX Dump | W2 | `espargos-espsdr`, `c5vrx`, `esp32-sdr-trx` |
+| [`esp32-undoc-iq-rx`](esp32-undoc-iq-rx/SHEET.md) | ESP32 Undocumented I/Q RX Dump | W2 | `espargos-espsdr`, `c5vrx`, `esp32-sdr-trx`, `esp32sdr`, `esp-sdr-bridge` |
 | [`pmr446`](pmr446/SHEET.md) | PMR446 (EU License-Free UHF) | W2 | `pidrive` |
 | [`rtl-sdr`](rtl-sdr/SHEET.md) | RTL-SDR (RTL2832U Host Stack) | W3 | `pidrive`, `welle-io` |
 
@@ -22,12 +22,13 @@ Wiederverwendbare Technology Sheets.
 
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
-| [`avrcp`](avrcp/SHEET.md) | AVRCP | W2 | `pidrive`, `esp32-bt-gateway` |
+| [`avrcp`](avrcp/SHEET.md) | AVRCP | W3 | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink` |
 | [`ble-hr-relay`](ble-hr-relay/SHEET.md) | BLE HR-Relay (Peripheral Bridge) | W3 | `esp32-heartrate`, `esp32-ergo` |
 | [`ble-hrm-gatt`](ble-hrm-gatt/SHEET.md) | BLE Heart Rate GATT (Central) | W3 | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe` |
-| [`bluetooth-a2dp`](bluetooth-a2dp/SHEET.md) | Bluetooth A2DP | W2 | `pidrive`, `esp32-bt-gateway` |
+| [`bluetooth-a2dp`](bluetooth-a2dp/SHEET.md) | Bluetooth A2DP | W3 | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink` |
 | [`bluetooth-ftms`](bluetooth-ftms/SHEET.md) | Bluetooth FTMS (Fitness Machine) | W3 | `esp32-ftmsprobe`, `esp32-ergo` |
 | [`esp-now-messaging`](esp-now-messaging/SHEET.md) | ESP-NOW Messaging | W2 | `esp32-communicator` |
+| [`esp-usb-host`](esp-usb-host/SHEET.md) | ESP32 USB Host (OTG) | W2 | `espusbhost` |
 | [`fm-rds`](fm-rds/SHEET.md) | FM-RDS (Radio Data System) | W2 | `pi-fm-tx` |
 | [`kostal-piko-http`](kostal-piko-http/SHEET.md) | Kostal PIKO Local HTTP Interface | W2 | `iobroker-kostalpiko` |
 | [`pump-control-link`](pump-control-link/SHEET.md) | PUMP Control Link | W2 | `esp32-pidrive` |
@@ -39,6 +40,7 @@ Wiederverwendbare Technology Sheets.
 |------|-------|-------|------------|
 | [`esp32-apll-fm-tx`](esp32-apll-fm-tx/SHEET.md) | ESP32 APLL / MCLK FM Transmit | W2 | `esp-fm-tx` |
 | [`esp32-polar-phy-tx`](esp32-polar-phy-tx/SHEET.md) | ESP32-S3 Polar PHY Test-Tone TX | W2 | `esp32-sdr-trx` |
+| [`esp32-wifi-tone-tx`](esp32-wifi-tone-tx/SHEET.md) | ESP32-S3 Wi-Fi PHY CW Tone Keying TX | W2 | `esp32sdr` |
 | [`rpi-gpio-fm-tx`](rpi-gpio-fm-tx/SHEET.md) | Raspberry Pi GPIO / Clock FM Transmit | W3 | `pi-fm-tx` |
 | [`rpitx`](rpitx/SHEET.md) | rpitx — Raspberry Pi Software RF Transmit Platform | W2 | `pi-fm-tx` |
 

@@ -2,13 +2,21 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-11`, 31 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-12`, 43 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
+| [`a2dpsinkhfpclient`](a2dpsinkhfpclient/) | a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd) | lab-tool | active | 2 |
+| [`bluetooth-stack`](bluetooth-stack/) | bluetooth_stack — Lightweight Dual-Mode BT Host Stack (Fremd) | lab-tool | active | 2 |
 | [`c5vrx`](c5vrx/) | C5VRX — ESP32-C5 5.8 GHz FPV Analog RX (Fremd) | lab-tool | active | 1 |
 | [`esp-fm-tx`](esp-fm-tx/) | ESP FM / APLL Clock Transmit (Fremd) | lab-tool | active | 1 |
+| [`esp-idf-classic-bt`](esp-idf-classic-bt/) | ESP-IDF classic_bt — Official A2DP/AVRCP Examples (Fremd) | lab-tool | active | 2 |
+| [`esp-sdr-bridge`](esp-sdr-bridge/) | esp-sdr-bridge — IQS USB → SpyServer/rtl_tcp (Fremd) | lab-tool | active | 1 |
+| [`esp32-a2dp`](esp32-a2dp/) | ESP32-A2DP — Classic A2DP/AVRCP Library (Fremd) | lab-tool | active | 2 |
+| [`esp32-a2dp-codecs`](esp32-a2dp-codecs/) | ESP32 A2DP Sink Multi-Codec Forks (Fremd) | lab-tool | active | 2 |
+| [`esp32-a2dp-source`](esp32-a2dp-source/) | ESP32_A2DP_Source — schreibfaul1 (Fremd) | lab-tool | active | 2 |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | esp32-bt-gateway | planning | — | 5 |
+| [`esp32-bt-iap`](esp32-bt-iap/) | esp32-bt-iap — A2DP + Apple Dock (historisch) | lab-tool | active | 2 |
 | [`esp32-communicator`](esp32-communicator/) | esp32-communicator | firmware | — | 3 |
 | [`esp32-ergo`](esp32-ergo/) | esp32-ergo | — | — | 6 |
 | [`esp32-esp-hub`](esp32-esp-hub/) | esp32-esp-hub | firmware | — | 3 |
@@ -22,7 +30,11 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-sdr-trx`](esp32-sdr-trx/) | ESP32-S3 SDR Transceiver — polar PHY TX + narrowband RX (Fremd) | lab-tool | active | 2 |
 | [`esp32-toolnode`](esp32-toolnode/) | esp32-toolnode | firmware | — | 6 |
 | [`esp32-webradio`](esp32-webradio/) | esp32-webradio | firmware | — | 2 |
+| [`esp32sdr`](esp32sdr/) | ESP32SDR — S3 Burst RX + Wi-Fi Tone Keying TX (Fremd) | lab-tool | active | 2 |
 | [`espargos-espsdr`](espargos-espsdr/) | ESPARGOS ESP-SDR — Multi-Chip Undocumented I/Q RX (Fremd) | lab-tool | active | 1 |
+| [`espble`](espble/) | EspBle — NimBLE + Classic A2DP/AVRCP CT/TG (Fremd) | lab-tool | active | 2 |
+| [`esphome-a2dp-sink`](esphome-a2dp-sink/) | PxPert a2dp_sink — ESPHome A2DP Sink Component (Fremd) | lab-tool | active | 2 |
+| [`espusbhost`](espusbhost/) | EspUsbHost — ESP32 USB Host Library (Fremd) | lab-tool | active | 1 |
 | [`iobroker-esp-hub`](iobroker-esp-hub/) | iobroker-esp-hub | adapter | — | 2 |
 | [`iobroker-freeair100`](iobroker-freeair100/) | iobroker-freeair100 | adapter | — | 1 |
 | [`iobroker-fritzwireguard`](iobroker-fritzwireguard/) | iobroker-fritzwireguard | adapter | — | 2 |

@@ -7,7 +7,7 @@ primary: A
 tags: [radio-rx, sdr, lab-only, fragile, esp-idf]
 type: implementation
 status: active
-seen_in: [espargos-espsdr, c5vrx, esp32-sdr-trx]
+seen_in: [espargos-espsdr, c5vrx, esp32-sdr-trx, esp32sdr, esp-sdr-bridge]
 maturity:
   technology: R2
   implementation: R0
@@ -92,6 +92,8 @@ Epistemic: Zellen sind **FACT als Upstream-Doku/Code** — nicht als eigene Lab-
 - [ESPARGOS/SoapyESPSDR](https://github.com/ESPARGOS/SoapyESPSDR)
 - [h0m3us3r/eSpDR](https://github.com/h0m3us3r/eSpDR) · [jochenhammes/esp32-sdr-trx](https://github.com/jochenhammes/esp32-sdr-trx)
 - [Twotoz/C5VRX](https://github.com/Twotoz/C5VRX)
+- [lozaning/ESP32SDR](https://github.com/lozaning/ESP32SDR) — S3 burst regs + tone-TX sibling
+- [z2labs/esp-sdr-bridge](https://github.com/z2labs/esp-sdr-bridge) — IQS → SpyServer/rtl_tcp
 
 ## Offene Fragen
 

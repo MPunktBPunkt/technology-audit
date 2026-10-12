@@ -71,8 +71,8 @@ Statt APLL→GPIO-Clock oder Sample-I/Q-TX steuert die Firmware den **undokument
 
 ## Transfer
 
-- Starke Kontrastzelle zu `esp32-apll-fm-tx` (Classic UKW Clock-FM vs. S3 13 cm polar PHY).
-- Für Hub-/Universal-Node: S3 kann RX-Dump **und** polar-TX tragen — aber getrennte Contracts, getrennte Evidence.
+- Starke Kontrastzelle zu `esp32-apll-fm-tx` (Classic UKW Clock-FM vs. S3 13 cm polar PHY) und zu `esp32-wifi-tone-tx` (2.4 GHz channel-grid keying).
+- Für Hub-/Universal-Node: S3 kann RX-Dump **und** polar-TX tragen — aber getrennte Contracts, getrennte Evidence. Raw-I/Q-DAC auf S3 bleibt separat falsifiziert (`esp32sdr`).
 - Methoden: `hw-path-gate` für jeden neuen SoC; keine Matrix-Zelle aus Marketing.
 
 ## Referenzen
