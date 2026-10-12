@@ -88,6 +88,25 @@ Hier gehören Pfade, Datenflüsse, Konfigschlüssel, Feldbelege und „so hat es
 
 **Artefakt:** Transfer-Abschnitte, Folgeprojekt-Skizzen; Status `transferred` wo greifbar.
 
+## Operationalisierung (0.7.0)
+
+Zwischen Evidence und Lab gehört die Brücke **Entscheidung + Engineering Action** — sonst bleibt Wissen dokumentiert, aber nicht handlungsleitend.
+
+```text
+bestehendes Wissen → Delta-Audit → Evidence
+  → Decision Trace + Review Checks + Kill-Kriterien
+  → Lab → Field → Evidence zurück in Application/Sheet
+```
+
+| Schritt | Wann | Artefakt |
+|---------|------|----------|
+| Decision Trace | Go/No-Go (Lab/Feld) | Kampagne: Entscheidung → Frage → Evidence → Konsequenz |
+| Engineering Review Checks | Evidence betrifft Zielcode | Pre-Test-Checkliste (State, Re-Entry, Idempotenz) |
+| Kill-Kriterien | vor erstem Messlauf | präregistrierte Widerlegungsbedingungen |
+| Knowledge Feedback | nach Lab/Field | neue Evidence-IDs + Application/Sheet-Update |
+
+Desk-Evidence ≠ Lab-Fact ≠ Field-Fact. Validierungsbeispiel: Busy-Retry-Desk [`tinyusb-msc-busy-retry-2026`](../audits/tinyusb-msc-busy-retry-2026/) → NBT-Feld [`pidrive-2026-bmw-hu`](../audits/pidrive-2026-bmw-hu/) (`EVID-BMWHU-2026-10-12-*`).
+
 ## Exit-Kriterien (pro Projekt-Audit)
 
 Ein Audit-Durchlauf gilt als belastbar, wenn:

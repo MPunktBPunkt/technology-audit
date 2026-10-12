@@ -85,6 +85,10 @@ ID-Schema: `<project>-<YYYY>` oder `<project>-<YYYY>-<kurzname>` (z. B. `pidri
 
 **Pflicht in der YAML:** `standard_version` — Semver aus [`VERSION`](../VERSION) zum Zeitpunkt des Audits. Changelog der Pflichtregeln: [`STANDARD-CHANGELOG.md`](STANDARD-CHANGELOG.md). Optional `standard_gaps` für bekannte Abweichungen gegenüber neueren Ständen. So erkennt man später, welche Checks/Profile damals noch nicht galten.
 
+Ab **0.7.0** gilt für experimentelle Kampagnen der Kreislauf **Evidence → Decision → Engineering Action → Lab/Field → Knowledge Feedback** (Vorlage: Decision Trace, Engineering Review Checks, Kill-Kriterien, Knowledge Feedback). Siehe [METHODOLOGY.md](METHODOLOGY.md#operationalisierung-070) und Review-Checks C10–C13.
+
+**Schichten der Gewissheit:** Desk-Evidence ≠ Lab-Fact ≠ Field-Fact. Ein Desk-`FACT` (z. B. TinyUSB-BUSY-Semantik) macht keinen Host-Claim; erst Lab/Field mit eigener Evidence-ID.
+
 ## Namenskonventionen
 
 | Element | Regel | Beispiele |

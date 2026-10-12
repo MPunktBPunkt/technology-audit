@@ -26,7 +26,9 @@ reuse_outcomes:
 
 **BMW NBT Evo** als zweiten Pilot durch das Framework: Technology Sheet (A) + Application (C) + Evidence — Host-Verhalten getrennt von USB-MSC-Spec und PiDrive-Device-Impl (**B** in `usb-msc`).
 
-**Revalidation 2026-10-11:** Prozess-Parität **0.5.1 → 0.6.6** (Reuse/Profile/Checklisten/`standard_version`) + Host-Varianten-Scope. Keine neue Feld-Session — Evidence-Register bleibt Stand 2026-10-05. Historie: Git + [DELTA](DELTA.md).
+**Revalidation 2026-10-11:** Prozess-Parität **0.5.1 → 0.6.6** (Reuse/Profile/Checklisten/`standard_version`) + Host-Varianten-Scope. Historie: Git + [DELTA](DELTA.md).
+
+**Field Feedback 2026-10-12:** E7/S6 Busy-Pacing am NBT (~65 s vs. ~6 s Stall-off) → `EVID-BMWHU-2026-10-12-*`. Exit #6 (Sender/Menü-Gate) bleibt **offen** — kein stilles globales Ohr-PASS.
 
 ## Scope
 
@@ -42,8 +44,9 @@ reuse_outcomes:
 | 3 | Evidence-Register (C-Layer) | erfüllt |
 | 4 | MSC-Application: C gekürzt, Verweis hierher | erfüllt |
 | 5 | Inventar / Indexe aktualisiert | erfüllt |
-| 6 | Feld-AV PASS (Ohr) | offen — Lab A+B PASS; Feld blockiert (Meta-Menü / Sender-Gate). C′ Feld PASS 2026-10-05 · [MSC-AKTUELL](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/MSC-AKTUELL.md) |
+| 6 | Feld-AV PASS (Ohr) — Sender-Slots / Meta-Menü-Gate | offen — getrennt vom Busy-Pacing-Tonfenster 2026-10-12 (`EVID-BMWHU-2026-10-12-002`). C′ Feld PASS 2026-10-05 · [MSC-AKTUELL](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/MSC-AKTUELL.md) |
 | 7 | Revalidation 0.6.6: Gaps geschlossen + Host-Scope + DELTA | erfüllt (2026-10-11) |
+| 8 | Knowledge Feedback Busy-Pacing E7/S6 → Evidence + Applications | erfüllt (2026-10-12; Upstream-Artefakt nachziehen) |
 
 ## Artefakte
 
@@ -58,14 +61,25 @@ reuse_outcomes:
 
 Pilot 1: [`pidrive-2026-msc/`](../pidrive-2026-msc/) — Schema-Validation MSC; C-Claims formal hierher verlagert.
 
+## Knowledge Feedback (2026-10-12)
+
+| Lab/Field | Neue Evidence-ID | Zurück in |
+|-----------|------------------|-----------|
+| E7/S6 Busy-Pacing NBT | `EVID-BMWHU-2026-10-12-001`–`005` | [`bmw-nbt-evo` Application](../../projects/pidrive/applications/bmw-nbt-evo.md) · [`esp32-pidrive` usb-msc](../../projects/esp32-pidrive/applications/usb-msc.md) |
+| Desk-Basis | `EVID-TINYUSB-MSC-2026-10-12-*` | [`tinyusb-msc-busy-retry-2026`](../tinyusb-msc-busy-retry-2026/) |
+
+Upstream-Rohartefakte der Session: **nachziehen** (kein erfundener GitHub-Pfad).
+
 ## Lessons Learned
 
 1. Gleiche Evidence-IDs (`EVID-USBMSC-*`) vermeiden Doppelpflege beim Migrationsschritt; neue HU-Claims → `EVID-BMWHU-*`.
-2. Feld-AV bleibt produktseitiges Exit-Kriterium — überlappt MSC- und HU-Pilot, bis upstream PASS dokumentiert ist.
+2. Feld-AV Exit #6 (Sender/Menü-Gate) bleibt getrennt vom Busy-Pacing-Tonfenster — kein stilles globales Ohr-PASS.
 3. Revalidation mischt Framework-Sprung und historische Evidence — DELTA trennt beides; kein stilles „alles neu gemessen“.
+4. **2026-10-12:** Desk TinyUSB-BUSY → gezieltes E7 → Feld S6 (~65 s vs. ~6 s Stall-off) widerlegt „kleiner Ring = Grenze“. Rückkanal Field→Audit ist Pflicht (0.7.0 C13).
 
 ## Offene Punkte
 
-- Exit #6 Feld-Ohr PASS upstream
-- Nach Feld-AV PASS: Maturity (field_evidence R4+) + ggf. Method Note `field-av-correlation`
+- Exit #6 Feld-Ohr PASS upstream (Menü/Sender-Gate) — nicht durch Busy-Pacing-Session erfüllt
+- Upstream-Artefakt-Links für `EVID-BMWHU-2026-10-12-*` nachziehen
+- Nach Exit #6 PASS: Maturity (field_evidence R4+) + ggf. Method Note `field-av-correlation`
 - Pilot 3 `avrcp` — BT-Host-Profil in [`pidrive-2026-radio-bt`](../pidrive-2026-radio-bt/) / Gateway, nicht USB-C duplizieren

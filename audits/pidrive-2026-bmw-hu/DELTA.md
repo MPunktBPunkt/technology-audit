@@ -42,6 +42,10 @@ note: "mixes framework jump (0.5.1→0.6.6) with historically evolved evidence; 
 
 Wert liegt im **Framework-Sprung** und der expliziten Host-Varianten-Bremse — nicht in neuen Ohr-PASSes. Vergleich zu pi-fm-tx ist schwieriger (Source+Prozess), aber für Audit-Qualität der älteste relevante PiDrive-Fall.
 
+## Nachtrag 2026-10-12 (nicht Teil der 0.6.6-Revalidation)
+
+Busy-Pacing E7/S6 am NBT: `EVID-BMWHU-2026-10-12-001`–`005`. Exit #6 (Menü/Sender-Gate) bleibt offen — Busy-Pacing-Ton ≠ globales Ohr-PASS. Framework-Nachzug: Standard **0.7.0** (Decision Trace / Review Checks / Kill / Knowledge Feedback).
+
 ## Artefakte
 
 | Artefakt | Pfad |

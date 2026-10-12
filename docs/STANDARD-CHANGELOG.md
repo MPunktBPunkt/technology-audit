@@ -16,6 +16,22 @@ CLI `tools/ta-assist` hat eine **eigene** Semver und ist davon unabhängig.
 
 ## Versionen
 
+### 0.7.0 — 2026-10-12
+
+**Operationalisierung nach PiDrive-Validierung (E7/S6 Busy-Pacing am BMW NBT):**
+
+Das Audit reduziert den Suchraum (Desk → Hypothese → Lab → Feld). Die nächste Qualitätsstufe ist die systematische Brücke **Evidence → Decision → Engineering Action → Knowledge Feedback**.
+
+- **Decision Trace** — bei experimentellen Kampagnen (`lab-tool` / `ops-field` mit Go/No-Go): Tabelle Entscheidung → Frage → Evidence-ID → Konsequenz ([`templates/audit-campaign.md`](../templates/audit-campaign.md)).
+- **Engineering Review Checks** — aus entscheidungsrelevanter Evidence konkrete Pre-Test-Prüfungen für den Zielcode (State/Re-Entry/Idempotenz).
+- **Kill-Kriterien** — vor dem ersten Messlauf einer Hypothese präregistrieren (falsifizierbar).
+- **Knowledge Feedback** — Lab-/Field-Ergebnisse als Evidence-IDs zurück in Application/Sheet (`Desk → Lab → Field → Audit`).
+- Desk-Evidence ≠ Lab-Fact ≠ Field-Fact — explizit im [Dokumentenstandard](DOCUMENT-STANDARD.md).
+- Review-Checks: C10–C13, E7 (warning; Alt-Kampagnen ohne Revalidation gültig).
+- Validierungsbeispiel: [`tinyusb-msc-busy-retry-2026`](../audits/tinyusb-msc-busy-retry-2026/) → Feld [`pidrive-2026-bmw-hu`](../audits/pidrive-2026-bmw-hu/) (`EVID-BMWHU-2026-10-12-*`).
+
+**Unverändert:** Evidence-Register, Epistemic-Status, Reuse, A/B/C-Trennung, explizite Gates. P2-Effizienzmetriken und CLI-Spiegelung von C10–C13 bleiben optional.
+
 ### 0.6.6 — 2026-10-11
 
 **Qualität nach KB-Cross-Check (ESP-FM / Pi-TX Transfer):**

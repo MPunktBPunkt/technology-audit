@@ -9,7 +9,7 @@ audit: ../../../audits/pidrive-2026-msc/
 maturity:
   technology: R4          # Sheet
   implementation: R3      # Lab-stabil, Feld-AV noch offen
-  field_evidence: R3      # C′ Feld PASS; Exit AV/Ohr noch offen (→ bmw-nbt-evo C)
+  field_evidence: R3      # C′ + Busy-Pacing ~65 s (2026-10-12); Exit #6 Menü-Gate offen (→ bmw-nbt-evo C)
   reusability: W2         # noch eng an PiDrive/BMW-Geometrie
 ```
 
@@ -64,7 +64,7 @@ Details und Zahlen immer über Evidence-IDs, nicht als „MSC-Wahrheit“.
 
 Liegt bei Pilot 2: [`applications/bmw-nbt-evo.md`](bmw-nbt-evo.md) · Audit [`pidrive-2026-bmw-hu`](../../../audits/pidrive-2026-bmw-hu/) · Sheet [`bmw-nbt-evo`](../../../technologies/bmw-nbt-evo/SHEET.md).
 
-Kurz: HU-Reads/Prefetch/Auto-Next/Seed **gemessen**; C′ Feld **PASS** (2026-10-05); Feld-AV/Ohr **offen** (Meta-Menü-Gate). C-Register: [`audits/pidrive-2026-bmw-hu/evidence.md`](../../../audits/pidrive-2026-bmw-hu/evidence.md) · MSC-Pilot historisch: [`pidrive-2026-msc`](../../../audits/pidrive-2026-msc/evidence.md).
+Kurz: HU-Reads/Prefetch/Auto-Next/Seed **gemessen**; C′ Feld **PASS** (2026-10-05); Busy-Pacing-Ton ~65 s vs. ~6 s Stall-off (**MEASURED** 2026-10-12); Exit #6 Menü/Sender-Gate **offen**. C-Register: [`audits/pidrive-2026-bmw-hu/evidence.md`](../../../audits/pidrive-2026-bmw-hu/evidence.md) · MSC-Pilot historisch: [`pidrive-2026-msc`](../../../audits/pidrive-2026-msc/evidence.md) · Busy-Desk: [`tinyusb-msc-busy-retry-2026`](../../../audits/tinyusb-msc-busy-retry-2026/).
 
 ---
 
@@ -76,7 +76,8 @@ Kurz: HU-Reads/Prefetch/Auto-Next/Seed **gemessen**; C′ Feld **PASS** (2026-10
 
 ## Offene Fragen
 
-- Wann ist Feld-AV PASS (Korrelation Fenster × `liveBytes` × Ton)?
+- Exit #6 Feld-AV/Ohr (Menü/Sender-Gate) — getrennt vom Busy-Pacing-Tonfenster
+- Korrelation Fenster × `liveBytes` × Ton nach Gate
 - Welche Geometrie (L0 vs. größere Images) bleibt langfristig?
 - Wie scharf Detect-Heuristik vs. Observe-only?
 

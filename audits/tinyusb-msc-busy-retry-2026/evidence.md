@@ -26,11 +26,21 @@ Desk 2026-10-12 · **standard_version 0.6.6** · Profile `lab-tool`.
 | `EVID-TINYUSB-MSC-2026-10-12-009` | Partial `bufsize-1` kann auf RP2040 Endpoint-Double-Arming/Panic auslösen | `FACT` (Port RP2040) | pico-tinyusb-msc-panic README · TinyUSB #3188 |
 | `EVID-TINYUSB-MSC-2026-10-12-010` | PiDrive Stall-Pfad: bei unzureichendem `liveAvail` → `vTaskDelay(retryMs)` + `return 0`; nie `<0` | `FACT` (B) | `UsbMscGadget::onReadLiveStall` |
 
+## Engineering Review Checks (aus Evidence)
+
+| Evidence-ID | Review Check | n/a? |
+|-------------|--------------|------|
+| `EVID-TINYUSB-MSC-2026-10-12-001`/`002` | Re-Entry: kein Reset nur wegen `offset==0`; Timer nur bei neuem Request; Busy-Pfad zustandsstabil | — |
+| `EVID-TINYUSB-MSC-2026-10-12-003` | Hybrid Yield (`vTaskDelay`) vs. reines Busy | — |
+| `EVID-TINYUSB-MSC-2026-10-12-004`–`009` | ASYNC/Partial/Port — n/a für aktuellen Arduino-0.15-E7-Pfad außer Partial-Achtung | teilweise n/a |
+| `EVID-TINYUSB-MSC-2026-10-12-010` | PiDrive-Vertrag: nie `return <0` im Stall-Pfad | — |
+
 ## Offene Claims
 
 | Claim | Status | Hinweis |
 |-------|--------|---------|
-| Max BUSY-/Callback-Latenz vor typischem Host-Abort (PC / NBT) | `UNKNOWN` | Audit-2 + Method Lab; NBT = C |
+| Max BUSY-/Callback-Latenz vor typischem Host-Abort (PC) | `UNKNOWN` | weiter Lab |
+| NBT akzeptiert Busy-Pacing / langes Tonfenster | → C | siehe `EVID-BMWHU-2026-10-12-001`–`005` (nicht Desk-FACT hier) |
 | ESP32-S3/DWC2: Partial-Read Endpoint-Race analog RP2040? | `UNKNOWN` | nicht belegt |
 | Arduino-ESP32 erhält ASYNC-API | `UNKNOWN` | Tracking Upstream/IDF |
 | Host sendet parallelen zweiten READ10 während offenem CBW | `UNKNOWN` | BOT typisch sequentiell; Abort/Reset = Host |
@@ -40,3 +50,4 @@ Desk 2026-10-12 · **standard_version 0.6.6** · Profile `lab-tool`.
 | Datum | Ereignis |
 |-------|----------|
 | 2026-10-12 | Desk Busy/Async; Sheet + Method; Kampagne closed |
+| 2026-10-12 | Feld E7/S6 validiert Hypothese (C in bmw-hu); Retro Review Checks / Decision Trace (0.7.0) |

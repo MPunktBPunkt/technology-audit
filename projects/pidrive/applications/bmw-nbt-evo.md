@@ -11,7 +11,7 @@ related_applications:
 maturity:
   technology: R2
   implementation: R0      # HU ist Host; „Implementation“ = Beobachtungs- und Korrelationsmodell
-  field_evidence: R3      # C′ Feld PASS; Lab Menü/Lock; Exit Ohr/AV-Feld noch offen
+  field_evidence: R3      # C′ + Busy-Pacing-Ton ~65 s (2026-10-12); Exit #6 Menü-Gate noch offen
   reusability: W1
 ```
 
@@ -32,7 +32,7 @@ esp32.pidrive (MSC Device, B)
 BMW NBT Evo (Host, C)
   Prefetch / Burst / Auto-Next / Decode
         ▼
-  Lautsprecher (Erfolgskriterium: hörbarer Ton — AV-Feld blockiert, C′ Feld PASS)
+  Lautsprecher (Busy-Pacing-Ton ~65 s belegt 2026-10-12; Exit #6 Menü-Gate noch offen)
 ```
 
 ## Relevante Pfade
@@ -63,7 +63,12 @@ BMW NBT Evo (Host, C)
 | Lab: Menü-Seite / Sender-Slots für AV-Vorbereitung | `EVID-BMWHU-2026-10-05-003` | `MEASURED` |
 | Lab: Meta vs. Sender Correlate | `EVID-BMWHU-2026-10-05-004` | `MEASURED` |
 | Lab: Meta-Erstsiegel / Menü-Lock nach RST | `EVID-BMWHU-2026-10-05-005` | `MEASURED` |
-| Feld-AV / hörbarer Ton (Exit „Ohr“) | — | `UNKNOWN` (Gate Sender-Slots; Abend-EAR upstream) |
+| Feld-AV / hörbarer Ton (Exit „Ohr“ — Sender/Menü-Gate) | — | `UNKNOWN` (teilweise; Gate Rock/Bayern/BOB) |
+| NBT akzeptiert Busy-Pacing; READ10 bleibt offen | `EVID-BMWHU-2026-10-12-001` | `MEASURED` |
+| Busy-Pacing: ~65 s Wiedergabe bis Dateiende (512 KiB) | `EVID-BMWHU-2026-10-12-002` | `MEASURED` |
+| Stall-off: wieder ~6 s Tonfenster (A/B) | `EVID-BMWHU-2026-10-12-003` | `MEASURED` |
+| Busy-Pacing kausaler Faktor (A/B) | `EVID-BMWHU-2026-10-12-004` | `INFERRED` |
+| „Kleiner Ring + kurze Tonphase = technische Grenze“ | `EVID-BMWHU-2026-10-12-005` | `REJECTED` |
 | Host-Scope: Claims = NBT Evo (nicht still andere BMW-HU) | `EVID-SCOPE-2026-10-11-001` | `FACT` |
 | „Warm-konfundierte Trace = Sequenz tot“ | `EVID-USBMSC-2026-10-04-007` | `REJECTED` |
 
@@ -79,6 +84,7 @@ BMW NBT Evo (Host, C)
 | 2026-10-05 07:45 | C′ Feld **PASS** — siehe `EVID-BMWHU-2026-10-05-001` |
 | 2026-10-05 07:50 | Feld-AV blockiert (Meta-Menü) — `EVID-BMWHU-2026-10-05-002` |
 | 2026-10-05 Lab | Menü-Seite, Correlate, Lock-after-RST — `EVID-BMWHU-2026-10-05-003`–`005` |
+| 2026-10-12 E7/S6 | Busy-Pacing an NBT: ~65 s bis Dateiende; Stall-off ~6 s — `EVID-BMWHU-2026-10-12-001`–`005` (Upstream-Artefakt nachziehen) |
 
 ## Community / SIB (Transfer-Hinweise — nicht MEASURED)
 
@@ -94,12 +100,12 @@ Referenz-Gadgets (kein HU-Feld): [`esp32-msc-gadget-refs`](../../esp32-msc-gadge
 
 ## Offene Fragen
 
-- Feld-AV/Ohr: Gate Rock/Bayern/BOB + erstes `MSC_MAP_FROZEN` loggen (Abend-EAR upstream)
+- Feld-AV/Ohr Exit #6: Gate Rock/Bayern/BOB + erstes `MSC_MAP_FROZEN` (getrennt vom Busy-Pacing-Tonfenster 2026-10-12)
 - Korrelation `fileOff`/`hostAbs` × `liveBytes` × Underruns × Ton (nach Gate)
 - Auto-Next vs. manueller Track-Wechsel — gleiches Read-Muster?
 - BT-Pfad (A2DP/AVRCP) vs. MSC — getrennte Host-Profile unter einem Sheet?
 - Welche Label/Serial-Änderung flush’t NBT-Cache empirisch?
-- Max `onRead`-Latenz vor HU-Abort?
+- Max `onRead`-Latenz / BUSY-Budget vor HU-Abort jenseits des belegten Stall-Defaults (`maxMs=500`)?
 
 ## Verwandte
 

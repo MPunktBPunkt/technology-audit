@@ -47,6 +47,7 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 | MSC und BT können parallel als PiDrive-Ziel laufen | `INFERRED` | Architekturwahl PiDrive; nicht „NBT-Spec“ |
 | NBT-Evo-Timing gilt für alle BMW-HU | `REJECTED` (als FACT) | Host-Scope; andere Varianten = Gate/Evidence |
 | Lab-Menü-PASS = Feld-Ohr-PASS | `REJECTED` | Exit Ohr bleibt getrennt (siehe Application) |
+| Host-BUSY-Toleranz aus MSC-/TinyUSB-Spec ableiten | `REJECTED` | Spec erlaubt Busy; NBT-Akzeptanz ist nur **C** (`EVID-BMWHU-2026-10-12-*`) |
 | Dynamische Datei ohne stabile Geometrie/Index | `REJECTED` (als Strategie) | HU erwartet indexierbares, statisch wirkendes Medium — Live-Body muss Read-Muster bedienen (**C**) |
 
 ## Community / SIB-Muster (nicht PiDrive-MEASURED)
@@ -64,7 +65,7 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 
 ## Transfer
 
-Wiederverwendbar als **Vorlage „automotive HU als MSC-Host“**: Trace-Korrelation, Claim-Trennung C vs. MSC-A. Konkrete LBA-/Timing-Profile **nur** mit Evidence aus diesem Host — nicht auf andere Fahrzeuge übertragen. Revalidation: [`DELTA`](../../audits/pidrive-2026-bmw-hu/DELTA.md).
+Wiederverwendbar als **Vorlage „automotive HU als MSC-Host“**: Trace-Korrelation, Claim-Trennung C vs. MSC-A. Konkrete LBA-/Timing-Profile **nur** mit Evidence aus diesem Host — nicht auf andere Fahrzeuge übertragen. Busy-Pacing am NBT Evo ist **C** belegt (2026-10-12) — keine ms-/Timeout-Zahlen als A-FACT. Revalidation: [`DELTA`](../../audits/pidrive-2026-bmw-hu/DELTA.md).
 
 ### Projektstart-Checkliste
 
@@ -89,3 +90,4 @@ Wiederverwendbar als **Vorlage „automotive HU als MSC-Host“**: Trace-Korrela
 
 - Host-Sheet hält Spec sauber: MSC-Sheet bleibt ohne HU-Timing.
 - C-Claims leben in Application + Audit, nicht hier.
+- Busy-Pacing-Feld (2026-10-12) bestätigt: Desk-Semantik ermöglicht den Versuch; Host-Akzeptanz bleibt Field-Fact.

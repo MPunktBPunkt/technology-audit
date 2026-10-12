@@ -9,7 +9,7 @@ audit: ../../../audits/esp32-pidrive-2026-pilot/
 maturity:
   technology: R4
   implementation: R3
-  field_evidence: R2
+  field_evidence: R3      # NBT Busy-Pacing Feld 2026-10-12 (C); siehe bmw-nbt-evo
   reusability: W2
 ```
 
@@ -52,14 +52,15 @@ looksLikePlay ──▶ play_uid an PumpServer
 | Stall/E7-Pfad | `onReadLiveStall`: bei zu wenig `liveAvail` → `vTaskDelay(retryMs)` + **`return 0`**; nie `<0` (kein Device-STALL); nach `maxMs` Silence-Fallback volle `bufsize` | `FACT` (B) · `EVID-TINYUSB-MSC-2026-10-12-010` |
 | Stall-Defaults | `maxMs=500`, `chunkBytes=4096`, `retryMs=2`; Stall default off → Pre-Stall-Verhalten | `FACT` (B) |
 
-### E7-Gates (offen — nicht als PASS)
+### E7-Gates
 
 | Gate | Status | Hinweis |
 |------|--------|---------|
 | Busy-Retry hält READ10 offen ohne CSW (TinyUSB-Vertrag) | Desk `FACT` (A) | Sheet Busy-Zelle · [`tinyusb-msc-busy-retry-2026`](../../../audits/tinyusb-msc-busy-retry-2026/) |
 | Hybrid B′ (`vTaskDelay` + `return 0`) lässt Producer/WiFi laufen | `HYPOTHESIS` / Lab | FreeRTOS-Preemption; reines `return 0` ohne Delay spinnt `tud_task` (#2035) |
-| Host (PC/NBT) toleriert BUSY bis `maxMs` | `UNKNOWN` (C) | Method [`msc-busy-retry-semantics`](../../../methods/msc-busy-retry-semantics.md); NBT → `bmw-nbt-evo` |
-| ASYNC-Pfad nötig | `UNKNOWN` | erst wenn 0.15-Busy unzureichend; Port hat ASYNC nicht |
+| NBT toleriert Busy-Pacing (Stall-Defaults) | `MEASURED` (C) | `EVID-BMWHU-2026-10-12-001`–`003` · ~65 s vs. ~6 s Stall-off |
+| ASYNC-Pfad nötig | `UNKNOWN` / unwahrscheinlich Default | 0.15-Busy am NBT ausreichend für Dateiende; Port hat ASYNC nicht |
+| PSRAM-/Ring-Vergrößerung als Default gegen kurzes Tonfenster | `REJECTED` (für dieses Problem) | `EVID-BMWHU-2026-10-12-005` — Busy-Pacing ist der belegte Hebel |
 
 ## Ebene C — Host- / Feld-Evidenz
 
@@ -69,12 +70,14 @@ Primärregister: [`pidrive-2026-bmw-hu/evidence`](../../../audits/pidrive-2026-b
 |-------|-------------|--------|
 | Firmware exportiert MSC unter TinyUSB MODE=0 | `EVID-MSC-2026-10-09-001` | `FACT` |
 | Geometrie-Profile per Build-Flag wählbar | `EVID-MSC-2026-10-09-002` | `FACT` |
+| NBT Busy-Pacing Feld (Ton bis Dateiende / A/B) | `EVID-BMWHU-2026-10-12-001`–`005` | `MEASURED` / `INFERRED` / `REJECTED` |
 
 ## Abweichungen vom „Lehrbuch“
 
 - Medien virtuell/on-the-fly; nicht Stick-Inhalt auf Flash.
 - Soft-Paging der Menüs liegt in PUMP/Bridge (4 sichtbare Slots), nicht in MSC-Spec.
 - Stall-FW nutzt TinyUSB-BUSY (`return 0`), nicht SCSI-Sense „not ready“ und nicht Upstream-ASYNC.
+- Gegen kurzes Tonfenster am NBT ist Busy-Pacing der belegte Default-Pfad — nicht „größerer Ring/PSRAM“.
 
 ## Verwandte
 

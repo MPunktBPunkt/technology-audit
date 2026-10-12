@@ -100,6 +100,12 @@ Regenerieren: `python3 tools/ta-assist index` · SoT: [`MAINTENANCE.md`](MAINTEN
 | C8 | `standard_version` major.minor hinter [`VERSION`](../VERSION) ohne `standard_gaps` → warning | warning |
 | C8p | nur Patch-Lag vs. VERSION → info (Docs/Nav-Bumps) | info |
 | C9 | YAML `profile` gesetzt | warning |
+| C10 | Decision Trace bei `lab-tool`/`ops-field` mit Go/No-Go (oder bewusst „n/a“) — ab 0.7.0 | warning |
+| C11 | Engineering Review Checks aus entscheidungsrelevanter Evidence (Zielcode) — ab 0.7.0 | warning |
+| C12 | Kill-Kriterien vor erstem Messlauf einer Hypothese präregistriert — ab 0.7.0 | warning |
+| C13 | Lab/Field-Ergebnis → neue Evidence-ID + Rückkanal Application/Sheet — ab 0.7.0 | warning |
+
+Alt-Kampagnen ohne Revalidation auf 0.7.0: C10–C13 nicht als Fehler werten.
 
 ---
 
@@ -113,6 +119,7 @@ Regenerieren: `python3 tools/ta-assist index` · SoT: [`MAINTENANCE.md`](MAINTEN
 | E4 | Rohdaten nicht inline; nur Links ins Ursprungsrepo | warning |
 | E5 | Offene Claims ohne ID explizit als solche geführt | info |
 | E6 | Application-C-Claims haben Entsprechung im Register (oder Verweis) | warning |
+| E7 | Entscheidungsrelevante Evidence verweist auf Review Check oder bewusst „n/a“ — ab 0.7.0 | warning |
 
 ---
 

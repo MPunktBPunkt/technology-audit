@@ -102,7 +102,7 @@ Instrumentierung: [`msc-lba-timing-instrument`](../../methods/msc-lba-timing-ins
 ## Offene Fragen (A)
 
 - UASP vs. BOT für Zielhosts?
-- Max Callback-/BUSY-Latenz vor typischem Host-Abort → Lab ([`msc-busy-retry-semantics`](../../methods/msc-busy-retry-semantics.md)); Host-ms nie als A-FACT
+- Max Callback-/BUSY-Latenz vor typischem Host-Abort → Lab/C ([`msc-busy-retry-semantics`](../../methods/msc-busy-retry-semantics.md)); NBT Busy-Pacing belegt nur als **C** (`EVID-BMWHU-2026-10-12-*`); Host-ms nie als A-FACT
 - ESP32-S3/DWC2: Partial-Read Endpoint-Verhalten vs. RP2040?
 
 ## Lessons

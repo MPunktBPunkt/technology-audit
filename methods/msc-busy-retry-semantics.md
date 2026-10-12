@@ -62,4 +62,5 @@ Unterscheiden und messen, welche der drei Device-Strategien bei langsamer Read-Q
 |-----------------|---------|
 | [`tinyusb-msc-busy-retry-2026`](../audits/tinyusb-msc-busy-retry-2026/) | Desk-Semantik A |
 | `esp32-pidrive` E7 Stall-FW | Lab: B′ vs. Silence-Fallback |
+| PiDrive E7/S6 am BMW NBT (2026-10-12) | Feld: Busy-Pacing ~65 s bis Dateiende; Stall-off ~6 s A/B — `EVID-BMWHU-2026-10-12-001`–`005` |
 | [`msc-lba-timing-instrument`](msc-lba-timing-instrument.md) | ergänzt LBA/Burst; diese Method ergänzt Retry-Modi |

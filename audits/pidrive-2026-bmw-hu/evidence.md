@@ -1,6 +1,6 @@
 # Evidence — pidrive-2026-bmw-hu
 
-Rohdaten in `pidrive` / `esp32.pidrive`. Register für **Ebene C** (BMW NBT Evo als USB-MSC-Host). Pilot-1-IDs mit Präfix `USBMSC`; ab 2026-10-05 HU-Claims mit Präfix `BMWHU`. Revalidation **0.6.6** 2026-10-11 = Prozess-Parität, **kein** neuer Feld-Lauf.
+Rohdaten in `pidrive` / `esp32.pidrive`. Register für **Ebene C** (BMW NBT Evo als USB-MSC-Host). Pilot-1-IDs mit Präfix `USBMSC`; ab 2026-10-05 HU-Claims mit Präfix `BMWHU`. Revalidation **0.6.6** 2026-10-11 = Prozess-Parität. Feld **2026-10-12** E7/S6 Busy-Pacing: `EVID-BMWHU-2026-10-12-*` (Upstream-Artefakt nachziehen).
 
 Basis-URL: `https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/`
 
@@ -22,12 +22,17 @@ Normativer Ampel-Stand: [MSC-AKTUELL.md](https://github.com/MPunktBPunkt/pidrive
 | `EVID-BMWHU-2026-10-05-005` | Lab: Meta-Erstsiegel überlebt Soft-RST; Rock via `frozen_reject` blockiert | `MEASURED` | [GESAMTBERICHT-LOCK-AFTER-RST](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/artifacts-2026-10-05-lab/lab88-lock-after-rst-1022/GESAMTBERICHT-LOCK-AFTER-RST.md) |
 | `EVID-SCOPE-2026-10-11-001` | Host-Scope: C-Claims gelten für NBT Evo in PiDrive — nicht still andere BMW-HU | `FACT` | Sheet-Abgrenzung; Revalidation 0.6.6 |
 | `EVID-MATCH-2026-10-11-001` | Prozess-Parität: Profile/Reuse/Checklisten/`standard_version` nachgezogen; Gaps 0.5.1 geschlossen | `FACT` | Kampagnen-YAML + DELTA |
+| `EVID-BMWHU-2026-10-12-001` | NBT akzeptiert Busy-Pacing (`return 0` + Delay); READ10 läuft weiter | `MEASURED` | Session E7/S6 2026-10-12 · Desk-Basis [`tinyusb-msc-busy-retry-2026`](../tinyusb-msc-busy-retry-2026/) · **Upstream-Artefakt: nachziehen** |
+| `EVID-BMWHU-2026-10-12-002` | Mit Busy-Pacing: ~65 s Wiedergabe bis Dateiende (512‑KiB-Datei) | `MEASURED` | Session E7/S6 2026-10-12 · **Upstream-Artefakt: nachziehen** |
+| `EVID-BMWHU-2026-10-12-003` | Stall-off Gegenexperiment: wieder ~6 s Tonfenster | `MEASURED` | Session E7/S6 2026-10-12 · A/B zu 001/002 · **Upstream-Artefakt: nachziehen** |
+| `EVID-BMWHU-2026-10-12-004` | Busy-Pacing kausaler Faktor für langes Tonfenster (A/B Stall-on vs. off) | `INFERRED` | aus 001–003 |
+| `EVID-BMWHU-2026-10-12-005` | Annahme „kleiner Ring + kurze Tonphase als technische Grenze“ | `REJECTED` | widerlegt durch 002 vs. 003 |
 
 ## Offene Claims (noch ohne ID)
 
 | Claim | Status | Hinweis |
 |-------|--------|---------|
-| Feld-AV / hörbarer Ton (Exit „Ohr“) | `UNKNOWN` | Lab A+B PASS (Sender-Seite); Feld blockiert bis HU Rock/Bayern/BOB + Gate — [FELD-ABEND-EAR-2026-10-05](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/artifacts-2026-10-05-feld/FELD-ABEND-EAR-2026-10-05.md) |
+| Feld-AV / hörbarer Ton (Exit „Ohr“ — Sender-Slots / Meta-Menü-Gate) | `UNKNOWN` (teilweise) | Busy-Pacing-Ton bis Dateiende belegt (`EVID-BMWHU-2026-10-12-002`); Exit #6 (Rock/Bayern/BOB + Menü-Gate) bleibt getrennt — [FELD-ABEND-EAR-2026-10-05](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/artifacts-2026-10-05-feld/FELD-ABEND-EAR-2026-10-05.md) |
 
 ## Wissens-Chronik (Auszug)
 
@@ -37,3 +42,4 @@ Normativer Ampel-Stand: [MSC-AKTUELL.md](https://github.com/MPunktBPunkt/pidrive
 | 2026-10-05 | C-Register → Kampagne `pidrive-2026-bmw-hu` |
 | 2026-10-05 | Nachzug upstream: C′ Feld PASS; AV-Gate/Menü-Lock Lab; Feld-AV noch offen |
 | 2026-10-11 | Revalidation **0.6.6**: Framework-Parität + Host-Scope, [DELTA](DELTA.md); kein neuer Feld-Lauf |
+| 2026-10-12 | E7/S6 Busy-Pacing Feld: ~65 s bis Dateiende vs. ~6 s Stall-off; IDs `EVID-BMWHU-2026-10-12-*`; Upstream-Artefakt nachziehen |
