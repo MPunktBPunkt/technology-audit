@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-13
-project_count: 48
+project_count: 52
 projects:
   - id: a2dpsinkhfpclient
     title: a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd)
@@ -17,12 +17,24 @@ projects:
     status: active
     applications: 2
     path: projects/bluetooth-stack/
+  - id: bmw-nbt-media-index
+    title: BMW NBT Media/Backup/Forensics Desk Sources
+    profile: lab-tool
+    status: active
+    applications: 1
+    path: projects/bmw-nbt-media-index/
   - id: c5vrx
     title: C5VRX — ESP32-C5 5.8 GHz FPV Analog RX (Fremd)
     profile: lab-tool
     status: active
     applications: 1
     path: projects/c5vrx/
+  - id: esp-fm-rds-node
+    title: ESP FM/RDS Node (Fremdrepos)
+    profile: lab-tool
+    status: active
+    applications: 2
+    path: projects/esp-fm-rds-node/
   - id: esp-fm-tx
     title: ESP FM / APLL Clock Transmit (Fremd)
     profile: lab-tool
@@ -41,6 +53,12 @@ projects:
     status: active
     applications: 2
     path: projects/esp-iot-solution/
+  - id: esp-network-pcm-clock
+    title: ESP Network PCM Clock — Framing und elastische Puffer
+    profile: lab-tool
+    status: active
+    applications: 2
+    path: projects/esp-network-pcm-clock/
   - id: esp-sdr-bridge
     title: esp-sdr-bridge — IQS USB → SpyServer/rtl_tcp (Fremd)
     profile: lab-tool
@@ -287,6 +305,12 @@ projects:
     status: active
     applications: 0
     path: projects/rnt-esp32/
+  - id: usb-bot-observation
+    title: USB BOT Observation — CBW/CDB/Data/CSW (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 1
+    path: projects/usb-bot-observation/
   - id: welle-io
     title: welle.io — DAB/DAB+ SDR Receiver (Fremd)
     profile: lab-tool

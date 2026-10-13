@@ -6,7 +6,7 @@ project_id: pidrive
 started: 2026-10-05
 ended: null
 profile: ops-field
-standard_version: "0.7.0"
+standard_version: "0.7.1"
 revalidated_from: "0.6.6"
 revalidated: 2026-10-13
 status: active
@@ -18,7 +18,7 @@ reuse_outcomes:
   - new: [bmw-nbt-evo]
   - layer: "C-host claims stay in Application; usb-msc stays protocol"
   - sharpened: "0.7.0 Decision Trace / Review Checks / Kill / Feedback; host-variant scope NBT Evo"
-  - process: "0.6.6 parity 2026-10-11; 0.7.0 ops parity 2026-10-13 (no new field session)"
+  - process: "0.6.6 parity 2026-10-11; 0.7.0 ops parity 2026-10-13; 0.7.1 method/gate retrofit 2026-10-13 (no new field session)"
   - not_transferred: "HU timing → usb-msc sheet; NBT → other BMW HU"
   - decisions_touched: [E7-go, field-go-S6, ring-limit-rejected, psram-not-default]
 ```
@@ -33,9 +33,15 @@ reuse_outcomes:
 
 **0.7.0-Nachzug 2026-10-13:** Decision Trace, Engineering Review Checks, Kill-Kriterien, Upstream-Links — kein neuer Feldlauf; Wissenszeitpunkte nicht rückdatiert ([Revalidation-Bericht](../../docs/reports/2026-10-13-v0.7.0-pidrive-revalidation.md)).
 
+**0.7.1-Nachzug 2026-10-13:** HU-A1…A11 wurden als nächste,
+wiederverwendbare Method Notes und präregistrierte Gates strukturiert. Kein
+neuer Feldlauf, keine neue Evidence-ID und keine rückwirkende Aufwertung:
+alle ungemessenen Gate-Ergebnisse bleiben `UNKNOWN`. Historische S3–S6-
+Ergebnisse bleiben unter dem damaligen Standard- und Wissenszeitpunkt.
+
 ## Scope
 
-- Im Scope: Sheet `technologies/bmw-nbt-evo/`; Application; Evidence für C-Claims; Reifegrade; Verknüpfung zu MSC-Application; 0.7.0 C10–C13.
+- Im Scope: Sheet `technologies/bmw-nbt-evo/`; Application; Evidence für C-Claims; Reifegrade; Verknüpfung zu MSC-Application; 0.7.0 C10–C13; 0.7.1-Nachzug der nächsten Method/Gate-Präregistrierung.
 - Nicht im Scope: vollständiges HU-Reverse-Engineering; AVRCP als USB-C-Duplikat (→ radio-bt / Gateway); neue Feldmessungen in diesem Nachzug.
 
 ## Exit-Kriterien
@@ -51,6 +57,7 @@ reuse_outcomes:
 | 7 | Revalidation 0.6.6: Gaps geschlossen + Host-Scope + DELTA | erfüllt (2026-10-11) |
 | 8 | Knowledge Feedback Busy-Pacing E7/S6 → Evidence + Applications + Upstream-Links | erfüllt (2026-10-13) |
 | 9 | 0.7.0 C10–C13 (Decision Trace / Review Checks / Kill / Feedback) | erfüllt (2026-10-13; Kill für E7/S6 teils retro gekennzeichnet) |
+| 10 | 0.7.1 HU-A1…A11 als Method Notes + Gates präregistriert | erfüllt (2026-10-13; Doku-Nachzug, alle neuen Ergebnisse `UNKNOWN`) |
 
 ## Decision Trace
 
@@ -68,7 +75,7 @@ Ops-field mit Go/No-Go (**C10**). Spalte „Wissenszeitpunkt“: Stand *zum Ents
 | E7 Busy-Pacing NBT | S6 12.10. | NBT akzeptiert BUSY über Ringfenster hinaus? | `EVID-BMWHU-2026-10-12-001`–`004` | DURING/AFTER S6 | Busy = Produktkern |
 | PSRAM gegen Burst | nach S6 | Primärlösung? | `EVID-BMWHU-2026-10-12-005` | AFTER S6 | nein — Fixed Huge File + BUSY |
 | Menü-Latenz unter Stall | S6 / S7-Plan | Warum ~20 s? | `EVID-BMWHU-2026-10-12-006` | DURING S6 (Phänomen); Mechanismus INFERRED | S7 Startup-Usability |
-| Rock 8 MiB oft stumm | S6 | Alle Stationen gleich? | `EVID-BMWHU-2026-10-12-007` | DURING S6 | Resume-P / Identity; nicht „alle gleich“ |
+| Rock 8 MiB oft stumm | S6 | Alle Stationen gleich? | `EVID-BMWHU-2026-10-12-007` | DURING S6 | Ursache offen; nach 13.10.-Analyse zuerst non-live-Prefetch/Cache vs. Mid-/Head-Play trennen |
 
 Desk-Evidence ≠ Lab-Fact ≠ Field-Fact. TinyUSB-Desk: [`tinyusb-msc-busy-retry-2026`](../tinyusb-msc-busy-retry-2026/).
 
@@ -106,6 +113,36 @@ Zielcode: `esp32.pidrive` Stall/`onRead` (**C11**). Generisches Muster: [`callba
 
 Formale Audit-Kill-Tabellen damals **nicht** vorhanden → `STANDARD_GAP_PRE_0.7.0`. Ops-Hypothesen lebten in Feldberichten; hier nicht nachträglich als präregistriert dargestellt.
 
+## Nächste Gates HU-A1…A11
+
+**Präregistrierung 2026-10-13 unter Standard 0.7.1.** Die Reihenfolge ist
+verbindlich, soweit die Abhängigkeitsspalte nichts anderes freigibt. Es gab
+für diese Tabelle keinen neuen Messlauf; jeder Gate-Ausgang steht daher auf
+`UNKNOWN`. `FAIL` verwirft nur die jeweilige Hypothese. `KILL` stoppt den
+abhängigen Pfad oder macht den Lauf nicht interpretierbar; `UNKNOWN` allein
+ist kein automatischer Stop. Neue Evidence-IDs dürfen erst aus den
+tatsächlichen Läufen entstehen.
+
+| Reihenfolge | Gate | Methode | Präregistriertes PASS | Präregistriertes FAIL | Präregistriertes KILL / Folge | Status |
+|-------------|------|---------|-----------------------|-----------------------|-------------------------------|--------|
+| 1 | **HU-A1** Prefetch/Cache/Resume-Startgate | [`nbt-cache-eviction-play-intent`](../../methods/nbt-cache-eviction-play-intent.md) + [`nbt-medium-identity-resume`](../../methods/nbt-medium-identity-resume.md) | Auswahlklasse kein/Mid/Head und ausgelieferter Marker in Wiederholung gleich | Cache-/Resume-Hypothese widerspricht Marker oder Klasse | uneindeutige Startklasse → A2–A6 nicht kausal auswerten | `UNKNOWN` |
+| 2 | **HU-A4** Play-Intent | [`nbt-cache-eviction-play-intent`](../../methods/nbt-cache-eviction-play-intent.md) | manuell/Auto-Next/Resume/Prefetch reproduzierbar trennbar | Signaturen überlappen | Policy bleibt observe-only; kein Mid-Play-Arming | `UNKNOWN` |
+| 3 | **HU-A2** Medium-Identity-Key | [`nbt-medium-identity-resume`](../../methods/nbt-medium-identity-resume.md) | genau eine Identity-Dimension ändert P-/Startklasse reproduzierbar | isolierte Dimension ändert die Klasse nicht | mehrere Dimensionen oder Head-Force gekoppelt → Lauf verwerfen | `UNKNOWN` |
+| 4 | **HU-A3** Cache-Kapazität/Eviction | [`nbt-cache-eviction-play-intent`](../../methods/nbt-cache-eviction-play-intent.md) | reproduzierbare Hit→Miss-Grenze und Gegenprobe trennt FIFO/LRU/Position | Leiter/Gegenprobe widerspricht Modell | Lifecycle- oder Identity-Drift → Serie stoppen | `UNKNOWN` |
+| 5 | **HU-A6** ID3/APIC-Invalidierung | [`nbt-cache-eviction-play-intent`](../../methods/nbt-cache-eviction-play-intent.md) | Audio- und Metadatenbindung jeweils isoliert | angenommene Bindung reagiert nicht | mehrere Identities zugleich geändert → keine Aussage | `UNKNOWN` |
+| 6 | **HU-A8** ~20-s-Menüphase | [`nbt-cache-eviction-play-intent`](../../methods/nbt-cache-eviction-play-intent.md) + [`msc-trace-correlation`](../../methods/msc-trace-correlation.md) | Zeitspanne durch reproduzierbare Read-Klassen erklärt | dominante Ursache widerspricht Timeline | unzuordenbare Commandgrenzen → optional A10 vorziehen | `UNKNOWN` |
+| 7 | **HU-A9** Lifecycle/MediaStore | [`hu-media-lifecycle`](../../methods/hu-media-lifecycle.md) | Einzelereignis ergibt in Wiederholung gleiche Nachklasse | Persistenzhypothese widerspricht Nachklasse | mehrere Lifecycle-Ereignisse oder Baseline-Drift → Lauf verwerfen | `UNKNOWN` |
+| 8 | **HU-A11** Plug-Strom/Reset | [`plug-power-reset-isolation`](../../methods/plug-power-reset-isolation.md) | Rail-Ereignis und Bootreason reproduzierbar korreliert oder Reset ausgeschlossen | angenommene Resetursache widerspricht Capture | Reset im Cache-/Lifecycle-Lauf → HU-Claim stoppen | `UNKNOWN` |
+| 9, nur bei Bedarf | **HU-A10** BOT/SCSI-Beobachtung | [`usb-bot-command-observation`](../../methods/usb-bot-command-observation.md) | CBW/CDB/CSW, Reset und Callback-Re-Entry eindeutig korreliert | erwartete Commandfolge nicht beobachtet | Capture beeinflusst Host oder Grenzen unklar → kein Timeoutclaim | `UNKNOWN` |
+| 10, Tuning | **HU-A7** BUSY-Timeoutmodell | [`msc-busy-retry-semantics`](../../methods/msc-busy-retry-semantics.md) + [`usb-bot-command-observation`](../../methods/usb-bot-command-observation.md) | Gesamtzeit gegen Fortschrittsphasen durch Leiter unterscheidbar | Timeoutmodell widerspricht Beobachtung | offene Commandgrenzen → A10 zuerst; Hauptpfad nicht blockieren | `UNKNOWN` |
+| 11, nach Startgate | **HU-A5** Decoder-/AV-Timeline | [`field-av-offset-correlation`](../../methods/field-av-offset-correlation.md) | Offset-/Markerbezug innerhalb präregistrierter Toleranz reproduzierbar | Marker widerspricht Offsethypothese | A1 nicht grün oder Baseline instabil → Formatmatrix stoppen | `UNKNOWN` |
+
+**Reihenfolgeregeln:** A1 ist das Startgate. A2–A6 folgen erst mit stabiler
+Startklasse. A9 und A11 definieren danach belastbare Warm-/Cold-Bedingungen.
+A10 und A7 sind bedarfsgetriebenes Instrumentierungs-/Timeout-Tuning und
+blockieren den Hauptpfad nicht ohne konkreten Befund. A5 folgt zuletzt und
+blockiert D nicht.
+
 ## Artefakte
 
 | Artefakt | Pfad |
@@ -116,6 +153,12 @@ Formale Audit-Kill-Tabellen damals **nicht** vorhanden → `STANDARD_GAP_PRE_0.7
 | DELTA | [`DELTA.md`](DELTA.md) |
 | Revalidation 0.7.0 | [`docs/reports/2026-10-13-v0.7.0-pidrive-revalidation.md`](../../docs/reports/2026-10-13-v0.7.0-pidrive-revalidation.md) |
 | Method Re-Entry | [`methods/callback-reentry-state-lifetime.md`](../../methods/callback-reentry-state-lifetime.md) |
+| Method Identity/Resume | [`methods/nbt-medium-identity-resume.md`](../../methods/nbt-medium-identity-resume.md) |
+| Method Cache/Eviction/Intent | [`methods/nbt-cache-eviction-play-intent.md`](../../methods/nbt-cache-eviction-play-intent.md) |
+| Method AV-Offset | [`methods/field-av-offset-correlation.md`](../../methods/field-av-offset-correlation.md) |
+| Method Lifecycle | [`methods/hu-media-lifecycle.md`](../../methods/hu-media-lifecycle.md) |
+| Method Plug/Reset | [`methods/plug-power-reset-isolation.md`](../../methods/plug-power-reset-isolation.md) |
+| Method BOT Observation | [`methods/usb-bot-command-observation.md`](../../methods/usb-bot-command-observation.md) |
 
 ## Vorgänger
 
@@ -143,6 +186,13 @@ Upstream: [`ERGEBNIS-S6.md`](https://github.com/MPunktBPunkt/pidrive/blob/main/d
 
 - Exit #6 Feld-Ohr PASS upstream (Menü/Sender-Gate) — nicht durch Busy-Pacing-Session erfüllt
 - Mechanismus Menü-~20 s unter Stall: Phänomen `MEASURED` (`006`); Ursache weiter `INFERRED`/`UNKNOWN`
-- Rock 8 MiB oft stumm: Session-`MEASURED` (`007`); Ursache offen (Resume/Play-Detect)
-- Nach Exit #6 PASS: Maturity (field_evidence R4+) + ggf. Method Note `field-av-correlation`
+- Rock 8 MiB oft stumm: Session-`MEASURED` (`007`); Ursache offen.
+  Analyse der vorhandenen Daten: 98,88 % non-live-Read von `fav0` mit
+  Silence-Inhalt macht Cache-Prefetch zu einer starken, aber noch nicht kausal
+  gemessenen Hypothese. Keine neue Evidence-ID ohne neuen Lauf.
+- Nächster Gate-Lauf: Reihenfolge und Kill-Regeln aus
+  [Nächste Gates HU-A1…A11](#nächste-gates-hu-a1a11); zuerst S6 im Lab
+  reproduzieren und Auswahl in kein/Mid/Head-Read klassifizieren.
+- Nach Exit #6 PASS: Maturity (`field_evidence` R4+) prüfen; AV-Follow-on nach
+  [`field-av-offset-correlation`](../../methods/field-av-offset-correlation.md).
 - Pilot 3 `avrcp` — BT-Host-Profil in [`pidrive-2026-radio-bt`](../pidrive-2026-radio-bt/) / Gateway, nicht USB-C duplizieren

@@ -7,7 +7,7 @@ primary: J
 tags: [streaming]
 type: protocol
 status: active
-seen_in: [esp32-bt-gateway]
+seen_in: [esp32-bt-gateway, esp-network-pcm-clock]
 maturity:
   technology: R1
   implementation: R0

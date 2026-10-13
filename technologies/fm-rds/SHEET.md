@@ -7,7 +7,7 @@ primary: C
 tags: [radio-tx, metadata, lab-only]
 type: protocol
 status: active
-seen_in: [pi-fm-tx]
+seen_in: [pi-fm-tx, esp-fm-rds-node]
 maturity:
   technology: R3
   implementation: R0

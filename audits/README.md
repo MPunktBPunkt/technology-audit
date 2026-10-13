@@ -7,10 +7,14 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | ID | Status | Profil | Fokus |
 |----|--------|--------|-------|
 | [`pidrive-2026-msc`](pidrive-2026-msc/) | closed | ops-field | Pilot 1 — USB-MSC |
-| [`pidrive-2026-bmw-hu`](pidrive-2026-bmw-hu/) | active | ops-field | Pilot 2 — BMW NBT Evo · Busy-Pacing Feld 2026-10-12 · **0.6.6** (+ Field-Feedback) |
+| [`pidrive-2026-bmw-hu`](pidrive-2026-bmw-hu/) | active | ops-field | Pilot 2 — BMW NBT Evo · Busy-Pacing Feld 2026-10-12 · **0.7.1** Method-/Gate-Nachzug |
 | [`pidrive-2026-radio-bt`](pidrive-2026-radio-bt/) | active | ops-field | DAB+/PMR/Airband/FFT + A2DP/AVRCP · **0.6.6** revalidated (from 0.6.3) |
 | [`pi-fm-tx-2026-foreign`](pi-fm-tx-2026-foreign/) | active | lab-tool | Fremd: pifm + PiFmRds (GPIO-FM/RDS) · **0.6.6** revalidated (from 0.6.3) |
 | [`esp-fm-tx-2026-foreign`](esp-fm-tx-2026-foreign/) | active | lab-tool | Fremd: ESP32 APLL/MCLK-FM (Alexxdal + hiperiondev) · **0.6.6** |
+| [`esp-fm-rds-node-2026-foreign`](esp-fm-rds-node-2026-foreign/) | closed | lab-tool | Fremd: S3-I2S-MPX + QN8027/Si4713 · **0.7.1** |
+| [`esp-network-pcm-clock-2026-foreign`](esp-network-pcm-clock-2026-foreign/) | active | lab-tool | Fremd: RTP/TCP PCM, Jitterbuffer und Clockdrift · **0.7.1** |
+| [`bmw-nbt-media-index-2026-foreign`](bmw-nbt-media-index-2026-foreign/) | closed | lab-tool | Fremd: BMW Offline-Medien-/Forensikkontext · **0.7.1** |
+| [`usb-bot-observation-2026-foreign`](usb-bot-observation-2026-foreign/) | closed | lab-tool | Fremd: BOT-Command-Beobachtung und Capture-Grenzen · **0.7.1** |
 | [`esp32-sdr-trx-2026-foreign`](esp32-sdr-trx-2026-foreign/) | active | lab-tool | Fremd: S3 polar PHY TX + narrowband RX · **0.6.6** |
 | [`espargos-espsdr-2026-foreign`](espargos-espsdr-2026-foreign/) | active | lab-tool | Fremd: ESPARGOS Undoc I/Q Chip-Matrix · **0.6.6** |
 | [`c5vrx-2026-foreign`](c5vrx-2026-foreign/) | active | lab-tool | Fremd: C5VRX C5 FPV continuous I/Q · **0.6.6** |

@@ -7,7 +7,7 @@ primary: B
 tags: [streaming, esp-idf, arduino, fragile]
 type: implementation
 status: active
-seen_in: [esp32-audioi2s, esp-usb-audio-example, esp32-i2s-ble]
+seen_in: [esp32-audioi2s, esp-usb-audio-example, esp32-i2s-ble, esp-fm-rds-node, esp-network-pcm-clock]
 maturity:
   technology: R2
   implementation: R1

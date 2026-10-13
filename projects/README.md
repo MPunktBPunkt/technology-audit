@@ -2,16 +2,19 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-13`, 48 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-13`, 52 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
 | [`a2dpsinkhfpclient`](a2dpsinkhfpclient/) | a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd) | lab-tool | active | 2 |
 | [`bluetooth-stack`](bluetooth-stack/) | bluetooth_stack — Lightweight Dual-Mode BT Host Stack (Fremd) | lab-tool | active | 2 |
+| [`bmw-nbt-media-index`](bmw-nbt-media-index/) | BMW NBT Media/Backup/Forensics Desk Sources | lab-tool | active | 1 |
 | [`c5vrx`](c5vrx/) | C5VRX — ESP32-C5 5.8 GHz FPV Analog RX (Fremd) | lab-tool | active | 1 |
+| [`esp-fm-rds-node`](esp-fm-rds-node/) | ESP FM/RDS Node (Fremdrepos) | lab-tool | active | 2 |
 | [`esp-fm-tx`](esp-fm-tx/) | ESP FM / APLL Clock Transmit (Fremd) | lab-tool | active | 1 |
 | [`esp-idf-classic-bt`](esp-idf-classic-bt/) | ESP-IDF classic_bt — Official A2DP/AVRCP Examples (Fremd) | lab-tool | active | 2 |
 | [`esp-iot-solution`](esp-iot-solution/) | Espressif IoT Solution — USB/Audio Fokus (Fremd) | lab-tool | active | 2 |
+| [`esp-network-pcm-clock`](esp-network-pcm-clock/) | ESP Network PCM Clock — Framing und elastische Puffer | lab-tool | active | 2 |
 | [`esp-sdr-bridge`](esp-sdr-bridge/) | esp-sdr-bridge — IQS USB → SpyServer/rtl_tcp (Fremd) | lab-tool | active | 1 |
 | [`esp-usb-audio-example`](esp-usb-audio-example/) | ESP USB Audio Example — finger563 (Fremd) | lab-tool | active | 2 |
 | [`esp32-a2dp`](esp32-a2dp/) | ESP32-A2DP — Classic A2DP/AVRCP Library (Fremd) | lab-tool | active | 2 |
@@ -53,6 +56,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`pi-fm-tx`](pi-fm-tx/) | Pi FM / RF Transmit (Fremd) | lab-tool | active | 3 |
 | [`pidrive`](pidrive/) | PiDrive | ops-field | active | 10 |
 | [`rnt-esp32`](rnt-esp32/) | Random Nerd Tutorials — ESP32 Projects Catalog (Fremd) | lab-tool | active | 0 |
+| [`usb-bot-observation`](usb-bot-observation/) | USB BOT Observation — CBW/CDB/Data/CSW (Fremd) | lab-tool | active | 1 |
 | [`welle-io`](welle-io/) | welle.io — DAB/DAB+ SDR Receiver (Fremd) | lab-tool | active | 2 |
 
 Neues Projekt: [`REUSE.md`](../docs/REUSE.md) · [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md) · [`MAINTENANCE.md`](../docs/MAINTENANCE.md).

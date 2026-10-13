@@ -58,7 +58,7 @@ sheets:
     title: BMW NBT Evo Head Unit — Host-Plattform
     primary: I
     reusability: W1
-    seen_in: [pidrive, esp32-bt-gateway]
+    seen_in: [pidrive, esp32-bt-gateway, bmw-nbt-media-index]
     path: technologies/bmw-nbt-evo/SHEET.md
   - slug: dab-plus
     title: DAB+ Digital Audio Broadcasting
@@ -88,7 +88,7 @@ sheets:
     title: ESP I2S Audio Path
     primary: B
     reusability: W2
-    seen_in: [esp32-audioi2s, esp-usb-audio-example, esp32-i2s-ble]
+    seen_in: [esp32-audioi2s, esp-usb-audio-example, esp32-i2s-ble, esp-fm-rds-node, esp-network-pcm-clock]
     path: technologies/esp-i2s-audio/SHEET.md
   - slug: esp-lab-bus-tools
     title: ESP Lab Bus / GPIO Tools
@@ -148,7 +148,7 @@ sheets:
     title: FM-RDS (Radio Data System)
     primary: C
     reusability: W2
-    seen_in: [pi-fm-tx]
+    seen_in: [pi-fm-tx, esp-fm-rds-node]
     path: technologies/fm-rds/SHEET.md
   - slug: freeair-connect-portal
     title: bluMartin freeAir Connect Portal
@@ -238,7 +238,7 @@ sheets:
     title: PDAP (PCM + Control over WiFi)
     primary: J
     reusability: W1
-    seen_in: [esp32-bt-gateway]
+    seen_in: [esp32-bt-gateway, esp-network-pcm-clock]
     path: technologies/pdap/SHEET.md
   - slug: pmr446
     title: PMR446 (EU License-Free UHF)
@@ -292,7 +292,7 @@ sheets:
     title: USB Mass Storage Class
     primary: C
     reusability: W3
-    seen_in: [pidrive, esp32-pidrive, esp32-msc-gadget-refs]
+    seen_in: [pidrive, esp32-pidrive, esp32-msc-gadget-refs, usb-bot-observation]
     path: technologies/usb-msc/SHEET.md
   - slug: virtual-fat
     title: Virtual FAT Disk (Synthetic Geometry)

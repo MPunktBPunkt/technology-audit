@@ -7,7 +7,7 @@ primary: I
 tags: [automotive, field-verified, usb-host]
 type: technology
 status: active
-seen_in: [pidrive, esp32-bt-gateway]
+seen_in: [pidrive, esp32-bt-gateway, bmw-nbt-media-index]
 maturity:
   technology: R2          # Plattform-Rolle verstanden; kein vollständiges HU-Reverse-Engineering
   implementation: R0      # PiDrive spricht HU an — siehe usb-msc Application (B)

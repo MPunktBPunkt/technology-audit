@@ -7,7 +7,7 @@ primary: C
 tags: [usb-device, automotive, streaming]
 type: protocol
 status: active
-seen_in: [pidrive, esp32-pidrive, esp32-msc-gadget-refs]
+seen_in: [pidrive, esp32-pidrive, esp32-msc-gadget-refs, usb-bot-observation]
 maturity:
   technology: R4
   implementation: R0   # siehe Project Application

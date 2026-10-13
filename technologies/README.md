@@ -22,7 +22,7 @@ Wiederverwendbare Technology Sheets.
 
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
-| [`esp-i2s-audio`](esp-i2s-audio/SHEET.md) | ESP I2S Audio Path | W2 | `esp32-audioi2s`, `esp-usb-audio-example`, `esp32-i2s-ble` |
+| [`esp-i2s-audio`](esp-i2s-audio/SHEET.md) | ESP I2S Audio Path | W2 | `esp32-audioi2s`, `esp-usb-audio-example`, `esp32-i2s-ble`, `esp-fm-rds-node`, `esp-network-pcm-clock` |
 
 ### C — Protokolle
 
@@ -37,10 +37,10 @@ Wiederverwendbare Technology Sheets.
 | [`esp-now-messaging`](esp-now-messaging/SHEET.md) | ESP-NOW Messaging | W2 | `esp32-communicator` |
 | [`esp-usb-audio-uac`](esp-usb-audio-uac/SHEET.md) | ESP USB Audio (UAC Device) | W2 | `esp-iot-solution`, `esp-usb-audio-example` |
 | [`esp-usb-host`](esp-usb-host/SHEET.md) | ESP32 USB Host (OTG) | W2 | `espusbhost`, `esp-iot-solution` |
-| [`fm-rds`](fm-rds/SHEET.md) | FM-RDS (Radio Data System) | W2 | `pi-fm-tx` |
+| [`fm-rds`](fm-rds/SHEET.md) | FM-RDS (Radio Data System) | W2 | `pi-fm-tx`, `esp-fm-rds-node` |
 | [`kostal-piko-http`](kostal-piko-http/SHEET.md) | Kostal PIKO Local HTTP Interface | W2 | `iobroker-kostalpiko` |
 | [`pump-control-link`](pump-control-link/SHEET.md) | PUMP Control Link | W2 | `esp32-pidrive` |
-| [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W3 | `pidrive`, `esp32-pidrive`, `esp32-msc-gadget-refs` |
+| [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W3 | `pidrive`, `esp32-pidrive`, `esp32-msc-gadget-refs`, `usb-bot-observation` |
 
 ### D — Embedded
 
@@ -97,7 +97,7 @@ Wiederverwendbare Technology Sheets.
 
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
-| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | BMW NBT Evo Head Unit — Host-Plattform | W1 | `pidrive`, `esp32-bt-gateway` |
+| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | BMW NBT Evo Head Unit — Host-Plattform | W1 | `pidrive`, `esp32-bt-gateway`, `bmw-nbt-media-index` |
 | [`hammer-varon-xtr`](hammer-varon-xtr/SHEET.md) | Hammer Varon XTR II (FTMS Host) | W2 | `esp32-ftmsprobe`, `esp32-ergo` |
 
 ### J — Architektur
@@ -106,7 +106,7 @@ Wiederverwendbare Technology Sheets.
 |------|-------|-------|------------|
 | [`esp-hub-base-template`](esp-hub-base-template/SHEET.md) | ESP-Hub Base Firmware Template | W3 | `esp32-esp-hub` |
 | [`esp-module-host`](esp-module-host/SHEET.md) | ESP Modular Tool Firmware | W2 | `esp32-toolnode` |
-| [`pdap`](pdap/SHEET.md) | PDAP (PCM + Control over WiFi) | W1 | `esp32-bt-gateway` |
+| [`pdap`](pdap/SHEET.md) | PDAP (PCM + Control over WiFi) | W1 | `esp32-bt-gateway`, `esp-network-pcm-clock` |
 
 ## Geplant (ohne Sheet)
 
