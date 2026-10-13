@@ -44,7 +44,31 @@ Wert liegt im **Framework-Sprung** und der expliziten Host-Varianten-Bremse — 
 
 ## Nachtrag 2026-10-12 (nicht Teil der 0.6.6-Revalidation)
 
-Busy-Pacing E7/S6 am NBT: `EVID-BMWHU-2026-10-12-001`–`005`. Exit #6 (Menü/Sender-Gate) bleibt offen — Busy-Pacing-Ton ≠ globales Ohr-PASS. Framework-Nachzug: Standard **0.7.0** (Decision Trace / Review Checks / Kill / Knowledge Feedback).
+Busy-Pacing E7/S6 am NBT: `EVID-BMWHU-2026-10-12-001`–`005` (später `006`/`007`). Exit #6 (Menü/Sender-Gate) bleibt offen — Busy-Pacing-Ton ≠ globales Ohr-PASS.
+
+## 0.7.0-Nachzug 2026-10-13
+
+```yaml
+old_standard: "0.6.6"
+new_standard: "0.7.0"
+revalidated: 2026-10-13
+method: ops parity C10–C13 + upstream links (no new field session)
+```
+
+| Bereich | Delta |
+|---------|--------|
+| Framework | `standard_version` 0.7.0; Decision Trace; Engineering Review Checks; Kill (E7/S6, Präreg. teils RETRO); Knowledge Feedback inkl. Links |
+| Evidence | Upstream `ERGEBNIS-S6` / UEBERGABE / Lab ERGEBNIS; neu `006` Menü-~20 s, `007` Rock-stumm |
+| Method | [`callback-reentry-state-lifetime`](../../methods/callback-reentry-state-lifetime.md) — generischer Check aus `stallCmdT0_`-Counterfactual |
+| Nicht getan | kein neuer Feldlauf; keine stillen Claim-Upgrades; Exit #6 weiter offen |
+
+| Metrik | nach 0.6.6 | nach 0.7.0-Nachzug | Δ |
+|--------|------------|-------------------|---|
+| Decision Trace | nein | ja | +C10 |
+| Review Checks | nein | ja | +C11 |
+| Kill-Tabelle E7/S6 | nein (nur Ops) | ja (Audit) | +C12 |
+| BMWHU-12.10. IDs | 5 | 7 | +2 |
+| Upstream-Links 12.10. | offen | gesetzt | Parität |
 
 ## Artefakte
 
@@ -54,3 +78,4 @@ Busy-Pacing E7/S6 am NBT: `EVID-BMWHU-2026-10-12-001`–`005`. Exit #6 (Menü/Se
 | Sheet | [`bmw-nbt-evo`](../../technologies/bmw-nbt-evo/SHEET.md) |
 | App C | [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) |
 | Radio/BT | [`pidrive-2026-radio-bt`](../pidrive-2026-radio-bt/) |
+| Revalidation | [`docs/reports/2026-10-13-v0.7.0-pidrive-revalidation.md`](../../docs/reports/2026-10-13-v0.7.0-pidrive-revalidation.md) |

@@ -16,6 +16,17 @@ CLI `tools/ta-assist` hat eine **eigene** Semver und ist davon unabhängig.
 
 ## Versionen
 
+### 0.7.1 — 2026-10-13
+
+**PATCH — Klarstellungen nach Validierung** ([Change Proposal](reports/2026-10-13-v0.7.0-to-v0.7.1-change-proposal.md) · [Release Review](reports/2026-10-13-v0.7.1-release-review.md)):
+
+- **C-001:** `NO JUSTIFIED KILL CRITERION` als erlaubtes C12-Ergebnis (mit Begründung); bedeutet nicht „kein Test / alles bewiesen / UNKNOWN ok / nie stoppen“.
+- **C-002:** optionale Spalte **Wissenszeitpunkt** in Decision Trace / Review Checks (`KNOWN BEFORE TEST` / `DISCOVERED DURING TEST` / `DISCOVERED AFTER TEST` / `RETROFIT`) — keine Pflicht.
+- **C-003:** `UNKNOWN` ≠ automatisches STOP ([METHODOLOGY](METHODOLOGY.md), Epistemic-Status); Semantik von `UNKNOWN` unverändert.
+- **C-004:** optionaler **Retro-Impact**-Block nur für Revalidation/Counterfactual — nicht für normale Audits Pflicht.
+
+**Nicht Teil dieses PATCH:** neue Pflicht-Checks, CLI-Pflicht C10–C13, globale Callback-Re-Entry-Pflicht, neue E-0/E-1-/Feld-/Upstream-Pflichten, Migration alter Audits.
+
 ### 0.7.0 — 2026-10-12
 
 **Operationalisierung nach PiDrive-Validierung (E7/S6 Busy-Pacing am BMW NBT):**

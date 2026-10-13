@@ -100,12 +100,15 @@ bestehendes Wissen → Delta-Audit → Evidence
 
 | Schritt | Wann | Artefakt |
 |---------|------|----------|
-| Decision Trace | Go/No-Go (Lab/Feld) | Kampagne: Entscheidung → Frage → Evidence → Konsequenz |
+| Decision Trace | Go/No-Go (Lab/Feld) | Kampagne: Entscheidung → Frage → Evidence → Konsequenz (+ opt. Wissenszeitpunkt) |
 | Engineering Review Checks | Evidence betrifft Zielcode | Pre-Test-Checkliste (State, Re-Entry, Idempotenz) |
-| Kill-Kriterien | vor erstem Messlauf | präregistrierte Widerlegungsbedingungen |
+| Kill-Kriterien | vor erstem Messlauf | präregistrierte Widerlegung **oder** `NO JUSTIFIED KILL CRITERION` |
 | Knowledge Feedback | nach Lab/Field | neue Evidence-IDs + Application/Sheet-Update |
+| Retro-Impact | nur Revalidation / Counterfactual | optional; siehe Template |
 
 Desk-Evidence ≠ Lab-Fact ≠ Field-Fact. Validierungsbeispiel: Busy-Retry-Desk [`tinyusb-msc-busy-retry-2026`](../audits/tinyusb-msc-busy-retry-2026/) → NBT-Feld [`pidrive-2026-bmw-hu`](../audits/pidrive-2026-bmw-hu/) (`EVID-BMWHU-2026-10-12-*`).
+
+**`UNKNOWN` ist kein automatisches STOP-Kriterium.** Epistemisch bleibt `UNKNOWN` ungeklärt: es kann weitere Untersuchung rechtfertigen und zusammen mit anderer Evidence ein Gate oder Kill auslösen — allein erzeugt es kein STOP. Fehlt ein begründbares Falsifikationskriterium → `NO JUSTIFIED KILL CRITERION` (nicht: „alles bewiesen“).
 
 ## Exit-Kriterien (pro Projekt-Audit)
 

@@ -40,7 +40,7 @@ Desk 2026-10-12 · **standard_version 0.6.6** · Profile `lab-tool`.
 | Claim | Status | Hinweis |
 |-------|--------|---------|
 | Max BUSY-/Callback-Latenz vor typischem Host-Abort (PC) | `UNKNOWN` | weiter Lab |
-| NBT akzeptiert Busy-Pacing / langes Tonfenster | → C | siehe `EVID-BMWHU-2026-10-12-001`–`005` (nicht Desk-FACT hier) |
+| NBT akzeptiert Busy-Pacing / langes Tonfenster | → C | siehe `EVID-BMWHU-2026-10-12-001`–`007` (nicht Desk-FACT hier) |
 | ESP32-S3/DWC2: Partial-Read Endpoint-Race analog RP2040? | `UNKNOWN` | nicht belegt |
 | Arduino-ESP32 erhält ASYNC-API | `UNKNOWN` | Tracking Upstream/IDF |
 | Host sendet parallelen zweiten READ10 während offenem CBW | `UNKNOWN` | BOT typisch sequentiell; Abort/Reset = Host |

@@ -102,10 +102,16 @@ Regenerieren: `python3 tools/ta-assist index` · SoT: [`MAINTENANCE.md`](MAINTEN
 | C9 | YAML `profile` gesetzt | warning |
 | C10 | Decision Trace bei `lab-tool`/`ops-field` mit Go/No-Go (oder bewusst „n/a“) — ab 0.7.0 | warning |
 | C11 | Engineering Review Checks aus entscheidungsrelevanter Evidence (Zielcode) — ab 0.7.0 | warning |
-| C12 | Kill-Kriterien vor erstem Messlauf einer Hypothese präregistriert — ab 0.7.0 | warning |
+| C12 | Kill-Kriterien: vor erstem Messlauf einer Hypothese geprüft und entweder präregistriert **oder** bewusst `NO JUSTIFIED KILL CRITERION` (+ Kurzbegründung) — ab 0.7.0; Klarstellung 0.7.1 | warning |
 | C13 | Lab/Field-Ergebnis → neue Evidence-ID + Rückkanal Application/Sheet — ab 0.7.0 | warning |
 
 Alt-Kampagnen ohne Revalidation auf 0.7.0: C10–C13 nicht als Fehler werten.
+
+**C12 — `NO JUSTIFIED KILL CRITERION`:** bedeutet nur, dass für den konkreten Entscheidungs-/Pfadkontext kein evidence-basiertes Falsifikationskriterium begründet werden konnte. Nicht: „kein Test nötig“, „alles bewiesen“, „`UNKNOWN` automatisch ok“, „Pfad darf nie gestoppt werden“.
+
+**C10/C11 — Wissenszeitpunkt:** optionale Spalte (`KNOWN BEFORE TEST` / `DISCOVERED DURING TEST` / `DISCOVERED AFTER TEST` / `RETROFIT`); fehlt die Spalte → kein warning. Ersetzt keine Evidence-ID.
+
+**C11-Muster (nicht neuer Pflicht-Check):** Bei Evidence zu Busy/Retry/Partial-Re-Entry → Method [`callback-reentry-state-lifetime`](../methods/callback-reentry-state-lifetime.md) (State/Timer-Lebensdauer über Re-Entry; kanonisch `stallCmdT0_` 0.4.47→0.4.48).
 
 ---
 

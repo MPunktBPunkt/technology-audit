@@ -79,6 +79,7 @@ Aus Re-Entry-Semantik abgeleitet; hätte den `stallCmdT0_`-Fehler vor dem Lab ab
 | Method | Pfad |
 |--------|------|
 | Busy-/Retry-Semantik (neu) | [`methods/msc-busy-retry-semantics.md`](../../methods/msc-busy-retry-semantics.md) |
+| Re-Entry State Lifetime (generischer Review Check) | [`methods/callback-reentry-state-lifetime.md`](../../methods/callback-reentry-state-lifetime.md) |
 | LBA-/Timing-Instrument (Follow-on Lab) | [`methods/msc-lba-timing-instrument.md`](../../methods/msc-lba-timing-instrument.md) |
 
 ## Bezug Inventar / Sheets
@@ -100,7 +101,7 @@ Aus Re-Entry-Semantik abgeleitet; hätte den `stallCmdT0_`-Fehler vor dem Lab ab
 | Lab/Field | Neue Evidence-ID | Zurück in |
 |-----------|------------------|-----------|
 | Desk (diese Kampagne) | `EVID-TINYUSB-MSC-2026-10-12-*` | Sheet `usb-msc` · Method · Application B |
-| Feld E7/S6 NBT 2026-10-12 | `EVID-BMWHU-2026-10-12-001`–`005` | [`pidrive-2026-bmw-hu/evidence`](../pidrive-2026-bmw-hu/evidence.md) · [`bmw-nbt-evo`](../../projects/pidrive/applications/bmw-nbt-evo.md) · [`esp32-pidrive` usb-msc](../../projects/esp32-pidrive/applications/usb-msc.md) |
+| Feld E7/S6 NBT 2026-10-12 | `EVID-BMWHU-2026-10-12-001`–`007` | [`pidrive-2026-bmw-hu/evidence`](../pidrive-2026-bmw-hu/evidence.md) · [`bmw-nbt-evo`](../../projects/pidrive/applications/bmw-nbt-evo.md) · [`esp32-pidrive` usb-msc](../../projects/esp32-pidrive/applications/usb-msc.md) |
 
 ## Lessons → Transfer
 

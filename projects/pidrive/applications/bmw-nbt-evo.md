@@ -69,6 +69,8 @@ BMW NBT Evo (Host, C)
 | Stall-off: wieder ~6 s Tonfenster (A/B) | `EVID-BMWHU-2026-10-12-003` | `MEASURED` |
 | Busy-Pacing kausaler Faktor (A/B) | `EVID-BMWHU-2026-10-12-004` | `INFERRED` |
 | „Kleiner Ring + kurze Tonphase = technische Grenze“ | `EVID-BMWHU-2026-10-12-005` | `REJECTED` |
+| Unter Stall: Menü/Enumeration ~20 s träge | `EVID-BMWHU-2026-10-12-006` | `MEASURED` (Ursache `INFERRED`/`UNKNOWN`) |
+| Rock Antenne 8 MiB in S6 oft stumm (Resume/Start) | `EVID-BMWHU-2026-10-12-007` | `MEASURED` (Ursache `UNKNOWN`) |
 | Host-Scope: Claims = NBT Evo (nicht still andere BMW-HU) | `EVID-SCOPE-2026-10-11-001` | `FACT` |
 | „Warm-konfundierte Trace = Sequenz tot“ | `EVID-USBMSC-2026-10-04-007` | `REJECTED` |
 
@@ -84,7 +86,7 @@ BMW NBT Evo (Host, C)
 | 2026-10-05 07:45 | C′ Feld **PASS** — siehe `EVID-BMWHU-2026-10-05-001` |
 | 2026-10-05 07:50 | Feld-AV blockiert (Meta-Menü) — `EVID-BMWHU-2026-10-05-002` |
 | 2026-10-05 Lab | Menü-Seite, Correlate, Lock-after-RST — `EVID-BMWHU-2026-10-05-003`–`005` |
-| 2026-10-12 E7/S6 | Busy-Pacing an NBT: ~65 s bis Dateiende; Stall-off ~6 s — `EVID-BMWHU-2026-10-12-001`–`005` (Upstream-Artefakt nachziehen) |
+| 2026-10-12 E7/S6 | Busy-Pacing an NBT: ~65 s bis Dateiende; Stall-off ~6 s; Menü ~20 s; Rock oft stumm — `EVID-BMWHU-2026-10-12-001`–`007` · [ERGEBNIS-S6](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/artifacts-2026-10-12-feld/feld-s6-prep/ERGEBNIS-S6.md) |
 
 ## Community / SIB (Transfer-Hinweise — nicht MEASURED)
 
@@ -106,6 +108,7 @@ Referenz-Gadgets (kein HU-Feld): [`esp32-msc-gadget-refs`](../../esp32-msc-gadge
 - BT-Pfad (A2DP/AVRCP) vs. MSC — getrennte Host-Profile unter einem Sheet?
 - Welche Label/Serial-Änderung flush’t NBT-Cache empirisch?
 - Max `onRead`-Latenz / BUSY-Budget vor HU-Abort jenseits des belegten Stall-Defaults (`maxMs=500`)?
+- Mechanismus Menü-~20 s (`006`) und Rock-8‑MiB-stumm (`007`)
 
 ## Verwandte
 

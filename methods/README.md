@@ -14,6 +14,7 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | [`kb-cross-check`](kb-cross-check.md) | KB als Reasoning-Bausteine prüfen (Blindtest) | active |
 | [`msc-lba-timing-instrument`](msc-lba-timing-instrument.md) | MSC Read-Callback LBA/Burst/Latenz (Lab→HU) | active |
 | [`msc-busy-retry-semantics`](msc-busy-retry-semantics.md) | TinyUSB Busy/`return 0` vs. Block vs. ASYNC testen | active |
+| [`callback-reentry-state-lifetime`](callback-reentry-state-lifetime.md) | State/Timer über Callback-Re-Entry (generischer Review Check) | active |
 | [`msc-trace-correlation`](msc-trace-correlation.md) | HU-LBA-Traces vs. Diag/`bytesServed`/AV | active |
 
 ## Kandidaten (noch ohne Note)

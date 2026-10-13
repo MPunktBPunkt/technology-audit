@@ -89,6 +89,10 @@ Ab **0.7.0** gilt für experimentelle Kampagnen der Kreislauf **Evidence → Dec
 
 **Schichten der Gewissheit:** Desk-Evidence ≠ Lab-Fact ≠ Field-Fact. Ein Desk-`FACT` (z. B. TinyUSB-BUSY-Semantik) macht keinen Host-Claim; erst Lab/Field mit eigener Evidence-ID.
 
+**Wissenszeitpunkt (optional, Klarstellung 0.7.1):** In Decision Trace / Review Checks darf dokumentiert werden, wann eine Information für die Entscheidung galt (`KNOWN BEFORE TEST` / `DISCOVERED DURING TEST` / `DISCOVERED AFTER TEST` / `RETROFIT`). Das ersetzt keine Evidence-ID und ist keine Pflichtspalte. Späteres Wissen darf frühere Entscheidungen nicht still rückdatieren.
+
+**Kill ohne Falsifikation (Klarstellung 0.7.1):** Wenn geprüft wurde und kein evidence-basiertes Kill-Kriterium begründbar ist → `NO JUSTIFIED KILL CRITERION` (+ Kurzbegründung). Siehe Template und C12.
+
 ## Namenskonventionen
 
 | Element | Regel | Beispiele |
@@ -153,6 +157,8 @@ Jede Aussage in Sheets und Applications gehört in genau eine Ebene:
 | `HYPOTHESIS` | Arbeitshypothese, noch offen |
 | `UNKNOWN` | Bewusst ungeklärt |
 | `REJECTED` | Früher angenommen, später widerlegt (behalten!) |
+
+**`UNKNOWN` ist kein automatisches STOP.** Der Status bleibt epistemisch ungeklärt: weitere Untersuchung kann sinnvoll sein; zusammen mit anderer Evidence kann ein Gate oder Kill entstehen — allein kein STOP. Semantik von `UNKNOWN` ist unverändert.
 
 **Chip-Scope:** Ein `FACT` ohne genannte Chip-/SoC-Variante ist bei Peripherie-Claims unvollständig. Variantenübertragung ohne eigenen Beleg → höchstens `HYPOTHESIS`, sonst `UNKNOWN`.
 

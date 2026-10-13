@@ -70,7 +70,7 @@ Primärregister: [`pidrive-2026-bmw-hu/evidence`](../../../audits/pidrive-2026-b
 |-------|-------------|--------|
 | Firmware exportiert MSC unter TinyUSB MODE=0 | `EVID-MSC-2026-10-09-001` | `FACT` |
 | Geometrie-Profile per Build-Flag wählbar | `EVID-MSC-2026-10-09-002` | `FACT` |
-| NBT Busy-Pacing Feld (Ton bis Dateiende / A/B) | `EVID-BMWHU-2026-10-12-001`–`005` | `MEASURED` / `INFERRED` / `REJECTED` |
+| NBT Busy-Pacing Feld (Ton bis Dateiende / A/B; Menü-Latenz; Rock-stumm) | `EVID-BMWHU-2026-10-12-001`–`007` | `MEASURED` / `INFERRED` / `REJECTED` |
 
 ## Abweichungen vom „Lehrbuch“
 
