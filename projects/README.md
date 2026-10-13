@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-12`, 44 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-13`, 48 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -11,10 +11,13 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`c5vrx`](c5vrx/) | C5VRX — ESP32-C5 5.8 GHz FPV Analog RX (Fremd) | lab-tool | active | 1 |
 | [`esp-fm-tx`](esp-fm-tx/) | ESP FM / APLL Clock Transmit (Fremd) | lab-tool | active | 1 |
 | [`esp-idf-classic-bt`](esp-idf-classic-bt/) | ESP-IDF classic_bt — Official A2DP/AVRCP Examples (Fremd) | lab-tool | active | 2 |
+| [`esp-iot-solution`](esp-iot-solution/) | Espressif IoT Solution — USB/Audio Fokus (Fremd) | lab-tool | active | 2 |
 | [`esp-sdr-bridge`](esp-sdr-bridge/) | esp-sdr-bridge — IQS USB → SpyServer/rtl_tcp (Fremd) | lab-tool | active | 1 |
+| [`esp-usb-audio-example`](esp-usb-audio-example/) | ESP USB Audio Example — finger563 (Fremd) | lab-tool | active | 2 |
 | [`esp32-a2dp`](esp32-a2dp/) | ESP32-A2DP — Classic A2DP/AVRCP Library (Fremd) | lab-tool | active | 2 |
 | [`esp32-a2dp-codecs`](esp32-a2dp-codecs/) | ESP32 A2DP Sink Multi-Codec Forks (Fremd) | lab-tool | active | 2 |
 | [`esp32-a2dp-source`](esp32-a2dp-source/) | ESP32_A2DP_Source — schreibfaul1 (Fremd) | lab-tool | active | 2 |
+| [`esp32-audioi2s`](esp32-audioi2s/) | ESP32-audioI2S — schreibfaul1 (Fremd) | lab-tool | active | 1 |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | esp32-bt-gateway | planning | — | 5 |
 | [`esp32-bt-iap`](esp32-bt-iap/) | esp32-bt-iap — A2DP + Apple Dock (historisch) | lab-tool | active | 2 |
 | [`esp32-communicator`](esp32-communicator/) | esp32-communicator | firmware | — | 3 |
@@ -22,6 +25,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-esp-hub`](esp32-esp-hub/) | esp32-esp-hub | firmware | — | 3 |
 | [`esp32-ftmsprobe`](esp32-ftmsprobe/) | esp32-ftmsprobe | — | — | 5 |
 | [`esp32-heartrate`](esp32-heartrate/) | esp32-heartrate | — | — | 4 |
+| [`esp32-i2s-ble`](esp32-i2s-ble/) | esp32-i2s-BLE — I2S Mic → BLE PCM (Fremd) | lab-tool | active | 2 |
 | [`esp32-io-control`](esp32-io-control/) | esp32-io-control | firmware | — | 3 |
 | [`esp32-metermaster`](esp32-metermaster/) | esp32-metermaster | firmware | — | 3 |
 | [`esp32-msc-gadget-refs`](esp32-msc-gadget-refs/) | ESP32 USB-MSC Gadget References — Callback / Virtual FAT / Perf (Fremd) | lab-tool | active | 2 |

@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-12`, 47 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-13`, 50 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 ## Index nach Primary (TAXONOMY)
 
@@ -18,6 +18,12 @@ Wiederverwendbare Technology Sheets.
 | [`pmr446`](pmr446/SHEET.md) | PMR446 (EU License-Free UHF) | W2 | `pidrive` |
 | [`rtl-sdr`](rtl-sdr/SHEET.md) | RTL-SDR (RTL2832U Host Stack) | W3 | `pidrive`, `welle-io` |
 
+### B — Audio
+
+| Slug | Title | Reuse | Gesehen in |
+|------|-------|-------|------------|
+| [`esp-i2s-audio`](esp-i2s-audio/SHEET.md) | ESP I2S Audio Path | W2 | `esp32-audioi2s`, `esp-usb-audio-example`, `esp32-i2s-ble` |
+
 ### C — Protokolle
 
 | Slug | Title | Reuse | Gesehen in |
@@ -25,10 +31,12 @@ Wiederverwendbare Technology Sheets.
 | [`avrcp`](avrcp/SHEET.md) | AVRCP | W3 | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink` |
 | [`ble-hr-relay`](ble-hr-relay/SHEET.md) | BLE HR-Relay (Peripheral Bridge) | W3 | `esp32-heartrate`, `esp32-ergo` |
 | [`ble-hrm-gatt`](ble-hrm-gatt/SHEET.md) | BLE Heart Rate GATT (Central) | W3 | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe` |
+| [`ble-pcm-notify-stream`](ble-pcm-notify-stream/SHEET.md) | BLE PCM Notify Stream (Custom GATT) | W1 | `esp32-i2s-ble` |
 | [`bluetooth-a2dp`](bluetooth-a2dp/SHEET.md) | Bluetooth A2DP | W3 | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink` |
 | [`bluetooth-ftms`](bluetooth-ftms/SHEET.md) | Bluetooth FTMS (Fitness Machine) | W3 | `esp32-ftmsprobe`, `esp32-ergo` |
 | [`esp-now-messaging`](esp-now-messaging/SHEET.md) | ESP-NOW Messaging | W2 | `esp32-communicator` |
-| [`esp-usb-host`](esp-usb-host/SHEET.md) | ESP32 USB Host (OTG) | W2 | `espusbhost` |
+| [`esp-usb-audio-uac`](esp-usb-audio-uac/SHEET.md) | ESP USB Audio (UAC Device) | W2 | `esp-iot-solution`, `esp-usb-audio-example` |
+| [`esp-usb-host`](esp-usb-host/SHEET.md) | ESP32 USB Host (OTG) | W2 | `espusbhost`, `esp-iot-solution` |
 | [`fm-rds`](fm-rds/SHEET.md) | FM-RDS (Radio Data System) | W2 | `pi-fm-tx` |
 | [`kostal-piko-http`](kostal-piko-http/SHEET.md) | Kostal PIKO Local HTTP Interface | W2 | `iobroker-kostalpiko` |
 | [`pump-control-link`](pump-control-link/SHEET.md) | PUMP Control Link | W2 | `esp32-pidrive` |

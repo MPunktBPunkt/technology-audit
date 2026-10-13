@@ -7,7 +7,7 @@ primary: C
 tags: [usb-host, esp-idf, fragile]
 type: implementation
 status: active
-seen_in: [espusbhost]
+seen_in: [espusbhost, esp-iot-solution]
 maturity:
   technology: R2
   implementation: R0
@@ -47,6 +47,7 @@ ESP als **USB-Host**: enumeriert Peripherie (HID, CDC/VCP, MSC BOT/SCSI, MIDI, A
 | Hub auf P4-HS „einfach“ | `REJECTED` / Gate | Upstream: HS-Port-Hubs praktisch unbrauchbar |
 | Config-Descriptor &gt; Control-Transfer-Max | `FACT` Fallstrick | Arduino-prebuilt oft 256 B → große UVC scheitern |
 | Library-API 1.x ≡ 2.x | `REJECTED` | Breaking redesign (Callbacks) |
+| Host-`usb_stream` (UVC+UAC) = Device-UAC-Headset | `REJECTED` | Host-Stream ≠ Device-UAC (`esp-usb-audio-uac`) |
 
 ### Projektstart-Checkliste
 

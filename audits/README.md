@@ -26,6 +26,10 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`esphome-a2dp-sink-2026-foreign`](esphome-a2dp-sink-2026-foreign/) | active | lab-tool | Fremd: ESPHome a2dp_sink entities · **0.6.6** |
 | [`esp32sdr-2026-foreign`](esp32sdr-2026-foreign/) | active | lab-tool | Fremd: lozaning/ESP32SDR tone-TX + burst RX · **0.6.6** |
 | [`espusbhost-2026-foreign`](espusbhost-2026-foreign/) | active | lab-tool | Fremd: EspUsbHost USB Host S2/S3/P4 · **0.6.6** |
+| [`esp-iot-solution-2026-foreign`](esp-iot-solution-2026-foreign/) | active | lab-tool | Fremd: Espressif IoT Solution USB UAC/Host-Stream · **0.7.1** |
+| [`esp32-audioi2s-2026-foreign`](esp32-audioi2s-2026-foreign/) | active | lab-tool | Fremd: schreibfaul1 ESP32-audioI2S Decode→I2S · **0.7.1** |
+| [`esp-usb-audio-example-2026-foreign`](esp-usb-audio-example-2026-foreign/) | active | lab-tool | Fremd: finger563 S3-BOX USB Headset · **0.7.1** |
+| [`esp32-i2s-ble-2026-foreign`](esp32-i2s-ble-2026-foreign/) | active | lab-tool | Fremd: I2S-Mic → Custom BLE PCM Notify · **0.7.1** |
 | [`esp32-msc-gadget-refs-2026-foreign`](esp32-msc-gadget-refs-2026-foreign/) | active | lab-tool | Fremd: ESP32 USB-MSC Gadgets + virtual FAT / Perf · **0.6.6** |
 | [`tinyusb-msc-busy-retry-2026`](tinyusb-msc-busy-retry-2026/) | closed | lab-tool | TinyUSB MSC `return 0`/BUSY/ASYNC (E7-Basis; Feld S6 validiert) · **0.6.6** + 0.7.0-Retro |
 | [`esp-sdr-bridge-2026-foreign`](esp-sdr-bridge-2026-foreign/) | active | lab-tool | Fremd: esp-sdr-bridge IQS→SpyServer/rtl_tcp · **0.6.6** |
