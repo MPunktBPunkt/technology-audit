@@ -71,6 +71,15 @@ Evidence, wenn Commit, Lizenz und relevante Codepfade im jeweiligen
 | `tianocore/edk2` | `e4d139f4880625aed2e1e81d800afebc2b2c9630` (nur `UsbMassBot.h`) | BSD-2-Clause-Patent | Struct-Referenz | `usb-msc` |
 | `wireshark/wireshark` | `f28ca85a4b40aaa3d9eea4bf2a878ce9b68d4469` (nur `packet-usbms-bot.c`) | GPL-2.0 | Dissector-Schema | `usb-msc` |
 
+## usb-control-stall-recovery-2026 (Nachtrag 2026-10-14)
+
+| Repository | Snapshot | Lizenz | Rolle | Reuse-Match |
+|------------|----------|--------|-------|-------------|
+| `hathach/tinyusb` | `4c195b7b94f813a37b77b184bcae7b2b6ef2835e` (`usbd.c` + `msc_device.c`) | MIT | SET_ADDRESS/CONFIG, STALL, CLEAR_HALT, NEED_RESET | `usb-msc` |
+| `espressif/esp-usb` | `c40b86dc3a3e760b3dfdc28ec83010b9799a7e88` (nur `device/esp_tinyusb/`) | Apache-2.0 (SPDX; GitHub `NOASSERTION`) | Mount/Umount, Descriptors, S2/S3/P4 | `usb-msc` |
+| `tanakamasayuki/EspUsbDevice` | `c10a44e2b220f473a9aba7076695301544745c5d` (Docs) | MIT | Enum-Stufen, kein VBUS, Replug | `usb-msc` |
+| esp-idf / arduino-esp32 Issues | URL-Desk 2026-10-14 | n/a | USB↔WiFi Korrelation / `HYPOTHESIS` | `usb-msc` (Kontrast) |
+
 ## Vorläufige Reuse-Entscheidung
 
 - Kein paralleles NBT-, USB-MSC-, RDS- oder I2S-Sheet nur wegen eines neuen
