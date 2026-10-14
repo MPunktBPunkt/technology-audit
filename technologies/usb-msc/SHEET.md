@@ -21,7 +21,8 @@ Ebene **A** (allgemein). Ops/Feld → [`pidrive/applications/usb-msc.md`](../../
 **Wachstum 2026-10-12:** Callback-Zelle, USB-FS-Budget, Multi-Sektor-`bufsize`, exclusive-mount — Desk [`esp32-msc-gadget-refs-2026-foreign`](../../audits/esp32-msc-gadget-refs-2026-foreign/).  
 **Wachstum 2026-10-12 (Busy/Async):** TinyUSB `return 0` / `TUD_MSC_RET_BUSY`, Partial/ERROR, ASYNC (#2967), EP_BUFSIZE — Desk [`tinyusb-msc-busy-retry-2026`](../../audits/tinyusb-msc-busy-retry-2026/).  
 **Wachstum 2026-10-14 (BOT-Hooks/Schema):** CBW/CSW-Felder, TinyUSB Hook-Punkte, Control/STALL/Reset-Epoch, Host-eBPF-Decode — Desk [`usb-bot-observation-2026-instrument-sources`](../../audits/usb-bot-observation-2026-instrument-sources/).  
-**Wachstum 2026-10-14 (Control/Enum):** `usbd.c` SET_ADDRESS/SET_CONFIGURATION → mount/umount; CLEAR_HALT vs. NEED_RESET; esp_tinyusb Port-Kopplung; kein-VBUS-Replug — Desk [`usb-control-stall-recovery-2026`](../../audits/usb-control-stall-recovery-2026/).
+**Wachstum 2026-10-14 (Control/Enum):** `usbd.c` SET_ADDRESS/SET_CONFIGURATION → mount/umount; CLEAR_HALT vs. NEED_RESET; esp_tinyusb Port-Kopplung; kein-VBUS-Replug — Desk [`usb-control-stall-recovery-2026`](../../audits/usb-control-stall-recovery-2026/).  
+**Hinweis Coex:** USB↔WiFi unter Last → eigenes Sheet [`esp32-s3-usb-wifi-coex`](../esp32-s3-usb-wifi-coex/SHEET.md) · Desk [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi-coexistence-2026/) (kein MSC-Root-Cause).
 
 ## Kurzfassung
 
