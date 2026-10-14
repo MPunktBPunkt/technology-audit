@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-14
-project_count: 52
+project_count: 53
 projects:
   - id: a2dpsinkhfpclient
     title: a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd)
@@ -305,6 +305,12 @@ projects:
     status: active
     applications: 0
     path: projects/rnt-esp32/
+  - id: technology-audit-kb
+    title: technology-audit — Wissensbasis-Qualität (Meta)
+    profile: ops-field
+    status: active
+    applications: 0
+    path: projects/technology-audit-kb/
   - id: usb-bot-observation
     title: USB BOT Observation — CBW/CDB/Data/CSW (Fremd)
     profile: lab-tool
