@@ -2,8 +2,8 @@
 
 ```yaml
 project_id: usb-bot-observation
-updated: 2026-10-13
-reviewed_snapshots: 7
+updated: 2026-10-14
+reviewed_snapshots: 12
 profile: lab-tool
 pilot_order: [usb-msc]
 ```
@@ -30,12 +30,13 @@ behandelt, nicht als neue Sheets.
 
 Beobachtungspfade:
 
-- **Device-seitig:** TinyUSB-/Gadget-Telemetrie
-- **Inline:** USBProxy-/Hardware-Proxy
+- **Device-seitig:** TinyUSB-/Gadget-Telemetrie (Hooks in `mscd_xfer_cb` /
+  `send_csw` / Control — siehe Instrumentierungs-Audit)
+- **Inline:** USBProxy-/Device-Proxy
 - **Kontrollierter Host/Gadget-Kontrast:** Host-Generator plus
-  Referenz-Gadget
+  Referenz-Gadget; Lab-Validate-Kandidat: usbsnoop (Lizenz `UNKNOWN`)
 
-Keiner dieser Pfade hat in dieser Kampagne NBT-Daten erzeugt.
+Keiner dieser Pfade hat NBT-Daten erzeugt.
 
 ## Coverage-Lücken
 
@@ -46,6 +47,7 @@ Keiner dieser Pfade hat in dieser Kampagne NBT-Daten erzeugt.
 | Sense-Folge | keine NBT-Fehlersession | REQUEST SENSE kausal zum fehlgeschlagenen CSW korrelieren |
 | BOT Reset | Desk kennt Referenzpfade, nicht NBT-Verhalten | Reset-Epoch und Endpoint-Recovery instrumentieren |
 | Timing / Transparenz | Beobachterwirkung nicht gemessen | Baseline gegen Instrumentierungsvariante |
+| Host Tag-Match | usbsnoop Desk-Decode ohne Lab | kontrollierter Lab nach Lizenzklärung |
 
 ## Signale ohne Eintrag
 
@@ -53,3 +55,5 @@ Keiner dieser Pfade hat in dieser Kampagne NBT-Daten erzeugt.
 - vUSBf ist Replay-/Fuzzing-Kontrast, kein transparenter Fahrzeug-Capture.
 - PartitionSchemeDetector bleibt ein kleiner BOT-Codekontrast; die Weiterleitung
   `ookaay` → `treblist` erzeugt keinen zweiten Projekteinstieg.
+- usbsnoop bleibt Research-/Lab-Tool-Kontrast ohne eigenen Slug (Lizenz offen).
+- edk2/Wireshark BOT-Dateien sind Schema-Referenzen, keine neuen Sheets.

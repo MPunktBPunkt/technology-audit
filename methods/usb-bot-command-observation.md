@@ -20,6 +20,8 @@ USB-BOT-Kommandos und deckt HU-A10 ab.
 - BOT-Parser für CBW, Data-In/Out und CSW; Rohdaten unverändert aufbewahren
 - bekannte Kontroll-Hosts vor Einsatz am Zielhost
 - LBA-/Device-Telemetrie zur Korrelation, falls vorhanden
+- optional Host-seitiger URB-Sniffer (z. B. eBPF an `usb_submit_urb` /
+  `usb_hcd_giveback_urb`) für Lab-Validate — Lizenz und Truncation beachten
 
 ## Ablauf
 
@@ -32,9 +34,12 @@ USB-BOT-Kommandos und deckt HU-A10 ab.
    Ereignisse markieren.
 5. Stack-Callbacksegmente mit CBW/CDB/CSW korrelieren. Mehrere Callback-
    Re-Entries dürfen nicht als mehrere READ10 gezählt werden.
-6. Kontrollsequenz wiederholen; erst danach denselben observe-only-Capture am
+6. Device-Logger (falls TinyUSB): an Class-Driver-Hooks nach CBW-Validierung
+   und in CSW-Send hängen — nicht nur an App-`onRead`.
+7. Optional: Host-Decode (SETUP + BOT) gegen Device-Events tag-korrelieren.
+8. Kontrollsequenz wiederholen; erst danach denselben observe-only-Capture am
    Zielhost auswerten.
-7. Timeout- oder Partial-Read-Aussagen nur treffen, wenn Commandgrenzen und
+9. Timeout- oder Partial-Read-Aussagen nur treffen, wenn Commandgrenzen und
    Zeitbasis eindeutig sind.
 
 ## Artefakte
@@ -58,11 +63,16 @@ USB-BOT-Kommandos und deckt HU-A10 ab.
 
 - TinyUSB-Callbackgröße ist nicht die CDB-Länge.
 - `return 0`-Retries können innerhalb desselben READ10 auftreten.
-- USB-Proxy-Erfolg am PC belegt keine Transparenz am Fahrzeughost.
+- Adafruit-/App-MSC-Callbacks exponieren keinen CBW; Offset kann im Wrapper
+  verworfen werden.
+- USB-Proxy- oder eBPF-Erfolg am PC belegt keine Transparenz am Fahrzeughost.
+- Host-Sniffer ohne klare Lizenz sind Research-Kontrast, keine Copy-Paste-Basis.
 - Fuzzing, Command-Injection, Flash und Protokolländerung gehören nicht zu
   dieser observe-only-Methode.
 
 ## Beispiel-Einsatz
 
 [`pidrive-2026-bmw-hu`](../audits/pidrive-2026-bmw-hu/) — HU-A10 nur bei
-Bedarf; präregistriert und derzeit `UNKNOWN`.
+Bedarf; präregistriert und derzeit `UNKNOWN`.  
+Hook-/Schema-Desk:
+[`usb-bot-observation-2026-instrument-sources`](../audits/usb-bot-observation-2026-instrument-sources/).
