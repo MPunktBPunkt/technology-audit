@@ -18,14 +18,16 @@ repos:
   - https://github.com/adafruit/Adafruit_TinyUSB_Arduino
   - https://github.com/tianocore/edk2
   - https://github.com/wireshark/wireshark
+  - https://github.com/tanakamasayuki/EspUsbDevice
 ```
 
 ## Zweck
 
 Desk-Audit vorhandener Host-, Device-, Proxy- und Replay-Pfade für die Frage,
 welcher Beobachtungspunkt BOT-Commandgrenzen zuverlässig sichtbar machen kann.
-Folge-Kampagne 2026-10-14 vertieft **Instrumentierungshooks** (TinyUSB) und
-**Host-Lab-Decode** (usbsnoop). Der bestehende Slug
+Folge-Kampagnen 2026-10-14: **Instrumentierungshooks** (TinyUSB MSC) /
+**Host-Lab-Decode** (usbsnoop) und **Control/Enum/STALL** (`usbd.c`,
+esp_tinyusb, EspUsbDevice Docs). Der bestehende Slug
 [`usb-msc`](../../technologies/usb-msc/SHEET.md) wird wiederverwendet; es
 entsteht kein paralleles BOT-/SCSI-Sheet.
 
@@ -40,10 +42,13 @@ entsteht kein paralleles BOT-/SCSI-Sheet.
 | Inline-Proxy | USBProxy-legacy | ja, Eignung und Grenzen |
 | Host-eBPF-Sniffer | usbsnoop (Lab-Validate) | ja, Desk; Lizenz `UNKNOWN` |
 | Arduino-/ESP32-Wrapper | Adafruit TinyUSB MSC | ja, Callback- vs. Stack-Sicht |
+| ESP Device-Port | esp-usb `esp_tinyusb/` | ja, Mount/Umount + Descriptors |
+| Enum-Semantik Docs | EspUsbDevice | ja, VBUS/Replug-Kontrast |
 | BOT-Struct-Referenz | edk2 `UsbMassBot.h`, Wireshark BOT-Dissector | ja, Schema-Abgleich |
+| USB↔WiFi Issues | esp-idf / arduino-esp32 | ja, nur `HYPOTHESIS` |
 | VM-Replay/Fuzzing | vUSBf | ja, Kontrast |
 | BMW NBT / Fahrzeug | konkreter Host | **nein** — keine Capture-Daten |
-| Timing-/Transparenzmessung | Einfluss des Beobachters | **nein** — `UNKNOWN` |
+| Timing-/Transparenzmessung | Einfluss des Beobachters; S1–S3 | **nein** — eigene Arbeit |
 | Physische Paketebene | DATA0/1, ACK/NAK | **nein** — Hardware-Sniffer out-of-scope |
 
 ## Nicht-Ziele
@@ -63,8 +68,9 @@ entsteht kein paralleles BOT-/SCSI-Sheet.
 | [`felipebalbi/usb-tools`](https://github.com/felipebalbi/usb-tools/tree/08d4f3bc10bacde31484c945a9679ef38b844a77) | `08d4f3bc10bacde31484c945a9679ef38b844a77`; `src/msc.c`, `src/msc.sh` | gesamter kleiner Upstream, MSC-Pfade vertieft |
 | [`usb-tools/USBProxy-legacy`](https://github.com/usb-tools/USBProxy-legacy/tree/30c4c14150d8c33f9438b32efeb600ed1bcdb441) | `30c4c14150d8c33f9438b32efeb600ed1bcdb441`; `PacketFilter_MassStorage.cpp`, README | Proxy-/Filterpfad |
 | [`torvalds/linux`](https://github.com/torvalds/linux/blob/2c0f5ca48674a5b5f9fa4a9c3325aa48053af0bc/drivers/usb/gadget/function/f_mass_storage.c) | `2c0f5ca48674a5b5f9fa4a9c3325aa48053af0bc`; nur `drivers/usb/gadget/function/f_mass_storage.c` | **pfadspezifisch**, kein Linux-Gesamtaudit |
-| [`espressif/esp-usb`](https://github.com/espressif/esp-usb/tree/f3408e8cfc0ca99bf8686a4acfd9d3de7522df81/host/class/msc/usb_host_msc) | `f3408e8cfc0ca99bf8686a4acfd9d3de7522df81`; nur `host/class/msc/usb_host_msc/` | **pfadspezifisch**, Host-Kontrast |
-| [`hathach/tinyusb`](https://github.com/hathach/tinyusb/tree/3024dd2e31bc7d6dd27b708ad57f880a8d7f85ac/src/class/msc) | `3024dd2e31bc7d6dd27b708ad57f880a8d7f85ac` (Vor); Instrumentierung `4c195b7b94f813a37b77b184bcae7b2b6ef2835e`; nur `src/class/msc/` | **MSC-pfadspezifisch**, Device-Kontrast |
+| [`espressif/esp-usb`](https://github.com/espressif/esp-usb/tree/f3408e8cfc0ca99bf8686a4acfd9d3de7522df81/host/class/msc/usb_host_msc) | Host: `f3408e8…` `host/class/msc/`; Device: `c40b86d…` `device/esp_tinyusb/` | **pfadspezifisch**, Host- und Device-Kontrast |
+| [`hathach/tinyusb`](https://github.com/hathach/tinyusb/tree/4c195b7b94f813a37b77b184bcae7b2b6ef2835e) | `4c195b7…` (Vor MSC `3024dd2`); `src/class/msc/` + `src/device/usbd.c` | **pfadspezifisch**, Device BOT + Control |
+| [`tanakamasayuki/EspUsbDevice`](https://github.com/tanakamasayuki/EspUsbDevice/tree/c10a44e2b220f473a9aba7076695301544745c5d) | `c10a44e…`; Docs Enum/VBUS/Replug | Desk-Kontrast, kein Code-Import |
 | [`treblist/PartitionSchemeDetector`](https://github.com/treblist/PartitionSchemeDetector/tree/63c8669dd0e59b91b7852e3111479282ca7b93cd) | `63c8669dd0e59b91b7852e3111479282ca7b93cd`; `app.cpp`, README | von `ookaay/...` weitergeleitet |
 | [`schumilo/vUSBf`](https://github.com/schumilo/vUSBf/tree/bc1fb14551bbc97459cc3e2c36e337ad1060b06b) | `bc1fb14551bbc97459cc3e2c36e337ad1060b06b`; README, Replay-/Fuzzing-Gerüst | historischer Kontrast |
 | [`yeet-src/usbsnoop`](https://github.com/yeet-src/usbsnoop/tree/30f9fad04871252934ca0edd74b0089cb96688da) | `30f9fad04871252934ca0edd74b0089cb96688da` | Host-eBPF Lab-Validate; Lizenz `UNKNOWN` |
@@ -80,7 +86,8 @@ entsteht kein paralleles BOT-/SCSI-Sheet.
 4. Device-, Inline- und Host/Gadget-Beobachtung sowie Grenzen
    „transparenten“ Captures
 5. Instrumentierungshooks (TinyUSB) + Host-eBPF-Validate (usbsnoop)
-6. NBT-bezogene Claims ausdrücklich `UNKNOWN` halten
+6. Control/Enum/STALL (`usbd.c`, esp_tinyusb, EspUsbDevice); WiFi↔USB nur Hypothesen
+7. NBT-/Timing-/S1–S3-Claims ausdrücklich `UNKNOWN` halten
 
 ## Offene Scope-Fragen
 

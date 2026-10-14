@@ -31,11 +31,14 @@ USB-BOT-Kommandos und deckt HU-A10 ab.
    CDB nur innerhalb der deklarierten Länge dekodieren.
 3. Data-Phase und CSW anhand des Tags zuordnen; Residue und Status erhalten.
 4. BOT-Reset, Clear-Halt, Disconnect/Re-enumeration und Aborts als getrennte
-   Ereignisse markieren.
+   Ereignisse markieren. `SET_ADDRESS` ≠ Mount; Mount erst bei
+   `SET_CONFIGURATION n`. `MSC_STAGE_NEED_RESET` gilt bis BOT Reset — Clear-Halt
+   allein heilt nicht. Ohne VBUS-Sense: Umount bei Replug nicht voraussetzen.
 5. Stack-Callbacksegmente mit CBW/CDB/CSW korrelieren. Mehrere Callback-
    Re-Entries dürfen nicht als mehrere READ10 gezählt werden.
 6. Device-Logger (falls TinyUSB): an Class-Driver-Hooks nach CBW-Validierung
-   und in CSW-Send hängen — nicht nur an App-`onRead`.
+   und in CSW-Send hängen — nicht nur an App-`onRead`; Enum-Epochs in `usbd.c`
+   / `tud_mount_cb`/`tud_umount_cb` mitlogen.
 7. Optional: Host-Decode (SETUP + BOT) gegen Device-Events tag-korrelieren.
 8. Kontrollsequenz wiederholen; erst danach denselben observe-only-Capture am
    Zielhost auswerten.
@@ -56,7 +59,7 @@ USB-BOT-Kommandos und deckt HU-A10 ab.
 |------|------|------|-------------|
 | B1 Kontrollhost | bekannte Sequenz vollständig und tag-konsistent dekodiert | fehlende CBW/CSW oder Tagkonflikt | kein Zielhostclaim |
 | B2 Commandgrenze | READ10 und Callback-Re-Entries eindeutig zugeordnet | Grenzen nur geraten | keine Timeout-/Partial-Read-Auswertung |
-| B3 Resetklasse | BOT-Reset, Clear-Halt und Re-enumeration unterscheidbar | Ereignisse vermischt | Resetursache `UNKNOWN` |
+| B3 Resetklasse | BOT-Reset, Clear-Halt, NEED_RESET und Re-enumeration unterscheidbar; Mount ≠ Address | Ereignisse vermischt | Resetursache `UNKNOWN` |
 | B4 Observe-only | Capture verändert Enumeration/Timing nicht erkennbar | Proxy ändert Hostverhalten | Fahrzeuglauf stoppen; passiveren Pfad wählen |
 
 ## Fallstricke
@@ -75,4 +78,6 @@ USB-BOT-Kommandos und deckt HU-A10 ab.
 [`pidrive-2026-bmw-hu`](../audits/pidrive-2026-bmw-hu/) — HU-A10 nur bei
 Bedarf; präregistriert und derzeit `UNKNOWN`.  
 Hook-/Schema-Desk:
-[`usb-bot-observation-2026-instrument-sources`](../audits/usb-bot-observation-2026-instrument-sources/).
+[`usb-bot-observation-2026-instrument-sources`](../audits/usb-bot-observation-2026-instrument-sources/).  
+Control/Enum/STALL:
+[`usb-control-stall-recovery-2026`](../audits/usb-control-stall-recovery-2026/).

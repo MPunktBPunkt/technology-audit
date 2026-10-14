@@ -5,7 +5,7 @@ project_id: usb-bot-observation
 tech_slug: usb-msc
 status: active
 sheet: ../../../technologies/usb-msc/SHEET.md
-audit: ../../../audits/usb-bot-observation-2026-instrument-sources/
+audit: ../../../audits/usb-control-stall-recovery-2026/
 maturity:
   technology: R4
   implementation: R1
@@ -18,12 +18,13 @@ maturity:
 Der bestehende `usb-msc`-Vertrag ist Raster für Fremdquellen. Das Projekt
 implementiert kein Gadget und keinen Sniffer; es ordnet, welche Schicht welche
 BOT-Grenze beobachten kann, und (seit 2026-10-14) **wo** ein Device-Logger
-eingehängt werden muss.
+eingehängt werden muss — inkl. Control-/Enum-Epochs.
 
 Audits:
 
 - Pfadvergleich: [`usb-bot-observation-2026-foreign`](../../../audits/usb-bot-observation-2026-foreign/)
 - Instrumentierung: [`usb-bot-observation-2026-instrument-sources`](../../../audits/usb-bot-observation-2026-instrument-sources/)
+- Control/Stall/Enum: [`usb-control-stall-recovery-2026`](../../../audits/usb-control-stall-recovery-2026/)
 
 ## A/B/C-Trennung
 
@@ -36,9 +37,9 @@ Audits:
 ## Architektur / Beobachtungspfade
 
 ```text
-                 Device-Logger  ← Hooks: mscd_xfer_cb / send_csw / Control
-NBT Host ─ USB ─ MSC Device/TinyUSB
-    │            bot_cbw + chunks + bot_csw + epoch
+                 Device-Logger  ← usbd SET_ADDRESS/CONFIG + mscd_xfer_cb / send_csw / Control
+NBT Host ─ USB ─ MSC Device/TinyUSB (+ esp_tinyusb Mount/Umount)
+    │            enum epochs + bot_cbw + chunks + bot_csw + stall/reset
     │
     ├─ Inline-Proxy / Bus-Capture ─ vollständige Busfolge, aber Eingriff
     │
@@ -56,6 +57,18 @@ Nach gültigem CBW (`MSC_STAGE_CMD`, nach `memcpy`) sind Tag, Lun, `total_bytes`
 in `send_csw` mit `data_residue = total_bytes - xferred_len` gebaut — Ort für
 `bot_csw`. Control: BOT Reset (`0xFF`), Get Max LUN (`0xFE`), Clear-Halt und
 `MSC_STAGE_NEED_RESET` sind Epoch-Grenzen.
+
+**Enum / Stack-Control** (`usbd.c`, Follow-on 2026-10-14): `SET_ADDRESS` setzt nur
+die Adresse; Klassen-EPs öffnen erst bei `SET_CONFIGURATION n` → `tud_mount_cb`.
+cfg 0 → `tud_umount_cb`. Endpoint CLEAR_FEATURE Halt clear/stallt im Stack und
+leitet an die Klasse weiter. Bei `MSC_STAGE_NEED_RESET` **heilt Clear-Halt nicht** —
+weiter stall bis BOT Reset (`EVID-USBCTRL-2026-10-14-004`).
+
+**ESP-Port** (`esp_tinyusb`): Mount/Umount koppeln MSC-Storage-Ownership und
+`TINYUSB_EVENT_ATTACHED`/`DETACHED` (`EVID-USBCTRL-…-006`).
+
+**Replug ohne VBUS-Sense** (EspUsbDevice Docs): Unplug oft ohne umount; State
+auch bei Mount clearen (`EVID-USBCTRL-…-007`/`008`).
 
 Ein Read-Callback sieht nur `(lba, offset, bufsize)`: mehrere Chunks können zu
 **einem** READ(10) gehören. Adafruit `Adafruit_USBD_MSC` mappt App-Callbacks auf
@@ -91,7 +104,9 @@ Logger-Feldnamen, kein neues Sheet.
 | `USBProxy-legacy@30c4c14` | `PacketFilter_MassStorage.cpp` | CBW, READ/WRITE-Daten, CSW |
 | `linux@2c0f5ca` | `f_mass_storage.c` | CBW-Validierung, CDB, Sense, CSW/Reset |
 | `esp-usb@f3408e8` | `msc_scsi_bot.c` | Host-CBW, Datenphase, CSW, Sense/Recovery |
-| `tinyusb@4c195b7` (Vor `3024dd2`) | `msc.h`, `msc_device.c` | Structs, Stages, Hooks, Control, Sense |
+| `tinyusb@4c195b7` (Vor `3024dd2`) | `msc.h`, `msc_device.c`, **`usbd.c`** | Structs, Stages, BOT-Hooks, Enum/STALL |
+| `esp-usb@c40b86d` (Device; Host war `f3408e8`) | `device/esp_tinyusb/` | Mount/Umount, Descriptors, S2/S3/P4 |
+| `EspUsbDevice@c10a44e` | `docs/usb-device-*.md` | Enum-Stufen, kein VBUS, Replug |
 | `PartitionSchemeDetector@63c8669` | `app.cpp` | libusb CBW/Data/CSW-/Reset |
 | `vUSBf@bc1fb14` | Replay-/Fuzzing | VM-Sequenzen, nicht Live-Capture |
 | `usbsnoop@30f9fad` | `main.js`, `usbsnoop.bpf.c` | Host SETUP + BOT Decode |
@@ -111,7 +126,11 @@ Logger-Feldnamen, kein neues Sheet.
 | CSW-Tag, Residue, Status | Abschluss oder Phase Error | `FACT` |
 | Sense Key / ASC / ASCQ | Fehler nach fehlgeschlagenem Command | `FACT` in Referenzen |
 | Reset-Epoch / Clear-Halt | Recovery-Grenze | `FACT` in Referenzen |
+| SET_ADDRESS / SET_CONFIGURATION | Enum-Epoch; Mount erst bei cfg n | `FACT` (`EVID-USBCTRL-…-001`) |
+| NEED_RESET vs. Clear-Halt | Clear heilt NEED_RESET **nicht** | `FACT` (`EVID-USBCTRL-…-004`) |
+| Mount ohne VBUS-Sense | Replug oft ohne umount | `FACT` Doku (`EVID-USBCTRL-…-007`/`008`) |
 | Control SETUP (Host-Lab) | Enumeration / Class-Reset | `FACT` in usbsnoop Decode |
+| USB↔WiFi unter Last | PHY/PLL / Last-Korrelation | `HYPOTHESIS` (`EVID-USBCTRL-…-009`); Sonde `UNKNOWN` |
 | monotone Zeitstempel | Latenzanalyse | erforderlich; NBT `UNKNOWN` |
 | Drop-/Overflow-Zähler | Capture-Vollständigkeit | erforderlich; nicht implementiert |
 
@@ -142,13 +161,15 @@ Logger-Feldnamen, kein neues Sheet.
 ## Beobachtungen
 
 Keine Lab- oder Feldbeobachtungen. Evidence-IDs sind Desk-Code-/Dokumentationsbefunde
-(`EVID-USBBOT-2026-10-13-*`, `EVID-USBBOT-INST-2026-10-14-*`).
+(`EVID-USBBOT-2026-10-13-*`, `EVID-USBBOT-INST-2026-10-14-*`,
+`EVID-USBCTRL-2026-10-14-*`).
 
 ## Offene Fragen
 
 - Kann ein Device-Ring CBW/CDB/CSW plus Control-Reset ohne Timingstörung halten?
 - Tag-Match Device-Logger ↔ usbsnoop am Kontrollhost?
 - Wie wird die Beobachterwirkung vor einem NBT-Lauf quantifiziert?
+- Stirbt WiFi der Sonde unter USB-Last (Lab), und welcher Chip-/PHY-Pfad?
 
 ## Verwandte Applications / Methods
 

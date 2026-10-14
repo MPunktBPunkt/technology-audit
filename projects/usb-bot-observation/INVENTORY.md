@@ -3,7 +3,7 @@
 ```yaml
 project_id: usb-bot-observation
 updated: 2026-10-14
-reviewed_snapshots: 12
+reviewed_snapshots: 15
 profile: lab-tool
 pilot_order: [usb-msc]
 ```
@@ -30,8 +30,8 @@ behandelt, nicht als neue Sheets.
 
 Beobachtungspfade:
 
-- **Device-seitig:** TinyUSB-/Gadget-Telemetrie (Hooks in `mscd_xfer_cb` /
-  `send_csw` / Control — siehe Instrumentierungs-Audit)
+- **Device-seitig:** TinyUSB-/Gadget-Telemetrie (BOT-Hooks + `usbd.c`
+  Enum/STALL — Instrumentierungs- und Control-Audits)
 - **Inline:** USBProxy-/Device-Proxy
 - **Kontrollierter Host/Gadget-Kontrast:** Host-Generator plus
   Referenz-Gadget; Lab-Validate-Kandidat: usbsnoop (Lizenz `UNKNOWN`)
@@ -45,8 +45,10 @@ Keiner dieser Pfade hat NBT-Daten erzeugt.
 | NBT-CBW/CDB/CSW | kein Fahrzeug-Capture | nur nach separatem Go und präregistrierten Gates |
 | READ(10)-Commandgrenze | Callback-Chunks sind keine CDB-Grenzen | CBW-CDB und CSW-Tag gemeinsam loggen |
 | Sense-Folge | keine NBT-Fehlersession | REQUEST SENSE kausal zum fehlgeschlagenen CSW korrelieren |
-| BOT Reset | Desk kennt Referenzpfade, nicht NBT-Verhalten | Reset-Epoch und Endpoint-Recovery instrumentieren |
-| Timing / Transparenz | Beobachterwirkung nicht gemessen | Baseline gegen Instrumentierungsvariante |
+| BOT Reset / NEED_RESET | Desk: Clear-Halt heilt NEED_RESET nicht; NBT offen | Epochs im Logger trennen; NBT-Capture separat |
+| Enum ohne VBUS | Desk: Replug oft ohne umount | Mount-Clear; Lab Replug-Soak |
+| Timing / Transparenz / S1–S3 | Beobachterwirkung nicht gemessen | eigene Messung, kein Fremd-Audit |
+| WiFi unter USB-Last | Issues = `HYPOTHESIS` | Lab an der Sonde |
 | Host Tag-Match | usbsnoop Desk-Decode ohne Lab | kontrollierter Lab nach Lizenzklärung |
 
 ## Signale ohne Eintrag
@@ -57,3 +59,5 @@ Keiner dieser Pfade hat NBT-Daten erzeugt.
   `ookaay` → `treblist` erzeugt keinen zweiten Projekteinstieg.
 - usbsnoop bleibt Research-/Lab-Tool-Kontrast ohne eigenen Slug (Lizenz offen).
 - edk2/Wireshark BOT-Dateien sind Schema-Referenzen, keine neuen Sheets.
+- EspUsbDevice Docs = Enum-Kontrast; kein zweites Device-Sheet.
+- esp-idf/arduino-esp32 USB↔WiFi Issues = Hypothesenregister, kein Fact für die Sonde.

@@ -20,7 +20,8 @@ Ebene **A** (allgemein). Ops/Feld → [`pidrive/applications/usb-msc.md`](../../
 
 **Wachstum 2026-10-12:** Callback-Zelle, USB-FS-Budget, Multi-Sektor-`bufsize`, exclusive-mount — Desk [`esp32-msc-gadget-refs-2026-foreign`](../../audits/esp32-msc-gadget-refs-2026-foreign/).  
 **Wachstum 2026-10-12 (Busy/Async):** TinyUSB `return 0` / `TUD_MSC_RET_BUSY`, Partial/ERROR, ASYNC (#2967), EP_BUFSIZE — Desk [`tinyusb-msc-busy-retry-2026`](../../audits/tinyusb-msc-busy-retry-2026/).  
-**Wachstum 2026-10-14 (BOT-Hooks/Schema):** CBW/CSW-Felder, TinyUSB Hook-Punkte, Control/STALL/Reset-Epoch, Host-eBPF-Decode — Desk [`usb-bot-observation-2026-instrument-sources`](../../audits/usb-bot-observation-2026-instrument-sources/).
+**Wachstum 2026-10-14 (BOT-Hooks/Schema):** CBW/CSW-Felder, TinyUSB Hook-Punkte, Control/STALL/Reset-Epoch, Host-eBPF-Decode — Desk [`usb-bot-observation-2026-instrument-sources`](../../audits/usb-bot-observation-2026-instrument-sources/).  
+**Wachstum 2026-10-14 (Control/Enum):** `usbd.c` SET_ADDRESS/SET_CONFIGURATION → mount/umount; CLEAR_HALT vs. NEED_RESET; esp_tinyusb Port-Kopplung; kein-VBUS-Replug — Desk [`usb-control-stall-recovery-2026`](../../audits/usb-control-stall-recovery-2026/).
 
 ## Kurzfassung
 
@@ -50,11 +51,18 @@ TinyUSB-Device (Instrumentierung, nicht App-API):
 
 | Hook | Wann | Typisches Event |
 |------|------|-----------------|
+| `usbd.c` `SET_ADDRESS` | Adressphase | `usb_set_address` (noch **nicht** mounted) |
+| `usbd.c` `SET_CONFIGURATION` | cfg 0 → `tud_umount_cb`; cfg n → `process_set_config` + `tud_mount_cb` | `usb_set_config` / mount / umount |
+| `usbd.c` CLEAR/SET_FEATURE `EDPT_HALT` | Endpoint Stall / Clear-Halt | `ep_stall` / `ep_clear_halt` |
 | `mscd_xfer_cb` / `MSC_STAGE_CMD` nach gültigem CBW | neuer Command | `bot_cbw` |
 | `send_csw` | Statusphase; Residue = `total_bytes - xferred_len` | `bot_csw` |
 | `mscd_control_xfer_cb` | BOT Reset `0xFF`, Get Max LUN `0xFE`, Clear-Halt | Epoch / Control |
-| `MSC_STAGE_NEED_RESET` | ungültiger CBW → Stall beider Bulk-EPs | Recovery-Epoch |
+| `MSC_STAGE_NEED_RESET` | ungültiger CBW → Stall beider Bulk-EPs; Clear-Halt **heilt nicht** | Recovery-Epoch |
 | `tud_msc_set_sense` | Sense Key / ASC / ASCQ | Fehlerkontext |
+
+ESP-Port (`esp_tinyusb`): `tud_mount_cb` / `tud_umount_cb` koppeln MSC-Storage-Ownership (`mount_to_usb` / `mount_to_app`) und `TINYUSB_EVENT_ATTACHED` / `DETACHED`. Descriptor-Callbacks liegen in `descriptors_control.c`.
+
+Enum-Praxis (ohne VBUS-Sense, typisch ESP-Boards): Unplug feuert oft **kein** umount; Replug geht in Re-Enumeration — State auch bei Mount (`SET_CONFIGURATION n`) clearen.
 
 App-Layer-Callbacks (`tud_msc_read10_cb` / Adafruit `onRead`) sehen **keine** CBW-Felder; Chunk-`bufsize` ≠ CDB-Transferlänge. Schema-Abgleich: edk2 `UsbMassBot.h`, Wireshark `packet-usbms-bot.c` — gleicher Contract, kein paralleles Sheet.
 
@@ -102,6 +110,10 @@ Host-Lab-Validate (Linux): eBPF-Sniffer können SETUP (Enumeration) und BOT CBW/
 | App-`onRead` = vollständiges CBW-Event | `REJECTED` | CBW nur im Class Driver (`EVID-USBBOT-INST-2026-10-14-002`/`010`) |
 | CBW 31 B / CSW 13 B mit USBC/USBS | `FACT` | TinyUSB `msc.h`; edk2/Wireshark Abgleich |
 | Ungültiger CBW → Stall + Reset-Recovery | `FACT` | TinyUSB `MSC_STAGE_NEED_RESET`; BOT Spec §6.6.1 |
+| Clear-Halt beendet NEED_RESET | `REJECTED` | TinyUSB stallt weiter bis BOT Reset (`EVID-USBCTRL-2026-10-14-004`) |
+| SET_ADDRESS = Klassen-EPs aktiv / mounted | `REJECTED` | Mount erst bei SET_CONFIGURATION n (`EVID-USBCTRL-…-001`) |
+| Unplug feuert immer `tud_umount_cb` auf ESP | `REJECTED` | ohne VBUS-Sense oft nein (`EVID-USBCTRL-…-007`/`008`) |
+| USB↔WiFi-Issue = Root-Cause jeder Sonde | `REJECTED` | nur Chip-/Modus-`HYPOTHESIS` (`EVID-USBCTRL-…-009`) |
 | Host-eBPF-Decode = physische Paketebene | `REJECTED` | URB-/Class-Ebene; DATA0/1 out-of-scope |
 
 ## Transfer
@@ -110,6 +122,7 @@ Wiederverwendbar für MCU-als-Stick, Diagnose-Gadgets, virtuelle Medien. **Host-
 Perf-Baseline und Callback-Hooks: Desk [`esp32-msc-gadget-refs-2026-foreign`](../../audits/esp32-msc-gadget-refs-2026-foreign/).  
 Busy/Async-Vertrag: [`tinyusb-msc-busy-retry-2026`](../../audits/tinyusb-msc-busy-retry-2026/).  
 BOT-Hooks/Schema: [`usb-bot-observation-2026-instrument-sources`](../../audits/usb-bot-observation-2026-instrument-sources/).  
+Control/Enum/STALL: [`usb-control-stall-recovery-2026`](../../audits/usb-control-stall-recovery-2026/).  
 Instrumentierung: [`msc-lba-timing-instrument`](../../methods/msc-lba-timing-instrument.md) · [`msc-busy-retry-semantics`](../../methods/msc-busy-retry-semantics.md) · [`usb-bot-command-observation`](../../methods/usb-bot-command-observation.md).
 
 ### Projektstart-Checkliste
@@ -118,6 +131,8 @@ Instrumentierung: [`msc-lba-timing-instrument`](../../methods/msc-lba-timing-ins
 - [ ] Read-Callback Signatur + Multi-Sektor `bufsize` / `EP_BUFSIZE` geplant
 - [ ] Busy-Strategie gewählt: Block vs. `return 0` vs. ASYNC (Port-Check!)
 - [ ] Falls Command-Observation: Logger an CBW/CSW-Hooks, nicht nur an `onRead`
+- [ ] Enum-Epochs: SET_ADDRESS ≠ Mount; SET_CONFIGURATION 0/n; ohne VBUS Mount-Clear
+- [ ] NEED_RESET vs. Clear-Halt vs. BOT Reset getrennt
 - [ ] Host-Prefetch/Timing → Host-Sheet / Application C
 - [ ] Throughput vs. Latenz getrennt messen
 - [ ] Application + `seen_in`
@@ -142,3 +157,4 @@ Instrumentierung: [`msc-lba-timing-instrument`](../../methods/msc-lba-timing-ins
 - Callback-Zelle + USB-FS-Budget sind die transferierbaren A-Erweiterungen aus dem Gadget-Referenz-Audit.
 - Busy/return-0 ist etabliert, aber **kein** kooperatives Yield ohne RTOS/ASYNC — Stall-FW muss den Port-Vertrag kennen.
 - Echte `bot_cbw`/`bot_csw`-Events gehören in den Class Driver; App-Callbacks und Host-eBPF sind Ergänzung bzw. Lab-Validate, kein Ersatz füreinander.
+- Enumeration-/Stall-Epochs sitzen in `usbd.c` + MSC-Control; Clear-Halt ≠ NEED_RESET-Heilung; ohne VBUS-Sense ist der Mount-Hook die zuverlässige Replug-Grenze.
