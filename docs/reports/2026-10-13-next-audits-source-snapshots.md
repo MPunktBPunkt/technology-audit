@@ -61,6 +61,16 @@ Evidence, wenn Commit, Lizenz und relevante Codepfade im jeweiligen
 | `ookaay/PartitionSchemeDetector` | `63c8669dd0e59b91b7852e3111479282ca7b93cd` (Repository jetzt `treblist/...`) | `UNKNOWN` | kleiner libusb-BOT-Kontrast | `usb-msc` |
 | `schumilo/vUSBf` | `bc1fb14551bbc97459cc3e2c36e337ad1060b06b` | GPL-2.0 (GitHub) | historisches USB-Replay/Fuzzing | `usb-msc` |
 
+## usb-bot-observation-2026-instrument-sources (Nachtrag 2026-10-14)
+
+| Repository | Snapshot | Lizenz | Rolle | Reuse-Match |
+|------------|----------|--------|-------|-------------|
+| `hathach/tinyusb` | `4c195b7b94f813a37b77b184bcae7b2b6ef2835e` (MSC-Pfad) | MIT | Device-Hooks CBW/CSW/Control | `usb-msc` |
+| `yeet-src/usbsnoop` | `30f9fad04871252934ca0edd74b0089cb96688da` | `UNKNOWN` | Host eBPF SETUP/BOT Decode | `usb-msc` |
+| `adafruit/Adafruit_TinyUSB_Arduino` | `1b7317255f7127b816fad7913ffaeb7fd416ace3` | MIT | App-Callbacks vs. Stack | `usb-msc` |
+| `tianocore/edk2` | `e4d139f4880625aed2e1e81d800afebc2b2c9630` (nur `UsbMassBot.h`) | BSD-2-Clause-Patent | Struct-Referenz | `usb-msc` |
+| `wireshark/wireshark` | `f28ca85a4b40aaa3d9eea4bf2a878ce9b68d4469` (nur `packet-usbms-bot.c`) | GPL-2.0 | Dissector-Schema | `usb-msc` |
+
 ## Vorläufige Reuse-Entscheidung
 
 - Kein paralleles NBT-, USB-MSC-, RDS- oder I2S-Sheet nur wegen eines neuen
