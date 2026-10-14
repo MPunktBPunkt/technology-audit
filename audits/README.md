@@ -17,6 +17,7 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`usb-bot-observation-2026-foreign`](usb-bot-observation-2026-foreign/) | closed | lab-tool | Fremd: BOT-Command-Beobachtung und Capture-Grenzen · **0.7.1** |
 | [`usb-bot-observation-2026-instrument-sources`](usb-bot-observation-2026-instrument-sources/) | closed | lab-tool | Fremd: TinyUSB-Hooks, usbsnoop, BOT-Schema · **0.7.1** |
 | [`usb-control-stall-recovery-2026`](usb-control-stall-recovery-2026/) | closed | lab-tool | Follow-on: usbd Control/Enum/STALL, esp_tinyusb, EspUsbDevice · **0.7.1** |
+| [`technology-audit-2026-kb-measured`](technology-audit-2026-kb-measured/) | closed | ops-field | Meta: MEASURED-Corpus vs. Desk-FACT · **0.7.1** |
 | [`esp32-sdr-trx-2026-foreign`](esp32-sdr-trx-2026-foreign/) | active | lab-tool | Fremd: S3 polar PHY TX + narrowband RX · **0.6.6** |
 | [`espargos-espsdr-2026-foreign`](espargos-espsdr-2026-foreign/) | active | lab-tool | Fremd: ESPARGOS Undoc I/Q Chip-Matrix · **0.6.6** |
 | [`c5vrx-2026-foreign`](c5vrx-2026-foreign/) | active | lab-tool | Fremd: C5VRX C5 FPV continuous I/Q · **0.6.6** |
