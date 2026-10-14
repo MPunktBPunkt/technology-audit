@@ -24,6 +24,7 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | [`usb-bot-command-observation`](usb-bot-command-observation.md) | CBW/CDB/CSW, BOT-Reset und Callbackgrenzen observe-only erfassen | active |
 | [`pcm-clock-drift-jitter-buffer`](pcm-clock-drift-jitter-buffer.md) | Netzwerk-PCM, Clockdrift, Jitterbuffer, Reconnect und Fail-safe gaten | active |
 | [`rf-loopback-rds-acceptance`](rf-loopback-rds-acceptance.md) | geschirmte FM-/RDS-/Spektrum-/Empfängerabnahme mit TX-OFF-Gates | active |
+| [`usb-wifi-coex-discrimination`](usb-wifi-coex-discrimination.md) | S3 USB↔WiFi: Power / Starve / RF im Lab trennen | active |
 
 ## Gate-Coverage aus `next-audits.md`
 

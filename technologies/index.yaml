@@ -4,7 +4,7 @@
 # Do not hand-edit sheet rows.
 
 generated: 2026-10-14
-sheet_count: 50
+sheet_count: 51
 sheets:
   - slug: airband-am
     title: VHF Airband AM Reception
@@ -132,6 +132,12 @@ sheets:
     reusability: W2
     seen_in: [esp32-sdr-trx]
     path: technologies/esp32-polar-phy-tx/SHEET.md
+  - slug: esp32-s3-usb-wifi-coex
+    title: ESP32-S3 USB ↔ WiFi Coexistence (OTG Device + STA)
+    primary: D
+    reusability: W2
+    seen_in: [hu-probe]
+    path: technologies/esp32-s3-usb-wifi-coex/SHEET.md
   - slug: esp32-undoc-iq-rx
     title: ESP32 Undocumented I/Q RX Dump
     primary: A

@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-14
-project_count: 53
+project_count: 54
 projects:
   - id: a2dpsinkhfpclient
     title: a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd)
@@ -227,6 +227,12 @@ projects:
     status: active
     applications: 1
     path: projects/espusbhost/
+  - id: hu-probe
+    title: hu-probe — ESP32-S3 USB-MSC Head-Unit Messsonde
+    profile: lab-tool
+    status: active
+    applications: 1
+    path: projects/hu-probe/
   - id: iobroker-esp-hub
     title: iobroker-esp-hub
     profile: adapter
