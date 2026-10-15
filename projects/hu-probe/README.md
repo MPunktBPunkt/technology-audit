@@ -10,7 +10,8 @@ Firmware-Mirror.
 | [INVENTORY.md](INVENTORY.md) | Tech-Slugs |
 | [FOLLOW-ON-IDEAS.md](FOLLOW-ON-IDEAS.md) | nächste Schritte |
 | [applications/esp32-s3-usb-wifi-coex.md](applications/esp32-s3-usb-wifi-coex.md) | Stack-Pin + Hypothesen-Rahmen |
-| Audit | [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi-coexistence-2026/) |
+| Audits | [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi-coexistence-2026/) · [`msc-host-read-semantics-s1s2s3-2026`](../../audits/msc-host-read-semantics-s1s2s3-2026/) |
+| Method S1–S3 | [`msc-host-read-semantics`](../../methods/msc-host-read-semantics.md) |
 
-**Stand:** Desk 2026-10-14. Coex-Karte geschlossen; Lab-Diskriminierung offen.
-Keine Root-Cause für FW 0.2.15.
+**Stand:** Desk 2026-10-15. Coex-Karte geschlossen; S1–S3-Messplan geschlossen
+(keine NBT-Zahlen). Lab-Diskriminierung Coex und Feld S1–S3 offen.
