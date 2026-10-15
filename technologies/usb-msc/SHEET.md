@@ -7,7 +7,7 @@ primary: C
 tags: [usb-device, automotive, streaming]
 type: protocol
 status: active
-seen_in: [pidrive, esp32-pidrive, esp32-msc-gadget-refs, usb-bot-observation]
+seen_in: [pidrive, esp32-pidrive, esp32-msc-gadget-refs, usb-bot-observation, hu-probe]
 maturity:
   technology: R4
   implementation: R0   # siehe Project Application
@@ -16,7 +16,7 @@ maturity:
 pilot: audits/pidrive-2026-msc
 ```
 
-Ebene **A** (allgemein). Ops/Feld → [`pidrive/applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md). Firmware-Desk → [`esp32-pidrive/applications/usb-msc.md`](../../projects/esp32-pidrive/applications/usb-msc.md). Referenz-Gadgets → [`esp32-msc-gadget-refs`](../../projects/esp32-msc-gadget-refs/). BMW-Host → [`bmw-nbt-evo`](../bmw-nbt-evo/SHEET.md). Virtual FAT → [`virtual-fat`](../virtual-fat/SHEET.md).
+Ebene **A** (allgemein). Ops/Feld → [`pidrive/applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md). Messsonde → [`hu-probe/applications/usb-msc.md`](../../projects/hu-probe/applications/usb-msc.md). Firmware-Desk → [`esp32-pidrive/applications/usb-msc.md`](../../projects/esp32-pidrive/applications/usb-msc.md). Referenz-Gadgets → [`esp32-msc-gadget-refs`](../../projects/esp32-msc-gadget-refs/). BMW-Host → [`bmw-nbt-evo`](../bmw-nbt-evo/SHEET.md). Virtual FAT → [`virtual-fat`](../virtual-fat/SHEET.md).
 
 **Wachstum 2026-10-12:** Callback-Zelle, USB-FS-Budget, Multi-Sektor-`bufsize`, exclusive-mount — Desk [`esp32-msc-gadget-refs-2026-foreign`](../../audits/esp32-msc-gadget-refs-2026-foreign/).  
 **Wachstum 2026-10-12 (Busy/Async):** TinyUSB `return 0` / `TUD_MSC_RET_BUSY`, Partial/ERROR, ASYNC (#2967), EP_BUFSIZE — Desk [`tinyusb-msc-busy-retry-2026`](../../audits/tinyusb-msc-busy-retry-2026/).  

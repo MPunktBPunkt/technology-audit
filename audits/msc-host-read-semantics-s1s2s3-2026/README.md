@@ -164,6 +164,6 @@ Cache-Hit am NBT **reproduzierbar klassifizieren** — Zahlen kommen erst aus de
 
 ## Offene Punkte nach Abschluss
 
-- Feld/Lab S1–S3 nach GATE-01-Freigabe; neue Evidence-IDs nur aus Sessions
-- hu-probe-Profil: `class: FACT` → Anker/`hypothesis` umetikettieren (Upstream)
+- ~~Feld Transport S0/S2~~ → erledigt in [`hu-probe-bmw-s0s2-field-2026`](../hu-probe-bmw-s0s2-field-2026/) (`EVID-HUPROBE-2026-10-15-*`); Semantik Prefetch/Eager/Cache weiter offen
+- hu-probe-Profil P1c: `origin: hu_probe_field` + Epistemik (Upstream noch offen)
 - HU-A1 Startgate bleibt Voraussetzung für kausale Prefetch/Cache-Claims

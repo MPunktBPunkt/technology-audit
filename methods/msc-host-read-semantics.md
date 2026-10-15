@@ -145,5 +145,6 @@ feste Dateien in RAM (vgl. `esp32usbmsc` / gadget-refs) — nicht Throughput-Ben
 | Projekt / Audit | Hinweis |
 |-----------------|---------|
 | `hu-probe` | Szenarien `s1_eager_eof` / `s2_prefetch` / `s3_cache_hit` |
-| `msc-host-read-semantics-s1s2s3-2026` | Desk-Messplan; Feld noch `UNKNOWN` |
+| `msc-host-read-semantics-s1s2s3-2026` | Desk-Messplan |
+| `hu-probe-bmw-s0s2-field-2026` | S0/S2 **Transport** `MEASURED`; Prefetch/Eager/Cache weiter `INFERRED` bis LBA+Marker-Formal |
 | `pidrive-2026-bmw-hu` | HU-A1 Startgate vor kausalen Prefetch-Claims |

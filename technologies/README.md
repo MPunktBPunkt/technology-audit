@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-14`, 50 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-15`, 51 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 ## Index nach Primary (TAXONOMY)
 
@@ -40,15 +40,15 @@ Wiederverwendbare Technology Sheets.
 | [`fm-rds`](fm-rds/SHEET.md) | FM-RDS (Radio Data System) | W2 | `pi-fm-tx`, `esp-fm-rds-node` |
 | [`kostal-piko-http`](kostal-piko-http/SHEET.md) | Kostal PIKO Local HTTP Interface | W2 | `iobroker-kostalpiko` |
 | [`pump-control-link`](pump-control-link/SHEET.md) | PUMP Control Link | W2 | `esp32-pidrive` |
-| [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W3 | `pidrive`, `esp32-pidrive`, `esp32-msc-gadget-refs`, `usb-bot-observation` |
+| [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W3 | `pidrive`, `esp32-pidrive`, `esp32-msc-gadget-refs`, `usb-bot-observation`, `hu-probe` |
 
 ### D — Embedded
 
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
-| [`esp32-s3-usb-wifi-coex`](esp32-s3-usb-wifi-coex/SHEET.md) | ESP32-S3 USB ↔ WiFi Coexistence | W2 | `hu-probe` |
 | [`esp32-apll-fm-tx`](esp32-apll-fm-tx/SHEET.md) | ESP32 APLL / MCLK FM Transmit | W2 | `esp-fm-tx` |
 | [`esp32-polar-phy-tx`](esp32-polar-phy-tx/SHEET.md) | ESP32-S3 Polar PHY Test-Tone TX | W2 | `esp32-sdr-trx` |
+| [`esp32-s3-usb-wifi-coex`](esp32-s3-usb-wifi-coex/SHEET.md) | ESP32-S3 USB ↔ WiFi Coexistence (OTG Device + STA) | W2 | `hu-probe` |
 | [`esp32-wifi-tone-tx`](esp32-wifi-tone-tx/SHEET.md) | ESP32-S3 Wi-Fi PHY CW Tone Keying TX | W2 | `esp32sdr` |
 | [`rpi-gpio-fm-tx`](rpi-gpio-fm-tx/SHEET.md) | Raspberry Pi GPIO / Clock FM Transmit | W3 | `pi-fm-tx` |
 | [`rpitx`](rpitx/SHEET.md) | rpitx — Raspberry Pi Software RF Transmit Platform | W2 | `pi-fm-tx` |
@@ -98,7 +98,7 @@ Wiederverwendbare Technology Sheets.
 
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
-| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | BMW NBT Evo Head Unit — Host-Plattform | W1 | `pidrive`, `esp32-bt-gateway`, `bmw-nbt-media-index` |
+| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | BMW NBT Evo Head Unit — Host-Plattform | W1 | `pidrive`, `esp32-bt-gateway`, `bmw-nbt-media-index`, `hu-probe` |
 | [`hammer-varon-xtr`](hammer-varon-xtr/SHEET.md) | Hammer Varon XTR II (FTMS Host) | W2 | `esp32-ftmsprobe`, `esp32-ergo` |
 
 ### J — Architektur
