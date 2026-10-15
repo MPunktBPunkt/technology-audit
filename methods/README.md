@@ -13,6 +13,7 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | [`hw-path-gate`](hw-path-gate.md) | RF/Clock E-0…E-3 Gates vor Varianten-Sheet | active |
 | [`kb-cross-check`](kb-cross-check.md) | KB als Reasoning-Bausteine prüfen (Blindtest) | active |
 | [`msc-lba-timing-instrument`](msc-lba-timing-instrument.md) | MSC Read-Callback LBA/Burst/Latenz (Lab→HU) | active |
+| [`msc-host-read-semantics`](msc-host-read-semantics.md) | Eager-EOF / Prefetch / Cache-Hit (S1–S3) Marker + Auswerteskript | active |
 | [`msc-busy-retry-semantics`](msc-busy-retry-semantics.md) | TinyUSB Busy/`return 0` vs. Block vs. ASYNC testen | active |
 | [`callback-reentry-state-lifetime`](callback-reentry-state-lifetime.md) | State/Timer über Callback-Re-Entry (generischer Review Check) | active |
 | [`msc-trace-correlation`](msc-trace-correlation.md) | HU-LBA-Traces vs. Diag/`bytesServed`/AV | active |
@@ -34,7 +35,7 @@ Method Notes selbst erzeugen keine Evidence-IDs.
 
 | Todos | Wiederverwendbare Methode / Gate |
 |-------|----------------------------------|
-| HU-A1, A3, A4, A6, A8 | [`nbt-cache-eviction-play-intent`](nbt-cache-eviction-play-intent.md) |
+| HU-A1, A3, A4, A6, A8 | [`nbt-cache-eviction-play-intent`](nbt-cache-eviction-play-intent.md); S1–S3-Instrument: [`msc-host-read-semantics`](msc-host-read-semantics.md) |
 | HU-A2 | bestehend: [`nbt-medium-identity-resume`](nbt-medium-identity-resume.md) |
 | HU-A5 | [`field-av-offset-correlation`](field-av-offset-correlation.md) |
 | HU-A7 | bestehend: [`msc-busy-retry-semantics`](msc-busy-retry-semantics.md), bei Bedarf BOT-Beobachtung |
