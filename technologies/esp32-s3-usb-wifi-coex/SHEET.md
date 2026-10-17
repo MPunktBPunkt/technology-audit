@@ -19,6 +19,7 @@ pilot: audits/esp32-s3-usb-wifi-coexistence-2026
 Ebene **A**. Projektsymptome / FW-Pins → Application. Desk:
 [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi-coexistence-2026/).
 MSC-Protokoll → [`usb-msc`](../usb-msc/SHEET.md).
+Silicon-Errata (Cache/Sleep/OTG-Download) → [`esp32-s3-silicon`](../esp32-s3-silicon/SHEET.md).
 
 ## Kurzfassung
 

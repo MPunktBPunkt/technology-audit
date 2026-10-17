@@ -132,6 +132,12 @@ sheets:
     reusability: W2
     seen_in: [esp32-sdr-trx]
     path: technologies/esp32-polar-phy-tx/SHEET.md
+  - slug: esp32-s3-silicon
+    title: ESP32-S3 Silicon Errata & Hardware Limits
+    primary: D
+    reusability: W2
+    seen_in: [esp32-pidrive, hu-probe, pidrive]
+    path: technologies/esp32-s3-silicon/SHEET.md
   - slug: esp32-s3-usb-wifi-coex
     title: ESP32-S3 USB ↔ WiFi Coexistence (OTG Device + STA)
     primary: D
