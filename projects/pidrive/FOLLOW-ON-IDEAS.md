@@ -27,6 +27,7 @@ reuse_outcomes:
 | Feld-Ohr AV PASS | `bmw-nbt-evo` | Exit #6; dann Maturity/Method |
 | Stuck-Capture Quiet vs Storm | `bmw-nbt-evo`, Abend-Audit | LBA/Klasse im Prefetch-Livelock; UART zuerst — [`pidrive-2026-10-17-prefetch-livelock`](../../audits/pidrive-2026-10-17-prefetch-livelock/) · Tooling-Fitness [`pidrive-2026-storm-capture-tooling`](../../audits/pidrive-2026-storm-capture-tooling/) (lbatofile REJECT; Band-Report P0) |
 | S3 Silicon-Gates vor langen MSC-Sessions | `esp32-s3-silicon` | Errata CACHE/ANALOG/RTC/USBOTG — [`esp32-s3-hw-limits-2026`](../../audits/esp32-s3-hw-limits-2026/) |
+| Public Gap Prefetch-Livelock (kein Fremd-Q/S) | `bmw-nbt-evo` | Boot/KeenLab/Generic-MSC nur Kontext — [`prefetch-livelock-public-gap-2026`](../../audits/prefetch-livelock-public-gap-2026/); P0 = eigene Capture |
 | FM-Meta-Kontrast RDS | `fm-rds` (Fremd `pi-fm-tx`) | nicht als PiDrive-TX; Protokoll-Vergleich zu DLS |
 
 Radio/BT: [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/) · HU: [`pidrive-2026-bmw-hu`](../../audits/pidrive-2026-bmw-hu/) · Method [`sdr-spectrum-channel-watch`](../../methods/sdr-spectrum-channel-watch.md).  

@@ -14,6 +14,8 @@ related_audits:
   - pidrive-2026-bmw-hu
   - msc-host-read-semantics-s1s2s3-2026
   - hu-probe-bmw-s0s2-field-2026
+  - pidrive-2026-storm-capture-tooling
+  - prefetch-livelock-public-gap-2026
 upstream_pin:
   repo: https://github.com/MPunktBPunkt/pidrive
   commit: d50196e

@@ -8,6 +8,8 @@ sheet: ../../../technologies/bmw-nbt-evo/SHEET.md
 audit: ../../../audits/pidrive-2026-bmw-hu/
 related_audits:
   - ../../../audits/pidrive-2026-10-17-prefetch-livelock/
+  - ../../../audits/pidrive-2026-storm-capture-tooling/
+  - ../../../audits/prefetch-livelock-public-gap-2026/
 related_applications:
   - usb-msc.md
 maturity:
@@ -99,6 +101,7 @@ BMW NBT Evo (Host, C)
 | 2026-10-05 Lab | Menü-Seite, Correlate, Lock-after-RST — `EVID-BMWHU-2026-10-05-003`–`005` |
 | 2026-10-12 E7/S6 | Busy-Pacing an NBT: ~65 s bis Dateiende; Stall-off ~6 s; Menü ~20 s; Rock oft stumm — `EVID-BMWHU-2026-10-12-001`–`007` · [ERGEBNIS-S6](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/artifacts-2026-10-12-feld/feld-s6-prep/ERGEBNIS-S6.md) |
 | 2026-10-17 Abend | Quiet/Storm-Muster, Meta konstant, Guess-im-Storm, hostAbs-Overshoot — `EVID-BMWHU-2026-10-17-001`–`010` · [TRI-REVIEW](https://github.com/MPunktBPunkt/pidrive/blob/d50196e/docs/betrieb/artifacts-2026-10-17-feld/TRI-REVIEW-ABEND-2026-10-17.md) · Audit [`pidrive-2026-10-17-prefetch-livelock`](../../../audits/pidrive-2026-10-17-prefetch-livelock/) |
+| 2026-10-18 Desk | Öffentliche Boot/Dump/KeenLab/Generic-MSC-Quellen liefern **keinen** Prefetch-Livelock-/Q/S-Analyzer — Gap · `EVID-PREFGAP-2026-10-18-015` · [`prefetch-livelock-public-gap-2026`](../../../audits/prefetch-livelock-public-gap-2026/) |
 
 ## Community / SIB (Transfer-Hinweise — nicht MEASURED)
 
@@ -117,6 +120,7 @@ Referenz-Gadgets (kein HU-Feld): [`esp32-msc-gadget-refs`](../../esp32-msc-gadge
 - Feld-AV/Ohr Exit #6: Gate Rock/Bayern/BOB + erstes `MSC_MAP_FROZEN` (getrennt vom Busy-Pacing-Tonfenster 2026-10-12)
 - Korrelation `fileOff`/`hostAbs` × `liveBytes` × Underruns × Ton (nach Gate)
 - Auto-Next vs. manueller Track-Wechsel — gleiches Read-Muster?
+- Storm-Capture M30: LBA/Klasse × Guess (öffentliche RE ersetzt das nicht — Public-Gap-Audit)
 - BT-Pfad (A2DP/AVRCP) vs. MSC — getrennte Host-Profile unter einem Sheet?
 - Welche Label/Serial-Änderung flush’t NBT-Cache empirisch?
 - Max `onRead`-Latenz / BUSY-Budget vor HU-Abort jenseits des belegten Stall-Defaults (`maxMs=500`)?
