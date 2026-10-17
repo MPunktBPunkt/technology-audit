@@ -17,6 +17,7 @@ related_audits:
   - bmw-nbt-media-index-2026-foreign
   - msc-host-read-semantics-s1s2s3-2026
   - esp32-s3-hw-limits-2026
+  - prefetch-livelock-public-gap-2026
 upstream_pins:
   - repo: https://github.com/MPunktBPunkt/pidrive
     commit: 2f58066d374860f7e5a5fbe17a713d3aeae58364
