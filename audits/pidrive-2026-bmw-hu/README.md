@@ -39,6 +39,12 @@ neuer Feldlauf, keine neue Evidence-ID und keine rückwirkende Aufwertung:
 alle ungemessenen Gate-Ergebnisse bleiben `UNKNOWN`. Historische S3–S6-
 Ergebnisse bleiben unter dem damaligen Standard- und Wissenszeitpunkt.
 
+**Feld-Abend 2026-10-17 (Schwester-Kampagne):** Prefetch-Livelock-Muster
+(Quiet vs Storm, 167/136-Plateau, Guess-im-Storm) unter
+[`pidrive-2026-10-17-prefetch-livelock`](../pidrive-2026-10-17-prefetch-livelock/)
+· Upstream `pidrive@d50196e`. Speist HU-A1/A4 (Startklasse / Play-Intent),
+ersetzt keine HU-A*-Gate-Läufe.
+
 ## Scope
 
 - Im Scope: Sheet `technologies/bmw-nbt-evo/`; Application; Evidence für C-Claims; Reifegrade; Verknüpfung zu MSC-Application; 0.7.0 C10–C13; 0.7.1-Nachzug der nächsten Method/Gate-Präregistrierung.

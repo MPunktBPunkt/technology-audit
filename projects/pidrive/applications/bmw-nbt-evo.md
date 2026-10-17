@@ -6,12 +6,14 @@ tech_slug: bmw-nbt-evo
 status: active
 sheet: ../../../technologies/bmw-nbt-evo/SHEET.md
 audit: ../../../audits/pidrive-2026-bmw-hu/
+related_audits:
+  - ../../../audits/pidrive-2026-10-17-prefetch-livelock/
 related_applications:
   - usb-msc.md
 maturity:
   technology: R2
   implementation: R0      # HU ist Host; „Implementation“ = Beobachtungs- und Korrelationsmodell
-  field_evidence: R3      # C′ + Busy-Pacing-Ton ~65 s (2026-10-12); Exit #6 Menü-Gate noch offen
+  field_evidence: R3      # C′ + Busy-Pacing ~65 s (2026-10-12) + Abend-Muster 2026-10-17; Exit #6 Menü-Gate noch offen
   reusability: W1
 ```
 
@@ -44,11 +46,12 @@ BMW NBT Evo (Host, C)
 | `pidrive` | `docs/betrieb/artifacts-2026-10-05-lab/` | Menü-Seite, Correlate, Lock-after-RST |
 | `pidrive` | `docs/betrieb/artifacts-2026-10-04-feld/` | Feld Q3b (Historie) |
 | `pidrive` | `docs/betrieb/artifacts-2026-10-04-lab/` | Lab AV MPEG @ Host |
+| `pidrive` | `docs/betrieb/artifacts-2026-10-17-feld/` | Abend-Feld + Tri-Review Prefetch-Livelock |
 | `esp32.pidrive` | `tools/nbt_*.py`, `tools/traces/` | Replay / Lab-Host |
 
 ## Ebene C — empirisches Host-Verhalten (NBT Evo, USB-MSC)
 
-**Nicht** ins [`usb-msc` Sheet](../../../technologies/usb-msc/SHEET.md). Evidence-Register: [`audits/pidrive-2026-bmw-hu/evidence.md`](../../../audits/pidrive-2026-bmw-hu/evidence.md).
+**Nicht** ins [`usb-msc` Sheet](../../../technologies/usb-msc/SHEET.md). Evidence-Register: [`audits/pidrive-2026-bmw-hu/evidence.md`](../../../audits/pidrive-2026-bmw-hu/evidence.md) · Abend-Muster 2026-10-17: [`audits/pidrive-2026-10-17-prefetch-livelock/evidence.md`](../../../audits/pidrive-2026-10-17-prefetch-livelock/evidence.md).
 
 | Claim | Evidence | Status |
 |-------|----------|--------|
@@ -71,6 +74,14 @@ BMW NBT Evo (Host, C)
 | „Kleiner Ring + kurze Tonphase = technische Grenze“ | `EVID-BMWHU-2026-10-12-005` | `REJECTED` |
 | Unter Stall: Menü/Enumeration ~20 s träge | `EVID-BMWHU-2026-10-12-006` | `MEASURED` (Ursache `INFERRED`/`UNKNOWN`) |
 | Rock Antenne 8 MiB in S6 oft stumm (Resume/Start) | `EVID-BMWHU-2026-10-12-007` | `MEASURED` (Ursache `UNKNOWN`) |
+| `readCount − playRejectCount ∈ {31,32}` session-weit (Abend 0.4.53) | `EVID-BMWHU-2026-10-17-001` | `MEASURED` |
+| `(167,136)` + `pref≈8` = Quiet-Plateau — **kein** Stuck-allein-Marker | `EVID-BMWHU-2026-10-17-002` | `MEASURED` |
+| Stuck-Morphologien Quiet vs Storm (pref/midFile/bytesFile) | `EVID-BMWHU-2026-10-17-003` | `MEASURED` |
+| Meta-Bytes (Dir/Fat/Meta/Boot) session-konstant; Livelock = File-Body | `EVID-BMWHU-2026-10-17-004` | `MEASURED` |
+| Play-Guess mitten im Reject-Storm möglich (17:58:21) | `EVID-BMWHU-2026-10-17-005` | `MEASURED` |
+| `fromHead` ∈ {0,2}; Mid-file dominiert | `EVID-BMWHU-2026-10-17-006` | `MEASURED` |
+| fav2 oft voll vorgelesen ohne Play | `EVID-BMWHU-2026-10-17-007` | `MEASURED` |
+| hostAbs-Overshoot nach Tonfenster (bis ~859 KiB; M27) | `EVID-BMWHU-2026-10-17-008` | `MEASURED` |
 | Host-Scope: Claims = NBT Evo (nicht still andere BMW-HU) | `EVID-SCOPE-2026-10-11-001` | `FACT` |
 | „Warm-konfundierte Trace = Sequenz tot“ | `EVID-USBMSC-2026-10-04-007` | `REJECTED` |
 
@@ -87,6 +98,7 @@ BMW NBT Evo (Host, C)
 | 2026-10-05 07:50 | Feld-AV blockiert (Meta-Menü) — `EVID-BMWHU-2026-10-05-002` |
 | 2026-10-05 Lab | Menü-Seite, Correlate, Lock-after-RST — `EVID-BMWHU-2026-10-05-003`–`005` |
 | 2026-10-12 E7/S6 | Busy-Pacing an NBT: ~65 s bis Dateiende; Stall-off ~6 s; Menü ~20 s; Rock oft stumm — `EVID-BMWHU-2026-10-12-001`–`007` · [ERGEBNIS-S6](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/betrieb/artifacts-2026-10-12-feld/feld-s6-prep/ERGEBNIS-S6.md) |
+| 2026-10-17 Abend | Quiet/Storm-Muster, Meta konstant, Guess-im-Storm, hostAbs-Overshoot — `EVID-BMWHU-2026-10-17-001`–`010` · [TRI-REVIEW](https://github.com/MPunktBPunkt/pidrive/blob/d50196e/docs/betrieb/artifacts-2026-10-17-feld/TRI-REVIEW-ABEND-2026-10-17.md) · Audit [`pidrive-2026-10-17-prefetch-livelock`](../../../audits/pidrive-2026-10-17-prefetch-livelock/) |
 
 ## Community / SIB (Transfer-Hinweise — nicht MEASURED)
 

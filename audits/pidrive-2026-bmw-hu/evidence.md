@@ -51,3 +51,4 @@ Feld S6 kanonisch: [ERGEBNIS-S6.md](https://github.com/MPunktBPunkt/pidrive/blob
 | 2026-10-11 | Revalidation **0.6.6**: Framework-Parität + Host-Scope, [DELTA](DELTA.md); kein neuer Feld-Lauf |
 | 2026-10-12 | E7/S6 Busy-Pacing Feld: ~65 s vs. ~6 s; IDs `001`–`005` |
 | 2026-10-13 | 0.7.0-Nachzug: Upstream-Links; `006` Menü-Latenz; `007` Rock-stumm; C10–C13 in Kampagne |
+| 2026-10-17 | Abend-Feld Prefetch-Livelock → Schwester [`pidrive-2026-10-17-prefetch-livelock`](../pidrive-2026-10-17-prefetch-livelock/) (`EVID-BMWHU-2026-10-17-*`) |
