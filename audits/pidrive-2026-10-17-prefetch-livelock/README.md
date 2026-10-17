@@ -81,7 +81,7 @@ kill:
 | 6 | fromHead rar / midFile dominant; fav2 oft voll ohne Play | erfüllt — `006`, `007` |
 | 7 | hostAbs-Overshoot nach Tonfenster (M27) | erfüllt — `008` |
 | 8 | Application `bmw-nbt-evo` (pidrive) um Abend-Muster ergänzt | erfüllt |
-| 9 | Nächstes Feld: UART + Stuck-Capture (Q vs S) mit LBA/Klasse | offen |
+| 9 | Nächstes Feld: UART + Stuck-Capture (Q vs S) mit LBA/Klasse | offen — Tooling-Desk: [`pidrive-2026-storm-capture-tooling`](../pidrive-2026-storm-capture-tooling/) |
 | 10 | C10–C13 für Abend-Kampagne | erfüllt (Desk-Nachrechnung; Kill präregistriert) |
 
 ## Decision Trace

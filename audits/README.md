@@ -9,6 +9,7 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`pidrive-2026-msc`](pidrive-2026-msc/) | closed | ops-field | Pilot 1 — USB-MSC |
 | [`pidrive-2026-bmw-hu`](pidrive-2026-bmw-hu/) | active | ops-field | Pilot 2 — BMW NBT Evo · Busy-Pacing Feld 2026-10-12 · **0.7.1** Method-/Gate-Nachzug |
 | [`pidrive-2026-10-17-prefetch-livelock`](pidrive-2026-10-17-prefetch-livelock/) | active | ops-field | Abend-Feld 2026-10-17 — Quiet/Storm-Muster, 167/136-Plateau, Guess-im-Storm · **0.7.1** |
+| [`pidrive-2026-storm-capture-tooling`](pidrive-2026-storm-capture-tooling/) | closed | lab-tool | Desk-Fitness M30–M32: eigene MessCapture/Band-Report vs. Fremd-FAT/USB-Tools · **0.7.1** |
 | [`pidrive-2026-radio-bt`](pidrive-2026-radio-bt/) | active | ops-field | DAB+/PMR/Airband/FFT + A2DP/AVRCP · **0.6.6** revalidated (from 0.6.3) |
 | [`pi-fm-tx-2026-foreign`](pi-fm-tx-2026-foreign/) | active | lab-tool | Fremd: pifm + PiFmRds (GPIO-FM/RDS) · **0.6.6** revalidated (from 0.6.3) |
 | [`esp-fm-tx-2026-foreign`](esp-fm-tx-2026-foreign/) | active | lab-tool | Fremd: ESP32 APLL/MCLK-FM (Alexxdal + hiperiondev) · **0.6.6** |
