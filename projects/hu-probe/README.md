@@ -18,4 +18,4 @@ Firmware-Mirror.
 
 **Stand:** 2026-10-15 · reviewed `hu-probe@5dbec43`. Coex-Desk geschlossen;
 S1–S3-Messplan geschlossen; **S0/S2 Transport-Feld** geschlossen (Semantik offen).
-P1c Profil-Upstream und Auto-Offline offen.
+P1c Profil-Upstream **done 2026-10-17**; Auto-Offline weiter offen.

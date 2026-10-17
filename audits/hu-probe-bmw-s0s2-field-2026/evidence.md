@@ -40,7 +40,7 @@ Primär-Auswertungen (Upstream, reviewed):
 | `EVID-HUPROBE-2026-10-15-010` | Prefetch≈15 s / Eager-EOF / Cache-Hit: S2 liefert dichte Operator-Marker (Autoplay/Tip/RST), viele **nachgezogen**; Semantik **ohne** LBA-Formal = weiter `INFERRED` / `needs_field` (Vor-Audit `EVID-MSCRHS-…`). | `INFERRED` | S2-Auswertung; Messplan-Audit |
 | `EVID-HUPROBE-2026-10-15-011` | Read-Kind Gap-p50 (S2): file **3783** · fat **1218** · dir **3813** · boot **20863** µs — informativ; Deutung offen. | `MEASURED` (Zahlen) / Deutung `UNKNOWN` | S2-Auswertung |
 | `EVID-HUPROBE-2026-10-15-012` | Mount→INQUIRY p50 ~**997 ms** (n=12 chains); Session-TUR-Hz p50 ~**2,06** (nicht idle); QD-max p50=1 (`INFERRED`, Wire UNKNOWN). Profil `enum_s`/`tur_hz` nicht 1:1 ersetzen. | `MEASURED` / QD `INFERRED` | offline-p0 |
-| `EVID-HUPROBE-2026-10-15-013` | Upstream `profiles/bmw_nbt_evo.json` noch **PiDrive-`class: FACT`** (eager/prefetch/cache/gap_ms…); **P1c offen** — noch kein `origin: hu_probe_field`-Nachzug trotz S0/S2-Messlage. | `FACT` (Profiltext-Stand) | Profil @ `5dbec43`; massnahmen-01d P1c |
+| `EVID-HUPROBE-2026-10-15-013` | Upstream `profiles/bmw_nbt_evo.json` war zum Audit-Pin `5dbec43` noch **PiDrive-`class: FACT`** (eager/prefetch/cache/gap_ms…); **P1c damals offen**. **Nachzug 2026-10-17:** schema 3 mit `origin: hu_probe_field` für Transport (Gap µs, Event-n, CBW 8/240, writes, ms6/cap, bot_source); Semantik abgestuft; A7-Sequenz aus PiDrive MessCapture als `pidrive_field`. | `FACT` (Stand 15.10.) → **P1c closed 17.10.** | Profil @ `5dbec43` (offen); Upstream-Patch 2026-10-17; checklist `docs/feld/2026-10-15-p1c-checklist.md` |
 
 ## Claim-Diff vs. Vor-Audit / Profil
 
@@ -52,24 +52,25 @@ Primär-Auswertungen (Upstream, reviewed):
 | Burst-39 | teils als FACT diskutiert | Konstante `REJECTED`; Cluster INFERENCE |
 | Prefetch ~15 s | Profil FACT pidrive / hypothesis | weiter INFERENCE (`010`) |
 | Offline-Capture | geplant | Lab PASS / BMW FAIL (`007`) |
-| Profil P1c | offen | weiter offen (`013`) |
+| Profil P1c | offen (`013`) | **done 2026-10-17** Upstream schema 3 |
 
-## Profil-P1c — Patch-Skizze (Upstream, nicht hier ausgeführt)
+## Profil-P1c — ausgeführt 2026-10-17 (Upstream)
 
-Nur **gesicherte** hu-probe-Feldwerte mit `origin: hu_probe_field`, `fw` Pins:
+Gesicherte hu-probe-Feldwerte mit `origin: hu_probe_field`, `fw` Pins (plus PiDrive A7 als `pidrive_field`):
 
-| Key | Vorschlag | class / Hinweis |
-|-----|-----------|-----------------|
+| Key | Wert | class / Hinweis |
+|-----|------|-----------------|
 | `gap_us_p50_file_s0` / `_s2` | ~3739 / ~3783 | FACT Messgröße; Caveat: nicht Scheduler |
 | `read_event_n_mode` | 4096 | FACT Event-Ebene |
-| `read10_blocks_mode_common` | [8, 240, …] | FACT CBW; getrennt von Event-n |
+| `read10_blocks_mode_common` / `read10_max_blocks` | [8, 240] / 240 | FACT CBW; getrennt von Event-n |
 | `writes_expected` | false | FACT (gesehen) |
 | `bot_source` | tinyusb | FACT Instrument |
 | `mode_sense6_per_capacity` | 2.0 | FACT HU-Muster |
-| `eager_eof` / `prefetch_lead_s` / `cache_hit_*` | unverändert oder `hypothesis` | **nicht** hochstufen |
-| `burst_file_reads_p50` | 39 | nur `INFERENCE` / weglassen |
+| `eager_eof` / `prefetch_lead_s` / `cache_hit_*` | INFERENCE / HYPOTHESIS | **nicht** hochgestuft |
+| `full_file_512kib_block_seq` | [240,240,32,240,240,32] | FACT `pidrive_field` (MessCapture A7) |
+| `burst_file_reads_always_39` | — | **REJECTED** (im Profil `rejected`) |
 
-Epistemik-Zeile im Profil: PiDrive-FACTs klar von `hu_probe_field` trennen.
+Epistemik: PiDrive klar von `hu_probe_field` getrennt.
 
 ## Offene Claims (ohne neue ID)
 
@@ -91,3 +92,4 @@ Epistemik-Zeile im Profil: PiDrive-FACTs klar von `hu_probe_field` trennen.
 | 2026-10-15 | Lab ram_offline 0.2.23 PASS; BMW Offline FAIL; S2 Live Transport |
 | 2026-10-15 | Übergabe Multi-KI + Rohdaten-Check @ `5dbec43` |
 | 2026-10-15 | Diese Kampagne: Evidence + Applications in technology-audit |
+| 2026-10-17 | Upstream P1c: `bmw_nbt_evo.json` schema 3; `013` geschlossen; PiDrive A7/CBW-max eingezogen |

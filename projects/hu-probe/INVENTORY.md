@@ -49,7 +49,7 @@ Kampagnen: [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi
 |---------|-------------|------------------|
 | Lab Power/Starve/RF | Desk only | Method `usb-wifi-coex-discrimination` |
 | S1/S3 Semantik-Formal | S2 Transport ja; LBA/Marker-Formal nein | Method + P0b |
-| Profil P1c Upstream | noch PiDrive-FACTs dominant | hu-probe `bmw_nbt_evo.json` |
+| Profil P1c Upstream | **done 2026-10-17** schema 3 / `hu_probe_field` Transport | hu-probe `bmw_nbt_evo.json` |
 | Auto Offline | Lab PASS / BMW FAIL | P0c Diagnose |
 | GATE-01 unbroken Timeline | fragmentiert | Burst-Epistemik / Offline |
 

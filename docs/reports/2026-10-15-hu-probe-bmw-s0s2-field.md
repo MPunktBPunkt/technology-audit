@@ -32,10 +32,10 @@ Lab≠BMW · Gap/4096 nicht blind als Scheduler · keine Wire-Claims.
 
 - Evidence `EVID-HUPROBE-2026-10-15-001`–`013`
 - Applications: [`usb-msc`](../../projects/hu-probe/applications/usb-msc.md), [`bmw-nbt-evo`](../../projects/hu-probe/applications/bmw-nbt-evo.md)
-- P1c Patch-Skizze in Evidence (Upstream-Profil **noch offen**)
+- P1c Patch-Skizze in Evidence; **Upstream ausgeführt 2026-10-17** (schema 3)
 
 ## Nächster Schritt
 
-1. Upstream **P1c** `bmw_nbt_evo.json` (nur gesicherte FACTs + Messgröße-Caveats)  
+1. ~~Upstream **P1c** `bmw_nbt_evo.json`~~ **done 2026-10-17**  
 2. Offline blocks/LBA-Check + S2 Formalauswertung (Semantik)  
 3. Auto-Offline-Diagnose · dann S3 → S1 ≥4 MiB

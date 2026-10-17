@@ -165,6 +165,6 @@ Desk ≠ Lab ≠ Field. PiDrive-C bleibt in `projects/pidrive/applications/bmw-n
 
 ## Offene Punkte nach Abschluss
 
-- **P1c** Upstream `bmw_nbt_evo.json` (noch nicht aktualisiert)
+- ~~**P1c** Upstream `bmw_nbt_evo.json`~~ **done 2026-10-17** (schema 3)
 - P0a Offline-Skript blocks/gap/LBA · P0b S2 Formalauswertung · P0c Auto-Offline
 - S3 → S1 ≥4 MiB · GATE-01 · t_us-Regression (P1a) · Marker ohne WiFi

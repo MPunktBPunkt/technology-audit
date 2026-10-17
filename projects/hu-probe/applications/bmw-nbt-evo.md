@@ -32,7 +32,7 @@ NBT USB Host ──READ10/TUR/MS6/…──► hu-probe MSC Device
 
 | Pfad | Rolle |
 |------|-------|
-| `profiles/bmw_nbt_evo.json` | Erwartungen; **P1c noch nicht** auf hu-probe-Feld nachgezogen |
+| `profiles/bmw_nbt_evo.json` | Erwartungen; **P1c done 2026-10-17** (schema 3, `hu_probe_field` Transport) |
 | `docs/feld/2026-10-15-*.md` | S0/S2/Offline/Übergabe |
 | `sessions/*_bmw_s0_plug_enum` / `*_bmw_s2_prefetch` | Rohdaten |
 
@@ -49,8 +49,8 @@ NBT USB Host ──READ10/TUR/MS6/…──► hu-probe MSC Device
 | Burst file-reads p50 39 | Cluster vorhanden | `INFERRED`; Konstante `REJECTED` |
 | Eager / Cache-Hit | — | `needs_field` / `INFERRED` |
 
-Profil-Upstream: weiter gemischt PiDrive-`class: FACT` — Update = **P1c offen**
-(`EVID-HUPROBE-2026-10-15-013`).
+Profil-Upstream: **P1c closed 2026-10-17** — Transport `origin: hu_probe_field`;
+Semantik INFERENCE/HYPOTHESIS (`EVID-HUPROBE-2026-10-15-013` historisch offen → nachgezogen).
 
 ## Ebene C — Host- / Feld-Evidenz
 
@@ -82,10 +82,11 @@ Profil-Upstream: weiter gemischt PiDrive-`class: FACT` — Update = **P1c offen*
 
 ## Offene Fragen
 
-- P1c Profil-Update Upstream
+- ~~P1c Profil-Update Upstream~~ **done 2026-10-17**
 - S2 LBA/Marker-Formal (Prefetch-Beweis)
 - S3 Cache · S1 Eager ≥4 MiB
 - HU-Aus während Grün (Kausalität / Power P2c)
+- A7 512-KiB-Sequenz auf hu-probe nachmessen (aktuell `pidrive_field`)
 
 ## Verwandte Applications / Methods
 

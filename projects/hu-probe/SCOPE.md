@@ -30,7 +30,7 @@ Firmware-Quellbaum.
 | BMW NBT / Mazda HU | Host-Verhalten | Transport S0/S2 ja; Prefetch/Eager/Cache nur nach Formal; kein Wire; kein Mazda-Default |
 | Root-Cause WiFi-Death | — | **nein** als Desk-FACT (eigene Coex-Kampagne) |
 | Fix-Implementierung in FW | — | **nein** (Desk-Audits) |
-| Upstream-Profil-Edit P1c | `bmw_nbt_evo.json` | skizziert hier; Ausführung im Quellrepo |
+| Upstream-Profil-Edit P1c | `bmw_nbt_evo.json` | **done 2026-10-17** im Quellrepo (schema 3) |
 
 ## Nicht-Ziele
 
@@ -55,7 +55,7 @@ Firmware-Quellbaum.
 
 1. Coex-unter-Last-Karte (Task/Core/Prio + PHY) — Desk erledigt
 2. S1–S3 Host-Read-Semantik — Messplan erledigt; **Transport S0/S2 Feld erledigt**; Semantik-Formal offen
-3. Profil P1c Upstream (nur gesicherte FACTs)
+3. ~~Profil P1c Upstream~~ **done 2026-10-17**
 4. Diskriminierungs-Messplan Power vs. Starve vs. RF — Lab offen
 5. Keine Ursachenbehauptung / keine PiDrive→hu-probe-Semantik-FACT-Übernahme
 
