@@ -45,7 +45,13 @@ NBT USB Host ──READ10/TUR/MS6/…──► hu-probe MSC Device
 | READ10 blocks | oft 8 (=4096 B), auch 240 | `MEASURED` CBW |
 | ms6 / capacity | 2,0 (vor und nach Stall-Fix) | `MEASURED` HU |
 | Writes | keine gesehen | `MEASURED` |
-| Prefetch lead ~15 s | — | `INFERRED` (PiDrive-Erbe) |
+| TUR-Leerlauf | **2239 ms**, phasenstarr | `FACT` (`EVID-HUPROBE-2026-10-19-001`); „~1/s" `REJECTED` |
+| Mount-Signatur | 32 TUR, 11 READ10 fest inkl. 2× LBA 24/8 | `FACT` (`…-19-002`); 24/8 Zweck `UNKNOWN` |
+| Resume / Next-Track | Resume 0,2–0,3 s; Next 11–18 s vor Ende (26,5-s-Tracks) | `MEASURED` (`…-19-004`) |
+| Auswahllatenz | 1,7–1,9 s manuell, ≈ 0,2 s Autoplay | `MEASURED` (`…-19-005`) |
+| tail_then_head | T1 als Folgetrack 8/9 | `MEASURED` (`…-19-006`) |
+| Media-Loss-Grammatik | TUR(1)→REQUEST_SENSE→PREVENT(1) | `FACT` (`…-19-007`); „Enum-Grammatik" `REJECTED` |
+| Prefetch lead ~15 s | 11–18 s gemessen (n≈10) | `MEASURED`; Regel `INFERRED` bis `SEQ-DUR` |
 | Burst file-reads p50 39 | Cluster vorhanden | `INFERRED`; Konstante `REJECTED` |
 | Eager / Cache-Hit | — | `needs_field` / `INFERRED` |
 
@@ -65,6 +71,12 @@ Semantik INFERENCE/HYPOTHESIS (`EVID-HUPROBE-2026-10-15-013` historisch offen �
 | Prefetch/Eager/Cache | `010` | `INFERRED` |
 | Read-Kind-Gaps file/fat/dir/boot | `011` | Zahlen `MEASURED`; Deutung `UNKNOWN` |
 | Mount→INQUIRY ~1 s; TUR-Hz session-weit ~2 | `012` | `MEASURED` (Fenster ≠ Profil-idle) |
+| TUR-Leerlauf 2,239 s | `2026-10-19-001` | `FACT` |
+| Mount-Signatur / LBA 24/8 | `2026-10-19-002`, `003` | `FACT` / `UNKNOWN` |
+| Resume, Next-Track, Auswahllatenz, tail_then_head | `2026-10-19-004…006` | `MEASURED` |
+| Media-Loss-Grammatik (statt Enum) | `2026-10-19-007` | `FACT` |
+| M3 Prefetch geschwächt | `2026-10-19-008` | `HYPOTHESIS` |
+| B7/B21 Instrument-Ursachen | `2026-10-19-009` | `FACT` |
 
 ## Beobachtungen (Lab / Feld)
 
@@ -83,8 +95,10 @@ Semantik INFERENCE/HYPOTHESIS (`EVID-HUPROBE-2026-10-15-013` historisch offen �
 ## Offene Fragen
 
 - ~~P1c Profil-Update Upstream~~ **done 2026-10-17**
-- S2 LBA/Marker-Formal (Prefetch-Beweis)
-- S3 Cache · S1 Eager ≥4 MiB
+- S2 LBA/Marker-Formal (Prefetch-Beweis) → GATE-01 mit FW 0.2.31
+- Ob die Next-Track-Regel am Vorlauf vor dem Ende oder an der Verzögerung nach dem Start hängt (`SEQ-DUR`)
+- S3 Cache (`SEQ-CACHE`) · S1 Eager ≥4 MiB (`SEQ-SIZE`)
+- tail_then_head / LBA 24/8 (`SEQ-STRUCT`)
 - HU-Aus während Grün (Kausalität / Power P2c)
 - A7 512-KiB-Sequenz auf hu-probe nachmessen (aktuell `pidrive_field`)
 
