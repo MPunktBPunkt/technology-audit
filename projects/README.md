@@ -43,7 +43,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`espble`](espble/) | EspBle — NimBLE + Classic A2DP/AVRCP CT/TG (Fremd) | lab-tool | active | 2 |
 | [`esphome-a2dp-sink`](esphome-a2dp-sink/) | PxPert a2dp_sink — ESPHome A2DP Sink Component (Fremd) | lab-tool | active | 2 |
 | [`espusbhost`](espusbhost/) | EspUsbHost — ESP32 USB Host Library (Fremd) | lab-tool | active | 1 |
-| [`hu-probe`](hu-probe/) | hu-probe — ESP32-S3 USB-MSC Head-Unit Messsonde | lab-tool | active | 3 |
+| [`hu-probe`](hu-probe/) | hu-probe — ESP32-S3 USB-MSC Head-Unit Messsonde | lab-tool | active | 4 |
 | [`iobroker-esp-hub`](iobroker-esp-hub/) | iobroker-esp-hub | adapter | — | 2 |
 | [`iobroker-freeair100`](iobroker-freeair100/) | iobroker-freeair100 | adapter | — | 1 |
 | [`iobroker-fritzwireguard`](iobroker-fritzwireguard/) | iobroker-fritzwireguard | adapter | — | 2 |
