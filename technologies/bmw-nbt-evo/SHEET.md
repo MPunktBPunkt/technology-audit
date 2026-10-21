@@ -16,8 +16,8 @@ maturity:
 pilot: audits/pidrive-2026-bmw-hu
 ```
 
-Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (Reads, Prefetch, Auto-Next, …) → [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) (**C**, PiDrive) und [`hu-probe/applications/bmw-nbt-evo.md`](../../projects/hu-probe/applications/bmw-nbt-evo.md) (**C**, unabhängige Sonde: Transport S0/S2 `MEASURED`, Prefetch/Eager/Cache weiter `INFERRED`). MSC-Device-Seite → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md) (**B**) / [`hu-probe/…/usb-msc.md`](../../projects/hu-probe/applications/usb-msc.md).  
-**Host-Scope:** belegte Plattform = **BMW NBT Evo** (PiDrive-Feld/Lab + hu-probe-Feld 2026-10-15). Andere Generationen (Evo2, …) / andere OEMs = `UNKNOWN` bis eigene Evidence — kein stiller Transfer (G17-analog).
+Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (Reads, Prefetch, Auto-Next, …) → [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) (**C**, PiDrive) und [`hu-probe/applications/bmw-nbt-evo.md`](../../projects/hu-probe/applications/bmw-nbt-evo.md) (**C**, unabhängige Sonde: Transport S0/S2 + demo_v1 free Grammar `MEASURED`; Prefetch bei großen Dateien weiter `UNKNOWN`/`HYPOTHESIS`). MSC-Device-Seite → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md) (**B**) / [`hu-probe/…/usb-msc.md`](../../projects/hu-probe/applications/usb-msc.md).  
+**Host-Scope:** belegte Plattform = **BMW NBT Evo** (PiDrive-Feld/Lab + hu-probe-Feld 2026-10-15…21). Andere Generationen (Evo2, …) / andere OEMs = `UNKNOWN` bis eigene Evidence — kein stiller Transfer (G17-analog).
 
 ## Kurzfassung
 

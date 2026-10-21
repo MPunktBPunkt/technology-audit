@@ -5,19 +5,19 @@ project_id: hu-probe
 tech_slug: bmw-nbt-evo
 status: active
 sheet: ../../../technologies/bmw-nbt-evo/SHEET.md
-audit: ../../../audits/hu-probe-bmw-s0s2-field-2026/
+audit: ../../../audits/hu-probe-psram-board-free-2026-10-21/
 maturity:
   technology: R2
   implementation: R0
-  field_evidence: R2   # Transport S0/S2; Semantik noch INFERENCE
+  field_evidence: R3   # Transport + demo_v1 free Grammar MEASURED; Prefetch large OPEN
   reusability: W1
 ```
 
 ## Rolle im Projekt
 
 **BMW NBT Evo** ist der Golden-Host für hu-probe (Profil `bmw_nbt_evo`). Die Sonde
-misst Host-Reads am OTG; PiDrive-Semantik (Eager/Prefetch/Cache) ist **Anker**,
-nicht automatischer hu-probe-`FACT`. PiDrive-C bleibt in
+misst Host-Reads am OTG; PiDrive-Semantik ist **Anker**, nicht automatischer
+hu-probe-`FACT`. PiDrive-C:
 [`projects/pidrive/applications/bmw-nbt-evo.md`](../../pidrive/applications/bmw-nbt-evo.md).
 
 ## Architektur / Datenfluss
@@ -32,78 +32,80 @@ NBT USB Host ──READ10/TUR/MS6/…──► hu-probe MSC Device
 
 | Pfad | Rolle |
 |------|-------|
-| `profiles/bmw_nbt_evo.json` | Erwartungen; **P1c done 2026-10-17** (schema 3, `hu_probe_field` Transport) |
-| `docs/feld/2026-10-15-*.md` | S0/S2/Offline/Übergabe |
-| `sessions/*_bmw_s0_plug_enum` / `*_bmw_s2_prefetch` | Rohdaten |
+| `profiles/bmw_nbt_evo.json` | Erwartungen schema 3; free-/TUR-/Atom-FACTS 2026-10-20 |
+| `docs/feld/2026-10-15-*.md` | S0/S2 |
+| `docs/feld/2026-10-18-*.md` / `2026-10-20-bmw-free-offline-0.2.40.md` | CBW-Atom + free Grammar |
+| `docs/feld/2026-10-21-feldplan-groessenleiter.md` | präregistrierte Größenleiter |
+| `sessions/*_bmw_*` | Rohdaten (lokal) |
 
 ## Konfiguration und Parameter
 
 | Parameter | Wert (hu-probe Feld) | Epistemik |
 |-----------|----------------------|-----------|
-| File-Gap-p50 S0 / S2 | ~3739 µs / ~3783 µs | `MEASURED` Messgröße — **nicht** neuer Scheduler-FACT |
+| File-Gap-p50 S0 / S2 | ~3739 µs / ~3783 µs | `MEASURED` — nicht Scheduler-FACT |
 | Read-Event n mode | 4096 dominant | `MEASURED` |
-| READ10 blocks | oft 8 (=4096 B), auch 240 | `MEASURED` CBW |
-| ms6 / capacity | 2,0 (vor und nach Stall-Fix) | `MEASURED` HU |
+| READ10 blocks | 8 und **240**; Rest-bis-EOF z. B. **69** | `MEASURED` CBW |
+| Track-Atom demo_v1 | **240+69** = 158208 B / 309 LBA | `MEASURED` |
+| TUR Idle-Periode | **2238–2239 ms** (phase-locked) | `MEASURED` / `FACT` (`EVID-HUPROBE-2026-10-19-001`, free 0.2.40); „~1/s“ `REJECTED` |
+| Mount-Signatur | 32 TUR, 11 READ10 inkl. 2× LBA 24/8 | `FACT` (`…-19-002`); 24/8 Zweck `UNKNOWN` |
+| Prefetch lead demo_v1 | **0** (Idle ohne File-Reads) | `MEASURED`; 15 s **REJECTED** |
+| Prefetch lead große Dateien | — | `UNKNOWN` (Größenleiter) |
+| next_track 9–18 s (S2 alt) | Resume-Restzeit | **SUPERSEDED** / **REJECTED** als Prefetch (`…-19-004` umgedeutet) |
+| Auswahllatenz | 1,7–1,9 s manuell, ≈0,2 s Autoplay | `MEASURED` (`…-19-005`) |
+| tail_then_head | T3→T1 Nearest-LBA | `INFERRED` Elevator; Re-Entry **REJECTED** (`…-19-006` geschärft) |
+| Media-Loss-Grammatik | TUR(1)→REQUEST_SENSE→PREVENT(1) | `FACT` (`…-19-007`); „Enum-Grammatik“ `REJECTED` |
 | Writes | keine gesehen | `MEASURED` |
-| TUR-Leerlauf | **2239 ms**, phasenstarr | `FACT` (`EVID-HUPROBE-2026-10-19-001`); „~1/s" `REJECTED` |
-| Mount-Signatur | 32 TUR, 11 READ10 fest inkl. 2× LBA 24/8 | `FACT` (`…-19-002`); 24/8 Zweck `UNKNOWN` |
-| Resume / Next-Track | Resume 0,2–0,3 s; Next 11–18 s vor Ende (26,5-s-Tracks) | `MEASURED` (`…-19-004`) |
-| Auswahllatenz | 1,7–1,9 s manuell, ≈ 0,2 s Autoplay | `MEASURED` (`…-19-005`) |
-| tail_then_head | T1 als Folgetrack 8/9 | `MEASURED` (`…-19-006`) |
-| Media-Loss-Grammatik | TUR(1)→REQUEST_SENSE→PREVENT(1) | `FACT` (`…-19-007`); „Enum-Grammatik" `REJECTED` |
-| Prefetch lead ~15 s | 11–18 s gemessen (n≈10) | `MEASURED`; Regel `INFERRED` bis `SEQ-DUR` |
-| Burst file-reads p50 39 | Cluster vorhanden | `INFERRED`; Konstante `REJECTED` |
-| Eager / Cache-Hit | — | `needs_field` / `INFERRED` |
+| Cache-Hit A→B→A | bestätigt Serie | `FACT` (Key offen) |
 
-Profil-Upstream: **P1c closed 2026-10-17** — Transport `origin: hu_probe_field`;
-Semantik INFERENCE/HYPOTHESIS (`EVID-HUPROBE-2026-10-15-013` historisch offen → nachgezogen).
+Profil-Upstream: **P1c closed 2026-10-17** — Transport `origin: hu_probe_field`; free-FACTS 2026-10-20 im Quellrepo.
 
 ## Ebene C — Host- / Feld-Evidenz
 
 | Claim | Evidence-ID | Status |
 |-------|-------------|--------|
-| S0 Transport: Gap~3739 µs, 4 KiB-Events, tinyusb, dropped=0 | `EVID-HUPROBE-2026-10-15-001` | `MEASURED` |
-| S2 Transport ≈ S0 (~3783 µs) | `003` | `MEASURED` |
-| READ10 blocks 8 und 240; Event-Chunk-Split | `004` | `MEASURED` |
+| S0/S2 Transport Gaps, 4 KiB-Events, blocks 8/240 | `EVID-HUPROBE-2026-10-15-001`…`004` | `MEASURED` |
 | ms6/cap=2,0 HU; Stalls vor Fix ≠ HU-Recovery | `005`, `006` | `MEASURED` / `REJECTED` |
-| Gap als Scheduler-Pace | `008` | `INFERRED` |
 | Burst-39 konstant | `009` | `REJECTED` |
-| Prefetch/Eager/Cache | `010` | `INFERRED` |
-| Read-Kind-Gaps file/fat/dir/boot | `011` | Zahlen `MEASURED`; Deutung `UNKNOWN` |
-| Mount→INQUIRY ~1 s; TUR-Hz session-weit ~2 | `012` | `MEASURED` (Fenster ≠ Profil-idle) |
-| TUR-Leerlauf 2,239 s | `2026-10-19-001` | `FACT` |
-| Mount-Signatur / LBA 24/8 | `2026-10-19-002`, `003` | `FACT` / `UNKNOWN` |
-| Resume, Next-Track, Auswahllatenz, tail_then_head | `2026-10-19-004…006` | `MEASURED` |
+| TUR-Leerlauf 2,239 s; Mount-Signatur / LBA 24/8 | `2026-10-19-001`…`003` | `FACT` / `UNKNOWN` |
 | Media-Loss-Grammatik (statt Enum) | `2026-10-19-007` | `FACT` |
-| M3 Prefetch geschwächt | `2026-10-19-008` | `HYPOTHESIS` |
 | B7/B21 Instrument-Ursachen | `2026-10-19-009` | `FACT` |
+| CBW-Atom 240+69 / 309 LBA / 158208 B | `EVID-HUPROBE-2026-10-18-002` | `MEASURED` |
+| free Offline 3× PASS; Idle nur TUR; Atom-Timing | `EVID-HUPROBE-2026-10-21-006`…`009` | `MEASURED` |
+| Prefetch-15s demo_v1 | `008` / Profil reject | `REJECTED` |
+| Plug→first read ~1,51 s; Media-Loss Burst | `010`, `011` | `MEASURED` |
+| Remount Resume; Playlist-T1 Reject; Elevator | `012`, `013` | `MEASURED` / `INFERRED` / `REJECTED` |
+| Fenster A8 / Größenleiter | `017` | `HYPOTHESIS` OPEN |
 
 ## Beobachtungen (Lab / Feld)
 
 | Datum / Artefakt | Beobachtung |
 |------------------|-------------|
-| 2026-10-15 S0 | Autoplay-Bursts trotz WiFi-Gelb brauchbar |
-| 2026-10-15 S2 | Autoplay oft Track 3; Tippen↔kurze Grün-Fenster; Semantik offen |
-| 2026-10-15 | Marker oft nachgezogen — Erzählreihenfolge ok, Mikrozeit nicht |
+| 2026-10-15 S0/S2 | Transport belastbar; Semantik damals offen |
+| 2026-10-18 Abend | Offline PASS; Atom + Hold-Order |
+| 2026-10-19 | TUR/Mount/Media-Loss Evidence `…-19-*` |
+| 2026-10-20 free | Grammar geschlossen; Multi-Review §7 Nachrechnung |
+| 2026-10-21 | Audit PSRAM/Board/Profil; Größenleiter präreg. offen |
 
 ## Abweichungen vom „Lehrbuch“ / PiDrive-Profil
 
-- `gap_ms_p50≈4` war ms-quantisiert — hu-probe liefert µs-Messgröße; Scheduler-Deutung getrennt.
-- `read_size_bytes_mode=4096` darf nicht Event-Chunk und CBW-blocks vermengen.
-- Semantik-FACTs im Profil (`eager_eof`, `prefetch_lead_s`, `cache_hit_*`) bleiben Herkunft PiDrive bis Formalauswertung.
+- `gap_ms_p50≈4` war ms-quantisiert — hu-probe liefert µs; Scheduler getrennt.
+- Event n=4096 ≠ CBW-Länge.
+- R21 ~15 s Prefetch gilt **nicht** für 158 KiB demo_v1; große Dateien separat.
+- `eager_eof` / Cache-Key bleiben Herkunft/offen bis Größenleiter + ident_b.
 
 ## Offene Fragen
 
-- ~~P1c Profil-Update Upstream~~ **done 2026-10-17**
-- S2 LBA/Marker-Formal (Prefetch-Beweis) → GATE-01 mit FW 0.2.31
-- Ob die Next-Track-Regel am Vorlauf vor dem Ende oder an der Verzögerung nach dem Start hängt (`SEQ-DUR`)
-- S3 Cache (`SEQ-CACHE`) · S1 Eager ≥4 MiB (`SEQ-SIZE`)
-- tail_then_head / LBA 24/8 (`SEQ-STRUCT`)
-- HU-Aus während Grün (Kausalität / Power P2c)
-- A7 512-KiB-Sequenz auf hu-probe nachmessen (aktuell `pidrive_field`)
+- Größenleiter H-A/B/C (`seq_size` / `SEQ-SIZE`)
+- Elevator-Test Rückwärtssprung ohne Wrap (`SEQ-STRUCT`)
+- Cache-Key Replug `ident_b` (`SEQ-CACHE`)
+- audible-Marker → GATE-01 Restlatenz
+- A7 512-KiB auf hu-probe nachmessen
 
 ## Verwandte Applications / Methods
 
 - [`usb-msc.md`](usb-msc.md) · PiDrive [`bmw-nbt-evo`](../../pidrive/applications/bmw-nbt-evo.md)
 - Sheet [`bmw-nbt-evo`](../../../technologies/bmw-nbt-evo/SHEET.md) (nur A)
+- Audits [`hu-probe-bmw-s0s2-field-2026`](../../../audits/hu-probe-bmw-s0s2-field-2026/) ·
+  [`hu-probe-bmw-s2-abend-offline-2026-10-18`](../../../audits/hu-probe-bmw-s2-abend-offline-2026-10-18/) ·
+  [`hu-probe-psram-board-free-2026-10-21`](../../../audits/hu-probe-psram-board-free-2026-10-21/)
 - Method [`msc-host-read-semantics`](../../../methods/msc-host-read-semantics.md)

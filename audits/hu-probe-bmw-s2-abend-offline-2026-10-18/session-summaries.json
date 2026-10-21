@@ -1,0 +1,559 @@
+[
+  {
+    "session_id": "20261018-175203_bmw_s2_prefetch",
+    "short": "175203",
+    "transport": "ram_offline",
+    "fw_version": "0.2.30",
+    "complete": true,
+    "recv_events": 168,
+    "published": 433,
+    "overflow": 0,
+    "n_bot_data": 39,
+    "kind_counts": {
+      "file": 39
+    },
+    "actual_hist": {
+      "4096": 38,
+      "2560": 1
+    },
+    "read10_file_cbws": [
+      [
+        627,
+        240
+      ],
+      [
+        867,
+        69
+      ]
+    ],
+    "cbw_blocks_sum": 309,
+    "start_lbas": [
+      627,
+      635,
+      643,
+      651,
+      659,
+      667,
+      675,
+      683,
+      691,
+      699,
+      707,
+      715,
+      723,
+      731,
+      739,
+      747,
+      755,
+      763,
+      771,
+      779,
+      787,
+      795,
+      803,
+      811,
+      819,
+      827,
+      835,
+      843,
+      851,
+      859,
+      867,
+      875,
+      883,
+      891,
+      899,
+      907,
+      915,
+      923,
+      931
+    ],
+    "covered_lba": [
+      627,
+      935
+    ],
+    "covered_span": 309,
+    "bytes": 158208,
+    "mono_starts": true,
+    "t_us_unique_data": 1,
+    "order": "head_then_tail"
+  },
+  {
+    "session_id": "20261018-175404_bmw_s2_prefetch",
+    "short": "175404",
+    "transport": "ram_offline",
+    "fw_version": "0.2.30",
+    "complete": null,
+    "recv_events": 0,
+    "published": 0,
+    "overflow": 0,
+    "n_bot_data": 39,
+    "kind_counts": {
+      "file": 39
+    },
+    "actual_hist": {
+      "4096": 38,
+      "2560": 1
+    },
+    "read10_file_cbws": [
+      [
+        627,
+        240
+      ],
+      [
+        867,
+        69
+      ]
+    ],
+    "cbw_blocks_sum": 309,
+    "start_lbas": [
+      627,
+      635,
+      643,
+      651,
+      659,
+      667,
+      675,
+      683,
+      691,
+      699,
+      707,
+      715,
+      723,
+      731,
+      739,
+      747,
+      755,
+      763,
+      771,
+      779,
+      787,
+      795,
+      803,
+      811,
+      819,
+      827,
+      835,
+      843,
+      851,
+      859,
+      867,
+      875,
+      883,
+      891,
+      899,
+      907,
+      915,
+      923,
+      931
+    ],
+    "covered_lba": [
+      627,
+      935
+    ],
+    "covered_span": 309,
+    "bytes": 158208,
+    "mono_starts": true,
+    "t_us_unique_data": 1,
+    "order": "head_then_tail"
+  },
+  {
+    "session_id": "20261018-211058_bmw_s2_prefetch",
+    "short": "211058",
+    "transport": "ram_offline",
+    "fw_version": "0.2.30",
+    "complete": null,
+    "recv_events": 0,
+    "published": 0,
+    "overflow": 0,
+    "n_bot_data": 39,
+    "kind_counts": {
+      "file": 39
+    },
+    "actual_hist": {
+      "4096": 38,
+      "2560": 1
+    },
+    "read10_file_cbws": [
+      [
+        627,
+        240
+      ],
+      [
+        867,
+        69
+      ]
+    ],
+    "cbw_blocks_sum": 309,
+    "start_lbas": [
+      627,
+      635,
+      643,
+      651,
+      659,
+      667,
+      675,
+      683,
+      691,
+      699,
+      707,
+      715,
+      723,
+      731,
+      739,
+      747,
+      755,
+      763,
+      771,
+      779,
+      787,
+      795,
+      803,
+      811,
+      819,
+      827,
+      835,
+      843,
+      851,
+      859,
+      867,
+      875,
+      883,
+      891,
+      899,
+      907,
+      915,
+      923,
+      931
+    ],
+    "covered_lba": [
+      627,
+      935
+    ],
+    "covered_span": 309,
+    "bytes": 158208,
+    "mono_starts": true,
+    "t_us_unique_data": 1,
+    "order": "head_then_tail"
+  },
+  {
+    "session_id": "20261018-211423_bmw_s2_prefetch",
+    "short": "211423",
+    "transport": "ram_offline",
+    "fw_version": "0.2.30",
+    "complete": null,
+    "recv_events": 0,
+    "published": 0,
+    "overflow": 0,
+    "n_bot_data": 37,
+    "kind_counts": {
+      "file": 32,
+      "fat": 1,
+      "dir": 4
+    },
+    "actual_hist": {
+      "4096": 36,
+      "2560": 1
+    },
+    "read10_file_cbws": [
+      [
+        249,
+        69
+      ],
+      [
+        9,
+        240
+      ]
+    ],
+    "cbw_blocks_sum": 309,
+    "start_lbas": [
+      249,
+      257,
+      265,
+      273,
+      281,
+      289,
+      297,
+      305,
+      313,
+      9,
+      17,
+      25,
+      33,
+      41,
+      49,
+      57,
+      65,
+      73,
+      81,
+      89,
+      97,
+      105,
+      113,
+      121,
+      129,
+      137,
+      145,
+      153,
+      161,
+      169,
+      177,
+      185,
+      193,
+      201,
+      209,
+      217,
+      225
+    ],
+    "covered_lba": [
+      9,
+      317
+    ],
+    "covered_span": 309,
+    "bytes": 150016,
+    "mono_starts": false,
+    "t_us_unique_data": 1,
+    "order": "tail_then_head"
+  },
+  {
+    "session_id": "20261018-211811_bmw_s2_prefetch",
+    "short": "211811",
+    "transport": "ram_offline",
+    "fw_version": "0.2.30",
+    "complete": null,
+    "recv_events": 0,
+    "published": 0,
+    "overflow": 0,
+    "n_bot_data": 39,
+    "kind_counts": {
+      "file": 34,
+      "fat": 1,
+      "dir": 4
+    },
+    "actual_hist": {
+      "4096": 38,
+      "2560": 1
+    },
+    "read10_file_cbws": [
+      [
+        249,
+        69
+      ],
+      [
+        9,
+        240
+      ]
+    ],
+    "cbw_blocks_sum": 309,
+    "start_lbas": [
+      249,
+      257,
+      265,
+      273,
+      281,
+      289,
+      297,
+      305,
+      313,
+      9,
+      17,
+      25,
+      33,
+      41,
+      49,
+      57,
+      65,
+      73,
+      81,
+      89,
+      97,
+      105,
+      113,
+      121,
+      129,
+      137,
+      145,
+      153,
+      161,
+      169,
+      177,
+      185,
+      193,
+      201,
+      209,
+      217,
+      225,
+      233,
+      241
+    ],
+    "covered_lba": [
+      9,
+      317
+    ],
+    "covered_span": 309,
+    "bytes": 158208,
+    "mono_starts": false,
+    "t_us_unique_data": 3,
+    "order": "tail_then_head"
+  },
+  {
+    "session_id": "20261018-212136_bmw_s2_prefetch",
+    "short": "212136",
+    "transport": "ram_offline",
+    "fw_version": "0.2.30",
+    "complete": true,
+    "recv_events": 169,
+    "published": 407,
+    "overflow": 0,
+    "n_bot_data": 39,
+    "kind_counts": {
+      "file": 34,
+      "fat": 1,
+      "dir": 4
+    },
+    "actual_hist": {
+      "4096": 38,
+      "2560": 1
+    },
+    "read10_file_cbws": [
+      [
+        249,
+        69
+      ],
+      [
+        9,
+        240
+      ]
+    ],
+    "cbw_blocks_sum": 309,
+    "start_lbas": [
+      249,
+      257,
+      265,
+      273,
+      281,
+      289,
+      297,
+      305,
+      313,
+      9,
+      17,
+      25,
+      33,
+      41,
+      49,
+      57,
+      65,
+      73,
+      81,
+      89,
+      97,
+      105,
+      113,
+      121,
+      129,
+      137,
+      145,
+      153,
+      161,
+      169,
+      177,
+      185,
+      193,
+      201,
+      209,
+      217,
+      225,
+      233,
+      241
+    ],
+    "covered_lba": [
+      9,
+      317
+    ],
+    "covered_span": 309,
+    "bytes": 158208,
+    "mono_starts": false,
+    "t_us_unique_data": 1,
+    "order": "tail_then_head"
+  },
+  {
+    "session_id": "20261018-212635_bmw_s2_prefetch",
+    "short": "212635",
+    "transport": "ram_offline",
+    "fw_version": "0.2.30",
+    "complete": true,
+    "recv_events": 168,
+    "published": 505,
+    "overflow": 0,
+    "n_bot_data": 39,
+    "kind_counts": {
+      "file": 39
+    },
+    "actual_hist": {
+      "4096": 38,
+      "2560": 1
+    },
+    "read10_file_cbws": [
+      [
+        627,
+        240
+      ],
+      [
+        867,
+        69
+      ]
+    ],
+    "cbw_blocks_sum": 309,
+    "start_lbas": [
+      627,
+      635,
+      643,
+      651,
+      659,
+      667,
+      675,
+      683,
+      691,
+      699,
+      707,
+      715,
+      723,
+      731,
+      739,
+      747,
+      755,
+      763,
+      771,
+      779,
+      787,
+      795,
+      803,
+      811,
+      819,
+      827,
+      835,
+      843,
+      851,
+      859,
+      867,
+      875,
+      883,
+      891,
+      899,
+      907,
+      915,
+      923,
+      931
+    ],
+    "covered_lba": [
+      627,
+      935
+    ],
+    "covered_span": 309,
+    "bytes": 158208,
+    "mono_starts": true,
+    "t_us_unique_data": 1,
+    "order": "head_then_tail"
+  }
+]

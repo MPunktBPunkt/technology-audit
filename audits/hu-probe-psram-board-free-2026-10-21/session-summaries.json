@@ -1,0 +1,98 @@
+{
+  "audit_id": "hu-probe-psram-board-free-2026-10-21",
+  "upstream": {
+    "repo": "https://github.com/MPunktBPunkt/hu-probe",
+    "commit": "f985459a390033d8f9de145f0e544721abae657a",
+    "fw_platformio": "0.3.1",
+    "board_build": {
+      "board": "esp32-s3-devkitc-1",
+      "memory_type": "qio_qspi",
+      "BOARD_HAS_PSRAM": true,
+      "flash_size": "8MB",
+      "partitions": "partitions_huprobe_8mb.csv",
+      "module_target": "N8R2"
+    }
+  },
+  "psram_capacity_census": {
+    "note": "session.json capture.capacity_bytes; 1048576 = 1 MiB PSRAM step",
+    "by_fw": {
+      "0.2.30_and_earlier": [24576, 32768, 49152, 65536],
+      "0.2.37_plus": [1048576]
+    },
+    "field_bmw_free_1mib_examples": [
+      "20261020-075616_bmw_free",
+      "20261020-075935_bmw_free",
+      "20261020-080508_bmw_free",
+      "20261020-162534_bmw_free",
+      "20261020-195442_bmw_free",
+      "20261020-195625_bmw_free"
+    ]
+  },
+  "free_offline_0_2_40": [
+    {
+      "session_id": "20261020-075616_bmw_free",
+      "fw": "0.2.40",
+      "build_id": "b1b768fa7587-dirty-20261020T050224Z",
+      "transport": "ram_offline",
+      "scenario": "free",
+      "note": "already_plugged T2->T3",
+      "capacity_bytes": 1048576,
+      "offline_records": 69,
+      "offline_overflow": 0,
+      "integrity_pass": true,
+      "end_reason": "auto_media_hide",
+      "upload_status": "delivered",
+      "tur_period_ms": 2238.78,
+      "n_atoms": 2,
+      "atom_orders": ["head_first", "head_first"],
+      "media_loss_detect_s": 1.2385
+    },
+    {
+      "session_id": "20261020-075935_bmw_free",
+      "fw": "0.2.40",
+      "build_id": "b1b768fa7587-dirty-20261020T050224Z",
+      "transport": "ram_offline",
+      "scenario": "free",
+      "note": "plug_after_start T1->T2->T3",
+      "capacity_bytes": 1048576,
+      "offline_records": 207,
+      "offline_overflow": 0,
+      "integrity_pass": true,
+      "end_reason": "auto_media_hide",
+      "upload_status": "delivered",
+      "tur_period_ms": 2239.22,
+      "n_atoms": 3,
+      "atom_orders": ["head_first", "head_first", "head_first"],
+      "plug_to_first_read_s": [1.513],
+      "media_loss_detect_s": 0.3936
+    },
+    {
+      "session_id": "20261020-080508_bmw_free",
+      "fw": "0.2.40",
+      "build_id": "b1b768fa7587-dirty-20261020T050224Z",
+      "transport": "ram_offline",
+      "scenario": "free",
+      "note": "replug mid-T3 then T1 tail_then_head then T2",
+      "capacity_bytes": 1048576,
+      "offline_records": 231,
+      "offline_overflow": 0,
+      "integrity_pass": true,
+      "end_reason": "auto_media_hide",
+      "upload_status": "delivered",
+      "tur_period_ms": 2238.78,
+      "n_atoms": 3,
+      "atom_orders": ["head_first", "tail_then_head", "head_first"],
+      "plug_to_first_read_s": [1.5185],
+      "media_loss_detect_s": 2.1822
+    }
+  ],
+  "drive_home_0_3_x_note": {
+    "status": "observed_incomplete",
+    "examples": [
+      "20261020-200018_bmw_drive_home",
+      "20261020-200324_bmw_drive_home",
+      "20261021-122558_bmw_drive_home"
+    ],
+    "caveat": "Many drive_home session.json lack capture.capacity_bytes / integrity_pass (upload/footer incomplete). Do not treat as Offline-PASS census."
+  }
+}
