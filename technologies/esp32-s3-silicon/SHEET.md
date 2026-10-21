@@ -57,6 +57,7 @@ keine Ersatz-Errata.
 | Light-Sleep + USB-MSC Freeze = Silicon-Erratum | `REJECTED` | nicht in S3-Summary |
 | GDMA I2S→AES = Silicon-Erratum | `REJECTED` | IDF Issue Won't Do / Driver |
 | 16 MB Octal-PSRAM offiziell supported | `REJECTED` | jumbo PoC + Timing-Warnung |
+| Verbautes PSRAM = automatisch genutzt | `REJECTED` | braucht `BOARD_HAS_PSRAM` + passendes `memory_type` (qio_qspi vs qio_opi); sonst `getPsramSize()==0` |
 | Issue-Tracker-Titel = Root-Cause Projekt X | `REJECTED` | Epistemik |
 
 ## Errata-Orientierung (S3)
@@ -77,6 +78,9 @@ Vollständige Texte: [ESP32-S3 Chip Errata](https://docs.espressif.com/projects/
   und IDF-Mindestversion vor Optimismus aus Issues.
 - USB-Device + WiFi unter Last: zusätzlich `esp32-s3-usb-wifi-coex`.
 - PSRAM/Octal: Issue-Signale beobachten; DMA-Buffer bevorzugt internal RAM.
+  Modulvariante (R2 quad vs R8 octal) muss zum Build passen — hu-probe Feld **N8R2**
+  (`qio_qspi`, 1 MiB Offline-Capture): Audit
+  [`hu-probe-psram-board-free-2026-10-21`](../../audits/hu-probe-psram-board-free-2026-10-21/).
 
 ### Projektstart-Checkliste
 
