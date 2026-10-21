@@ -40,6 +40,16 @@ Primär-Auswertungen (Upstream, reviewed):
 | `EVID-HUPROBE-2026-10-15-010` | Prefetch≈15 s / Eager-EOF / Cache-Hit: S2 liefert dichte Operator-Marker (Autoplay/Tip/RST), viele **nachgezogen**; Semantik **ohne** LBA-Formal = weiter `INFERRED` / `needs_field` (Vor-Audit `EVID-MSCRHS-…`). | `INFERRED` | S2-Auswertung; Messplan-Audit |
 | `EVID-HUPROBE-2026-10-15-011` | Read-Kind Gap-p50 (S2): file **3783** · fat **1218** · dir **3813** · boot **20863** µs — informativ; Deutung offen. | `MEASURED` (Zahlen) / Deutung `UNKNOWN` | S2-Auswertung |
 | `EVID-HUPROBE-2026-10-15-012` | Mount→INQUIRY p50 ~**997 ms** (n=12 chains); Session-TUR-Hz p50 ~**2,06** (nicht idle); QD-max p50=1 (`INFERRED`, Wire UNKNOWN). Profil `enum_s`/`tur_hz` nicht 1:1 ersetzen. | `MEASURED` / QD `INFERRED` | offline-p0 |
+| `EVID-HUPROBE-2026-10-19-001` | TUR-Leerlauf **2239 ms** (p10/p50/p90 2238/2239/2239 ms, n=382, 19 BMW-Sessions), phasenstarr über Reads hinweg. „~1 TUR/s" / „0,8–1/s" = **`REJECTED`**. `012` „TUR-Hz ~2,06" = Fenstermittel inkl. Mount-Burst. | `FACT` | hu-probe `docs/feld/2026-10-19-unabhaengige-auswertung.md` §K2 |
+| `EVID-HUPROBE-2026-10-19-002` | Mount-Signatur: INQUIRY 1, READ_CAPACITY10 3, MODE_SENSE6 6, PREVENT_ALLOW 7, **32 TUR** (≈15 als Burst in 0,05–0,29 s); 11 READ10 fest `0/8,0/8,24/8,0/8,0/1,1/3,7/2,1/1,2/1,3/5,24/8` (Variante 3/5 → 3/1+4/4 in `195657`, `2363`). | `FACT` | §2 P-MOUNT/P-MREAD |
+| `EVID-HUPROBE-2026-10-19-003` | LBA 24/8 doppelt im Mount, liegt in TRACK1 (9–317). Zweck unbekannt. | `MEASURED` / Zweck `UNKNOWN` | §2 P-LBA24 |
+| `EVID-HUPROBE-2026-10-19-004` | Resume-Read 0,2–0,3 s nach Mount; zyklischer Next-Track-Read T(n)→T(n+1), T3→T1, ≈ 9–16 s nach Read-Start bzw. 11–18 s vor Ende bei 26,5 s (n≈10). Ob die Regel am Vorlauf vor dem Ende oder an der Verzögerung nach dem Start hängt, ist offen. | `MEASURED` / Regel `INFERRED` | §2 P-RESUME/P-NEXT |
+| `EVID-HUPROBE-2026-10-19-005` | Auswahllatenz Marker→READ: manuell 1,7–1,9 s; Autoplay-Sprung ≈ 0,2 s. Marker teils nachgezogen. | `MEASURED` | §2 P-SEL |
+| `EVID-HUPROBE-2026-10-19-006` | tail_then_head: T1 als Folgetrack 8/9 Ende zuerst; T2/T3 immer Kopf zuerst. | `MEASURED` / Ursache `UNKNOWN` | §2 P-TAIL |
+| `EVID-HUPROBE-2026-10-19-007` | `075344`: Offline-Puffer = BOT-Tags 81–122 (123 Rec); TUR(1)→REQUEST_SENSE→PREVENT(1) = Tags 131–146 live nach `hideMedia()` = **Media-Loss-Grammatik**. „Enum-Grammatik" = **`REJECTED`**. | `FACT` | §K1 |
+| `EVID-HUPROBE-2026-10-19-008` | 57,33 s `gap_us` ≠ Enum→Read; der Read lag ≈ 15,7 s nach dem Arm. M3 „Prefetch geschwächt" → **`HYPOTHESIS`** (Cache-Hit bei identischen Tracks gleich plausibel). | `REJECTED` / `HYPOTHESIS` | §K3/K4 |
+| `EVID-HUPROBE-2026-10-19-009` | B21 = Klassifikator-Artefakt (Hardcode-Bänder ≠ Demo-FAT); B7-Ursache = `ProbeClock::publishUs()`-Klemmung im Replay. Fix FW 0.2.31. | `FACT` (Instrument) | §K5/K6 |
+| `EVID-HUPROBE-2026-10-19-010` | T2-Atom offline `(318,240)+(558,69)`, 158208 B, Session `20261019-075344` (FW-Label 0.2.30, sha `5a33518`, B20). | `FACT` | `docs/feld/2026-10-19-bmw-s2-t2-offline.md` |
 | `EVID-HUPROBE-2026-10-15-013` | Upstream `profiles/bmw_nbt_evo.json` war zum Audit-Pin `5dbec43` noch **PiDrive-`class: FACT`** (eager/prefetch/cache/gap_ms…); **P1c damals offen**. **Nachzug 2026-10-17:** schema 3 mit `origin: hu_probe_field` für Transport (Gap µs, Event-n, CBW 8/240, writes, ms6/cap, bot_source); Semantik abgestuft; A7-Sequenz aus PiDrive MessCapture als `pidrive_field`. | `FACT` (Stand 15.10.) → **P1c closed 17.10.** | Profil @ `5dbec43` (offen); Upstream-Patch 2026-10-17; checklist `docs/feld/2026-10-15-p1c-checklist.md` |
 
 ## Claim-Diff vs. Vor-Audit / Profil
@@ -76,7 +86,8 @@ Epistemik: PiDrive klar von `hu_probe_field` getrennt.
 
 | Claim | Status | Hinweis |
 |-------|--------|---------|
-| Prefetch-Lead formal (LBA + Marker) | `UNKNOWN` / `needs_field` | P0b |
+| Prefetch-Lead formal (LBA + Marker) | `UNKNOWN` / `needs_field` | GATE-01 mit FW 0.2.31 `capture_t_us`; Regel via `SEQ-DUR` |
+| Prefetch geschwächt / read-all (M3) | `HYPOTHESIS` | `SEQ-CACHE` mit unterschiedlichem Inhalt pro Track |
 | Eager-EOF S1 ≥4 MiB | `UNKNOWN` | P3 |
 | Cache-Hit S3 | `UNKNOWN` | P2 Rest |
 | BMW Offline-Ursache | `UNKNOWN` | P0c |
@@ -93,3 +104,4 @@ Epistemik: PiDrive klar von `hu_probe_field` getrennt.
 | 2026-10-15 | Übergabe Multi-KI + Rohdaten-Check @ `5dbec43` |
 | 2026-10-15 | Diese Kampagne: Evidence + Applications in technology-audit |
 | 2026-10-17 | Upstream P1c: `bmw_nbt_evo.json` schema 3; `013` geschlossen; PiDrive A7/CBW-max eingezogen |
+| 2026-10-19 | T2 offline (`075344`); unabhängige Auswertung aller BMW-Sessions: `EVID-HUPROBE-2026-10-19-001…010` (TUR 2,239 s, Mount-Signatur, Media-Loss-Grammatik, M3 → HYPOTHESIS, B7/B21 Ursachen) |
