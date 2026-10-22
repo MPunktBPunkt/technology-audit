@@ -1,0 +1,90 @@
+{
+  "schema": "technology-audit/session-summaries/1",
+  "audit_id": "hu-probe-media-ladder-2026-10-22",
+  "upstream_pin": "8234982",
+  "fw": "0.3.17",
+  "sessions": [
+    {
+      "session": "61434_bmw_free",
+      "media": "cache_b",
+      "role": "warm_up",
+      "transport": "tcp_live",
+      "integrity_pass": true,
+      "tur_period_ms": 2238.78,
+      "events": 514
+    },
+    {
+      "session": "20261022-080353_bmw_free",
+      "media": "cache_place",
+      "role": "elevator_tail_then_head",
+      "transport": "tcp_live",
+      "integrity_pass": true,
+      "tur_period_ms": 2238.78,
+      "tail_then_head": "2/3",
+      "notes": "TRACK2/TRACK1 first_blk=240; TRACK3 head_first",
+      "events": 664
+    },
+    {
+      "session": "20261022-080544_bmw_free",
+      "media": "dur_mix",
+      "role": "duration_ladder",
+      "transport": "tcp_live",
+      "integrity_pass": true,
+      "tur_period_ms": 2238.78,
+      "events": 1251
+    },
+    {
+      "session": "20261022-080752_bmw_free",
+      "media": "bitrate_mix",
+      "role": "bulk_240_scan_completeness",
+      "transport": "tcp_live",
+      "integrity_pass": true,
+      "tur_period_ms": 2238.78,
+      "chunk_blocks_top": {"240": 24, "8": 9, "32": 3, "128": 3},
+      "tail_then_head": "0/7",
+      "events": 2362
+    },
+    {
+      "session": "20261022-081152_bmw_free",
+      "media": "id3_cover",
+      "role": "reference_head_and_tail_prefetch",
+      "transport": "tcp_live",
+      "integrity_pass": true,
+      "tur_period_ms": 2238.78,
+      "head_scan_chunks": [[0, 32], [32, 128]],
+      "tail_prefetch_episodes_t_s": [20.966, 47.545, 73.967],
+      "tail_prefetch_wire_t_s": [22.511, 49.09, 75.511],
+      "tail_prefetch_blocks": 160,
+      "tail_prefetch_file_off": 160,
+      "tail_then_head": "0/8",
+      "events": 817
+    },
+    {
+      "session": "20261022-081410_bmw_free",
+      "media": "drive_mix",
+      "role": "tree_and_large_files",
+      "transport": "tcp_live",
+      "integrity_pass": true,
+      "tur_period_ms": 2238.84,
+      "notes": "Browse 8.3 vs Player ID3; scan depth VARIABLE",
+      "events_min": 13000
+    },
+    {
+      "session": "20261022-065150_lab_debian_free",
+      "media": "lab_debian",
+      "role": "lab_offline_replay_fail_B50",
+      "transport": "ram_offline",
+      "integrity_pass": false,
+      "capacity_bytes": 1048576,
+      "offline_records": 199,
+      "upload_status": "delivered",
+      "recv_events": 56,
+      "notes": "replay empty of bot_*; not BMW host grammar"
+    }
+  ],
+  "instrument": {
+    "psram_offline_capacity_bytes": 1048576,
+    "trip_replay_fw_pass": "0.3.17",
+    "trip_replay_notes": "EventBus slot clear leak fix; token bucket; uploaded #17/#18"
+  }
+}

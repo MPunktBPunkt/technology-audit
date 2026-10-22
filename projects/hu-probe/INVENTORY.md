@@ -2,8 +2,8 @@
 
 ```yaml
 project_id: hu-probe
-updated: 2026-10-21
-reviewed_commit: "FW 0.3.1 / hu-probe@f985459 (free Offline 0.2.40 + PSRAM N8R2); prior S0/S2/Abend pins retained"
+updated: 2026-10-22
+reviewed_commit: "FW 0.3.17 / hu-probe@8234982 (Media-Leiter + Trip-Replay); prior PSRAM f985459 / free 0.2.40 retained"
 profile: lab-tool
 pilot_order: [esp32-s3-usb-wifi-coex, usb-msc, bmw-nbt-evo, esp32-s3-silicon]
 ```
@@ -12,9 +12,9 @@ pilot_order: [esp32-s3-usb-wifi-coex, usb-msc, bmw-nbt-evo, esp32-s3-silicon]
 
 | Signal | Ziel-Sheet | Aktion |
 |--------|------------|--------|
-| USB MSC TinyUSB Device | `usb-msc` | applied (BOT/Control + Feld-Transport + 1 MiB Offline) |
-| S3 USB OTG + WiFi STA unter Last | `esp32-s3-usb-wifi-coex` | applied (Coex-Desk; Lab Recovery; PSRAM ≠ Heilung) |
-| BMW NBT Host | `bmw-nbt-evo` | applied (Transport + free Grammar MEASURED; Prefetch large UNKNOWN) |
+| USB MSC TinyUSB Device | `usb-msc` | applied (BOT/Control + Feld-Transport + 1 MiB Offline + Trip-Replay 0.3.17) |
+| S3 USB OTG + WiFi STA unter Last | `esp32-s3-usb-wifi-coex` | applied (Coex-Desk; Lab Recovery; PSRAM ≠ Heilung; Live-Leiter OBSERVED) |
+| BMW NBT Host | `bmw-nbt-evo` | applied (Transport + free Grammar + Media-Leiter Phasen MEASURED; A8/Identity OPEN) |
 | S3 Board / PSRAM / Flash | `esp32-s3-silicon` | documented → applied light (N8R2 field pin) |
 | Virtual FAT Demo | `virtual-fat` | reuse (Medium/Slots) |
 
@@ -22,7 +22,8 @@ Kampagnen: [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi
 [`msc-host-read-semantics-s1s2s3-2026`](../../audits/msc-host-read-semantics-s1s2s3-2026/) ·
 [`hu-probe-bmw-s0s2-field-2026`](../../audits/hu-probe-bmw-s0s2-field-2026/) ·
 [`hu-probe-bmw-s2-abend-offline-2026-10-18`](../../audits/hu-probe-bmw-s2-abend-offline-2026-10-18/) ·
-[`hu-probe-psram-board-free-2026-10-21`](../../audits/hu-probe-psram-board-free-2026-10-21/).
+[`hu-probe-psram-board-free-2026-10-21`](../../audits/hu-probe-psram-board-free-2026-10-21/) ·
+[`hu-probe-media-ladder-2026-10-22`](../../audits/hu-probe-media-ladder-2026-10-22/).
 
 ## Übersicht
 
@@ -37,7 +38,7 @@ Kampagnen: [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi
 
 ### C — Protokolle
 
-- `usb-msc` — applied / partial (Instrument + Feld-Transport + PSRAM Offline)
+- `usb-msc` — applied / partial (Instrument + Feld-Transport + PSRAM Offline + Trip-Replay)
 
 ### D — Embedded
 
@@ -46,23 +47,23 @@ Kampagnen: [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi
 
 ### I — Plattformen / Hosts
 
-- `bmw-nbt-evo` — applied / partial (Transport + demo_v1 free MEASURED; Prefetch large / Cache-Key offen)
+- `bmw-nbt-evo` — applied / partial (Transport + free + Media-Leiter Phasen; A8/Cache-Key offen)
 
 ## Coverage-Lücken
 
 | Bereich | Warum offen | Nächster Schritt |
 |---------|-------------|------------------|
 | Lab Power/Starve/RF | Desk/Lab Recovery only | Method `usb-wifi-coex-discrimination` |
-| Größenleiter / Fenster A8 | präregistriert 21.10. | `seq_size` auswerten |
-| Elevator Rückwärtssprung | INFERENCE | D180→D026 Test |
+| Formal A8 / `seq_size` | Leiter ≠ Formal | H-A/B/C auswerten |
+| audible / GATE-01 Lead | kein Anker | Operator-Tap |
+| Analyzer B47 | Scan in Prefetch-Stats | Fenster markieren |
 | Cache-Key Replug | n=1 Resume | `ident_b` |
-| Drive-Home 0.3.x | Footer oft fehlt | Integrity-Census |
+| Lab Offline Replay B50 | FAIL trotz Records | `.88` vs `.89` |
 | HARDWARE.md §2.3 | Doc-Drift | Upstream-Fix |
-| GATE-01 audible | Marker fehlt | Operator-Tap |
 
 ## Signale ohne Eintrag
 
 - StatusLed / EventBus / TcpStreamer — App-Schicht, kein neuer Slug
 - WiFiManager Portal — observed
-- TripStore / DriveMode 0.3.x — vorerst unter `usb-msc` Instrument
+- TripStore / DriveMode 0.3.x — unter `usb-msc` Instrument (0.3.17 Upload PASS)
 - Virtual FAT — reuse ohne eigene Application (Medium über usb-msc)
