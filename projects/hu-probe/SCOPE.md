@@ -8,15 +8,17 @@ profile_hint: lab-tool
 status: active
 repos:
   - /home/martin/projects/hu-probe
-reviewed_commit: "8234982"
+reviewed_commit: "4fdf519"
 fw_pin: "0.3.17"
+fw_oneshot: "0.3.19"
 ```
 
 ## Zweck
 
 Audit-Kontext für die eigene USB-MSC-Messsonde (ESP32-S3, Arduino/PlatformIO):
 Instrumentierung, Capture-Pfad, **USB↔WiFi-Coexistenz unter Host-Last**, und
-**Host-Read-Semantik** (Transport S0/S2, free Offline Grammar, Media-Leiter Phasen).
+**Host-Read-Semantik** (Transport S0/S2, free Offline Grammar, Media-Leiter,
+Heimfahrt Remount/Scheduler).
 Dieses Repo (`technology-audit`) speichert Desk-/Feldwissen und Kampagnen — nicht den
 Firmware-Quellbaum.
 
@@ -30,7 +32,7 @@ Firmware-Quellbaum.
 | RAM/PSRAM Offline-Capture (+ TripStore 0.3.x) | WIFI_OFF → Replay / Drive-Home | ja (Instrument); Lab Replay B50 offen |
 | Stack-Pin PlatformIO/Arduino | Defaults Task/PHY / PSRAM Flags | ja |
 | Fremd: esp-idf / esp-usb / arduino-esp32 | Coex-Evidence | ja, Desk |
-| BMW NBT / Mazda HU | Host-Verhalten | Transport + free + Media-Leiter Phasen ja; A8/Cache-Key nur nach Formal; kein Wire; kein Mazda-Default |
+| BMW NBT / Mazda HU | Host-Verhalten | Transport + free + Media-Leiter + Heimfahrt ja; Audible/Intent/A8/Cache-Key/395xxx offen; kein Wire; kein Mazda-Default |
 | Root-Cause WiFi-Death | — | **nein** als Desk-FACT (eigene Coex-Kampagne; PSRAM ≠ Heilung) |
 | Fix-Implementierung in FW | — | **nein** (Desk-Audits) |
 | Upstream-Profil-Edit | `bmw_nbt_evo.json` | beobachtet / zitiert; Edit liegt im Quellrepo |

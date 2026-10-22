@@ -5,7 +5,9 @@ project_id: hu-probe
 tech_slug: usb-msc
 status: active
 sheet: ../../../technologies/usb-msc/SHEET.md
-audit: ../../../audits/hu-probe-media-ladder-2026-10-22/
+audit: ../../../audits/hu-probe-heimfahrt-2026-10-22/
+related_audits:
+  - ../../../audits/hu-probe-media-ladder-2026-10-22/
 maturity:
   technology: R3
   implementation: R2
@@ -53,8 +55,10 @@ HU USB Host ──BOT/SCSI──► TinyUSB MSC Device (hu-probe)
 | BMW Offline free | 3× PASS 0.2.40 | `MEASURED` `006` |
 | Pace-Metrik | `gap_us` / `capture_t_us` (nicht UI-`t_us`) | `FACT` Instrument |
 | Trip-Replay 0.3.17 | Upload `#17`/`#18` PASS; Heap stabil | `MEASURED` `EVID-HUPROBE-2026-10-22-011` |
+| Heimfahrt Offline `#22`–`#24` | `ram_offline` delivered + Integrity PASS (lange Fahrten) | `MEASURED` `…-22H-001`/`010` |
 | Lab Offline Replay B50 | `replay` leer trotz Records | `MEASURED` FAIL `…-22-009` |
 | BMW Live Leiter | 5× `tcp_live` Integrity PASS 0.3.17 | `MEASURED` `…-22-001` |
+| BUSY Backpressure Feld | 16 Blöcke ~1,6 s abandoned, kein Reset (`#23`) | `FACT` `…-22H-009` |
 
 ## Ebene C — Host- / Feld-Evidenz
 

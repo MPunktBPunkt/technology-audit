@@ -1,0 +1,103 @@
+{
+  "schema": "technology-audit/session-summaries/1",
+  "audit_id": "hu-probe-heimfahrt-2026-10-22",
+  "upstream_pin": "4fdf519",
+  "gesamtbericht_pin": "28249de",
+  "fw": "0.3.17",
+  "fw_oneshot_note": "0.3.19 autoCapture one-shot clear",
+  "medium": "drive_mix",
+  "scenario": "drive_home",
+  "sessions": [
+    {
+      "trip": 22,
+      "session": "12777_bmw_drive_home",
+      "role": "main_drive_two_remounts",
+      "transport": "ram_offline",
+      "end_reason": "power_loss",
+      "integrity_pass": true,
+      "upload_status": "delivered",
+      "recv_events": 50187,
+      "offline_bytes": 752379,
+      "remounts": 2,
+      "mount_t_s": [0.24, 595.709],
+      "second_mount_reads": "0/1,0/1,0/8,395136/8,395248/8,8/8,395256/1,395257/1,395258/1,395259/1,395260/1",
+      "tur_idle_median_s": 2.2388,
+      "tur_period_ms": 2238.87,
+      "chunk_interval_ms_p50": 3.897,
+      "prefetch_mix_lead_s": [7.725, 7.157],
+      "flow": "JAZZ→MIX→Remount→PODCAST→POP/CHARTS→POP→ROCK",
+      "notes": "395xxx position probe on 2nd mount; MIX ~7s lead situational"
+    },
+    {
+      "trip": 23,
+      "session": "20261022-171751_bmw_drive_home",
+      "role": "continuation_max_duration_scheduler",
+      "transport": "ram_offline",
+      "end_reason": "max_duration",
+      "integrity_pass": true,
+      "upload_status": "delivered",
+      "recv_events": 24456,
+      "offline_bytes": 377662,
+      "remounts": 2,
+      "mount_t_s": [0.249, 448.475],
+      "second_mount_reads": "0/8,0/8,96/40,8/8,24/8,56/8,16/8,64/8,512/8,32/8,131072/8",
+      "tur_idle_median_s": 2.2388,
+      "tur_period_ms": 2238.81,
+      "chunk_interval_ms_p50": 3.896,
+      "chunk_interval_n": 10256,
+      "prefetch_lead_s_min_max": [140.513, 237.086],
+      "folgetrack_lag_s": {
+        "R04→R01": 9.406,
+        "R01→R02": 7.947,
+        "R02→C01": 24.597,
+        "C01→C02": 4.885,
+        "C02→C03": 3.386,
+        "C03→C04": 2.927
+      },
+      "atom_end_to_next_read_s": {
+        "C02→C03": 0.004035,
+        "C03→C04": 0.004068,
+        "R03→R04": 0.004184
+      },
+      "coverage_near_one": ["ROCK/R01.MP3", "ROCK/R02.MP3", "ROCK/CLASSIC/C01.MP3", "ROCK/CLASSIC/C02.MP3", "ROCK/CLASSIC/C03.MP3", "ROCK/CLASSIC/C04.MP3"],
+      "busy_stall": {
+        "t_s": 453.365,
+        "file": "ROCK/R04.MP3",
+        "blocks": 16,
+        "hold_s": 1.623,
+        "outcome": "abandoned",
+        "reset_or_remount": false
+      },
+      "post_remount_flow": "R04→R01→R02→CLASSIC/C01…C04→R03→R04",
+      "notes": "2nd mount signature = normal init; behavior = context resume; R04 interleave; eager≠play"
+    },
+    {
+      "trip": 24,
+      "session": "20261022-173030_bmw_drive_home",
+      "role": "short_power_loss",
+      "transport": "ram_offline",
+      "end_reason": "power_loss",
+      "integrity_pass": true,
+      "upload_status": "delivered",
+      "recv_events": 2924,
+      "offline_bytes": 45206,
+      "remounts": 1,
+      "mount_t_s": [0.245],
+      "tur_idle_median_s": 2.2388,
+      "tur_period_ms": 2238.79,
+      "flow": "ROCK/CLASSIC/C01 only",
+      "notes": "early power_loss; TUR confirms; no second remount"
+    }
+  ],
+  "partials_excluded": [
+    "20261022-165516_*",
+    "20261022-165747_*"
+  ],
+  "partials_notes": "TCP reconnect prefixes of trip #22; not separate drives",
+  "instrument": {
+    "capture": "ram_offline / TripStore",
+    "time_base": "capture_t_us",
+    "trip_replay": "delivered integrity_pass #22-#24",
+    "fw_oneshot": "0.3.19 Heimfahrt autoCapture clear when home+collector+empty journal"
+  }
+}
