@@ -115,24 +115,23 @@ Siehe Sheet-Abschnitt „Community / SIB-Muster“. Für Live-Fake-MP3 relevant:
 
 Referenz-Gadgets (kein HU-Feld): [`esp32-msc-gadget-refs`](../../esp32-msc-gadget-refs/).
 
-## Cross-Check hu-probe Media-Leiter (2026-10-22)
+## Cross-Check hu-probe Media-Leiter + Heimfahrt (2026-10-22)
 
-Unabhängige Sonde ([`hu-probe/applications/bmw-nbt-evo.md`](../../hu-probe/applications/bmw-nbt-evo.md), Audit
-[`hu-probe-media-ladder-2026-10-22`](../../../audits/hu-probe-media-ladder-2026-10-22/)):
+Unabhängige Sonde ([`hu-probe/applications/bmw-nbt-evo.md`](../../hu-probe/applications/bmw-nbt-evo.md)):
 
-- **REJECTED:** „HU liest nur Ordnerstruktur“.
-- **Vertrag:** Directory/FAT + Dateikopf (~80 KiB / ID3) **Pflicht**; großer Audio-Rest dynamisch unter Größen-/EOF-Konsistenz — nicht beliebige Payload.
-- Head-Scan typisch **32+128**; Tail-Prefetch und Bulk **240** als Host-Phasen `MEASURED` (nicht still als PiDrive-`FACT` übernehmen ohne eigene Trace).
+- Leiter [`hu-probe-media-ladder-2026-10-22`](../../../audits/hu-probe-media-ladder-2026-10-22/): **REJECTED** „nur Ordnerstruktur“; Vertrag Directory/FAT + Head ~80 KiB Pflicht; Head **32+128**, Tail-Prefetch, Bulk **240**.
+- Heimfahrt [`hu-probe-heimfahrt-2026-10-22`](../../../audits/hu-probe-heimfahrt-2026-10-22/): **Remount ≠ Cold Start**; Prefetch-Lead **kontextabhängig** (nicht 8 s); LBA-**Scheduler/Interleave** (globaler Elevator SUPERSEDED); Eager/Neighbor ≠ Play Intent; BUSY ~1,6 s abandoned ohne Reset.
+- Nicht still als PiDrive-`FACT` übernehmen ohne eigene Trace — aber Liefer-/Pacing-Erwartungen schärfen.
 
 ## Offene Fragen
 
 - Feld-AV/Ohr Exit #6: Gate Rock/Bayern/BOB + erstes `MSC_MAP_FROZEN` (getrennt vom Busy-Pacing-Tonfenster 2026-10-12)
-- Korrelation `fileOff`/`hostAbs` × `liveBytes` × Underruns × Ton (nach Gate)
-- Auto-Next vs. manueller Track-Wechsel — gleiches Read-Muster?
+- Korrelation `fileOff`/`hostAbs` × `liveBytes` × Underruns × Ton (nach Gate) — Align mit hu-probe Audible GATE-01
+- Auto-Next vs. manueller Track-Wechsel — gleiches Read-Muster? Eager ≠ Play bleibt Gate
 - Storm-Capture M30: LBA/Klasse × Guess (öffentliche RE ersetzt das nicht — Public-Gap-Audit)
 - BT-Pfad (A2DP/AVRCP) vs. MSC — getrennte Host-Profile unter einem Sheet?
-- Welche Label/Serial-Änderung flush’t NBT-Cache empirisch?
-- Max `onRead`-Latenz / BUSY-Budget vor HU-Abort jenseits des belegten Stall-Defaults (`maxMs=500`)?
+- Welche Label/Serial-Änderung flush’t NBT-Cache empirisch? (hu-probe Cache-Key / Remount-State parallel)
+- Max `onRead`-Latenz / BUSY-Budget vor HU-Abort jenseits des belegten Stall-Defaults (`maxMs=500`)? Heimfahrt: 1,6 s abandoned ok
 - Mechanismus Menü-~20 s (`006`) und Rock-8‑MiB-stumm (`007`)
 
 ## Verwandte

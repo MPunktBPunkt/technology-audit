@@ -3,7 +3,7 @@
 ```yaml
 project_id: hu-probe
 updated: 2026-10-22
-reviewed_commit: "FW 0.3.17 / hu-probe@8234982 (Media-Leiter + Trip-Replay); prior PSRAM f985459 / free 0.2.40 retained"
+reviewed_commit: "FW 0.3.17 / hu-probe@4fdf519 (Heimfahrt + Media-Leiter); prior PSRAM f985459 / free 0.2.40 retained"
 profile: lab-tool
 pilot_order: [esp32-s3-usb-wifi-coex, usb-msc, bmw-nbt-evo, esp32-s3-silicon]
 ```
@@ -14,7 +14,7 @@ pilot_order: [esp32-s3-usb-wifi-coex, usb-msc, bmw-nbt-evo, esp32-s3-silicon]
 |--------|------------|--------|
 | USB MSC TinyUSB Device | `usb-msc` | applied (BOT/Control + Feld-Transport + 1 MiB Offline + Trip-Replay 0.3.17) |
 | S3 USB OTG + WiFi STA unter Last | `esp32-s3-usb-wifi-coex` | applied (Coex-Desk; Lab Recovery; PSRAM ≠ Heilung; Live-Leiter OBSERVED) |
-| BMW NBT Host | `bmw-nbt-evo` | applied (Transport + free Grammar + Media-Leiter Phasen MEASURED; A8/Identity OPEN) |
+| BMW NBT Host | `bmw-nbt-evo` | applied (Transport + free + Media-Leiter + Heimfahrt Remount/Scheduler MEASURED; Audible/Identity/A8 OPEN) |
 | S3 Board / PSRAM / Flash | `esp32-s3-silicon` | documented → applied light (N8R2 field pin) |
 | Virtual FAT Demo | `virtual-fat` | reuse (Medium/Slots) |
 
@@ -23,7 +23,8 @@ Kampagnen: [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi
 [`hu-probe-bmw-s0s2-field-2026`](../../audits/hu-probe-bmw-s0s2-field-2026/) ·
 [`hu-probe-bmw-s2-abend-offline-2026-10-18`](../../audits/hu-probe-bmw-s2-abend-offline-2026-10-18/) ·
 [`hu-probe-psram-board-free-2026-10-21`](../../audits/hu-probe-psram-board-free-2026-10-21/) ·
-[`hu-probe-media-ladder-2026-10-22`](../../audits/hu-probe-media-ladder-2026-10-22/).
+[`hu-probe-media-ladder-2026-10-22`](../../audits/hu-probe-media-ladder-2026-10-22/) ·
+[`hu-probe-heimfahrt-2026-10-22`](../../audits/hu-probe-heimfahrt-2026-10-22/).
 
 ## Übersicht
 

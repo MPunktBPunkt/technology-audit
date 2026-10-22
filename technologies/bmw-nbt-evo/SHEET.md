@@ -16,7 +16,7 @@ maturity:
 pilot: audits/pidrive-2026-bmw-hu
 ```
 
-Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (Reads, Prefetch, Auto-Next, …) → [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) (**C**, PiDrive) und [`hu-probe/applications/bmw-nbt-evo.md`](../../projects/hu-probe/applications/bmw-nbt-evo.md) (**C**, unabhängige Sonde: Transport S0/S2 + demo_v1 free Grammar + Media-Leiter Phasen `MEASURED`; formal A8/`seq_size` und Cache-Key weiter offen). MSC-Device-Seite → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md) (**B**) / [`hu-probe/…/usb-msc.md`](../../projects/hu-probe/applications/usb-msc.md).  
+Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (Reads, Prefetch, Auto-Next, …) → [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) (**C**, PiDrive) und [`hu-probe/applications/bmw-nbt-evo.md`](../../projects/hu-probe/applications/bmw-nbt-evo.md) (**C**, unabhängige Sonde: Transport S0/S2 + free + Media-Leiter + Heimfahrt Remount/Scheduler `MEASURED`; Audible/Intent/A8/`seq_size`/Cache-Key weiter offen). MSC-Device-Seite → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md) (**B**) / [`hu-probe/…/usb-msc.md`](../../projects/hu-probe/applications/usb-msc.md).  
 **Host-Scope:** belegte Plattform = **BMW NBT Evo** (PiDrive-Feld/Lab + hu-probe-Feld 2026-10-15…22). Andere Generationen (Evo2, …) / andere OEMs = `UNKNOWN` bis eigene Evidence — kein stiller Transfer (G17-analog).
 
 ## Kurzfassung
@@ -42,7 +42,9 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 | Claim | Status | Hinweis |
 |-------|--------|---------|
 | „NBT liest wie jeder PC-Stick“ | `REJECTED` | Prefetch/Burst/Cold-Body-Muster sind empirisch (**C**) |
-| „NBT scannt nur Ordnerstruktur, nie Dateiinhalt“ | `REJECTED` (als FACT) | hu-probe Media-Leiter: Head ~80 KiB typisch; siehe Application C |
+| „NBT scannt nur Ordnerstruktur, nie Dateiinhalt“ | `REJECTED` (als FACT) | hu-probe Media-Leiter: Head ~80 KiB typisch; Eager/Neighbor zusätzlich (Heimfahrt) — siehe Application C |
+| „Remount = Cold Start / Cache-Flush“ | `REJECTED` (als FACT) | hu-probe Heimfahrt: Kontext-Resume + 395xxx-Probe |
+| „Prefetch-Lead = 8 s“ / „globaler Elevator“ | `REJECTED` (als Konstante/Modell) | Lead kontextabhängig; LBA-Scheduler interleaved |
 | Lab-Host-Replay ersetzt HU-Beweis | `REJECTED` | Lab AV ≠ Feld-Ohr (PiDrive 2026-10-04) |
 | Erfolg = nur SCSI-konforme Antworten | `REJECTED` | HU-Decode + hörbarer Ton ist Projektkriterium |
 | MSC und BT können parallel als PiDrive-Ziel laufen | `INFERRED` | Architekturwahl PiDrive; nicht „NBT-Spec“ |
