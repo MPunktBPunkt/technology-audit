@@ -24,6 +24,9 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`esp32-s3-hw-limits-2026`](esp32-s3-hw-limits-2026/) | closed | lab-tool | S3 Chip-Errata + HW-Limits (CACHE/ANALOG/USB-OTG/RTC) für MSC/Storm · **0.7.1** |
 | [`msc-host-read-semantics-s1s2s3-2026`](msc-host-read-semantics-s1s2s3-2026/) | closed | lab-tool | hu-probe S1–S3 Messplan (Eager/Prefetch/Cache); PiDrive-Claims ≠ FACT · **0.7.1** |
 | [`hu-probe-bmw-s0s2-field-2026`](hu-probe-bmw-s0s2-field-2026/) | closed | lab-tool | hu-probe BMW S0/S2 Transport-Feld + Lab Offline; Semantik INFERENCE · **0.7.1** |
+| [`hu-probe-bmw-s2-abend-offline-2026-10-18`](hu-probe-bmw-s2-abend-offline-2026-10-18/) | closed | lab-tool | hu-probe BMW S2 Abend Offline; CBW-Atom 240+69 · **0.7.1** |
+| [`hu-probe-psram-board-free-2026-10-21`](hu-probe-psram-board-free-2026-10-21/) | closed | lab-tool | PSRAM N8R2 + free Offline Grammar demo_v1 · **0.7.1** |
+| [`hu-probe-media-ladder-2026-10-22`](hu-probe-media-ladder-2026-10-22/) | closed | lab-tool | Media-Leiter Live: Head 32+128, Tail-Prefetch, Elevator, PiDrive-Vertrag · **0.7.1** |
 | [`technology-audit-2026-kb-measured`](technology-audit-2026-kb-measured/) | closed | ops-field | Meta: MEASURED-Corpus vs. Desk-FACT · **0.7.1** |
 | [`esp32-sdr-trx-2026-foreign`](esp32-sdr-trx-2026-foreign/) | active | lab-tool | Fremd: S3 polar PHY TX + narrowband RX · **0.6.6** |
 | [`espargos-espsdr-2026-foreign`](espargos-espsdr-2026-foreign/) | active | lab-tool | Fremd: ESPARGOS Undoc I/Q Chip-Matrix · **0.6.6** |

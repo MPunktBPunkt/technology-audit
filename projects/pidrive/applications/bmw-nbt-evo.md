@@ -115,6 +115,15 @@ Siehe Sheet-Abschnitt „Community / SIB-Muster“. Für Live-Fake-MP3 relevant:
 
 Referenz-Gadgets (kein HU-Feld): [`esp32-msc-gadget-refs`](../../esp32-msc-gadget-refs/).
 
+## Cross-Check hu-probe Media-Leiter (2026-10-22)
+
+Unabhängige Sonde ([`hu-probe/applications/bmw-nbt-evo.md`](../../hu-probe/applications/bmw-nbt-evo.md), Audit
+[`hu-probe-media-ladder-2026-10-22`](../../../audits/hu-probe-media-ladder-2026-10-22/)):
+
+- **REJECTED:** „HU liest nur Ordnerstruktur“.
+- **Vertrag:** Directory/FAT + Dateikopf (~80 KiB / ID3) **Pflicht**; großer Audio-Rest dynamisch unter Größen-/EOF-Konsistenz — nicht beliebige Payload.
+- Head-Scan typisch **32+128**; Tail-Prefetch und Bulk **240** als Host-Phasen `MEASURED` (nicht still als PiDrive-`FACT` übernehmen ohne eigene Trace).
+
 ## Offene Fragen
 
 - Feld-AV/Ohr Exit #6: Gate Rock/Bayern/BOB + erstes `MSC_MAP_FROZEN` (getrennt vom Busy-Pacing-Tonfenster 2026-10-12)

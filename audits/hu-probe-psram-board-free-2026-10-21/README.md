@@ -166,8 +166,8 @@ kill:
 
 ## Offene Punkte nach Abschluss
 
-- P0: Größenleiter `seq_size` / H-A vs H-B vs H-C auswerten
-- P0: Rückwärtssprung-Test (Elevator-Vorhersage)
-- P1: Replug `ident_b` Cache-Key; audible-Marker
+- ~~P0: Größenleiter / Elevator~~ → Delta [`hu-probe-media-ladder-2026-10-22`](../hu-probe-media-ladder-2026-10-22/) (Phasen-FACTs; formal A8 weiter offen)
+- P0: audible-Marker; Analyzer B47
+- P1: Replug `ident_b` Cache-Key
 - P1: Upstream `HARDWARE-YD-ESP32-S3.md` §2.3 aktualisieren
-- P2: Drive-Home 0.3.x Integrity-Census
+- P2: formal `seq_size` A8; Lab-Replay B50
