@@ -22,7 +22,7 @@ ESP hostet Web-UI und Metadaten (Sender, Favoriten, Now-Playing); **Audio spielt
 ## Abgrenzung
 
 - **Ist:** Browser-Media-Host + Station-Store + optional Hub-Now-Playing.
-- **Ist nicht:** A2DP-Sink/Source; PipeWire-/Pi-Webradio; DAB+; ESP-I2S-Audio-Shield-Player.
+- **Ist nicht:** A2DP-Sink/Source; PipeWire-/Pi-Webradio; DAB+; ESP-I2S-Audio-Shield-Player; LMS/Squeezelite On-Device-Decode (`lms-squeezelite`).
 
 ## Typische Fallstricke
 

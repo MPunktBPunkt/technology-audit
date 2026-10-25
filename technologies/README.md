@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-25`, 57 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-25`, 62 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 ## Index nach Primary (TAXONOMY)
 
@@ -17,12 +17,13 @@ Wiederverwendbare Technology Sheets.
 | [`esp32-undoc-iq-rx`](esp32-undoc-iq-rx/SHEET.md) | ESP32 Undocumented I/Q RX Dump | W2 | `espargos-espsdr`, `c5vrx`, `esp32-sdr-trx`, `esp32sdr`, `esp-sdr-bridge` |
 | [`pmr446`](pmr446/SHEET.md) | PMR446 (EU License-Free UHF) | W2 | `pidrive` |
 | [`rtl-sdr`](rtl-sdr/SHEET.md) | RTL-SDR (RTL2832U Host Stack) | W3 | `pidrive`, `welle-io` |
+| [`sstv-martin-m1`](sstv-martin-m1/SHEET.md) | Martin M1 SSTV Tone Transmit (AF) | W1 | `tinysstv` |
 
 ### B — Audio
 
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
-| [`esp-i2s-audio`](esp-i2s-audio/SHEET.md) | ESP I2S Audio Path | W2 | `esp32-audioi2s`, `esp-usb-audio-example`, `esp32-i2s-ble`, `esp-fm-rds-node`, `esp-network-pcm-clock` |
+| [`esp-i2s-audio`](esp-i2s-audio/SHEET.md) | ESP I2S Audio Path | W2 | `esp32-audioi2s`, `esp-usb-audio-example`, `esp32-i2s-ble`, `esp-fm-rds-node`, `esp-network-pcm-clock`, `squeezelite-esp32` |
 
 ### C — Protokolle
 
@@ -32,7 +33,7 @@ Wiederverwendbare Technology Sheets.
 | [`ble-hr-relay`](ble-hr-relay/SHEET.md) | BLE HR-Relay (Peripheral Bridge) | W3 | `esp32-heartrate`, `esp32-ergo` |
 | [`ble-hrm-gatt`](ble-hrm-gatt/SHEET.md) | BLE Heart Rate GATT (Central) | W3 | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe` |
 | [`ble-pcm-notify-stream`](ble-pcm-notify-stream/SHEET.md) | BLE PCM Notify Stream (Custom GATT) | W1 | `esp32-i2s-ble` |
-| [`bluetooth-a2dp`](bluetooth-a2dp/SHEET.md) | Bluetooth A2DP | W3 | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink` |
+| [`bluetooth-a2dp`](bluetooth-a2dp/SHEET.md) | Bluetooth A2DP | W3 | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink`, `squeezelite-esp32` |
 | [`bluetooth-ftms`](bluetooth-ftms/SHEET.md) | Bluetooth FTMS (Fitness Machine) | W3 | `esp32-ftmsprobe`, `esp32-ergo` |
 | [`esp-now-messaging`](esp-now-messaging/SHEET.md) | ESP-NOW Messaging | W2 | `esp32-communicator` |
 | [`esp-usb-audio-uac`](esp-usb-audio-uac/SHEET.md) | ESP USB Audio (UAC Device) | W2 | `esp-iot-solution`, `esp-usb-audio-example` |
@@ -40,13 +41,14 @@ Wiederverwendbare Technology Sheets.
 | [`fm-rds`](fm-rds/SHEET.md) | FM-RDS (Radio Data System) | W2 | `pi-fm-tx`, `esp-fm-rds-node` |
 | [`kostal-piko-http`](kostal-piko-http/SHEET.md) | Kostal PIKO Local HTTP Interface | W2 | `iobroker-kostalpiko` |
 | [`pump-control-link`](pump-control-link/SHEET.md) | PUMP Control Link | W2 | `esp32-pidrive` |
+| [`ride-ble-display`](ride-ble-display/SHEET.md) | Ride BLE Display (Custom GATT) | W1 | `open-bike-computer` |
 | [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W3 | `pidrive`, `esp32-pidrive`, `esp32-msc-gadget-refs`, `usb-bot-observation`, `hu-probe` |
 
 ### D — Embedded
 
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
-| [`esp-psram-heavy-port`](esp-psram-heavy-port/SHEET.md) | ESP PSRAM Heavy App / Legacy Port | W1 | `esp32-doom` |
+| [`esp-psram-heavy-port`](esp-psram-heavy-port/SHEET.md) | ESP PSRAM Heavy App / Legacy Port | W1 | `esp32-doom`, `squeezelite-esp32` |
 | [`esp32-apll-fm-tx`](esp32-apll-fm-tx/SHEET.md) | ESP32 APLL / MCLK FM Transmit | W2 | `esp-fm-tx` |
 | [`esp32-polar-phy-tx`](esp32-polar-phy-tx/SHEET.md) | ESP32-S3 Polar PHY Test-Tone TX | W2 | `esp32-sdr-trx` |
 | [`esp32-s3-silicon`](esp32-s3-silicon/SHEET.md) | ESP32-S3 Silicon Errata & Hardware Limits | W2 | `esp32-pidrive`, `hu-probe`, `pidrive`, `esp32-ai` |
@@ -77,7 +79,9 @@ Wiederverwendbare Technology Sheets.
 | [`iobroker-mbrepository-adapter`](iobroker-mbrepository-adapter/SHEET.md) | ioBroker MB Repository Manager | W2 | `iobroker-mbrepository` |
 | [`iobroker-metermaster-adapter`](iobroker-metermaster-adapter/SHEET.md) | ioBroker MeterMaster Adapter | W2 | `iobroker-metermaster`, `esp32-metermaster`, `metermaster-app` |
 | [`iobroker-simple-api`](iobroker-simple-api/SHEET.md) | ioBroker Simple-API Client | W2 | `esp32-metermaster` |
+| [`lms-squeezelite`](lms-squeezelite/SHEET.md) | LMS / Squeezelite Multi-Room Player | W1 | `squeezelite-esp32` |
 | [`mqtt-node-telemetry`](mqtt-node-telemetry/SHEET.md) | MQTT Node Telemetry | W2 | `esp32-toolnode` |
+| [`spotify-web-api-remote`](spotify-web-api-remote/SHEET.md) | Spotify Web API Remote (PKCE) | W1 | `esp32-spotify-remote` |
 
 ### G — Steuerung / UI
 
@@ -93,6 +97,7 @@ Wiederverwendbare Technology Sheets.
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
 | [`ble-http-gatt-probe`](ble-http-gatt-probe/SHEET.md) | HTTP-gesteuerte BLE-GATT-Sonde | W2 | `esp32-ftmsprobe` |
+| [`ble-rssi-proximity`](ble-rssi-proximity/SHEET.md) | BLE RSSI Proximity Hunt | W1 | `esp-ble-finder` |
 | [`esp-lab-bus-tools`](esp-lab-bus-tools/SHEET.md) | ESP Lab Bus / GPIO Tools | W3 | `esp32-io-control`, `esp32-toolnode` |
 | [`esp-wifi-promiscuous-pcap`](esp-wifi-promiscuous-pcap/SHEET.md) | ESP WiFi Promiscuous Sniff + PCAP Capture | W1 | `esp32-marauder` |
 | [`lan-device-inventory`](lan-device-inventory/SHEET.md) | LAN Device Inventory Scan | W2 | `esp32-network` |

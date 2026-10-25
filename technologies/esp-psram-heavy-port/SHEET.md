@@ -7,7 +7,7 @@ primary: D
 tags: [esp-idf, lab-only, fragile, psram]
 type: pattern
 status: active
-seen_in: [esp32-doom]
+seen_in: [esp32-doom, squeezelite-esp32]
 maturity:
   technology: R1
   implementation: R1
@@ -26,7 +26,7 @@ Muster für **große Legacy-C-Ports** auf ESP: PSRAM als **allgemeiner Heap** (S
 ## Abgrenzung
 
 - **Ist:** PSRAM-pflichtige schwere App/Port; Heap-/Framebuffer-Platzierung; Asset-Partition; hohe CPU-/Bus-Last.
-- **Ist nicht:** Tiny Status-OLED (`ssd1306-oled-ui`); S3-Errata-Karte (`esp32-s3-silicon`); On-Device-LLM/PLE (`mcu-ple-inference`); CSI-Sensing (`wifi-csi-motion`).
+- **Ist nicht:** Tiny Status-OLED (`ssd1306-oled-ui`); S3-Errata-Karte (`esp32-s3-silicon`); On-Device-LLM/PLE (`mcu-ple-inference`); CSI-Sensing (`wifi-csi-motion`); LMS-Protokoll allein (`lms-squeezelite` — PSRAM-Last teilen, Contract trennen).
 - **Grenzt an:** SPI-LCD Treiber; FreeRTOS Task-Stack-Größe; Flash mmap Limits.
 
 ## Schnittstellen und Abhängigkeiten

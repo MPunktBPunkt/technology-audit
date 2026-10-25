@@ -93,6 +93,39 @@ Sheet: `wifi-csi-motion`. Kontrast: `esp-wifi-promiscuous-pcap`, `rf-environment
 
 Sheet: `esp-psram-heavy-port`. Kontrast: `esp32-s3-silicon`, `ssd1306-oled-ui`. Unsupported PoC.
 
+## Lab / Fremd — Ham SSTV / AF TX
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `tinysstv` | Desk: [JO3ALT/TinySSTV](https://github.com/JO3ALT/TinySSTV) — Martin M1 AF SSTV auf ESP32-C3 |
+
+Sheet: `sstv-martin-m1`. Kontrast: `esp32-apll-fm-tx` (RF ≠ AF).
+
+## Lab / Fremd — LMS / Multi-Room Audio
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `squeezelite-esp32` | Desk: [sle118/squeezelite-esp32](https://github.com/sle118/squeezelite-esp32) — LMS/Squeezelite (+ AirPlay/BT/Spotify Add-ons) |
+
+Sheet: `lms-squeezelite`; Reuse `esp-i2s-audio`, `esp-psram-heavy-port`, `bluetooth-a2dp`. Kontrast: `webradio-browser-host`, `spotify-web-api-remote`.
+
+## Lab / Fremd — Spotify Web-API Remote
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `esp32-spotify-remote` | Desk: [seichris/esp32-spotify-remote](https://github.com/seichris/esp32-spotify-remote) — Web API + PKCE Remote (kein Connect-Decode) |
+
+Sheet: `spotify-web-api-remote`. Kontrast: `lms-squeezelite` (Connect/Decode ≠ Remote).
+
+## Lab / Fremd — Ride BLE Display / Proximity
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `open-bike-computer` | Desk: [seichris/open-bike-computer](https://github.com/seichris/open-bike-computer) — Custom BLE Ride/Nav Display + Ownership |
+| `esp-ble-finder` | Desk: [khlebobul/esp_ble_finder](https://github.com/khlebobul/esp_ble_finder) — BLE Adv RSSI Proximity Hunt |
+
+Sheets: `ride-ble-display`, `ble-rssi-proximity`. Kontrast: `bluetooth-ftms`, `ble-hrm-gatt`, `rf-environment-monitor`.
+
 ## Lab / Fremd — sekundäre Web-Kataloge
 
 | Projekt-ID | Rolle |

@@ -75,13 +75,16 @@ Inventar-Match-Tabellen: Spalte **nicht** `Slug` nennen (Parser greift sonst) �
 | Schicht | Sheet | Typische Signale |
 |---------|-------|------------------|
 | RF/WLAN/BLE Environment | `rf-environment-monitor` | RSSI, AP-Liste, RF-Score, Adv-Scan |
+| BLE RSSI Proximity Hunt | `ble-rssi-proximity` | Adv-Scan, Target-Lock, Bands/Clicker (kein GATT) |
 | WiFi Promiscuous / PCAP | `esp-wifi-promiscuous-pcap` | Frame-Callbacks, Double-Buffer, PCAP |
 | Wi-Fi CSI Motion Sensing | `wifi-csi-motion` | CSI Amplitudes, Temporal Admission, Motion |
 | LAN/IP Geräteinventur | `lan-device-inventory` | Subnetz, TCP-Ports, Online-Labels |
 | ESP-NOW Peer/Mesh-artig | `esp-now-messaging` | MAC-Peers, Hello, kein Router |
 | Produkt-Lab-IO | `esp-lab-bus-tools` | GPIO/I²C/SPI/PWM UI (Einzweck oder Modul) |
+| Ride BLE Display (Custom) | `ride-ble-display` | Custom GATT Nav/Workout + Ownership |
+| Spotify Web API Remote | `spotify-web-api-remote` | PKCE, HTTPS Control (kein Decode) |
 
-Nicht denselben Slug für RF- und LAN-Scanner forken oder vermischen. Environment-Scan ≠ Promiscuous-Sniff ≠ CSI-Motion.
+Nicht denselben Slug für RF- und LAN-Scanner forken oder vermischen. Environment-Scan ≠ Proximity-Hunt ≠ Promiscuous-Sniff ≠ CSI-Motion. Ride-Display ≠ FTMS/HRM.
 
 ## Hub-Identity ohne `fwType`
 

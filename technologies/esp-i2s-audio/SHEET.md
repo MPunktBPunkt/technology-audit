@@ -7,7 +7,7 @@ primary: B
 tags: [streaming, esp-idf, arduino, fragile]
 type: implementation
 status: active
-seen_in: [esp32-audioi2s, esp-usb-audio-example, esp32-i2s-ble, esp-fm-rds-node, esp-network-pcm-clock]
+seen_in: [esp32-audioi2s, esp-usb-audio-example, esp32-i2s-ble, esp-fm-rds-node, esp-network-pcm-clock, squeezelite-esp32]
 maturity:
   technology: R2
   implementation: R1
@@ -47,6 +47,7 @@ ESP spricht **I2S** (STD/PDM/…) zu externem DAC, Codec oder MEMS-Mic: Decode�
 | MEMS 32-bit I2S = direkt int16 ohne Scale | `REJECTED` | Shift/Clamp nötig (Capture-Pfad) |
 | SEL/LR-Kanal am Mic ignorieren | `REJECTED` | Kanalwahl hardwareseitig |
 | I2S-Player = Browser-Host-Webradio | `REJECTED` | anderer Audio-Ort |
+| I2S-DAC-Pfad = LMS/Squeezelite-Contract | `REJECTED` | Player-Protokoll → `lms-squeezelite`; I2S nur Sink |
 
 ### Projektstart-Checkliste
 
