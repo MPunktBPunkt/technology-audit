@@ -39,9 +39,11 @@ WLAN und BLE **nacheinander** (README).
 
 | Claim | Status |
 |-------|--------|
-| `FW_VERSION` 1.1.0 | `FACT` |
-| Score-Formel wie RF_SCORE.md | `FACT` (Doku=Code-Intent) |
+| `FW_VERSION` 1.1.0 Baseline / 1.2.0 Observability in Arbeit | `FACT` (Repo) |
+| Score-Formel wie RF_SCORE.md, `scoreVersion=1` | `FACT` (Doku=Code-Intent) |
 | Peripheral/Central disabled auf Mini (Scan-only) | `FACT` (`platformio.ini`) |
+| Observation = raw / derived(proxy) / assessment | `HYPOTHESIS` (Desk, ab 1.2) |
+| Mini: kein PSRAM, kleine Caps; S3: PSRAM optional | `HYPOTHESIS` (HwCaps Runtime) |
 
 ## Ebene C
 
@@ -49,11 +51,14 @@ WLAN und BLE **nacheinander** (README).
 |-------|-------------|--------|
 | Score-Heuristik v1 dokumentiert | `EVID-RF-2026-10-09-001` | `FACT` |
 | Sequentieller WLAN/BLE-Scan | `EVID-RF-2026-10-09-002` | `FACT` (README) |
-| Feldkalibrierung an Standort X | — | `UNKNOWN` |
+| Feldkalibrierung an Standort X | — | `UNKNOWN` (Exit #5) |
+| Proxy-Kennzeichnung Kanaldruck | — | `HYPOTHESIS` (Code 1.2, Lab ausstehend) |
+| measurementQuality ≠ rf_score | — | `HYPOTHESIS` (Code 1.2) |
 
 ## Offene Fragen
 
 - Breakdown-Stabilität über Tage?
+- Radio-Duty und Scan-Dauern an ≥1 Standort (Lab/Field)?
 
 ## Verwandte
 

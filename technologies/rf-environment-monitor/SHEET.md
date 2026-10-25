@@ -54,18 +54,21 @@ Nützlich für Standort-Monitoring und Coexistence-Baselines. Score-Formel und E
 
 ### Projektstart-Checkliste
 
-- [ ] Scan-Intervall und Radio-Zeitbudget festlegen (WLAN vs. BLE)
-- [ ] Score-Formel versionieren (docs + Evidence)
+- [ ] Scan-Intervall und Radio-Zeitbudget festlegen (WLAN vs. BLE) — Instrumentierung in Einzweck-FW 1.2 skizziert
+- [ ] Score-Formel versionieren (docs + Evidence) — `scoreVersion`; Proxies nicht als Airtime claimen
 - [ ] Einzweck vs. Modul? → gleicher Slug, Application kontrastieren (kein Fork)
 - [ ] Hub-IO-Keys + `fwType` dokumentieren
 - [ ] Application + `seen_in` nachziehen
+- [ ] Observation-Schichten raw / derived(proxy) / assessment trennen (Audit 0.7+)
+- [ ] measurementQuality separat vom Score führen
 
 ## Referenzen
 
 - ESP WiFi scan / NimBLE scan APIs
-- Beispiel Einzweck: [esp32.rfmonitor](https://github.com/MPunktBPunkt/esp32.rfmonitor) `docs/RF_SCORE.md`
+- Beispiel Einzweck: [esp32.rfmonitor](https://github.com/MPunktBPunkt/esp32.rfmonitor) `docs/RF_SCORE.md`, `docs/OBSERVATION_MODEL.md`
 - Beispiel Modul: [esp32.toolnode](https://github.com/MPunktBPunkt/esp32.toolnode) Scanner/RfHealth
 
 ## Offene Fragen
 
 - Wie portabel ist die Heuristik zwischen Standorten ohne Kalibrierung?
+- Reicht AP-Count-Proxy für Coexistence-Baseline, oder braucht es Hub-seitige Aggregation?
