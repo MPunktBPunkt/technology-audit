@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-25
-project_count: 58
+project_count: 63
 projects:
   - id: a2dpsinkhfpclient
     title: a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd)
@@ -29,6 +29,12 @@ projects:
     status: active
     applications: 1
     path: projects/c5vrx/
+  - id: esp-ble-finder
+    title: ESP BLE Finder — RSSI Proximity Hunt (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 1
+    path: projects/esp-ble-finder/
   - id: esp-fm-rds-node
     title: ESP FM/RDS Node (Fremdrepos)
     profile: lab-tool
@@ -203,6 +209,12 @@ projects:
     status: active
     applications: 2
     path: projects/esp32-sdr-trx/
+  - id: esp32-spotify-remote
+    title: ESP32 Spotify Remote — Web API + PKCE (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 1
+    path: projects/esp32-spotify-remote/
   - id: esp32-toolnode
     title: esp32-toolnode
     profile: firmware
@@ -317,6 +329,12 @@ projects:
     status: —
     applications: 1
     path: projects/metermaster-app/
+  - id: open-bike-computer
+    title: Open Bike Computer — Ride BLE Display (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 1
+    path: projects/open-bike-computer/
   - id: pi-fm-tx
     title: Pi FM / RF Transmit (Fremd)
     profile: lab-tool
@@ -335,12 +353,24 @@ projects:
     status: active
     applications: 0
     path: projects/rnt-esp32/
+  - id: squeezelite-esp32
+    title: Squeezelite-ESP32 — LMS Multi-Room Player (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 4
+    path: projects/squeezelite-esp32/
   - id: technology-audit-kb
     title: technology-audit — Wissensbasis-Qualität (Meta)
     profile: ops-field
     status: active
     applications: 0
     path: projects/technology-audit-kb/
+  - id: tinysstv
+    title: TinySSTV — Martin M1 SSTV TX on ESP32-C3 (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 1
+    path: projects/tinysstv/
   - id: usb-bot-observation
     title: USB BOT Observation — CBW/CDB/Data/CSW (Fremd)
     profile: lab-tool

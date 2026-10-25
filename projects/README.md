@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-25`, 58 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-25`, 63 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -10,6 +10,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`bluetooth-stack`](bluetooth-stack/) | bluetooth_stack — Lightweight Dual-Mode BT Host Stack (Fremd) | lab-tool | active | 2 |
 | [`bmw-nbt-media-index`](bmw-nbt-media-index/) | BMW NBT Media/Backup/Forensics Desk Sources | lab-tool | active | 1 |
 | [`c5vrx`](c5vrx/) | C5VRX — ESP32-C5 5.8 GHz FPV Analog RX (Fremd) | lab-tool | active | 1 |
+| [`esp-ble-finder`](esp-ble-finder/) | ESP BLE Finder — RSSI Proximity Hunt (Fremd) | lab-tool | active | 1 |
 | [`esp-fm-rds-node`](esp-fm-rds-node/) | ESP FM/RDS Node (Fremdrepos) | lab-tool | active | 2 |
 | [`esp-fm-tx`](esp-fm-tx/) | ESP FM / APLL Clock Transmit (Fremd) | lab-tool | active | 1 |
 | [`esp-idf-classic-bt`](esp-idf-classic-bt/) | ESP-IDF classic_bt — Official A2DP/AVRCP Examples (Fremd) | lab-tool | active | 2 |
@@ -39,6 +40,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-pidrive`](esp32-pidrive/) | esp32-pidrive | firmware | — | 5 |
 | [`esp32-rfmonitor`](esp32-rfmonitor/) | esp32-rfmonitor | firmware | — | 3 |
 | [`esp32-sdr-trx`](esp32-sdr-trx/) | ESP32-S3 SDR Transceiver — polar PHY TX + narrowband RX (Fremd) | lab-tool | active | 2 |
+| [`esp32-spotify-remote`](esp32-spotify-remote/) | ESP32 Spotify Remote — Web API + PKCE (Fremd) | lab-tool | active | 1 |
 | [`esp32-toolnode`](esp32-toolnode/) | esp32-toolnode | firmware | — | 6 |
 | [`esp32-webradio`](esp32-webradio/) | esp32-webradio | firmware | — | 2 |
 | [`esp32sdr`](esp32sdr/) | ESP32SDR — S3 Burst RX + Wi-Fi Tone Keying TX (Fremd) | lab-tool | active | 2 |
@@ -58,10 +60,13 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`iobroker-metermaster`](iobroker-metermaster/) | iobroker-metermaster | adapter | — | 1 |
 | [`iobroker-repositories`](iobroker-repositories/) | iobroker-repositories | ops-field | — | 0 |
 | [`metermaster-app`](metermaster-app/) | metermaster-app | ops-field | — | 1 |
+| [`open-bike-computer`](open-bike-computer/) | Open Bike Computer — Ride BLE Display (Fremd) | lab-tool | active | 1 |
 | [`pi-fm-tx`](pi-fm-tx/) | Pi FM / RF Transmit (Fremd) | lab-tool | active | 3 |
 | [`pidrive`](pidrive/) | PiDrive | ops-field | active | 10 |
 | [`rnt-esp32`](rnt-esp32/) | Random Nerd Tutorials — ESP32 Projects Catalog (Fremd) | lab-tool | active | 0 |
+| [`squeezelite-esp32`](squeezelite-esp32/) | Squeezelite-ESP32 — LMS Multi-Room Player (Fremd) | lab-tool | active | 4 |
 | [`technology-audit-kb`](technology-audit-kb/) | technology-audit — Wissensbasis-Qualität (Meta) | ops-field | active | 0 |
+| [`tinysstv`](tinysstv/) | TinySSTV — Martin M1 SSTV TX on ESP32-C3 (Fremd) | lab-tool | active | 1 |
 | [`usb-bot-observation`](usb-bot-observation/) | USB BOT Observation — CBW/CDB/Data/CSW (Fremd) | lab-tool | active | 1 |
 | [`welle-io`](welle-io/) | welle.io — DAB/DAB+ SDR Receiver (Fremd) | lab-tool | active | 2 |
 

@@ -4,7 +4,7 @@
 # Do not hand-edit sheet rows.
 
 generated: 2026-10-25
-sheet_count: 57
+sheet_count: 62
 sheets:
   - slug: airband-am
     title: VHF Airband AM Reception
@@ -42,11 +42,17 @@ sheets:
     reusability: W1
     seen_in: [esp32-i2s-ble]
     path: technologies/ble-pcm-notify-stream/SHEET.md
+  - slug: ble-rssi-proximity
+    title: BLE RSSI Proximity Hunt
+    primary: H
+    reusability: W1
+    seen_in: [esp-ble-finder]
+    path: technologies/ble-rssi-proximity/SHEET.md
   - slug: bluetooth-a2dp
     title: Bluetooth A2DP
     primary: C
     reusability: W3
-    seen_in: [pidrive, esp32-bt-gateway, esp32-a2dp, bluetooth-stack, espble, a2dpsinkhfpclient, esp-idf-classic-bt, esp32-a2dp-codecs, esp32-a2dp-source, esp32-bt-iap, esphome-a2dp-sink]
+    seen_in: [pidrive, esp32-bt-gateway, esp32-a2dp, bluetooth-stack, espble, a2dpsinkhfpclient, esp-idf-classic-bt, esp32-a2dp-codecs, esp32-a2dp-source, esp32-bt-iap, esphome-a2dp-sink, squeezelite-esp32]
     path: technologies/bluetooth-a2dp/SHEET.md
   - slug: bluetooth-ftms
     title: Bluetooth FTMS (Fitness Machine)
@@ -88,7 +94,7 @@ sheets:
     title: ESP I2S Audio Path
     primary: B
     reusability: W2
-    seen_in: [esp32-audioi2s, esp-usb-audio-example, esp32-i2s-ble, esp-fm-rds-node, esp-network-pcm-clock]
+    seen_in: [esp32-audioi2s, esp-usb-audio-example, esp32-i2s-ble, esp-fm-rds-node, esp-network-pcm-clock, squeezelite-esp32]
     path: technologies/esp-i2s-audio/SHEET.md
   - slug: esp-lab-bus-tools
     title: ESP Lab Bus / GPIO Tools
@@ -112,7 +118,7 @@ sheets:
     title: ESP PSRAM Heavy App / Legacy Port
     primary: D
     reusability: W1
-    seen_in: [esp32-doom]
+    seen_in: [esp32-doom, squeezelite-esp32]
     path: technologies/esp-psram-heavy-port/SHEET.md
   - slug: esp-usb-audio-uac
     title: ESP USB Audio (UAC Device)
@@ -246,6 +252,12 @@ sheets:
     reusability: W2
     seen_in: [esp32-network]
     path: technologies/lan-device-inventory/SHEET.md
+  - slug: lms-squeezelite
+    title: LMS / Squeezelite Multi-Room Player
+    primary: F
+    reusability: W1
+    seen_in: [squeezelite-esp32]
+    path: technologies/lms-squeezelite/SHEET.md
   - slug: mcu-connectome-graph
     title: MCU Connectome / Sparse Neural Graph
     primary: D
@@ -294,6 +306,12 @@ sheets:
     reusability: W3
     seen_in: [esp32-rfmonitor, esp32-toolnode]
     path: technologies/rf-environment-monitor/SHEET.md
+  - slug: ride-ble-display
+    title: Ride BLE Display (Custom GATT)
+    primary: C
+    reusability: W1
+    seen_in: [open-bike-computer]
+    path: technologies/ride-ble-display/SHEET.md
   - slug: rpi-gpio-fm-tx
     title: Raspberry Pi GPIO / Clock FM Transmit
     primary: D
@@ -318,12 +336,24 @@ sheets:
     reusability: W3
     seen_in: [pidrive]
     path: technologies/sdr-spectrum-fft/SHEET.md
+  - slug: spotify-web-api-remote
+    title: Spotify Web API Remote (PKCE)
+    primary: F
+    reusability: W1
+    seen_in: [esp32-spotify-remote]
+    path: technologies/spotify-web-api-remote/SHEET.md
   - slug: ssd1306-oled-ui
     title: SSD1306 OLED UI (small)
     primary: G
     reusability: W2
     seen_in: [esp32-metermaster, esp32-ai]
     path: technologies/ssd1306-oled-ui/SHEET.md
+  - slug: sstv-martin-m1
+    title: Martin M1 SSTV Tone Transmit (AF)
+    primary: A
+    reusability: W1
+    seen_in: [tinysstv]
+    path: technologies/sstv-martin-m1/SHEET.md
   - slug: usb-msc
     title: USB Mass Storage Class
     primary: C

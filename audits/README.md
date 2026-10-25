@@ -51,6 +51,11 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`esp32-marauder-2026-foreign`](esp32-marauder-2026-foreign/) | active | lab-tool | Fremd: ESP32Marauder Promiscuous/PCAP (keine Attack-How-tos) · **0.7.1** |
 | [`espectre-2026-foreign`](espectre-2026-foreign/) | active | lab-tool | Fremd: ESPectre Wi-Fi CSI Motion Sensing · **0.7.1** |
 | [`esp32-doom-2026-foreign`](esp32-doom-2026-foreign/) | active | lab-tool | Fremd: ESP32-DOOM PrBoom + PSRAM Heavy Port · **0.7.1** |
+| [`tinysstv-2026-foreign`](tinysstv-2026-foreign/) | active | lab-tool | Fremd: TinySSTV Martin M1 AF SSTV · **0.7.1** |
+| [`squeezelite-esp32-2026-foreign`](squeezelite-esp32-2026-foreign/) | active | lab-tool | Fremd: Squeezelite-ESP32 LMS Multi-Room · **0.7.1** |
+| [`esp32-spotify-remote-2026-foreign`](esp32-spotify-remote-2026-foreign/) | active | lab-tool | Fremd: Spotify Web API + PKCE Remote · **0.7.1** |
+| [`open-bike-computer-2026-foreign`](open-bike-computer-2026-foreign/) | active | lab-tool | Fremd: Open Bike Computer Ride BLE Display · **0.7.1** |
+| [`esp-ble-finder-2026-foreign`](esp-ble-finder-2026-foreign/) | active | lab-tool | Fremd: BLE RSSI Proximity Hunt · **0.7.1** |
 | [`esp32-i2s-ble-2026-foreign`](esp32-i2s-ble-2026-foreign/) | active | lab-tool | Fremd: I2S-Mic → Custom BLE PCM Notify · **0.7.1** |
 | [`esp32-msc-gadget-refs-2026-foreign`](esp32-msc-gadget-refs-2026-foreign/) | active | lab-tool | Fremd: ESP32 USB-MSC Gadgets + virtual FAT / Perf · **0.6.6** |
 | [`tinyusb-msc-busy-retry-2026`](tinyusb-msc-busy-retry-2026/) | closed | lab-tool | TinyUSB MSC `return 0`/BUSY/ASYNC (E7-Basis; Feld S6 validiert) · **0.6.6** + 0.7.0-Retro |

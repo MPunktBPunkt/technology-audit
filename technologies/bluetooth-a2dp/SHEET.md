@@ -7,7 +7,7 @@ primary: C
 tags: [bluetooth-classic, streaming]
 type: protocol
 status: active
-seen_in: [pidrive, esp32-bt-gateway, esp32-a2dp, bluetooth-stack, espble, a2dpsinkhfpclient, esp-idf-classic-bt, esp32-a2dp-codecs, esp32-a2dp-source, esp32-bt-iap, esphome-a2dp-sink]
+seen_in: [pidrive, esp32-bt-gateway, esp32-a2dp, bluetooth-stack, espble, a2dpsinkhfpclient, esp-idf-classic-bt, esp32-a2dp-codecs, esp32-a2dp-source, esp32-bt-iap, esphome-a2dp-sink, squeezelite-esp32]
 maturity:
   technology: R2
   implementation: R0

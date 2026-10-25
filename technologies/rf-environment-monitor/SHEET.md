@@ -26,7 +26,7 @@ Geschwister: Einzweck-Monitor (`esp32.rfmonitor`) vs. RF als Modul in Modular-Fi
 ## Abgrenzung
 
 - **Ist:** periodischer Environment-Scan + Heuristik-Score + Telemetrie.
-- **Ist nicht:** Spektrumanalysator; Paket-Sniffer / Promiscuous-PCAP (→ `esp-wifi-promiscuous-pcap`); BT-Central zu einem Gurt/Bike; Presence mit Raumgenauigkeit; das Modul-Host-Framework (→ `esp-module-host`).
+- **Ist nicht:** Spektrumanalysator; Paket-Sniffer / Promiscuous-PCAP (→ `esp-wifi-promiscuous-pcap`); BLE RSSI Proximity Hunt (→ `ble-rssi-proximity`); BT-Central zu einem Gurt/Bike; Presence mit Raumgenauigkeit; das Modul-Host-Framework (→ `esp-module-host`).
 
 ## Schnittstellen und Abhängigkeiten
 

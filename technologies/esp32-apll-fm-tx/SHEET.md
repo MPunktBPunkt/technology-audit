@@ -27,7 +27,7 @@ Muster: UKW-FM-Träger aus der **Audio-PLL (APLL)** des klassischen ESP32, ausge
 ## Abgrenzung
 
 - **Ist:** Classic-ESP32 APLL → I2S MCLK/CLK_OUT → GPIO als lab-only UKW-FM-Quellenpfad; Teiler-/Frac-FM.
-- **Ist nicht:** ESP32-S3-FM über APLL (kein APLL — Gate/`esp32-polar-phy-tx` ist anderer Contract); S2-UKW ohne Gate; Raspberry-Pi BCM-GPCLK (`rpi-gpio-fm-tx`); RDS allein (`fm-rds`); externe FM-Chips (z. B. QN8027); AM-DAC-Pfad (bitluni); legale Sendestation.
+- **Ist nicht:** ESP32-S3-FM über APLL (kein APLL — Gate/`esp32-polar-phy-tx` ist anderer Contract); S2-UKW ohne Gate; Raspberry-Pi BCM-GPCLK (`rpi-gpio-fm-tx`); RDS allein (`fm-rds`); SSTV-AF-Tone an Radio-Mic (`sstv-martin-m1`); externe FM-Chips (z. B. QN8027); AM-DAC-Pfad (bitluni); legale Sendestation.
 
 ## Signalpfad-Kette
 
