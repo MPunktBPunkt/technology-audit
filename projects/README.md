@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-22`, 54 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-25`, 58 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -20,16 +20,19 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-a2dp`](esp32-a2dp/) | ESP32-A2DP — Classic A2DP/AVRCP Library (Fremd) | lab-tool | active | 2 |
 | [`esp32-a2dp-codecs`](esp32-a2dp-codecs/) | ESP32 A2DP Sink Multi-Codec Forks (Fremd) | lab-tool | active | 2 |
 | [`esp32-a2dp-source`](esp32-a2dp-source/) | ESP32_A2DP_Source — schreibfaul1 (Fremd) | lab-tool | active | 2 |
+| [`esp32-ai`](esp32-ai/) | esp32-ai — On-Device PLE LLM + Fly Connectome (Fremd) | lab-tool | active | 4 |
 | [`esp32-audioi2s`](esp32-audioi2s/) | ESP32-audioI2S — schreibfaul1 (Fremd) | lab-tool | active | 1 |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | esp32-bt-gateway | planning | — | 5 |
 | [`esp32-bt-iap`](esp32-bt-iap/) | esp32-bt-iap — A2DP + Apple Dock (historisch) | lab-tool | active | 2 |
 | [`esp32-communicator`](esp32-communicator/) | esp32-communicator | firmware | — | 3 |
+| [`esp32-doom`](esp32-doom/) | ESP32-DOOM — PrBoom PoC + PSRAM (Fremd) | lab-tool | active | 1 |
 | [`esp32-ergo`](esp32-ergo/) | esp32-ergo | — | — | 6 |
 | [`esp32-esp-hub`](esp32-esp-hub/) | esp32-esp-hub | firmware | — | 3 |
 | [`esp32-ftmsprobe`](esp32-ftmsprobe/) | esp32-ftmsprobe | — | — | 5 |
 | [`esp32-heartrate`](esp32-heartrate/) | esp32-heartrate | — | — | 4 |
 | [`esp32-i2s-ble`](esp32-i2s-ble/) | esp32-i2s-BLE — I2S Mic → BLE PCM (Fremd) | lab-tool | active | 2 |
 | [`esp32-io-control`](esp32-io-control/) | esp32-io-control | firmware | — | 3 |
+| [`esp32-marauder`](esp32-marauder/) | ESP32 Marauder — WiFi/BLE Lab Toolkit (Fremd) | lab-tool | active | 1 |
 | [`esp32-metermaster`](esp32-metermaster/) | esp32-metermaster | firmware | — | 3 |
 | [`esp32-msc-gadget-refs`](esp32-msc-gadget-refs/) | ESP32 USB-MSC Gadget References — Callback / Virtual FAT / Perf (Fremd) | lab-tool | active | 2 |
 | [`esp32-network`](esp32-network/) | esp32-network | firmware | — | 4 |
@@ -41,6 +44,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32sdr`](esp32sdr/) | ESP32SDR — S3 Burst RX + Wi-Fi Tone Keying TX (Fremd) | lab-tool | active | 2 |
 | [`espargos-espsdr`](espargos-espsdr/) | ESPARGOS ESP-SDR — Multi-Chip Undocumented I/Q RX (Fremd) | lab-tool | active | 1 |
 | [`espble`](espble/) | EspBle — NimBLE + Classic A2DP/AVRCP CT/TG (Fremd) | lab-tool | active | 2 |
+| [`espectre`](espectre/) | ESPectre — Wi-Fi CSI Motion Sensing (Fremd) | lab-tool | active | 1 |
 | [`esphome-a2dp-sink`](esphome-a2dp-sink/) | PxPert a2dp_sink — ESPHome A2DP Sink Component (Fremd) | lab-tool | active | 2 |
 | [`espusbhost`](espusbhost/) | EspUsbHost — ESP32 USB Host Library (Fremd) | lab-tool | active | 1 |
 | [`hu-probe`](hu-probe/) | hu-probe — ESP32-S3 USB-MSC Head-Unit Messsonde | lab-tool | active | 4 |

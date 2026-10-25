@@ -7,7 +7,7 @@ primary: D
 tags: [esp32s3, silicon, errata, usb-otg, cache, sleep, psram]
 type: technology
 status: active
-seen_in: [esp32-pidrive, hu-probe, pidrive]
+seen_in: [esp32-pidrive, hu-probe, pidrive, esp32-ai]
 maturity:
   technology: R2
   implementation: R1
@@ -58,6 +58,7 @@ keine Ersatz-Errata.
 | GDMA I2S→AES = Silicon-Erratum | `REJECTED` | IDF Issue Won't Do / Driver |
 | 16 MB Octal-PSRAM offiziell supported | `REJECTED` | jumbo PoC + Timing-Warnung |
 | Verbautes PSRAM = automatisch genutzt | `REJECTED` | braucht `BOARD_HAS_PSRAM` + passendes `memory_type` (qio_qspi vs qio_opi); sonst `getPsramSize()==0` |
+| Flash-mmap Sparse-Table ≈ kostenlos vs. sequentieller PSRAM-Head | `HYPOTHESIS` | Upstream Desk (esp32-ai Bandwidth); eigene Remessung offen |
 | Issue-Tracker-Titel = Root-Cause Projekt X | `REJECTED` | Epistemik |
 
 ## Errata-Orientierung (S3)
@@ -81,6 +82,11 @@ Vollständige Texte: [ESP32-S3 Chip Errata](https://docs.espressif.com/projects/
   Modulvariante (R2 quad vs R8 octal) muss zum Build passen — hu-probe Feld **N8R2**
   (`qio_qspi`, 1 MiB Offline-Capture): Audit
   [`hu-probe-psram-board-free-2026-10-21`](../../audits/hu-probe-psram-board-free-2026-10-21/).
+- On-Device ML mit Flash-Parameter-Tabellen: N16R8-Klasse und Random-Flash-Latenz
+  getrennt vom Head-Scan budgetieren — Desk
+  [`esp32-ai-2026-foreign`](../../audits/esp32-ai-2026-foreign/).
+- Classic-Wrover Heavy-Ports (z. B. Doom-PoC) ≠ dieses S3-Sheet — siehe
+  [`esp-psram-heavy-port`](../esp-psram-heavy-port/SHEET.md).
 
 ### Projektstart-Checkliste
 

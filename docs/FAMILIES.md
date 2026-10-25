@@ -61,6 +61,38 @@ RX-Reuse: `dab-plus`, `rtl-sdr`, `esp32-undoc-iq-rx` (nicht mit TX vermischen).
 TX-Sheets: `rpi-gpio-fm-tx`, `fm-rds`, `rpitx`, `esp32-apll-fm-tx` (Classic only; S3-UKW = Gate), `esp32-polar-phy-tx` (S3 13 cm polar), `esp32-wifi-tone-tx` (S3 2.4 GHz channel-grid keying). Kein Antennen-Sendepfad in der KB.  
 BT/USB: `bluetooth-a2dp` / `avrcp` stack-neutral; Standalone-AVRCP Praxis `REJECTED`; Cover Art IDF≥5.4+PSRAM; `esp-usb-host` ≠ `usb-msc`.
 
+## Lab / Fremd — On-Device ML / Graph
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `esp32-ai` | Desk: [slvDev/esp32-ai](https://github.com/slvDev/esp32-ai) — PLE-LLM + Fly-Connectome auf S3 N16R8 |
+
+Sheets: `mcu-ple-inference`, `mcu-connectome-graph`; Reuse `esp32-s3-silicon`, `ssd1306-oled-ui`. Keine Weight-/Graph-Spiegelung.
+
+## Lab / Fremd — WiFi/BLE Capture Toolkit
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `esp32-marauder` | Desk: [justcallmekoko/ESP32Marauder](https://github.com/justcallmekoko/ESP32Marauder) — Promiscuous/PCAP; Offensive TX nur Inventar |
+
+Sheet: `esp-wifi-promiscuous-pcap`. Kontrast: `rf-environment-monitor`. Keine Attack-How-tos in der KB.
+
+## Lab / Fremd — Wi-Fi Sensing (CSI)
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `espectre` | Desk: [francescopace/espectre](https://github.com/francescopace/espectre) — CSI Motion, Temporal Admission, on-device Detectors |
+
+Sheet: `wifi-csi-motion`. Kontrast: `esp-wifi-promiscuous-pcap`, `rf-environment-monitor`. Keine Dataset-Spiegelung.
+
+## Lab / Fremd — Heavy PSRAM Ports
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `esp32-doom` | Desk: [espressif/esp32-doom](https://github.com/espressif/esp32-doom) — PrBoom PoC, Classic+PSRAM (historisch) |
+
+Sheet: `esp-psram-heavy-port`. Kontrast: `esp32-s3-silicon`, `ssd1306-oled-ui`. Unsupported PoC.
+
 ## Lab / Fremd — sekundäre Web-Kataloge
 
 | Projekt-ID | Rolle |
