@@ -26,7 +26,7 @@ Geschwister: Einzweck-Monitor (`esp32.rfmonitor`) vs. RF als Modul in Modular-Fi
 ## Abgrenzung
 
 - **Ist:** periodischer Environment-Scan + Heuristik-Score + Telemetrie.
-- **Ist nicht:** Spektrumanalysator; Paket-Sniffer; BT-Central zu einem Gurt/Bike; Presence mit Raumgenauigkeit; das Modul-Host-Framework (→ `esp-module-host`).
+- **Ist nicht:** Spektrumanalysator; Paket-Sniffer / Promiscuous-PCAP (→ `esp-wifi-promiscuous-pcap`); BT-Central zu einem Gurt/Bike; Presence mit Raumgenauigkeit; das Modul-Host-Framework (→ `esp-module-host`).
 
 ## Schnittstellen und Abhängigkeiten
 
@@ -43,6 +43,8 @@ Geschwister: Einzweck-Monitor (`esp32.rfmonitor`) vs. RF als Modul in Modular-Fi
 | WLAN- und BLE-Scan parallel ohne Qualitätseinbuße | `HYPOTHESIS` | ESP oft shared radio — nacheinander planen |
 | RF-Score ist kalibrierte Messgröße | `REJECTED` | Heuristik; Versionieren und dokumentieren |
 | Monitor = Connection-Central | `REJECTED` | Observer/Scanner-Rollen anders als GATT-Central-Produkt |
+| Monitor = Marauder-Promiscuous/PCAP | `REJECTED` | anderer Contract → `esp-wifi-promiscuous-pcap` |
+| Monitor = CSI-Motion Occupancy | `REJECTED` | anderer Contract → `wifi-csi-motion` |
 | BLE-Scan ist Pflichtteil des Musters | `REJECTED` | WLAN-only (toolnode Mini, `ENABLE_BLE=0`) bleibt RF-Environment-Monitor |
 | Einzweck-Firmware und Modul teilen keinen Slug | `REJECTED` | Geschwister → gleicher Slug, Applications kontrastieren |
 

@@ -47,6 +47,10 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`esp-iot-solution-2026-foreign`](esp-iot-solution-2026-foreign/) | active | lab-tool | Fremd: Espressif IoT Solution USB UAC/Host-Stream · **0.7.1** |
 | [`esp32-audioi2s-2026-foreign`](esp32-audioi2s-2026-foreign/) | active | lab-tool | Fremd: schreibfaul1 ESP32-audioI2S Decode→I2S · **0.7.1** |
 | [`esp-usb-audio-example-2026-foreign`](esp-usb-audio-example-2026-foreign/) | active | lab-tool | Fremd: finger563 S3-BOX USB Headset · **0.7.1** |
+| [`esp32-ai-2026-foreign`](esp32-ai-2026-foreign/) | active | lab-tool | Fremd: slvDev esp32-ai PLE-LLM + Fly-Connectome · **0.7.1** |
+| [`esp32-marauder-2026-foreign`](esp32-marauder-2026-foreign/) | active | lab-tool | Fremd: ESP32Marauder Promiscuous/PCAP (keine Attack-How-tos) · **0.7.1** |
+| [`espectre-2026-foreign`](espectre-2026-foreign/) | active | lab-tool | Fremd: ESPectre Wi-Fi CSI Motion Sensing · **0.7.1** |
+| [`esp32-doom-2026-foreign`](esp32-doom-2026-foreign/) | active | lab-tool | Fremd: ESP32-DOOM PrBoom + PSRAM Heavy Port · **0.7.1** |
 | [`esp32-i2s-ble-2026-foreign`](esp32-i2s-ble-2026-foreign/) | active | lab-tool | Fremd: I2S-Mic → Custom BLE PCM Notify · **0.7.1** |
 | [`esp32-msc-gadget-refs-2026-foreign`](esp32-msc-gadget-refs-2026-foreign/) | active | lab-tool | Fremd: ESP32 USB-MSC Gadgets + virtual FAT / Perf · **0.6.6** |
 | [`tinyusb-msc-busy-retry-2026`](tinyusb-msc-busy-retry-2026/) | closed | lab-tool | TinyUSB MSC `return 0`/BUSY/ASYNC (E7-Basis; Feld S6 validiert) · **0.6.6** + 0.7.0-Retro |

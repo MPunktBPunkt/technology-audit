@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-22`, 52 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-25`, 57 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 ## Index nach Primary (TAXONOMY)
 
@@ -46,11 +46,14 @@ Wiederverwendbare Technology Sheets.
 
 | Slug | Title | Reuse | Gesehen in |
 |------|-------|-------|------------|
+| [`esp-psram-heavy-port`](esp-psram-heavy-port/SHEET.md) | ESP PSRAM Heavy App / Legacy Port | W1 | `esp32-doom` |
 | [`esp32-apll-fm-tx`](esp32-apll-fm-tx/SHEET.md) | ESP32 APLL / MCLK FM Transmit | W2 | `esp-fm-tx` |
 | [`esp32-polar-phy-tx`](esp32-polar-phy-tx/SHEET.md) | ESP32-S3 Polar PHY Test-Tone TX | W2 | `esp32-sdr-trx` |
-| [`esp32-s3-silicon`](esp32-s3-silicon/SHEET.md) | ESP32-S3 Silicon Errata & Hardware Limits | W2 | `esp32-pidrive`, `hu-probe`, `pidrive` |
+| [`esp32-s3-silicon`](esp32-s3-silicon/SHEET.md) | ESP32-S3 Silicon Errata & Hardware Limits | W2 | `esp32-pidrive`, `hu-probe`, `pidrive`, `esp32-ai` |
 | [`esp32-s3-usb-wifi-coex`](esp32-s3-usb-wifi-coex/SHEET.md) | ESP32-S3 USB ↔ WiFi Coexistence (OTG Device + STA) | W2 | `hu-probe` |
 | [`esp32-wifi-tone-tx`](esp32-wifi-tone-tx/SHEET.md) | ESP32-S3 Wi-Fi PHY CW Tone Keying TX | W2 | `esp32sdr` |
+| [`mcu-connectome-graph`](mcu-connectome-graph/SHEET.md) | MCU Connectome / Sparse Neural Graph | W1 | `esp32-ai` |
+| [`mcu-ple-inference`](mcu-ple-inference/SHEET.md) | MCU PLE / Memory-Tiered LLM Inference | W1 | `esp32-ai` |
 | [`rpi-gpio-fm-tx`](rpi-gpio-fm-tx/SHEET.md) | Raspberry Pi GPIO / Clock FM Transmit | W3 | `pi-fm-tx` |
 | [`rpitx`](rpitx/SHEET.md) | rpitx — Raspberry Pi Software RF Transmit Platform | W2 | `pi-fm-tx` |
 
@@ -82,7 +85,7 @@ Wiederverwendbare Technology Sheets.
 |------|-------|-------|------------|
 | [`esp-embedded-web-sse`](esp-embedded-web-sse/SHEET.md) | Embedded Web REST + SSE | W3 | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe`, `esp32-rfmonitor`, `esp32-toolnode`, `esp32-io-control`, `esp32-communicator`, `esp32-network`, `esp32-esp-hub` |
 | [`metermaster-android-app`](metermaster-android-app/SHEET.md) | MeterMaster Android App | W2 | `metermaster-app` |
-| [`ssd1306-oled-ui`](ssd1306-oled-ui/SHEET.md) | SSD1306 OLED UI (small) | W2 | `esp32-metermaster` |
+| [`ssd1306-oled-ui`](ssd1306-oled-ui/SHEET.md) | SSD1306 OLED UI (small) | W2 | `esp32-metermaster`, `esp32-ai` |
 | [`webradio-browser-host`](webradio-browser-host/SHEET.md) | Web-Radio Browser Host (ESP) | W2 | `esp32-webradio` |
 
 ### H — Test / Analyse
@@ -91,9 +94,11 @@ Wiederverwendbare Technology Sheets.
 |------|-------|-------|------------|
 | [`ble-http-gatt-probe`](ble-http-gatt-probe/SHEET.md) | HTTP-gesteuerte BLE-GATT-Sonde | W2 | `esp32-ftmsprobe` |
 | [`esp-lab-bus-tools`](esp-lab-bus-tools/SHEET.md) | ESP Lab Bus / GPIO Tools | W3 | `esp32-io-control`, `esp32-toolnode` |
+| [`esp-wifi-promiscuous-pcap`](esp-wifi-promiscuous-pcap/SHEET.md) | ESP WiFi Promiscuous Sniff + PCAP Capture | W1 | `esp32-marauder` |
 | [`lan-device-inventory`](lan-device-inventory/SHEET.md) | LAN Device Inventory Scan | W2 | `esp32-network` |
 | [`rf-environment-monitor`](rf-environment-monitor/SHEET.md) | RF Environment Monitor | W3 | `esp32-rfmonitor`, `esp32-toolnode` |
 | [`sdr-spectrum-fft`](sdr-spectrum-fft/SHEET.md) | SDR Spectrum / FFT Analysis | W3 | `pidrive` |
+| [`wifi-csi-motion`](wifi-csi-motion/SHEET.md) | Wi-Fi CSI Motion Sensing | W1 | `espectre` |
 
 ### I — Fahrzeug / Geräte
 
