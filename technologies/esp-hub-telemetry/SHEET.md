@@ -51,15 +51,18 @@ LAN-Hub-Muster: Nodes `POST /api/register` (mac, name, hwType, version, Metriken
 | Jeder Hub-Node sendet `fwType` | `REJECTED` | Spec/`Schnittstellen.md`: mac/name/hwType |
 | Fehlendes `fwType` = kein Hub-Muster | `REJECTED` | |
 | Contract ändert sich mit Programmiersprache | `REJECTED` | A ist HTTP/JSON; B ist C++ vs Node |
+| Nested Domain-Blöcke (z. B. `rf.alert`) ersetzen den Basis-Heartbeat | `REJECTED` | Erweiterungen pro `fwType`; Basis bleibt mac/name/ios |
+| Device-Contract-Doku = Adapter spiegelt Felder End-to-End | `REJECTED` | Adapter-Seite eigene Evidence |
 
 ## Transfer
 
-Voraussetzung: Hub erreichbar im LAN (typisch :8093), dokumentierte `ios`-Keys pro Node. Für neue Nodes: Vorlage `esp-hub-base-template`. Adapter-Features (Flash, Compile) nicht in diesen Slug pressen.
+Voraussetzung: Hub erreichbar im LAN (typisch :8093), dokumentierte `ios`-Keys pro Node. Für neue Nodes: Vorlage `esp-hub-base-template`. Adapter-Features (Flash, Compile) nicht in diesen Slug pressen. Optionale nested Domain-Contracts versionieren und im Adapter explizit spiegeln — nicht still annehmen.
 
 ### Projektstart-Checkliste
 
 - [ ] Identity: `fwType` **oder** `name`/`hwType`/`mac` laut Spec
 - [ ] Heartbeat-Keys + `ios` in Application
+- [ ] Nested Domain-Contract? ID + Felder dokumentieren; Adapter-Exit separat
 - [ ] otaUrl-Konsum (einmalig) implementieren
 - [ ] Zweiter Produkt-Adapter? Ports trennen
 - [ ] Application + `seen_in` (Client **und/oder** Adapter-Projekt)

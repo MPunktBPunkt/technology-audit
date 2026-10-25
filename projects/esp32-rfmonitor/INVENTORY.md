@@ -2,24 +2,25 @@
 
 ```yaml
 project_id: esp32-rfmonitor
-updated: 2026-10-09
-reviewed_commit: 95314cd
+updated: 2026-10-25
+reviewed_commit: 739c67a
 profile: firmware
 pilot_order: [rf-environment-monitor, esp-hub-telemetry, esp-embedded-web-sse]
 ```
 
-**Reuse / Match** ([REUSE.md](../../docs/REUSE.md), Standard [0.6.0](../../docs/STANDARD-CHANGELOG.md)):
+**Reuse / Match** ([REUSE.md](../../docs/REUSE.md), Standard [0.7.1](../../docs/STANDARD-CHANGELOG.md)):
 
 | Signal | Ziel-Sheet | Aktion |
 |--------|------------|--------|
-| RF-/WLAN-/BLE-Scan + Score | `rf-environment-monitor` | **neu** |
-| Hub Heartbeat `fwType=rfmonitor` | `esp-hub-telemetry` | wachsen (`seen_in`) |
-| Lab-Web + SSE | `esp-embedded-web-sse` | wachsen |
+| RF-/WLAN-/BLE-Scan + Score v1∥v2 + Observation | `rf-environment-monitor` | **wachsen** (Schichten, Location-Achse) |
+| Hub Heartbeat `fwType=rfmonitor` + Contract v2 | `esp-hub-telemetry` | wachsen (Fallstrick nested domain contract) |
+| Lab-Web + SSE + Operator Timeline | `esp-embedded-web-sse` | Application nachziehen |
 | WiFiManager | `wifi-manager-captive` | observed |
 | NimBLE Adv-Scan only | unter RF-Monitor | kein Fork von `ble-hrm-gatt` |
+| Location/Session/Snapshot | unter RF-Monitor | kein neues Sheet (Application B) |
 
-Ursprung: [esp32.rfmonitor](https://github.com/MPunktBPunkt/esp32.rfmonitor).  
-Kampagne: [esp32-rfmonitor-2026-pilot](../../audits/esp32-rfmonitor-2026-pilot/).
+Ursprung: [esp32.rfmonitor](https://github.com/MPunktBPunkt/esp32.rfmonitor) @ `739c67a`.  
+Kampagne: [esp32-rfmonitor-2026-v2-validation](../../audits/esp32-rfmonitor-2026-v2-validation/) · Prior: [pilot](../../audits/esp32-rfmonitor-2026-pilot/).
 
 ## Übersicht
 
@@ -36,10 +37,12 @@ Kampagne: [esp32-rfmonitor-2026-pilot](../../audits/esp32-rfmonitor-2026-pilot/)
 
 | Bereich | Warum offen | Nächster Schritt |
 |---------|-------------|------------------|
-| RF-Score Kalibrierung | Heuristik v1, standortabhängig | Feldserie + Evidence |
-| BLE Beacon-Taxonomie | iBeacon/Eddystone skizziert | mehr Geräteklassen |
+| Zweiter Feldstandort | Lab-Baseline nur ein Standort | Exit #5 Feldserie |
+| Hub-Adapter Contract v2 | Device-Doku FACT; Adapter UNKNOWN | Exit #6 ioBroker.esp-hub |
+| Score-v2 langer Dump | 600 s-Baseline unter FW 1.3 / scoreVersion 1 | optional Replay-Session ≥1.4 |
 
 ## Signale ohne Eintrag
 
-- EventLog / HistoryStore — Teil RF-Monitor-Application
+- EventLog / HistoryStore / MeasSession — RF-Monitor-Application
 - Betriebsmodi Live/Normal/Diagnose — Application B
+- Operator Timeline / WLAN-Filter — Web-Application

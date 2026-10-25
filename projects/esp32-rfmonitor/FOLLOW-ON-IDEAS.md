@@ -2,27 +2,26 @@
 
 | Idee | Nutzt | Lücke |
 |------|-------|-------|
-| Standort-Kalibrierung RF-Score / Location Profile | `rf-environment-monitor` | Feldserie (Pilot Exit #5) |
-| Coexistence-Baseline für BT-Gateway | Score + Kanal-Heatmap + Snapshot | Kopplung Messplan |
-| Alerting nur über Hub | `esp-hub-telemetry` | Schwellwerte + Contract v2 |
-| Score v2 gegen v1-Rohdaten replayen | Observation Model (ab FW 1.2) | Assessment-Layer |
-| Measurement Session Export | Observation + History | UI/API Session |
+| Feldserie zweiter Standort | `rf-environment-monitor` | Exit #5 |
+| Coexistence-Baseline für BT-Gateway | Snapshot + Pressure-Proxy | Messplan koppeln |
+| Hub-Adapter Contract v2 | `esp-hub-telemetry` | Exit #6 — `rf.alert` spiegeln |
+| Score v2 gegen v1-Rohdaten replayen | Observation Model | Method Note optional |
+| Measurement Session CSV / Acknowledge | Session + UI | optional Upstream |
 
-## Wissensfeedback 2026-10-25 (FW 1.2/1.3 Observability)
+## Wissensfeedback 2026-10-25 (FW 1.2–1.5)
 
-Aus Code-Arbeit + Lab-OTA an `esp32.rfmonitor` (Mini `.87`, S3 `.88` N8R2):
+Aus Code-Arbeit + Lab-OTA (Mini `.87`, S3 `.88` N8R2) und Desk-Revalidation @ `739c67a`:
 
 | Claim | Status | Hinweis |
 |-------|--------|---------|
 | `channel_load` / `congestion` = Airtime | `REJECTED` | AP-Count-Proxies; `kind=proxy` |
-| Scan-Instrumentierung (Dauer, Fail-Rate, Duty) | `FACT` (Lab) | Mini/S3 1.2.0 verifiziert |
-| `measurementQuality` getrennt vom Score | `FACT` (Lab) | DQ 100 nach Scan |
-| PSRAM Caps auf S3 N8R2 | `FACT` (Lab) | braucht `qio_qspi` (nicht `qio_opi`) |
+| Scan-Instrumentierung (Dauer, Fail-Rate, Duty) | `FACT` (Lab) | Mini/S3 1.2.0+ |
+| `measurementQuality` getrennt vom Score | `FACT` (Lab) | |
+| PSRAM Caps auf S3 N8R2 | `FACT` (Lab) | `qio_qspi` (nicht `qio_opi`) |
 | Dual-Core RF-Worker Core 0 | `FACT` (Lab) | `workerRunning: true` |
-| Location Profile / Deviation / Session | `FACT` (Lab) | 600 s Capture Mini+S3, 151 Samples; Evidence `esp32.rfmonitor/docs/evidence/2026-10-25-lab-baseline/` |
-| Coexistence Snapshot API | `FACT` (Lab) | Snapshot JSON gesichert |
-| Score v2 parallel zu v1 | `FACT` (Lab) | FW 1.4+; Formel in `RfScore.cpp` |
-| Hub-Contract v2 (`rf.alert`) | `HYPOTHESIS`→Lab | FW 1.5 Heartbeat-Feld; ioBroker-Seite noch offen |
+| Location Profile / Deviation / Session | `FACT` (Lab) | 600 s Capture; Upstream Evidence |
+| Score v2 parallel zu v1 | `FACT` | FW 1.4+; aktiv in 1.5 |
+| Hub-Contract v2 (`rf.alert`) Device | `FACT` (Doku) | Adapter-Seite offen |
 | Operator Timeline / WLAN-Filter | `FACT` (Lab) | FW 1.5 UI |
 
-Nächste Revalidation gegen Standard **0.7.1** empfohlen (`esp32-rfmonitor-2026-v2-validation`). Feldserie an zweitem Standort für Exit #5 noch offen.
+Kampagne: [`esp32-rfmonitor-2026-v2-validation`](../../audits/esp32-rfmonitor-2026-v2-validation/).

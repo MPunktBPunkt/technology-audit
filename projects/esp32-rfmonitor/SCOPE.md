@@ -2,9 +2,9 @@
 
 ```yaml
 project_id: esp32-rfmonitor
-updated: 2026-10-09
+updated: 2026-10-25
 source_repo: https://github.com/MPunktBPunkt/esp32.rfmonitor
-reviewed_commit: 95314cd
+reviewed_commit: 739c67a
 profile: firmware
 ```
 
@@ -12,17 +12,21 @@ profile: firmware
 
 | | |
 |--|--|
-| **In scope** | `src/` (RfScanner, BleTracker, RfAnalyzer, Hub, Web), `docs/RF_SCORE.md`, `docs/PFLICHTENHEFT.md`, `platformio.ini` |
-| **Nicht in scope** | Spektrumanalyse; toolnode; Presence-Genauigkeit; Hub-Internals |
-| **Hardware** | `rfmonitor-mini` (D1 Mini) · `rfmonitor-s3` |
-| **Version** | `FW_VERSION` 1.1.0 |
+| **In scope** | `src/` (RfScanner, BleTracker, RfAnalyzer/RfScore, Location/Session, Hub, Web), `docs/RF_SCORE.md`, `docs/OBSERVATION_MODEL.md`, `docs/HUB_CONTRACT.md`, `docs/LOCATION_PROFILE.md`, Lab-Evidence, `platformio.ini` |
+| **Nicht in scope** | Spektrumanalyse; toolnode-Module; Presence-Genauigkeit; ioBroker-Adapter-Internals (nur Contract-Spiegel als Exit) |
+| **Hardware** | `rfmonitor-mini` (D1 Mini, kein PSRAM) · `rfmonitor-s3` (PSRAM wenn vorhanden) |
+| **Version** | `FW_VERSION` **1.5.0** (`RFMON_SCORE_VERSION` 2) |
 
 ## Systeme
 
 ```text
-WLAN APs / BLE Adv ──Scan (sequentiell)──▶ ESP32 RF-Monitor ──WiFi──▶ WebUI/SSE + ESP-Hub
+WLAN APs / BLE Adv ──Scan (sequentiell)──▶ ESP32 RF-Monitor
+        │                                      │
+        │     observation → derived(proxy) → assessment (score v1∥v2 + DQ)
+        │                                      │
+        └── Location Profile / Session / Snapshot ──▶ WebUI/SSE + Hub (Contract v2)
 ```
 
 ## Ziel dieses Audit-Laufs
 
-Desk-Audit unter **Audit-Standard 0.6.0** (inkl. `standard_version`, Reuse-Match, Profil). Neues Pattern-Sheet RF-Monitor; Hub/Web wiederverwenden.
+Revalidation unter **Audit-Standard 0.7.1** nach Upstream 1.1→1.5: Observation Model, Score v2, Location/Session, Hub-Contract v2, Lab-Baseline. Kampagne: [`esp32-rfmonitor-2026-v2-validation`](../../audits/esp32-rfmonitor-2026-v2-validation/).

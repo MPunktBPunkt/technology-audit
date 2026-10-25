@@ -23,3 +23,4 @@ Basis: `https://github.com/MPunktBPunkt/esp32.rfmonitor/blob/95314cd/`
 | Datum | Ereignis |
 |-------|----------|
 | 2026-10-09 | Pilot unter Standard 0.6.0 (`standard_version` eingeführt) |
+| 2026-10-25 | Kampagne geschlossen; Nachzug → [`esp32-rfmonitor-2026-v2-validation`](../esp32-rfmonitor-2026-v2-validation/) @ `739c67a` / FW 1.5.0 |
