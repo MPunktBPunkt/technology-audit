@@ -6,7 +6,7 @@ title: ESP32 RF Sensing — Messvertrag Desk (Planung)
 updated: 2026-10-26
 profile: planning
 reviewed_commit: none
-reviewed_commit_note: "Kein eigenes Firmware-Repo; Desk aus KB-Reuse + Primärquellen (Phase 1+) und Fremd-Repos (Phase 2)."
+reviewed_commit_note: "Kein eigenes Firmware-Repo; Desk aus KB-Reuse + Primärquellen (Phase 1) und Fremd-Kill (Phase 2)."
 status: active
 ```
 
@@ -24,8 +24,8 @@ Nicht: bestes Repo klonen · Feature-Sammlung · rfmonitor erweitern.
 |--------|-------|-----------|
 | Bestehende KB (Sheets/Apps/Evidence/Methods) | Phase 0 Reuse/Gap | ja |
 | `espressif/esp-idf` WiFi CSI / Promiscuous / RX ctrl / CCA | Phase 1 Primärgate | ja (Desk) |
-| `espressif/esp-csi` | Phase 1 Referenz | ja (Desk) |
-| Fremd: CSI-Tool, wifi-radar-lab, HeliosSm | Phase 2 Kill-Fragen | ja (gezielt) |
+| `espressif/esp-csi` | Phase 1 + K6 Instrument-Muster | ja (Desk) |
+| Fremd: CSI-Tool, HeliosSm; K6→console_test | Phase 2 Kill-Fragen | ja (gezielt) |
 | `esp32.rfmonitor` | Kontrast / Abgrenzung | nur Referenz — **kein** Umbau |
 | ESPectre / Marauder | Reuse | ja — **kein** erneutes Voll-Audit |
 | Eigenes Firmware-Repo | Engineering | erst nach Messvertrag |
@@ -38,6 +38,7 @@ Nicht: bestes Repo klonen · Feature-Sammlung · rfmonitor erweitern.
 - Dataset-/Weight-Spiegelung
 - Offensive TX / Attack-How-tos
 - Vollständiges Re-Audit von ESPectre oder Marauder
+- Motion-Assessment ohne Traffic-Kontrollgruppen
 
 ## Phasen
 
@@ -45,8 +46,8 @@ Nicht: bestes Repo klonen · Feature-Sammlung · rfmonitor erweitern.
 |-------|--------|------|
 | **0** | KB Reuse/Gap | Exit erfüllt |
 | **1** | ESP-IDF + esp-csi Gate | Exit erfüllt — CCA Messgegenstand `REJECTED`; siehe PHASE1 |
-| **2** | CSI-Tool · radar-lab · HeliosSm | Traffic-vs-Motion + Passiv/Instrument (offen) |
-| **3** | Synthese | Messvertrag + Projektklasse A/B/C + Characterization-Method |
+| **2** | CSI-Tool · Instrument-Muster · HeliosSm | Exit erfüllt — siehe PHASE2; Motion ohne Traffic-Kontrollen `REJECTED` |
+| **3** | Synthese | Messvertrag + Projektklasse A/B/C + Characterization-Method (offen) |
 
 ## Quellen für das Audit
 
@@ -55,18 +56,18 @@ Nicht: bestes Repo klonen · Feature-Sammlung · rfmonitor erweitern.
 | KB Reuse | `technologies/wifi-csi-motion`, `esp-wifi-promiscuous-pcap`, `rf-environment-monitor` | Phase 0 |
 | Prior Audits | `audits/espectre-2026-foreign`, `esp32-marauder-2026-foreign`, `esp32-rfmonitor-*` | Phase 0 |
 | Method Kontrast | `methods/own-link-motion-sensitivity` | ≠ CSI |
-| IDF / esp-csi | GitHub Espressif | Phase 1 |
-| Fremd P1 | CSI-Tool, radar-lab, HeliosSm | Phase 2 |
+| IDF / esp-csi | GitHub Espressif | Phase 1 / K6 |
+| Fremd P2 | CSI-Tool, HeliosSm, console_test | Phase 2 |
 
 ## Abgrenzung zu esp32.rfmonitor
 
 | Bleibt im rfmonitor | Gehört nur ins neue Projekt (wenn Evidence) |
 |---------------------|---------------------------------------------|
-| Environment Scan, Own-Link RSSI, Score, Location, History, Hub | CSI Roh/Capture, Promiscuous Capture, CCA falls API-FACT, CSI-Processing, Multi-Link Sensing |
+| Environment Scan, Own-Link RSSI, Score, Location, History, Hub | CSI Roh/Capture, Promiscuous Capture, CSI-Processing (CCA entfällt öffentlich) |
 
 Grenze = **Messvertrag**, nicht Feature-Wunsch. `channel_*`=Airtime/CCA bleibt im RF-Monitor-Kontext `REJECTED`.
 
 ## Offene Scope-Fragen
 
 - Projekt-ID Upstream: `esp32.rf-sensing` vs. `esp32.csi-sense`?
-- Braucht Phase 3 eine neue Method Note (CSI characterization) oder reicht FOLLOW-ON?
+- Braucht Phase 3 eine neue Method Note (CSI characterization / traffic-vs-motion controls) oder reicht FOLLOW-ON?

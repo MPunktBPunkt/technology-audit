@@ -43,16 +43,35 @@ IDF Docs: stable **v6.1** · Headers: `espressif/esp-idf` `master@d35ea02` · es
 | `EVID-RFSENSE-P1-008` | C2 ohne CSI-Cap; esp-csi „full series“ ≠ SoC-Universalfact | `FACT` / CLAIM | soc_caps C2 · esp-csi README |
 | `EVID-RFSENSE-P1-009` | esp-csi Erzeugungsmuster Router-Ping / Device / Broadcast-TX | `FACT` (Projekt-Doku) | esp-csi README |
 
-## Offene Claims (nach Phase 1)
+## Phase-2 Kill-Gate Evidence
+
+Pins: CSI-Tool `cce5b1a` · esp-csi console_test `8633d67` · HeliosSm `3f374b5`. Details: [PHASE2](PHASE2.md).
+
+| ID | Claim (Kurz) | Status | Quelle |
+|----|--------------|--------|--------|
+| `EVID-RFSENSE-P2-001` | CSI-Tool Passiv: NULL + Promisc DATA + CSI, kein eigener TX | `FACT` | `passive/main/main.cc` |
+| `EVID-RFSENSE-P2-002` | Passiv braucht fremde OFDM-DATA auf Kanal | `FACT` / Rate `UNKNOWN` | Issue #22 + Filter |
+| `EVID-RFSENSE-P2-003` | CSI-Tool Default = RAW I/Q + meta; Amp/Phase Derived | `FACT` | `csi_component.h` |
+| `EVID-RFSENSE-P2-004` | console_test: `log/csi_data.csv` (+ radar/device/log) + `data/` Labels | `FACT` | `esp_csi_tool.py` |
+| `EVID-RFSENSE-P2-005` | Radar Presence/Move = Demo; CSI-Rate via Null/Ping/csi_send | `FACT` / `REJECTED` Contract | README + `app_main.c` |
+| `EVID-RFSENSE-P2-006` | HeliosSm E1–E4 + Traffic-Log E4 | `FACT` | README + Capture-Skripte |
+| `EVID-RFSENSE-P2-007` | Repro: Motion ≫ Traffic-only; r(Mbps,var)≈0.02 | `FACT` (Desk-Repro) | `analisis_validacion_e4.py` 2026-10-26 |
+| `EVID-RFSENSE-P2-008` | Motion/Presence-Assessment ohne Traffic-Kontrollen | **`REJECTED`** | Konsequenz P2-006/007 |
+| `EVID-RFSENSE-P2-009` | HeliosSm Firmware-Quellcode fehlt | `UNKNOWN` (Gap) | `firmware/README.md` |
+| `EVID-RFSENSE-P2-010` | Kein neues Technology Sheet Phase 2 | `FACT` (Prozess) | [PHASE2](PHASE2.md) §6 |
+
+## Offene Claims (nach Phase 2)
 
 | Claim | Status | Nächste Phase |
 |-------|--------|---------------|
-| CCA als eigenständiger Messgegenstand | **`REJECTED`** | — (geschlossen) |
-| Chip × CSI × Promiscuous × RX-meta (S3/C6 Desk) | `FACT` (Matrix) | Lab-VALIDATED optional später |
-| Passive CSI ohne managed TX | `UNKNOWN` | Phase 2 K5 |
-| Traffic vs Human Motion trennbar | `UNKNOWN` | Phase 2 K7 |
-| Instrument Session/Offline-Muster | `UNKNOWN` | Phase 2 K6 |
-| Kleinste Plattform = Klasse A vs B | `HYPOTHESIS` | nach Phase 2 |
+| CCA als eigenständiger Messgegenstand | **`REJECTED`** | — |
+| Chip × CSI × Promiscuous × RX-meta (S3/C6 Desk) | `FACT` | Lab optional |
+| Passiv ohne eigenen TX (Definition) | `FACT` | Lab-Ausbeute optional |
+| Instrument Session/Label-Muster | `FACT` (Muster) | Phase 3 Spec (Drops/Clock) |
+| Motion-Assessment ohne Traffic-Kontrollen | **`REJECTED`** | — |
+| Traffic vs Motion in HeliosSm-Design | `FACT` (lokal) | Transfer `UNKNOWN` → eigenes Lab |
+| Kleinste Plattform = Klasse A vs B | `HYPOTHESIS` | **Phase 3** |
+| Method „CSI traffic-vs-motion controls“ | Kandidat | Phase 3 / ≥1 Einsatz |
 
 ## Wissens-Chronik
 
@@ -62,3 +81,4 @@ IDF Docs: stable **v6.1** · Headers: `espressif/esp-idf` `master@d35ea02` · es
 | 2026-10-25/26 | rfmonitor v2 + motion-delta; CCA-proxy + CSI-Abgrenzung |
 | 2026-10-26 | Kampagne Phase 0 Exit |
 | 2026-10-26 | Phase 1 IDF/esp-csi Gate — CCA Messgegenstand `REJECTED` |
+| 2026-10-26 | Phase 2 K5–K7 Kill-Gates — Traffic-Kontrollen Pflicht vor Motion-Assessment |
