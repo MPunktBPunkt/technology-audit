@@ -5,7 +5,7 @@ project_id: esp32-rfmonitor
 tech_slug: esp-hub-telemetry
 status: active
 sheet: ../../../technologies/esp-hub-telemetry/SHEET.md
-audit: ../../../audits/esp32-rfmonitor-2026-v2-validation/
+audit: ../../../audits/esp32-rfmonitor-2026-motion-delta/
 maturity:
   technology: R3
   implementation: R3
@@ -15,17 +15,18 @@ maturity:
 
 ## Rolle im Projekt
 
-Arduino-`esp-hub-base`-Familie: Heartbeat `fwType: rfmonitor`, RF-IO-Keys, nested Hub-Contract v2 (`rf` + `rf.alert`), Web- und Hub-OTA.
+Arduino-`esp-hub-base`-Familie: Heartbeat `fwType: rfmonitor`, RF-IO-Keys (inkl. Radio-Duty-Fenster), nested Hub-Contract v2 (`rf` + `rf.alert`), Web- und Hub-OTA. Motion Own-Link ist **Session/UI**, nicht zwingend Hub-IO.
 
 ## Ebene B (Device-Contract)
 
 | Claim | Status |
 |-------|--------|
 | `fwType` bleibt `rfmonitor` | `FACT` |
-| Contract-ID `rfmonitor-hub-v2` ab FW 1.5 | `FACT` ([HUB_CONTRACT.md](https://github.com/MPunktBPunkt/esp32.rfmonitor/blob/739c67a/docs/HUB_CONTRACT.md)) |
+| Contract-ID `rfmonitor-hub-v2` ab FW 1.5 | `FACT` ([HUB_CONTRACT.md](https://github.com/MPunktBPunkt/esp32.rfmonitor/blob/afcd137/docs/HUB_CONTRACT.md)) |
 | Nested `rf`: score, scoreVersion, scoreV1/V2, measurementQuality, locationDeviation, alert.flags | `FACT` (Doku) |
-| Alert-Hysterese on-device | `FACT` (Doku) |
+| Alert-Hysterese on-device; Operator ACK/Pin lokal | `FACT` (Doku/Features) |
 | Flache IO-Keys bleiben (Kompatibilität) | `FACT` (README) |
+| Radio-Duty 5 m / 1 h / Lifetime in IO | `FACT` (README 1.10) |
 
 ## Ebene C
 
@@ -40,3 +41,4 @@ Arduino-`esp-hub-base`-Familie: Heartbeat `fwType: rfmonitor`, RF-IO-Keys, neste
 
 - IO-Schema RF-spezifisch — nicht mit heartrate/ergo identisch.
 - Nested Domain-Contract ist **Erweiterung**, ersetzt nicht Basis-Heartbeat (`mac`/`name`/`ios`).
+- Motion-Samples gehören nicht zum Hub-Heartbeat-Minimum.
