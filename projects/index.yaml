@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-26
-project_count: 63
+project_count: 64
 projects:
   - id: a2dpsinkhfpclient
     title: a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd)
@@ -197,6 +197,12 @@ projects:
     status: —
     applications: 5
     path: projects/esp32-pidrive/
+  - id: esp32-rf-sensing
+    title: ESP32 RF Sensing — Messvertrag Desk (Planung)
+    profile: planning
+    status: active
+    applications: 0
+    path: projects/esp32-rf-sensing/
   - id: esp32-rfmonitor
     title: esp32-rfmonitor
     profile: firmware

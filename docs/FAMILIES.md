@@ -82,8 +82,9 @@ Sheet: `esp-wifi-promiscuous-pcap`. Kontrast: `rf-environment-monitor`. Keine At
 | Projekt-ID | Rolle |
 |------------|-------|
 | `espectre` | Desk: [francescopace/espectre](https://github.com/francescopace/espectre) — CSI Motion, Temporal Admission, on-device Detectors |
+| `esp32-rf-sensing` | Planung: Messvertrag CSI/Promiscuous/RX-meta/CCA-Gate — Kampagne [`esp32-rf-sensing-2026-desk`](../audits/esp32-rf-sensing-2026-desk/); **kein** rfmonitor-Umbau |
 
-Sheet: `wifi-csi-motion`. Kontrast: `esp-wifi-promiscuous-pcap`, `rf-environment-monitor`. Keine Dataset-Spiegelung.
+Sheet: `wifi-csi-motion`. Kontrast: `esp-wifi-promiscuous-pcap`, `rf-environment-monitor`. Keine Dataset-Spiegelung. Planung reuse-first (Phase 0), dann IDF-Gate.
 
 ## Lab / Fremd — Heavy PSRAM Ports
 

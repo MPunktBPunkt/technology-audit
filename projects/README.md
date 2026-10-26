@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-26`, 63 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-26`, 64 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -38,6 +38,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-msc-gadget-refs`](esp32-msc-gadget-refs/) | ESP32 USB-MSC Gadget References — Callback / Virtual FAT / Perf (Fremd) | lab-tool | active | 2 |
 | [`esp32-network`](esp32-network/) | esp32-network | firmware | — | 4 |
 | [`esp32-pidrive`](esp32-pidrive/) | esp32-pidrive | firmware | — | 5 |
+| [`esp32-rf-sensing`](esp32-rf-sensing/) | ESP32 RF Sensing — Messvertrag Desk (Planung) | planning | active | 0 |
 | [`esp32-rfmonitor`](esp32-rfmonitor/) | esp32-rfmonitor | firmware | — | 3 |
 | [`esp32-sdr-trx`](esp32-sdr-trx/) | ESP32-S3 SDR Transceiver — polar PHY TX + narrowband RX (Fremd) | lab-tool | active | 2 |
 | [`esp32-spotify-remote`](esp32-spotify-remote/) | ESP32 Spotify Remote — Web API + PKCE (Fremd) | lab-tool | active | 1 |
