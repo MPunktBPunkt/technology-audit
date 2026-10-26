@@ -70,8 +70,10 @@ Pins: CSI-Tool `cce5b1a` · esp-csi console_test `8633d67` · HeliosSm `3f374b5`
 | Instrument Session/Label-Muster | `FACT` (Muster) | Phase 3 Spec (Drops/Clock) |
 | Motion-Assessment ohne Traffic-Kontrollen | **`REJECTED`** | — |
 | Traffic vs Motion in HeliosSm-Design | `FACT` (lokal) | Transfer `UNKNOWN` → eigenes Lab |
-| Kleinste Plattform = Klasse A vs B | `HYPOTHESIS` | **Phase 3** |
-| Method „CSI traffic-vs-motion controls“ | Kandidat | Phase 3 / ≥1 Einsatz |
+| Kleinste Plattform = Klasse A vs B | `HYPOTHESIS` | nach Matrix-Entscheidung + ggf. Lab |
+| Method „CSI traffic-vs-motion controls“ | Kandidat | nur nach Go + Einsatz |
+| CSI Experimentpfad shortlistbar? | Matrix T1 **GO-Kandidat** | [TECHNOLOGY-MATRIX](TECHNOLOGY-MATRIX.md) — **keine** Projektentscheidung |
+| Vorzeitiger Instrument-/A0-Pfad | Artefakt (nicht Tech-Evidenz) | [ARTIFACT-INSTRUMENT-2026-10-26](ARTIFACT-INSTRUMENT-2026-10-26.md) |
 
 ## Wissens-Chronik
 
@@ -82,3 +84,4 @@ Pins: CSI-Tool `cce5b1a` · esp-csi console_test `8633d67` · HeliosSm `3f374b5`
 | 2026-10-26 | Kampagne Phase 0 Exit |
 | 2026-10-26 | Phase 1 IDF/esp-csi Gate — CCA Messgegenstand `REJECTED` |
 | 2026-10-26 | Phase 2 K5–K7 Kill-Gates — Traffic-Kontrollen Pflicht vor Motion-Assessment |
+| 2026-10-26 | Technologiematrix Desk; Instrument-Pfad als Artefakt eingefroren |

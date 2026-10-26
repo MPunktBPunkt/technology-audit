@@ -19,7 +19,8 @@ pilot_order: [wifi-csi-motion, esp-wifi-promiscuous-pcap, rf-environment-monitor
 | Chip × CSI × Promiscuous × RX-meta × CCA | — | Phase 1 **geschlossen** Desk; CCA `REJECTED` |
 | Passive CSI ohne kontrollierten TX | — | Phase 2 **K5 geschlossen** (Definition); Lab-Ausbeute offen |
 | Traffic vs. Human Motion Kontamination | — | Phase 2 **K7**: Assessment ohne Kontrollen `REJECTED` |
-| Instrument Session/Offline | — | Phase 2 **K6**: Muster `FACT`; Spec Phase 3 |
+| Instrument Session/Offline | — | Phase 2 **K6**: Muster `FACT`; Weiterbau nur nach Matrix-Go |
+| Technologiematrix | — | [TECHNOLOGY-MATRIX](../../audits/esp32-rf-sensing-2026-desk/TECHNOLOGY-MATRIX.md) |
 
 Kampagne: [`esp32-rf-sensing-2026-desk`](../../audits/esp32-rf-sensing-2026-desk/).
 
@@ -40,11 +41,12 @@ Status `documented` = Sheet existiert; **keine** Application unter diesem Projek
 | IDF Chip-Capability Matrix S3/C6 | **geschlossen** Desk → [PHASE1](../../audits/esp32-rf-sensing-2026-desk/PHASE1.md) | Lab optional |
 | CCA / Energy Detect als Mess-API | **`REJECTED`** (öffentlich) | nicht weiterführen |
 | Passive CSI ohne eigenen TX | **Definition geschlossen** → [PHASE2](../../audits/esp32-rf-sensing-2026-desk/PHASE2.md) | Lab-Ausbeute; Traffic-Quelle spezifizieren |
-| Traffic vs Motion Trennung | **Gate geschlossen**: ohne Kontrollen `REJECTED` | Phase 3 Messvertrag + ggf. Method |
-| Instrument Session/Offline | **Muster geschlossen** | Phase 3 Spec (Drops/Clock/Replay) |
-| Eigenes Lab / Field | Desk only | nach Messvertrag |
+| Traffic vs Motion Trennung | **Gate geschlossen**: ohne Kontrollen `REJECTED` | Method nur nach Go |
+| Instrument Session/Offline | **Muster geschlossen** | Spec nur nach Matrix-Entscheidung |
+| Technologiematrix Shortlist | Desk | CSI Experimentpfad GO-Kandidat; Projektwahl offen |
+| Eigenes Lab / Field | Desk only | nur nach explizitem Go |
 
 ## Signale ohne Eintrag
 
 - Multi-Link Sensing, SenseFi-Benchmarks, Presence-Demos — P2 nur bei Kill-Bedarf
-- Method „CSI traffic-vs-motion controls“ — Kandidat Phase 3, nicht angelegt
+- Method „CSI traffic-vs-motion controls“ — Kandidat nach Go, nicht angelegt

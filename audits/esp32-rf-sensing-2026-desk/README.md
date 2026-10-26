@@ -9,7 +9,7 @@ status: active
 profile: planning
 standard_version: "0.7.1"
 standard_gaps: []
-phase: 2
+phase: matrix
 reviewed_commit: none
 primary_pins:
   esp-idf: "master@d35ea02 + docs stable v6.1"
@@ -30,7 +30,7 @@ reuse_outcomes:
     - "esp-csi full-series CSI auf jedem Chip"
     - "console_test Radar Presence/Move als Messvertrag"
     - "Motion-Assessment ohne Traffic-Kontrollgruppen"
-  process: "P0 KB; P1 IDF Gate CCA REJECTED; P2 K5–K7 Kill — Passiv definiert, Instrument-Muster, Traffic-Kontrollen Pflicht; keine neuen Sheets."
+  process: "P0–P2 Exit erfüllt; Technologiematrix Desk; vorzeitiger A0-Instrument-Pfad als Artefakt dokumentiert (kein CSI-Projektentscheid); Lab eingefroren."
   decisions_touched:
     - reuse-espectre-wifi-csi-motion
     - reuse-marauder-promiscuous-abgrenzung
@@ -39,11 +39,12 @@ reuse_outcomes:
     - separate-s3-nonhe-vs-c6-he-csi-paths
     - map-k6-to-esp-csi-console-test
     - reject-motion-assessment-without-traffic-controls
+    - technology-matrix-shortlist-csi-experiment-path
 ```
 
 ## Ziel
 
-Desk-Grundlage für die kleinste **auditierbare** ESP32-RF-Sensing-Plattform: Messvertrag aus Evidence, nicht Repo-Ranking. Phase 0 = Reuse/Gap; Phase 1 = IDF-Gate; Phase 2 = gezielte Fremd-Kill-Fragen (kein Voll-Audit).
+Desk-Grundlage für die kleinste **auditierbare** ESP32-RF-Sensing-Plattform: Messvertrag und Technologiewahl aus Evidence, nicht Repo-Ranking. Phase 0 = Reuse/Gap; Phase 1 = IDF-Gate; Phase 2 = gezielte Fremd-Kill-Fragen; danach **Technologiematrix** vor jeder Projektentscheidung.
 
 ## Scope
 
@@ -52,40 +53,34 @@ Siehe [SCOPE](../../projects/esp32-rf-sensing/SCOPE.md).
 - **Im Scope Phase 0:** Inventar bestehender Sheets/Apps/Evidence/Methods; FACT-Liste; Gaps; Kill-/Gate-Fragen für Phase 1/2.
 - **Im Scope Phase 1:** ESP-IDF + esp-csi Capability-/API-Matrix (CSI, Promiscuous, RX-meta, CCA-Gate); S3 vs C6 trennen.
 - **Im Scope Phase 2:** Nur K5 CSI-Tool · K6 Instrument-Muster (esp-csi console_test) · **K7 HeliosSm** Traffic-vs-Motion.
-- **Nicht:** erneutes Voll-Audit ESPectre/Marauder; Community-Volltiefe; neue Sheets ohne Evidence; Code; rfmonitor-Features; A/B/C-Zwang; Experimentplanung in Phase 2.
+- **Im Scope Matrix:** Vergleich CSI · Promiscuous · RX-meta · Own-Link · Env-Score · CCA(REJECTED).
+- **Nicht:** erneutes Voll-Audit ESPectre/Marauder; ML/Radar/Presence-Produkt; CCA wiederöffnen; neue Sheets ohne Evidence; rfmonitor-Umbau; Lab ohne explizite Entscheidung nach Matrix-Review.
 
 ## Exit-Kriterien
 
 | # | Kriterium | Status |
 |---|-----------|--------|
-| P0.1 | Kampagne + SCOPE/INVENTORY Stub | erfüllt |
-| P0.2 | Reuse-Tabelle Sheets/Apps/Evidence/Methods | erfüllt → [PHASE0](PHASE0.md) · [evidence](evidence.md) |
-| P0.3 | FACT-Liste für RF-Sensing-Thema aus KB | erfüllt |
-| P0.4 | Gap-Liste + Kill/Gate für Phase 1/2 | erfüllt |
-| P0.5 | Keine neuen Sheets in Phase 0 | erfüllt |
-| P1.1 | Chip × CSI × Promiscuous × RX-meta × CCA Matrix (IDF/esp-csi) | erfüllt → [PHASE1](PHASE1.md) |
-| P1.2 | CCA nur weiterführen wenn IDF-API-FACT — sonst UNKNOWN/REJECTED | erfüllt: **REJECTED** als Messgegenstand |
-| P1.3 | K1–K4 Desk geschlossen oder Residual benannt | erfüllt |
-| P1.4 | Keine neuen Sheets in Phase 1 | erfüllt |
-| P2.1 | CSI-Tool / radar-lab / HeliosSm nur auf Kill-Fragen | erfüllt → [PHASE2](PHASE2.md) |
-| P2.2 | HeliosSm: keine Motion ohne Traffic-Kontamination geprüft | erfüllt: Assessment ohne Kontrollen **`REJECTED`** |
-| P2.3 | Keine neuen Sheets in Phase 2 | erfüllt |
-| P3.1 | Messvertrag + Projektklasse A/B/C Decision | offen |
+| P0.1–P0.5 | Phase 0 | erfüllt → [PHASE0](PHASE0.md) |
+| P1.1–P1.4 | Phase 1 | erfüllt → [PHASE1](PHASE1.md) |
+| P2.1–P2.3 | Phase 2 | erfüllt → [PHASE2](PHASE2.md) |
+| M.1 | Technologiematrix mit GO/NO-GO/FURTHER AUDIT | erfüllt → [TECHNOLOGY-MATRIX](TECHNOLOGY-MATRIX.md) |
+| M.2 | Explizite Projekt-/Technologieentscheidung | **offen** (nach externem Review) |
+| Lab / Instrument-Pfad | — | **eingefroren**; siehe [ARTIFACT-INSTRUMENT](ARTIFACT-INSTRUMENT-2026-10-26.md) |
 
-## Decision Trace (Phase 0–2)
+## Decision Trace (Phase 0–2 + Matrix)
 
 | Entscheidung | Benötigte Frage | Evidence-ID | Konsequenz | Wissenszeitpunkt |
 |--------------|-----------------|-------------|------------|------------------|
 | ESPectre erneut voll auditieren? | Fehlt KB-Contract CSI-Motion? | `EVID-RFSENSE-P0-001` | Nein — Reuse `wifi-csi-motion` | `KNOWN BEFORE TEST` |
 | Marauder erneut voll auditieren? | Fehlt Promiscuous-Capture-Abgrenzung? | `EVID-RFSENSE-P0-002` | Nein — Reuse + Kontrast | `KNOWN BEFORE TEST` |
-| CCA als Messgegenstand Sheet? | Öffentliche IDF-API mit Semantik? | `EVID-RFSENSE-P1-007` | **Nein — REJECTED**; Proxy nicht CCA nennen | `DISCOVERED DURING TEST` |
+| CCA als Messgegenstand Sheet? | Öffentliche IDF-API mit Semantik? | `EVID-RFSENSE-P1-007` | **Nein — REJECTED** | `DISCOVERED DURING TEST` |
 | S3/C6 CSI gleich behandeln? | Gleicher Config/rx_ctrl-Pfad? | `EVID-RFSENSE-P1-002` | Nein — Non-HE vs HE | `DISCOVERED DURING TEST` |
 | Amp/Phase als Roh-API? | Felder in `wifi_csi_info_t`? | `EVID-RFSENSE-P1-004` | Nein — Derived aus I/Q | `KNOWN BEFORE TEST` |
 | Passiv ohne eigenen TX? | CSI-Tool `passive` Design? | `EVID-RFSENSE-P2-001` | Ja definiert; braucht Fremd-DATA | `DISCOVERED DURING TEST` |
-| Radar-UI als Instrument-Contract? | Raw vs Presence-Demo? | `EVID-RFSENSE-P2-005` | Nein — nur Session/Label-Muster reuse | `DISCOVERED DURING TEST` |
+| Radar-UI als Instrument-Contract? | Raw vs Presence-Demo? | `EVID-RFSENSE-P2-005` | Nein — nur Session/Label-Muster | `DISCOVERED DURING TEST` |
 | Motion ohne Traffic-Kontrollen? | HeliosSm E1–E4 + Repro? | `EVID-RFSENSE-P2-008` | **REJECTED** als Assessment | `DISCOVERED DURING TEST` |
-| Neues Sheet Phase 0–2? | Neuer Contract? | `EVID-RFSENSE-P0-005` / `P2-010` | Nein | `KNOWN BEFORE TEST` |
-| Nächstes Gate | Was bleibt? | P2 Residuals | Phase 3 Synthese Messvertrag (kein A/B/C hier) | `DISCOVERED DURING TEST` |
+| CSI als Experimentpfad shortlistbar? | Matrix-Kriterien | TECHNOLOGY-MATRIX T1 | **GO-Kandidat** Experimentpfad; **keine** Projektentscheidung | `DISCOVERED DURING TEST` |
+| Instrument-Bau = CSI-Projektwahl? | Artefakt-Pfad | ARTIFACT | **Nein** | `KNOWN BEFORE TEST` |
 
 ## Engineering Review Checks
 
@@ -142,6 +137,8 @@ Siehe [SCOPE](../../projects/esp32-rf-sensing/SCOPE.md).
 - [PHASE0.md](PHASE0.md) — Reuse/FACT/Gap/Kill · **Exit erfüllt**
 - [PHASE1.md](PHASE1.md) — Capability-Matrix · K1–K4 · **Exit erfüllt**
 - [PHASE2.md](PHASE2.md) — K5–K7 Kill · **Exit erfüllt**
+- [TECHNOLOGY-MATRIX.md](TECHNOLOGY-MATRIX.md) — Kandidaten GO/NO-GO/FURTHER AUDIT · **Desk fertig, Entscheidung offen**
+- [ARTIFACT-INSTRUMENT-2026-10-26.md](ARTIFACT-INSTRUMENT-2026-10-26.md) — vorzeitiger A0-Instrument-Pfad · **Artefakt, kein Projektentscheid**
 - [evidence.md](evidence.md)
 
 ## Knowledge Feedback
@@ -152,16 +149,9 @@ Siehe [SCOPE](../../projects/esp32-rf-sensing/SCOPE.md).
 | Desk IDF/esp-csi | `EVID-RFSENSE-P1-001`…`009` | PHASE1 + INVENTORY Gaps |
 | Desk Fremd Kill | `EVID-RFSENSE-P2-001`…`010` | PHASE2 + INVENTORY Gaps |
 
-## Offene Punkte (nach Phase 2)
+## Offene Punkte
 
-- **Phase 3:** Messvertrag-Synthese + A/B/C Decision (separater Lauf)
-- CCA nicht wiederbeleben
-- Motion-Assessment nur mit Traffic-Kontrollgruppen (E1–E4-Analog)
-- Method-Kandidat traffic-vs-motion controls — erst nach Spec/Einsatz
-- Keine Experimentplanung in diesem Lauf
-
----
-
-## Phase-3 Gate (Vorschlag — noch nicht ausgeführt)
-
-Constraints aus P1+P2 als Input: Roh = CSI I/Q + Promisc + RX-meta; Erzeugung managed oder dokumentierte Fremdquelle; Instrument = Session RAW+Labels ohne Presence-Produkt; Assessment nur mit Traffic-Kontrollen. Dann erst A/B/C.
+- Externes Review der [TECHNOLOGY-MATRIX](TECHNOLOGY-MATRIX.md)
+- Danach **explizite** Technologie-/Projektentscheidung (oder Pause)
+- Lab nur nach Go; Instrument-Working-Tree lokal eingefroren (nicht Teil dieses Review-Push)
+- CCA / Presence-Grundfähigkeit / ML-Radar / rfmonitor-Umbau bleiben draußen

@@ -6,7 +6,7 @@ title: ESP32 RF Sensing — Messvertrag Desk (Planung)
 updated: 2026-10-26
 profile: planning
 reviewed_commit: none
-reviewed_commit_note: "Kein eigenes Firmware-Repo; Desk aus KB-Reuse + Primärquellen (Phase 1) und Fremd-Kill (Phase 2)."
+reviewed_commit_note: "Kein eigenes Firmware-Repo; Desk aus KB-Reuse + Primärquellen (Phase 1), Fremd-Kill (Phase 2) und Technologiematrix."
 status: active
 ```
 
@@ -26,9 +26,10 @@ Nicht: bestes Repo klonen · Feature-Sammlung · rfmonitor erweitern.
 | `espressif/esp-idf` WiFi CSI / Promiscuous / RX ctrl / CCA | Phase 1 Primärgate | ja (Desk) |
 | `espressif/esp-csi` | Phase 1 + K6 Instrument-Muster | ja (Desk) |
 | Fremd: CSI-Tool, HeliosSm; K6→console_test | Phase 2 Kill-Fragen | ja (gezielt) |
+| Technologiematrix | Shortlist vor Projektentscheid | ja (Desk) |
 | `esp32.rfmonitor` | Kontrast / Abgrenzung | nur Referenz — **kein** Umbau |
 | ESPectre / Marauder | Reuse | ja — **kein** erneutes Voll-Audit |
-| Eigenes Firmware-Repo | Engineering | erst nach Messvertrag |
+| Eigenes Firmware-Repo | Engineering | erst nach expliziter Entscheidung |
 | Presence / Person Count / Identity / Vitals / Localization | Produktclaims | **nein** bis Evidence trägt |
 
 ## Nicht-Ziele
@@ -39,6 +40,7 @@ Nicht: bestes Repo klonen · Feature-Sammlung · rfmonitor erweitern.
 - Offensive TX / Attack-How-tos
 - Vollständiges Re-Audit von ESPectre oder Marauder
 - Motion-Assessment ohne Traffic-Kontrollgruppen
+- Lab/Instrument ohne Matrix-Review und explizites Go
 
 ## Phasen
 
@@ -47,7 +49,8 @@ Nicht: bestes Repo klonen · Feature-Sammlung · rfmonitor erweitern.
 | **0** | KB Reuse/Gap | Exit erfüllt |
 | **1** | ESP-IDF + esp-csi Gate | Exit erfüllt — CCA Messgegenstand `REJECTED`; siehe PHASE1 |
 | **2** | CSI-Tool · Instrument-Muster · HeliosSm | Exit erfüllt — siehe PHASE2; Motion ohne Traffic-Kontrollen `REJECTED` |
-| **3** | Synthese | Messvertrag + Projektklasse A/B/C + Characterization-Method (offen) |
+| **Matrix** | Kandidatenvergleich | Desk → [TECHNOLOGY-MATRIX](../../audits/esp32-rf-sensing-2026-desk/TECHNOLOGY-MATRIX.md); **Projektentscheid offen** |
+| **Lab** | nur nach Go | eingefroren |
 
 ## Quellen für das Audit
 
@@ -58,6 +61,7 @@ Nicht: bestes Repo klonen · Feature-Sammlung · rfmonitor erweitern.
 | Method Kontrast | `methods/own-link-motion-sensitivity` | ≠ CSI |
 | IDF / esp-csi | GitHub Espressif | Phase 1 / K6 |
 | Fremd P2 | CSI-Tool, HeliosSm, console_test | Phase 2 |
+| Matrix | `audits/esp32-rf-sensing-2026-desk/TECHNOLOGY-MATRIX.md` | Shortlist |
 
 ## Abgrenzung zu esp32.rfmonitor
 
@@ -70,4 +74,4 @@ Grenze = **Messvertrag**, nicht Feature-Wunsch. `channel_*`=Airtime/CCA bleibt i
 ## Offene Scope-Fragen
 
 - Projekt-ID Upstream: `esp32.rf-sensing` vs. `esp32.csi-sense`?
-- Braucht Phase 3 eine neue Method Note (CSI characterization / traffic-vs-motion controls) oder reicht FOLLOW-ON?
+- Nach Matrix-Review: CSI-Experimentpfad / Own-Link-only / Pause?
