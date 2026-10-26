@@ -4,12 +4,13 @@
 id: esp32-rfmonitor-2026-v2-validation
 project_id: esp32-rfmonitor
 started: 2026-10-25
-ended: null
-status: active
+ended: 2026-10-26
+status: closed
 profile: firmware
 standard_version: "0.7.1"
 standard_gaps: []
 prior_audit: esp32-rfmonitor-2026-pilot
+superseded_by: esp32-rfmonitor-2026-motion-delta
 reviewed_commit: 739c67a
 upstream_pin:
   repo: https://github.com/MPunktBPunkt/esp32.rfmonitor
@@ -29,7 +30,7 @@ reuse_outcomes:
   not_helped:
     - "RF-Score als kalibrierte Messgröße ohne Standortprofil"
     - "channel_load / congestion = Airtime"
-  process: "Upstream 1.1.0→1.5.0 Desk+Lab-Nachzug unter 0.7.1; Pilot Exit #5 teilweise (Lab-Baseline), zweiter Standort offen."
+  process: "Upstream 1.1.0→1.5.0 Desk+Lab unter 0.7.1 geschlossen; Nachzug 1.6–1.10.2 → motion-delta; Exit #5 Rest/Küche + #6 Adapter dort."
   decisions_touched:
     - fact-score-v2-active-parallel-v1
     - fact-measurement-quality-separate
@@ -56,8 +57,8 @@ Siehe [SCOPE](../../projects/esp32-rfmonitor/SCOPE.md).
 | 2 | Sheet `rf-environment-monitor` um Observation/Score-v2/Location-Achse gewachsen | erfüllt |
 | 3 | Applications + Evidence auf `739c67a` / FW 1.5.0 | erfüllt |
 | 4 | Lab-Baseline Mini+S3 verlinkt (Upstream Evidence) | erfüllt |
-| 5 | Feldserie an ≥1 weiterem Standort (Pilot Exit #5 Rest) | offen |
-| 6 | Hub-Adapter spiegelt Contract v2 (`rf.alert`) | offen |
+| 5 | Feldserie an ≥1 weiterem Standort (Pilot Exit #5 Rest) | übernommen → [`motion-delta`](../esp32-rfmonitor-2026-motion-delta/) (Küche teilweise) |
+| 6 | Hub-Adapter spiegelt Contract v2 (`rf.alert`) | übernommen → [`motion-delta`](../esp32-rfmonitor-2026-motion-delta/) Exit #6 |
 
 ## Decision Trace
 
@@ -85,8 +86,8 @@ Siehe [SCOPE](../../projects/esp32-rfmonitor/SCOPE.md).
 | # | Kill / Widerlegt wenn | Status |
 |---|----------------------|--------|
 | 1 | Score ohne Location Profile als „kalibriert“ behauptet wird | `REJECTED` (Doku) — kein Kill der FW, Kill der Fehlinterpretation |
-| 2 | Lab zeigt Score-Stabilität nur an einem Standort; Transfer an Standort 2 scheitert | offen (Exit #5) |
-| 3 | Hub-Contract v2 ohne Adapter-Spiegelung als End-to-End-FACT verkauft wird | Gate (Exit #6) |
+| 2 | Lab zeigt Score-Stabilität nur an einem Standort; Transfer an Standort 2 scheitert | übernommen (Exit #5 → motion-delta) |
+| 3 | Hub-Contract v2 ohne Adapter-Spiegelung als End-to-End-FACT verkauft wird | Gate übernommen (Exit #6 → motion-delta) |
 
 ```text
 NO JUSTIFIED KILL CRITERION
@@ -95,10 +96,16 @@ Begründung: Desk+Lab belegen Contract/Heuristik am festen Lab-Standort; falsifi
 
 ## Bezug
 
-[INVENTORY](../../projects/esp32-rfmonitor/INVENTORY.md) · [evidence](evidence.md) · [DELTA](DELTA.md) · Prior: [`esp32-rfmonitor-2026-pilot`](../esp32-rfmonitor-2026-pilot/) · Standard: [`VERSION`](../../VERSION) `0.7.1`
+[INVENTORY](../../projects/esp32-rfmonitor/INVENTORY.md) · [evidence](evidence.md) · [DELTA](DELTA.md) · Prior: [`esp32-rfmonitor-2026-pilot`](../esp32-rfmonitor-2026-pilot/) · Nachfolger: [`esp32-rfmonitor-2026-motion-delta`](../esp32-rfmonitor-2026-motion-delta/) · Standard: [`VERSION`](../../VERSION) `0.7.1`
+
+## Lessons
+
+- Observation + versionierter Score + Location-Achse machen „Kalibrierung“ zu einem Contract statt Score-Offset.
+- Desk @ 1.1 reichte nicht; Lab-Baseline schließt Desk→Lab, nicht Standort-Transfer.
+- Upstream-Feature-Sprung 1.5→1.10 braucht eigene Delta-Kampagne — nicht still in dieser Kampagne nachziehen.
+- Offene Exits (#5 Standort, #6 Adapter) bewusst an Nachfolger übergeben statt Kampagne künstlich offen zu halten.
 
 ## Offene Punkte
 
-- Exit #5: Feldserie Standort 2
-- Exit #6: ioBroker.esp-hub Contract-v2-Spiegelung
+- Übernommen von [`esp32-rfmonitor-2026-motion-delta`](../esp32-rfmonitor-2026-motion-delta/): Exit #5 Rest (Küche teilweise), Exit #6 Hub-Adapter
 - Optional: Method Note Score-Replay (v1-Features → v2)

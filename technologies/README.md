@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-25`, 62 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-26`, 62 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 ## Index nach Primary (TAXONOMY)
 

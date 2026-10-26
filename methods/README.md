@@ -26,6 +26,7 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | [`pcm-clock-drift-jitter-buffer`](pcm-clock-drift-jitter-buffer.md) | Netzwerk-PCM, Clockdrift, Jitterbuffer, Reconnect und Fail-safe gaten | active |
 | [`rf-loopback-rds-acceptance`](rf-loopback-rds-acceptance.md) | geschirmte FM-/RDS-/Spektrum-/Empfängerabnahme mit TX-OFF-Gates | active |
 | [`usb-wifi-coex-discrimination`](usb-wifi-coex-discrimination.md) | S3 USB↔WiFi: Power / Starve / RF im Lab trennen | active |
+| [`own-link-motion-sensitivity`](own-link-motion-sensitivity.md) | Own-Link RSSI-Feinring Walk-by (≠ Presence/CSI) | active |
 
 ## Gate-Coverage aus `next-audits.md`
 

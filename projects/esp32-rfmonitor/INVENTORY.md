@@ -2,8 +2,8 @@
 
 ```yaml
 project_id: esp32-rfmonitor
-updated: 2026-10-25
-reviewed_commit: 739c67a
+updated: 2026-10-26
+reviewed_commit: afcd137
 profile: firmware
 pilot_order: [rf-environment-monitor, esp-hub-telemetry, esp-embedded-web-sse]
 ```
@@ -12,15 +12,16 @@ pilot_order: [rf-environment-monitor, esp-hub-telemetry, esp-embedded-web-sse]
 
 | Signal | Ziel-Sheet | Aktion |
 |--------|------------|--------|
-| RF-/WLAN-/BLE-Scan + Score v1∥v2 + Observation | `rf-environment-monitor` | **wachsen** (Schichten, Location-Achse) |
-| Hub Heartbeat `fwType=rfmonitor` + Contract v2 | `esp-hub-telemetry` | wachsen (Fallstrick nested domain contract) |
-| Lab-Web + SSE + Operator Timeline | `esp-embedded-web-sse` | Application nachziehen |
+| RF-/WLAN-/BLE-Scan + Score v1∥v2 + Observation + Motion Own-Link | `rf-environment-monitor` | **wachsen** (Session-Profile, History, Motion≠Presence) |
+| Hub Heartbeat `fwType=rfmonitor` + Contract v2 | `esp-hub-telemetry` | stabil (Adapter Exit offen) |
+| Lab-Web + SSE + Operator Timeline + Own-Link-Chart | `esp-embedded-web-sse` | Application nachziehen |
 | WiFiManager | `wifi-manager-captive` | observed |
 | NimBLE Adv-Scan only | unter RF-Monitor | kein Fork von `ble-hrm-gatt` |
-| Location/Session/Snapshot | unter RF-Monitor | kein neues Sheet (Application B) |
+| Location/Session/Snapshot/Motion | unter RF-Monitor | kein neues Sheet (Application B + Method) |
+| Own-Link Walk-by | Method `own-link-motion-sensitivity` | **kein** Fork zu `ble-rssi-proximity` / `wifi-csi-motion` |
 
-Ursprung: [esp32.rfmonitor](https://github.com/MPunktBPunkt/esp32.rfmonitor) @ `739c67a`.  
-Kampagne: [esp32-rfmonitor-2026-v2-validation](../../audits/esp32-rfmonitor-2026-v2-validation/) · Prior: [pilot](../../audits/esp32-rfmonitor-2026-pilot/).
+Ursprung: [esp32.rfmonitor](https://github.com/MPunktBPunkt/esp32.rfmonitor) @ `afcd137`.  
+Kampagne: [esp32-rfmonitor-2026-motion-delta](../../audits/esp32-rfmonitor-2026-motion-delta/) · Prior: [v2-validation](../../audits/esp32-rfmonitor-2026-v2-validation/) · [pilot](../../audits/esp32-rfmonitor-2026-pilot/).
 
 ## Übersicht
 
@@ -37,12 +38,14 @@ Kampagne: [esp32-rfmonitor-2026-v2-validation](../../audits/esp32-rfmonitor-2026
 
 | Bereich | Warum offen | Nächster Schritt |
 |---------|-------------|------------------|
-| Zweiter Feldstandort | Lab-Baseline nur ein Standort | Exit #5 Feldserie |
+| Motion-Transfer anderer Raum | Küche FACT; Geometrie `UNKNOWN` | Exit #5 Rest |
 | Hub-Adapter Contract v2 | Device-Doku FACT; Adapter UNKNOWN | Exit #6 ioBroker.esp-hub |
-| Score-v2 langer Dump | 600 s-Baseline unter FW 1.3 / scoreVersion 1 | optional Replay-Session ≥1.4 |
+| Mini↔S3 Score-Drift | Upstream Next | optional Nachlauf |
+| Score-v2 langer Dump | Baseline unter 1.3 / scoreVersion 1 | optional Replay ≥1.4 |
 
 ## Signale ohne Eintrag
 
-- EventLog / HistoryStore / MeasSession — RF-Monitor-Application
+- EventLog / HistoryStore / MeasSession / Motion-Ring — RF-Monitor-Application
 - Betriebsmodi Live/Normal/Diagnose — Application B
-- Operator Timeline / WLAN-Filter — Web-Application
+- Operator Timeline / WLAN-Filter / Own-Link-Chart — Web-Application
+- Characterization A–G Host-Tools — Method/Application, kein Sheet-Fork
