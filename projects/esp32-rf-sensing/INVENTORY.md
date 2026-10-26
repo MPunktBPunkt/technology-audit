@@ -33,14 +33,15 @@ Kampagne: [`esp32-rf-sensing-2026-desk`](../../audits/esp32-rf-sensing-2026-desk
 
 Status `documented` = Sheet existiert; **keine** Application unter diesem Projekt bis Messvertrag steht (`planning`).
 
-## Coverage-Lücken (Phase 0)
+## Coverage-Lücken
 
-| Bereich | Warum offen | Nächster Schritt |
-|---------|-------------|------------------|
-| IDF Chip-Capability Matrix | nur Upstream-Claims in ESPectre Desk | Phase 1 Primärquelle |
-| CCA / Energy Detect | kein KB-FACT als Mess-API | Phase 1 Gate |
-| Passive CSI ohne eigenen TX | nicht in ESPectre-Kernvertrag | Phase 2 CSI-Tool |
-| Traffic vs Motion Trennung | Upstream holdout ≠ kontrolliertes Traffic-Gate | Phase 2 HeliosSm |
+| Bereich | Status | Nächster Schritt |
+|---------|--------|------------------|
+| IDF Chip-Capability Matrix S3/C6 | **geschlossen** Desk → [PHASE1](../../audits/esp32-rf-sensing-2026-desk/PHASE1.md) | Lab optional |
+| CCA / Energy Detect als Mess-API | **`REJECTED`** (öffentlich) | nicht weiterführen |
+| Passive CSI ohne eigenen TX | offen | Phase 2 CSI-Tool (K5) |
+| Traffic vs Motion Trennung | offen | Phase 2 HeliosSm (K7) |
+| Instrument Session/Offline | offen | Phase 2 radar-lab (K6) |
 | Eigenes Lab / Field | Desk only | nach Messvertrag |
 
 ## Signale ohne Eintrag

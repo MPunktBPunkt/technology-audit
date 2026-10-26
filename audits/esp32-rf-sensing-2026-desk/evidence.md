@@ -27,15 +27,32 @@
 | `EVID-RF-2026-10-25-005` | Proxies ≠ Airtime | F11 |
 | `EVID-RF-2026-10-26-001`/`002`/`003` | Own-Link ≠ CSI Presence | F12/F13 |
 
-## Offene Claims (nach Phase 0)
+## Phase-1 Primary-Source Evidence
+
+IDF Docs: stable **v6.1** · Headers: `espressif/esp-idf` `master@d35ea02` · esp-csi: `master@8633d67`. Details: [PHASE1](PHASE1.md).
+
+| ID | Claim (Kurz) | Status | Quelle |
+|----|--------------|--------|--------|
+| `EVID-RFSENSE-P1-001` | S3+C6: `SOC_WIFI_CSI_SUPPORT=1` | `FACT` | `soc_caps.h` S3/C6 |
+| `EVID-RFSENSE-P1-002` | C6 HE vs S3 Non-HE → andere CSI-Config + rx_ctrl Layouts | `FACT` | soc_caps · `esp_wifi_types_native.h` · `esp_wifi_he_types.h` |
+| `EVID-RFSENSE-P1-003` | CSI API set_cb/config/enable; Buffer ephemer; start oder promiscuous nötig | `FACT` | `esp_wifi.h` · Vendor Features Configure |
+| `EVID-RFSENSE-P1-004` | CSI RAW = Imag/Real int8 bei Packet-RX; Amp/Phase nicht API | `FACT` | S3/C6 Vendor Features CSI |
+| `EVID-RFSENSE-P1-005` | Promiscuous Frame-Typen + Filter; ≠ RF-Power/Sensing | `FACT` / `REJECTED` Power | Wi-Fi Modes Sniffer |
+| `EVID-RFSENSE-P1-006` | RX-meta rssi/noise_floor/channel/timestamp/… (Layout S3≠C6) | `FACT` | native + HE rxctrl |
+| `EVID-RFSENSE-P1-007` | Keine öffentliche CCA/Occupancy-Mess-API in geprüften IDF-WiFi-Quellen | `REJECTED` (Messgegenstand) | negative Search PHASE1 §4 |
+| `EVID-RFSENSE-P1-008` | C2 ohne CSI-Cap; esp-csi „full series“ ≠ SoC-Universalfact | `FACT` / CLAIM | soc_caps C2 · esp-csi README |
+| `EVID-RFSENSE-P1-009` | esp-csi Erzeugungsmuster Router-Ping / Device / Broadcast-TX | `FACT` (Projekt-Doku) | esp-csi README |
+
+## Offene Claims (nach Phase 1)
 
 | Claim | Status | Nächste Phase |
 |-------|--------|---------------|
-| Chip × CSI × Promiscuous × RX-meta × CCA (IDF-SoT) | `UNKNOWN` | Phase 1 |
-| CCA als eigenständiger Messgegenstand | `UNKNOWN` (bis API-FACT) | Phase 1 K3 |
+| CCA als eigenständiger Messgegenstand | **`REJECTED`** | — (geschlossen) |
+| Chip × CSI × Promiscuous × RX-meta (S3/C6 Desk) | `FACT` (Matrix) | Lab-VALIDATED optional später |
 | Passive CSI ohne managed TX | `UNKNOWN` | Phase 2 K5 |
-| Traffic vs Human Motion trennbar auf ESP32 | `UNKNOWN` | Phase 2 K7 |
-| Kleinste Plattform = Klasse A vs B | `HYPOTHESIS` | nach Phase 1–2 |
+| Traffic vs Human Motion trennbar | `UNKNOWN` | Phase 2 K7 |
+| Instrument Session/Offline-Muster | `UNKNOWN` | Phase 2 K6 |
+| Kleinste Plattform = Klasse A vs B | `HYPOTHESIS` | nach Phase 2 |
 
 ## Wissens-Chronik
 
@@ -43,4 +60,5 @@
 |-------|----------|
 | 2026-10-25 | ESPectre + Marauder Foreign Desk; Sheets CSI / Promiscuous |
 | 2026-10-25/26 | rfmonitor v2 + motion-delta; CCA-proxy + CSI-Abgrenzung |
-| 2026-10-26 | Kampagne `esp32-rf-sensing-2026-desk` Phase 0 Exit |
+| 2026-10-26 | Kampagne Phase 0 Exit |
+| 2026-10-26 | Phase 1 IDF/esp-csi Gate — CCA Messgegenstand `REJECTED` |

@@ -43,9 +43,9 @@ Nicht: bestes Repo klonen · Feature-Sammlung · rfmonitor erweitern.
 
 | Phase | Fokus | Exit |
 |-------|--------|------|
-| **0** | KB Reuse/Gap (diese Kampagne zuerst) | FACT-Inventar + Kill-Gaps für Phase 1/2 |
-| **1** | ESP-IDF + esp-csi Gate | Chip × CSI × Promiscuous × RX-meta × CCA Matrix |
-| **2** | CSI-Tool · radar-lab · HeliosSm | Traffic-vs-Motion + Capture-Contracts |
+| **0** | KB Reuse/Gap | Exit erfüllt |
+| **1** | ESP-IDF + esp-csi Gate | Exit erfüllt — CCA Messgegenstand `REJECTED`; siehe PHASE1 |
+| **2** | CSI-Tool · radar-lab · HeliosSm | Traffic-vs-Motion + Passiv/Instrument (offen) |
 | **3** | Synthese | Messvertrag + Projektklasse A/B/C + Characterization-Method |
 
 ## Quellen für das Audit
