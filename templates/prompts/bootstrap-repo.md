@@ -28,7 +28,8 @@ Erzeuge einen belastbaren Startplan und Entwürfe für `SCOPE.md` und `INVENTORY
 - Prompt-Contract: `docs/PROMPT-CONTRACT.md`
 - Review-Checks: `docs/REVIEW-CHECKS.md`
 - Vorlagen: `templates/project-scope.md`, `templates/project-inventory.md`
-- Bestehende Sheets: `technologies/README.md`
+- Bestehende Sheets: `technologies/README.md` · Maturity: `docs/KNOWLEDGE-MATURITY.md`
+- Achsen trennen: **W** (Reuse) ≠ **evidence_max/R** (Validierung) ≠ Projekt-Pilot-Status
 
 ## Repo-Befund (Scanner)
 

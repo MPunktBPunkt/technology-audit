@@ -13,6 +13,7 @@ maturity:
   implementation: R0
   field_evidence: R0
   reusability: W2
+  evidence_scope: [LAB, FIELD, DEVICE-SPECIFIC]
 ```
 
 Ebene **A nur soweit geräteklasse-übergreifend nutzbar**; die meisten Aussagen sind **gerätetypisch** und gehören primär in die Project Application / Evidence. Dieses Sheet hält die verdichteten, wiederkehrenden Quirks des Varon-Profils, damit sie nicht in `bluetooth-ftms` als Spec wandern.

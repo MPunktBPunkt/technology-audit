@@ -198,9 +198,18 @@ Pro Technology/Application-Paar mitführen:
 | Implementation | R0–R5 | Wie klar die *Projekt*-Implementierung beschrieben/stabil ist |
 | Field evidence | R0–R5 | Stärke der Lab/Feld-Belege |
 | Reusability | W0–W5 | Wie weit als generische Komponente übertragbar |
+| Evidence scope (optional) | `LAB` · `FIELD` · `HOST-SPECIFIC` · `DEVICE-SPECIFIC` · `GENERAL` | Wo Evidenz gilt / was generalisiert werden darf |
 
 Orientierung: R0 unbekannt · R1 Signale · R2 beschrieben · R3 Lab · R4 Feld · R5 mehrfach validiert.  
 W0 kein Transfer · W2 projektgebunden nutzbar · W4 eigenständiges Modul denkbar · W5 in Folgeprojekt belegt.
+
+**W ≠ Evidence.** Reusability (W) und Validierung (`field_evidence` / aggregiertes `evidence_max`) sind getrennte Achsen. Projekt-Status (Prototype/Pilot/Production) ist eine dritte Achse und darf weder W noch R ersetzen.
+
+**Keine parallele E0–E4-Skala.** Evidence-Stärke bleibt R0–R5. „E1–E4“ sind Review-Check-IDs ([REVIEW-CHECKS.md](REVIEW-CHECKS.md)), keine Maturity-Stufen.
+
+**Aggregation:** Sheets dürfen `field_evidence: R0` lassen, wenn Belege in Applications liegen. Der Index führt `evidence_max` = max *deklarierter* `field_evidence`-Labels (Sheet∪Applications). Das ist die stärkste vorhandene Kennzeichnung — keine automatische Universalvalidierung aller A-Claims. Übersicht: [`KNOWLEDGE-MATURITY.md`](KNOWLEDGE-MATURITY.md) (generiert via `ta-assist index`).
+
+`evidence_scope` ist optional im Sheet-`maturity`-Block. Fehlt es, leitet `ta-assist index` ab: LAB bei `evidence_max≥R3`, FIELD bei `≥R4`, HOST-/DEVICE-SPECIFIC aus Primary/Tags, GENERAL bei W≥3∧R≥3 ohne Host/Device-Lock. Tags wie `lab-only` erzeugen **kein** LAB. Explizite Liste überschreibt.
 
 ### Reifegrade (Beispiele)
 

@@ -9,6 +9,8 @@ Verwandt: [`PROJECT-START.md`](PROJECT-START.md) · [`KB-FIT.md`](KB-FIT.md) · 
 | Fakt | Quelle der Wahrheit | Abgeleitet / Index |
 |------|---------------------|--------------------|
 | Sheet-Slug, Primary, `seen_in`, Maturity A | `technologies/<slug>/SHEET.md` YAML | `technologies/index.yaml` + README via `ta-assist index` |
+| Evidence-Härte pro Tech | Sheet + `projects/*/applications/<slug>.md` `field_evidence` | Index-Feld `evidence_max` · [`KNOWLEDGE-MATURITY.md`](KNOWLEDGE-MATURITY.md) |
+| Evidence-Scope | optional Sheet `maturity.evidence_scope` | sonst Ableitung (Tags / R / Primary) im Index |
 | Geplante Slugs ohne Sheet | `technologies/_planned.txt` | landet im Tech-Index |
 | Projektkatalog (ID, Profil, Status) | `projects/<id>/SCOPE.md` YAML | `projects/index.yaml` + `projects/README.md` |
 | Projekt-Status/Coverage einer Tech | `projects/<id>/INVENTORY.md` | nicht in Sheet-Maturity spiegeln |

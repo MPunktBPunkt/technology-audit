@@ -136,4 +136,6 @@ Match-Frage zusätzlich: *Welcher Chip / welche Clock-Quelle ist belegt?*
 | W3 | ≥2 Projekte mit Application, A-Claims überlebt |
 | W4+ | Multi-Host / Modulgrenze belegt |
 
+W misst **Transfer**, nicht Messhärte. Empirische Stärke → `field_evidence` / Index-`evidence_max` (R0–R5) und `evidence_scope`. Aggregat: [`KNOWLEDGE-MATURITY.md`](KNOWLEDGE-MATURITY.md).
+
 „Ich starte ein neues Projekt“ → mindestens die **W2/W3-Sheets** im Index lesen und die Projektstart-Checkliste im jeweiligen Transfer-Abschnitt abarbeiten.

@@ -13,6 +13,7 @@ maturity:
   implementation: R0   # siehe Project Application
   field_evidence: R0   # Host-spezifisch → Application / bmw-nbt-evo
   reusability: W3
+  evidence_scope: [LAB, GENERAL]  # A-Contract lab-evidenced; Host-Feld-Timing → bmw-nbt-evo
 pilot: audits/pidrive-2026-msc
 ```
 

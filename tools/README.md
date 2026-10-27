@@ -2,7 +2,7 @@
 
 Assistenz für `technology-audit`: Strukturprüfung, Prompt-Vorbereitung, **Katalog-Index**.
 
-Schreibt **keine** Sheet-/Application-/Evidence-Inhalte. Erlaubt ist nur die Regenerierung von `technologies/index.yaml` + `technologies/README.md` aus Sheet-YAML (`ta-assist index`).
+Schreibt **keine** Sheet-/Application-/Evidence-Inhalte. Erlaubt ist die Regenerierung von Katalogen aus YAML (`ta-assist index`): `technologies/index.yaml` + README, `projects/index.yaml` + README, `docs/KNOWLEDGE-MATURITY.md`.
 
 Vertrag: [`docs/PROMPT-CONTRACT.md`](../docs/PROMPT-CONTRACT.md) · Prüfliste: [`docs/REVIEW-CHECKS.md`](../docs/REVIEW-CHECKS.md) · Pflege: [`docs/MAINTENANCE.md`](../docs/MAINTENANCE.md)
 
@@ -12,6 +12,11 @@ Vertrag: [`docs/PROMPT-CONTRACT.md`](../docs/PROMPT-CONTRACT.md) · Prüfliste: 
 |-----|-----|-----------|
 | **Framework** | [`VERSION`](../VERSION) | Dokumentenstandard (z. B. 0.6.4) |
 | **CLI** | `tools/ta_assist/__init__.py` → `__version__` | Assistenz-Tool (z. B. 0.1.5) |
+
+### CLI 0.1.7
+
+- Index: `evidence_max` (Sheet∪Apps), `evidence_scope`, `docs/KNOWLEDGE-MATURITY.md`
+- Bootstrap-Katalog zeigt W / evidence_max / scope (nicht nur Title/`seen_in`)
 
 ### CLI 0.1.6
 

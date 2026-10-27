@@ -161,6 +161,7 @@ def cmd_index(root: Path) -> int:
     info = regenerate(root)
     print(
         f"index: {info['sheet_count']} sheets → {info['index_yaml']} + {info['readme']}; "
+        f"maturity → {info.get('knowledge_maturity')}; "
         f"{info['project_count']} projects → {info['projects_index']} + {info['projects_readme']} "
         f"(planned={info['planned']}, sheet_errors={info.get('sheet_errors', 0)})"
     )

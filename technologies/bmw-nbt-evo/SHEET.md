@@ -13,6 +13,7 @@ maturity:
   implementation: R0      # PiDrive spricht HU an — siehe usb-msc Application (B)
   field_evidence: R3      # USB-MSC-Host-Reads/Prefetch vielfach gemessen (PiDrive-Kontext)
   reusability: W1         # stark BMW-/NBT-spezifisch
+  evidence_scope: [LAB, FIELD, HOST-SPECIFIC]
 pilot: audits/pidrive-2026-bmw-hu
 ```
 

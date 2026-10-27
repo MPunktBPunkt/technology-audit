@@ -47,6 +47,7 @@ Dokumenttypen-Filter: `{{doc_types}}`
 - Fehlende Dateien als `error` oder `warning` gemäß Review-Checks (Inventar-Zielpfade beachten).
 - Heuristiken (Projektnamen im Sheet) nur als `warning`.
 - Maturity-Widersprüche gegen offene Exit-Kriterien melden (R1–R4).
+- W vs `field_evidence`/`evidence_max` vs Projekt-Status nicht vermischen; siehe `docs/KNOWLEDGE-MATURITY.md`.
 
 ## Outputformat
 

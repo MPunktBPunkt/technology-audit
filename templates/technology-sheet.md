@@ -11,8 +11,9 @@ seen_in: []      # kanonische project_id, z.B. [pidrive] — nie projects/…
 maturity:
   technology: R0
   implementation: R0
-  field_evidence: R0
-  reusability: W0
+  field_evidence: R0   # oft R0 am Sheet — Lab/Feld in Application; Index aggregiert evidence_max
+  reusability: W0      # Transfer, nicht Messhärte
+  # evidence_scope: [LAB, FIELD]  # optional; sonst Ableitung durch ta-assist index
 ```
 
 Nur Ebene **A** (allgemein). Projekt- und Host-Details gehören in die Project Application (B/C).

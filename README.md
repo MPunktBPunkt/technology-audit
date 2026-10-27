@@ -25,15 +25,16 @@ audits/<kampagne> ──► Inventar + Methoden
 
 1. [`docs/PROJECT-START.md`](docs/PROJECT-START.md) — **Neues Projekt starten (Permalink)**  
 2. [`technologies/`](technologies/) — Sheet-Index (Primary A–J) · [`index.yaml`](technologies/index.yaml)  
-3. [`docs/FAMILIES.md`](docs/FAMILIES.md) — Produktfamilien  
-4. [`docs/REUSE.md`](docs/REUSE.md) — Match-Regeln (Sprache ≠ Fork)  
-5. [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md) — SoT / Index regenerieren / Check-Stufen  
-6. [`docs/AUDIT-PROFILES.md`](docs/AUDIT-PROFILES.md) — Firmware / Lab / Planung / Ops / Adapter  
-7. [`docs/DOCUMENT-STANDARD.md`](docs/DOCUMENT-STANDARD.md) — Dokumenttypen  
-8. [`docs/KB-FIT.md`](docs/KB-FIT.md) — Eignung & Grenzen  
-9. [`docs/PROMPT-CONTRACT.md`](docs/PROMPT-CONTRACT.md) — Assistenz, kein Schreib-Bot  
-10. [`docs/REVIEW-CHECKS.md`](docs/REVIEW-CHECKS.md) — Qualitätsprüfungen  
-11. [`projects/`](projects/) · [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) · [`docs/TAXONOMY.md`](docs/TAXONOMY.md)
+3. [`docs/KNOWLEDGE-MATURITY.md`](docs/KNOWLEDGE-MATURITY.md) — **W vs Evidence (R) vs Scope** (generiert; nicht Pilot-Status)  
+4. [`docs/FAMILIES.md`](docs/FAMILIES.md) — Produktfamilien  
+5. [`docs/REUSE.md`](docs/REUSE.md) — Match-Regeln (Sprache ≠ Fork)  
+6. [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md) — SoT / Index regenerieren / Check-Stufen  
+7. [`docs/AUDIT-PROFILES.md`](docs/AUDIT-PROFILES.md) — Firmware / Lab / Planung / Ops / Adapter  
+8. [`docs/DOCUMENT-STANDARD.md`](docs/DOCUMENT-STANDARD.md) — Dokumenttypen  
+9. [`docs/KB-FIT.md`](docs/KB-FIT.md) — Eignung & Grenzen  
+10. [`docs/PROMPT-CONTRACT.md`](docs/PROMPT-CONTRACT.md) — Assistenz, kein Schreib-Bot  
+11. [`docs/REVIEW-CHECKS.md`](docs/REVIEW-CHECKS.md) — Qualitätsprüfungen  
+12. [`projects/`](projects/) · [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) · [`docs/TAXONOMY.md`](docs/TAXONOMY.md)
 
 Vorlagen: [`templates/`](templates/) · Prompt-Vorlagen: [`templates/prompts/`](templates/prompts/) · generierte Aufträge: [`artifacts/prompts/`](artifacts/prompts/).
 
@@ -55,8 +56,8 @@ Details: [`tools/README.md`](tools/README.md).
 | Feld | Wert |
 |------|------|
 | Version | [`VERSION`](VERSION) (= Audit-Standard) · [`STANDARD-CHANGELOG`](docs/STANDARD-CHANGELOG.md) |
-| Phase | Pilot 2 — BMW NBT Evo (Host / C); Pilot 1 MSC closed (Schema); Prompt-Contract v1 |
-| Pilot-Reihenfolge | `usb-msc` → `bmw-nbt-evo` → `avrcp` |
+| KB-Maturity | generierte Übersicht: [`docs/KNOWLEDGE-MATURITY.md`](docs/KNOWLEDGE-MATURITY.md) (W ≠ Evidence ≠ Projekt-Status) |
+| Aktive Feld-Kampagnen | BMW NBT Evo Host/C (historisch „Pilot 2“); MSC-Schema closed — **nicht** die Reife der gesamten KB |
 | Projekte | generierter Katalog: [`projects/`](projects/) · [`projects/index.yaml`](projects/index.yaml) |
 | Technologien | [`technologies/`](technologies/) · [`index.yaml`](technologies/index.yaml) · Reuse: [REUSE.md](docs/REUSE.md) |
 | Retrieval-Tests | [`docs/retrieval-tests.yaml`](docs/retrieval-tests.yaml) |

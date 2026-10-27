@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 from .scanner import ScanResult, scan_bootstrap, scan_native
-from .util import extract_yaml_blocks, read_text, repo_root, today
+from .util import read_text, repo_root, today
 
 
 PROMPT_TYPES = {
@@ -25,32 +25,31 @@ def template_path(root: Path, prompt_type: str) -> Path:
 
 
 def _existing_sheets_catalog(root: Path) -> str:
-    """Compact list of technology sheets for bootstrap reuse matching."""
-    tech = root / "technologies"
-    if not tech.is_dir():
-        return "(no technologies/ directory)"
-    lines: list[str] = []
-    for p in sorted(tech.iterdir()):
-        sheet = p / "SHEET.md"
-        if not sheet.is_file():
-            continue
-        primary = ""
-        title = p.name
-        text = read_text(sheet)
-        for block in extract_yaml_blocks(text):
-            if "slug" in block or "primary" in block:
-                primary = str(block.get("primary", ""))
-                title = str(block.get("title", title))
-                break
-        seen = ""
-        m = re.search(r"seen_in:\s*\[([^\]]*)\]", text)
-        if m:
-            seen = m.group(1).strip()
+    """Compact list of technology sheets for bootstrap reuse matching.
+
+    Prefer generated index.yaml so W / evidence_max / scope stay visible —
+    reviewers must not infer KB maturity from project Pilot labels alone.
+    """
+    from .indexer import collect_sheets
+
+    entries = collect_sheets(root)
+    if not entries:
+        return "(no sheets yet)"
+    lines = [
+        "# W=reusability · evidence_max=R (sheet∪apps) · scope=LAB/FIELD/HOST/DEVICE/GENERAL",
+        "# Do NOT treat project Prototype/Pilot status as technology maturity.",
+        "# Overview: docs/KNOWLEDGE-MATURITY.md",
+    ]
+    for e in entries:
+        scope = ",".join(e.evidence_scope) if e.evidence_scope else "-"
+        seen = ",".join(e.seen_in) if e.seen_in else ""
         lines.append(
-            f"- {p.name}: primary={primary or '?'} title={title}"
+            f"- {e.slug}: primary={e.primary} W={e.reusability} "
+            f"evidence_max={e.evidence_max} scope=[{scope}] "
+            f"title={e.title}"
             + (f" seen_in=[{seen}]" if seen else "")
         )
-    return "\n".join(lines) or "(no sheets yet)"
+    return "\n".join(lines)
 
 
 def render(template: str, variables: dict[str, str]) -> str:

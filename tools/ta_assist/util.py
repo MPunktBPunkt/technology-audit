@@ -13,6 +13,13 @@ MATURITY_W = re.compile(r"^W[0-5]$")
 KEBAB = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 VALID_STATUS = {"candidate", "observed", "documented", "applied", "transferred"}
 VALID_COVERAGE = {"none", "partial", "full"}
+VALID_EVIDENCE_SCOPE = {
+    "LAB",
+    "FIELD",
+    "HOST-SPECIFIC",
+    "DEVICE-SPECIFIC",
+    "GENERAL",
+}
 VALID_EPISTEMIC = {
     "FACT",
     "MEASURED",
@@ -21,6 +28,27 @@ VALID_EPISTEMIC = {
     "UNKNOWN",
     "REJECTED",
 }
+
+
+def maturity_rank(value: str) -> int:
+    """Numeric rank for R*/W* labels; unknown → -1."""
+    s = str(value or "").split()[0]
+    if len(s) >= 2 and s[0] in "RW" and s[1:].isdigit():
+        return int(s[1:])
+    return -1
+
+
+def max_maturity(*values: str, prefix: str = "R") -> str:
+    """Return the highest R*/W* among values (unknown ignored)."""
+    best = -1
+    best_s = f"{prefix}0"
+    for v in values:
+        s = str(v or "").split()[0]
+        r = maturity_rank(s)
+        if r > best and s.startswith(prefix):
+            best = r
+            best_s = s
+    return best_s
 
 
 def repo_root(path: Path | None = None) -> Path:
@@ -78,7 +106,22 @@ def parse_simple_yaml(raw: str) -> dict[str, Any]:
     return data
 
 
+def _strip_yaml_comment(v: str) -> str:
+    """Drop unquoted trailing # comments (lists/scalars)."""
+    in_single = False
+    in_double = False
+    for i, ch in enumerate(v):
+        if ch == "'" and not in_double:
+            in_single = not in_single
+        elif ch == '"' and not in_single:
+            in_double = not in_double
+        elif ch == "#" and not in_single and not in_double:
+            return v[:i].rstrip()
+    return v
+
+
 def _scalar(v: str) -> Any:
+    v = _strip_yaml_comment(v.strip())
     if v.startswith("[") and v.endswith("]"):
         inner = v[1:-1].strip()
         if not inner:

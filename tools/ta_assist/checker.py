@@ -19,6 +19,7 @@ from .util import (
     MATURITY_W,
     VALID_COVERAGE,
     VALID_EPISTEMIC,
+    VALID_EVIDENCE_SCOPE,
     VALID_STATUS,
     extract_yaml_blocks,
     is_native,
@@ -194,6 +195,21 @@ def _check_sheets(root: Path, scan: ScanResult) -> list[Finding]:
                             rel,
                         )
                     )
+            scope_raw = maturity.get("evidence_scope")
+            if scope_raw not in (None, "", []):
+                items = scope_raw if isinstance(scope_raw, list) else [scope_raw]
+                for item in items:
+                    key = str(item).strip().upper().replace("_", "-")
+                    if key and key not in VALID_EVIDENCE_SCOPE:
+                        out.append(
+                            Finding(
+                                "error",
+                                "S1",
+                                f"invalid maturity.evidence_scope entry '{item}' "
+                                f"(allowed: {sorted(VALID_EVIDENCE_SCOPE)})",
+                                rel,
+                            )
+                        )
         # A/B/C heuristic — warn only on heavy project/field token mix
         lowered = text.lower()
         proj_hits = sum(
@@ -735,7 +751,8 @@ def _collapse_findings(findings: list[Finding]) -> list[Finding]:
             Finding(
                 "info",
                 "R5",
-                f"{len(r5)} active sheet(s) with seen_in but field_evidence=R0 — desk-documented, not field-proven",
+                f"{len(r5)} active sheet(s) with seen_in but sheet field_evidence=R0 — "
+                "often ok (evidence in Applications); use index evidence_max / KNOWLEDGE-MATURITY.md",
                 "technologies/",
             )
         )
