@@ -25,8 +25,8 @@ Muster: ein Gerät empfängt HR/RR als BLE Central und bietet denselben Heart Ra
 
 ## Abgrenzung
 
-- **Ist:** Protokoll-Brücke / GATT-Server-Spiegelung für `0x180D`/`0x2A37` auf Controllern mit ausreichendem Dual-Role-/Connection-Budget.
-- **Ist nicht:** FTMS-Bridge (Indoor Bike ↔ App); proprietäre Fitness-Cloud; Ersatz für Multi-Connect im Sensor selbst; stiller Transfer S3-Relay → Classic-Mini ohne Evidence.
+- **Ist:** Protokoll-Brücke / GATT-Server-Spiegelung für `0x180D`/`0x2A37` auf Controllern mit ausreichendem Dual-Role-/Connection-Budget (**Notify-Fanout**, gleiches Profil).
+- **Ist nicht:** FTMS-/Semantic-Bridge A→B (`ble-gatt-semantic-bridge`); transparentes GATT-Clone (`ble-gatt-transparent-bridge`); Dual-Role allein (`ble-gatt-dual-role`); proprietäre Fitness-Cloud; Ersatz für Multi-Connect im Sensor selbst; stiller Transfer S3-Relay → Classic-Mini ohne Evidence.
 
 ## Schnittstellen und Abhängigkeiten
 
@@ -46,6 +46,7 @@ Muster: ein Gerät empfängt HR/RR als BLE Central und bietet denselben Heart Ra
 | Relay muss imselben Firmware-Binary stecken wie der Consumer | `REJECTED` | Kann eigenständiger Node sein; Consumer sieht normales `0x180D` |
 | „ESP32 kann HR-Relay“ gilt für Classic wie S3 | `REJECTED` (als FACT) | Chip-Scope: belegte Familie = S3; Classic Mini in heartrate = unsupported |
 | S3-`MAX_CONNECTIONS=3` gilt auf jedem ESP32 | `UNKNOWN` / Gate | Build- und Controller-Grenze; eigene Evidence nötig |
+| Downstream-CCCD steuert Upstream-Subscribe 1:1 | `REJECTED` (als Default) | Fremd-Transparent-Bridges: oft Source dauerhaft sub, Dest stack-lokal — siehe `ble-gatt-transparent-bridge` |
 
 ## Transfer
 
@@ -53,10 +54,12 @@ Nützlich wenn Sensoren single-link sind und mehrere Apps/Nodes gleichzeitig Pul
 
 ### Projektstart-Checkliste
 
-- [ ] Chip / Env: Dual-Role-Budget belegt? (S3-Familie vs. Classic Mini)
+- [ ] Chip / Env: Dual-Role-Budget belegt? → Checkliste `ble-gatt-dual-role`
+- [ ] Interaktionsmodell = Fanout gleiches Profil (sonst Semantic/Transparent-Sheet)
 - [ ] Consumer vs. Implementierer klären (externer Node möglich)
 - [ ] Connection-Budget / Advertising-Restart beachten
 - [ ] Notify nicht aus BLE-Callback speisen
+- [ ] CCCD Source vs Dest dokumentieren (kein stiller Sync-Annahme)
 - [ ] Application + `seen_in` nachziehen
 
 ## Referenzen

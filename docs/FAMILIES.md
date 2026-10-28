@@ -69,6 +69,14 @@ BT/USB: `bluetooth-a2dp` / `avrcp` stack-neutral; Standalone-AVRCP Praxis `REJEC
 
 Sheets: `mcu-ple-inference`, `mcu-connectome-graph`; Reuse `esp32-s3-silicon`, `ssd1306-oled-ui`. Keine Weight-/Graph-Spiegelung.
 
+## Lab / Fremd — BLE GATT Bridge / Dual-Role
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `ble-gatt-bridge-refs` | Desk: ChimeraBLE, iFitnessProxy, ifit, esp32-ble2mqtt, BleRemoteBrideg, esp32-ble-uart-mx, btlejuice — Pattern-Extraktion |
+
+Sheets: `ble-gatt-dual-role`, `ble-gatt-transparent-bridge`, `ble-gatt-semantic-bridge`. Kontrast/Reuse: `ble-hr-relay`, `bluetooth-ftms`. Offensive MITM nur Inventar — keine Attack-How-tos. Kampagne: [`ble-gatt-bridge-refs-2026-foreign`](../audits/ble-gatt-bridge-refs-2026-foreign/).
+
 ## Lab / Fremd — WiFi/BLE Capture Toolkit
 
 | Projekt-ID | Rolle |

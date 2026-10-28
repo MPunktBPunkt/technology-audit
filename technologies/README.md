@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION) · **Maturity:** [`docs/KNOWLEDGE-MATURITY.md`](../docs/KNOWLEDGE-MATURITY.md)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 62 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 65 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Belege aus Sheet∪Applications) · nicht verwechseln mit Projekt-Status (Prototype/Pilot).
 
@@ -32,6 +32,9 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | Slug | Title | W | Evid | Scope | Gesehen in |
 |------|-------|---|------|-------|------------|
 | [`avrcp`](avrcp/SHEET.md) | AVRCP | W3 | R2 | — | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink` |
+| [`ble-gatt-dual-role`](ble-gatt-dual-role/SHEET.md) | BLE GATT Dual-Role (Central + Peripheral) | W3 | R2 | — | `ble-gatt-bridge-refs` |
+| [`ble-gatt-semantic-bridge`](ble-gatt-semantic-bridge/SHEET.md) | Semantic GATT Bridge (Profile A → B) | W3 | R2 | — | `ble-gatt-bridge-refs` |
+| [`ble-gatt-transparent-bridge`](ble-gatt-transparent-bridge/SHEET.md) | Transparent GATT Bridge (Byte Passthrough) | W3 | R2 | — | `ble-gatt-bridge-refs` |
 | [`ble-hr-relay`](ble-hr-relay/SHEET.md) | BLE HR-Relay (Peripheral Bridge) | W3 | R2 | — | `esp32-heartrate`, `esp32-ergo` |
 | [`ble-hrm-gatt`](ble-hrm-gatt/SHEET.md) | BLE Heart Rate GATT (Central) | W3 | R3 | LAB, GENERAL | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe` |
 | [`ble-pcm-notify-stream`](ble-pcm-notify-stream/SHEET.md) | BLE PCM Notify Stream (Custom GATT) | W1 | R0 | — | `esp32-i2s-ble` |

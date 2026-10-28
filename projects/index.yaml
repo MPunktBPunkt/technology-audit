@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-28
-project_count: 64
+project_count: 65
 projects:
   - id: a2dpsinkhfpclient
     title: a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd)
@@ -11,6 +11,12 @@ projects:
     status: active
     applications: 2
     path: projects/a2dpsinkhfpclient/
+  - id: ble-gatt-bridge-refs
+    title: BLE GATT Bridge / Dual-Role References (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 3
+    path: projects/ble-gatt-bridge-refs/
   - id: bluetooth-stack
     title: bluetooth_stack — Lightweight Dual-Mode BT Host Stack (Fremd)
     profile: lab-tool

@@ -24,8 +24,8 @@ Bluetooth LE Fitness Machine Service (`0x1826`): Features (`0x2ACC`), Indoor Bik
 
 ## Abgrenzung
 
-- **Ist:** GATT-Profil für Indoor-Trainer / Fitnessgeräte (Messwerte + Sollwerte).
-- **Ist nicht:** Heart Rate Service (`0x180D`); herstellerspezifische Vendor-UUIDs; Trainingslogik (ERG-Regler, Zonen) — die sitzt darüber; automatische Dual-Role-Bridge auf jedem ESP32.
+- **Ist:** GATT-Profil für Indoor-Trainer / Fitnessgeräte (Messwerte + Sollwerte); optional Peripheral-Bridge zur App.
+- **Ist nicht:** Heart Rate Service (`0x180D`); herstellerspezifische Vendor-UUIDs; Trainingslogik (ERG-Regler, Zonen) — die sitzt darüber; automatische Dual-Role-Bridge auf jedem ESP32; generisches Byte-Clone (`ble-gatt-transparent-bridge`). Profilwechsel FTMS→CPS o. Ä. → zusätzlich `ble-gatt-semantic-bridge`.
 
 ## Schnittstellen und Abhängigkeiten
 
@@ -46,6 +46,8 @@ Bluetooth LE Fitness Machine Service (`0x1826`): Features (`0x2ACC`), Indoor Bik
 | Feature-Bit „Resistance“ ⇒ IBD liefert Resistance-Feld | `REJECTED` | Bits und Payload-Felder können auseinanderlaufen |
 | Advertising enthält zuverlässig Name/Services | `HYPOTHESIS` | Manche Bikes nur über gemerkte MAC + AddrType reconnectbar |
 | FTMS-Bridge+Central auf Classic wie auf S3 | `UNKNOWN` / Gate | Connection-Budget; Ergo-Produkt = S3 |
+| Control-Point Indicate ohne Client-CCCD | `REJECTED` | Indicate-Pfad braucht Subscription |
+| Exclusive Bridge ohne Lock wenn App+Coach steuern | `REJECTED` | siehe Ergo Exclusive/Observer; Semantic-Bridge Policy |
 
 ## Steuerstrategien (A)
 
@@ -68,7 +70,9 @@ Wiederverwendbar für ESP-Central (Bike) und ESP-Peripheral (App-Bridge). Probe-
 - [ ] Success auf Control Point **nicht** als Wirkungsbeweis behandeln
 - [ ] Host-Quirks (Advertising, Notify-vs-Indicate, fehlende Felder) in Application C / Host-Sheet, nicht hier als Spec
 - [ ] Wenn Resistance-only: Kennfläche/Emulation planen — kein stilles Hardcode „alle Bikes können ERG“
-- [ ] Bei Bridge: Chip-Scope / Dual-Role-Budget prüfen (Familie: S3)
+- [ ] Bei Bridge: Chip-Scope / Dual-Role-Budget → `ble-gatt-dual-role`
+- [ ] Bridge-Typ: gleiches FTMS-Profil vs Semantic A→B → ggf. `ble-gatt-semantic-bridge`
+- [ ] Exclusive vs Observer / CP-Indicate dokumentieren
 - [ ] `seen_in` + Application nachziehen
 
 ## Referenzen
