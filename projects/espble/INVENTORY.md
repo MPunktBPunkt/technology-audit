@@ -14,7 +14,7 @@ pilot_order: [bluetooth-a2dp, avrcp]
 |--------|------------|--------|
 | A2DP Sink/Source | `bluetooth-a2dp` | **reuse** |
 | AVRCP CT/TG / Meta / Volume | `avrcp` | **reuse** |
-| HFP (falls vorhanden) | — | observed |
+| HFP / SPP / HID Classic | `bluetooth-hfp`, `bluetooth-spp`, `bluetooth-hid` | **documented** — [`bt-classic-gaps-2026-foreign`](../../audits/bt-classic-gaps-2026-foreign/) |
 
 Kampagne: [`espble-2026-foreign`](../../audits/espble-2026-foreign/).
 
@@ -33,4 +33,4 @@ Kampagne: [`espble-2026-foreign`](../../audits/espble-2026-foreign/).
 
 ## Signale ohne Eintrag
 
-- HFP/PBAP/SPP wo vorhanden — observed
+- PBAC/weitere Classic-Nebenprofile — observed; HFP/SPP/HID → Sheets unter `bt-classic-profile-refs`

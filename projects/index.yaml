@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-28
-project_count: 65
+project_count: 66
 projects:
   - id: a2dpsinkhfpclient
     title: a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd)
@@ -29,6 +29,12 @@ projects:
     status: active
     applications: 1
     path: projects/bmw-nbt-media-index/
+  - id: bt-classic-profile-refs
+    title: Bluetooth Classic Profile Gaps — HFP / SPP / HID / Dual-Mode (Fremd)
+    profile: lab-tool
+    status: active
+    applications: 5
+    path: projects/bt-classic-profile-refs/
   - id: c5vrx
     title: C5VRX — ESP32-C5 5.8 GHz FPV Analog RX (Fremd)
     profile: lab-tool

@@ -77,6 +77,14 @@ Sheets: `mcu-ple-inference`, `mcu-connectome-graph`; Reuse `esp32-s3-silicon`, `
 
 Sheets: `ble-gatt-dual-role`, `ble-gatt-transparent-bridge`, `ble-gatt-semantic-bridge`. Kontrast/Reuse: `ble-hr-relay`, `bluetooth-ftms`. Offensive MITM nur Inventar — keine Attack-How-tos. Kampagne: [`ble-gatt-bridge-refs-2026-foreign`](../audits/ble-gatt-bridge-refs-2026-foreign/).
 
+## Lab / Fremd — Bluetooth Classic Gaps (HFP/SPP/HID/Coex)
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `bt-classic-profile-refs` | Desk: a2dpSinkHfpClient, EspBle, esp32-hsp-hf, esp32-bthidbridge, BTClassicSPP, IDF classic_bt, btstack |
+
+Sheets: `bluetooth-hfp`, `bluetooth-spp`, `bluetooth-hid`, `bt-dual-mode-coex`, `hid-cross-transport-bridge`. Kontrast: `bluetooth-a2dp` / `avrcp`. Kampagne: [`bt-classic-gaps-2026-foreign`](../audits/bt-classic-gaps-2026-foreign/).
+
 ## Lab / Fremd — WiFi/BLE Capture Toolkit
 
 | Projekt-ID | Rolle |

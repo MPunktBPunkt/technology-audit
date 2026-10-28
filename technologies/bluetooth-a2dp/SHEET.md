@@ -27,7 +27,7 @@ Advanced Audio Distribution Profile: punkt-zu-punkt Streaming komprimierter Audi
 ## Abgrenzung
 
 - **Ist:** Classic-BT Audio-Transport (Source/Sink-Rollen).
-- **Ist nicht:** AVRCP; HFP/HSP; BLE Audio; USB-Audio; Mix/Routing (PipeWire); A2DP auf BLE-only SoCs.
+- **Ist nicht:** AVRCP; HFP/HSP (→ `bluetooth-hfp`); BLE Audio; USB-Audio; Mix/Routing (PipeWire); A2DP auf BLE-only SoCs; Dual-Mode-Budget (→ `bt-dual-mode-coex`).
 - **Grenzt an:** Multi-Codec-Forks = Implementation-Variante derselben Profile-Klasse (Application + Fallstricke), kein neuer Profile-Slug pro Codec.
 
 ## Schnittstellen und Abhängigkeiten
@@ -37,7 +37,7 @@ Advanced Audio Distribution Profile: punkt-zu-punkt Streaming komprimierter Audi
 | oben | PCM/Encoder/Decoder | SBC Default; weitere Codecs verhandeln |
 | unten | Classic BT Controller + Host-Stack | Bluedroid / BlueZ / HCI-Host |
 | lateral | AVRCP | oft gleiches Pairing, stark gekoppelt in Libraries |
-| lateral | HFP | Phone-Audio; eigener Profil-Contract |
+| lateral | HFP | Phone-Audio; eigener Profil-Contract (`bluetooth-hfp`); gemeinsame I2S ⇒ Mux/Suspend-Policy |
 
 ## Typische Fallstricke
 
@@ -64,7 +64,8 @@ Gateway/`esp32-bt-gateway`: Rolle **Source** gegen HU-Sink; Referenz-Libraries: 
 - [ ] Stack: BlueZ / Bluedroid / HCI-Host / EspBle-namespaced Classic
 - [ ] Chip Classic BR/EDR?
 - [ ] Codec: SBC only vs. patched multi-codec + PSRAM
-- [ ] AVRCP + optional HFP als eigene Slugs/Apps
+- [ ] AVRCP + optional HFP (`bluetooth-hfp`) als eigene Slugs/Apps; Audio-Mux planen
+- [ ] Classic-only vs BTDM → `bt-dual-mode-coex`
 - [ ] Coexistence WiFi/BLE als Gate
 - [ ] Application + `seen_in`
 

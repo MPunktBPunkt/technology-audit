@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 65 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 66 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -10,6 +10,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`ble-gatt-bridge-refs`](ble-gatt-bridge-refs/) | BLE GATT Bridge / Dual-Role References (Fremd) | lab-tool | active | 3 |
 | [`bluetooth-stack`](bluetooth-stack/) | bluetooth_stack — Lightweight Dual-Mode BT Host Stack (Fremd) | lab-tool | active | 2 |
 | [`bmw-nbt-media-index`](bmw-nbt-media-index/) | BMW NBT Media/Backup/Forensics Desk Sources | lab-tool | active | 1 |
+| [`bt-classic-profile-refs`](bt-classic-profile-refs/) | Bluetooth Classic Profile Gaps — HFP / SPP / HID / Dual-Mode (Fremd) | lab-tool | active | 5 |
 | [`c5vrx`](c5vrx/) | C5VRX — ESP32-C5 5.8 GHz FPV Analog RX (Fremd) | lab-tool | active | 1 |
 | [`esp-ble-finder`](esp-ble-finder/) | ESP BLE Finder — RSSI Proximity Hunt (Fremd) | lab-tool | active | 1 |
 | [`esp-fm-rds-node`](esp-fm-rds-node/) | ESP FM/RDS Node (Fremdrepos) | lab-tool | active | 2 |
