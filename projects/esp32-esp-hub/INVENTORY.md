@@ -2,23 +2,23 @@
 
 ```yaml
 project_id: esp32-esp-hub
-updated: 2026-10-09
-reviewed_commit: a03400a
+updated: 2026-10-28
+reviewed_commit: eebbcd9
 profile: firmware
 pilot_order: [esp-hub-base-template, esp-hub-telemetry, esp-embedded-web-sse]
 ```
 
-**Reuse / Match** ([REUSE.md](../../docs/REUSE.md), Standard [0.6.3](../../docs/STANDARD-CHANGELOG.md)):
+**Reuse / Match** ([REUSE.md](../../docs/REUSE.md), Standard [0.7.1](../../docs/STANDARD-CHANGELOG.md)):
 
 | Signal | Ziel-Sheet | Aktion |
 |--------|------------|--------|
-| Template Ableiten / Kern unverändert | `esp-hub-base-template` | **neu** |
-| Heartbeat mac/name/hwType/ios, kein fwType-Pflicht | `esp-hub-telemetry` | wachsen (Contract spezifiziert) |
-| Status-UI + SSE | `esp-embedded-web-sse` | wachsen |
+| AppCore + Ableiten-Zonen + Derived A/B | `esp-hub-base-template` | **wachsen** |
+| Heartbeat schlank + PSRAM/CPU-Additive; Reply `name` | `esp-hub-telemetry` | **wachsen** |
+| Status-UI + SSE + gzip-PROGMEM Pack | `esp-embedded-web-sse` | **wachsen** |
 | WiFiManager Portal | `wifi-manager-captive` | observed |
 
-Ursprung: [ESP32.esp-hub](https://github.com/MPunktBPunkt/ESP32.esp-hub).  
-Kampagne: [esp32-esp-hub-2026-pilot](../../audits/esp32-esp-hub-2026-pilot/).
+Ursprung: [ESP32.esp-hub](https://github.com/MPunktBPunkt/ESP32.esp-hub) @ `eebbcd9`.  
+Kampagne: [esp32-esp-hub-2026-1.10-validation](../../audits/esp32-esp-hub-2026-1.10-validation/) · Prior: [esp32-esp-hub-2026-pilot](../../audits/esp32-esp-hub-2026-pilot/).
 
 ## Übersicht
 

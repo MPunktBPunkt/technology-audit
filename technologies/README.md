@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION) · **Maturity:** [`docs/KNOWLEDGE-MATURITY.md`](../docs/KNOWLEDGE-MATURITY.md)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-27`, 62 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 62 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Belege aus Sheet∪Applications) · nicht verwechseln mit Projekt-Status (Prototype/Pilot).
 
@@ -71,7 +71,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 
 | Slug | Title | W | Evid | Scope | Gesehen in |
 |------|-------|---|------|-------|------------|
-| [`esp-hub-telemetry`](esp-hub-telemetry/SHEET.md) | ESP-Hub Node Telemetry | W4 | R2 | — | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe`, `esp32-bt-gateway`, `esp32-rfmonitor`, `esp32-toolnode`, `esp32-metermaster`, `esp32-webradio`, `esp32-io-control`, `esp32-communicator`, `esp32-network`, `esp32-esp-hub`, `iobroker-esp-hub`, `esp32-pidrive` |
+| [`esp-hub-telemetry`](esp-hub-telemetry/SHEET.md) | ESP-Hub Node Telemetry | W4 | R3 | LAB, GENERAL | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe`, `esp32-bt-gateway`, `esp32-rfmonitor`, `esp32-toolnode`, `esp32-metermaster`, `esp32-webradio`, `esp32-io-control`, `esp32-communicator`, `esp32-network`, `esp32-esp-hub`, `iobroker-esp-hub`, `esp32-pidrive` |
 | [`freeair-connect-portal`](freeair-connect-portal/SHEET.md) | bluMartin freeAir Connect Portal | W1 | R1 | — | `iobroker-freeair100` |
 | [`fritzbox-tr064`](fritzbox-tr064/SHEET.md) | FritzBox TR-064 Hostlist | W2 | R2 | — | `esp32-network`, `iobroker-fritzwireguard` |
 | [`iobroker-esp-hub-adapter`](iobroker-esp-hub-adapter/SHEET.md) | ioBroker ESP-Hub Adapter | W3 | R2 | — | `iobroker-esp-hub` |
@@ -118,7 +118,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 
 | Slug | Title | W | Evid | Scope | Gesehen in |
 |------|-------|---|------|-------|------------|
-| [`esp-hub-base-template`](esp-hub-base-template/SHEET.md) | ESP-Hub Base Firmware Template | W3 | R2 | — | `esp32-esp-hub` |
+| [`esp-hub-base-template`](esp-hub-base-template/SHEET.md) | ESP-Hub Base Firmware Template | W4 | R3 | LAB, GENERAL | `esp32-esp-hub` |
 | [`esp-module-host`](esp-module-host/SHEET.md) | ESP Modular Tool Firmware | W2 | R1 | — | `esp32-toolnode` |
 | [`pdap`](pdap/SHEET.md) | PDAP (PCM + Control over WiFi) | W1 | R0 | — | `esp32-bt-gateway`, `esp-network-pcm-clock` |
 

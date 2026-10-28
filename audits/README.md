@@ -75,7 +75,8 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`esp32-io-control-2026-pilot`](esp32-io-control-2026-pilot/) | active | firmware | Lab-GPIO · **0.6.2** |
 | [`esp32-communicator-2026-pilot`](esp32-communicator-2026-pilot/) | active | firmware | ESP-NOW · **0.6.2** |
 | [`esp32-network-2026-pilot`](esp32-network-2026-pilot/) | active | firmware | LAN-Scan + TR-064 · **0.6.2** |
-| [`esp32-esp-hub-2026-pilot`](esp32-esp-hub-2026-pilot/) | active | firmware | esp-hub-base · **0.6.3** |
+| [`esp32-esp-hub-2026-pilot`](esp32-esp-hub-2026-pilot/) | closed | firmware | esp-hub-base 1.7 Desk-Pilot · **0.6.3** → superseded by 1.10-validation |
+| [`esp32-esp-hub-2026-1.10-validation`](esp32-esp-hub-2026-1.10-validation/) | closed | firmware | esp-hub-base 1.10.5 AppCore/M0–M11/gzip/Derived A/B · **0.7.1** |
 | [`esp32-pidrive-2026-pilot`](esp32-pidrive-2026-pilot/) | active | firmware | MSC-Gadget + PUMP · **0.6.3** |
 | [`iobroker-esp-hub-2026-pilot`](iobroker-esp-hub-2026-pilot/) | active | adapter | Hub-Adapter · **0.6.3** |
 | [`iobroker-metermaster-2026-pilot`](iobroker-metermaster-2026-pilot/) | active | adapter | MeterMaster Adapter · **0.6.3** |
