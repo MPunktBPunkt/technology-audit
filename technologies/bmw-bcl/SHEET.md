@@ -31,7 +31,7 @@ den BCL-Zielport **0x0FA4 (4004)**. BCL ist der Tunnel; Etch/RHMI liegen darübe
 
 - **Ist:** 8-Byte-Header-Framing, Commands, src/dest-Kanäle, Handshake/SelectProto/Knock, Watchdog-Kanal.
 - **Ist nicht:** Etch-RPC-Semantik; RHMI-UI; USB-MSC-Hostverhalten; PiDrive-Audio-Pfad.
-- **Grenzt an:** [`bmw-etch-rpc`](../bmw-etch-rpc/SHEET.md), [`bmw-rhmi`](../bmw-rhmi/SHEET.md), [`bmw-nbt-evo`](../bmw-nbt-evo/SHEET.md) (andere Schicht).
+- **Grenzt an:** [`bmw-etch-rpc`](../bmw-etch-rpc/SHEET.md), [`bmw-rhmi`](../bmw-rhmi/SHEET.md), [`bmw-nbt-evo`](../bmw-nbt-evo/SHEET.md) (andere Schicht); physischer USB-Transport-Kandidat [`usb-aoa`](../usb-aoa/SHEET.md) (AOA ≠ BCL).
 
 ## Framing (Desk-FACT aus Code/Doc)
 
@@ -58,7 +58,7 @@ Klassifikation: **FACT** = so im Client-Code; **nicht** = eigenes Feld-MEASURED.
 | Claim | Status | Hinweis |
 |-------|--------|---------|
 | BCL-Akronym offiziell ausgeschrieben | `UNKNOWN` | in Repos nicht belegt |
-| USB/ENET-BCL identisch zu BT-Pfad | `HYPOTHESIS` | Doc nennt USB/ENET; BclCarLink nur BT |
+| USB/ENET-BCL identisch zu BT-Pfad | `HYPOTHESIS` | Doc nennt USB/ENET; BclCarLink nur BT; AOA-Desk [`usb-aoa`](../usb-aoa/SHEET.md) |
 | BCL = Etch | `REJECTED` | Etch läuft *in* DATA-Kanälen dest 4004 |
 | Dest-Port-Namen aus Lua = BMW-Spec | `INFERENCE` | Dissector aus Captures/Code, nicht OEM-Spec |
 | Gleiches Framing auf allen HU-Generationen | `UNKNOWN` | Desk ohne Generations-Capture-Matrix |

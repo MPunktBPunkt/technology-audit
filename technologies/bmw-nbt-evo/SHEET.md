@@ -29,7 +29,7 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 - **Ist:** Ziel-Host in PiDrive; USB-MSC-Consumer; Decoder/UI/Playlist-Logik auf HU-Seite (black box mit beobachtbaren I/O-Mustern).
 - **Ist nicht:** Allgemeines USB-MSC-Verhalten aller Hosts; SCSI/FAT-Spec; ESP32-Implementierung; Universal-„BMW HU“-Profil.
 - **Grenzt an:** [`usb-msc`](../usb-msc/SHEET.md) (Protokoll), [`avrcp`](../avrcp/SHEET.md) / [`pidrive-2026-radio-bt`](../../audits/pidrive-2026-radio-bt/) (BT-Pfad, nicht USB-C duplizieren).
-- **Andere Schicht (nicht Host-C):** Connected-App-Protokoll **BCL → Etch → RHMI/AV** — Desk-Fremdquellen [`bmw-bcl`](../bmw-bcl/SHEET.md), [`bmw-etch-rpc`](../bmw-etch-rpc/SHEET.md), [`bmw-rhmi`](../bmw-rhmi/SHEET.md) / Audit [`bimmergestalt-idrive-2026-foreign`](../../audits/bimmergestalt-idrive-2026-foreign/). Überschreibt **keine** USB-MSC-Field-FACTS.
+- **Andere Schicht (nicht Host-C):** Connected-App-Protokoll **BCL → Etch → RHMI/AV** — Desk-Fremdquellen [`bmw-bcl`](../bmw-bcl/SHEET.md), [`bmw-etch-rpc`](../bmw-etch-rpc/SHEET.md), [`bmw-rhmi`](../bmw-rhmi/SHEET.md) / Audit [`bimmergestalt-idrive-2026-foreign`](../../audits/bimmergestalt-idrive-2026-foreign/). Möglicher USB-Rohr-Transport: [`usb-aoa`](../usb-aoa/SHEET.md) (Desk; Wire `UNKNOWN`). Überschreibt **keine** USB-MSC-Field-FACTS.
 
 ## Schnittstellen (PiDrive-relevant)
 

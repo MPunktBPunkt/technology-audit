@@ -15,7 +15,7 @@ projects:
     title: BimmerGestalt — BMW iDrive / Connected-App Protocol Desk Sources
     profile: lab-tool
     status: active
-    applications: 3
+    applications: 4
     path: projects/bimmergestalt-idrive-refs/
   - id: ble-gatt-bridge-refs
     title: BLE GATT Bridge / Dual-Role References (Fremd)
@@ -303,7 +303,7 @@ projects:
     title: hu-probe — ESP32-S3 USB-MSC Head-Unit Messsonde
     profile: lab-tool
     status: active
-    applications: 4
+    applications: 5
     path: projects/hu-probe/
   - id: iobroker-esp-hub
     title: iobroker-esp-hub
@@ -381,7 +381,7 @@ projects:
     title: PiDrive
     profile: ops-field
     status: active
-    applications: 10
+    applications: 11
     path: projects/pidrive/
   - id: rnt-esp32
     title: Random Nerd Tutorials — ESP32 Projects Catalog (Fremd)

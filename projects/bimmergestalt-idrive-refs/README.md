@@ -11,7 +11,9 @@ Connected-App-/iDrive-Protokollschicht (BCL, Etch/BMWRemoting, RHMI, AV, CDS).
 | [applications/bmw-bcl.md](applications/bmw-bcl.md) | BCL Application |
 | [applications/bmw-etch-rpc.md](applications/bmw-etch-rpc.md) | Etch/RPC Application |
 | [applications/bmw-rhmi.md](applications/bmw-rhmi.md) | RHMI Application |
+| [applications/usb-aoa.md](applications/usb-aoa.md) | USB AOA Transport (Desk) |
 | Audit | [`bimmergestalt-idrive-2026-foreign`](../../audits/bimmergestalt-idrive-2026-foreign/) |
+| AOA-Desk | [`usb-aoa-bmw-connected-2026-desk`](../../audits/usb-aoa-bmw-connected-2026-desk/) |
 
 **Stand:** 2026-10-28 · Desk-Pins unter `/tmp/bimmergestalt/*` (SHAs im Audit).  
 **Abgrenzung:** Layer ≠ [`bmw-nbt-evo`](../../technologies/bmw-nbt-evo/SHEET.md) USB-MSC-Host-C.

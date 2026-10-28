@@ -21,5 +21,7 @@
 | Lab Power/Starve/RF | Method `usb-wifi-coex-discrimination` | vor weiteren Hub-only Mitigations |
 | Runtime-Prio-Verify | `usbd`=24 / WiFi=23 | `uxTaskPriorityGet` im Image |
 | esp-usb Task-API Migration | Kontrast Arduino-HAL | nur wenn Port geplant |
+| C1b-0 AOA Reachability (B1) | Desk [`usb-aoa`](../../technologies/usb-aoa/SHEET.md) | NBT Evo: Switch/`0x18D1`? Kein AOA-FW vor Messplan |
+| C1b BCL-on-USB (B2) | nach B1 | Bulk-Capture vs BT Framing; `ITransport` agnostisch |
 
-**Nicht tun:** weitere Media-Ladder-Varianten nur um Prefetch-Zahlen zu sammeln.
+**Nicht tun:** weitere Media-Ladder-Varianten nur um Prefetch-Zahlen zu sammeln; AOA/SAS/Etch in hu-probe ohne C1b.

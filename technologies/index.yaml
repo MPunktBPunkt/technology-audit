@@ -7,7 +7,7 @@
 # evidence_scope=LAB|FIELD|HOST-SPECIFIC|DEVICE-SPECIFIC|GENERAL
 
 generated: 2026-10-28
-sheet_count: 76
+sheet_count: 77
 sheets:
   - slug: airband-am
     title: VHF Airband AM Reception
@@ -801,6 +801,17 @@ sheets:
     evidence_scope_source: derived
     seen_in: [tinysstv]
     path: technologies/sstv-martin-m1/SHEET.md
+  - slug: usb-aoa
+    title: USB Android Open Accessory (AOA)
+    primary: C
+    reusability: W2
+    technology: R2
+    field_evidence_sheet: R0
+    evidence_max: R0
+    evidence_scope: []
+    evidence_scope_source: derived
+    seen_in: [hu-probe, pidrive, bimmergestalt-idrive-refs]
+    path: technologies/usb-aoa/SHEET.md
   - slug: usb-msc
     title: USB Mass Storage Class
     primary: C

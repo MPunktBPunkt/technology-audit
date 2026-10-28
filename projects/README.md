@@ -7,7 +7,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
 | [`a2dpsinkhfpclient`](a2dpsinkhfpclient/) | a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd) | lab-tool | active | 2 |
-| [`bimmergestalt-idrive-refs`](bimmergestalt-idrive-refs/) | BimmerGestalt — BMW iDrive / Connected-App Protocol Desk Sources | lab-tool | active | 3 |
+| [`bimmergestalt-idrive-refs`](bimmergestalt-idrive-refs/) | BimmerGestalt — BMW iDrive / Connected-App Protocol Desk Sources | lab-tool | active | 4 |
 | [`ble-gatt-bridge-refs`](ble-gatt-bridge-refs/) | BLE GATT Bridge / Dual-Role References (Fremd) | lab-tool | active | 3 |
 | [`bluetooth-stack`](bluetooth-stack/) | bluetooth_stack — Lightweight Dual-Mode BT Host Stack (Fremd) | lab-tool | active | 2 |
 | [`bmw-nbt-media-index`](bmw-nbt-media-index/) | BMW NBT Media/Backup/Forensics Desk Sources | lab-tool | active | 1 |
@@ -55,7 +55,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`espectre`](espectre/) | ESPectre — Wi-Fi CSI Motion Sensing (Fremd) | lab-tool | active | 1 |
 | [`esphome-a2dp-sink`](esphome-a2dp-sink/) | PxPert a2dp_sink — ESPHome A2DP Sink Component (Fremd) | lab-tool | active | 2 |
 | [`espusbhost`](espusbhost/) | EspUsbHost — ESP32 USB Host Library (Fremd) | lab-tool | active | 1 |
-| [`hu-probe`](hu-probe/) | hu-probe — ESP32-S3 USB-MSC Head-Unit Messsonde | lab-tool | active | 4 |
+| [`hu-probe`](hu-probe/) | hu-probe — ESP32-S3 USB-MSC Head-Unit Messsonde | lab-tool | active | 5 |
 | [`iobroker-esp-hub`](iobroker-esp-hub/) | iobroker-esp-hub | adapter | — | 2 |
 | [`iobroker-freeair100`](iobroker-freeair100/) | iobroker-freeair100 | adapter | — | 1 |
 | [`iobroker-fritzwireguard`](iobroker-fritzwireguard/) | iobroker-fritzwireguard | adapter | — | 2 |
@@ -68,7 +68,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`metermaster-app`](metermaster-app/) | metermaster-app | ops-field | — | 1 |
 | [`open-bike-computer`](open-bike-computer/) | Open Bike Computer — Ride BLE Display (Fremd) | lab-tool | active | 1 |
 | [`pi-fm-tx`](pi-fm-tx/) | Pi FM / RF Transmit (Fremd) | lab-tool | active | 3 |
-| [`pidrive`](pidrive/) | PiDrive | ops-field | active | 10 |
+| [`pidrive`](pidrive/) | PiDrive | ops-field | active | 11 |
 | [`rnt-esp32`](rnt-esp32/) | Random Nerd Tutorials — ESP32 Projects Catalog (Fremd) | lab-tool | active | 0 |
 | [`squeezelite-esp32`](squeezelite-esp32/) | Squeezelite-ESP32 — LMS Multi-Room Player (Fremd) | lab-tool | active | 4 |
 | [`technology-audit-kb`](technology-audit-kb/) | technology-audit — Wissensbasis-Qualität (Meta) | ops-field | active | 0 |
