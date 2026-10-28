@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-28
-project_count: 68
+project_count: 69
 projects:
   - id: a2dpsinkhfpclient
     title: a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd)
@@ -11,6 +11,12 @@ projects:
     status: active
     applications: 2
     path: projects/a2dpsinkhfpclient/
+  - id: bimmergestalt-idrive-refs
+    title: BimmerGestalt — BMW iDrive / Connected-App Protocol Desk Sources
+    profile: lab-tool
+    status: active
+    applications: 3
+    path: projects/bimmergestalt-idrive-refs/
   - id: ble-gatt-bridge-refs
     title: BLE GATT Bridge / Dual-Role References (Fremd)
     profile: lab-tool

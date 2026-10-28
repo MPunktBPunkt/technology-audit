@@ -7,7 +7,7 @@
 # evidence_scope=LAB|FIELD|HOST-SPECIFIC|DEVICE-SPECIFIC|GENERAL
 
 generated: 2026-10-28
-sheet_count: 73
+sheet_count: 76
 sheets:
   - slug: airband-am
     title: VHF Airband AM Reception
@@ -185,6 +185,28 @@ sheets:
     evidence_scope_source: derived
     seen_in: [bt-classic-profile-refs]
     path: technologies/bluetooth-spp/SHEET.md
+  - slug: bmw-bcl
+    title: BMW BCL — Connected-App Multiplex Tunnel
+    primary: H
+    reusability: W2
+    technology: R2
+    field_evidence_sheet: R0
+    evidence_max: R0
+    evidence_scope: []
+    evidence_scope_source: derived
+    seen_in: [bimmergestalt-idrive-refs]
+    path: technologies/bmw-bcl/SHEET.md
+  - slug: bmw-etch-rpc
+    title: BMW Etch RPC — BMWRemoting Connected-App API
+    primary: H
+    reusability: W2
+    technology: R2
+    field_evidence_sheet: R0
+    evidence_max: R0
+    evidence_scope: []
+    evidence_scope_source: derived
+    seen_in: [bimmergestalt-idrive-refs]
+    path: technologies/bmw-etch-rpc/SHEET.md
   - slug: bmw-nbt-evo
     title: BMW NBT Evo Head Unit — Host-Plattform
     primary: I
@@ -196,6 +218,17 @@ sheets:
     evidence_scope_source: sheet
     seen_in: [pidrive, esp32-bt-gateway, bmw-nbt-media-index, hu-probe]
     path: technologies/bmw-nbt-evo/SHEET.md
+  - slug: bmw-rhmi
+    title: BMW RHMI — Remote HMI for Connected Apps
+    primary: H
+    reusability: W2
+    technology: R2
+    field_evidence_sheet: R0
+    evidence_max: R0
+    evidence_scope: []
+    evidence_scope_source: derived
+    seen_in: [bimmergestalt-idrive-refs]
+    path: technologies/bmw-rhmi/SHEET.md
   - slug: bt-analysis-endpoint
     title: BT Analysis Endpoint (Role Impersonation)
     primary: C

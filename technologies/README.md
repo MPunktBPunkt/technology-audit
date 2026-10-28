@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION) · **Maturity:** [`docs/KNOWLEDGE-MATURITY.md`](../docs/KNOWLEDGE-MATURITY.md)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 73 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 76 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Belege aus Sheet∪Applications) · nicht verwechseln mit Projekt-Status (Prototype/Pilot).
 
@@ -110,6 +110,9 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 |------|-------|---|------|-------|------------|
 | [`ble-http-gatt-probe`](ble-http-gatt-probe/SHEET.md) | HTTP-gesteuerte BLE-GATT-Sonde | W2 | R3 | LAB | `esp32-ftmsprobe` |
 | [`ble-rssi-proximity`](ble-rssi-proximity/SHEET.md) | BLE RSSI Proximity Hunt | W1 | R0 | — | `esp-ble-finder` |
+| [`bmw-bcl`](bmw-bcl/SHEET.md) | BMW BCL — Connected-App Multiplex Tunnel | W2 | R0 | — | `bimmergestalt-idrive-refs` |
+| [`bmw-etch-rpc`](bmw-etch-rpc/SHEET.md) | BMW Etch RPC — BMWRemoting Connected-App API | W2 | R0 | — | `bimmergestalt-idrive-refs` |
+| [`bmw-rhmi`](bmw-rhmi/SHEET.md) | BMW RHMI — Remote HMI for Connected Apps | W2 | R0 | — | `bimmergestalt-idrive-refs` |
 | [`bt-endpoint-event-stream`](bt-endpoint-event-stream/SHEET.md) | BT Endpoint Event Stream (ESP → Host Export) | W3 | R2 | — | `bt-sniffing-capture-refs` |
 | [`esp-lab-bus-tools`](esp-lab-bus-tools/SHEET.md) | ESP Lab Bus / GPIO Tools | W3 | R1 | — | `esp32-io-control`, `esp32-toolnode` |
 | [`esp-wifi-promiscuous-pcap`](esp-wifi-promiscuous-pcap/SHEET.md) | ESP WiFi Promiscuous Sniff + PCAP Capture | W1 | R0 | — | `esp32-marauder` |
