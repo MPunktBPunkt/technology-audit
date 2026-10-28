@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION) · **Maturity:** [`docs/KNOWLEDGE-MATURITY.md`](../docs/KNOWLEDGE-MATURITY.md)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 65 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 70 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Belege aus Sheet∪Applications) · nicht verwechseln mit Projekt-Status (Prototype/Pilot).
 
@@ -40,10 +40,15 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | [`ble-pcm-notify-stream`](ble-pcm-notify-stream/SHEET.md) | BLE PCM Notify Stream (Custom GATT) | W1 | R0 | — | `esp32-i2s-ble` |
 | [`bluetooth-a2dp`](bluetooth-a2dp/SHEET.md) | Bluetooth A2DP | W3 | R2 | — | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink`, `squeezelite-esp32` |
 | [`bluetooth-ftms`](bluetooth-ftms/SHEET.md) | Bluetooth FTMS (Fitness Machine) | W3 | R3 | LAB, GENERAL | `esp32-ftmsprobe`, `esp32-ergo` |
+| [`bluetooth-hfp`](bluetooth-hfp/SHEET.md) | Bluetooth HFP (Hands-Free Profile) | W3 | R2 | — | `bt-classic-profile-refs` |
+| [`bluetooth-hid`](bluetooth-hid/SHEET.md) | Bluetooth HID (Classic Device/Host) | W3 | R2 | — | `bt-classic-profile-refs` |
+| [`bluetooth-spp`](bluetooth-spp/SHEET.md) | Bluetooth SPP (Serial Port Profile) | W3 | R2 | — | `bt-classic-profile-refs` |
+| [`bt-dual-mode-coex`](bt-dual-mode-coex/SHEET.md) | BT Dual-Mode Coexistence (Classic + BLE) | W3 | R2 | — | `bt-classic-profile-refs` |
 | [`esp-now-messaging`](esp-now-messaging/SHEET.md) | ESP-NOW Messaging | W2 | R1 | — | `esp32-communicator` |
 | [`esp-usb-audio-uac`](esp-usb-audio-uac/SHEET.md) | ESP USB Audio (UAC Device) | W2 | R0 | — | `esp-iot-solution`, `esp-usb-audio-example` |
 | [`esp-usb-host`](esp-usb-host/SHEET.md) | ESP32 USB Host (OTG) | W2 | R0 | — | `espusbhost`, `esp-iot-solution` |
 | [`fm-rds`](fm-rds/SHEET.md) | FM-RDS (Radio Data System) | W2 | R0 | — | `pi-fm-tx`, `esp-fm-rds-node` |
+| [`hid-cross-transport-bridge`](hid-cross-transport-bridge/SHEET.md) | HID Cross-Transport Bridge (HOGP ↔ Classic) | W2 | R2 | — | `bt-classic-profile-refs` |
 | [`kostal-piko-http`](kostal-piko-http/SHEET.md) | Kostal PIKO Local HTTP Interface | W2 | R2 | — | `iobroker-kostalpiko` |
 | [`pump-control-link`](pump-control-link/SHEET.md) | PUMP Control Link | W2 | R2 | — | `esp32-pidrive` |
 | [`ride-ble-display`](ride-ble-display/SHEET.md) | Ride BLE Display (Custom GATT) | W1 | R0 | — | `open-bike-computer` |

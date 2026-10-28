@@ -14,7 +14,7 @@ pilot_order: [bluetooth-a2dp, avrcp]
 |--------|------------|--------|
 | A2DP Sink/Source | `bluetooth-a2dp` | **reuse** |
 | AVRCP CT/TG / Meta / Volume | `avrcp` | **reuse** |
-| HFP (falls vorhanden) | — | observed |
+| HFP HF + SCO/I2S-Mux | `bluetooth-hfp` | **documented** — Desk-Nachzug [`bt-classic-gaps-2026-foreign`](../../audits/bt-classic-gaps-2026-foreign/) |
 
 Kampagne: [`a2dpsinkhfpclient-2026-foreign`](../../audits/a2dpsinkhfpclient-2026-foreign/).
 
@@ -24,7 +24,7 @@ Kampagne: [`a2dpsinkhfpclient-2026-foreign`](../../audits/a2dpsinkhfpclient-2026
 |------|------|---------|--------|----------|-------|-------------|
 | `bluetooth-a2dp` | Bluetooth A2DP | C | applied | partial | [SHEET](../../technologies/bluetooth-a2dp/SHEET.md) | [app](applications/bluetooth-a2dp.md) |
 | `avrcp` | AVRCP | C | applied | partial | [SHEET](../../technologies/avrcp/SHEET.md) | [app](applications/avrcp.md) |
-| `bluetooth-hfp` | HFP HF | C | observed | none | — | — |
+| `bluetooth-hfp` | HFP HF | C | documented | partial | [SHEET](../../technologies/bluetooth-hfp/SHEET.md) | — (Apps in `bt-classic-profile-refs`) |
 
 ## Coverage-Lücken
 
@@ -34,4 +34,4 @@ Kampagne: [`a2dpsinkhfpclient-2026-foreign`](../../audits/a2dpsinkhfpclient-2026
 
 ## Signale ohne Eintrag
 
-- HFP/PBAP/SPP wo vorhanden — observed
+- PBAC — observed; HFP → `bluetooth-hfp` (bt-classic-profile-refs)
