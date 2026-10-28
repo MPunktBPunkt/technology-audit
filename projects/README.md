@@ -2,11 +2,12 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 68 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 69 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
 | [`a2dpsinkhfpclient`](a2dpsinkhfpclient/) | a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd) | lab-tool | active | 2 |
+| [`bimmergestalt-idrive-refs`](bimmergestalt-idrive-refs/) | BimmerGestalt — BMW iDrive / Connected-App Protocol Desk Sources | lab-tool | active | 3 |
 | [`ble-gatt-bridge-refs`](ble-gatt-bridge-refs/) | BLE GATT Bridge / Dual-Role References (Fremd) | lab-tool | active | 3 |
 | [`bluetooth-stack`](bluetooth-stack/) | bluetooth_stack — Lightweight Dual-Mode BT Host Stack (Fremd) | lab-tool | active | 2 |
 | [`bmw-nbt-media-index`](bmw-nbt-media-index/) | BMW NBT Media/Backup/Forensics Desk Sources | lab-tool | active | 1 |
