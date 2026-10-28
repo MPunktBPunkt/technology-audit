@@ -90,8 +90,9 @@ Sheets: `bluetooth-hfp`, `bluetooth-spp`, `bluetooth-hid`, `bt-dual-mode-coex`, 
 | Projekt-ID | Rolle |
 |------------|-------|
 | `bt-analysis-relay-refs` | Desk: Observe-Proxy vs Endpoint vs Host-Sniffer (Phone↔Uhr/Soundbar/Auto/HID) |
+| `bt-sniffing-capture-refs` | Desk: Capture-Pipelines ESP→Host (JSONL/TCP) vs nRF/HCI/PCAP |
 
-Sheets: `ble-gatt-observe-proxy`, `bt-analysis-endpoint`. Method: `bt-passive-host-sniff`. Kampagne: [`bt-analysis-relay-2026-foreign`](../audits/bt-analysis-relay-2026-foreign/). Regel: Relais nur wo transparent; sonst Endpoint + Sniffer.
+Sheets: `ble-gatt-observe-proxy`, `bt-analysis-endpoint`, `bt-endpoint-event-stream`. Method: `bt-passive-host-sniff`. Kampagnen: [`bt-analysis-relay-2026-foreign`](../audits/bt-analysis-relay-2026-foreign/), [`bt-sniffing-capture-2026-foreign`](../audits/bt-sniffing-capture-2026-foreign/). Regel: ESP App-Level; nRF/HCI Funk/Stack; Debian wertet aus.
 
 ## Lab / Fremd — WiFi/BLE Capture Toolkit
 

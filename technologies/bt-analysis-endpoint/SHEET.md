@@ -31,7 +31,7 @@ Analyse-Muster: ESP (oder Host-Stack) **spielt das Peripherie-Gerät** (A2DP Sin
 | Richtung | Schnittstelle | Bemerkung |
 |----------|---------------|-----------|
 | Phone → ESP | Profil-Link | A2DP/HFP/GATT/HID |
-| ESP → Log | UART / MQTT / File | Events, Metadata, AT, Reports |
+| ESP → Log / Stream | UART / MQTT / **TCP JSONL** | Events, Metadata, AT, Reports — Export-Muster → `bt-endpoint-event-stream` |
 | lateral | Original-Gerät | oft **nicht** im Pfad |
 
 ## Geräteklassen (Empfehlung)
@@ -62,6 +62,7 @@ Soundbar/Auto: Endpoint zuerst; Host-Sniffer am Phone ergänzen. BLE: Endpoint n
 - [ ] Geräteklasse → Endpoint-Rolle gewählt
 - [ ] Profil-Sheets gelesen (A2DP/HFP/HID/GATT)
 - [ ] Log-Felder spezifiziert (Events ≠ Audio-Rohdump Pflicht)
+- [ ] Export: TCP/JSONL via `bt-endpoint-event-stream` (nicht nur ESP_LOG)
 - [ ] Bonding/Name/COD wie Zielgerät (soweit nötig)
 - [ ] Parallel: Method `bt-passive-host-sniff`?
 - [ ] Application + `seen_in`
