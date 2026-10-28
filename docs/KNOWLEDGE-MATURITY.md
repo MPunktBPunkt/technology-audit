@@ -24,7 +24,7 @@ Explicit Sheet `evidence_scope` may still mark FIELD at R3 when field *context* 
 There is **no E0–E4 scale** here — that would collide with Review-Check IDs (E1–E4)
 and duplicate `field_evidence` R0–R5. Map “evidence strength” → **R**.
 
-**Sheets:** 70 · Detail index: [`technologies/index.yaml`](../technologies/index.yaml)
+**Sheets:** 72 · Detail index: [`technologies/index.yaml`](../technologies/index.yaml)
 
 ## Distribution — Reusability (W)
 
@@ -32,7 +32,7 @@ and duplicate `field_evidence` R0–R5. Map “evidence strength” → **R**.
 |-------|--------|
 | W1 | 14 |
 | W2 | 32 |
-| W3 | 22 |
+| W3 | 24 |
 | W4 | 2 |
 
 ## Distribution — Evidence (`evidence_max` R)
@@ -41,7 +41,7 @@ and duplicate `field_evidence` R0–R5. Map “evidence strength” → **R**.
 |-------|--------|
 | R0 | 22 |
 | R1 | 13 |
-| R2 | 25 |
+| R2 | 27 |
 | R3 | 10 |
 
 ## Distribution — Evidence scope (multi-label)
@@ -53,7 +53,7 @@ and duplicate `field_evidence` R0–R5. Map “evidence strength” → **R**.
 | HOST-SPECIFIC | 1 |
 | DEVICE-SPECIFIC | 1 |
 | GENERAL | 7 |
-| (none) | 60 |
+| (none) | 62 |
 
 ## Strong reuse + strong evidence (W≥3 and evidence_max≥R3)
 

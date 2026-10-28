@@ -7,7 +7,7 @@
 # evidence_scope=LAB|FIELD|HOST-SPECIFIC|DEVICE-SPECIFIC|GENERAL
 
 generated: 2026-10-28
-sheet_count: 70
+sheet_count: 72
 sheets:
   - slug: airband-am
     title: VHF Airband AM Reception
@@ -42,6 +42,17 @@ sheets:
     evidence_scope_source: derived
     seen_in: [ble-gatt-bridge-refs]
     path: technologies/ble-gatt-dual-role/SHEET.md
+  - slug: ble-gatt-observe-proxy
+    title: BLE GATT Observe Proxy (Analysis Dual-Role)
+    primary: C
+    reusability: W3
+    technology: R3
+    field_evidence_sheet: R0
+    evidence_max: R2
+    evidence_scope: []
+    evidence_scope_source: derived
+    seen_in: [bt-analysis-relay-refs]
+    path: technologies/ble-gatt-observe-proxy/SHEET.md
   - slug: ble-gatt-semantic-bridge
     title: Semantic GATT Bridge (Profile A → B)
     primary: C
@@ -185,6 +196,17 @@ sheets:
     evidence_scope_source: sheet
     seen_in: [pidrive, esp32-bt-gateway, bmw-nbt-media-index, hu-probe]
     path: technologies/bmw-nbt-evo/SHEET.md
+  - slug: bt-analysis-endpoint
+    title: BT Analysis Endpoint (Role Impersonation)
+    primary: C
+    reusability: W3
+    technology: R3
+    field_evidence_sheet: R0
+    evidence_max: R2
+    evidence_scope: []
+    evidence_scope_source: derived
+    seen_in: [bt-analysis-relay-refs]
+    path: technologies/bt-analysis-endpoint/SHEET.md
   - slug: bt-dual-mode-coex
     title: BT Dual-Mode Coexistence (Classic + BLE)
     primary: C
