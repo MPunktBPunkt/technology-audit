@@ -1,0 +1,5 @@
+**/.pio/
+sessions/*/
+!sessions/.gitkeep
+__pycache__/
+*.pyc

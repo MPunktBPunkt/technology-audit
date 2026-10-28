@@ -31,7 +31,7 @@ On-device HTTP-Server mit REST für Steuerung/Config und Server-Sent Events für
 | oben | Browser | REST + `text/event-stream` |
 | unten | App-State / Sensorik / Regelung | Status, History, Commands |
 | lateral | WiFi STA/AP | Captive-Portal oft separat |
-| lateral | Build-Pipeline | optional UI-Pack-Script → Flash-Budget |
+| lateral | Build-Pipeline | UI-Pack (z. B. HTML→gzip PROGMEM) → Flash-Budget |
 
 ## Typische Fallstricke
 
@@ -42,6 +42,8 @@ On-device HTTP-Server mit REST für Steuerung/Config und Server-Sent Events für
 | REST-Mutationen brauchen keinen sofortigen Telemetry-Push | `HYPOTHESIS` | UX oft besser mit sofortigem Heartbeat/Event |
 | Eine UI-Rolle reicht immer | `REJECTED` | Trainings-Nodes brauchen oft Ride- vs. Setup-/Debug-Flächen |
 | Eingebettete HTML-UI = dieses Sheet | `REJECTED` | ohne SSE/Live-Stream nur observed Web-UI — Sheet erst bei REST+SSE-Muster |
+| UI-Quelle im Flash ohne Pack-Schritt ändern | `REJECTED` | bei gzip/B64-PROGMEM: Quelle → Pack-Script → Header committen |
+| B64-PROGMEM und gzip-PROGMEM sind austauschbar ohne Header | `REJECTED` | `Content-Encoding` / Decoder müssen zum Pack-Format passen |
 
 ## Transfer
 
@@ -50,7 +52,8 @@ Muster für ESP-Nodes mit Erstsetup und Live-Charts/Ride-UI. Voraussetzung: stab
 ### Projektstart-Checkliste
 
 - [ ] SSE + Polling-Fallback einplanen
-- [ ] Flash-/Pack-Budget für UI prüfen
+- [ ] Flash-/Pack-Budget für UI prüfen (gzip PROGMEM bevorzugen, wo Familienstandard)
+- [ ] UI-Änderung → Pack-Script → generierte Header committen
 - [ ] REST-Mutationen → sofortiger Status/Hub-Push?
 - [ ] Application + `seen_in` nachziehen
 

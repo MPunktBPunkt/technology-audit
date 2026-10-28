@@ -23,3 +23,4 @@ Basis: `https://github.com/MPunktBPunkt/ESP32.esp-hub/blob/a03400a/`
 | Datum | Ereignis |
 |-------|----------|
 | 2026-10-09 | Pilot Standard 0.6.3 |
+| 2026-10-28 | Superseded by [`esp32-esp-hub-2026-1.10-validation`](../esp32-esp-hub-2026-1.10-validation/) (FW 1.10.5 @ `eebbcd9`, Standard 0.7.1) |

@@ -19,7 +19,7 @@ Nur Ebene **A** = **HTTP-Contract** (sprachneutral). Client-Firmware und Adapter
 
 ## Kurzfassung
 
-LAN-Hub-Muster: Nodes `POST /api/register` (mac, name, hwType, version, Metriken, `ios`); Antwort kann `interval` und einmalige `otaUrl` liefern. Identity oft über MAC/Name — `fwType` optional (neuere Nodes). Stack (Arduino, IDF, anderer HTTP-Client) ist austauschbar.
+LAN-Hub-Muster: Nodes `POST /api/register` (mac, name, hwType, version, Metriken, `ios`); Antwort liefert typisch `interval`, einmalige `otaUrl` und optional `name` (Rename→NVS). Additive Laufzeitfelder (z. B. `freePsram`/`psramSize`, oft `hwSummary`/`module`/`cpu*`) sind erlaubt, solange der Heartbeat **schlank** bleibt — Diagnose-Details gehören nicht ins Register. Identity oft über MAC/Name — `fwType` optional (neuere Nodes). Stack (Arduino, IDF, anderer HTTP-Client) ist austauschbar.
 
 ## Abgrenzung
 
@@ -30,10 +30,10 @@ LAN-Hub-Muster: Nodes `POST /api/register` (mac, name, hwType, version, Metriken
 
 | Richtung | Schnittstelle | Bemerkung |
 |----------|---------------|-----------|
-| Node → Hub | `POST /api/register` | Heartbeat + ios |
-| Hub → Node | Response `interval`, `otaUrl` | otaUrl typisch einmalig |
+| Node → Hub | `POST /api/register` | Heartbeat + ios; optional PSRAM/CPU-Additive |
+| Hub → Node | Response `interval`, `otaUrl`, `name` | otaUrl einmalig; name = Rename |
 | optional | `GET /api/ota/check` | alternativer Poll |
-| lateral | Web-UI am Node | Host/Port Config |
+| lateral | Web-UI am Node | Host/Port Config; Status darf reicher sein als Heartbeat |
 
 ## Typische Fallstricke
 
@@ -53,6 +53,9 @@ LAN-Hub-Muster: Nodes `POST /api/register` (mac, name, hwType, version, Metriken
 | Contract ändert sich mit Programmiersprache | `REJECTED` | A ist HTTP/JSON; B ist C++ vs Node |
 | Nested Domain-Blöcke (z. B. `rf.alert`) ersetzen den Basis-Heartbeat | `REJECTED` | Erweiterungen pro `fwType`; Basis bleibt mac/name/ios |
 | Device-Contract-Doku = Adapter spiegelt Felder End-to-End | `REJECTED` | Adapter-Seite eigene Evidence |
+| Diag-/Recovery-Payload gehört in jeden Heartbeat | `REJECTED` | schlank halten; Diag über eigene APIs / Base-only |
+| Additive Keys (`hwSummary`/`cpu*`) brechen den Basis-Contract | `REJECTED` | additiv erlaubt; Clients müssen Unbekanntes tolerieren |
+| Hub-Rename ohne `reply.name`-Konsum am Gerät | `REJECTED` | Name-Sync braucht Client-Pfad + oft pendingName am Adapter |
 
 ## Transfer
 
@@ -61,9 +64,9 @@ Voraussetzung: Hub erreichbar im LAN (typisch :8093), dokumentierte `ios`-Keys p
 ### Projektstart-Checkliste
 
 - [ ] Identity: `fwType` **oder** `name`/`hwType`/`mac` laut Spec
-- [ ] Heartbeat-Keys + `ios` in Application
+- [ ] Heartbeat-Keys + `ios` in Application (schlank; Additive explizit)
+- [ ] Reply: `interval` / `otaUrl` (einmalig) / optional `name`→NVS
 - [ ] Nested Domain-Contract? ID + Felder dokumentieren; Adapter-Exit separat
-- [ ] otaUrl-Konsum (einmalig) implementieren
 - [ ] Zweiter Produkt-Adapter? Ports trennen
 - [ ] Application + `seen_in` (Client **und/oder** Adapter-Projekt)
 
