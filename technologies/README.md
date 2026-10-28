@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION) · **Maturity:** [`docs/KNOWLEDGE-MATURITY.md`](../docs/KNOWLEDGE-MATURITY.md)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 70 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 72 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Belege aus Sheet∪Applications) · nicht verwechseln mit Projekt-Status (Prototype/Pilot).
 
@@ -33,6 +33,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 |------|-------|---|------|-------|------------|
 | [`avrcp`](avrcp/SHEET.md) | AVRCP | W3 | R2 | — | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink` |
 | [`ble-gatt-dual-role`](ble-gatt-dual-role/SHEET.md) | BLE GATT Dual-Role (Central + Peripheral) | W3 | R2 | — | `ble-gatt-bridge-refs` |
+| [`ble-gatt-observe-proxy`](ble-gatt-observe-proxy/SHEET.md) | BLE GATT Observe Proxy (Analysis Dual-Role) | W3 | R2 | — | `bt-analysis-relay-refs` |
 | [`ble-gatt-semantic-bridge`](ble-gatt-semantic-bridge/SHEET.md) | Semantic GATT Bridge (Profile A → B) | W3 | R2 | — | `ble-gatt-bridge-refs` |
 | [`ble-gatt-transparent-bridge`](ble-gatt-transparent-bridge/SHEET.md) | Transparent GATT Bridge (Byte Passthrough) | W3 | R2 | — | `ble-gatt-bridge-refs` |
 | [`ble-hr-relay`](ble-hr-relay/SHEET.md) | BLE HR-Relay (Peripheral Bridge) | W3 | R2 | — | `esp32-heartrate`, `esp32-ergo` |
@@ -43,6 +44,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | [`bluetooth-hfp`](bluetooth-hfp/SHEET.md) | Bluetooth HFP (Hands-Free Profile) | W3 | R2 | — | `bt-classic-profile-refs` |
 | [`bluetooth-hid`](bluetooth-hid/SHEET.md) | Bluetooth HID (Classic Device/Host) | W3 | R2 | — | `bt-classic-profile-refs` |
 | [`bluetooth-spp`](bluetooth-spp/SHEET.md) | Bluetooth SPP (Serial Port Profile) | W3 | R2 | — | `bt-classic-profile-refs` |
+| [`bt-analysis-endpoint`](bt-analysis-endpoint/SHEET.md) | BT Analysis Endpoint (Role Impersonation) | W3 | R2 | — | `bt-analysis-relay-refs` |
 | [`bt-dual-mode-coex`](bt-dual-mode-coex/SHEET.md) | BT Dual-Mode Coexistence (Classic + BLE) | W3 | R2 | — | `bt-classic-profile-refs` |
 | [`esp-now-messaging`](esp-now-messaging/SHEET.md) | ESP-NOW Messaging | W2 | R1 | — | `esp32-communicator` |
 | [`esp-usb-audio-uac`](esp-usb-audio-uac/SHEET.md) | ESP USB Audio (UAC Device) | W2 | R0 | — | `esp-iot-solution`, `esp-usb-audio-example` |

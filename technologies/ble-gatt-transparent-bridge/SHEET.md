@@ -24,7 +24,7 @@ Bridge leitet GATT-Attribute **byte-transparent** weiter (Notify/Indicate/Write,
 ## Abgrenzung
 
 - **Ist:** Opaque Passthrough / GATT-Clone-Relay; generischer Central-Gateway zu Nicht-BLE (z. B. MQTT) als verwandtes Muster.
-- **Ist nicht:** Semantic Re-Encode (FTMS→CPS); HR-Fanout mit festem `0x180D` (`ble-hr-relay`); Attack-Rezepte.
+- **Ist nicht:** Semantic Re-Encode (FTMS→CPS); HR-Fanout mit festem `0x180D` (`ble-hr-relay`); Attack-Rezepte; Analyse-Observability-Dach (→ `ble-gatt-observe-proxy`); Endpoint-Impersonation (→ `bt-analysis-endpoint`).
 
 ## Schnittstellen und Abhängigkeiten
 
@@ -47,7 +47,7 @@ Bridge leitet GATT-Attribute **byte-transparent** weiter (Notify/Indicate/Write,
 
 ## Transfer
 
-Nutzen wenn Folgeprojekt **beliebige** oder unbekannte Services spiegeln soll. Für Fitness-Apps mit erwarteter Semantik → `ble-gatt-semantic-bridge`. Dual-Role-Budget → `ble-gatt-dual-role`.
+Nutzen wenn Folgeprojekt **beliebige** oder unbekannte Services spiegeln soll. Für Fitness-Apps mit erwarteter Semantik → `ble-gatt-semantic-bridge`. Dual-Role-Budget → `ble-gatt-dual-role`. Für **Device-Understanding** mit Logging → `ble-gatt-observe-proxy`; bei Encryption/Classic-Audio → `bt-analysis-endpoint` + Method `bt-passive-host-sniff`.
 
 ### Projektstart-Checkliste
 

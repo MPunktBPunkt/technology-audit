@@ -3,7 +3,7 @@
 # Regenerate: python3 tools/ta-assist index
 
 generated: 2026-10-28
-project_count: 66
+project_count: 67
 projects:
   - id: a2dpsinkhfpclient
     title: a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd)
@@ -29,6 +29,12 @@ projects:
     status: active
     applications: 1
     path: projects/bmw-nbt-media-index/
+  - id: bt-analysis-relay-refs
+    title: "Bluetooth Analyse-Relais & Device-Understanding (Fremd)"
+    profile: lab-tool
+    status: active
+    applications: 2
+    path: projects/bt-analysis-relay-refs/
   - id: bt-classic-profile-refs
     title: Bluetooth Classic Profile Gaps — HFP / SPP / HID / Dual-Mode (Fremd)
     profile: lab-tool

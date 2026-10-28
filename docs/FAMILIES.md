@@ -85,6 +85,14 @@ Sheets: `ble-gatt-dual-role`, `ble-gatt-transparent-bridge`, `ble-gatt-semantic-
 
 Sheets: `bluetooth-hfp`, `bluetooth-spp`, `bluetooth-hid`, `bt-dual-mode-coex`, `hid-cross-transport-bridge`. Kontrast: `bluetooth-a2dp` / `avrcp`. Kampagne: [`bt-classic-gaps-2026-foreign`](../audits/bt-classic-gaps-2026-foreign/).
 
+## Lab / Fremd — Bluetooth Analyse-Relais / Device-Understanding
+
+| Projekt-ID | Rolle |
+|------------|-------|
+| `bt-analysis-relay-refs` | Desk: Observe-Proxy vs Endpoint vs Host-Sniffer (Phone↔Uhr/Soundbar/Auto/HID) |
+
+Sheets: `ble-gatt-observe-proxy`, `bt-analysis-endpoint`. Method: `bt-passive-host-sniff`. Kampagne: [`bt-analysis-relay-2026-foreign`](../audits/bt-analysis-relay-2026-foreign/). Regel: Relais nur wo transparent; sonst Endpoint + Sniffer.
+
 ## Lab / Fremd — WiFi/BLE Capture Toolkit
 
 | Projekt-ID | Rolle |
