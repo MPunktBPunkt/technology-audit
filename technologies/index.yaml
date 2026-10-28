@@ -7,7 +7,7 @@
 # evidence_scope=LAB|FIELD|HOST-SPECIFIC|DEVICE-SPECIFIC|GENERAL
 
 generated: 2026-10-28
-sheet_count: 72
+sheet_count: 73
 sheets:
   - slug: airband-am
     title: VHF Airband AM Reception
@@ -218,6 +218,17 @@ sheets:
     evidence_scope_source: derived
     seen_in: [bt-classic-profile-refs]
     path: technologies/bt-dual-mode-coex/SHEET.md
+  - slug: bt-endpoint-event-stream
+    title: BT Endpoint Event Stream (ESP → Host Export)
+    primary: H
+    reusability: W3
+    technology: R3
+    field_evidence_sheet: R0
+    evidence_max: R2
+    evidence_scope: []
+    evidence_scope_source: derived
+    seen_in: [bt-sniffing-capture-refs]
+    path: technologies/bt-endpoint-event-stream/SHEET.md
   - slug: dab-plus
     title: DAB+ Digital Audio Broadcasting
     primary: A

@@ -59,6 +59,7 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`ble-gatt-bridge-refs-2026-foreign`](ble-gatt-bridge-refs-2026-foreign/) | closed | lab-tool | Fremd: Dual-Role / Transparent / Semantic GATT Bridge · **0.7.1** |
 | [`bt-classic-gaps-2026-foreign`](bt-classic-gaps-2026-foreign/) | closed | lab-tool | Fremd: Classic HFP/SPP/HID/Dual-Mode Gaps · **0.7.1** |
 | [`bt-analysis-relay-2026-foreign`](bt-analysis-relay-2026-foreign/) | closed | lab-tool | Fremd: Analyse-Relais / Endpoint / Host-Sniff · **0.7.1** |
+| [`bt-sniffing-capture-2026-foreign`](bt-sniffing-capture-2026-foreign/) | closed | lab-tool | Fremd: Capture ESP→TCP/JSONL vs nRF/HCI · **0.7.1** |
 | [`esp32-i2s-ble-2026-foreign`](esp32-i2s-ble-2026-foreign/) | active | lab-tool | Fremd: I2S-Mic → Custom BLE PCM Notify · **0.7.1** |
 | [`esp32-msc-gadget-refs-2026-foreign`](esp32-msc-gadget-refs-2026-foreign/) | active | lab-tool | Fremd: ESP32 USB-MSC Gadgets + virtual FAT / Perf · **0.6.6** |
 | [`tinyusb-msc-busy-retry-2026`](tinyusb-msc-busy-retry-2026/) | closed | lab-tool | TinyUSB MSC `return 0`/BUSY/ASYNC (E7-Basis; Feld S6 validiert) · **0.6.6** + 0.7.0-Retro |

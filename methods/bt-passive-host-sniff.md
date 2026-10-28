@@ -53,7 +53,18 @@ Passiv erfassen, was Telefon↔Peripherie austauschen, **ohne** ESP im Datenpfad
 - Uhr: nRF + optional `ble-gatt-observe-proxy` nach Re-Pair
 - Auto: HCI snoop für HFP AT; ESP als HF-Endpoint zum Nachstellen
 
+## Abgrenzung Capture-Pipelines
+
+| Pfad | Sicht | Wann |
+|------|-------|------|
+| **nRF OTA** (diese Method) | Link-Layer / Adv / ggf. Follow | fremde Connection, keine ESP-Rolle |
+| **HCI snoop** (Phone/BlueZ) | Stack am Endgerät | Encryption oft lesbar am Phone |
+| **ESP Endpoint Event Stream** | App-Events (GATT/HFP/AVRCP) | ESP ist Gerät; → Sheet `bt-endpoint-event-stream` |
+| **ESP Dual-Role Observe** | Phone↔Sensor Proxy | nur wenn transparent/pairbar |
+
+**Regel:** ESP fängt auf Anwendungsebene; nRF/HCI für Funk- bzw. Stack-Sicht; Debian wertet aus (JSONL oder PCAP).
+
 ## Verwandt
 
-- Sheets: `ble-gatt-observe-proxy`, `bt-analysis-endpoint`, `bluetooth-hfp`, `bluetooth-a2dp`
-- Kampagne: `bt-analysis-relay-2026-foreign`
+- Sheets: `ble-gatt-observe-proxy`, `bt-analysis-endpoint`, `bt-endpoint-event-stream`, `bluetooth-hfp`, `bluetooth-a2dp`
+- Kampagnen: `bt-analysis-relay-2026-foreign`, `bt-sniffing-capture-2026-foreign`
