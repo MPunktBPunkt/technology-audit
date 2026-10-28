@@ -17,6 +17,7 @@ pilot_order: [bmw-bcl, bmw-etch-rpc, bmw-rhmi, bmw-nbt-evo]
 | RHMI XML + `rhmi_*` Lifecycle | `bmw-rhmi` | **neu** |
 | NBT Evo als USB-MSC-Host | `bmw-nbt-evo` | **reused** (Abgrenzung Connected-App) |
 | USB-MSC / Prefetch | `usb-msc` / hu-probe apps | **no overwrite** |
+| USB AOA (Handshake/Rohr unter BCL) | `usb-aoa` | **neu** (Desk 2026-10-28; Wire UNKNOWN) |
 
 Kampagne: [bimmergestalt-idrive-2026-foreign](../../audits/bimmergestalt-idrive-2026-foreign/).
 

@@ -27,7 +27,7 @@ ESP als **USB-Host**: enumeriert Peripherie (HID, CDC/VCP, MSC BOT/SCSI, MIDI, A
 
 - **Ist:** USB **Host**-Rolle (ESP steuert Bus, speist/enumerated Devices).
 - **Ist nicht:** USB **Device**/Gadget (`usb-msc` als Stick gegenüber HU); TinyUSB Device-Pfade; PC-Host-Treiber.
-- **Grenzt an:** MSC BOT/SCSI (Klasse gleich, Rolle umgekehrt); USB-Serial-Bridges als Host-Clients.
+- **Grenzt an:** MSC BOT/SCSI (Klasse gleich, Rolle umgekehrt); USB-Serial-Bridges als Host-Clients; Android Open Accessory Host-Handshake [`usb-aoa`](../usb-aoa/SHEET.md) (Vendor-Control 51/52/53 auf dem Host-Stack).
 
 ## Schnittstellen und Abhängigkeiten
 
