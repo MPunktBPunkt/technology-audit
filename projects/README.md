@@ -2,11 +2,12 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 64 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 65 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
 | [`a2dpsinkhfpclient`](a2dpsinkhfpclient/) | a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd) | lab-tool | active | 2 |
+| [`ble-gatt-bridge-refs`](ble-gatt-bridge-refs/) | BLE GATT Bridge / Dual-Role References (Fremd) | lab-tool | active | 3 |
 | [`bluetooth-stack`](bluetooth-stack/) | bluetooth_stack — Lightweight Dual-Mode BT Host Stack (Fremd) | lab-tool | active | 2 |
 | [`bmw-nbt-media-index`](bmw-nbt-media-index/) | BMW NBT Media/Backup/Forensics Desk Sources | lab-tool | active | 1 |
 | [`c5vrx`](c5vrx/) | C5VRX — ESP32-C5 5.8 GHz FPV Analog RX (Fremd) | lab-tool | active | 1 |
