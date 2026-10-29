@@ -18,6 +18,7 @@ pilot_order: [bmw-bcl, bmw-etch-rpc, bmw-rhmi, bmw-nbt-evo]
 | NBT Evo als USB-MSC-Host | `bmw-nbt-evo` | **reused** (Abgrenzung Connected-App) |
 | USB-MSC / Prefetch | `usb-msc` / hu-probe apps | **no overwrite** |
 | USB AOA (Handshake/Rohr unter BCL) | `usb-aoa` | Desk 2026-10-28; Feld Enum 2026-10-29; Handshake/Bulk noch Gap → C1b B1/B2 |
+| BCL+Etch Session-Handshake (AOA→App) | `bmw-bcl` (+ etch/aoa) | Desk 2026-10-29: [`applications/bmw-bcl-handshake.md`](applications/bmw-bcl-handshake.md) |
 
 Kampagne: [bimmergestalt-idrive-2026-foreign](../../audits/bimmergestalt-idrive-2026-foreign/).
 
