@@ -24,7 +24,8 @@
 | C1b-0 AOA Reachability (B1) | Desk [`usb-aoa`](../../technologies/usb-aoa/SHEET.md) | Teil: Enum ja (Feld 29.10.); Switch/51–53 noch absent — Plan [`C1b-PLAN`](../../audits/usb-aoa-bmw-connected-2026-desk/C1b-PLAN.md) |
 | C1b BCL-on-USB (B2) | nach B1 | Bulk-Capture vs BT Framing; kein Auto-`BclFramer` vor Header-Muster |
 | C1b Phone-like Enum (B1-Retry) | nach Already-Accessory-Negativ | Nicht-Google VID/PID → 51/52/53 beobachten; Post-53 Re-Enum klären |
-| C1b Control-Vollsicht | Instrumentierung | Standard-/Class-SETUPs loggen (Gap `031`); Observation only |
+| ~~C1b Control-Callback-Sicht (P0.5-A)~~ | Instrumentierung | **done** hu-probe 0.3.24 — alle Callback-SETUPs; Lab-Check `tools/lab_aoa_control_tap_check.py` |
+| C1b Phone-like Boot (B1) | `aoa_phone_like` | **FW ready 0.3.25** (`0x04E8:0x6860`); Feldmessung offen |
 | C1b Referenz Phone+Connected | Capture | Parallel-Session: echte Connected-App → erwartete Strings/Bulk |
 
 **Nicht tun:** weitere Media-Ladder-Varianten nur um Prefetch-Zahlen zu sammeln; AOA/SAS/Etch ohne C1b-Wire; Soft-Composite MSC+AOA ohne Gate.

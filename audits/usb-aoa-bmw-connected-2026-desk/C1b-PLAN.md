@@ -90,7 +90,7 @@ im gleichen Boot (MSC-Fingerprint). |
 | # | A (Evidence) | B (Hypothese) |
 |---|--------------|---------------|
 | G1 | Feld: Enum `0x18D1:0x2D00`, UI Zubehör; 51/52/53=0; Bulk=0 | Already-Accessory-Boot reicht für UI, nicht für Connected-Rohr |
-| G2 | `AoaControlTap` zählt Vendor-SETUPs; Standard/Class unsichtbar (Impl) | Mode-/Class-Traffic könnte existieren und fehlt in den Zählern |
+| G2 | Bis P0.5-A: Tap filterte auf Vendor-SETUPs. Ab hu-probe **0.3.24**: alle Callback-SETUPs + `setup_count`/`vendor_setup_count`/`drops`/`stage` — weiterhin **kein** voller EP0-Sniffer (nur was `USBVendor.onRequest` liefert) | Mode-/Class-Traffic kann den Callback nie erreichen; Lab-Instrument-Check nötig |
 | G3 | BG Doc: USB Accessory = BCL-Weg; Code: nur BT | USB-BCL existiert am Wire, ist aber in BclCarLink nicht implementiert |
 | G4 | AAIdrive: File Transfer vor Accessory; manufacturer `"BMW"` | HU sendet BMW-Strings bei 52; Phone-like Enum nötig für Switch |
 | G5 | BclClientTransport stream-agnostisch; kein USB-Binder in BclCarLink | ITransport-Trennung korrekt; AOA und SPP austauschbar unter BclFramer |

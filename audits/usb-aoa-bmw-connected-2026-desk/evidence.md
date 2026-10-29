@@ -147,7 +147,7 @@ confidence: high
 limitations: Already-accessory boot hypothesis; vendor-only control tap; post-53 re-enum not implemented; MSC absent by design
 related_evidence: [EVID-AOA-2026-10-28-025, EVID-AOA-2026-10-28-026, EVID-AOA-2026-10-29-031]
 technology_audit_relevance: HIGH — closes partial UNKNOWN on enum; keeps handshake/bulk UNKNOWN
-hu_probe_relevance: Direct — C1b-P0 P0-A/C PASS; P0-B/E FAIL this session
+hu_probe_relevance: Direct — C1b-P0 P0-A/C PASS; P0-B = MEASURED ABSENT on vendor-control path (compatible with Already-Accessory boot, not AOA-FAIL); P0-E FAIL (bulk still 0)
 ```
 
 ### EVID-AOA-2026-10-29-029
@@ -175,3 +175,4 @@ technology_audit_relevance: HIGH — justifies hu-probe ITransport split (Aoa/Sp
 |-------|----------|
 | 2026-10-28 | Desk AOA AOSP + BG Transport + drei Ref-Repos; Sheet `usb-aoa`; Kampagne closed |
 | 2026-10-29 | Continuation: Tier-1 Re-Read + hu-probe C1b-P0 Feld-Gaps; C1b-PLAN.md B1/B2 |
+| 2026-10-29 | P0-B wording → MEASURED ABSENT; G2 note P0.5-A (hu-probe 0.3.24/25) |
