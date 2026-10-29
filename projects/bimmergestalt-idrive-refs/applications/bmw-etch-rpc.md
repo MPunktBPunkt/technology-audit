@@ -26,3 +26,6 @@ BMWConnectedAnalysis@`9e96ac6`, Simulator@`6a38086`.
 | Etch URI maxPktSize 8388608 | `EVID-BG-2026-10-28-008` | `FACT` |
 | Simulator SAS stub Port 4006 | `EVID-BG-2026-10-28-016` | `FACT` |
 | Challenge 16 Bytes „observed“ | `EVID-BG-2026-10-28-021` | `INFERENCE` (Doc) |
+| Start-Sequenz Doc: BT/USB → BCL knock/handshake → ATTACHED → TCP Etch | `EVID-AOA-2026-10-29-028` | `FACT` Doc |
+| Etch-Payload über BCL dest `0x0FA4` (nicht AOA-eigen) | `EVID-BG-2026-10-28-002` | `FACT` |
+| USB-Pfad Etch separat in BclCarLink | — | **nicht belegt** (nur BT-Streams) |

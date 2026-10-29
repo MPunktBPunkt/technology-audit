@@ -15,11 +15,15 @@ BimmerGestalt beschreibt **Connected-App Protokoll** (BT/BCL/Etch/RHMI).
 | **Complementary** | Protokollschicht | BCL/Etch/RHMI/AV/CDS fehlen in hu-probe (bewusst anderer Scope) |
 | **Complementary** | Capability-Strings ID4/5/6 | Könnten spätere Host-Varianten-Gates informieren; **nicht** MSC-Timing |
 | **Contradiction** | — | Keine direkte Aussage kollidiert mit MSC Prefetch/Remount/Head-Read FACTS |
-| **Gap** | BCL/Etch am Fahrzeug | hu-probe hat keinen Connected-App-/BCL-Capture-Pfad |
+| **Gap** | BCL/Etch am Fahrzeug | Lab-`BclFramer` PASS; **Wire-Bulk** noch absent (`EVID-AOA-030`) |
+| **Gap** | AOA Handshake 51/52/53 | Zähler 0 bei Already-Accessory-Boot; Phone-like Enum offen (C1b B1) |
+| **Gap** | Control-Vollsicht | Vendor-Tap sieht Standard/Class nicht vollständig (`EVID-AOA-031`) |
 | **Gap** | AV multimedia buttons vs MSC | unverbunden |
+| **Complementary** | C1b-P0 Enum/UI | NBT erkennt `aoa_observe` als Zubehör — kein Connected-Rohr |
 | **No relation** | CDS ContentProvider, HassGestalt HA, RSS/Weather forks | |
 
-**Fazit hu-probe:** BG = neue Wissensschicht *neben* MSC-Sonde. Kein Claim-Merge. FOLLOW-ON: optional BCL/Etch-Beobachtung als **eigenes** Audit.
+**Fazit hu-probe:** BG = Wissensschicht *neben* MSC-Sonde. C1b-P0 liefert Enum-MEASURED, nicht BCL.
+Kein Claim-Merge. Nächste Messung: [`C1b-PLAN`](../usb-aoa-bmw-connected-2026-desk/C1b-PLAN.md).
 
 ## PiDrive
 

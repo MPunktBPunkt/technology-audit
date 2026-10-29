@@ -3,9 +3,9 @@
 ```yaml
 project_id: bimmergestalt-idrive-refs
 title: BimmerGestalt — BMW iDrive / Connected-App Protocol Desk Sources
-updated: 2026-10-28
+updated: 2026-10-29
 profile_hint: lab-tool
-reviewed_commit: "org-BimmerGestalt-2026-10-28"
+reviewed_commit: "org-BimmerGestalt-2026-10-28+c1b-desk-continuation"
 repos:
   - https://github.com/BimmerGestalt/AAIdrive
   - https://github.com/BimmerGestalt/BMWConnectedAnalysis

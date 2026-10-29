@@ -2,8 +2,8 @@
 
 ```yaml
 project_id: bimmergestalt-idrive-refs
-updated: 2026-10-28
-reviewed_commit: "org-BimmerGestalt-2026-10-28"
+updated: 2026-10-29
+reviewed_commit: "org-BimmerGestalt-2026-10-28+c1b-desk-continuation"
 profile: lab-tool
 pilot_order: [bmw-bcl, bmw-etch-rpc, bmw-rhmi, bmw-nbt-evo]
 ```
@@ -17,7 +17,7 @@ pilot_order: [bmw-bcl, bmw-etch-rpc, bmw-rhmi, bmw-nbt-evo]
 | RHMI XML + `rhmi_*` Lifecycle | `bmw-rhmi` | **neu** |
 | NBT Evo als USB-MSC-Host | `bmw-nbt-evo` | **reused** (Abgrenzung Connected-App) |
 | USB-MSC / Prefetch | `usb-msc` / hu-probe apps | **no overwrite** |
-| USB AOA (Handshake/Rohr unter BCL) | `usb-aoa` | **neu** (Desk 2026-10-28; Wire UNKNOWN) |
+| USB AOA (Handshake/Rohr unter BCL) | `usb-aoa` | Desk 2026-10-28; Feld Enum 2026-10-29; Handshake/Bulk noch Gap → C1b B1/B2 |
 
 Kampagne: [bimmergestalt-idrive-2026-foreign](../../audits/bimmergestalt-idrive-2026-foreign/).
 

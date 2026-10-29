@@ -26,3 +26,7 @@ BMWConnectedAnalysis@`9e96ac6`. `field_evidence: R0` — keine eigenen Captures.
 | SelectProto(3)+Knock bei version>3 | `EVID-BG-2026-10-28-005` | `FACT` |
 | Watchdog dest 0x1389 / 5001 | `EVID-BG-2026-10-28-007` | `FACT` |
 | USB/ENET in Doc, nur BT in BclCarLink | `EVID-BG-2026-10-28-020` | Contradiction Doc↔Code |
+| `BclClientTransport` über Streams; RFCOMM nur in `BtConnection` | `EVID-AOA-2026-10-29-029` | `FACT` Code |
+| Session-Init Phone: Hex `12345678` dann auf Handshake warten | `EVID-BG-2026-10-28-004` | `FACT` |
+| Nach BCL: Multiplex → Dest-Protokolle (Etch-Proxy) | `EVID-BG-2026-10-28-006` / `012` | `FACT` |
+| USB-Bulk BCL am NBT Evo | `EVID-AOA-2026-10-28-026` | `UNKNOWN` → C1b **B2** |

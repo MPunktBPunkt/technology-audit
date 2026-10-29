@@ -36,6 +36,8 @@ Pins unter `/tmp/bimmergestalt/` bzw. GitHub-Metadaten wo nicht geklont.
 | `EVID-BG-2026-10-28-023` | ReadYou/breezy = Consumer-Forks, kein Protokollkern | GitHub README (nicht geklont) | FACT (meta) | high | n/a | No relation | No relation |
 | `EVID-BG-2026-10-28-024` | HassGestalt RHMI assets from SmartThings APK | `external.gradle` @63da6a4 | FACT | high | n/a | No relation | Context |
 | `EVID-BG-2026-10-28-025` | `rhmi_create_version` in IDL, keine Kotlin-Calls | Grep Kit/AAIdrive | FACT (IDL≠Nutzung) | high | n/a | — | — |
+| `EVID-BG-2026-10-29-026` | BCL client stream-agnostisch; konkreter Wire nur BT RFCOMM | BclCarLink `BclClientTransport` / `BtConnection` @7cfd959 | FACT | high | n/a | Gap→C1b | Open USB |
+| `EVID-BG-2026-10-29-027` | Doc Start: USB Acc oder BT → BCL knock/handshake → ATTACHED → Etch TCP | Analysis `app-behavior.md` @9e96ac6 | FACT (Doc) | high | n/a | Gap | Complementary |
 
 ## Evidence Records (Langform, Auszug)
 
@@ -127,3 +129,4 @@ reuse: MEDIUM (architecture hypothesis only)
 | Datum | Ereignis |
 |-------|----------|
 | 2026-10-28 | Org 14 Repos inventarisiert; P0 deep desk; Sheets bmw-bcl/etch/rhmi; Cross-Ref hu-probe/PiDrive |
+| 2026-10-29 | Continuation Desk: Transport-Abstraktion + hu-probe C1b-P0 Gaps; C1b-PLAN (kein hu-probe Code) |

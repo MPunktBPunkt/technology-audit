@@ -130,8 +130,9 @@ AOAv2 HID: Control 54–57 auf EP0 (kein neues Interface) — außerhalb Connect
 | AAIdrive: USB reliable; oft File Transfer → car startet Accessory | `FACT` (Doc/Issue) | B | AAIdrive connection tips; Issue #834 |
 | Phone erkennt BMW-Accessory via `UsbAccessory.manufacturer` enthält `"BMW"` | `FACT` (Code) | B | AAIdrive `UsbStatus.isBMWConnected` @`3e93419` |
 | NBT/NBT Evo Connected Apps über USB nutzbar | `FACT` (Doc claim) | B | AAIdrive README/FAQ — **nicht** eigenes MEASURED |
-| NBT Evo F20 speist AOA Host und spricht BCL über Bulk | `UNKNOWN` | C | Wire/C1b nötig |
+| NBT Evo F20 speist AOA Host und spricht BCL über Bulk | `UNKNOWN` (Bulk/BCL); Enum/UI **MEASURED** bei Already-Accessory | C | `EVID-AOA-030`; C1b B1/B2 |
 | BCL Framing auf USB identisch zu BT | `HYPOTHESIS` / `UNKNOWN` | C | Doc impliziert; kein Capture hier |
+| Feld: 51/52/53 und Bulk bei `aoa_observe` Boot | **absent** (diese Session) | C | Zähler 0; Vendor-Tap-Gap `031` |
 
 ## Typische Fallstricke (A + Ref-Evidence)
 
