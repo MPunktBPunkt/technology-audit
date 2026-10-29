@@ -130,3 +130,4 @@ reuse: MEDIUM (architecture hypothesis only)
 |-------|----------|
 | 2026-10-28 | Org 14 Repos inventarisiert; P0 deep desk; Sheets bmw-bcl/etch/rhmi; Cross-Ref hu-probe/PiDrive |
 | 2026-10-29 | Continuation Desk: Transport-Abstraktion + hu-probe C1b-P0 Gaps; C1b-PLAN (kein hu-probe Code) |
+| 2026-10-29 | Handshake-Desk: [`bmw-bcl-handshake.md`](../../projects/bimmergestalt-idrive-refs/applications/bmw-bcl-handshake.md) — Init=`12 34 56 78` (4 B); ASCII-8 REJECTED; USB-Wire weiter UNKNOWN |

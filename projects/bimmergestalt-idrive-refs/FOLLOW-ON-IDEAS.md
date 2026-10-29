@@ -15,6 +15,10 @@ Keine automatische Engineering-Action. Nur nach eigener Evidence → Decision.
 | 9 | Referenz-Capture Phone + Official/MyBMW Connected USB | Sniff/tcpdump localhost Proxy | Kontrast zu `aoa_observe`-Negativ (Enum ohne Bulk) |
 | 10 | Kill-Kriterium C1b neu: „kein Bulk/Connected nach Accessory-Enum“ | Feld Already-Accessory (`EVID-AOA-030`) | ersetzt reines „kein Switch zu 0x18D1“ |
 | 11 | BT-SPP als paralleler ITransport-Kandidat wenn USB-B1 dauerhaft negativ | BclCarLink RFCOMM-Pfad | `bluetooth-spp` / `bmw-bcl` |
+| 12 | hu-probe Knock: **hex4** `12 34 56 78` (nicht ASCII-8) + optional voller Knock (len=12) | C1b Bulk-Rohr; Desk [`bmw-bcl-handshake`](applications/bmw-bcl-handshake.md) §5 | korrigiert Pattern-Mismatch |
+| 13 | Referenz-PCAP erste BCL-Pakete (BT und/oder USB) für Handshake-Hex | Autorisierung; Wireshark `bmw_bcl.lua` | schließt G-HS-1/G-USB-2 |
 
 Kampagne Knowledge Acquisition geschlossen; C1b = eigene Messkampagne (Plan only hier).
 Lab-/Field-Messungen = eigene Audits / hu-probe Gates.
+Handshake-Desk 2026-10-29: [`applications/bmw-bcl-handshake.md`](applications/bmw-bcl-handshake.md).
+

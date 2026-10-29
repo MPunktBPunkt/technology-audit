@@ -28,10 +28,11 @@ Session APIs: RHMI | AV | CDS | AM | map
 **Framing (FACT):** command, src, dest, dataLen (u16 BE each) + data.  
 **Commands (FACT):** OPEN 1, DATA 2, CLOSE 3, HANDSHAKE 4, SELECTPROTO 5, DATAACK 6, ACK 7, KNOCK 8, LAUNCH 9, HANGUP 10, BROADCAST 11, REGISTER 12.  
 **Dest (FACT):** 0x0FA4 Etch; 0x1389 Watchdog.  
-**Handshake (FACT):** 8-byte payload version/instanceId/bufferSize; client may send init `12345678` hex; version>3 → SelectProto(3)+Knock.  
-**Knock (FACT):** length-prefixed serial/bt/mac/wifi + appType/param1; AppTypes in lua: A4A, TouchCommand, Carplay, AndroidAuto.  
+**Handshake (FACT):** 8-byte payload version/instanceId/bufferSize; client may send init **4 bytes** `12 34 56 78` (`decodeHex("12345678")`); version>3 → SelectProto(3)+Knock.  
+**Knock (FACT):** length-prefixed serial/bt/mac/wifi + appType/param1; AppTypes in lua: A4A, TouchCommand, Carplay, AndroidAuto. Empty Knock = 20 B total (header+12).  
 **MUX (FACT):** OPEN binds (src,dest) → stream; DATA/CLOSE.  
-**RE-Art:** Static inference (code) + Analysis claims packet observation historically; Dissector = capture-derived names. This audit: **no new Direct observation**.
+**RE-Art:** Static inference (code) + Analysis claims packet observation historically; Dissector = capture-derived names. This audit: **no new Direct observation**.  
+**Vertiefung:** [`bmw-bcl-handshake.md`](../../projects/bimmergestalt-idrive-refs/applications/bmw-bcl-handshake.md).
 
 ---
 

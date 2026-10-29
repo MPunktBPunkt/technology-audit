@@ -60,8 +60,11 @@ auf BT RFCOMM (`cmd/src/dest/len`); dest `0x0FA4` = Etch-Kandidat; Handshake/Sel
 folgen der BclCarLink-State-Machine. |
 | **A (erwartetes Signal)** | Erste Bulk-RX-Bytes: 8-Byte-Header korrelierbar (command ∈
 OPEN/DATA/CLOSE/HANDSHAKE/…; dest z. B. `0x0FA4` oder Watchdog `0x1389`); optional Init-
-Bytes `12345678` (Phone-Client-Pfad) vs. HU-seitiger Handshake zuerst (**nicht belegt** für
-USB — nur BT-Client-Code). Kein Auto-Feed in `BclFramer` bis Header-Muster stabil. |
+Bytes **4 B Hex** `12 34 56 78` (= `decodeHex("12345678")` in BclCarLink / lua Startup —
+**nicht** ASCII-String 8 B; siehe Desk
+[`bmw-bcl-handshake`](../../projects/bimmergestalt-idrive-refs/applications/bmw-bcl-handshake.md))
+vs. HU-seitiger Handshake zuerst (**nicht belegt** für USB — nur BT-Client-Code).
+Kein Auto-Feed in `BclFramer` bis Header-Muster stabil. |
 | **Minimaler FW-/Log-Aufwand** | Raw Bulk-RX Hex/Counter in `ca_usb` (P0-E); optional
 Offline-Dump der ersten N Bytes; **kein** Etch/SAS/RHMI; `BclFramer` erst nach manueller
 Header-Bestätigung (C1b-P1 Gate). |

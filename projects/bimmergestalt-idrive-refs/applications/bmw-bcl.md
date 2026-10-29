@@ -30,3 +30,6 @@ BMWConnectedAnalysis@`9e96ac6`. `field_evidence: R0` — keine eigenen Captures.
 | Session-Init Phone: Hex `12345678` dann auf Handshake warten | `EVID-BG-2026-10-28-004` | `FACT` |
 | Nach BCL: Multiplex → Dest-Protokolle (Etch-Proxy) | `EVID-BG-2026-10-28-006` / `012` | `FACT` |
 | USB-Bulk BCL am NBT Evo | `EVID-AOA-2026-10-28-026` | `UNKNOWN` → C1b **B2** |
+
+**Vertiefung Handshake (AOA→BCL→Etch/SAS):**  
+[`bmw-bcl-handshake.md`](bmw-bcl-handshake.md) — Byte-Layouts, Rollen, Security-Grenze, hu-probe Init-Test (`12 34 56 78` ≠ ASCII-8).

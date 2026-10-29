@@ -82,6 +82,10 @@ eigene Evidence weiterhin **R0** bis Lab/Field.
 - USB Accessory / ENET: gleiches Handshake?
 - BCL v4 „unknown watchdog“ — HU-seitig bestätigt?
 
+Handshake-Vertiefung (Session-Init Hex, Rollen, hu-probe-Experimente):
+[`bmw-bcl-handshake`](../../projects/bimmergestalt-idrive-refs/applications/bmw-bcl-handshake.md).
+Init-Bytes sind **4 B** `12 34 56 78`, nicht ASCII-8.
+
 ## Lessons
 
 - Fremd-Implementierung ≠ Feldbeweis; BclCarLink ist starke **static/behavioural** Quelle.
