@@ -218,16 +218,25 @@ Sheet `field_evidence: R0`. Applications `implementation: R0` (kein AOA-Code).
 
 ## Offene Messfragen C1b
 
-| ID | Frage | Erfolgskriterium (Skizze) |
-|----|-------|---------------------------|
-| **B1** | Ist AOA am F20 / NBT Evo erreichbar (Host-Switch, VID/PID, Accessory-Strings)? | Beobachteter Switch zu `0x18D1`/`0x2D0x` oder dokumentierter Fail-Pfad |
-| **B2** | Kommen BCL-ähnliche Frames (8 B BE Header) auf dem Bulk-Rohr? | Capture mit korrelierbarem Framing oder klar negativ |
-| B3 | Welche Manufacturer/Model sendet die HU? | String-Capture nach 52 / Phone `UsbAccessory` |
-| B4 | Parallelität/Konflikt mit MSC-Gadget am gleichen Port? | Enum-/Mode-Matrix |
+| ID | Frage | Erfolgskriterium (Skizze) | Stand 2026-10-29 |
+|----|-------|---------------------------|------------------|
+| **B1** | Ist AOA am F20 / NBT Evo erreichbar (Host-Switch, VID/PID, Accessory-Strings)? | Beobachteter Switch/`51–53` **oder** dokumentierter Fail nach Phone-like Enum | Enum/`0x18D1` ja (Already-Accessory); Control/Bulk **absent** |
+| **B2** | Kommen BCL-ähnliche Frames (8 B BE Header) auf dem Bulk-Rohr? | Capture mit korrelierbarem Framing oder klar negativ | noch nicht messbar (kein Bulk) |
+| B3 | Welche Manufacturer/Model sendet die HU? | String-Capture nach 52 / Phone `UsbAccessory` | offen (kein req 52) |
+| B4 | Parallelität/Konflikt mit MSC-Gadget am gleichen Port? | Enum-/Mode-Matrix | bewusst isoliert (`aoa_observe` ≠ MSC) |
+
+Ausführlicher Plan (A/B/C, Aufwand, Kill): [`C1b-PLAN.md`](C1b-PLAN.md).
+
+### Continuation 2026-10-29 (Desk only)
+
+- Tier-1 Re-Read: stream-agnostisches BCL; USB nur Doc; AAIdrive USB_STATE/File-Transfer/BMW-manufacturer bestätigt.
+- hu-probe Feld `aoa_observe` als **A**-Evidence (`EVID-AOA-030`…`032`) — kein Code-Change in diesem Audit.
+- Applications `usb-aoa` / `bmw-bcl` / `bmw-etch-rpc` + hu-probe Application ergänzt.
 
 ## Bezug
 
 Sheet: [`usb-aoa`](../../technologies/usb-aoa/SHEET.md) ·  
 Evidence: [`evidence.md`](evidence.md) ·  
+C1b Plan: [`C1b-PLAN.md`](C1b-PLAN.md) ·  
 Connected-App Desk: [`bimmergestalt-idrive-2026-foreign`](../bimmergestalt-idrive-2026-foreign/) ·  
 Host-C MSC: [`bmw-nbt-evo`](../../technologies/bmw-nbt-evo/SHEET.md)

@@ -36,6 +36,13 @@ Desk 2026-10-28 · **standard_version 0.7.1** · Technologie **USB AOA** + BMW-T
 | `EVID-AOA-2026-10-28-024` | ESP32-S3 Host: AOA Control via `usb_host_transfer_submit_control` | esp32.com t=28400 / t=28405 | INFERENCE (Forum) | B | med |
 | `EVID-AOA-2026-10-28-025` | AOA am F20/NBT Evo Wire bestätigt | — | UNKNOWN | C | — |
 | `EVID-AOA-2026-10-28-026` | BCL-Frames auf USB-Bulk NBT Evo | — | UNKNOWN | C | — |
+| `EVID-AOA-2026-10-29-027` | AAIdrive: USB_STATE Profile `connected`/`mtp`/`accessory` getrennt; Accessory=BMW via manufacturer | `UsbStatus.kt` @3e93419 | FACT (Code) | B | high |
+| `EVID-AOA-2026-10-29-028` | Analysis: Connected wartet auf USB Accessory **oder** BT; dann BCL knock/handshake; dann `ACTION_CAR_ACCESSORY_ATTACHED` | `app-behavior.md` @9e96ac6 | FACT (Doc) | B | high |
+| `EVID-AOA-2026-10-29-029` | BclClientTransport nimmt beliebige `InputStream`/`OutputStream`; nur `BtConnection` verdrahtet RFCOMM SPP UUID | BclCarLink @7cfd959 | FACT (Code) | B | high |
+| `EVID-AOA-2026-10-29-030` | Feld F20/NBT Evo: `aoa_observe` Enum `0x18D1:0x2D00`, UI Zubehör; Vendor 51/52/53=0; Bulk RX=0 | hu-probe Feld `2026-10-29-c1b-p0-aoa-observe-feld.md` / FW 0.3.23 | MEASURED (Field) | C | high |
+| `EVID-AOA-2026-10-29-031` | `AoaControlTap` instrumentiert Vendor-Control-SETUPs an USBVendor; Standard/Class-Requests nicht vollständig sichtbar | hu-probe `AoaControlTap.h` | FACT (Impl) | C | high |
+| `EVID-AOA-2026-10-29-032` | Post-53 Descriptor-Re-Enum in hu-probe `aoa_observe` **NOT IMPLEMENTED** (TinyUSB Descriptor lock) | hu-probe Feld / `AoaObserveGadget.h` | FACT (Impl) | C | high |
+| `EVID-AOA-2026-10-29-033` | AAIdrive Doc: USB Charging Only → oft File Transfer nötig, bevor Apps-Connection startet | `docs/connection.md` @3e93419 | FACT (Doc) | B | high |
 
 ## Evidence Records (Langform, Auszug)
 
@@ -125,8 +132,46 @@ technology_audit_relevance: HIGH — keeps USB AOA transport as open C1b item
 | AOAv2 Audio für neues Design | REJECTED | deprecated 8.0 |
 | MSC-Host-C aus AOA ableiten | REJECTED | orthogonal |
 
+### EVID-AOA-2026-10-29-030
+
+```yaml
+id: EVID-AOA-2026-10-29-030
+source: hu-probe field note 2026-10-29-c1b-p0-aoa-observe-feld.md
+source_type: field-operator + device counters
+topic: C1b-P0 AOA observe vs NBT Evo
+claim: With usb_gadget=aoa_observe presenting 0x18D1:0x2D00, NBT Evo enumerates the probe and shows accessory UI; AOA vendor controls 51/52/53 counts stayed 0 and bulk RX stayed 0 across replugs.
+classification: MEASURED
+level: C
+evidence_level: R2  # own field counters/UI; not a third-party capture of Connected BCL
+confidence: high
+limitations: Already-accessory boot hypothesis; vendor-only control tap; post-53 re-enum not implemented; MSC absent by design
+related_evidence: [EVID-AOA-2026-10-28-025, EVID-AOA-2026-10-28-026, EVID-AOA-2026-10-29-031]
+technology_audit_relevance: HIGH — closes partial UNKNOWN on enum; keeps handshake/bulk UNKNOWN
+hu_probe_relevance: Direct — C1b-P0 P0-A/C PASS; P0-B/E FAIL this session
+```
+
+### EVID-AOA-2026-10-29-029
+
+```yaml
+id: EVID-AOA-2026-10-29-029
+source_repo: BimmerGestalt/BclCarLink
+source_path: client/BclClientTransport.kt; android/BtConnection.kt
+source_ref: BclClientTransport(InputStream, OutputStream); BtConnection RFCOMM only
+source_type: code
+topic: transport abstraction under BCL
+claim: BCL client is stream-agnostic; the only concrete wire path in BclCarLink is Bluetooth RFCOMM SPP (UUID 00001101-…).
+classification: FACT
+level: B
+evidence_level: R0
+confidence: high
+limitations: No named ITransport interface in BG; USB Accessory path remains doc-only
+related_evidence: [EVID-AOA-2026-10-28-012, EVID-AOA-2026-10-28-013, EVID-BG-2026-10-28-020]
+technology_audit_relevance: HIGH — justifies hu-probe ITransport split (Aoa/Spp) under BclFramer
+```
+
 ## Wissens-Chronik
 
 | Datum | Ereignis |
 |-------|----------|
 | 2026-10-28 | Desk AOA AOSP + BG Transport + drei Ref-Repos; Sheet `usb-aoa`; Kampagne closed |
+| 2026-10-29 | Continuation: Tier-1 Re-Read + hu-probe C1b-P0 Feld-Gaps; C1b-PLAN.md B1/B2 |

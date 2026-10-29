@@ -26,9 +26,15 @@ BMWConnectedAnalysis@`9e96ac6`.
 | USB-Impl in BclCarLink | `EVID-AOA-2026-10-28-013` | Contradiction / REJECTED |
 | AAIdrive UsbAccessory / BMW manufacturer | `EVID-AOA-2026-10-28-015` | `FACT` Code |
 | BCL-Ready inkl. USB Accessory | `EVID-AOA-2026-10-28-016` | `FACT` Code |
+| USB_STATE: charging / mtp / accessory getrennt | `EVID-AOA-2026-10-29-027` | `FACT` Code |
+| Connected: USB Acc **oder** BT → BCL → ATTACHED | `EVID-AOA-2026-10-29-028` | `FACT` Doc |
+| BCL stream-agnostisch; Wire nur RFCOMM in BclCarLink | `EVID-AOA-2026-10-29-029` | `FACT` Code |
+| Doc: File Transfer oft vor Apps-USB | `EVID-AOA-2026-10-29-033` | `FACT` Doc |
+| Feld: Enum Zubehör ja; 51/52/53=0; Bulk=0 | `EVID-AOA-2026-10-29-030` | `MEASURED` C (hu-probe) |
 
 ## Abgrenzung
 
 Keine RHMI/Etch/SAS-Analyse in diesem Application-File. Siehe `bmw-bcl` /
 `bmw-etch-rpc` / `bmw-rhmi` Applications und Kampagne
-`bimmergestalt-idrive-2026-foreign`.
+`bimmergestalt-idrive-2026-foreign`. C1b-Messplan:
+[`C1b-PLAN.md`](../../../audits/usb-aoa-bmw-connected-2026-desk/C1b-PLAN.md).
