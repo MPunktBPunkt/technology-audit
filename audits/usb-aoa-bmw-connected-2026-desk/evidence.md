@@ -144,10 +144,10 @@ classification: MEASURED
 level: C
 evidence_level: R2  # own field counters/UI; not a third-party capture of Connected BCL
 confidence: high
-limitations: Already-accessory boot hypothesis; vendor-only control tap; post-53 re-enum not implemented; MSC absent by design
+limitations: Already-accessory boot hypothesis; vendor-only control tap; post-53 re-enum not implemented; FW 0.3.23 presented unintended MSC+Vendor composite (fixed 0.3.27) — UI accessory claim is fingerprint-caveated
 related_evidence: [EVID-AOA-2026-10-28-025, EVID-AOA-2026-10-28-026, EVID-AOA-2026-10-29-031]
 technology_audit_relevance: HIGH — closes partial UNKNOWN on enum; keeps handshake/bulk UNKNOWN
-hu_probe_relevance: Direct — C1b-P0 P0-A/C PASS; P0-B = MEASURED ABSENT on vendor-control path (compatible with Already-Accessory boot, not AOA-FAIL); P0-E FAIL (bulk still 0)
+hu_probe_relevance: Direct — C1b-P0 P0-A/C PASS (composite caveated); P0-B = MEASURED ABSENT on vendor-control path (compatible with Already-Accessory boot, not AOA-FAIL); P0-E FAIL (bulk still 0); retest on vendor-only ≥0.3.27 / P0-B flag ≥0.3.28
 ```
 
 ### EVID-AOA-2026-10-29-029
