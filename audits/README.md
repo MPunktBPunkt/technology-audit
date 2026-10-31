@@ -19,6 +19,7 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`bmw-nbt-media-index-2026-foreign`](bmw-nbt-media-index-2026-foreign/) | closed | lab-tool | Fremd: BMW Offline-Medien-/Forensikkontext · **0.7.1** |
 | [`bimmergestalt-idrive-2026-foreign`](bimmergestalt-idrive-2026-foreign/) | closed | lab-tool | Fremd: BimmerGestalt Connected-App BCL/Etch/RHMI Desk · **0.7.1** |
 | [`usb-aoa-bmw-connected-2026-desk`](usb-aoa-bmw-connected-2026-desk/) | closed | lab-tool | Desk: USB AOA als BCL-Transport-Kandidat (NBT/Connected) · **0.7.1** |
+| [`esp32-usb-analyzer-2026-pilot`](esp32-usb-analyzer-2026-pilot/) | active | lab-tool | Dual-ESP USB Observe/Proxy Lab + OTG Baseline MEASURED · **0.7.1** |
 | [`usb-bot-observation-2026-foreign`](usb-bot-observation-2026-foreign/) | closed | lab-tool | Fremd: BOT-Command-Beobachtung und Capture-Grenzen · **0.7.1** |
 | [`usb-bot-observation-2026-instrument-sources`](usb-bot-observation-2026-instrument-sources/) | closed | lab-tool | Fremd: TinyUSB-Hooks, usbsnoop, BOT-Schema · **0.7.1** |
 | [`usb-control-stall-recovery-2026`](usb-control-stall-recovery-2026/) | closed | lab-tool | Follow-on: usbd Control/Enum/STALL, esp_tinyusb, EspUsbDevice · **0.7.1** |

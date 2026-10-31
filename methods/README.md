@@ -26,6 +26,7 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | [`pcm-clock-drift-jitter-buffer`](pcm-clock-drift-jitter-buffer.md) | Netzwerk-PCM, Clockdrift, Jitterbuffer, Reconnect und Fail-safe gaten | active |
 | [`rf-loopback-rds-acceptance`](rf-loopback-rds-acceptance.md) | geschirmte FM-/RDS-/Spektrum-/Empfängerabnahme mit TX-OFF-Gates | active |
 | [`usb-wifi-coex-discrimination`](usb-wifi-coex-discrimination.md) | S3 USB↔WiFi: Power / Starve / RF im Lab trennen | active |
+| [`usb-otg-loop-baseline`](usb-otg-loop-baseline.md) | Dual-ESP Host↔Device MSC/TCP Integrity+Throughput Baseline | active |
 | [`own-link-motion-sensitivity`](own-link-motion-sensitivity.md) | Own-Link RSSI-Feinring Walk-by (≠ Presence/CSI) | active |
 | [`bt-passive-host-sniff`](bt-passive-host-sniff.md) | nRF Sniffer / Android HCI snoop (passiv, ≠ ESP-MITM) | active |
 

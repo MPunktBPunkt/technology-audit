@@ -7,7 +7,7 @@ primary: C
 tags: [usb-host, automotive, foreign-desk]
 type: protocol
 status: active
-seen_in: [hu-probe, pidrive, bimmergestalt-idrive-refs]
+seen_in: [hu-probe, pidrive, bimmergestalt-idrive-refs, esp32-usb-analyzer]
 maturity:
   technology: R2
   implementation: R0

@@ -2,12 +2,12 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 69 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-31`, 70 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
 | [`a2dpsinkhfpclient`](a2dpsinkhfpclient/) | a2dpSinkHfpClient — A2DP Sink + HFP + AVRC (Fremd) | lab-tool | active | 2 |
-| [`bimmergestalt-idrive-refs`](bimmergestalt-idrive-refs/) | BimmerGestalt — BMW iDrive / Connected-App Protocol Desk Sources | lab-tool | active | 4 |
+| [`bimmergestalt-idrive-refs`](bimmergestalt-idrive-refs/) | BimmerGestalt — BMW iDrive / Connected-App Protocol Desk Sources | lab-tool | active | 5 |
 | [`ble-gatt-bridge-refs`](ble-gatt-bridge-refs/) | BLE GATT Bridge / Dual-Role References (Fremd) | lab-tool | active | 3 |
 | [`bluetooth-stack`](bluetooth-stack/) | bluetooth_stack — Lightweight Dual-Mode BT Host Stack (Fremd) | lab-tool | active | 2 |
 | [`bmw-nbt-media-index`](bmw-nbt-media-index/) | BMW NBT Media/Backup/Forensics Desk Sources | lab-tool | active | 1 |
@@ -48,6 +48,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-sdr-trx`](esp32-sdr-trx/) | ESP32-S3 SDR Transceiver — polar PHY TX + narrowband RX (Fremd) | lab-tool | active | 2 |
 | [`esp32-spotify-remote`](esp32-spotify-remote/) | ESP32 Spotify Remote — Web API + PKCE (Fremd) | lab-tool | active | 1 |
 | [`esp32-toolnode`](esp32-toolnode/) | esp32-toolnode | firmware | — | 6 |
+| [`esp32-usb-analyzer`](esp32-usb-analyzer/) | Dual ESP32-S3 USB Protocol Analyzer / MITM Lab | lab-tool | active | 8 |
 | [`esp32-webradio`](esp32-webradio/) | esp32-webradio | firmware | — | 2 |
 | [`esp32sdr`](esp32sdr/) | ESP32SDR — S3 Burst RX + Wi-Fi Tone Keying TX (Fremd) | lab-tool | active | 2 |
 | [`espargos-espsdr`](espargos-espsdr/) | ESPARGOS ESP-SDR — Multi-Chip Undocumented I/Q RX (Fremd) | lab-tool | active | 1 |

@@ -7,7 +7,7 @@ primary: H
 tags: [automotive, protocol, foreign-desk]
 type: technology
 status: active
-seen_in: [bimmergestalt-idrive-refs]
+seen_in: [bimmergestalt-idrive-refs, esp32-usb-analyzer]
 maturity:
   technology: R2
   implementation: R0

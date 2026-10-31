@@ -7,7 +7,7 @@ primary: D
 tags: [esp32s3, usb-device, wifi, freertos, tinyusb, phy]
 type: pattern
 status: active
-seen_in: [hu-probe]
+seen_in: [hu-probe, esp32-usb-analyzer]
 maturity:
   technology: R2
   implementation: R0
