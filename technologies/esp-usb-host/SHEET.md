@@ -7,7 +7,7 @@ primary: C
 tags: [usb-host, esp-idf, fragile]
 type: implementation
 status: active
-seen_in: [espusbhost, esp-iot-solution]
+seen_in: [espusbhost, esp-iot-solution, esp32-usb-analyzer]
 maturity:
   technology: R2
   implementation: R0

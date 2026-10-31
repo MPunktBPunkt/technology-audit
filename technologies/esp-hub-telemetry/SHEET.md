@@ -7,7 +7,7 @@ primary: F
 tags: [iobroker]
 type: pattern
 status: active
-seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway, esp32-rfmonitor, esp32-toolnode, esp32-metermaster, esp32-webradio, esp32-io-control, esp32-communicator, esp32-network, esp32-esp-hub, iobroker-esp-hub, esp32-pidrive]
+seen_in: [esp32-heartrate, esp32-ergo, esp32-ftmsprobe, esp32-bt-gateway, esp32-rfmonitor, esp32-toolnode, esp32-metermaster, esp32-webradio, esp32-io-control, esp32-communicator, esp32-network, esp32-esp-hub, iobroker-esp-hub, esp32-pidrive, esp32-usb-analyzer]
 maturity:
   technology: R4
   implementation: R0

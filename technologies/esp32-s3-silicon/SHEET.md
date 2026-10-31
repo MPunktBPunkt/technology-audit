@@ -7,7 +7,7 @@ primary: D
 tags: [esp32s3, silicon, errata, usb-otg, cache, sleep, psram]
 type: technology
 status: active
-seen_in: [esp32-pidrive, hu-probe, pidrive, esp32-ai]
+seen_in: [esp32-pidrive, hu-probe, pidrive, esp32-ai, esp32-usb-analyzer]
 maturity:
   technology: R2
   implementation: R1

@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION) · **Maturity:** [`docs/KNOWLEDGE-MATURITY.md`](../docs/KNOWLEDGE-MATURITY.md)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-28`, 77 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-31`, 78 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Belege aus Sheet∪Applications) · nicht verwechseln mit Projekt-Status (Prototype/Pilot).
 
@@ -48,14 +48,14 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | [`bt-dual-mode-coex`](bt-dual-mode-coex/SHEET.md) | BT Dual-Mode Coexistence (Classic + BLE) | W3 | R2 | — | `bt-classic-profile-refs` |
 | [`esp-now-messaging`](esp-now-messaging/SHEET.md) | ESP-NOW Messaging | W2 | R1 | — | `esp32-communicator` |
 | [`esp-usb-audio-uac`](esp-usb-audio-uac/SHEET.md) | ESP USB Audio (UAC Device) | W2 | R0 | — | `esp-iot-solution`, `esp-usb-audio-example` |
-| [`esp-usb-host`](esp-usb-host/SHEET.md) | ESP32 USB Host (OTG) | W2 | R0 | — | `espusbhost`, `esp-iot-solution` |
+| [`esp-usb-host`](esp-usb-host/SHEET.md) | ESP32 USB Host (OTG) | W2 | R0 | — | `espusbhost`, `esp-iot-solution`, `esp32-usb-analyzer` |
 | [`fm-rds`](fm-rds/SHEET.md) | FM-RDS (Radio Data System) | W2 | R0 | — | `pi-fm-tx`, `esp-fm-rds-node` |
 | [`hid-cross-transport-bridge`](hid-cross-transport-bridge/SHEET.md) | HID Cross-Transport Bridge (HOGP ↔ Classic) | W2 | R2 | — | `bt-classic-profile-refs` |
 | [`kostal-piko-http`](kostal-piko-http/SHEET.md) | Kostal PIKO Local HTTP Interface | W2 | R2 | — | `iobroker-kostalpiko` |
 | [`pump-control-link`](pump-control-link/SHEET.md) | PUMP Control Link | W2 | R2 | — | `esp32-pidrive` |
 | [`ride-ble-display`](ride-ble-display/SHEET.md) | Ride BLE Display (Custom GATT) | W1 | R0 | — | `open-bike-computer` |
-| [`usb-aoa`](usb-aoa/SHEET.md) | USB Android Open Accessory (AOA) | W2 | R0 | — | `hu-probe`, `pidrive`, `bimmergestalt-idrive-refs` |
-| [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W3 | R3 | LAB, GENERAL | `pidrive`, `esp32-pidrive`, `esp32-msc-gadget-refs`, `usb-bot-observation`, `hu-probe` |
+| [`usb-aoa`](usb-aoa/SHEET.md) | USB Android Open Accessory (AOA) | W2 | R0 | — | `hu-probe`, `pidrive`, `bimmergestalt-idrive-refs`, `esp32-usb-analyzer` |
+| [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W3 | R3 | LAB, GENERAL | `pidrive`, `esp32-pidrive`, `esp32-msc-gadget-refs`, `usb-bot-observation`, `hu-probe`, `esp32-usb-analyzer` |
 
 ### D — Embedded
 
@@ -64,8 +64,8 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | [`esp-psram-heavy-port`](esp-psram-heavy-port/SHEET.md) | ESP PSRAM Heavy App / Legacy Port | W1 | R0 | — | `esp32-doom`, `squeezelite-esp32` |
 | [`esp32-apll-fm-tx`](esp32-apll-fm-tx/SHEET.md) | ESP32 APLL / MCLK FM Transmit | W2 | R0 | — | `esp-fm-tx` |
 | [`esp32-polar-phy-tx`](esp32-polar-phy-tx/SHEET.md) | ESP32-S3 Polar PHY Test-Tone TX | W2 | R0 | — | `esp32-sdr-trx` |
-| [`esp32-s3-silicon`](esp32-s3-silicon/SHEET.md) | ESP32-S3 Silicon Errata & Hardware Limits | W2 | R1 | — | `esp32-pidrive`, `hu-probe`, `pidrive`, `esp32-ai` |
-| [`esp32-s3-usb-wifi-coex`](esp32-s3-usb-wifi-coex/SHEET.md) | ESP32-S3 USB ↔ WiFi Coexistence (OTG Device + STA) | W2 | R1 | — | `hu-probe` |
+| [`esp32-s3-silicon`](esp32-s3-silicon/SHEET.md) | ESP32-S3 Silicon Errata & Hardware Limits | W2 | R1 | — | `esp32-pidrive`, `hu-probe`, `pidrive`, `esp32-ai`, `esp32-usb-analyzer` |
+| [`esp32-s3-usb-wifi-coex`](esp32-s3-usb-wifi-coex/SHEET.md) | ESP32-S3 USB ↔ WiFi Coexistence (OTG Device + STA) | W2 | R1 | — | `hu-probe`, `esp32-usb-analyzer` |
 | [`esp32-wifi-tone-tx`](esp32-wifi-tone-tx/SHEET.md) | ESP32-S3 Wi-Fi PHY CW Tone Keying TX | W2 | R0 | — | `esp32sdr` |
 | [`mcu-connectome-graph`](mcu-connectome-graph/SHEET.md) | MCU Connectome / Sparse Neural Graph | W1 | R0 | — | `esp32-ai` |
 | [`mcu-ple-inference`](mcu-ple-inference/SHEET.md) | MCU PLE / Memory-Tiered LLM Inference | W1 | R0 | — | `esp32-ai` |
@@ -82,7 +82,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 
 | Slug | Title | W | Evid | Scope | Gesehen in |
 |------|-------|---|------|-------|------------|
-| [`esp-hub-telemetry`](esp-hub-telemetry/SHEET.md) | ESP-Hub Node Telemetry | W4 | R3 | LAB, GENERAL | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe`, `esp32-bt-gateway`, `esp32-rfmonitor`, `esp32-toolnode`, `esp32-metermaster`, `esp32-webradio`, `esp32-io-control`, `esp32-communicator`, `esp32-network`, `esp32-esp-hub`, `iobroker-esp-hub`, `esp32-pidrive` |
+| [`esp-hub-telemetry`](esp-hub-telemetry/SHEET.md) | ESP-Hub Node Telemetry | W4 | R3 | LAB, GENERAL | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe`, `esp32-bt-gateway`, `esp32-rfmonitor`, `esp32-toolnode`, `esp32-metermaster`, `esp32-webradio`, `esp32-io-control`, `esp32-communicator`, `esp32-network`, `esp32-esp-hub`, `iobroker-esp-hub`, `esp32-pidrive`, `esp32-usb-analyzer` |
 | [`freeair-connect-portal`](freeair-connect-portal/SHEET.md) | bluMartin freeAir Connect Portal | W1 | R1 | — | `iobroker-freeair100` |
 | [`fritzbox-tr064`](fritzbox-tr064/SHEET.md) | FritzBox TR-064 Hostlist | W2 | R2 | — | `esp32-network`, `iobroker-fritzwireguard` |
 | [`iobroker-esp-hub-adapter`](iobroker-esp-hub-adapter/SHEET.md) | ioBroker ESP-Hub Adapter | W3 | R2 | — | `iobroker-esp-hub` |
@@ -111,7 +111,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 |------|-------|---|------|-------|------------|
 | [`ble-http-gatt-probe`](ble-http-gatt-probe/SHEET.md) | HTTP-gesteuerte BLE-GATT-Sonde | W2 | R3 | LAB | `esp32-ftmsprobe` |
 | [`ble-rssi-proximity`](ble-rssi-proximity/SHEET.md) | BLE RSSI Proximity Hunt | W1 | R0 | — | `esp-ble-finder` |
-| [`bmw-bcl`](bmw-bcl/SHEET.md) | BMW BCL — Connected-App Multiplex Tunnel | W2 | R0 | — | `bimmergestalt-idrive-refs` |
+| [`bmw-bcl`](bmw-bcl/SHEET.md) | BMW BCL — Connected-App Multiplex Tunnel | W2 | R0 | — | `bimmergestalt-idrive-refs`, `esp32-usb-analyzer` |
 | [`bmw-etch-rpc`](bmw-etch-rpc/SHEET.md) | BMW Etch RPC — BMWRemoting Connected-App API | W2 | R0 | — | `bimmergestalt-idrive-refs` |
 | [`bmw-rhmi`](bmw-rhmi/SHEET.md) | BMW RHMI — Remote HMI for Connected Apps | W2 | R0 | — | `bimmergestalt-idrive-refs` |
 | [`bt-endpoint-event-stream`](bt-endpoint-event-stream/SHEET.md) | BT Endpoint Event Stream (ESP → Host Export) | W3 | R2 | — | `bt-sniffing-capture-refs` |
@@ -120,6 +120,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | [`lan-device-inventory`](lan-device-inventory/SHEET.md) | LAN Device Inventory Scan | W2 | R1 | — | `esp32-network` |
 | [`rf-environment-monitor`](rf-environment-monitor/SHEET.md) | RF Environment Monitor | W3 | R3 | LAB, GENERAL | `esp32-rfmonitor`, `esp32-toolnode` |
 | [`sdr-spectrum-fft`](sdr-spectrum-fft/SHEET.md) | SDR Spectrum / FFT Analysis | W3 | R2 | — | `pidrive` |
+| [`usb-dual-esp-observe-proxy`](usb-dual-esp-observe-proxy/SHEET.md) | Dual-ESP USB Observe / Proxy Lab | W2 | R0 | LAB | `esp32-usb-analyzer` |
 | [`wifi-csi-motion`](wifi-csi-motion/SHEET.md) | Wi-Fi CSI Motion Sensing | W1 | R0 | — | `espectre` |
 
 ### I — Fahrzeug / Geräte
