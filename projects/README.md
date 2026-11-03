@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-31`, 70 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-03`, 71 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -28,6 +28,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-a2dp-source`](esp32-a2dp-source/) | ESP32_A2DP_Source — schreibfaul1 (Fremd) | lab-tool | active | 2 |
 | [`esp32-ai`](esp32-ai/) | esp32-ai — On-Device PLE LLM + Fly Connectome (Fremd) | lab-tool | active | 4 |
 | [`esp32-audioi2s`](esp32-audioi2s/) | ESP32-audioI2S — schreibfaul1 (Fremd) | lab-tool | active | 1 |
+| [`esp32-bt-analyzer`](esp32-bt-analyzer/) | ESP32 Bluetooth USB/HCI Analyzer | lab-tool | active | 2 |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | esp32-bt-gateway | planning | — | 5 |
 | [`esp32-bt-iap`](esp32-bt-iap/) | esp32-bt-iap — A2DP + Apple Dock (historisch) | lab-tool | active | 2 |
 | [`esp32-communicator`](esp32-communicator/) | esp32-communicator | firmware | — | 3 |
