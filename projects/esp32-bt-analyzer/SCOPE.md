@@ -26,7 +26,9 @@ Lab-Instrument: ESP32-S3 als USB Host gegenüber einem kommerziellen Bluetooth-U
 | USB Bluetooth Dongle (BLE / Classic) | External controller (HCI) | ja |
 | Debian Collector | Decode / PCAPNG / Wireshark | ja |
 | esp-hub OTA / Heartbeat | FW-Verteilung | ja |
-| ESP #2 USB Device HCI stimulus | synthetische Tests | später (BT11) |
+| ESP #2 USB Device HCI stimulus | synthetische Tests | später (BT11) · Topology B |
+| Dual-Dongle zwei Observe-Nodes | Korrelation L1×2 | Topology C (nach A) |
+| D1 Mini classic ESP32 | REF_ENDPOINT L2 (Classic+BLE) | ja — **nicht** USB-HCI Host |
 | nRF / RF Air sniffer | L0 | **nein** — separates Gate BT15 |
 | S3 on-chip Classic stack | BR/EDR | **REJECTED** |
 | Endpoint GATT/HFP as HCI substitute | App-Ebene | **nein** als SoT |
@@ -53,9 +55,10 @@ Lab-Instrument: ESP32-S3 als USB Host gegenüber einem kommerziellen Bluetooth-U
 ## Prioritäten für die Analyse
 
 1. Epistemische Matrix HCI ≠ Endpoint ≠ Air fest verankern
-2. BT0 Hub/OTA Bring-up
-3. Erste USB-BT-Dongle-Enumeration (BT1) → erste HCI-Frames (BT3)
-4. Keine neuen Technology-Sheets, solange vorhandene reichen
+2. Method [`bt-usb-hci-observe-baseline`](../../methods/bt-usb-hci-observe-baseline.md) + Topology A MEASURED
+3. BLE- vs Classic-Dongle getrennte Kampagnen (BT9/BT10)
+4. Stimulus B und Dual-Dongle C erst nach stabiler A-Baseline
+5. Keine neuen Technology-Sheets, solange vorhandene reichen
 
 ## Offene Scope-Fragen
 

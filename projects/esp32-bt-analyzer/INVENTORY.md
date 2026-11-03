@@ -9,8 +9,9 @@ pilot_order: [esp-usb-host, esp-hub-telemetry, esp32-s3-silicon, esp32-s3-usb-wi
 ```
 
 Bootstrap-Stub vor erstem Lab-Lauf. Ursprungsrepo: [esp32.bt-analyzer](https://github.com/MPunktBPunkt/esp32.bt-analyzer).  
-Method: [bt-passive-host-sniff](../../methods/bt-passive-host-sniff.md).  
-Capture-Kontext: [bt-sniffing-capture-refs](../bt-sniffing-capture-refs/).
+Methods: [bt-usb-hci-observe-baseline](../../methods/bt-usb-hci-observe-baseline.md), [bt-passive-host-sniff](../../methods/bt-passive-host-sniff.md).  
+Capture-Kontext: [bt-sniffing-capture-refs](../bt-sniffing-capture-refs/).  
+Instrument lab: `.88` OBSERVE_A · `.89` B/C · `.87` REF_ENDPOINT (classic, no OTG).
 
 **Match (Signal → Slug):**
 

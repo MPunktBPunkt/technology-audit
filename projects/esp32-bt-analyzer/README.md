@@ -8,7 +8,7 @@ ESP32-S3 **USB/HCI Capture**-Lab (Bluetooth Controller über USB-Dongle) — nic
 | [INVENTORY.md](INVENTORY.md) | Technologie-Inventar + Match |
 | [FOLLOW-ON-IDEAS.md](FOLLOW-ON-IDEAS.md) | Folgeideen |
 | [applications/](applications/) | Project Applications |
-| Method | [`bt-passive-host-sniff`](../../methods/bt-passive-host-sniff.md) |
+| Method | [`bt-usb-hci-observe-baseline`](../../methods/bt-usb-hci-observe-baseline.md) · [`bt-passive-host-sniff`](../../methods/bt-passive-host-sniff.md) |
 
 Ursprungsrepo: [MPunktBPunkt/esp32.bt-analyzer](https://github.com/MPunktBPunkt/esp32.bt-analyzer) (bootstrap 0.1.0).
 
