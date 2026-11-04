@@ -5,10 +5,10 @@ project_id: esp32-bt-analyzer
 title: ESP32 On-Chip Bluetooth HCI Analyzer (VHCI)
 updated: 2026-11-04
 source_repo: https://github.com/MPunktBPunkt/esp32.bt-analyzer
-reviewed_commit: 542eed6
+reviewed_commit: 07532b3
 profile_hint: lab-tool
 status: active
-fw_pin: "0.2.9"
+fw_pin: "0.3.0"
 repos:
   - https://github.com/MPunktBPunkt/esp32.bt-analyzer
 ```
@@ -41,7 +41,10 @@ Primärtopologie: **F_ONCHIP**. USB-Dongle Observe (A_OBSERVE) ist legacy/option
 - Universal Phone↔Device MITM
 - Fremde Bond-Decryption
 - Full profile stacks (A2DP/HFP) on the analyzer node
+- HID keyboard keystroke path / headset audio host (→ BT17 flavor later)
 - HCI MEASURED als Air FACT verkaufen
+
+**Analyzer ≠ Universal Host** — see upstream [`docs/SCOPE_HOST_VS_ANALYZER.md`](https://github.com/MPunktBPunkt/esp32.bt-analyzer/blob/main/docs/SCOPE_HOST_VS_ANALYZER.md).
 
 ## Epistemik
 
