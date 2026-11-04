@@ -1,6 +1,6 @@
 # Project: esp32.bt-analyzer
 
-ESP **on-chip Bluetooth HCI analyzer** (VHCI) — Capture L1 Controller↔Host, Debian BTAC/JSONL/PCAPNG.  
+ESP **on-chip Bluetooth HCI analyzer** (VHCI) — Capture L1 Controller↔Host, Debian BTAC/JSONL/PCAPNG, bounded L2 ATT probe.  
 **Nicht** RF-Sniffer, **nicht** MITM, **nicht** Classic-on-S3.
 
 | Dokument | Inhalt |
@@ -12,6 +12,7 @@ ESP **on-chip Bluetooth HCI analyzer** (VHCI) — Capture L1 Controller↔Host, 
 | [applications/](applications/) | Project Applications |
 | Method | [`bt-passive-host-sniff`](../../methods/bt-passive-host-sniff.md) |
 
-Upstream: [MPunktBPunkt/esp32.bt-analyzer](https://github.com/MPunktBPunkt/esp32.bt-analyzer) (FW ≥0.2.6).
+Upstream: [MPunktBPunkt/esp32.bt-analyzer](https://github.com/MPunktBPunkt/esp32.bt-analyzer) **FW 0.2.7** (`7c20367`).
 
-**Reuse:** esp-hub-telemetry, S3 silicon/coex sheets; Contrast: Endpoint / nRF / Classic-on-S3 REJECTED.
+**Reuse:** esp-hub-telemetry, S3 silicon/coex sheets.  
+**Contrast:** Endpoint / nRF Air / Classic-on-S3 **REJECTED**. BT14 = ready for external review; BT15 RF deferred.
