@@ -40,11 +40,13 @@ Primärtopologie: **F_ONCHIP**. USB-Dongle Observe (A_OBSERVE) ist legacy/option
 - Bluetooth RF / channel-hopping sniffer (→ BT15)
 - Universal Phone↔Device MITM
 - Fremde Bond-Decryption
-- Full profile stacks (A2DP/HFP) on the analyzer node
-- HID keyboard keystroke path / headset audio host (→ BT17 flavor later)
+- Full profile stacks (A2DP/HFP) **inside Analyzer Core**
+- HID keyboard keystroke path / headset audio host as Core features (→ Profile Flavors, opt-in)
 - HCI MEASURED als Air FACT verkaufen
 
 **Analyzer ≠ Universal Host** — see upstream [`docs/SCOPE_HOST_VS_ANALYZER.md`](https://github.com/MPunktBPunkt/esp32.bt-analyzer/blob/main/docs/SCOPE_HOST_VS_ANALYZER.md).
+
+**Profile Flavors (planned, not Core):** independently enableable Stimulus/Client modules (GATT Client → HOGP → FTMS → Classic on `.87`). Host influence on the measurement path must stay tagged (`STIMULUS`) and measurable. Desk: [`esp32-bt-analyzer-host-profiles-2026-desk`](../../audits/esp32-bt-analyzer-host-profiles-2026-desk/).
 
 ## Epistemik
 

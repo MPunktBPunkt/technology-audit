@@ -42,4 +42,5 @@ Lab: `.88` Central · `.89` Peripheral peer · `.87` Classic+BLE.
 |---------|--------|------------------|
 | External audit sign-off | partial | BT14 reviewer |
 | Classic×Classic peer | limited (one Classic board) | second ESP32 or phone |
+| Profile Flavors (GATT/HOGP/FTMS/Classic) | desk only | [`host-profiles-2026-desk`](../../audits/esp32-bt-analyzer-host-profiles-2026-desk/) → upstream Flavor Bus |
 | RF/Air | out of scope | BT15 separate |
