@@ -4,7 +4,7 @@
 updated: 2026-11-04
 fw: "0.2.7"
 topology: F_ONCHIP
-upstream_commit: 7c20367
+upstream_commit: 788867a
 ```
 
 Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTED`

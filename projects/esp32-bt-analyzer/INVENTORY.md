@@ -3,7 +3,7 @@
 ```yaml
 project_id: esp32-bt-analyzer
 updated: 2026-11-04
-reviewed_commit: 7c20367
+reviewed_commit: 788867a
 fw_pin: "0.2.7"
 profile: lab-tool
 pilot_order: [esp-hub-telemetry, esp32-s3-silicon, esp32-s3-usb-wifi-coex, esp-usb-host]

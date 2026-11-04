@@ -5,7 +5,7 @@ project_id: esp32-bt-analyzer
 title: ESP32 On-Chip Bluetooth HCI Analyzer (VHCI)
 updated: 2026-11-04
 source_repo: https://github.com/MPunktBPunkt/esp32.bt-analyzer
-reviewed_commit: 7c20367
+reviewed_commit: 788867a
 profile_hint: lab-tool
 status: active
 fw_pin: "0.2.7"
