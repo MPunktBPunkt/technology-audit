@@ -2,66 +2,63 @@
 
 ```yaml
 project_id: esp32-bt-analyzer
-title: ESP32 Bluetooth USB/HCI Analyzer
-updated: 2026-11-03
+title: ESP32 On-Chip Bluetooth HCI Analyzer (VHCI)
+updated: 2026-11-04
 source_repo: https://github.com/MPunktBPunkt/esp32.bt-analyzer
-reviewed_commit: pending
+reviewed_commit: 7c20367
 profile_hint: lab-tool
 status: active
+fw_pin: "0.2.7"
 repos:
   - https://github.com/MPunktBPunkt/esp32.bt-analyzer
 ```
 
 ## Zweck
 
-Lab-Instrument: ESP32-S3 als USB Host gegenüber einem kommerziellen Bluetooth-USB-Dongle; Capture des **USB-HCI**-Verkehrs mit Timestamp/Richtung; Export nach Debian (Collector / JSONL / PCAPNG).  
+Lab-Instrument: **On-Chip Bluetooth Controller** der ESP-Boards über **VHCI** (thin HCI host) capturen — Timestamp, Richtung, Typ, Payload — Export nach Debian (BTAC / JSONL / PCAPNG).
 
-**Nicht** RF-/Air-Sniffer, **nicht** Universal-MITM, **nicht** on-chip Classic-BR/EDR-Analyzer auf dem S3.
+Primärtopologie: **F_ONCHIP**. USB-Dongle Observe (A_OBSERVE) ist legacy/optional.
+
+**Nicht** RF-/Air-Sniffer, **nicht** Universal-MITM, **nicht** Classic-on-S3.
 
 ## Systeme und Grenzen
 
 | System | Rolle | Im Scope? |
 |--------|-------|-----------|
-| ESP32-S3 N8R2 USB Host | Enum + HCI capture + TCP | ja (V1) |
-| USB Bluetooth Dongle (BLE / Classic) | External controller (HCI) | ja |
-| Debian Collector | Decode / PCAPNG / Wireshark | ja |
+| ESP32-S3 N8R2 on-chip BLE VHCI | Capture + thin host (scan/adv/connect) | **ja (primary)** |
+| ESP32 D1 (`.87`) Classic+BLE VHCI | Classic discoverable/inquiry + BLE | **ja** |
+| Debian Collector `:8081` / BTAC `:9753` | Decode / PCAPNG / Lab UI | ja |
 | esp-hub OTA / Heartbeat | FW-Verteilung | ja |
-| ESP #2 USB Device HCI stimulus | synthetische Tests | später (BT11) · Topology B |
-| Dual-Dongle zwei Observe-Nodes | Korrelation L1×2 | Topology C (nach A) |
-| D1 Mini classic ESP32 | REF_ENDPOINT L2 (Classic+BLE) | ja — **nicht** USB-HCI Host |
-| nRF / RF Air sniffer | L0 | **nein** — separates Gate BT15 |
-| S3 on-chip Classic stack | BR/EDR | **REJECTED** |
-| Endpoint GATT/HFP as HCI substitute | App-Ebene | **nein** als SoT |
+| Peer ESP advertise/connect (BT11/BT9) | L1 stimulus | ja |
+| Thin ATT/GATT over HCI ACL | **L2** lab probe (not SoT for air) | ja (bounded) |
+| USB BT-Dongle + USB Host | legacy A_OBSERVE | optional |
+| nRF / RF Air sniffer | L0 | **nein** — BT15 deferred |
+| S3 on-chip Classic BR/EDR | — | **REJECTED** |
 
-## Nicht-Ziele (V1)
+## Nicht-Ziele
 
-- Bluetooth RF / channel-hopping sniffer
+- Bluetooth RF / channel-hopping sniffer (→ BT15)
 - Universal Phone↔Device MITM
 - Fremde Bond-Decryption
-- Profile-Analyse (A2DP/HFP/GATT) auf dem ESP
-- Eigene Bluetooth-Host-Stack-Implementierung auf dem Capture-Node
+- Full profile stacks (A2DP/HFP) on the analyzer node
+- HCI MEASURED als Air FACT verkaufen
 
-## Quellen für das Audit
+## Epistemik
 
-| Quelle | Pfad / URL | Bemerkung |
-|--------|------------|-----------|
-| Code | `firmware/`, `controller/`, `tools/` | Upstream esp32.bt-analyzer |
-| Gates / Architektur | `docs/GATES.md`, `ARCHITECTURE.md`, `EVIDENCE.md` | Claim-Grenzen |
-| Method | [`bt-passive-host-sniff`](../../methods/bt-passive-host-sniff.md) | HCI-Semantik |
-| Capture family | [`bt-sniffing-capture-refs`](../bt-sniffing-capture-refs/) | ESP vs HCI vs nRF |
-| USB Host | [`esp-usb-host`](../../technologies/esp-usb-host/SHEET.md) | Dongle enum |
-| Classic S3 | [`bluetooth-a2dp`](../../technologies/bluetooth-a2dp/SHEET.md) | REJECTED on-chip |
+`FACT` · `MEASURED` · `INFERENCE` · `HYPOTHESIS` · `UNKNOWN` · `REJECTED`  
+**HCI ≠ RF/Air.** Layer L0/L1/L2 nie in einem MEASURED-Block vermischen.
 
-## Prioritäten für die Analyse
+## Quellen
 
-1. Epistemische Matrix HCI ≠ Endpoint ≠ Air fest verankern
-2. Method [`bt-usb-hci-observe-baseline`](../../methods/bt-usb-hci-observe-baseline.md) + Topology A MEASURED
-3. BLE- vs Classic-Dongle getrennte Kampagnen (BT9/BT10)
-4. Stimulus B und Dual-Dongle C erst nach stabiler A-Baseline
-5. Keine neuen Technology-Sheets, solange vorhandene reichen
+| Quelle | Pfad |
+|--------|------|
+| Upstream | `firmware/`, `controller/`, `tools/`, `docs/` |
+| Gates | [`docs/GATES.md`](https://github.com/MPunktBPunkt/esp32.bt-analyzer/blob/main/docs/GATES.md) |
+| Evidence | `docs/evidence/LAB_GATES_BT5_13_*`, `LAB_F_ONCHIP_PEER_*` |
+| Method | [`bt-passive-host-sniff`](../../methods/bt-passive-host-sniff.md) |
+| Capture family | [`bt-sniffing-capture-refs`](../bt-sniffing-capture-refs/) |
 
-## Offene Scope-Fragen
+## Offene Fragen (bewusst klein)
 
-- Welcher Dongle (VID/PID) als Lab-Referenz für BLE vs Classic?
-- BTAC-Framing final vs. Anleihe an usb-analyzer BCL?
-- Wann WiFi-Coex-Messung Pflicht vor „lossless“-Claim (BT6/BT13)?
+- BT14 external reviewer sign-off in technology-audit CI
+- BT15 eigenes Repo/Scope wenn Air gebraucht wird

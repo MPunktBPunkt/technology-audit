@@ -1,19 +1,17 @@
 # Follow-on ideas (aus esp32.bt-analyzer)
 
-Ideen aus dem Bootstrap — noch keine neuen Repos.
-
 ```yaml
 reuse_outcomes:
-  reused: [esp-usb-host, esp-hub-telemetry, esp32-s3-silicon, bt-passive-host-sniff]
+  reused: [esp-hub-telemetry, esp32-s3-silicon, esp32-s3-usb-wifi-coex, bt-passive-host-sniff]
   new: []
-  not_helped: []
+  not_helped: [esp-usb-host as primary — superseded by F_ONCHIP]
 ```
 
 | Idee | Baut auf | Kurz |
 |------|----------|------|
-| Erste VID/PID USB-BT Enum | `esp-usb-host` | BT1 Gate |
-| HCI raw → btsnoop/PCAPNG | Method HCI snoop | BT3–BT8 |
-| BLE vs Classic Dongle Matrix | Capture family | BT9/BT10 getrennt claimen |
-| WiFi↔USB Host Coex unter Last | `esp32-s3-usb-wifi-coex` | vor lossless BT6 |
-| Stimulus ESP (kein MITM-Label) | Dual-ESP Pattern | BT11 |
-| RF/Air Capability | nRF / externe Sniffer | **BT15 separat** |
+| External BT14 sign-off | STATUS.md | Reviewer stamp in audit CI |
+| Second Classic ESP peer | BT10 | Dual Classic inquiry symmetry |
+| Richer ATT/GATT lab (bounded L2) | thin ATT | Still ≠ Air FACT |
+| Live BTAC session UI | Collector :8081 | **done in 0.2.7** · polish download UX |
+| RF/Air Capability | nRF / externe Sniffer | **BT15 — eigenes Scope/Repo** |
+| Legacy USB-dongle A_OBSERVE | `esp-usb-host` | optional only |

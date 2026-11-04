@@ -1,15 +1,17 @@
 # Project: esp32.bt-analyzer
 
-ESP32-S3 **USB/HCI Capture**-Lab (Bluetooth Controller über USB-Dongle) — nicht RF-Sniffer, nicht MITM.
+ESP **on-chip Bluetooth HCI analyzer** (VHCI) — Capture L1 Controller↔Host, Debian BTAC/JSONL/PCAPNG.  
+**Nicht** RF-Sniffer, **nicht** MITM, **nicht** Classic-on-S3.
 
 | Dokument | Inhalt |
 |----------|--------|
-| [SCOPE.md](SCOPE.md) | Grenzen und Systeme |
+| [SCOPE.md](SCOPE.md) | Grenzen (F_ONCHIP primary) |
 | [INVENTORY.md](INVENTORY.md) | Technologie-Inventar + Match |
-| [FOLLOW-ON-IDEAS.md](FOLLOW-ON-IDEAS.md) | Folgeideen |
+| [STATUS.md](STATUS.md) | Gate exits / MEASURED pins |
+| [FOLLOW-ON-IDEAS.md](FOLLOW-ON-IDEAS.md) | Folgeideen inkl. BT15 |
 | [applications/](applications/) | Project Applications |
-| Method | [`bt-usb-hci-observe-baseline`](../../methods/bt-usb-hci-observe-baseline.md) · [`bt-passive-host-sniff`](../../methods/bt-passive-host-sniff.md) |
+| Method | [`bt-passive-host-sniff`](../../methods/bt-passive-host-sniff.md) |
 
-Ursprungsrepo: [MPunktBPunkt/esp32.bt-analyzer](https://github.com/MPunktBPunkt/esp32.bt-analyzer) (bootstrap 0.1.0).
+Upstream: [MPunktBPunkt/esp32.bt-analyzer](https://github.com/MPunktBPunkt/esp32.bt-analyzer) (FW ≥0.2.6).
 
-**Reuse:** `esp-usb-host`, Method HCI-Snoop, Capture-Family Trennung; Contrast: Endpoint / nRF / Classic-on-S3 REJECTED.
+**Reuse:** esp-hub-telemetry, S3 silicon/coex sheets; Contrast: Endpoint / nRF / Classic-on-S3 REJECTED.
