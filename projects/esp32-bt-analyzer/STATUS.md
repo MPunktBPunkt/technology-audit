@@ -2,48 +2,36 @@
 
 ```yaml
 updated: 2026-11-04
-fw: "0.3.1"
+fw: "0.3.2"
 topology: F_ONCHIP
-upstream_commit: c251b6c
+upstream_commit: b006324
 ```
 
 Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTED`
 
-## Gate matrix (project green candidate)
+## Gate matrix
 
 | Gate | Exit class | Evidence / pin |
 |------|------------|----------------|
-| BT0–BT3 | MEASURED | onchip.ready, VHCI HCI frames |
-| BT4 | MEASURED | `:9753` BTAC · drain blocked while BTAC owns ring |
-| BT5–BT6 | MEASURED | PSRAM 512 · `lab_run_gates` drops_delta=0 |
-| BT7–BT8 | MEASURED | JSONL + PCAPNG LINKTYPE 201 · `resync` ≠ `gaps` |
-| BT9 | MEASURED | leConnected Central↔Peripheral |
-| BT10 | MEASURED | classicDiscoverable + Write_Local_Name + inquiry HCI |
-| BT11–BT13 | MEASURED | peer/long/stress in `LAB_GATES_BT5_13_*` |
-| L2 ATT probe | MEASURED (bounded) | `/api/bt/gatt/read-name` · ≠ Air / ≠ full GATT |
-| BT16 CAPABILITY | MEASURED | connected + ATT + HCI |
-| BT16 BENCHMARK | **MEASURED PASS** (20 B matrix) | `LAB_BT16_20261104T161828Z` |
-| BT18 GATT Client Flavor | **MEASURED PASS** MVP | `LAB_BT18_GATT_20261104T171044Z` · STIMULUS · ≠ full GATT |
-| BT14 | **ready for external review** | gate-result → GATE_EXITS |
-| BT15 | deferred | RF/Air separate |
-| HOGP / FTMS Flavors | deferred | after BT18 |
-| BT17 Classic audio | deferred | after HOGP/FTMS · `.87` only |
-| BT19 timeline | MEASURED scaffold | clock-offset estimation · PTP=NO |
+| BT0–BT13 | MEASURED | prior labs |
+| BT16 BENCHMARK | MEASURED PASS (20 B) | `LAB_BT16_20261104T161828Z` |
+| BT18 GATT Client | MEASURED PASS MVP | `LAB_BT18_GATT_*` |
+| BT18b HOGP Host | MEASURED PASS (peer stub) | `LAB_BT18_PROFILES_20261104T172742Z` |
+| BT18c FTMS Client | MEASURED PASS (peer stub) | same · Success≠Wirkung |
+| BT17 Classic | deferred | after real-device HOGP/FTMS |
+| BT15 RF/Air | deferred | separate |
 
-## Claim boundary (must stay)
+## Claim boundary
 
 | Claim | Status |
 |-------|--------|
-| HCI capture = RF/Air | **REJECTED** |
-| Classic BR/EDR on ESP32-S3 on-chip | **REJECTED** |
-| Thin ATT / BT18 MVP = full GATT stack | **REJECTED** |
-| Universal HID / A2DP host | **REJECTED** (Flavor path only) |
-| kB/s without loss split = benchmark | **REJECTED** |
+| HCI = Air | **REJECTED** |
+| Peer stub = real keyboard/ergometer | **REJECTED** |
+| FTMS Write Success = Wirkung | **REJECTED** |
+| Analyzer Core = Universal Host | **REJECTED** |
 
 ## Repro
 
 ```bash
-cd esp32.bt-analyzer
-python3 tools/lab_gatt_client.py
-python3 tools/lab_gate_exits.py
+python3 tools/lab_hogp_ftms.py
 ```
