@@ -2,9 +2,9 @@
 
 ```yaml
 updated: 2026-11-04
-fw: "0.2.8"
+fw: "0.2.9"
 topology: F_ONCHIP
-upstream_commit: 61a8922
+upstream_commit: 542eed6
 ```
 
 Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTED`
@@ -21,10 +21,12 @@ Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTE
 | BT10 | MEASURED | classicDiscoverable + Write_Local_Name + inquiry HCI |
 | BT11–BT13 | MEASURED | peer/long/stress in `LAB_GATES_BT5_13_*` |
 | L2 ATT probe | MEASURED (bounded) | `/api/bt/gatt/read-name` · ≠ Air / ≠ full GATT |
-| BT16 throughput | MEASURED (bounded) | Notify/Write · App/HCI/BTAC rates · session gaps |
-| BT14 | **ready for external review** | `lab_gate_exits.py` · SCOPE/STATUS/INVENTORY |
-| BT15 | deferred | RF/Air separate · `docs/BT15_RF_AIR.md` |
-| BT17 Classic audio | scaffold | Phone-first · separate Bluedroid flavor later |
+| BT16 CAPABILITY | MEASURED | connected + ATT + HCI traffic |
+| BT16 BENCHMARK | NOT YET GREEN | needs file/app gap = 0 across matrix |
+| BT14 | **ready for external review** | gate-result → GATE_EXITS (fixed) |
+| BT15 | deferred | RF/Air separate |
+| BT17 Classic audio | deferred after BT19 | separate Bluedroid flavor |
+| BT19 timeline | scaffold | clock-offset estimation · not PTP |
 
 ## Claim boundary (must stay)
 
