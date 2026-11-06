@@ -8,6 +8,7 @@ standard_version: "0.7.1"
 classification_scheme: [FACT, INFERENCE, HYPOTHESIS, UNKNOWN, REJECTED]
 evidence_rating: [E0, E1, E2, E3, E4]
 scope: desk-external + our-prior-field-AOA/BCL-only
+followup: 2026-11-06 — CarAPI proxy path, cleartext claim, AIDL/mermaid name delta, MainService call chain
 ```
 
 **Legende Evidenzrating:** E0 Behauptung · E1 Dokumentation · E2 Quellcode · E3 Trace/Capture (fremd oder eigen) · E4 reproduzierbarer Test  
@@ -19,6 +20,8 @@ scope: desk-external + our-prior-field-AOA/BCL-only
 
 **SAS Authentication existiert** als Etch-Service-Methoden `sas_certificate` → Challenge → `sas_login` und ist durch IDL, AAIdrive/Kit-Code, Analysis-Docs und die hufman-Story **mehrfach unabhängig** belegt (Desk-FACT, E1+E2). Die kryptographische Antwort erzeugt die **Phone-seitige** Security-Komponente (Connected Classic Binder / MyBMW SecurityModule / rekonstruiertes `PrivateKeyHandling`); die **HU** liefert Challenge und verifiziert Zertifikat + Signatur (Doc+IDL; HU-Firmware-Code nur indirekt zitiert).
 
+Zwei Client-Pfade: **AAIdrive/Kit** sprechen Etch selbst; **CarAPI**-Apps (z. B. Spotify) lassen Connected Cert laden und `sas_*` stellvertretend ausführen (Doc FACT). Analysis: Tunnel-Payload **nicht verschlüsselt** — Capture von SAS-Bytes ist prinzipiell möglich, sobald BCL/Etch sichtbar ist.
+
 **Unser Stand:** G1 teilweise MEASURED (AOA Enum), G2 teilweise Desk + Lab-Framer ohne USB-Wire-SAS, **G3 Feld-Fact = fehlt**, G4 Feld-Fact = fehlt. AOA/BCL-Messungen sind **kein** SAS-Beweis.
 
 ---
@@ -28,7 +31,7 @@ scope: desk-external + our-prior-field-AOA/BCL-only
 | ID | Quelle | Typ | Qualität für Auth |
 |----|--------|-----|-------------------|
 | S1 | [hufman BMW Connected Apps Protocol](https://hufman.github.io/stories/bmwconnectedapps) | Narrative RE | E1; beschreibt Discovery-Pfad; Challenge/RSA-Größe |
-| S2 | [BMWConnectedAnalysis](https://bimmergestalt.github.io/BMWConnectedAnalysis/) / `docs/authentication.md` @`9e96ac6` | Doc + AIDL | E1; detailliertste Auth-Spez |
+| S2 | [BMWConnectedAnalysis](https://bimmergestalt.github.io/BMWConnectedAnalysis/) / `docs/authentication.md` (+ `carapi.md`, `analysis-approach.md`, `app-behavior.md`) @`9e96ac6` | Doc + AIDL | E1; Auth + CarAPI + Cleartext-Claim |
 | S3 | [AAIdrive](https://github.com/BimmerGestalt/AAIdrive) @`3e93419` | App-Code | E2; Call-Graph Cert→Login→RHMI |
 | S4 | [IDriveConnectKit](https://github.com/BimmerGestalt/IDriveConnectKit) @`95492b0` | IDL + Etch client | E2; `BMWRemoting.etch` sas_* |
 | S5 | [IDriveConnectAddons](https://github.com/BimmerGestalt/IDriveConnectAddons) | App-Code | E2; gleiche Auth-Sequenz |
@@ -356,32 +359,51 @@ AAIdrive FAQ: Connected Classic liefert Security-Modul; neues Connected exportie
 ## 13. AAIdrive Code Trace
 
 ```text
-App start / Main
-  → SecurityServiceThread / CarConnectionDebugging
-       SecurityAccess.connect() → discover KnownSecurityServices
-       → SecurityServiceManager.bindService OR SecurityModuleManager
-  → IDriveConnectionListener / ATTACHED extras (host, port, brand)
-  → CarAppService subclasses start when connected + securityAccess.isConnected()
-       → MusicApp / CalendarApp / …
-            IDriveConnection.getEtchConnection(127.0.0.1, port, …)
-            getAppCertificate(brand)
-            sas_certificate → signChallenge → sas_login
-            rhmi_create / setResource / …
+BCL/Connected/BclCarLink → ACTION_CAR_ACCESSORY_ATTACHED (host/port/brand)
+  → IDriveConnectionReceiver / CarConnectionListener
+  → MainService.handleActionStart
+       → SecurityServiceThread → SecurityAccess.connect()
+            → SecurityServiceManager.bindService (nicht mobile20)
+            → SecurityModuleManager (Reflection in Connected/MyBMW APK)
+       → combinedCallback: iDrive connected AND securityAccess.isConnected()
+            → startModuleServices / AddonsService
+                 → CarAppService.onCarStart → MusicApp / CalendarApp / …
+                      getAppCertificate (oft mergeBMWCert)
+                      IDriveConnection.getEtchConnection(127.0.0.1, port, …)
+                      sas_certificate → signChallenge → sas_login
+                      rhmi_* / av_* / cds_*
   parallel: CarProber scans 4004–4008, merge certs, same SAS, rhmi_getCapabilities
 ```
 
 | Schritt | Datei | Klasse/Methode |
 |---------|-------|----------------|
+| ATTACHED | KitAndroid `IDriveConnectionListener.kt`; AAIdrive `CarConnectionListener.kt` | Intent extras |
+| Main gate | AAIdrive `MainService.kt` | `combinedCallback` |
 | Security connect | `SecurityServiceThread.kt` | `securityAccess.connect()` |
 | Service enum | KitAndroid `KnownSecurityServices.kt` | packages/intents |
 | Sign | KitAndroid `SecurityAccess.signChallenge` | Binder/Module |
-| Cert merge | KitAndroid `CertMangling.mergeBMWCert` | CarProber |
+| Cert merge | KitAndroid `CertMangling.mergeBMWCert` | CarProber / CarAppAssetResources |
 | Etch | Kit `IDriveConnection.getEtchConnection` | TCP |
 | SAS | z.B. `MusicApp.kt` init | sas_* |
 | Probe | `CarProber.kt` | probeCar |
 | USB ready UI | `UsbStatus.kt` / `ConnectionStatusModel` | Accessory≠SAS |
 
-Fehler: Exceptions beim Probe → Analytics; leere Challenge → IllegalArgumentException; fehlendes Security → App startet Etch-Auth nicht (`CarAppService` wartet auf `securityAccess.isConnected()`).
+Fehler: Exceptions beim Probe → Analytics; leere Challenge → IllegalArgumentException; fehlendes Security → App startet Etch-Auth nicht (`CarAppService` / `MainService` warten auf `securityAccess.isConnected()`).
+
+### 13.1 CarAPI-Pfad (kein AAIdrive-Etch-Client)
+
+**FACT** E1 — `BMWConnectedAnalysis/docs/carapi.md` + `app-behavior.md`:
+
+- CarAPI-Apps (Spotify u. a.) liefern Cert/Ressourcen über **ContentProvider**; CN muss Application-ID matchen.
+- **Connected** merged Certs, führt `sas_certificate` / `sas_login` **stellvertretend** aus, lädt dann RHMI-Ressourcen.
+- CarAPI-Apps verbinden **nicht** direkt zum Etch-Proxy; Intent-RPC an Connected.
+- Radio/Multimedia-CarAPI-Apps startet Connected laut Doc nur bei **Bluetooth**-Verbindung.
+
+**Feld-Konsequenz:** G3 mit AAIdrive beobachtet den direkten Etch-Client; G3 mit Spotify beobachtet SAS **innerhalb** Connected — Wire-sichtbar trotzdem im BCL/Etch-Tunnel, aber Phone-Logcat-Korrelation unterscheidet sich.
+
+### 13.2 Doc-Inkonsistenz Mermaid vs AIDL
+
+**FACT** E1: `authentication.md` Mermaid nennt `initSecurityContext` / `loadApplicationCert`; rekonstruiertes AIDL und Kit-Code nutzen `createSecurityContext` / `loadAppCert`. Binder-Wahrheit = AIDL/Code.
 
 ---
 
@@ -509,12 +531,18 @@ Vollständige IDs: [`evidence.md`](evidence.md).
 - Inhalt signierter Challenges **als kryptographische Verifikation** ohne Etch-Decode
 - Private Keys / JNI inside Phone
 
+### Cleartext (Desk)
+
+**FACT** E1 — `BMWConnectedAnalysis/docs/analysis-approach.md`: „Nothing is encrypted.“  
+**INFERENCE:** SAS/Etch/RHMI in BCL DATA sind bei erfolgreichem Tunnel-Capture im Klartext dissectierbar (kein TLS auf dieser Schicht). Das erhöht den Wert von FX-G3-01; es ersetzt keine Payload-Sichtbarkeit, wenn Bulk/BCL absent bleibt.
+
 ### Mit Phone + AAIdrive zusätzlich
 
 - ATTACHED lifecycle, Security connected flags (Logcat)
 - TCP localhost Etch (tcpdump auf Phone — nicht ESP32)
 - RHMI traffic in BCL DATA (wenn USB-Tunnel captured)
 - Reconnect behavior
+- Optional parallel: offizielle CarAPI-App → SAS läuft in Connected (anderer Phone-Call-Graph, gleicher Wire-Tunnel)
 
 ---
 
@@ -575,12 +603,15 @@ FX-G3-01 — in **einer** realen F20-Session entweder (a) Etch-dissektierter Tra
 
 - SAS existiert als Etch-API `sas_certificate` / `sas_login` (+ crl/permission/logout in IDL).
 - AAIdrive und Addons implementieren Cert → Challenge → signChallenge → Login.
+- CarAPI: Connected authentifiziert stellvertretend (ContentProvider-Cert); Apps nicht direkt Etch.
 - Phone SecurityService/Module signiert; HU liefert Challenge und prüft (Doc + Architektur).
 - P7B mit APP / APP_AUTH; Digests whitelisten RHMI-Ressourcen.
 - Crypto der Phone-Rekonstruktion: MD5withRSA, optional XOR mit MD5(2).
+- Analysis: Connected-Apps-Pfad „Nothing is encrypted.“
 - Simulator/Mocks prüfen Auth nicht.
 - BCL ist Transport; SAS ist Etch darüber.
 - Eigenes Feld: AOA Enum ja; SAS nein.
+- Mermaid-Methodennamen in authentication.md weichen von AIDL ab (AIDL/Code gilt).
 
 ### INFERENCE
 
