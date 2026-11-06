@@ -6,6 +6,7 @@ Keine automatische Engineering-Action. Nur nach eigener Evidence → Decision.
 |---|------|---------------|-------|
 | 1 | Eigenes BCL-Frame-Capture (BT RFCOMM oder USB/ENET) gegen NBT Evo | Autorisierung; Lab-Setup; kein Security-Bypass | `bmw-bcl`, hu-probe Gap |
 | 2 | Etch-Session-Trace (nur legitimierte Connected-App / Simulator) | SAS-fähige Umgebung oder Simulator Port 4006 | `bmw-etch-rpc` |
+| 2b | **G3 Field-Fact:** FX-G3-01 F20 + Phone + Connected/MyBMW + AAIdrive — sas_* Capture oder korrelierte Logs | Security-Modul installiert; Analyzer/tcpdump; Run-Sheet Audit SAS §22 | `bmw-sas-auth`, hu-probe |
 | 3 | RHMI-Capability-Probe (`hmi.type` / `hmi.version`) auf Ziel-HU | Etch-Login möglich | `bmw-rhmi` vs ID4/5/6 |
 | 4 | AV `av_requestConnection` vs USB-MSC Audio-Pfad vergleichen | Parallel nur Beobachtung; kein Architektur-Umbau | PiDrive Cross-Ref |
 | 5 | USB/ENET-BCL verifizieren (Doc behauptet, BclCarLink nur BT) | Capture-Pfad | Contradiction Doc↔Code; Desk AOA: [`usb-aoa-bmw-connected-2026-desk`](../../audits/usb-aoa-bmw-connected-2026-desk/) |
