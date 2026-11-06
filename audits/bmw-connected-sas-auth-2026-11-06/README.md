@@ -9,6 +9,7 @@ ended: 2026-11-06
 status: closed
 profile: planning
 standard_version: "0.7.1"
+# follow-up 2026-11-06: CarAPI/cleartext/AIDL-delta/MainService (same campaign)
 reuse_outcomes:
   reused:
     - technologies/bmw-bcl

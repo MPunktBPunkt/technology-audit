@@ -41,6 +41,9 @@ signChallenge (Phone Security) → response[]
 sas_login(response) → void | SecurityException
 ```
 
+**Zwei Phone-Pfade:** AAIdrive/Kit = eigener Etch-Client; CarAPI = Connected führt `sas_*`
+stellvertretend aus (ContentProvider-Cert). Analysis Doc: Tunnel **nicht verschlüsselt**.
+
 ## Fallstricke
 
 | Claim | Status |

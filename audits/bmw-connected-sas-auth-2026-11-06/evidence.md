@@ -33,6 +33,12 @@ AOA/BCL-Feldbelege bleiben in `usb-aoa-bmw-connected-2026-desk` / hu-probe Repor
 | `EVID-SAS-2026-11-06-022` | Eigenes SAS Wire/Field Capture F20 | — | UNKNOWN | — | — |
 | `EVID-SAS-2026-11-06-023` | Story RE path: BT sniff → BCL → Etch → FakeCar → SecurityService | hufman.github.io/stories/bmwconnectedapps | FACT (Narrative) | E1 | high |
 | `EVID-SAS-2026-11-06-024` | AOA Enum field ≠ SAS | EVID-AOA-030 + this audit | FACT (separation) | E3+E0 | high |
+| `EVID-SAS-2026-11-06-025` | Analysis: „Nothing is encrypted“ on Connected Apps path | `docs/analysis-approach.md` @9e96ac6 | FACT (Doc) | E1 | high |
+| `EVID-SAS-2026-11-06-026` | CarAPI: Connected loads P7B via ContentProvider, CN=AppID, runs sas_* on behalf of app | `docs/carapi.md` | FACT (Doc) | E1 | high |
+| `EVID-SAS-2026-11-06-027` | CarAPI apps do not connect directly to Etch proxy; Intent-RPC to Connected | `docs/app-behavior.md` / carapi.md | FACT (Doc) | E1 | high |
+| `EVID-SAS-2026-11-06-028` | Radio/Multimedia CarAPI apps started only over Bluetooth (Doc) | `docs/carapi.md` | FACT (Doc) | E1 | med |
+| `EVID-SAS-2026-11-06-029` | Mermaid names initSecurityContext/loadApplicationCert ≠ AIDL createSecurityContext/loadAppCert | authentication.md vs AIDL | FACT (inconsistency) | E1+E2 | high |
+| `EVID-SAS-2026-11-06-030` | AAIdrive MainService gates apps on iDrive+security connected | `MainService.kt` @3e93419 | FACT | E2 | high |
 
 ## Langform (Auswahl)
 
