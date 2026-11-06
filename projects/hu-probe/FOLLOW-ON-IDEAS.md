@@ -9,6 +9,7 @@
 | ~~Media-Leiter Head/Tail/Bulk~~ | Audit 22.10. | **done** (32+128, Prefetch-Struktur, Elevator lokal STRONG; A8 formal offen) |
 | ~~Heimfahrt Remount/Scheduler~~ | Audit 22.10. Abend | **done** (Remount≠Cold Start; LBA-Interleave; Lead kontextabhängig; Eager≠Play) |
 | ~~Trip-Replay 0.3.17~~ | PhaseGate + Heimfahrt `#22`–`#24` | **done** Feld Upload PASS |
+| G3 SAS Field (FX-G3-01) | Phone+Connected+AAIdrive; Etch/BCL capture | Desk: [`bmw-connected-sas-auth-2026-11-06`](../../audits/bmw-connected-sas-auth-2026-11-06/); AOA/BCL ≠ SAS |
 | P0 audible-Marker / GATE-01 | Heimfahrt / Leiter | Read ↔ hörbarer Track mit Zeitmarker |
 | P0 Play-Intent-Unterscheidung | Heimfahrt C0x Eager | großer/Nachbar-Read ≠ Decode/Play |
 | P1 395xxx Remount-Semantik | `#22` 2. Mount | was die Positions-LBAs bedeuten |

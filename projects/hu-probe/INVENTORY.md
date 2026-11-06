@@ -2,8 +2,8 @@
 
 ```yaml
 project_id: hu-probe
-updated: 2026-10-22
-reviewed_commit: "FW 0.3.17 / hu-probe@4fdf519 (Heimfahrt + Media-Leiter); prior PSRAM f985459 / free 0.2.40 retained"
+updated: 2026-11-06
+reviewed_commit: "FW 0.3.17 / hu-probe@4fdf519 + sas-auth desk link 2026-11-06"
 profile: lab-tool
 pilot_order: [esp32-s3-usb-wifi-coex, usb-msc, bmw-nbt-evo, esp32-s3-silicon]
 ```
@@ -15,6 +15,7 @@ pilot_order: [esp32-s3-usb-wifi-coex, usb-msc, bmw-nbt-evo, esp32-s3-silicon]
 | USB MSC TinyUSB Device | `usb-msc` | applied (BOT/Control + Feld-Transport + 1 MiB Offline + Trip-Replay 0.3.17) |
 | S3 USB OTG + WiFi STA unter Last | `esp32-s3-usb-wifi-coex` | applied (Coex-Desk; Lab Recovery; PSRAM ≠ Heilung; Live-Leiter OBSERVED) |
 | BMW NBT Host | `bmw-nbt-evo` | applied (Transport + free + Media-Leiter + Heimfahrt Remount/Scheduler MEASURED; Audible/Identity/A8 OPEN) |
+| Connected SAS Auth (Desk) | `bmw-sas-auth` | Desk 2026-11-06 — Field G3 absent; [`applications/bmw-sas-auth.md`](applications/bmw-sas-auth.md) |
 | S3 Board / PSRAM / Flash | `esp32-s3-silicon` | documented → applied light (N8R2 field pin) |
 | Virtual FAT Demo | `virtual-fat` | reuse (Medium/Slots) |
 
@@ -34,6 +35,7 @@ Kampagnen: [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi
 | `esp32-s3-silicon` | S3 Silicon / Board / PSRAM | D | `esp32s3`, `errata`, `psram` | applied | partial | [SHEET](../../technologies/esp32-s3-silicon/SHEET.md) | [app](applications/esp32-s3-silicon.md) |
 | `usb-msc` | USB MSC Device | C | `usb-device` | applied | partial | [SHEET](../../technologies/usb-msc/SHEET.md) | [app](applications/usb-msc.md) |
 | `bmw-nbt-evo` | BMW NBT Evo Host | I | `automotive`, `usb-host` | applied | partial | [SHEET](../../technologies/bmw-nbt-evo/SHEET.md) | [app](applications/bmw-nbt-evo.md) |
+| `bmw-sas-auth` | Connected SAS Auth | H | `automotive`, `security` | applied | none (desk) | [SHEET](../../technologies/bmw-sas-auth/SHEET.md) | [app](applications/bmw-sas-auth.md) |
 
 ## Nach Kategorie
 

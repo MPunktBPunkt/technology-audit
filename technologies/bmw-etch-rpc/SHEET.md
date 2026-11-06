@@ -7,7 +7,7 @@ primary: H
 tags: [automotive, protocol, foreign-desk, rpc]
 type: technology
 status: active
-seen_in: [bimmergestalt-idrive-refs]
+seen_in: [bimmergestalt-idrive-refs, hu-probe]
 maturity:
   technology: R2
   implementation: R0
@@ -25,8 +25,10 @@ Wire: Apache Etch (Symbol-Hashes; `.ewh` für Wireshark).
 Nach BCL-Tunnel sprechen Connected Apps **Apache Etch RPC** gegen den Dienst
 `BMWRemoting`. Die IDL definiert u. a. **SAS** (Auth), **CDS**, **AM** (App Manager),
 **RHMI**, **AV**, **map**. Authentifizierung: App-Zertifikat → Challenge → Login
-(`sas_certificate` / `sas_login`). Details der Signaturpfade sind Security-sensitiv —
-dieses Sheet hält nur die **API-Existenz und Reihenfolge**, keine Bypass-Anleitung.
+(`sas_certificate` / `sas_login`). Vertiefung (Cert, Crypto, SecurityService, Gates):
+[`bmw-sas-auth`](../bmw-sas-auth/SHEET.md) und Audit
+`bmw-connected-sas-auth-2026-11-06`. Dieses Sheet hält die **API-Oberfläche**;
+keine Bypass-Anleitung.
 
 ## Abgrenzung
 

@@ -2,10 +2,10 @@
 
 ```yaml
 project_id: bimmergestalt-idrive-refs
-updated: 2026-10-29
-reviewed_commit: "org-BimmerGestalt-2026-10-28+c1b-desk-continuation"
+updated: 2026-11-06
+reviewed_commit: "org-BimmerGestalt-2026-10-28+sas-auth-desk-2026-11-06"
 profile: lab-tool
-pilot_order: [bmw-bcl, bmw-etch-rpc, bmw-rhmi, bmw-nbt-evo]
+pilot_order: [bmw-bcl, bmw-etch-rpc, bmw-sas-auth, bmw-rhmi, bmw-nbt-evo]
 ```
 
 **Reuse / Match** (Standard [0.7.1](../../docs/STANDARD-CHANGELOG.md)):
@@ -19,8 +19,10 @@ pilot_order: [bmw-bcl, bmw-etch-rpc, bmw-rhmi, bmw-nbt-evo]
 | USB-MSC / Prefetch | `usb-msc` / hu-probe apps | **no overwrite** |
 | USB AOA (Handshake/Rohr unter BCL) | `usb-aoa` | Desk 2026-10-28; Feld Enum 2026-10-29; Handshake/Bulk noch Gap → C1b B1/B2 |
 | BCL+Etch Session-Handshake (AOA→App) | `bmw-bcl` (+ etch/aoa) | Desk 2026-10-29: [`applications/bmw-bcl-handshake.md`](applications/bmw-bcl-handshake.md) |
+| SAS Auth (Cert/Challenge/SecurityService) | `bmw-sas-auth` | Desk 2026-11-06: [`applications/bmw-sas-auth.md`](applications/bmw-sas-auth.md); Audit [`bmw-connected-sas-auth-2026-11-06`](../../audits/bmw-connected-sas-auth-2026-11-06/) |
 
-Kampagne: [bimmergestalt-idrive-2026-foreign](../../audits/bimmergestalt-idrive-2026-foreign/).
+Kampagnen: [bimmergestalt-idrive-2026-foreign](../../audits/bimmergestalt-idrive-2026-foreign/) ·
+[bmw-connected-sas-auth-2026-11-06](../../audits/bmw-connected-sas-auth-2026-11-06/).
 
 ## 14-Repo-Inventar (Org-Stand 2026-10-28 via `gh api`)
 
@@ -59,5 +61,6 @@ Transport (BT RFCOMM; Doc: USB/ENET)
 |------|--------|----------|-------|-------------|
 | `bmw-bcl` | applied | partial | [SHEET](../../technologies/bmw-bcl/SHEET.md) | [app](applications/bmw-bcl.md) |
 | `bmw-etch-rpc` | applied | partial | [SHEET](../../technologies/bmw-etch-rpc/SHEET.md) | [app](applications/bmw-etch-rpc.md) |
+| `bmw-sas-auth` | applied | partial | [SHEET](../../technologies/bmw-sas-auth/SHEET.md) | [app](applications/bmw-sas-auth.md) |
 | `bmw-rhmi` | applied | partial | [SHEET](../../technologies/bmw-rhmi/SHEET.md) | [app](applications/bmw-rhmi.md) |
 | `bmw-nbt-evo` | documented | partial | [SHEET](../../technologies/bmw-nbt-evo/SHEET.md) | hu-probe/pidrive apps — **nicht überschrieben** |
