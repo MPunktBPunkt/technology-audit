@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-03`, 71 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-06`, 71 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -28,7 +28,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-a2dp-source`](esp32-a2dp-source/) | ESP32_A2DP_Source — schreibfaul1 (Fremd) | lab-tool | active | 2 |
 | [`esp32-ai`](esp32-ai/) | esp32-ai — On-Device PLE LLM + Fly Connectome (Fremd) | lab-tool | active | 4 |
 | [`esp32-audioi2s`](esp32-audioi2s/) | ESP32-audioI2S — schreibfaul1 (Fremd) | lab-tool | active | 1 |
-| [`esp32-bt-analyzer`](esp32-bt-analyzer/) | ESP32 Bluetooth USB/HCI Analyzer | lab-tool | active | 2 |
+| [`esp32-bt-analyzer`](esp32-bt-analyzer/) | ESP32 On-Chip Bluetooth HCI Analyzer (VHCI) | lab-tool | active | 2 |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | esp32-bt-gateway | planning | — | 5 |
 | [`esp32-bt-iap`](esp32-bt-iap/) | esp32-bt-iap — A2DP + Apple Dock (historisch) | lab-tool | active | 2 |
 | [`esp32-communicator`](esp32-communicator/) | esp32-communicator | firmware | — | 3 |
@@ -49,7 +49,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-sdr-trx`](esp32-sdr-trx/) | ESP32-S3 SDR Transceiver — polar PHY TX + narrowband RX (Fremd) | lab-tool | active | 2 |
 | [`esp32-spotify-remote`](esp32-spotify-remote/) | ESP32 Spotify Remote — Web API + PKCE (Fremd) | lab-tool | active | 1 |
 | [`esp32-toolnode`](esp32-toolnode/) | esp32-toolnode | firmware | — | 6 |
-| [`esp32-usb-analyzer`](esp32-usb-analyzer/) | Dual ESP32-S3 USB Protocol Analyzer / MITM Lab | lab-tool | active | 8 |
+| [`esp32-usb-analyzer`](esp32-usb-analyzer/) | Dual ESP32-S3 USB Protocol Analyzer / MITM Lab | lab-tool | active | 10 |
 | [`esp32-webradio`](esp32-webradio/) | esp32-webradio | firmware | — | 2 |
 | [`esp32sdr`](esp32sdr/) | ESP32SDR — S3 Burst RX + Wi-Fi Tone Keying TX (Fremd) | lab-tool | active | 2 |
 | [`espargos-espsdr`](espargos-espsdr/) | ESPARGOS ESP-SDR — Multi-Chip Undocumented I/Q RX (Fremd) | lab-tool | active | 1 |

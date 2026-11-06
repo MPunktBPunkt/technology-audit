@@ -4,11 +4,12 @@
 id: esp32-usb-analyzer-2026-pilot
 project_id: esp32-usb-analyzer
 started: 2026-10-31
-ended: null
-status: active
+ended: 2026-10-31
+status: closed
 reviewed_commit: b2c9987
 profile: lab-tool
 standard_version: "0.7.1"
+superseded_by: esp32-usb-analyzer-2026-0.0.50
 reuse_outcomes:
   reused: [usb-msc, esp-usb-host, usb-aoa, bmw-bcl, esp32-s3-usb-wifi-coex, esp32-s3-silicon, esp-hub-telemetry]
   new: [usb-dual-esp-observe-proxy]
@@ -35,7 +36,7 @@ Siehe [SCOPE.md](../../projects/esp32-usb-analyzer/SCOPE.md). Upstream FW **0.0.
 | 4 | Sheet `usb-dual-esp-observe-proxy` + Kern-Applications | erfüllt |
 | 5 | `usb-msc` / `esp-usb-host` / `usb-aoa` / Coex `seen_in` + Apps | erfüllt |
 | 6 | `ta-assist check` grün | erfüllt (0 Errors, 2026-10-31) |
-| 7 | Observer-effect / transparent MITM Baseline | offen (Gate 4) |
+| 7 | Observer-effect / transparent MITM Baseline | teilweise → [`0.0.50`](../esp32-usb-analyzer-2026-0.0.50/) (Loop MEASURED; Transparenz offen) |
 | 8 | HU/Feld-Lauf AOA oder MSC | bewusst deferred |
 
 ## Decision Trace
@@ -101,6 +102,5 @@ Siehe [SCOPE.md](../../projects/esp32-usb-analyzer/SCOPE.md). Upstream FW **0.0.
 
 ## Offene Punkte nach Abschluss
 
-- Exit 6: `ta-assist check` nach Index
-- Exit 7/8: transparent MITM / HU deferred
+- Exit 7/8: transparent MITM / HU deferred — Nachzug Soft-Lab: [`esp32-usb-analyzer-2026-0.0.50`](../esp32-usb-analyzer-2026-0.0.50/)
 - Upstream `docs/GATES.md` „Current pointer“ vs Gate-7 Badge — Doc-Drift notieren (kein Auto-Fix im Fremdrepo)

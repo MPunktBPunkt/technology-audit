@@ -8,6 +8,7 @@ sheet: ../../../technologies/bmw-nbt-evo/SHEET.md
 audit: ../../../audits/hu-probe-heimfahrt-2026-10-22/
 related_audits:
   - ../../../audits/hu-probe-media-ladder-2026-10-22/
+  - ../../../audits/esp32-usb-analyzer-2026-field-host-matrix/
 maturity:
   technology: R2
   implementation: R0

@@ -13,14 +13,16 @@ maturity:
   implementation: R0
   field_evidence: R0
   reusability: W2
-  evidence_scope: []
+  evidence_scope: [FIELD]
 pilot: audits/usb-aoa-bmw-connected-2026-desk
 ```
 
 Ebene **A** (technologieweit, AOSP/Google). BMW-Transport-Hypothesen → Applications /
 Kampagne [`usb-aoa-bmw-connected-2026-desk`](../../audits/usb-aoa-bmw-connected-2026-desk/).  
+Feld-Negativ unter MSC-Identity → [`esp32-usb-analyzer-2026-field-host-matrix`](../../audits/esp32-usb-analyzer-2026-field-host-matrix/).  
 **Nicht** BCL/Etch/RHMI (`bmw-bcl`, `bmw-etch-rpc`, `bmw-rhmi`). **Nicht** USB-MSC-Gadget
-(`usb-msc`). Host-Rolle ESP → Kontrast [`esp-usb-host`](../esp-usb-host/SHEET.md).
+(`usb-msc`). Host-Fingerprints → [`usb-msc-host-behaviour`](../usb-msc-host-behaviour/SHEET.md).
+Host-Rolle ESP → Kontrast [`esp-usb-host`](../esp-usb-host/SHEET.md).
 
 ## Kurzfassung
 
@@ -133,6 +135,10 @@ AOAv2 HID: Control 54–57 auf EP0 (kein neues Interface) — außerhalb Connect
 | NBT Evo F20 speist AOA Host und spricht BCL über Bulk | `UNKNOWN` (Bulk/BCL); Enum/UI **MEASURED** bei Already-Accessory | C | `EVID-AOA-030`; C1b B1/B2 |
 | BCL Framing auf USB identisch zu BT | `HYPOTHESIS` / `UNKNOWN` | C | Doc impliziert; kein Capture hier |
 | Feld: 51/52/53 und Bulk bei `aoa_observe` Boot | **absent** (diese Session) | C | Zähler 0; Vendor-Tap-Gap `031` |
+| **FACT:** MSC-Identity `303a:1001` am NBT erzeugt **keine** AOA-Initiation (`aoa51/52/53=0`) trotz Mount+SCSI | `FACT` / `MEASURED` | C | `EVID-USBA-2026-11-06-008` |
+| **INFERENCE:** AOA braucht Bedingungen jenseits eines responding MSC-Endpoints | `INFERENCE` | C | `EVID-USBA-2026-11-06-009` |
+| **UNKNOWN:** welche Identity/Config/State BMW-AOA startet | `UNKNOWN` | C | offen → C0/C1 |
+| MSC-AOA-Negativ ⇒ „HU kann kein AOA“ | `REJECTED` | C | nur Identity-Negativ; Capability unbewiesen |
 
 ## Typische Fallstricke (A + Ref-Evidence)
 
@@ -174,13 +180,14 @@ keine Festlegung „wir bauen AOA“. MSC-Pfad bleibt SoT für Storage-Host-C.
 - Connected-App-Stack: [`bimmergestalt-idrive-2026-foreign`](../../audits/bimmergestalt-idrive-2026-foreign/)
 - Refs (Evidence only): timotto/AOA-Proxy@`f66aa42`; StiffSockets/Accessory-Kit@`1c7f650`; AAIdrive@`3e93419`; BclCarLink@`7cfd959`
 
-## Offene Fragen (A → C1b)
+## Offene Fragen (A → C1b / C1)
 
 - Welche Manufacturer/Model-Strings sendet die NBT-/NBT-Evo-HU beim AOA-Switch?
 - Welche PID erscheint nach Switch am Phone (2D00 vs 2D01 vs Audio-Mix)?
 - Trägt der Bulk-Stream BCL-Frames (Header 8 B BE) wie auf BT?
 - Kann ein ESP32-S3 als **Host-Accessory** oder nur als **Device-in-AOA** relevant sein für unser Zielbild?
 - Interferenz AOA vs. bestehendem MSC-Gadget am selben OTG-Port?
+- Welche **Identity** (phone-like / `aoa_observe` / AAIdrive-Pfad) löst AOA am NBT aus — jenseits `303a:1001` MSC?
 
 ## Lessons
 

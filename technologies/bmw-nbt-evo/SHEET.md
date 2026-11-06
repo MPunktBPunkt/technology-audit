@@ -7,7 +7,7 @@ primary: I
 tags: [automotive, field-verified, usb-host]
 type: technology
 status: active
-seen_in: [pidrive, esp32-bt-gateway, bmw-nbt-media-index, hu-probe]
+seen_in: [pidrive, esp32-bt-gateway, bmw-nbt-media-index, hu-probe, esp32-usb-analyzer]
 maturity:
   technology: R2          # Plattform-Rolle verstanden; kein vollständiges HU-Reverse-Engineering
   implementation: R0      # PiDrive spricht HU an — siehe usb-msc Application (B)
@@ -17,8 +17,8 @@ maturity:
 pilot: audits/pidrive-2026-bmw-hu
 ```
 
-Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (Reads, Prefetch, Auto-Next, …) → [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) (**C**, PiDrive) und [`hu-probe/applications/bmw-nbt-evo.md`](../../projects/hu-probe/applications/bmw-nbt-evo.md) (**C**, unabhängige Sonde: Transport S0/S2 + free + Media-Leiter + Heimfahrt Remount/Scheduler `MEASURED`; Audible/Intent/A8/`seq_size`/Cache-Key weiter offen). MSC-Device-Seite → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md) (**B**) / [`hu-probe/…/usb-msc.md`](../../projects/hu-probe/applications/usb-msc.md).  
-**Host-Scope:** belegte Plattform = **BMW NBT Evo** (PiDrive-Feld/Lab + hu-probe-Feld 2026-10-15…22). Andere Generationen (Evo2, …) / andere OEMs = `UNKNOWN` bis eigene Evidence — kein stiller Transfer (G17-analog).
+Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (Reads, Prefetch, Auto-Next, …) → [`applications/bmw-nbt-evo.md`](../../projects/pidrive/applications/bmw-nbt-evo.md) (**C**, PiDrive) und [`hu-probe/applications/bmw-nbt-evo.md`](../../projects/hu-probe/applications/bmw-nbt-evo.md) (**C**, unabhängige Sonde: Transport S0/S2 + free + Media-Leiter + Heimfahrt Remount/Scheduler `MEASURED`; Audible/Intent/A8/`seq_size`/Cache-Key weiter offen). Analyzer-Feldsonde (P-MOUNT / Soft-Reenum / AOA-neg unter MSC-Identity) → [`esp32-usb-analyzer/applications/bmw-nbt-evo.md`](../../projects/esp32-usb-analyzer/applications/bmw-nbt-evo.md) · Audit [`esp32-usb-analyzer-2026-field-host-matrix`](../../audits/esp32-usb-analyzer-2026-field-host-matrix/). MSC-Device-Seite → [`applications/usb-msc.md`](../../projects/pidrive/applications/usb-msc.md) (**B**) / [`hu-probe/…/usb-msc.md`](../../projects/hu-probe/applications/usb-msc.md).  
+**Host-Scope:** belegte Plattform = **BMW NBT Evo** (PiDrive-Feld/Lab + hu-probe-Feld 2026-10-15…22 + Analyzer-Feldmatrix 2026-11-06). Andere Generationen (Evo2, …) / andere OEMs = `UNKNOWN` bis eigene Evidence — kein stiller Transfer (G17-analog).
 
 ## Kurzfassung
 
@@ -54,6 +54,8 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 | Lab-Menü-PASS = Feld-Ohr-PASS | `REJECTED` | Exit Ohr bleibt getrennt (siehe Application) |
 | Host-BUSY-Toleranz aus MSC-/TinyUSB-Spec ableiten | `REJECTED` | Spec erlaubt Busy; NBT-Akzeptanz ist nur **C** (`EVID-BMWHU-2026-10-12-*`) |
 | Dynamische Datei ohne stabile Geometrie/Index | `REJECTED` (als Strategie) | HU erwartet indexierbares, statisch wirkendes Medium — Live-Body muss Read-Muster bedienen (**C**) |
+| MODE_SENSE(6) / PREVENT/ALLOW nur „erwartete“ MSC-Kommandos, nie am NBT gesehen | `REJECTED` | Analyzer-Feld 2026-11-06: am F20/NBT Evo **MEASURED** (`EVID-USBA-2026-11-06-006`) |
+| Responding MSC-Endpoint (`303a:1001`) ⇒ AOA/Connected-Apps | `REJECTED` | Mount + SCSI ja, `aoa51/52/53=0` (`EVID-USBA-2026-11-06-008`/`009`) |
 
 ## Community / SIB-Muster (nicht PiDrive-MEASURED)
 
