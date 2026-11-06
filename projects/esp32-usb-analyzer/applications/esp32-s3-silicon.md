@@ -5,7 +5,7 @@ project_id: esp32-usb-analyzer
 tech_slug: esp32-s3-silicon
 status: active
 sheet: ../../../technologies/esp32-s3-silicon/SHEET.md
-audit: ../../../audits/esp32-usb-analyzer-2026-pilot/
+audit: ../../../audits/esp32-usb-analyzer-2026-0.0.50/
 maturity:
   technology: R2
   implementation: R1
@@ -29,8 +29,9 @@ Beide Lab-Nodes: **YD-ESP32-S3 N8R2**. OTG Full-Speed; Host/Device getrennte Chi
 
 | Claim | Evidence-ID | Status |
 |-------|-------------|--------|
-| Lab boards N8R2 Host/Device | `EVID-USBA-2026-10-31-016` | `FACT` (inventory) |
+| Lab boards N8R2 Host/Device | `EVID-USBA-2026-11-02-010` (+ Pilot `016`) | `FACT` (inventory) |
 | FS-only Host | Sheet / Gate1 | `FACT` |
+| GPIO19/20 = OTG internal PHY (nicht Sniffer) | `EVID-USBA-2026-11-02-006` | `REJECTED` as Path-A sniffer |
 | PSRAM automatically used | Sheet | `REJECTED` still — not claimed healed |
 
 ## Beobachtungen

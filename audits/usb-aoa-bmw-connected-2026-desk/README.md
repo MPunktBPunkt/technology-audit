@@ -223,7 +223,7 @@ Sheet `field_evidence: R0`. Applications `implementation: R0` (kein AOA-Code).
 | **B1** | Ist AOA am F20 / NBT Evo erreichbar (Host-Switch, VID/PID, Accessory-Strings)? | Beobachteter Switch/`51–53` **oder** dokumentierter Fail nach Phone-like Enum | Enum/`0x18D1` ja (Already-Accessory); Control/Bulk **absent** |
 | **B2** | Kommen BCL-ähnliche Frames (8 B BE Header) auf dem Bulk-Rohr? | Capture mit korrelierbarem Framing oder klar negativ | noch nicht messbar (kein Bulk) |
 | B3 | Welche Manufacturer/Model sendet die HU? | String-Capture nach 52 / Phone `UsbAccessory` | offen (kein req 52) |
-| B4 | Parallelität/Konflikt mit MSC-Gadget am gleichen Port? | Enum-/Mode-Matrix | bewusst isoliert (`aoa_observe` ≠ MSC) |
+| B4 | Parallelität/Konflikt mit MSC-Gadget am gleichen Port? | Enum-/Mode-Matrix | bewusst isoliert (`aoa_observe` ≠ MSC); Analyzer-Feld 2026-11-06: MSC `303a:1001` → AOA=0 (`EVID-USBA-2026-11-06-008`) |
 
 Ausführlicher Plan (A/B/C, Aufwand, Kill): [`C1b-PLAN.md`](C1b-PLAN.md).
 
@@ -232,6 +232,12 @@ Ausführlicher Plan (A/B/C, Aufwand, Kill): [`C1b-PLAN.md`](C1b-PLAN.md).
 - Tier-1 Re-Read: stream-agnostisches BCL; USB nur Doc; AAIdrive USB_STATE/File-Transfer/BMW-manufacturer bestätigt.
 - hu-probe Feld `aoa_observe` als **A**-Evidence (`EVID-AOA-030`…`032`) — kein Code-Change in diesem Audit.
 - Applications `usb-aoa` / `bmw-bcl` / `bmw-etch-rpc` + hu-probe Application ergänzt.
+
+### Cross-ref 2026-11-06 (Analyzer Feld — anderes Audit)
+
+MSC-Identity-Negativ am NBT verstärkt Gate-Hypothese: siehe
+[`esp32-usb-analyzer-2026-field-host-matrix`](../esp32-usb-analyzer-2026-field-host-matrix/)
+(`EVID-USBA-2026-11-06-008`/`009`). Desk-Kampagne bleibt closed; kein Wire-Overwrite.
 
 ## Bezug
 

@@ -53,6 +53,7 @@ messbare Prioritäten-Landschaft über dem WiFi-Driver.
 | WiFi-Task prio 23 / Core 0 Default | `FACT` | IDF Docs + Kconfig |
 | Arduino 2.0.11 `usbd` prio 24, no affinity | `FACT` | `esp32-hal-tinyusb.c` |
 | USB-Bulk verursacht WiFi-Tod | `HYPOTHESIS` | Lab-Diskriminierung |
+| Mode-A TCP (auch Pipeline) ≥ USB-MSC Nutzrate auf S3 Lab | oft `REJECTED` | Analyzer: ~0.33–0.44 vs ~0.92 MB/s (`EVID-USBA-2026-11-02-003`/`004`) |
 | esp-faq Coex gilt für USB | `REJECTED` | nur WiFi↔BT |
 | IDF-Issue = Ursache Projekt X | `REJECTED` | Epistemik |
 
@@ -91,3 +92,4 @@ messbare Prioritäten-Landschaft über dem WiFi-Driver.
 
 - SOF/ISR-Lastanteil unter Full-Speed Bulk?
 - Ob Host-Reads vs. bloßes Enum denselben WiFi-Effekt auslösen (Lab)?
+- Ab welcher Proxy-Last ist Store-and-Forward Pflicht trotz Pipeline?

@@ -41,6 +41,8 @@ Heute gemessen: MSC Device-Pfad. AOA wäre eine **andere** USB-Rolle/Klasse am O
 | BCL-ähnliche Frames auf Bulk | `EVID-AOA-2026-10-28-026` | `UNKNOWN` / absent → C1b **B2** |
 | Vendor-Tap sieht Standard/Class nicht vollständig | `EVID-AOA-2026-10-29-031` | `FACT` Impl-Gap |
 | Post-53 Re-Enum | `EVID-AOA-2026-10-29-032` | NOT IMPLEMENTED |
+| Analyzer MSC `303a:1001` am NBT: AOA 51/52/53 = 0 | `EVID-USBA-2026-11-06-008` | `FACT` (Kontrast; Analyzer-Feld) |
+| AOA braucht mehr als responding MSC | `EVID-USBA-2026-11-06-009` | `INFERENCE`; Trigger-Identity `UNKNOWN` |
 
 ## Empfehlung C1b (Desk 2026-10-29)
 
@@ -56,3 +58,4 @@ Heute gemessen: MSC Device-Pfad. AOA wäre eine **andere** USB-Rolle/Klasse am O
 | 2026-10-28 Desk | Sheet + Kampagne `usb-aoa-bmw-connected-2026-desk` closed; R0 Field |
 | 2026-10-29 Feld (Quellrepo) | `aoa_observe` Enum+UI ja; 51/52/53=0; Bulk=0 — Evidence `030` |
 | 2026-10-29 Desk continuation | Gap A/B + C1b-PLAN B1/B2; Applications aktualisiert |
+| 2026-11-06 Analyzer-Feld | MSC-Identity-Negativ verstärkt Gate-Hypothese; C1 phone-like Identity bleibt P0 |

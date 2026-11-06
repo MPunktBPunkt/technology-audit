@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION) · **Maturity:** [`docs/KNOWLEDGE-MATURITY.md`](../docs/KNOWLEDGE-MATURITY.md)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-10-31`, 78 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-06`, 79 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Belege aus Sheet∪Applications) · nicht verwechseln mit Projekt-Status (Prototype/Pilot).
 
@@ -54,8 +54,9 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | [`kostal-piko-http`](kostal-piko-http/SHEET.md) | Kostal PIKO Local HTTP Interface | W2 | R2 | — | `iobroker-kostalpiko` |
 | [`pump-control-link`](pump-control-link/SHEET.md) | PUMP Control Link | W2 | R2 | — | `esp32-pidrive` |
 | [`ride-ble-display`](ride-ble-display/SHEET.md) | Ride BLE Display (Custom GATT) | W1 | R0 | — | `open-bike-computer` |
-| [`usb-aoa`](usb-aoa/SHEET.md) | USB Android Open Accessory (AOA) | W2 | R0 | — | `hu-probe`, `pidrive`, `bimmergestalt-idrive-refs`, `esp32-usb-analyzer` |
+| [`usb-aoa`](usb-aoa/SHEET.md) | USB Android Open Accessory (AOA) | W2 | R1 | FIELD | `hu-probe`, `pidrive`, `bimmergestalt-idrive-refs`, `esp32-usb-analyzer` |
 | [`usb-msc`](usb-msc/SHEET.md) | USB Mass Storage Class | W3 | R3 | LAB, GENERAL | `pidrive`, `esp32-pidrive`, `esp32-msc-gadget-refs`, `usb-bot-observation`, `hu-probe`, `esp32-usb-analyzer` |
+| [`usb-msc-host-behaviour`](usb-msc-host-behaviour/SHEET.md) | USB MSC Host Behaviour / Host Fingerprinting | W2 | R2 | FIELD, HOST-SPECIFIC | `esp32-usb-analyzer` |
 
 ### D — Embedded
 
@@ -127,7 +128,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 
 | Slug | Title | W | Evid | Scope | Gesehen in |
 |------|-------|---|------|-------|------------|
-| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | BMW NBT Evo Head Unit — Host-Plattform | W1 | R3 | LAB, FIELD, HOST-SPECIFIC | `pidrive`, `esp32-bt-gateway`, `bmw-nbt-media-index`, `hu-probe` |
+| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | BMW NBT Evo Head Unit — Host-Plattform | W1 | R3 | LAB, FIELD, HOST-SPECIFIC | `pidrive`, `esp32-bt-gateway`, `bmw-nbt-media-index`, `hu-probe`, `esp32-usb-analyzer` |
 | [`hammer-varon-xtr`](hammer-varon-xtr/SHEET.md) | Hammer Varon XTR II (FTMS Host) | W2 | R3 | LAB, FIELD, DEVICE-SPECIFIC | `esp32-ftmsprobe`, `esp32-ergo` |
 
 ### J — Architektur

@@ -19,7 +19,9 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`bmw-nbt-media-index-2026-foreign`](bmw-nbt-media-index-2026-foreign/) | closed | lab-tool | Fremd: BMW Offline-Medien-/Forensikkontext · **0.7.1** |
 | [`bimmergestalt-idrive-2026-foreign`](bimmergestalt-idrive-2026-foreign/) | closed | lab-tool | Fremd: BimmerGestalt Connected-App BCL/Etch/RHMI Desk · **0.7.1** |
 | [`usb-aoa-bmw-connected-2026-desk`](usb-aoa-bmw-connected-2026-desk/) | closed | lab-tool | Desk: USB AOA als BCL-Transport-Kandidat (NBT/Connected) · **0.7.1** |
-| [`esp32-usb-analyzer-2026-pilot`](esp32-usb-analyzer-2026-pilot/) | active | lab-tool | Dual-ESP USB Observe/Proxy Lab + OTG Baseline MEASURED · **0.7.1** |
+| [`esp32-usb-analyzer-2026-pilot`](esp32-usb-analyzer-2026-pilot/) | closed | lab-tool | Dual-ESP USB Observe/Proxy Lab + OTG Baseline MEASURED (0.0.35) · **0.7.1** → superseded by 0.0.50 |
+| [`esp32-usb-analyzer-2026-0.0.50`](esp32-usb-analyzer-2026-0.0.50/) | closed | lab-tool | Revalidation 0.0.50: Capability 7/7, Path-A REJECTED, Observer-Loop, TCP-Pipeline · **0.7.1** |
+| [`esp32-usb-analyzer-2026-field-host-matrix`](esp32-usb-analyzer-2026-field-host-matrix/) | closed | lab-tool | Evidence-Update 0.0.52: MSC Host-Fingerprint, BMW P-MOUNT, AOA/MSC-Gate · **0.7.1** |
 | [`esp32-bt-analyzer-host-profiles-2026-desk`](esp32-bt-analyzer-host-profiles-2026-desk/) | closed | lab-tool | Desk: BTstack/IDF/Zephyr/FTMS → Profile Flavor design for bt-analyzer 0.3.0 · **0.7.1** |
 | [`usb-bot-observation-2026-foreign`](usb-bot-observation-2026-foreign/) | closed | lab-tool | Fremd: BOT-Command-Beobachtung und Capture-Grenzen · **0.7.1** |
 | [`usb-bot-observation-2026-instrument-sources`](usb-bot-observation-2026-instrument-sources/) | closed | lab-tool | Fremd: TinyUSB-Hooks, usbsnoop, BOT-Schema · **0.7.1** |

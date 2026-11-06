@@ -5,17 +5,20 @@ project_id: esp32-usb-analyzer
 tech_slug: usb-aoa
 status: active
 sheet: ../../../technologies/usb-aoa/SHEET.md
-audit: ../../../audits/esp32-usb-analyzer-2026-pilot/
+audit: ../../../audits/esp32-usb-analyzer-2026-field-host-matrix/
+related_audits:
+  - ../../../audits/esp32-usb-analyzer-2026-pilot/
+  - ../../../audits/usb-aoa-bmw-connected-2026-desk/
 maturity:
   technology: R2
   implementation: R2
-  field_evidence: R0
+  field_evidence: R1   # MSC-Identity AOA-Negativ am NBT; positive AOA/HU weiter UNKNOWN
   reusability: W2
 ```
 
 ## Rolle im Projekt
 
-**Lab-Validierung** des AOA Control-Handshake und Vendor-Bulk-Rohrs auf OTG Host↔Device — Desk-FACTS aus dem Sheet operationalisieren. **Nicht** HU Connected.
+**Lab-Validierung** des AOA Control-Handshake und Vendor-Bulk-Rohrs auf OTG Host↔Device — Desk-FACTS aus dem Sheet operationalisieren. **Feld:** Negativmessung AOA unter Analyzer-MSC-Identity am NBT — **nicht** HU Connected-Beweis.
 
 ## Architektur / Datenfluss
 
@@ -47,8 +50,12 @@ Host AOA Accessory ──EP0 51→52×6→53──▶ Device AoaLabResponder
 | Claim | Evidence-ID | Status |
 |-------|-------------|--------|
 | ESP↔ESP AOA control + accessory VID/PID | `EVID-USBA-2026-10-31-006` | `MEASURED` (lab) |
-| Vendor bulk echo | `008` | `MEASURED` (lab) |
-| HU/Phone AOA wire | — | `UNKNOWN` / deferred (hu-probe C1b) |
+| Vendor bulk echo | Pilot `008` | `MEASURED` (lab) |
+| **FACT:** MSC identity `303a:1001` → NBT → keine AOA 51/52/53 | `EVID-USBA-2026-11-06-008` | `FACT` / `MEASURED` |
+| **INFERENCE:** AOA braucht mehr als responding MSC endpoint | `009` | `INFERENCE` |
+| **UNKNOWN:** Identity/Config die BMW-AOA startet | `009` | `UNKNOWN` → C1 |
+| Phone Enum an Analyzer Host `.88` | `011` | VBUS-Gap `MEASURED` |
+| HU/Phone AOA positiv / BCL bulk | — | `UNKNOWN` / C1 |
 
 ## Beobachtungen
 
@@ -56,6 +63,7 @@ Host AOA Accessory ──EP0 51→52×6→53──▶ Device AoaLabResponder
 |------------------|-------------|
 | 0.0.31→0.0.32 | Arduino USBVendor RX allein missingt OUT — FIFO-Poll Fix |
 | Timing | Band passt zu hu-probe Phone lab ~0,5–0,6 s (Desk note) |
+| 2026-11-06 Feld | Analyzer-MSC = schlechter Connected-Apps-Probe; AOA-respond half nicht |
 
 ## Abweichungen vom „Lehrbuch“
 

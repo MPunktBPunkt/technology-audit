@@ -5,7 +5,7 @@ project_id: esp32-usb-analyzer
 tech_slug: esp-usb-host
 status: active
 sheet: ../../../technologies/esp-usb-host/SHEET.md
-audit: ../../../audits/esp32-usb-analyzer-2026-pilot/
+audit: ../../../audits/esp32-usb-analyzer-2026-0.0.50/
 maturity:
   technology: R2
   implementation: R2
@@ -39,8 +39,9 @@ DUT FS Device ──OTG──▶ EspUsbHost callbacks ──▶ CaptureLog / Lab
 |-------|-------|-----------|
 | Stack | EspUsbHost 2.x + Arduino-ESP32 ≥3.2 (Upstream Gate1) | `FACT` (B) |
 | Speed | FS only | `FACT` · Sheet |
-| Enum outcome | address/config ≠0 MEASURED | `MEASURED` · `EVID-USBA-2026-10-31-010` |
-| HID observe | keyboard report via callback | `MEASURED` · `011` |
+| Enum outcome | address/config ≠0 MEASURED (0.0.50: addr=16 cfg=1) | `MEASURED` · `EVID-USBA-2026-11-02-005` (+ Pilot `010`) |
+| HID observe | keyboard report via callback | `MEASURED` · Pilot `011` |
+| EP0 ctrl-neg | 8/8 in Gate10 campaign | `MEASURED` · `EVID-USBA-2026-11-02-008` |
 | HS Phone as DUT | often FAIL | `FACT` Gate4 notes |
 
 ## Ebene C — Host- / Feld-Evidenz
@@ -49,9 +50,9 @@ Lab-only (OTG peer als DUT). Kein Fahrzeug-Host.
 
 | Claim | Evidence-ID | Status |
 |-------|-------------|--------|
-| FS DUT enum + MSC I/O | `EVID-USBA-2026-10-31-001`/`010` | `MEASURED` |
-| HID interrupt observe | `EVID-USBA-2026-10-31-011` | `MEASURED` |
-| Mid-enum SETUP on wire | `010` | `UNKNOWN` |
+| FS DUT enum + MSC I/O | `EVID-USBA-2026-11-02-001`/`005` | `MEASURED` |
+| HID interrupt observe | Pilot `011` | `MEASURED` |
+| Mid-enum SETUP on wire | Pilot `010` | `UNKNOWN` |
 
 ## Beobachtungen
 

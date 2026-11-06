@@ -20,13 +20,14 @@ Vor Proxy-/MITM-Claims eine **kabelgebundene** Full-Speed Host↔Device Baseline
 
 ## Ablauf
 
-1. **Enum-Sanity:** Host `/api/status` → DUT VID/PID/speed; Device enumeriert.
+1. **Enum-Sanity:** Host `/api/status` → DUT VID/PID/speed; Device enumeriert. **Beide Nodes gleiche Instrument-FW** (Fremd-DUT ≠ Pattern-Rate).
 2. **MSC READ Sweep:** variiere `blocks` × `chunk`; erfasse kB/s + RTT p50/p95/max + `pattern_ok` / fail bytes.
 3. **Sustained:** ≥3× volle Media (oder festes Blockbudget) bei Peak-Chunk; 0 fail bytes gefordert.
 4. **MSC WRITE (optional):** WRITE + immediate readback; WRITE≪READ erwarten; Cache-Größe dokumentieren.
-5. **WiFi TCP parallel:** Integrity both-ways; frame sizes; ack-each vs windowed rates.
+5. **WiFi TCP parallel:** Integrity both-ways; frame sizes; ack-each vs windowed vs **pipeline**; gaps=0.
 6. **False-positive Gate:** bei `pattern_ok=false` zuerst Device multi-LBA Fill / Verify-Bug prüfen — nicht PHY diagnostizieren.
-7. **Claim boundary schreiben:** In/Out-of-scope Tabelle; kein MITM-/HU-/L0-Claim aus dieser Method.
+7. **Claim boundary schreiben:** In/Out-of-scope Tabelle; kein MITM-/HU-/Live-L0-Claim aus dieser Method.
+8. **Optional Regressionstor:** Instrument-Repo `lab_capability_audit.py` (Enum+MSC+TCP+sync+BOT-hook+Path-A+Gate10) vor Release wiederholen.
 
 ## Artefakte
 
@@ -54,4 +55,4 @@ Vor Proxy-/MITM-Claims eine **kabelgebundene** Full-Speed Host↔Device Baseline
 
 | Projekt / Audit | Link / Hinweis |
 |-----------------|----------------|
-| esp32-usb-analyzer | [`esp32-usb-analyzer-2026-pilot`](../audits/esp32-usb-analyzer-2026-pilot/) · `tools/lab_baseline_campaign.py` |
+| esp32-usb-analyzer | [`esp32-usb-analyzer-2026-pilot`](../audits/esp32-usb-analyzer-2026-pilot/) · [`2026-0.0.50`](../audits/esp32-usb-analyzer-2026-0.0.50/) · `lab_baseline_campaign.py` + `lab_capability_audit.py` |
