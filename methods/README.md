@@ -29,6 +29,7 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | [`usb-otg-loop-baseline`](usb-otg-loop-baseline.md) | Dual-ESP Host↔Device MSC/TCP Integrity+Throughput Baseline | active |
 | [`own-link-motion-sensitivity`](own-link-motion-sensitivity.md) | Own-Link RSSI-Feinring Walk-by (≠ Presence/CSI) | active |
 | [`bt-passive-host-sniff`](bt-passive-host-sniff.md) | nRF Sniffer / Android HCI snoop (passiv, ≠ ESP-MITM) | active |
+| [`bt-hci-host-attach`](bt-hci-host-attach.md) | BlueZ `btattach`/`hciattach` an ESP32 UART H4 Controller | active |
 
 ## Gate-Coverage aus `next-audits.md`
 

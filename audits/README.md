@@ -18,15 +18,19 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`esp-network-pcm-clock-2026-foreign`](esp-network-pcm-clock-2026-foreign/) | active | lab-tool | Fremd: RTP/TCP PCM, Jitterbuffer und Clockdrift · **0.7.1** |
 | [`bmw-nbt-media-index-2026-foreign`](bmw-nbt-media-index-2026-foreign/) | closed | lab-tool | Fremd: BMW Offline-Medien-/Forensikkontext · **0.7.1** |
 | [`bimmergestalt-idrive-2026-foreign`](bimmergestalt-idrive-2026-foreign/) | closed | lab-tool | Fremd: BimmerGestalt Connected-App BCL/Etch/RHMI Desk · **0.7.1** |
+| [`bmw-connected-sas-auth-2026-11-06`](bmw-connected-sas-auth-2026-11-06/) | closed | planning | Desk: BMW Connected SAS Auth (Etch) · **0.7.1** — RFCOMM-Rollen: siehe `bmw-bcl-rfcomm-role-2026-desk` |
 | [`usb-aoa-bmw-connected-2026-desk`](usb-aoa-bmw-connected-2026-desk/) | closed | lab-tool | Desk: USB AOA als BCL-Transport-Kandidat (NBT/Connected) · **0.7.1** |
 | [`esp32-usb-analyzer-2026-pilot`](esp32-usb-analyzer-2026-pilot/) | closed | lab-tool | Dual-ESP USB Observe/Proxy Lab + OTG Baseline MEASURED (0.0.35) · **0.7.1** → superseded by 0.0.50 |
 | [`esp32-usb-analyzer-2026-0.0.50`](esp32-usb-analyzer-2026-0.0.50/) | closed | lab-tool | Revalidation 0.0.50: Capability 7/7, Path-A REJECTED, Observer-Loop, TCP-Pipeline · **0.7.1** |
 | [`esp32-usb-analyzer-2026-field-host-matrix`](esp32-usb-analyzer-2026-field-host-matrix/) | closed | lab-tool | Evidence-Update 0.0.52: MSC Host-Fingerprint, BMW P-MOUNT, AOA/MSC-Gate · **0.7.1** |
 | [`esp32-bt-analyzer-host-profiles-2026-desk`](esp32-bt-analyzer-host-profiles-2026-desk/) | closed | lab-tool | Desk: BTstack/IDF/Zephyr/FTMS → Profile Flavor design for bt-analyzer 0.3.0 · **0.7.1** |
+| [`esp32-car-network-2026-foreign`](esp32-car-network-2026-foreign/) | closed | lab-tool | Fremd: ESP car-side Hotspot/NAT outbound (WG / NAT-router / Tailscale-rendezvous) A6/B1 · **0.7.1** |
+| [`esp32-hci-controller-2026-foreign`](esp32-hci-controller-2026-foreign/) | closed | lab-tool | Fremd: ESP32 als UART/USB-UART HCI-Controller für BlueZ · **0.7.1** |
 | [`usb-bot-observation-2026-foreign`](usb-bot-observation-2026-foreign/) | closed | lab-tool | Fremd: BOT-Command-Beobachtung und Capture-Grenzen · **0.7.1** |
 | [`usb-bot-observation-2026-instrument-sources`](usb-bot-observation-2026-instrument-sources/) | closed | lab-tool | Fremd: TinyUSB-Hooks, usbsnoop, BOT-Schema · **0.7.1** |
 | [`usb-control-stall-recovery-2026`](usb-control-stall-recovery-2026/) | closed | lab-tool | Follow-on: usbd Control/Enum/STALL, esp_tinyusb, EspUsbDevice · **0.7.1** |
 | [`esp32-s3-usb-wifi-coexistence-2026`](esp32-s3-usb-wifi-coexistence-2026/) | closed | lab-tool | S3 USB OTG Device ↔ WiFi Coex-Karte (hu-probe) · **0.7.1** |
+| [`esp32-wifi-bt-coex-2026-foreign`](esp32-wifi-bt-coex-2026-foreign/) | closed | lab-tool | Fremd: ESP32 WiFi ↔ Classic BT RF Coex (`esp_coex_*`) / HCI_TCP-Gap · **0.7.1** |
 | [`esp32-s3-hw-limits-2026`](esp32-s3-hw-limits-2026/) | closed | lab-tool | S3 Chip-Errata + HW-Limits (CACHE/ANALOG/USB-OTG/RTC) für MSC/Storm · **0.7.1** |
 | [`msc-host-read-semantics-s1s2s3-2026`](msc-host-read-semantics-s1s2s3-2026/) | closed | lab-tool | hu-probe S1–S3 Messplan (Eager/Prefetch/Cache); PiDrive-Claims ≠ FACT · **0.7.1** |
 | [`hu-probe-bmw-s0s2-field-2026`](hu-probe-bmw-s0s2-field-2026/) | closed | lab-tool | hu-probe BMW S0/S2 Transport-Feld + Lab Offline; Semantik INFERENCE · **0.7.1** |
@@ -63,6 +67,9 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`open-bike-computer-2026-foreign`](open-bike-computer-2026-foreign/) | active | lab-tool | Fremd: Open Bike Computer Ride BLE Display · **0.7.1** |
 | [`esp-ble-finder-2026-foreign`](esp-ble-finder-2026-foreign/) | active | lab-tool | Fremd: BLE RSSI Proximity Hunt · **0.7.1** |
 | [`ble-gatt-bridge-refs-2026-foreign`](ble-gatt-bridge-refs-2026-foreign/) | closed | lab-tool | Fremd: Dual-Role / Transparent / Semantic GATT Bridge · **0.7.1** |
+| [`ble-gatt-bluez-relay-2026-foreign`](ble-gatt-bluez-relay-2026-foreign/) | closed | lab-tool | Fremd-Delta: BlueZ/bluer Two-Adapter GATT Relay · **0.7.1** |
+| [`bmw-bcl-rfcomm-role-2026-desk`](bmw-bcl-rfcomm-role-2026-desk/) | closed | lab-tool | Desk-Delta: BMW BCL RFCOMM Client/Server Roles (gap 4/5) · **0.7.1** |
+| [`bt-bdaddr-2026-foreign`](bt-bdaddr-2026-foreign/) | closed | lab-tool | Fremd: Vendor HCI BD_ADDR Rewrite (kein Espressif) · **0.7.1** |
 | [`bt-classic-gaps-2026-foreign`](bt-classic-gaps-2026-foreign/) | closed | lab-tool | Fremd: Classic HFP/SPP/HID/Dual-Mode Gaps · **0.7.1** |
 | [`bt-analysis-relay-2026-foreign`](bt-analysis-relay-2026-foreign/) | closed | lab-tool | Fremd: Analyse-Relais / Endpoint / Host-Sniff · **0.7.1** |
 | [`bt-sniffing-capture-2026-foreign`](bt-sniffing-capture-2026-foreign/) | closed | lab-tool | Fremd: Capture ESP→TCP/JSONL vs nRF/HCI · **0.7.1** |

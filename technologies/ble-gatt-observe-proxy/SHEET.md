@@ -70,6 +70,7 @@ Fitness-Uhr/Sensor: zuerst Pairing-Modell klären. Logging-Hooks an Transparent-
 ## Referenzen
 
 - ChimeraBLE log/mitm Architektur; esp32-ble2mqtt MQTT sink
+- BluetoothInterceptor `EventBus` / `RelayEvent` @ `4a10bcf` — plaintext hex Read/Write/Notify (console + TCP stream); Two-HCI Transparent darunter
 - Sheets: `ble-gatt-transparent-bridge`, `ble-gatt-dual-role`
 
 ## Offene Fragen

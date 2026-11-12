@@ -7,7 +7,7 @@ primary: C
 tags: [esp-idf, nimble]
 type: pattern
 status: active
-seen_in: [ble-gatt-bridge-refs]
+seen_in: [ble-gatt-bridge-refs, ble-gatt-bluez-relay-refs]
 maturity:
   technology: R3
   implementation: R0
@@ -44,6 +44,8 @@ Bridge leitet GATT-Attribute **byte-transparent** weiter (Notify/Indicate/Write,
 | Notify-Congestion ist gelöst wenn Relay existiert | `REJECTED` | ohne Queue/Drop-Policy = UNKNOWN |
 | Handle-Layout egal für Android-Cache | `REJECTED` | Fremd: keepHandles / Handle-Patch-Diskussion |
 | GATT↔MQTT-Gateway = BLE Peripheral Bridge | `REJECTED` | kein Dual-Role-Peripheral |
+| BlueZ/bluer Two-Adapter Clone = on-chip Dual-Role Passthrough | `REJECTED` | zwei HCI; andere Failure Modes — siehe Dual-Role-Sheet |
+| CCCD am BlueZ-Clone muss 1:1 vom Target geklont werden | `REJECTED` | lokal Stack (`CharacteristicNotify`); Interceptor `--clone-descriptors` default off |
 
 ## Transfer
 
@@ -62,6 +64,8 @@ Nutzen wenn Folgeprojekt **beliebige** oder unbekannte Services spiegeln soll. F
 
 - ChimeraBLE `mitm.cpp` / `clone.cpp` (Architektur)
 - btlejuice `proxy.js` / `fake.js` (Zwei-HCI Relay-Architektur)
+- BluetoothInterceptor `proxy.rs` / `DESIGN.md` @ `4a10bcf` (BlueZ/bluer Two-Adapter Clone; Read/Write/Notify Fun)
+- spacecheese/bluez_peripheral @ `8174c15` (Peripheral-API Building Block, kein Relay)
 - esp32-ble2mqtt `ble.c` (Central-only Gateway-Kontrast)
 - esp32-ble-uart-mx (festes transparentes `FFE0`)
 
