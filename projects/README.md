@@ -30,7 +30,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-a2dp-source`](esp32-a2dp-source/) | ESP32_A2DP_Source — schreibfaul1 (Fremd) | lab-tool | active | 2 |
 | [`esp32-ai`](esp32-ai/) | esp32-ai — On-Device PLE LLM + Fly Connectome (Fremd) | lab-tool | active | 4 |
 | [`esp32-audioi2s`](esp32-audioi2s/) | ESP32-audioI2S — schreibfaul1 (Fremd) | lab-tool | active | 1 |
-| [`esp32-bt-analyzer`](esp32-bt-analyzer/) | ESP32 On-Chip Bluetooth HCI Analyzer (VHCI) | lab-tool | active | 3 |
+| [`esp32-bt-analyzer`](esp32-bt-analyzer/) | ESP32 On-Chip Bluetooth HCI Analyzer (VHCI) | lab-tool | active | 6 |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | esp32-bt-gateway | planning | — | 5 |
 | [`esp32-bt-iap`](esp32-bt-iap/) | esp32-bt-iap — A2DP + Apple Dock (historisch) | lab-tool | active | 2 |
 | [`esp32-car-network-refs`](esp32-car-network-refs/) | ESP32 Car-Side Networking — Hotspot/NAT Outbound (Fremd) | lab-tool | active | 3 |
@@ -75,7 +75,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`metermaster-app`](metermaster-app/) | metermaster-app | ops-field | — | 1 |
 | [`open-bike-computer`](open-bike-computer/) | Open Bike Computer — Ride BLE Display (Fremd) | lab-tool | active | 1 |
 | [`pi-fm-tx`](pi-fm-tx/) | Pi FM / RF Transmit (Fremd) | lab-tool | active | 3 |
-| [`pidrive`](pidrive/) | PiDrive | ops-field | active | 11 |
+| [`pidrive`](pidrive/) | PiDrive | ops-field | active | 12 |
 | [`rnt-esp32`](rnt-esp32/) | Random Nerd Tutorials — ESP32 Projects Catalog (Fremd) | lab-tool | active | 0 |
 | [`squeezelite-esp32`](squeezelite-esp32/) | Squeezelite-ESP32 — LMS Multi-Room Player (Fremd) | lab-tool | active | 4 |
 | [`technology-audit-kb`](technology-audit-kb/) | technology-audit — Wissensbasis-Qualität (Meta) | ops-field | active | 0 |

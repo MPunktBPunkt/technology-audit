@@ -2,7 +2,7 @@
 
 ```yaml
 reuse_outcomes:
-  reused: [esp-hub-telemetry, esp32-s3-silicon, esp32-s3-usb-wifi-coex, bt-passive-host-sniff, bluetooth-ftms, bluetooth-hid, bt-dual-mode-coex]
+  reused: [esp-hub-telemetry, esp32-s3-silicon, esp32-s3-usb-wifi-coex, bt-passive-host-sniff, bluetooth-ftms, bluetooth-hid, bt-dual-mode-coex, esp-wifi-bt-coex]
   new: [bt-analyzer-flavor-bus, ble-gatt-client-fsm, hogp-host-client]
   not_helped: [esp-usb-host as primary — superseded by F_ONCHIP, BTstack as vendored commercial host, FTMS.NET code (GPL-3)]
 ```

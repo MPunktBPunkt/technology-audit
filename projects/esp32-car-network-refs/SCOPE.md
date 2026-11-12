@@ -24,7 +24,7 @@ Desk: wie ein ESP32 im Auto **outbound** über Phone-Hotspot/CGNAT erreichbar wi
 | trombik/esp_wireguard @ 9217c5b | ESP-IDF WG Client: init/connect/set_default/disconnect; keepalive für NAT | ja |
 | martin-ger/esp32_nat_router @ 08da293 | SoftAP+STA NAT; optional WG via `vpn_manager.c`; Portmap; UI `/vpn` | ja — Lab-AP, kein Car-Primärpfad |
 | CamM2325/microlink @ 216da33 | Tailscale-compat: WG + DERP + STUN; failover; hotspot NAT traversal | ja — bevorzugtes A6/B1 Rendezvous |
-| Espressif RF Coexistence (SoftAP+BT = C1) | SoftAP+BT/BLE performance unstable | ja — Gate/Hinweis; kein Sheet `esp-wifi-bt-coex` |
+| Espressif RF Coexistence (SoftAP+BT = C1) | SoftAP+BT/BLE performance unstable | ja — Gate/Hinweis; Sheet [`esp-wifi-bt-coex`](../../technologies/esp-wifi-bt-coex/SHEET.md) (parallel angelegt) |
 | bt-analyzer car A6/B1 | Reachability-Blocker-Kontext | Querverweis only |
 | Offensive Bypass / Hotspot-Crack | — | **nein** |
 
@@ -40,7 +40,7 @@ Desk: wie ein ESP32 im Auto **outbound** über Phone-Hotspot/CGNAT erreichbar wi
 
 1. Sheets `esp-wireguard`, `esp-wifi-nat-router`, `esp-tailscale-client` (Primary **D**)  
 2. Decision: Rendezvous (microlink) > SoftAP-Wait; WG allein braucht Endpoint/keepalive  
-3. SoftAP+BT C1 Gate dokumentieren (kein `esp-wifi-bt-coex`-Sheet vorhanden)  
+3. SoftAP+BT C1 Gate dokumentieren (Details im Sheet `esp-wifi-bt-coex`)  
 4. Evidence-Pins + C10–C13 in Audit
 
 ## Offene Scope-Fragen

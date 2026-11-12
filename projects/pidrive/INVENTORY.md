@@ -23,6 +23,7 @@ Pilot 1 (`usb-msc`) **closed**. Pilot 2 (`bmw-nbt-evo`) **active** · Revalidati
 | IQ-FFT Peaks / channelized watch | `sdr-spectrum-fft` | Sheet + App + Method |
 | BlueZ A2DP + PipeWire | `bluetooth-a2dp` | Stack-Scope ≠ ESP-Gateway |
 | AVRCP Controller → Trigger | `avrcp` | wachsen + App (Kontrast ESP) |
+| BlueZ D-Bus Pairing-Agent (BMW Numeric Comparison) | `bluez-pairing-agent` | Sheet + App |
 | BMW NBT Evo MSC-Host | `bmw-nbt-evo` | Host-Scope; C in App |
 | Synthetische FAT-Geometrie / Slots | `virtual-fat` | Sheet + App (Gadget-Refs) |
 | Freenet/LPD/CB / UKW WBFM | — | observed (G19, kein Sheet) |
@@ -44,6 +45,7 @@ Pilot 1 (`usb-msc`) **closed**. Pilot 2 (`bmw-nbt-evo`) **active** · Revalidati
 | `scsi` | SCSI (MSC/BOT) | C | `usb-device` | observed | none | — | — |
 | `bluetooth-a2dp` | Bluetooth A2DP | C | `bluetooth-classic` | applied | partial | [SHEET](../../technologies/bluetooth-a2dp/SHEET.md) | [app](applications/bluetooth-a2dp.md) |
 | `avrcp` | AVRCP | C | `bluetooth-classic` | applied | partial | [SHEET](../../technologies/avrcp/SHEET.md) | [app](applications/avrcp.md) |
+| `bluez-pairing-agent` | BlueZ Pairing Agent | C | `bluez`, `classic-bt` | applied | partial | [SHEET](../../technologies/bluez-pairing-agent/SHEET.md) | [app](applications/bluez-pairing-agent.md) |
 | `esp32` | ESP32 | D | `esp-idf` | observed | none | — | — |
 | `fat` | FAT / LBA (legacy signal) | E | — | observed | none | — | — (→ `virtual-fat`) |
 | `systemd` | systemd | F | `linux-userspace` | observed | none | — | — |

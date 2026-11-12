@@ -70,6 +70,25 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 | „Reading data“-Hänger bei großen Libs / langsamen Sticks | `HYPOTHESIS` | passt zu Burst/Latenz-These |
 | SIB 65 08 07 u. a.: Sync großer Sticks Minuten; HDD-USB abraten | `INFERRED` (secondary) | offizielle Service-Hinweise, nicht KB-remeasured |
 
+## Bluetooth-Verhalten (PiDrive-Doku, nicht KB-gemessen)
+
+Quelle: [`pidrive/docs/fahrzeug/iDriveBt.md`](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/fahrzeug/iDriveBt.md)
+(PiDrive als A2DP Source + AVRCP Target am F20 2017; Mischung aus Code, Spec,
+Forenberichten und Praxisnotizen, **keine** Evidence-IDs / btmon-Captures). Bis zu einem
+eigenen Capture (z. B. `esp32-bt-analyzer` B1 / btmon) nur so führen:
+
+| Claim | Status | Hinweis |
+|-------|--------|---------|
+| F20 2017 / NBT Evo ID5–ID6 = AVRCP **1.4** (ID6 teils 1.5) | `INFERRED` | Generationstabelle PiDrive; Versionsfeld im HU-SDP nicht gemessen |
+| AVRCP-Browsing am F20 nicht genutzt | `INFERRED` | PiDrive-Praxisnotiz, kein Capture |
+| AVRCP 1.6 Cover Art (BIP) bricht Track-Info/Playback | `HYPOTHESIS` | Nutzerberichte; PiDrive bietet 1.6 bewusst nicht an |
+| Cover über BT kommt via iAP/Connected/USB, nicht AVRCP | `HYPOTHESIS` | `ENT_BTAS_IAP_COVERART`; Connected-Pfad → [`bmw-bcl`](../bmw-bcl/SHEET.md) |
+| Absolute Volume erzeugt Sprünge / Konflikt mit HU-DSP | `HYPOTHESIS` | PiDrive fixiert MPRIS `Volume 1.0` |
+| HU registriert PlaybackStatus/TrackChanged/… und braucht TrackChanged bei jedem Quellen-/Titelwechsel | `INFERRED` | PiDrive-Implementierung (`mpris:trackid` + kurzes `Stopped`) |
+| HU verlangt A2DP Source `0x110A` + AVRCP TG `0x110C` beim Phone | `INFERRED` | aus PiDrive-Betrieb; vollständiger HU-SDP-Record `UNKNOWN` |
+| HU-SBC-Bitpool max 53 | `REJECTED` (als HU-FACT) | 2–53 ist der generische SBC-High-Quality-Default; HU-Caps nicht gemessen |
+| HU bietet SPP/BCL über BT | `UNKNOWN` | Analyzer B1 (HU-SDP) |
+
 ## Transfer
 
 Wiederverwendbar als **Vorlage „automotive HU als MSC-Host“**: Trace-Korrelation, Claim-Trennung C vs. MSC-A. Konkrete LBA-/Timing-Profile **nur** mit Evidence aus diesem Host — nicht auf andere Fahrzeuge übertragen. Busy-Pacing am NBT Evo ist **C** belegt (2026-10-12) — keine ms-/Timeout-Zahlen als A-FACT. Revalidation: [`DELTA`](../../audits/pidrive-2026-bmw-hu/DELTA.md).
@@ -92,6 +111,7 @@ Wiederverwendbar als **Vorlage „automotive HU als MSC-Host“**: Trace-Korrela
 
 - Welche NBT-Varianten (Evo vs. Evo2, iDrive-Generation) teilen dasselbe USB-Read-Profil?
 - Wann reicht Korrelation (Fenster × Bytes) vs. zwingend Ohr-Beweis für „AV PASS“?
+- Vollständiger HU-SDP-Record (AVRCP-Version, A2DP-Sink-Caps, SPP ja/nein) — ein btmon/sdptool-Capture würde die PiDrive-Doku-Claims oben auf `MEASURED` heben.
 
 ## Lessons (Pilot 2 — Zwischenstand)
 

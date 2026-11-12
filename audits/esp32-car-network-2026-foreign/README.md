@@ -49,7 +49,7 @@ ESP32 car-side **outbound** über Phone-Hotspot/NAT klären (bt-analyzer A6/B1 B
 | 1 | 0.7.1 + lab-tool + drei Pins | erfüllt |
 | 2 | Sheets + Apps: wireguard / nat-router / tailscale-client (Primary D) | erfüllt |
 | 3 | Decision: microlink-Rendezvous > SoftAP-Wait | erfüllt |
-| 4 | SoftAP+BT C1 dokumentiert; kein `esp-wifi-bt-coex` Sheet → Note | erfüllt |
+| 4 | SoftAP+BT C1 dokumentiert; kein `esp-wifi-bt-coex` Sheet → Note (nachträglich: Sheet parallel durch `esp32-wifi-bt-coex-2026-foreign` angelegt) | erfüllt |
 | 5 | C10–C13 | erfüllt |
 | 6 | Lab Hotspot MEASURED | FOLLOW-ON |
 
@@ -97,7 +97,7 @@ Desk-Evidence in Applications/Sheets verdrahtet. Lab/Field noch offen:
 |-----------|------------------|-----------|
 | G-HOTSPOT (Phone AP → ESP STA → Peer) | neue `EVID-CARNET-YYYY-MM-DD-nnn` | `applications/esp-tailscale-client.md` |
 | G-WG-KA (keepalive hinter NAT) | neue ID | `applications/esp-wireguard.md` |
-| SoftAP+BT C1 Messung | neue ID | `applications/esp-wifi-nat-router.md` (+ optional neues Coex-Sheet) |
+| SoftAP+BT C1 Messung | neue ID | `applications/esp-wifi-nat-router.md` + Sheet `esp-wifi-bt-coex` |
 
 Desk-`FACT` ≠ Lab-`MEASURED`.
 
@@ -114,7 +114,7 @@ Desk-`FACT` ≠ Lab-`MEASURED`.
 - Hinter Hotspot/CGNAT: Rendezvous (DERP) schlägt SoftAP-Wait und reines WG ohne Endpoint.
 - `connect` OK ≠ Peer up; keepalive ist NAT-Pflicht, kein Nice-to-have.
 - SoftAP+BT ist Espressif C1 — Lab-AP ja, Car-Primär nein.
-- Kein Sheet `esp-wifi-bt-coex`; Cross-Ref Espressif coexist + `bt-dual-mode-coex`.
+- WiFi↔BT-Coex gehört ins Sheet [`esp-wifi-bt-coex`](../../technologies/esp-wifi-bt-coex/SHEET.md) (parallel entstanden), nicht nach `bt-dual-mode-coex`.
 
 ## Bezug
 

@@ -2,9 +2,9 @@
 
 ```yaml
 project_id: esp32-bt-analyzer
-updated: 2026-11-04
-reviewed_commit: 542eed6
-fw_pin: "0.2.9"
+updated: 2026-11-12
+reviewed_commit: 0352824
+fw_pin: "0.3.19"
 profile: lab-tool
 pilot_order: [esp-hub-telemetry, esp32-s3-silicon, esp32-s3-usb-wifi-coex, esp-usb-host]
 ```
@@ -19,7 +19,13 @@ Lab: `.88` Central · `.89` Peripheral peer · `.87` Classic+BLE.
 |--------|------------|--------|
 | Hub register / OTA | `esp-hub-telemetry` | Application |
 | YD-ESP32-S3 N8R2 / PSRAM | `esp32-s3-silicon` | Application |
-| WiFi + BT coexistence | `esp32-s3-usb-wifi-coex` | BT13 stress MEASURED |
+| WiFi + BT coexistence (S3 BT13 stress) | `esp32-s3-usb-wifi-coex` | BT13 stress MEASURED |
+| WiFi STA + Classic ACL (D1 HCI agent) | `esp-wifi-bt-coex` | Application — wifi_ps sweeps MEASURED |
+| UART-HCI-Offload (Ausweg aus dem Coex-Boden) | `esp-hci-uart-controller` | nicht gebaut — Desk `esp32-hci-controller-2026-foreign` |
+| Car-Netz hinter Handy-Hotspot (A6/B1) | `esp-tailscale-client` / `esp-wireguard` | nicht gebaut — Desk `esp32-car-network-2026-foreign` |
+| A2DP über BlueZ + HCI TCP | `bluetooth-a2dp` | Application — single path / dual relay MEASURED |
+| BCL über RFCOMM | `bmw-bcl` | Application — lab TEST |
+| Pairing-Agent auf .108 (Handy→.131, HU→.87) | `bluez-pairing-agent` | Application — gebaut, nicht gelaufen |
 | On-chip VHCI HCI | Method `bt-passive-host-sniff` | Anker |
 | USB OTG + dongle | `esp-usb-host` | legacy optional |
 | Classic on-chip S3 | `bluetooth-a2dp` | **REJECTED** |
@@ -35,6 +41,11 @@ Lab: `.88` Central · `.89` Peripheral peer · `.87` Classic+BLE.
 | Classic discoverable BT10 | MEASURED (HCI path) | `.87` |
 | PSRAM ring / lossless BT5/6 | MEASURED | S3 512 slots |
 | `esp-usb-host` dongle path | deferred/legacy | A_OBSERVE |
+| HCI over TCP A1–A5 (`hci-agent-esp32`) | MEASURED | 0.3.16–0.3.18 |
+| Coex budget (`wifi_ps`) / Coex API | MEASURED / UNKNOWN | 0.3.17–0.3.19 |
+| A2DP relay | MEASURED (choppy) | 0.3.16 |
+| BCL synth / Dummy-HU SDP | TEST | 0.3.18 |
+| Pairing-Agent `bt-pair-agent` | UNKNOWN (nicht deployt) | `tools/bt_pair_agent.py` |
 
 ## Coverage-Lücken
 
@@ -44,3 +55,6 @@ Lab: `.88` Central · `.89` Peripheral peer · `.87` Classic+BLE.
 | Classic×Classic peer | limited (one Classic board) | second ESP32 or phone |
 | Profile Flavors (GATT/HOGP/FTMS/Classic) | desk only | [`host-profiles-2026-desk`](../../audits/esp32-bt-analyzer-host-profiles-2026-desk/) → upstream Flavor Bus |
 | RF/Air | out of scope | BT15 separate |
+| BMW HU über BT (A6/B1/B2) | UNKNOWN | Auto in WLAN-Reichweite oder Dial-out |
+| Coex-API-Wirkung | UNKNOWN | `lab_hci_coex_ab.py` |
+| BLE-HR-Relay über BlueZ (zwei HCI) | not started | `ble-hr-relay` Fallstricke; zwei-HCI ≠ Dual-Role |

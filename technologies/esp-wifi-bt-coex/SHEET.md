@@ -7,7 +7,7 @@ primary: D
 tags: [esp-idf, esp32, wifi, classic-bt, rf-coex]
 type: pattern
 status: active
-seen_in: [esp32-wifi-bt-coex-refs]
+seen_in: [esp32-wifi-bt-coex-refs, esp32-bt-analyzer]
 maturity:
   technology: R2
   implementation: R0
@@ -61,6 +61,8 @@ Bluedroid setzt Streaming oft über Vendor HCI.
 | BLE Scan-Window kann von WiFi gekürzt werden | `FACT` | esp-faq |
 | USB↔WiFi-Sheet erklärt RF WiFi↔BT | `REJECTED` | andere Domäne |
 | BTDM-Sheet ersetzt WiFi-Coex | `REJECTED` | Classic+BLE ≠ WiFi-TDM |
+| Bessere WiFi-RSSI hebt Classic-ACL-Durchsatz | `REJECTED` | STA + Classic über HCI_TCP: ~3–4 kB/s (`wifi_ps` min/max) bzw. ~36–45 kB/s (`none`), unabhängig von −45/−85 dBm — [`esp32-bt-analyzer`](../../projects/esp32-bt-analyzer/applications/esp-wifi-bt-coex.md) |
+| Externer Host (BlueZ via HCI) setzt A2DP-Status-Bit | `REJECTED` | nur On-Chip-Host (Bluedroid); sonst manuell `esp_coex_status_bit_set` (Wirkung `UNKNOWN`) |
 
 ## Transfer
 

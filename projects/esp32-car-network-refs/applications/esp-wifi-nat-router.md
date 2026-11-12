@@ -43,7 +43,7 @@ maturity:
 | SoftAP + STA NAT | Kernfunktion | Lab-AP |
 | Optional WireGuard | `vpn_manager` → esp_wireguard | `EVID-CARNET-2026-11-12-010` |
 | Port default | 51820; keepalive CLI `-a` | Wiki/CLI |
-| SoftAP+BT parallel | Espressif C1 unstable | `…-030`; kein Sheet `esp-wifi-bt-coex` |
+| SoftAP+BT parallel | Espressif C1 unstable | `…-030`; Sheet [`esp-wifi-bt-coex`](../../../technologies/esp-wifi-bt-coex/SHEET.md) |
 
 ## Ebene C — Host- / Feld-Evidenz
 

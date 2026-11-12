@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION) · **Maturity:** [`docs/KNOWLEDGE-MATURITY.md`](../docs/KNOWLEDGE-MATURITY.md)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-12`, 86 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-12`, 87 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Belege aus Sheet∪Applications) · nicht verwechseln mit Projekt-Status (Prototype/Pilot).
 
@@ -39,11 +39,12 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | [`ble-hr-relay`](ble-hr-relay/SHEET.md) | BLE HR-Relay (Peripheral Bridge) | W3 | R2 | — | `esp32-heartrate`, `esp32-ergo` |
 | [`ble-hrm-gatt`](ble-hrm-gatt/SHEET.md) | BLE Heart Rate GATT (Central) | W3 | R3 | LAB, GENERAL | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe` |
 | [`ble-pcm-notify-stream`](ble-pcm-notify-stream/SHEET.md) | BLE PCM Notify Stream (Custom GATT) | W1 | R0 | — | `esp32-i2s-ble` |
-| [`bluetooth-a2dp`](bluetooth-a2dp/SHEET.md) | Bluetooth A2DP | W3 | R2 | — | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink`, `squeezelite-esp32` |
+| [`bluetooth-a2dp`](bluetooth-a2dp/SHEET.md) | Bluetooth A2DP | W3 | R2 | — | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink`, `squeezelite-esp32`, `esp32-bt-analyzer` |
 | [`bluetooth-ftms`](bluetooth-ftms/SHEET.md) | Bluetooth FTMS (Fitness Machine) | W3 | R3 | LAB, GENERAL | `esp32-ftmsprobe`, `esp32-ergo` |
 | [`bluetooth-hfp`](bluetooth-hfp/SHEET.md) | Bluetooth HFP (Hands-Free Profile) | W3 | R2 | — | `bt-classic-profile-refs` |
 | [`bluetooth-hid`](bluetooth-hid/SHEET.md) | Bluetooth HID (Classic Device/Host) | W3 | R2 | — | `bt-classic-profile-refs` |
 | [`bluetooth-spp`](bluetooth-spp/SHEET.md) | Bluetooth SPP (Serial Port Profile) | W3 | R2 | — | `bt-classic-profile-refs` |
+| [`bluez-pairing-agent`](bluez-pairing-agent/SHEET.md) | BlueZ Pairing Agent (org.bluez.Agent1) | W3 | R2 | — | `pidrive`, `esp32-bt-analyzer` |
 | [`bt-analysis-endpoint`](bt-analysis-endpoint/SHEET.md) | BT Analysis Endpoint (Role Impersonation) | W3 | R2 | — | `bt-analysis-relay-refs` |
 | [`bt-bdaddr-rewrite`](bt-bdaddr-rewrite/SHEET.md) | Bluetooth BD_ADDR Rewrite (Vendor-Specific HCI) | W2 | R0 | — | `bt-bdaddr-refs` |
 | [`bt-dual-mode-coex`](bt-dual-mode-coex/SHEET.md) | BT Dual-Mode Coexistence (Classic + BLE) | W3 | R2 | — | `bt-classic-profile-refs` |
@@ -66,7 +67,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | [`esp-hci-uart-controller`](esp-hci-uart-controller/SHEET.md) | ESP HCI UART Controller (H4 → Linux Host) | W2 | R0 | — | `esp32-hci-controller-refs` |
 | [`esp-psram-heavy-port`](esp-psram-heavy-port/SHEET.md) | ESP PSRAM Heavy App / Legacy Port | W1 | R0 | — | `esp32-doom`, `squeezelite-esp32` |
 | [`esp-tailscale-client`](esp-tailscale-client/SHEET.md) | ESP Tailscale-Compatible Client (WG + DERP + STUN) | W3 | R0 | — | `esp32-car-network-refs` |
-| [`esp-wifi-bt-coex`](esp-wifi-bt-coex/SHEET.md) | ESP32 WiFi ↔ Classic Bluetooth RF Coexistence (esp_coex_*) | W2 | R0 | — | `esp32-wifi-bt-coex-refs` |
+| [`esp-wifi-bt-coex`](esp-wifi-bt-coex/SHEET.md) | ESP32 WiFi ↔ Classic Bluetooth RF Coexistence (esp_coex_*) | W2 | R2 | — | `esp32-wifi-bt-coex-refs`, `esp32-bt-analyzer` |
 | [`esp-wifi-nat-router`](esp-wifi-nat-router/SHEET.md) | ESP WiFi NAT Router (SoftAP+STA) | W2 | R0 | — | `esp32-car-network-refs` |
 | [`esp-wireguard`](esp-wireguard/SHEET.md) | ESP WireGuard (IDF Component) | W3 | R0 | — | `esp32-car-network-refs` |
 | [`esp32-apll-fm-tx`](esp32-apll-fm-tx/SHEET.md) | ESP32 APLL / MCLK FM Transmit | W2 | R0 | — | `esp-fm-tx` |

@@ -153,7 +153,7 @@ projects:
     title: ESP32 On-Chip Bluetooth HCI Analyzer (VHCI)
     profile: lab-tool
     status: active
-    applications: 3
+    applications: 6
     path: projects/esp32-bt-analyzer/
   - id: esp32-bt-gateway
     title: esp32-bt-gateway
@@ -423,7 +423,7 @@ projects:
     title: PiDrive
     profile: ops-field
     status: active
-    applications: 11
+    applications: 12
     path: projects/pidrive/
   - id: rnt-esp32
     title: Random Nerd Tutorials — ESP32 Projects Catalog (Fremd)

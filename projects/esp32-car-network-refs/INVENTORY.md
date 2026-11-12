@@ -42,7 +42,7 @@ Kampagne: [esp32-car-network-2026-foreign](../../audits/esp32-car-network-2026-f
 | Bereich | Warum offen | Nächster Schritt |
 |---------|-------------|------------------|
 | Lab Hotspot STA + DERP | Desk only | Lab Gate G-HOTSPOT |
-| SoftAP+Classic BT Coex messbar | kein `esp-wifi-bt-coex` Sheet; C1 Desk | FOLLOW-ON / optional neues Sheet |
+| SoftAP+Classic BT Coex messbar | `esp-wifi-bt-coex` (C1 Desk) | FOLLOW-ON Lab |
 | bt-analyzer Integration | Upstream A6/B1 runbook | nach Lab-Rendezvous |
 
 ## Signale ohne Eintrag

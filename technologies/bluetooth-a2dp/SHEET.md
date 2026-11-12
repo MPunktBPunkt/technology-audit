@@ -7,7 +7,7 @@ primary: C
 tags: [bluetooth-classic, streaming]
 type: protocol
 status: active
-seen_in: [pidrive, esp32-bt-gateway, esp32-a2dp, bluetooth-stack, espble, a2dpsinkhfpclient, esp-idf-classic-bt, esp32-a2dp-codecs, esp32-a2dp-source, esp32-bt-iap, esphome-a2dp-sink, squeezelite-esp32]
+seen_in: [pidrive, esp32-bt-gateway, esp32-a2dp, bluetooth-stack, espble, a2dpsinkhfpclient, esp-idf-classic-bt, esp32-a2dp-codecs, esp32-a2dp-source, esp32-bt-iap, esphome-a2dp-sink, squeezelite-esp32, esp32-bt-analyzer]
 maturity:
   technology: R2
   implementation: R0
@@ -53,6 +53,7 @@ Advanced Audio Distribution Profile: punkt-zu-punkt Streaming komprimierter Audi
 | Pi BlueZ beweist ESP-Gateway | `REJECTED` | getrennte Stack-Evidence |
 | Externer HCI „ESP32“ = Bluedroid-FW | `REJECTED` | Controller ≠ Profile-Host |
 | Multi-Codec-Fork = drop-in Arduino-Library | `REJECTED` | oft forked IDF tree |
+| Linux-Sink-Bitpool per PipeWire/bluez-alsa-Config begrenzbar | `REJECTED` | beide bieten Sink-Caps bis Max; nur Source drosselbar (bluez-alsa `--sbc-quality`) — [`esp32-bt-analyzer`](../../projects/esp32-bt-analyzer/applications/bluetooth-a2dp.md) |
 
 ## Transfer
 
