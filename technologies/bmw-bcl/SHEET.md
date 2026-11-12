@@ -67,7 +67,9 @@ Klassifikation: **FACT** = so im Client-Code; **nicht** = eigenes Feld-MEASURED.
 | Phone-App ist RFCOMM **Server** | `REJECTED` | BclCarLink `createRfcommSocketToServiceRecord(SDP_BCL)` = **Client** (`EVID-BCLRF-2026-11-12-001`) |
 | `SDP_BCL` = BMW-proprietäre UUID | `REJECTED` | generic SPP `00001101-…` (`EVID-BCLRF-2026-11-12-002`) |
 | HU = SDP provider / RFCOMM server | `INFERENCE` | aus Client-Connect-Pattern; kein HU-Server-Code in BclCarLink (`EVID-BCLRF-2026-11-12-003`) |
-| Watchdog nur „alive“ ohne Timing | `REJECTED` | dest **5001**, ping `0x13371337` alle **5 s**, timeout **20 s** (`EVID-BCLRF-2026-11-12-004`) |
+| Watchdog nur „alive“ ohne Timing | `REJECTED` | dest **5001**, **request** `0x13371337` alle **5 s**, timeout **20 s** (`EVID-BCLRF-2026-11-12-004`) |
+| HU Watchdog-Pong = exakt `13371337` | `UNKNOWN` | BclCarLink zählt jedes Antwort-Byte; kein Byte-Vergleich (`WatchdogProtocol` listener) |
+| OPEN dest **4004** folgt deterministisch auf HANDSHAKE | `REJECTED` | erst nach lokalem TCP-Consumer auf Proxy `:4007` (`EtchProxyService` / `TcpProxyProtocol`) |
 | A2DP = BCL-Transport | `REJECTED` | A2DP-Connected nur Discovery-Hint in `BtClientService` (`EVID-BCLRF-2026-11-12-005`) |
 
 ## Transfer
