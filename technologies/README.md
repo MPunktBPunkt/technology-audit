@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION) · **Maturity:** [`docs/KNOWLEDGE-MATURITY.md`](../docs/KNOWLEDGE-MATURITY.md)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-06`, 79 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-12`, 86 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Belege aus Sheet∪Applications) · nicht verwechseln mit Projekt-Status (Prototype/Pilot).
 
@@ -32,10 +32,10 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | Slug | Title | W | Evid | Scope | Gesehen in |
 |------|-------|---|------|-------|------------|
 | [`avrcp`](avrcp/SHEET.md) | AVRCP | W3 | R2 | — | `pidrive`, `esp32-bt-gateway`, `esp32-a2dp`, `bluetooth-stack`, `espble`, `a2dpsinkhfpclient`, `esp-idf-classic-bt`, `esp32-a2dp-codecs`, `esp32-a2dp-source`, `esp32-bt-iap`, `esphome-a2dp-sink` |
-| [`ble-gatt-dual-role`](ble-gatt-dual-role/SHEET.md) | BLE GATT Dual-Role (Central + Peripheral) | W3 | R2 | — | `ble-gatt-bridge-refs` |
+| [`ble-gatt-dual-role`](ble-gatt-dual-role/SHEET.md) | BLE GATT Dual-Role (Central + Peripheral) | W3 | R2 | — | `ble-gatt-bridge-refs`, `ble-gatt-bluez-relay-refs` |
 | [`ble-gatt-observe-proxy`](ble-gatt-observe-proxy/SHEET.md) | BLE GATT Observe Proxy (Analysis Dual-Role) | W3 | R2 | — | `bt-analysis-relay-refs` |
 | [`ble-gatt-semantic-bridge`](ble-gatt-semantic-bridge/SHEET.md) | Semantic GATT Bridge (Profile A → B) | W3 | R2 | — | `ble-gatt-bridge-refs` |
-| [`ble-gatt-transparent-bridge`](ble-gatt-transparent-bridge/SHEET.md) | Transparent GATT Bridge (Byte Passthrough) | W3 | R2 | — | `ble-gatt-bridge-refs` |
+| [`ble-gatt-transparent-bridge`](ble-gatt-transparent-bridge/SHEET.md) | Transparent GATT Bridge (Byte Passthrough) | W3 | R2 | — | `ble-gatt-bridge-refs`, `ble-gatt-bluez-relay-refs` |
 | [`ble-hr-relay`](ble-hr-relay/SHEET.md) | BLE HR-Relay (Peripheral Bridge) | W3 | R2 | — | `esp32-heartrate`, `esp32-ergo` |
 | [`ble-hrm-gatt`](ble-hrm-gatt/SHEET.md) | BLE Heart Rate GATT (Central) | W3 | R3 | LAB, GENERAL | `esp32-heartrate`, `esp32-ergo`, `esp32-ftmsprobe` |
 | [`ble-pcm-notify-stream`](ble-pcm-notify-stream/SHEET.md) | BLE PCM Notify Stream (Custom GATT) | W1 | R0 | — | `esp32-i2s-ble` |
@@ -45,6 +45,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | [`bluetooth-hid`](bluetooth-hid/SHEET.md) | Bluetooth HID (Classic Device/Host) | W3 | R2 | — | `bt-classic-profile-refs` |
 | [`bluetooth-spp`](bluetooth-spp/SHEET.md) | Bluetooth SPP (Serial Port Profile) | W3 | R2 | — | `bt-classic-profile-refs` |
 | [`bt-analysis-endpoint`](bt-analysis-endpoint/SHEET.md) | BT Analysis Endpoint (Role Impersonation) | W3 | R2 | — | `bt-analysis-relay-refs` |
+| [`bt-bdaddr-rewrite`](bt-bdaddr-rewrite/SHEET.md) | Bluetooth BD_ADDR Rewrite (Vendor-Specific HCI) | W2 | R0 | — | `bt-bdaddr-refs` |
 | [`bt-dual-mode-coex`](bt-dual-mode-coex/SHEET.md) | BT Dual-Mode Coexistence (Classic + BLE) | W3 | R2 | — | `bt-classic-profile-refs` |
 | [`esp-now-messaging`](esp-now-messaging/SHEET.md) | ESP-NOW Messaging | W2 | R1 | — | `esp32-communicator` |
 | [`esp-usb-audio-uac`](esp-usb-audio-uac/SHEET.md) | ESP USB Audio (UAC Device) | W2 | R0 | — | `esp-iot-solution`, `esp-usb-audio-example` |
@@ -62,7 +63,12 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 
 | Slug | Title | W | Evid | Scope | Gesehen in |
 |------|-------|---|------|-------|------------|
+| [`esp-hci-uart-controller`](esp-hci-uart-controller/SHEET.md) | ESP HCI UART Controller (H4 → Linux Host) | W2 | R0 | — | `esp32-hci-controller-refs` |
 | [`esp-psram-heavy-port`](esp-psram-heavy-port/SHEET.md) | ESP PSRAM Heavy App / Legacy Port | W1 | R0 | — | `esp32-doom`, `squeezelite-esp32` |
+| [`esp-tailscale-client`](esp-tailscale-client/SHEET.md) | ESP Tailscale-Compatible Client (WG + DERP + STUN) | W3 | R0 | — | `esp32-car-network-refs` |
+| [`esp-wifi-bt-coex`](esp-wifi-bt-coex/SHEET.md) | ESP32 WiFi ↔ Classic Bluetooth RF Coexistence (esp_coex_*) | W2 | R0 | — | `esp32-wifi-bt-coex-refs` |
+| [`esp-wifi-nat-router`](esp-wifi-nat-router/SHEET.md) | ESP WiFi NAT Router (SoftAP+STA) | W2 | R0 | — | `esp32-car-network-refs` |
+| [`esp-wireguard`](esp-wireguard/SHEET.md) | ESP WireGuard (IDF Component) | W3 | R0 | — | `esp32-car-network-refs` |
 | [`esp32-apll-fm-tx`](esp32-apll-fm-tx/SHEET.md) | ESP32 APLL / MCLK FM Transmit | W2 | R0 | — | `esp-fm-tx` |
 | [`esp32-polar-phy-tx`](esp32-polar-phy-tx/SHEET.md) | ESP32-S3 Polar PHY Test-Tone TX | W2 | R0 | — | `esp32-sdr-trx` |
 | [`esp32-s3-silicon`](esp32-s3-silicon/SHEET.md) | ESP32-S3 Silicon Errata & Hardware Limits | W2 | R1 | — | `esp32-pidrive`, `hu-probe`, `pidrive`, `esp32-ai`, `esp32-usb-analyzer` |
@@ -112,9 +118,10 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 |------|-------|---|------|-------|------------|
 | [`ble-http-gatt-probe`](ble-http-gatt-probe/SHEET.md) | HTTP-gesteuerte BLE-GATT-Sonde | W2 | R3 | LAB | `esp32-ftmsprobe` |
 | [`ble-rssi-proximity`](ble-rssi-proximity/SHEET.md) | BLE RSSI Proximity Hunt | W1 | R0 | — | `esp-ble-finder` |
-| [`bmw-bcl`](bmw-bcl/SHEET.md) | BMW BCL — Connected-App Multiplex Tunnel | W2 | R0 | — | `bimmergestalt-idrive-refs`, `esp32-usb-analyzer` |
-| [`bmw-etch-rpc`](bmw-etch-rpc/SHEET.md) | BMW Etch RPC — BMWRemoting Connected-App API | W2 | R0 | — | `bimmergestalt-idrive-refs` |
+| [`bmw-bcl`](bmw-bcl/SHEET.md) | BMW BCL — Connected-App Multiplex Tunnel | W2 | R0 | LAB | `bimmergestalt-idrive-refs`, `esp32-usb-analyzer`, `hu-probe`, `esp32-bt-analyzer` |
+| [`bmw-etch-rpc`](bmw-etch-rpc/SHEET.md) | BMW Etch RPC — BMWRemoting Connected-App API | W2 | R0 | — | `bimmergestalt-idrive-refs`, `hu-probe` |
 | [`bmw-rhmi`](bmw-rhmi/SHEET.md) | BMW RHMI — Remote HMI for Connected Apps | W2 | R0 | — | `bimmergestalt-idrive-refs` |
+| [`bmw-sas-auth`](bmw-sas-auth/SHEET.md) | BMW SAS — Connected Apps Security Authentication | W2 | R0 | — | `bimmergestalt-idrive-refs`, `hu-probe` |
 | [`bt-endpoint-event-stream`](bt-endpoint-event-stream/SHEET.md) | BT Endpoint Event Stream (ESP → Host Export) | W3 | R2 | — | `bt-sniffing-capture-refs` |
 | [`esp-lab-bus-tools`](esp-lab-bus-tools/SHEET.md) | ESP Lab Bus / GPIO Tools | W3 | R1 | — | `esp32-io-control`, `esp32-toolnode` |
 | [`esp-wifi-promiscuous-pcap`](esp-wifi-promiscuous-pcap/SHEET.md) | ESP WiFi Promiscuous Sniff + PCAP Capture | W1 | R0 | — | `esp32-marauder` |

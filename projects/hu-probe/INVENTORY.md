@@ -35,7 +35,7 @@ Kampagnen: [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi
 | `esp32-s3-silicon` | S3 Silicon / Board / PSRAM | D | `esp32s3`, `errata`, `psram` | applied | partial | [SHEET](../../technologies/esp32-s3-silicon/SHEET.md) | [app](applications/esp32-s3-silicon.md) |
 | `usb-msc` | USB MSC Device | C | `usb-device` | applied | partial | [SHEET](../../technologies/usb-msc/SHEET.md) | [app](applications/usb-msc.md) |
 | `bmw-nbt-evo` | BMW NBT Evo Host | I | `automotive`, `usb-host` | applied | partial | [SHEET](../../technologies/bmw-nbt-evo/SHEET.md) | [app](applications/bmw-nbt-evo.md) |
-| `bmw-sas-auth` | Connected SAS Auth | H | `automotive`, `security` | applied | none (desk) | [SHEET](../../technologies/bmw-sas-auth/SHEET.md) | [app](applications/bmw-sas-auth.md) |
+| `bmw-sas-auth` | Connected SAS Auth | H | `automotive`, `security` | applied | none | [SHEET](../../technologies/bmw-sas-auth/SHEET.md) | [app](applications/bmw-sas-auth.md) |
 
 ## Nach Kategorie
 

@@ -13,7 +13,7 @@ maturity:
   implementation: R1
   field_evidence: R0   # HU wire still UNKNOWN; lab TEST only (see esp32-bt-analyzer application)
   reusability: W2
-  evidence_scope: [lab-synth-rfcomm-2026-11-12]
+  evidence_scope: [LAB]
 ```
 
 Ebene **A** (Protokollbeschreibung aus Fremdquellen) plus **erste eigene Lab-TEST-Kette**
@@ -64,6 +64,11 @@ Klassifikation: **FACT** = so im Client-Code; **nicht** = eigenes Feld-MEASURED.
 | BCL = Etch | `REJECTED` | Etch läuft *in* DATA-Kanälen dest 4004 |
 | Dest-Port-Namen aus Lua = BMW-Spec | `INFERENCE` | Dissector aus Captures/Code, nicht OEM-Spec |
 | Gleiches Framing auf allen HU-Generationen | `UNKNOWN` | Desk ohne Generations-Capture-Matrix |
+| Phone-App ist RFCOMM **Server** | `REJECTED` | BclCarLink `createRfcommSocketToServiceRecord(SDP_BCL)` = **Client** (`EVID-BCLRF-2026-11-12-001`) |
+| `SDP_BCL` = BMW-proprietäre UUID | `REJECTED` | generic SPP `00001101-…` (`EVID-BCLRF-2026-11-12-002`) |
+| HU = SDP provider / RFCOMM server | `INFERENCE` | aus Client-Connect-Pattern; kein HU-Server-Code in BclCarLink (`EVID-BCLRF-2026-11-12-003`) |
+| Watchdog nur „alive“ ohne Timing | `REJECTED` | dest **5001**, ping `0x13371337` alle **5 s**, timeout **20 s** (`EVID-BCLRF-2026-11-12-004`) |
+| A2DP = BCL-Transport | `REJECTED` | A2DP-Connected nur Discovery-Hint in `BtClientService` (`EVID-BCLRF-2026-11-12-005`) |
 
 ## Transfer
 
@@ -87,6 +92,11 @@ eigene Evidence weiterhin **R0** bis Lab/Field.
 Handshake-Vertiefung (Session-Init Hex, Rollen, hu-probe-Experimente):
 [`bmw-bcl-handshake`](../../projects/bimmergestalt-idrive-refs/applications/bmw-bcl-handshake.md).
 Init-Bytes sind **4 B** `12 34 56 78`, nicht ASCII-8.
+
+RFCOMM-Rollen (Phone Client / HU Server INFERENCE, SPP UUID, Watchdog Timing, A2DP Hint):
+[`bmw-bcl-rfcomm`](../../projects/bimmergestalt-idrive-refs/applications/bmw-bcl-rfcomm.md) · Audit [`bmw-bcl-rfcomm-role-2026-desk`](../../audits/bmw-bcl-rfcomm-role-2026-desk/).
+
+SAS/Etch Auth: **CROSSREF** [`bmw-connected-sas-auth-2026-11-06`](../../audits/bmw-connected-sas-auth-2026-11-06/) — hier nicht duplizieren.
 
 ## Lessons
 

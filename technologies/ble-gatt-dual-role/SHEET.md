@@ -7,7 +7,7 @@ primary: C
 tags: [esp-idf, nimble]
 type: pattern
 status: active
-seen_in: [ble-gatt-bridge-refs]
+seen_in: [ble-gatt-bridge-refs, ble-gatt-bluez-relay-refs]
 maturity:
   technology: R3
   implementation: R0
@@ -43,7 +43,7 @@ Ein Controller führt **gleichzeitig** BLE-Central (zu Sensor/Gerät) und BLE-Pe
 | Advertising bleibt nach Peripheral-Accept connectable | `HYPOTHESIS` | oft Restart nötig (siehe HR-Relay) |
 | Server-GATT vor Central-Connect immer unproblematisch | `HYPOTHESIS` | Fremd: Reboot-before-advertise / Role-Init-Reihenfolge |
 | Dual-Role-Contention „kickt“ Target-Link nie | `REJECTED` | Fremd-Kommentare/Watchdogs existieren deshalb |
-| Zwei-HCI-Proxy = Ein-Chip-Dual-Role | `REJECTED` | andere Failure Modes |
+| Zwei-HCI-Proxy = Ein-Chip-Dual-Role | `REJECTED` | andere Failure Modes; verstärkt: BluetoothInterceptor @ `4a10bcf` (bluer Concurrent auf einem Controller = unreliable; `--target-adapter`≠`--clone-adapter`) |
 
 ## Transfer
 
@@ -60,6 +60,7 @@ Vor jedem Bridge-Folgeprojekt: Chip-Scope + Connection-Rechnung (1× Upstream + 
 ## Referenzen
 
 - Fremd-Desk: ChimeraBLE, iFitnessProxy, BleRemoteBrideg, esp32-ble-uart-mx @ Pins in `ble-gatt-bridge-refs`
+- Fremd-Desk Delta: BluetoothInterceptor @ `4a10bcf` (BlueZ/bluer Two-Adapter; DESIGN §4) in `ble-gatt-bluez-relay-refs`
 - Eigen: esp32.heartrate S3 Relay, esp32.ergo FTMS Bridge
 
 ## Offene Fragen

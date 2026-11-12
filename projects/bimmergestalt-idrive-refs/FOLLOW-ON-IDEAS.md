@@ -21,5 +21,6 @@ Keine automatische Engineering-Action. Nur nach eigener Evidence → Decision.
 
 Kampagne Knowledge Acquisition geschlossen; C1b = eigene Messkampagne (Plan only hier).
 Lab-/Field-Messungen = eigene Audits / hu-probe Gates.
-Handshake-Desk 2026-10-29: [`applications/bmw-bcl-handshake.md`](applications/bmw-bcl-handshake.md).
+Handshake-Desk 2026-10-29: [`applications/bmw-bcl-handshake.md`](applications/bmw-bcl-handshake.md).  
+RFCOMM-Rollen Desk 2026-11-12 (gap 4/5 closed): [`applications/bmw-bcl-rfcomm.md`](applications/bmw-bcl-rfcomm.md) · [`bmw-bcl-rfcomm-role-2026-desk`](../../audits/bmw-bcl-rfcomm-role-2026-desk/).
 

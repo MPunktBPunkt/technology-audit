@@ -25,6 +25,8 @@ Nur Ebene **A**. Profil-Logik bleibt in HFP/SPP/HID/A2DP/GATT-Sheets.
 
 - **Ist:** Controller-/Host-Coexistence-Muster, Budgets, Init-Modi (`BR_EDR_ONLY` / `BLE_ONLY` / `BTDM`).
 - **Ist nicht:** einzelnes Profil; WiFi-only Coex ohne BT; S3-„Classic“ ohne Chip-Evidence.
+- **WiFi ≠ BTDM:** RF Software-Coex WiFi↔Classic/BLE (`esp_coex_*`, SoftAP/STA-TDM) →
+  [`esp-wifi-bt-coex`](../esp-wifi-bt-coex/SHEET.md) — nicht dieses Sheet.
 
 ## Schnittstellen und Abhängigkeiten
 
@@ -32,7 +34,7 @@ Nur Ebene **A**. Profil-Logik bleibt in HFP/SPP/HID/A2DP/GATT-Sheets.
 |----------|---------------|-----------|
 | unten | Controller | `ESP_BT_MODE_*`, mem_release |
 | oben | Host(s) | Bluedroid und/oder NimBLE / BTstack VHCI |
-| lateral | WiFi | SoftAP/STA Coex-Parameter |
+| lateral | WiFi | SoftAP/STA → siehe [`esp-wifi-bt-coex`](../esp-wifi-bt-coex/SHEET.md) (nicht BTDM) |
 | lateral | Audio SCO | Sync-Conn-Budget vs A2DP |
 
 ## Typische Fallstricke
@@ -67,4 +69,4 @@ Vor Gateway/Bridge: Matrix **Chip × Mode × Profile × WiFi**. Classic-Media-Si
 
 ## Offene Fragen
 
-- Messbare Coex-Matrix WiFi+A2DP+HFP+BLE GATT auf ESP32?
+- Messbare Coex-Matrix WiFi+A2DP+HFP+BLE GATT auf ESP32? (WiFi-TDM-Anteil → [`esp-wifi-bt-coex`](../esp-wifi-bt-coex/SHEET.md))

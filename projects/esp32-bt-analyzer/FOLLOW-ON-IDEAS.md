@@ -9,8 +9,20 @@ reuse_outcomes:
 
 Desk Host-Profiles: [`esp32-bt-analyzer-host-profiles-2026-desk`](../../audits/esp32-bt-analyzer-host-profiles-2026-desk/).
 
+Knowledge-gap foreign desk 2026-11-12 (HCI / Coex / Car-Net / BCL-RFCOMM / BlueZ-GATT / BDADDR):
+[`esp32-hci-controller-2026-foreign`](../../audits/esp32-hci-controller-2026-foreign/) ·
+[`esp32-wifi-bt-coex-2026-foreign`](../../audits/esp32-wifi-bt-coex-2026-foreign/) ·
+[`esp32-car-network-2026-foreign`](../../audits/esp32-car-network-2026-foreign/) ·
+[`bmw-bcl-rfcomm-role-2026-desk`](../../audits/bmw-bcl-rfcomm-role-2026-desk/) ·
+[`ble-gatt-bluez-relay-2026-foreign`](../../audits/ble-gatt-bluez-relay-2026-foreign/) ·
+[`bt-bdaddr-2026-foreign`](../../audits/bt-bdaddr-2026-foreign/).
+
 | Idee | Baut auf | Kurz |
 |------|----------|------|
+| UART HCI offload vs WiFi HCI_TCP | `esp-hci-uart-controller`, `esp-wifi-bt-coex` | Lab: same ACL load over UART vs SoftAP/STA |
+| Car reachability A6/B1 | `esp-tailscale-client` / `esp-wireguard` | Outbound rendezvous hinter Handy-Hotspot |
+| HU RFCOMM channel X | `bmw-bcl` RFCOMM desk | A6 link → B1 SDP (nicht Lab-Kanal 5) |
+| BlueZ two-adapter HR/FTMS relay | BluetoothInterceptor pattern | Bonding/CCCD Lab gegen H9 |
 | External BT14 sign-off | STATUS.md | Reviewer stamp in audit CI |
 | Second Classic ESP peer | BT10 | Dual Classic inquiry symmetry |
 | **Profile Flavor Bus** | Host-Profiles desk | Core stays capture; Flavors = tagged stimulus clients |

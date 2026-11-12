@@ -33,3 +33,6 @@ BMWConnectedAnalysis@`9e96ac6`. `field_evidence: R0` — keine eigenen Captures.
 
 **Vertiefung Handshake (AOA→BCL→Etch/SAS):**  
 [`bmw-bcl-handshake.md`](bmw-bcl-handshake.md) — Byte-Layouts, Rollen, Security-Grenze, hu-probe Init-Test (`12 34 56 78` ≠ ASCII-8).
+
+**Vertiefung RFCOMM-Rollen (gap 4/5):**  
+[`bmw-bcl-rfcomm.md`](bmw-bcl-rfcomm.md) — Phone = RFCOMM Client / SPP UUID; HU = Server INFERENCE; Watchdog 5001 / `0x13371337` / 5s / 20s; A2DP Discovery-Hint. Audit [`bmw-bcl-rfcomm-role-2026-desk`](../../../audits/bmw-bcl-rfcomm-role-2026-desk/). SAS: CROSSREF [`bmw-connected-sas-auth-2026-11-06`](../../../audits/bmw-connected-sas-auth-2026-11-06/).
