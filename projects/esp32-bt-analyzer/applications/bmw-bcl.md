@@ -12,6 +12,7 @@ maturity:
   implementation: R1
   field_evidence: R0   # lab TEST only — real HU still UNKNOWN
   reusability: W2
+updated: 2026-11-12
 ```
 
 ## Rolle im Projekt
@@ -51,7 +52,8 @@ Dummy-HU .87 ──RFCOMM── .131 / BlueZ .108 ──HCI TCP── capture
 | Synth BCL bytes survive RFCOMM over HCI TCP | `LAB_BCL_SYNTH_STREAM_20261112T060654Z` | `MEASURED` (lab Dummy) |
 | Dummy-HU SPP `0x1101` / name BMW Connected / RFCOMM 5 visible via sdptool | `LAB_BCL_DUMMY_HU_SDP_20261112T062151Z` | `MEASURED` (lab Dummy) |
 | Framer erkennt Phone→HU Session-Init `12 34 56 78` an Frame-Grenzen (sonst sticky PayloadTooLarge durch len=0x5678) | host tests `TestSessionInit` (0.3.19) | `TEST` — Erwartung aus [`bmw-bcl-handshake`](../../bimmergestalt-idrive-refs/applications/bmw-bcl-handshake.md) |
-| Dummy-HU muss A2DP-Senke **und** SPP-Server sein, sonst versucht die App kein RFCOMM | [`bmw-bcl-rfcomm`](../../bimmergestalt-idrive-refs/applications/bmw-bcl-rfcomm.md) (`EVID-BCLRF-2026-11-12-005`) → B0.7 `lab_bcl_dummy_hu_a2dp.py` | `FACT` (BclCarLink) · Lauf `UNKNOWN` |
+| Dummy-HU muss A2DP-Senke **und** SPP-Server sein, sonst versucht die App kein RFCOMM | [`bmw-bcl-rfcomm`](../../bimmergestalt-idrive-refs/applications/bmw-bcl-rfcomm.md) (`EVID-BCLRF-2026-11-12-005`) → B0.7 `lab_bcl_dummy_hu_a2dp.py` | `FACT` (BclCarLink) · synth PASS · external MyBMW/AAIdrive `NO_RFCOMM` |
+| MyBMW + AAIdrive open RFCOMM to Dummy-HU after re-pair (A2DP+SPP gate up) | `LAB_BCL_DUMMY_HU_A2DP_20261112T172006Z` | `REJECTED` (`NO_RFCOMM`) — Etch consumers ≠ RFCOMM openers |
 | Real HU offers SPP/BCL | — | `UNKNOWN` |
 | Lab RFCOMM channel 5 = BMW channel | — | `REJECTED` as claim |
 
@@ -59,11 +61,15 @@ Dummy-HU .87 ──RFCOMM── .131 / BlueZ .108 ──HCI TCP── capture
 
 ```text
 YES:  own lab can advertise SPP and decode synthetic BCL over RFCOMM
+YES:  AAIdrive/MyBMW alone are not RFCOMM openers against Dummy-HU (expected: Etch consumers)
 NO:   NBT Evo / F20 wire FACT
 NO:   channel 5 as BMW expectation (measure X from SDP)
 ```
 
+Desk CROSSREF (roles / source matrix): pidrive `HU-Technical-Facts.md` §10.1–10.4 ·
+`bmw-bcl-rfcomm-role-2026-desk` · BimmerGestalt inventory.
+
 ## Next (car)
 
 A6 link `.87`↔HU → B1 SDP (UUID / name / **channel X**) → only then B2 RFCOMM payload.
-See upstream `docs/CAR_A6_B1.md`.
+See upstream `docs/CAR_A6_B1.md`. Optional lab: B0.7 with **BclCarLink** as peer (not AAIdrive alone).
