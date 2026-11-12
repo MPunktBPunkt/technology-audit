@@ -7,18 +7,20 @@ primary: H
 tags: [automotive, protocol, foreign-desk]
 type: technology
 status: active
-seen_in: [bimmergestalt-idrive-refs, esp32-usb-analyzer, hu-probe]
+seen_in: [bimmergestalt-idrive-refs, esp32-usb-analyzer, hu-probe, esp32-bt-analyzer]
 maturity:
   technology: R2
-  implementation: R0
-  field_evidence: R0
+  implementation: R1
+  field_evidence: R0   # HU wire still UNKNOWN; lab TEST only (see esp32-bt-analyzer application)
   reusability: W2
-  evidence_scope: []
+  evidence_scope: [lab-synth-rfcomm-2026-11-12]
 ```
 
-Ebene **A** (Protokollbeschreibung aus Fremdquellen). Keine eigenen Lab-/Field-Captures
-in diesem Sheet. Herkunft: BimmerGestalt (`BclCarLink`, `wireshark_bmw_bcl`,
-`BMWConnectedAnalysis`). **Nicht** USB-MSC / NBT-Host-C.
+Ebene **A** (Protokollbeschreibung aus Fremdquellen) plus **erste eigene Lab-TEST-Kette**
+in [`esp32-bt-analyzer` / `bmw-bcl`](../../projects/esp32-bt-analyzer/applications/bmw-bcl.md)
+(synth stream + Dummy-HU RFCOMM/SDP). **Keine** echte HU-Wire-FACT. Herkunft Desk:
+BimmerGestalt (`BclCarLink`, `wireshark_bmw_bcl`, `BMWConnectedAnalysis`).
+**Nicht** USB-MSC / NBT-Host-C.
 
 ## Kurzfassung
 
