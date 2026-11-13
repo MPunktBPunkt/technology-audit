@@ -30,7 +30,8 @@ Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTE
 | BCL framer session-init `12 34 56 78` | TEST (host) | desk expectation BclCarLink, not HU wire |
 | Dummy-HU SDP SPP | MEASURED (TEST) | `CANDIDATE_STRONG` lab only |
 | B0.7 Dummy-HU SPP + A2DP sink, answers session init | UNKNOWN | tool `lab_bcl_dummy_hu_a2dp.py` + host tests; not yet run on .108 |
-| A6 HU link / B1 real SDP | UNKNOWN | car runbook — channel X not 5; car WiFi too weak on first try; **disable MyBMW/AAIdrive** during SDP/RFCOMM (secondary contention) |
+| A6 HU link | MEASURED PASS | `FIELD_A6_HU_20261113T062824Z` · BMW 38304 / SPP UUID seen |
+| B1 real SDP / B2 RFCOMM | UNKNOWN | channel X not 5; **B2-A + B2-B**; initiator UNKNOWN; **disable MyBMW/AAIdrive** on baseline (secondary contention) |
 
 ## Claim boundary
 

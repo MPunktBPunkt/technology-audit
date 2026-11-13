@@ -76,8 +76,12 @@ Desk CROSSREF (roles / source matrix): pidrive `HU-Technical-Facts.md` §10.1–
 
 ## Next (car)
 
-A6 link `.87`↔HU → B1 SDP (UUID / name / **channel X**) → only then B2 RFCOMM payload.
-See upstream `docs/CAR_A6_B1.md`. Optional lab: B0.7 with **BclCarLink** as peer (not AAIdrive alone).
+A6 link `.87`↔HU (**MEASURED** 2026-11-13) → B1 SDP (UUID / name / **channel X**, states A–D)
+→ **B2-A** (phone/ESP initiate) **+ B2-B** (HU initiate, `.87` observe-only SPP server).
+F20 RFCOMM initiator = **UNKNOWN** until SABM measured; B2-A negative ≠ BCL absent.
+See upstream `docs/CAR_A6_B1.md` · method `docs/analysis/BCL_RFCOMM_TWO_MODE_20261113.md`.
+Optional lab: B0.7 with **BclCarLink**; B2-B observe-only mode on ProfileManager (not AAIdrive alone).
 
-**B1/B2 checklist addendum:** Phone: MyBMW + AAIdrive off; note if Connected Classic remains;
-no parallel nbt-aad session if testing BCL. Secondary contention is a known confounder, not a BCL decoder.
+**B1/B2 checklist addendum:** Phone: MyBMW + AAIdrive off (baseline); note if Connected Classic remains;
+no parallel nbt-aad session if testing BCL; no BCL TX during B2-B before classification.
+Secondary contention is a known confounder, not a BCL decoder / not F20-[B].
