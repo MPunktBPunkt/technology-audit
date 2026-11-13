@@ -66,6 +66,8 @@ Dummy-HU .87 ──RFCOMM── .131 / BlueZ .108 ──HCI TCP── capture
 | Real HU speaks BCL on that SPP | — | `UNKNOWN` (next: state C/D ± controlled TX) |
 | BclCarLink (`createRfcommSocketToServiceRecord(0x1101)`) would land on HU ch 6 | SDP order + B2-A ch 6 accept | `INFERENCE` strengthened — transport path exists |
 | Lab RFCOMM channel 5 = BMW channel | — | `REJECTED` as claim (HU ch 5 exists but is `deca-fade`, not `0x1101` — number coincidence) |
+| Lab can advertise F20-shaped SDP (ch5 `deca-fade` + ch6 `0x1101`) | `LAB_F20_SDP_MIRROR_20261113T174006Z` | `MEASURED` (LAB_TEST); ch7–10 identical `0x1101` blocked by BlueZ ProfileManager |
+| OnePlus + MyBMW/AAIdrive vs answering Dummy (ch6 HANDSHAKE-ready, BMW 38304 CoD) | `LAB_BMW_SIM_20261113T181344Z` | `REJECTED` inbound RFCOMM — extends prior `NO_RFCOMM`; outbound magic to AMA/NearbySharing ≠ Connected |
 
 ## Epistemik
 
