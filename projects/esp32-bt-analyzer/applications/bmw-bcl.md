@@ -70,7 +70,7 @@ Dummy-HU .87 ──RFCOMM── .131 / BlueZ .108 ──HCI TCP── capture
 | OnePlus + MyBMW/AAIdrive vs answering Dummy (ch6 HANDSHAKE-ready, BMW 38304 CoD) | `LAB_BMW_SIM_20261113T181344Z` | early negative; later same night **PASS** |
 | `b2a-tx` controlled INIT → Dummy HANDSHAKE (no KNOCK) | `LAB_B2A_TX_20261113T2157Z` | `MEASURED` (LAB_TEST) — validates BclCarLink TX-first order; F20 pending |
 | OnePlus AAIdrive/MyBMW → Dummy full BCL (INIT→HS→SELECTPROTO(2)→OPEN 5001/4004→PKCS7→WD≈2.5s) | `LAB_PHONE_BCL_20261113T2201Z` + `_DECODE` | `MEASURED` — UI „verbunden mit BMW“; Wire ≠ BclCarLink@7cfd959 (SP/WD) |
-| Wrong Dummy CoD → DEADBEEF+UUID probe instead of INIT | `LAB_EVENING_COD_GATE_20261113T2342Z` · `LAB_L3_NO_HS_*` | `MEASURED` — restore `class 0x340408` restores BCL |
+| Wrong Dummy CoD → DEADBEEF+UUID probe instead of INIT | `LAB_COD_AB_BOUNCE_20261113T2355Z` · `LAB_EVENING_COD_GATE_*` · `LAB_L3_NO_HS_*` | `MEASURED` — needs ACL bounce; A2DP transport stayed idle (eof ≠ A2DP drop) |
 | BclCarLink@7cfd959 pin-drift explains wire SP(2)/WD 2.5s | desk vs wire | `REJECTED` as proven — AAIdrive uses MyBMW proxy; keep desk as structural ref only |
 | HU ch5 `deca-fade` | public iAP2/MFi UUID + `BCL_BT.md` | `FACT` (identity) — **not** BCL endpoint; H-D dropped |
 
