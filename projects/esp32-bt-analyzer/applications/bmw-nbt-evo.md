@@ -9,7 +9,7 @@ upstream: https://github.com/MPunktBPunkt/esp32.bt-analyzer
 maturity:
   technology: R2
   implementation: R1
-  field_evidence: R1   # one field capture (A6, 192 s, HU idle) — SDP/A2DP/AVRCP/HFP MEASURED; RFCOMM-BCL UNKNOWN
+  field_evidence: R1   # A6+B1A + B2 state A: SDP/A2DP/AVRCP MEASURED; ch5/6 accept empty; BCL UNKNOWN
   reusability: W1
 updated: 2026-11-13
 ```
@@ -39,9 +39,11 @@ BMW HU (D4:36:39:CF:E1:B5, ALPS-Modul) ──BR/EDR──► .87 (C8:C9:A3:CB:37
 |----------------------|-------|
 | `docs/evidence/FIELD_A6_HU_20261113T062824Z.*` | Pairing + btsnoop (192 s, 945 Records) |
 | `docs/evidence/FIELD_B1_FROM_A6_20261113T062824Z.{md,json}` | Dekodierte SDP-/RFCOMM-/AVDTP-/AVRCP-Tabelle |
+| `docs/evidence/FIELD_B2_20261113T154728Z.*` | B2-A ch5/6 + B2-B observe-only (HFP-off) |
 | `tools/btsnoop_decode.py` | Passiver Decoder (btmon 2001 / H4 1002) |
 | `docs/analysis/HFP_SLC_A6_20261113.md` | HFP-SLC-Abbruch |
 | `tools/lab_hfp_stack.py` | Stack-Diagnose `.108`, HFP an/aus |
+| `tools/field_b1_b2.py` | Feld-Orchestrierung B1/B2 + btmon |
 
 ## Konfiguration und Parameter
 
@@ -78,8 +80,11 @@ HU-SDP (Kanal → Dienst):
 | HFP HF 1.6, `AT+BRSF=255`, `AT+BAC=1,2` (mSBC) | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` |
 | HU bricht HFP-SLC ab, wenn AG kein Three-Way meldet und `AT+CHLD=?` mit ERROR beantwortet; Retry alle 20–35 s | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` (gegen unseren AG) |
 | HU öffnet in state A (idle, keine Phone-App) keinen SPP-/`deca-fade`-Kanal | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` (192 s, ein Termin) |
-| HU-Kanal für BCL / RFCOMM-Initiator / erste UIH | — | `UNKNOWN` (B2-A ch 6 + 5, B2-B) |
-| Nutzer des `deca-fade`-Dienstes (MyBMW? Connected Classic?) | — | `UNKNOWN` |
+| Phone→HU RFCOMM ch **6** und ch **5**: HU **UA**, 0 Payload (state A, HFP-off) | `FIELD_B2_20261113T154728Z` | `MEASURED` Transport; BCL `UNKNOWN` |
+| HU→unser SPP „BMW Connected“ in state A (HFP/Apps off) | `FIELD_B2B_20261113T1653Z` | `REJECTED` inbound (180 s) |
+| HFP-AG-off entfernt Kanal-13-Rauschen vollständig | `FIELD_B2_20261113T154728Z` | `MEASURED` (0× `AT+`) |
+| HU-Kanal für BCL / first UIH / BCL-Initiator | — | `UNKNOWN` (next: state C/D) |
+| Nutzer des `deca-fade`-Dienstes (MyBMW? Connected Classic?) | — | `UNKNOWN` (Server akzeptiert, sendet nichts ohne App) |
 | Gleiche UUID-Menge (1101, 111e, 1105, 110b, 110e, 1133, `deca-fade`) + zusätzlich `d31fbf50-5d57-2797-a240-41cd484388ec` bei einer HU im Fremd-Logcat | BimmerGestalt `IDriveExperiments/logcat.crash` Z. 41790–41798 (2022-03-29, Gerät `…:49:60`) | `INFERENCE` (secondary; HU-Identität im Log nicht genannt) |
 
 ## Beobachtungen (Lab / Feld)
@@ -89,6 +94,8 @@ HU-SDP (Kanal → Dienst):
 | 2026-11-13 A6 | HU startete A2DP (START) 11 s nach OPEN, ohne dass Media-Pakete flossen; wir SUSPEND nach 5,5 s |
 | 2026-11-13 A6 | Unser AG meldete HFP 1.9 + Super-Wideband → Stack auf `.108` vermutlich PipeWire native (Diagnose offen) |
 | 2026-11-13 A6 | Bimmer-Fremdlog zeigt `d31fbf50-…` zusätzlich — fehlt im F20-SDP state A/B |
+| 2026-11-13 A6 | HU AVRCP-CT features `0x004d` ohne Browsing-Bit, nutzt trotzdem PSM `0x1B` |
+| 2026-11-13 B2 | ch5/6 accept+empty; B2-B negativ; nach HU-Off Reconnect remote-init A2DP/AVRCP; Pass-Through PLAY1/FWD6/BWD7 |
 
 ## Abweichungen vom „Lehrbuch“
 

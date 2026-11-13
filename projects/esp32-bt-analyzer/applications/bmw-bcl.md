@@ -10,7 +10,7 @@ upstream_commits: [0322f2d, 0352824]
 maturity:
   technology: R2
   implementation: R1
-  field_evidence: R1   # HU SDP MEASURED (A6); BCL on HU still UNKNOWN
+  field_evidence: R1   # HU SDP + B2-A accept ch5/6 MEASURED; BCL payload still UNKNOWN
   reusability: W2
 updated: 2026-11-13
 ```
@@ -61,8 +61,10 @@ Dummy-HU .87 ──RFCOMM── .131 / BlueZ .108 ──HCI TCP── capture
 | MyBMW + AAIdrive open RFCOMM to Dummy-HU after re-pair (A2DP+SPP gate up) | `LAB_BCL_DUMMY_HU_A2DP_20261112T172006Z` | `REJECTED` (`NO_RFCOMM`) — Etch consumers ≠ RFCOMM openers |
 | Real HU offers SPP | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` — ch 6–10 SPP `0x1101`, ch 5 Vendor-UUID `deca-fade` ([bmw-nbt-evo](bmw-nbt-evo.md)) |
 | HU opens SPP/BCL in state A (idle, no phone app) | `FIELD_B1_FROM_A6_20261113T062824Z` | `REJECTED` for state A — only HFP RFCOMM in 192 s |
-| Real HU speaks BCL on that SPP | — | `UNKNOWN` (B2-A ch 6 + 5, B2-B) |
-| BclCarLink (`createRfcommSocketToServiceRecord(0x1101)`) would land on HU ch 6 | SDP order + Android record matching | `INFERENCE` — first matching record; verify with B2-A ch 6 |
+| Phone can open HU ch 6 (`0x1101`) and ch 5 (`deca-fade`); HU UA, no payload | `FIELD_B2_20261113T154728Z` | `MEASURED` transport; BCL `UNKNOWN` |
+| HU dials our observe-only SPP in state A (Apps/HFP off) | `FIELD_B2B_20261113T1653Z` | `REJECTED` inbound |
+| Real HU speaks BCL on that SPP | — | `UNKNOWN` (next: state C/D ± controlled TX) |
+| BclCarLink (`createRfcommSocketToServiceRecord(0x1101)`) would land on HU ch 6 | SDP order + B2-A ch 6 accept | `INFERENCE` strengthened — transport path exists |
 | Lab RFCOMM channel 5 = BMW channel | — | `REJECTED` as claim (HU ch 5 exists but is `deca-fade`, not `0x1101` — number coincidence) |
 
 ## Epistemik
