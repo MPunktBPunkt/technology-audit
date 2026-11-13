@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-12`, 76 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-13`, 76 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -30,7 +30,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-a2dp-source`](esp32-a2dp-source/) | ESP32_A2DP_Source — schreibfaul1 (Fremd) | lab-tool | active | 2 |
 | [`esp32-ai`](esp32-ai/) | esp32-ai — On-Device PLE LLM + Fly Connectome (Fremd) | lab-tool | active | 4 |
 | [`esp32-audioi2s`](esp32-audioi2s/) | ESP32-audioI2S — schreibfaul1 (Fremd) | lab-tool | active | 1 |
-| [`esp32-bt-analyzer`](esp32-bt-analyzer/) | ESP32 On-Chip Bluetooth HCI Analyzer (VHCI) | lab-tool | active | 6 |
+| [`esp32-bt-analyzer`](esp32-bt-analyzer/) | ESP32 On-Chip Bluetooth HCI Analyzer (VHCI) | lab-tool | active | 7 |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | esp32-bt-gateway | planning | — | 5 |
 | [`esp32-bt-iap`](esp32-bt-iap/) | esp32-bt-iap — A2DP + Apple Dock (historisch) | lab-tool | active | 2 |
 | [`esp32-car-network-refs`](esp32-car-network-refs/) | ESP32 Car-Side Networking — Hotspot/NAT Outbound (Fremd) | lab-tool | active | 3 |

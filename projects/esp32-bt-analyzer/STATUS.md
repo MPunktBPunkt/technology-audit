@@ -1,11 +1,11 @@
 # Status / Gate exits — esp32.bt-analyzer
 
 ```yaml
-updated: 2026-11-12
+updated: 2026-11-13
 fw: "0.3.19"
 topology: HCI_TCP dual-leg (.131 phone · .87 car)
-upstream_commit: 0352824   # + local 0.3.19 changes (coex API, a2dp_budget, framer session-init), not yet pushed
-car_next: A6 then B1 (docs/CAR_A6_B1.md in upstream) — blocked by weak car WiFi
+upstream_commit: 0352824   # + local changes (coex API, a2dp_budget, framer session-init, pairing agent, btsnoop_decode), not yet pushed
+car_next: HFP off → B2-A ch 6 + 5 → B2-B (docs/CAR_FIELD_1H.md in upstream)
 ```
 
 Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTED`
@@ -30,8 +30,10 @@ Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTE
 | BCL framer session-init `12 34 56 78` | TEST (host) | desk expectation BclCarLink, not HU wire |
 | Dummy-HU SDP SPP | MEASURED (TEST) | `CANDIDATE_STRONG` lab only |
 | B0.7 Dummy-HU SPP + A2DP sink, answers session init | UNKNOWN | tool `lab_bcl_dummy_hu_a2dp.py` + host tests; not yet run on .108 |
-| A6 HU link | MEASURED PASS | `FIELD_A6_HU_20261113T062824Z` · BMW 38304 / SPP UUID seen |
-| B1 real SDP / B2 RFCOMM | UNKNOWN | channel X not 5; **B2-A + B2-B**; initiator UNKNOWN; **disable MyBMW/AAIdrive** on baseline (secondary contention) |
+| A6 HU link | MEASURED PASS | `FIELD_A6_HU_20261113T062824Z` · BMW 38304 / Numeric Comparison via `bt-pair-agent` |
+| B1 HU SDP state A/B | MEASURED | `FIELD_B1_FROM_A6_20261113T062824Z` (decoded from A6 btsnoop) · SPP `0x1101` ch 6–10, `deca-fade` ch 5 · [`bmw-nbt-evo`](applications/bmw-nbt-evo.md) |
+| HFP SLC .87 ↔ HU | MEASURED FAIL | HU drops at `AT+CHLD=?` → ERROR, retries every 20–35 s · `tools/lab_hfp_stack.py hfp-off` prepared, not applied |
+| B2 RFCOMM | UNKNOWN | **B2-A ch 6 + ch 5**, **B2-B** observe-only; initiator UNKNOWN; HFP off + **MyBMW/AAIdrive off** on baseline |
 
 ## Claim boundary
 

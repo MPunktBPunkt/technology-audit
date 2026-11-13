@@ -48,6 +48,9 @@ Phone ─A2DP─ .131 ─TCP─┐                                  ┌─TCP─
 | bluez-alsa `--sbc-quality` begrenzt Source, nicht Sink-Caps | bluez-alsa `src/a2dp-sbc.c`, `bluealsad.8` (gelesen 2026-11-12) | `FACT` (Code/Doc) |
 | Phone-Leg per Linux-Config drosselbar | beide Stacks | `REJECTED` (nur Sink-Caps-Patch) |
 | Coex-Modus `a2dp` + Bitpool ≤ 35 ⇒ Relay ohne Aussetzer | R2–R4 offen | `UNKNOWN` |
+| BlueZ-Source (`.87`) wählt gegenüber der BMW-HU SBC **48 kHz** joint stereo, Bitpool 2..53 | `FIELD_B1_FROM_A6_20261113T062824Z` (SET_CONFIGURATION) | `MEASURED` |
+| SBC 53 @ 48 kHz ≈ 357 kbit/s ≈ 45,8 kB/s auf HCI — über der Coex-Decke (~41–45 kB/s) | `a2dp_budget.py` | `FACT` (Rechnung) |
+| HU bietet AAC-SEP (MPEG-2/4 LC, 44,1/48 kHz, VBR) — Alternative unter der Decke | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` (Caps); HU-Wahl/Klang mit AAC `UNKNOWN` |
 
 ## Epistemik
 

@@ -2,7 +2,7 @@
 
 ```yaml
 project_id: esp32-bt-analyzer
-updated: 2026-11-12
+updated: 2026-11-13
 reviewed_commit: 0352824
 fw_pin: "0.3.19"
 profile: lab-tool
@@ -25,7 +25,8 @@ Lab: `.88` Central · `.89` Peripheral peer · `.87` Classic+BLE.
 | Car-Netz hinter Handy-Hotspot (A6/B1) | `esp-tailscale-client` / `esp-wireguard` | nicht gebaut — Desk `esp32-car-network-2026-foreign` |
 | A2DP über BlueZ + HCI TCP | `bluetooth-a2dp` | Application — single path / dual relay MEASURED |
 | BCL über RFCOMM | `bmw-bcl` | Application — lab TEST |
-| Pairing-Agent auf .108 (Handy→.131, HU→.87) | `bluez-pairing-agent` | Application — gebaut, nicht gelaufen |
+| Pairing-Agent auf .108 (Handy→.131, HU→.87) | `bluez-pairing-agent` | Application — HU-Kopplung A6 MEASURED |
+| BMW-HU über BT (SDP, A2DP-SEPs, AVRCP, HFP) | `bmw-nbt-evo` | Application — A6-Capture dekodiert |
 | On-chip VHCI HCI | Method `bt-passive-host-sniff` | Anker |
 | USB OTG + dongle | `esp-usb-host` | legacy optional |
 | Classic on-chip S3 | `bluetooth-a2dp` | **REJECTED** |
@@ -45,7 +46,8 @@ Lab: `.88` Central · `.89` Peripheral peer · `.87` Classic+BLE.
 | Coex budget (`wifi_ps`) / Coex API | MEASURED / UNKNOWN | 0.3.17–0.3.19 |
 | A2DP relay | MEASURED (choppy) | 0.3.16 |
 | BCL synth / Dummy-HU SDP | TEST | 0.3.18 |
-| Pairing-Agent `bt-pair-agent` | UNKNOWN (nicht deployt) | `tools/bt_pair_agent.py` |
+| Pairing-Agent `bt-pair-agent` | MEASURED (HU-Kopplung A6) | `tools/bt_pair_agent.py` |
+| BMW-HU BT-Verhalten | MEASURED (state A/B, ein Termin) | `tools/btsnoop_decode.py` · `FIELD_B1_FROM_A6_*` |
 
 ## Coverage-Lücken
 
@@ -55,6 +57,6 @@ Lab: `.88` Central · `.89` Peripheral peer · `.87` Classic+BLE.
 | Classic×Classic peer | limited (one Classic board) | second ESP32 or phone |
 | Profile Flavors (GATT/HOGP/FTMS/Classic) | desk only | [`host-profiles-2026-desk`](../../audits/esp32-bt-analyzer-host-profiles-2026-desk/) → upstream Flavor Bus |
 | RF/Air | out of scope | BT15 separate |
-| BMW HU über BT (A6/B1/B2) | UNKNOWN | Auto in WLAN-Reichweite oder Dial-out |
+| BMW HU über BT — BCL auf RFCOMM (B2) | UNKNOWN | HFP off, B2-A ch 6 + 5, B2-B (`CAR_FIELD_1H.md`) |
 | Coex-API-Wirkung | UNKNOWN | `lab_hci_coex_ab.py` |
 | BLE-HR-Relay über BlueZ (zwei HCI) | not started | `ble-hr-relay` Fallstricke; zwei-HCI ≠ Dual-Role |

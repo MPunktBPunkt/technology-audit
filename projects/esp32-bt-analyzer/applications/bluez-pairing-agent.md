@@ -3,12 +3,12 @@
 ```yaml
 project_id: esp32-bt-analyzer
 tech_slug: bluez-pairing-agent
-status: draft
+status: active
 sheet: ../../../technologies/bluez-pairing-agent/SHEET.md
 maturity:
   technology: R3
   implementation: R2
-  field_evidence: R0
+  field_evidence: R1   # A6 HU-Kopplung 2026-11-13
   reusability: W3
 ```
 
@@ -57,8 +57,9 @@ Nicht konfigurierte Adapter auf .108 nur mit offenem Fenster (Abweichung zu PiDr
 |-------|-------------|--------|
 | Vorheriges `ensure_agent()` (bluetoothctl-Einzelbefehl) registrierte keinen bleibenden Agenten | — | `FACT` (Code-Review) |
 | A4 Handy/Kopfhörer gekoppelt — wer die Rückfrage beantwortete, ist nicht dokumentiert | `LAB_HCI_TCP_A1A5_20261111T204600Z` | `UNKNOWN` |
-| Agent auf .108 beantwortet Handy- und HU-Kopplung | — | `UNKNOWN` (nicht deployt, .108 vom Desk nicht erreichbar) |
-| HU akzeptiert Just Works von .87 | — | `UNKNOWN` (PiDrive: Numeric Comparison funktioniert) |
+| Agent auf .108 beantwortet HU-Kopplung (RequestConfirmation, Passkey 656859, Regel `always`) | `FIELD_A6_HU_20261113T062824Z` | `MEASURED` — Paired + Bonded + Connected |
+| Agent auf .108 beantwortet Handy-Kopplung an .131 | — | `UNKNOWN` |
+| HU koppelt per Numeric Comparison (nicht Just Works) | `FIELD_A6_HU_20261113T062824Z` | `MEASURED` |
 
 ## Offene Fragen
 

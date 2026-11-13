@@ -7,7 +7,7 @@ primary: I
 tags: [automotive, field-verified, usb-host]
 type: technology
 status: active
-seen_in: [pidrive, esp32-bt-gateway, bmw-nbt-media-index, hu-probe, esp32-usb-analyzer]
+seen_in: [pidrive, esp32-bt-gateway, bmw-nbt-media-index, hu-probe, esp32-usb-analyzer, esp32-bt-analyzer]
 maturity:
   technology: R2          # Plattform-Rolle verstanden; kein vollständiges HU-Reverse-Engineering
   implementation: R0      # PiDrive spricht HU an — siehe usb-msc Application (B)
@@ -70,24 +70,29 @@ Ebene **A** (Plattform-Kontext und Abgrenzung). Empirisches **Host-Verhalten** (
 | „Reading data“-Hänger bei großen Libs / langsamen Sticks | `HYPOTHESIS` | passt zu Burst/Latenz-These |
 | SIB 65 08 07 u. a.: Sync großer Sticks Minuten; HDD-USB abraten | `INFERRED` (secondary) | offizielle Service-Hinweise, nicht KB-remeasured |
 
-## Bluetooth-Verhalten (PiDrive-Doku, nicht KB-gemessen)
+## Bluetooth-Verhalten (PiDrive-Doku, seit 2026-11-13 teilweise gemessen)
 
 Quelle: [`pidrive/docs/fahrzeug/iDriveBt.md`](https://github.com/MPunktBPunkt/pidrive/blob/main/docs/fahrzeug/iDriveBt.md)
 (PiDrive als A2DP Source + AVRCP Target am F20 2017; Mischung aus Code, Spec,
-Forenberichten und Praxisnotizen, **keine** Evidence-IDs / btmon-Captures). Bis zu einem
-eigenen Capture (z. B. `esp32-bt-analyzer` B1 / btmon) nur so führen:
+Forenberichten und Praxisnotizen, **keine** Evidence-IDs / btmon-Captures).
+Eigener Capture: `esp32-bt-analyzer` A6 (F20, HU idle, 192 s) →
+[`esp32-bt-analyzer/applications/bmw-nbt-evo.md`](../../projects/esp32-bt-analyzer/applications/bmw-nbt-evo.md) (**C**,
+HU-SDP-Tabelle, A2DP-SEPs, AVRCP, HFP). Ein Host, ein Termin — kein Transfer auf andere NBT-Varianten.
 
 | Claim | Status | Hinweis |
 |-------|--------|---------|
-| F20 2017 / NBT Evo ID5–ID6 = AVRCP **1.4** (ID6 teils 1.5) | `INFERRED` | Generationstabelle PiDrive; Versionsfeld im HU-SDP nicht gemessen |
-| AVRCP-Browsing am F20 nicht genutzt | `INFERRED` | PiDrive-Praxisnotiz, kein Capture |
+| F20 2017 / NBT Evo ID5–ID6 = AVRCP **1.4** (ID6 teils 1.5) | `REJECTED` (für diesen F20) | HU-SDP AVRCP CT **1.5** `MEASURED` (`FIELD_B1_FROM_A6_20261113T062824Z`); Generationstabelle bleibt für andere Varianten `INFERRED` |
+| AVRCP-Browsing am F20 nicht genutzt | `REJECTED` | HU sendet GetFolderItems auf dem Browsing-Kanal (`MEASURED`, A6) |
 | AVRCP 1.6 Cover Art (BIP) bricht Track-Info/Playback | `HYPOTHESIS` | Nutzerberichte; PiDrive bietet 1.6 bewusst nicht an |
 | Cover über BT kommt via iAP/Connected/USB, nicht AVRCP | `HYPOTHESIS` | `ENT_BTAS_IAP_COVERART`; Connected-Pfad → [`bmw-bcl`](../bmw-bcl/SHEET.md) |
 | Absolute Volume erzeugt Sprünge / Konflikt mit HU-DSP | `HYPOTHESIS` | PiDrive fixiert MPRIS `Volume 1.0` |
 | HU registriert PlaybackStatus/TrackChanged/… und braucht TrackChanged bei jedem Quellen-/Titelwechsel | `INFERRED` | PiDrive-Implementierung (`mpris:trackid` + kurzes `Stopped`) |
-| HU verlangt A2DP Source `0x110A` + AVRCP TG `0x110C` beim Phone | `INFERRED` | aus PiDrive-Betrieb; vollständiger HU-SDP-Record `UNKNOWN` |
-| HU-SBC-Bitpool max 53 | `REJECTED` (als HU-FACT) | 2–53 ist der generische SBC-High-Quality-Default; HU-Caps nicht gemessen |
-| HU bietet SPP/BCL über BT | `UNKNOWN` (eigen) / `INFERENCE` (secondary HU-SPP) | Analyzer B1 (HU-SDP); Secondary NBT-AAD `/dev/btspp*` + MyBMW-Contention [`supra-idrive6-android-auto-2026-secondary`](../../audits/supra-idrive6-android-auto-2026-secondary/) — **nicht** F20-Wire-FACT |
+| HU verlangt A2DP Source `0x110A` + AVRCP TG `0x110C` beim Phone | `INFERRED` | HU fragt unser SDP ab und nutzt A2DP + AVRCP TG (A6); „verlangt“ (Ablehnung ohne) nicht getestet. HU-SDP-Record selbst jetzt `MEASURED` |
+| HU-SBC-Bitpool max 53 | `MEASURED` (dieser F20) | SBC-SEP der HU: Bitpool 2..53, alle Modi, 44,1/48 kHz; zusätzlich AAC- und MPEG-1,2-SEP, alle mit SCMS-T (A6) |
+| HU bietet SPP über BT | `MEASURED` | ch 6–10 SPP `0x1101` („SPP Server 1–5“) + ch 5 Vendor-UUID `00000000-deca-fade-deca-deafdecacaff` („SPP Server 0“) |
+| HU spricht BCL über diesen SPP | `UNKNOWN` | In state A kein RFCOMM auf ch 5–10; B2-A/B2-B offen. Secondary NBT-AAD `/dev/btspp*` + MyBMW-Contention [`supra-idrive6-android-auto-2026-secondary`](../../audits/supra-idrive6-android-auto-2026-secondary/) — **nicht** F20-Wire-FACT |
+| Nutzer des `deca-fade`-Dienstes | `UNKNOWN` | Nicht in BimmerGestalt-Code (Stand Download 2026-11-13); taucht in deren `logcat.crash` als HU-UUID auf (secondary) |
+| HU baut HFP-SLC mit AG ohne Three-Way auf | `REJECTED` (gegen PipeWire-AG) | HU sendet `AT+CHLD=?` trotzdem und trennt bei ERROR (A6); mit echten Phones nicht relevant |
 
 ## Transfer
 
@@ -111,7 +116,8 @@ Wiederverwendbar als **Vorlage „automotive HU als MSC-Host“**: Trace-Korrela
 
 - Welche NBT-Varianten (Evo vs. Evo2, iDrive-Generation) teilen dasselbe USB-Read-Profil?
 - Wann reicht Korrelation (Fenster × Bytes) vs. zwingend Ohr-Beweis für „AV PASS“?
-- Vollständiger HU-SDP-Record (AVRCP-Version, A2DP-Sink-Caps, SPP ja/nein) — ein btmon/sdptool-Capture würde die PiDrive-Doku-Claims oben auf `MEASURED` heben.
+- ~~Vollständiger HU-SDP-Record~~ → für den F20 `MEASURED` (esp32-bt-analyzer A6). Offen: zustandsabhängige Records (App aktiv), andere NBT-Varianten.
+- Wofür dient der HU-Dienst `00000000-deca-fade-deca-deafdecacaff` (ch 5), und welche Phone-App öffnet ihn?
 
 ## Lessons (Pilot 2 — Zwischenstand)
 

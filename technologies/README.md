@@ -4,7 +4,7 @@ Wiederverwendbare Technology Sheets.
 
 **Reuse:** [`docs/REUSE.md`](../docs/REUSE.md) · **Neustart:** [`docs/PROJECT-START.md`](../docs/PROJECT-START.md) · **Familien:** [`docs/FAMILIES.md`](../docs/FAMILIES.md) · **Standard:** [`VERSION`](../VERSION) · **Maturity:** [`docs/KNOWLEDGE-MATURITY.md`](../docs/KNOWLEDGE-MATURITY.md)
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-12`, 87 Sheets). Neu generieren: `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-13`, 87 Sheets). Neu generieren: `python3 tools/ta-assist index`
 
 Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Belege aus Sheet∪Applications) · nicht verwechseln mit Projekt-Status (Prototype/Pilot).
 
@@ -119,7 +119,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 |------|-------|---|------|-------|------------|
 | [`ble-http-gatt-probe`](ble-http-gatt-probe/SHEET.md) | HTTP-gesteuerte BLE-GATT-Sonde | W2 | R3 | LAB | `esp32-ftmsprobe` |
 | [`ble-rssi-proximity`](ble-rssi-proximity/SHEET.md) | BLE RSSI Proximity Hunt | W1 | R0 | — | `esp-ble-finder` |
-| [`bmw-bcl`](bmw-bcl/SHEET.md) | BMW BCL — Connected-App Multiplex Tunnel | W2 | R0 | LAB | `bimmergestalt-idrive-refs`, `esp32-usb-analyzer`, `hu-probe`, `esp32-bt-analyzer` |
+| [`bmw-bcl`](bmw-bcl/SHEET.md) | BMW BCL — Connected-App Multiplex Tunnel | W2 | R1 | LAB | `bimmergestalt-idrive-refs`, `esp32-usb-analyzer`, `hu-probe`, `esp32-bt-analyzer` |
 | [`bmw-etch-rpc`](bmw-etch-rpc/SHEET.md) | BMW Etch RPC — BMWRemoting Connected-App API | W2 | R0 | — | `bimmergestalt-idrive-refs`, `hu-probe` |
 | [`bmw-rhmi`](bmw-rhmi/SHEET.md) | BMW RHMI — Remote HMI for Connected Apps | W2 | R0 | — | `bimmergestalt-idrive-refs` |
 | [`bmw-sas-auth`](bmw-sas-auth/SHEET.md) | BMW SAS — Connected Apps Security Authentication | W2 | R0 | — | `bimmergestalt-idrive-refs`, `hu-probe` |
@@ -136,7 +136,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 
 | Slug | Title | W | Evid | Scope | Gesehen in |
 |------|-------|---|------|-------|------------|
-| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | BMW NBT Evo Head Unit — Host-Plattform | W1 | R3 | LAB, FIELD, HOST-SPECIFIC | `pidrive`, `esp32-bt-gateway`, `bmw-nbt-media-index`, `hu-probe`, `esp32-usb-analyzer` |
+| [`bmw-nbt-evo`](bmw-nbt-evo/SHEET.md) | BMW NBT Evo Head Unit — Host-Plattform | W1 | R3 | LAB, FIELD, HOST-SPECIFIC | `pidrive`, `esp32-bt-gateway`, `bmw-nbt-media-index`, `hu-probe`, `esp32-usb-analyzer`, `esp32-bt-analyzer` |
 | [`hammer-varon-xtr`](hammer-varon-xtr/SHEET.md) | Hammer Varon XTR II (FTMS Host) | W2 | R3 | LAB, FIELD, DEVICE-SPECIFIC | `esp32-ftmsprobe`, `esp32-ergo` |
 
 ### J — Architektur

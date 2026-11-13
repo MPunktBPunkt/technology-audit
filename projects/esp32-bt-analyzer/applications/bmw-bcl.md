@@ -10,7 +10,7 @@ upstream_commits: [0322f2d, 0352824]
 maturity:
   technology: R2
   implementation: R1
-  field_evidence: R0   # lab TEST only — real HU still UNKNOWN
+  field_evidence: R1   # HU SDP MEASURED (A6); BCL on HU still UNKNOWN
   reusability: W2
 updated: 2026-11-13
 ```
@@ -59,8 +59,11 @@ Dummy-HU .87 ──RFCOMM── .131 / BlueZ .108 ──HCI TCP── capture
 | Framer erkennt Phone→HU Session-Init `12 34 56 78` an Frame-Grenzen (sonst sticky PayloadTooLarge durch len=0x5678) | host tests `TestSessionInit` (0.3.19) | `TEST` — Erwartung aus [`bmw-bcl-handshake`](../../bimmergestalt-idrive-refs/applications/bmw-bcl-handshake.md) |
 | Dummy-HU muss A2DP-Senke **und** SPP-Server sein, sonst versucht die App kein RFCOMM | [`bmw-bcl-rfcomm`](../../bimmergestalt-idrive-refs/applications/bmw-bcl-rfcomm.md) (`EVID-BCLRF-2026-11-12-005`) → B0.7 `lab_bcl_dummy_hu_a2dp.py` | `FACT` (BclCarLink) · synth PASS · external MyBMW/AAIdrive `NO_RFCOMM` |
 | MyBMW + AAIdrive open RFCOMM to Dummy-HU after re-pair (A2DP+SPP gate up) | `LAB_BCL_DUMMY_HU_A2DP_20261112T172006Z` | `REJECTED` (`NO_RFCOMM`) — Etch consumers ≠ RFCOMM openers |
-| Real HU offers SPP/BCL | — | `UNKNOWN` |
-| Lab RFCOMM channel 5 = BMW channel | — | `REJECTED` as claim |
+| Real HU offers SPP | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` — ch 6–10 SPP `0x1101`, ch 5 Vendor-UUID `deca-fade` ([bmw-nbt-evo](bmw-nbt-evo.md)) |
+| HU opens SPP/BCL in state A (idle, no phone app) | `FIELD_B1_FROM_A6_20261113T062824Z` | `REJECTED` for state A — only HFP RFCOMM in 192 s |
+| Real HU speaks BCL on that SPP | — | `UNKNOWN` (B2-A ch 6 + 5, B2-B) |
+| BclCarLink (`createRfcommSocketToServiceRecord(0x1101)`) would land on HU ch 6 | SDP order + Android record matching | `INFERENCE` — first matching record; verify with B2-A ch 6 |
+| Lab RFCOMM channel 5 = BMW channel | — | `REJECTED` as claim (HU ch 5 exists but is `deca-fade`, not `0x1101` — number coincidence) |
 
 ## Epistemik
 
@@ -69,6 +72,7 @@ YES:  own lab can advertise SPP and decode synthetic BCL over RFCOMM
 YES:  AAIdrive/MyBMW alone are not RFCOMM openers against Dummy-HU (expected: Etch consumers)
 NO:   NBT Evo / F20 wire FACT
 NO:   channel 5 as BMW expectation (measure X from SDP)
+YES:  HU SDP measured (F20, state A/B): SPP 0x1101 ch 6–10, deca-fade ch 5
 ```
 
 Desk CROSSREF (roles / source matrix): pidrive `HU-Technical-Facts.md` §10.1–10.4 ·
@@ -76,8 +80,10 @@ Desk CROSSREF (roles / source matrix): pidrive `HU-Technical-Facts.md` §10.1–
 
 ## Next (car)
 
-A6 link `.87`↔HU (**MEASURED** 2026-11-13) → B1 SDP (UUID / name / **channel X**, states A–D)
-→ **B2-A** (phone/ESP initiate) **+ B2-B** (HU initiate, `.87` observe-only SPP server).
+A6 link `.87`↔HU (**MEASURED** 2026-11-13) → B1 state A/B decoded from the A6 capture (`tools/btsnoop_decode.py`)
+→ HFP AG off (`tools/lab_hfp_stack.py`, HU otherwise reopens RFCOMM every 20–35 s)
+→ **B2-A** ch 6 and ch 5 (phone/ESP initiate) **+ B2-B** (HU initiate, `.87` observe-only SPP server).
+Upstream runbook `docs/CAR_FIELD_1H.md`.
 F20 RFCOMM initiator = **UNKNOWN** until SABM measured; B2-A negative ≠ BCL absent.
 See upstream `docs/CAR_A6_B1.md` · method `docs/analysis/BCL_RFCOMM_TWO_MODE_20261113.md`.
 Optional lab: B0.7 with **BclCarLink**; B2-B observe-only mode on ProfileManager (not AAIdrive alone).
