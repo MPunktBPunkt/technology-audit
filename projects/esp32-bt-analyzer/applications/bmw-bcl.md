@@ -58,7 +58,7 @@ Dummy-HU .87 ──RFCOMM── .131 / BlueZ .108 ──HCI TCP── capture
 | Dummy-HU SPP `0x1101` / name BMW Connected / RFCOMM 5 visible via sdptool | `LAB_BCL_DUMMY_HU_SDP_20261112T062151Z` | `MEASURED` (lab Dummy) |
 | Framer erkennt Phone→HU Session-Init `12 34 56 78` an Frame-Grenzen (sonst sticky PayloadTooLarge durch len=0x5678) | host tests `TestSessionInit` (0.3.19) | `TEST` — Erwartung aus [`bmw-bcl-handshake`](../../bimmergestalt-idrive-refs/applications/bmw-bcl-handshake.md) |
 | Dummy-HU muss A2DP-Senke **und** SPP-Server sein, sonst versucht die App kein RFCOMM | [`bmw-bcl-rfcomm`](../../bimmergestalt-idrive-refs/applications/bmw-bcl-rfcomm.md) (`EVID-BCLRF-2026-11-12-005`) → B0.7 `lab_bcl_dummy_hu_a2dp.py` | `FACT` (BclCarLink) · synth PASS · external MyBMW/AAIdrive `NO_RFCOMM` |
-| MyBMW + AAIdrive open RFCOMM to Dummy-HU after re-pair (A2DP+SPP gate up) | `LAB_BCL_DUMMY_HU_A2DP_20261112T172006Z` | `REJECTED` (`NO_RFCOMM`) — Etch consumers ≠ RFCOMM openers |
+| MyBMW + AAIdrive open RFCOMM to Dummy-HU after re-pair (A2DP+SPP gate up) | `LAB_BCL_DUMMY_HU_A2DP_20261112T172006Z` | early `NO_RFCOMM` = **eligibility symptom** — superseded by phone BCL PASS below |
 | Real HU offers SPP | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` — ch 6–10 SPP `0x1101`, ch 5 Vendor-UUID `deca-fade` ([bmw-nbt-evo](bmw-nbt-evo.md)) |
 | HU opens SPP/BCL in state A (idle, no phone app) | `FIELD_B1_FROM_A6_20261113T062824Z` | `REJECTED` for state A — only HFP RFCOMM in 192 s |
 | Phone can open HU ch 6 (`0x1101`) and ch 5 (`deca-fade`); HU UA, no payload | `FIELD_B2_20261113T154728Z` | `MEASURED` transport; BCL `UNKNOWN` |
@@ -67,17 +67,22 @@ Dummy-HU .87 ──RFCOMM── .131 / BlueZ .108 ──HCI TCP── capture
 | BclCarLink (`createRfcommSocketToServiceRecord(0x1101)`) would land on HU ch 6 | SDP order + B2-A ch 6 accept | `INFERENCE` strengthened — transport path exists |
 | Lab RFCOMM channel 5 = BMW channel | — | `REJECTED` as claim (HU ch 5 exists but is `deca-fade`, not `0x1101` — number coincidence) |
 | Lab can advertise F20-shaped SDP (ch5 `deca-fade` + ch6 `0x1101`) | `LAB_F20_SDP_MIRROR_20261113T174006Z` | `MEASURED` (LAB_TEST); ch7–10 identical `0x1101` blocked by BlueZ ProfileManager |
-| OnePlus + MyBMW/AAIdrive vs answering Dummy (ch6 HANDSHAKE-ready, BMW 38304 CoD) | `LAB_BMW_SIM_20261113T181344Z` | `REJECTED` inbound RFCOMM — extends prior `NO_RFCOMM`; outbound magic to AMA/NearbySharing ≠ Connected |
+| OnePlus + MyBMW/AAIdrive vs answering Dummy (ch6 HANDSHAKE-ready, BMW 38304 CoD) | `LAB_BMW_SIM_20261113T181344Z` | early negative; later same night **PASS** |
 | `b2a-tx` controlled INIT → Dummy HANDSHAKE (no KNOCK) | `LAB_B2A_TX_20261113T2157Z` | `MEASURED` (LAB_TEST) — validates BclCarLink TX-first order; F20 pending |
+| OnePlus AAIdrive/MyBMW → Dummy full BCL (INIT→HS→SELECTPROTO(2)→OPEN 5001/4004→PKCS7→WD≈2.5s) | `LAB_PHONE_BCL_20261113T2201Z` + `_DECODE` | `MEASURED` — UI „verbunden mit BMW“; Wire ≠ BclCarLink@7cfd959 (SP/WD) |
+| Wrong Dummy CoD → DEADBEEF+UUID probe instead of INIT | `LAB_EVENING_COD_GATE_20261113T2342Z` · `LAB_L3_NO_HS_*` | `MEASURED` — restore `class 0x340408` restores BCL |
+| BclCarLink@7cfd959 pin-drift explains wire SP(2)/WD 2.5s | desk vs wire | `REJECTED` as proven — AAIdrive uses MyBMW proxy; keep desk as structural ref only |
 | HU ch5 `deca-fade` | public iAP2/MFi UUID + `BCL_BT.md` | `FACT` (identity) — **not** BCL endpoint; H-D dropped |
 
 ## Epistemik
 
 ```text
 YES:  own lab can advertise SPP and decode synthetic BCL over RFCOMM
-YES:  AAIdrive/MyBMW alone are not RFCOMM openers against Dummy-HU (expected: Etch consumers)
-NO:   NBT Evo / F20 wire FACT
-NO:   channel 5 as BMW expectation (measure X from SDP)
+YES:  Phone (MyBMW/AAIdrive) opens RFCOMM+BCL to Dummy when CoD/SPP/A2DP/HS gate OK
+YES:  Wire markers diverge from BclCarLink@7cfd959 (SELECTPROTO(2), WD≈2.5s)
+YES:  Wrong CoD → DEADBEEF+UUID probe (not INIT)
+NO:   NBT Evo / F20 wire BCL FACT
+NO:   channel 5 as BMW BCL expectation
 YES:  HU SDP measured (F20, state A/B): SPP 0x1101 ch 6–10, deca-fade ch 5
 ```
 
