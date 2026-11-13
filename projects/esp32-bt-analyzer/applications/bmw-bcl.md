@@ -68,6 +68,8 @@ Dummy-HU .87 ──RFCOMM── .131 / BlueZ .108 ──HCI TCP── capture
 | Lab RFCOMM channel 5 = BMW channel | — | `REJECTED` as claim (HU ch 5 exists but is `deca-fade`, not `0x1101` — number coincidence) |
 | Lab can advertise F20-shaped SDP (ch5 `deca-fade` + ch6 `0x1101`) | `LAB_F20_SDP_MIRROR_20261113T174006Z` | `MEASURED` (LAB_TEST); ch7–10 identical `0x1101` blocked by BlueZ ProfileManager |
 | OnePlus + MyBMW/AAIdrive vs answering Dummy (ch6 HANDSHAKE-ready, BMW 38304 CoD) | `LAB_BMW_SIM_20261113T181344Z` | `REJECTED` inbound RFCOMM — extends prior `NO_RFCOMM`; outbound magic to AMA/NearbySharing ≠ Connected |
+| `b2a-tx` controlled INIT → Dummy HANDSHAKE (no KNOCK) | `LAB_B2A_TX_20261113T2157Z` | `MEASURED` (LAB_TEST) — validates BclCarLink TX-first order; F20 pending |
+| HU ch5 `deca-fade` | public iAP2/MFi UUID + `BCL_BT.md` | `FACT` (identity) — **not** BCL endpoint; H-D dropped |
 
 ## Epistemik
 
