@@ -87,7 +87,7 @@ eigenen Capture (z. B. `esp32-bt-analyzer` B1 / btmon) nur so führen:
 | HU registriert PlaybackStatus/TrackChanged/… und braucht TrackChanged bei jedem Quellen-/Titelwechsel | `INFERRED` | PiDrive-Implementierung (`mpris:trackid` + kurzes `Stopped`) |
 | HU verlangt A2DP Source `0x110A` + AVRCP TG `0x110C` beim Phone | `INFERRED` | aus PiDrive-Betrieb; vollständiger HU-SDP-Record `UNKNOWN` |
 | HU-SBC-Bitpool max 53 | `REJECTED` (als HU-FACT) | 2–53 ist der generische SBC-High-Quality-Default; HU-Caps nicht gemessen |
-| HU bietet SPP/BCL über BT | `UNKNOWN` | Analyzer B1 (HU-SDP) |
+| HU bietet SPP/BCL über BT | `UNKNOWN` (eigen) / `INFERENCE` (secondary HU-SPP) | Analyzer B1 (HU-SDP); Secondary NBT-AAD `/dev/btspp*` + MyBMW-Contention [`supra-idrive6-android-auto-2026-secondary`](../../audits/supra-idrive6-android-auto-2026-secondary/) — **nicht** F20-Wire-FACT |
 
 ## Transfer
 

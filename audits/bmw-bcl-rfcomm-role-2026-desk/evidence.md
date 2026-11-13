@@ -29,9 +29,12 @@ Focused RFCOMM-role delta. Framing/Handshake/SAS: CROSSREF only.
 | HU RFCOMM Server Channel-Nummer (z. B. 5) = OEM fest | `UNKNOWN` | Lab Dummy ≠ Field |
 | HU Watchdog-Pong Byte-Layout | `UNKNOWN` | Client liest nur als Stream-Activity |
 | A2DP Pflicht für BCL-Discovery auf allen HUs | `HYPOTHESIS` | Code-Pfad; Alternativen möglich |
+| BclCarLink Phone-Client vs. nbt-aad „CAR öffnet MyBMW-Link“ | **Spannung** | Secondary [`supra-idrive6-android-auto-2026-secondary`](../supra-idrive6-android-auto-2026-secondary/) — nicht glätten |
+| F20 = gleicher SPP/BCL-Node wie NBT-AAD-Field-Units | `UNKNOWN` | Secondary ≠ F20 Capture |
 
 ## Wissens-Chronik
 
 | Datum | Ereignis |
 |-------|----------|
 | 2026-11-12 | Focused RFCOMM-role desk; Sheet `bmw-bcl` Fallstrick/FACT gewachsen |
+| 2026-11-13 | Secondary NBT-AAD: SPP contention + Owner/Consumer CROSSREF (`EVID-SUPRA-2026-11-13-*`) |

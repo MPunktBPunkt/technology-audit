@@ -21,7 +21,8 @@ Knowledge-gap foreign desk 2026-11-12 (HCI / Coex / Car-Net / BCL-RFCOMM / BlueZ
 |------|----------|------|
 | UART HCI offload vs WiFi HCI_TCP | `esp-hci-uart-controller`, `esp-wifi-bt-coex` | Lab: same ACL load over UART vs SoftAP/STA |
 | Car reachability A6/B1 | `esp-tailscale-client` / `esp-wireguard` | Outbound rendezvous hinter Handy-Hotspot |
-| HU RFCOMM channel X | `bmw-bcl` RFCOMM desk | A6 link → B1 SDP (nicht Lab-Kanal 5) |
+| HU RFCOMM channel X | `bmw-bcl` RFCOMM desk | A6 link → B1 SDP (nicht Lab-Kanal 5); MyBMW/AAIdrive off (secondary contention) |
+| Resolve Phone-Client vs. „CAR öffnet MyBMW“ | `bmw-bcl` + NBT-AAD secondary | Capture SABM/SDP direction; do not merge claims |
 | BlueZ two-adapter HR/FTMS relay | BluetoothInterceptor pattern | Bonding/CCCD Lab gegen H9 |
 | External BT14 sign-off | STATUS.md | Reviewer stamp in audit CI |
 | Second Classic ESP peer | BT10 | Dual Classic inquiry symmetry |

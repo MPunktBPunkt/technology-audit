@@ -11,15 +11,17 @@ seen_in: [bimmergestalt-idrive-refs, esp32-usb-analyzer, hu-probe, esp32-bt-anal
 maturity:
   technology: R2
   implementation: R1
-  field_evidence: R0   # HU wire still UNKNOWN; lab TEST only (see esp32-bt-analyzer application)
+  field_evidence: R0   # own HU wire still UNKNOWN; secondary NBT-AAD R1 observations (SPP contention) — see secondary note
   reusability: W2
   evidence_scope: [LAB]
 ```
 
 Ebene **A** (Protokollbeschreibung aus Fremdquellen) plus **erste eigene Lab-TEST-Kette**
 in [`esp32-bt-analyzer` / `bmw-bcl`](../../projects/esp32-bt-analyzer/applications/bmw-bcl.md)
-(synth stream + Dummy-HU RFCOMM/SDP). **Keine** echte HU-Wire-FACT. Herkunft Desk:
+(synth stream + Dummy-HU RFCOMM/SDP). **Keine** eigene HU-Wire-FACT. Herkunft Desk:
 BimmerGestalt (`BclCarLink`, `wireshark_bmw_bcl`, `BMWConnectedAnalysis`).
+Secondary Field-Observation (SPP-Contention / Transport-Owner): NBT-AAD
+[`supra-idrive6-android-auto-2026-secondary`](../../audits/supra-idrive6-android-auto-2026-secondary/).
 **Nicht** USB-MSC / NBT-Host-C.
 
 ## Kurzfassung
@@ -71,6 +73,20 @@ Klassifikation: **FACT** = so im Client-Code; **nicht** = eigenes Feld-MEASURED.
 | HU Watchdog-Pong = exakt `13371337` | `UNKNOWN` | BclCarLink zählt jedes Antwort-Byte; kein Byte-Vergleich (`WatchdogProtocol` listener) |
 | OPEN dest **4004** folgt deterministisch auf HANDSHAKE | `REJECTED` | erst nach lokalem TCP-Consumer auf Proxy `:4007` (`EtchProxyService` / `TcpProxyProtocol`) |
 | A2DP = BCL-Transport | `REJECTED` | A2DP-Connected nur Discovery-Hint in `BtClientService` (`EVID-BCLRF-2026-11-12-005`) |
+| Native AA (nbt-aad) = BCL-Pfad von BclCarLink | `REJECTED` | AA-UUID/`WifiStart*` ≠ Companion-BCL; Secondary `EVID-SUPRA-2026-11-13-005` Heuristik trennt Links |
+| MyBMW belegt HU-SPP; parallel AAIdrive/nbt-aad stört | `FACT` (secondary) | Issue/Logs NBT-AAD (`EVID-SUPRA-2026-11-13-003`/`004`) — kein eigener Capture |
+| HU = RFCOMM/SPP-Server immer / Phone immer Client | `UNKNOWN` (Spannung) | BclCarLink Client-Pattern vs. nbt-aad „CAR öffnet MyBMW-Link“ — bis Capture offen |
+
+## Transport Owner vs. Etch Consumer
+
+| Rolle | Akteur | Status | Beleg |
+|-------|--------|--------|-------|
+| **Transport Owner** (führt BCL über SPP/USB) | Connected / MyBMW (primär); BclCarLink als BT-Ersatz | Desk `FACT` + Secondary `INFERENCE` Owner-Belegung | Handshake §3.1; `EVID-SUPRA-2026-11-13-007` |
+| **Etch Consumer** (kein eigener BCL-Tunnel) | AAIdrive | Desk `FACT` | Handshake §3.1; Secondary `EVID-SUPRA-2026-11-13-006`/`008` |
+| **Konkurrent am HU-SPP** (nicht BCL) | nbt-aad / native Wireless AA | Secondary `FACT` Contention | `EVID-SUPRA-2026-11-13-001`–`004` |
+
+Messbedingung A6/B1/B2: MyBMW und AAIdrive während SDP/RFCOMM-Captures **deaktivieren** und dokumentieren
+([`esp32-bt-analyzer` / `bmw-bcl`](../../projects/esp32-bt-analyzer/applications/bmw-bcl.md)).
 
 ## Transfer
 
@@ -97,6 +113,9 @@ Init-Bytes sind **4 B** `12 34 56 78`, nicht ASCII-8.
 
 RFCOMM-Rollen (Phone Client / HU Server INFERENCE, SPP UUID, Watchdog Timing, A2DP Hint):
 [`bmw-bcl-rfcomm`](../../projects/bimmergestalt-idrive-refs/applications/bmw-bcl-rfcomm.md) · Audit [`bmw-bcl-rfcomm-role-2026-desk`](../../audits/bmw-bcl-rfcomm-role-2026-desk/).
+
+Secondary HU-SPP / Contention (NBT-AAD, R1):
+[`supra-idrive6-android-auto-2026-secondary`](../../audits/supra-idrive6-android-auto-2026-secondary/).
 
 SAS/Etch Auth: **CROSSREF** [`bmw-connected-sas-auth-2026-11-06`](../../audits/bmw-connected-sas-auth-2026-11-06/) — hier nicht duplizieren.
 

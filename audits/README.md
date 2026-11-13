@@ -69,6 +69,7 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`ble-gatt-bridge-refs-2026-foreign`](ble-gatt-bridge-refs-2026-foreign/) | closed | lab-tool | Fremd: Dual-Role / Transparent / Semantic GATT Bridge · **0.7.1** |
 | [`ble-gatt-bluez-relay-2026-foreign`](ble-gatt-bluez-relay-2026-foreign/) | closed | lab-tool | Fremd-Delta: BlueZ/bluer Two-Adapter GATT Relay · **0.7.1** |
 | [`bmw-bcl-rfcomm-role-2026-desk`](bmw-bcl-rfcomm-role-2026-desk/) | closed | lab-tool | Desk-Delta: BMW BCL RFCOMM Client/Server Roles (gap 4/5) · **0.7.1** |
+| [`supra-idrive6-android-auto-2026-secondary`](supra-idrive6-android-auto-2026-secondary/) | closed | lab-tool | Secondary: NBT-AAD SPP contention + Transport-Owner (MyBMW/AAIdrive) · **0.7.1** |
 | [`bt-bdaddr-2026-foreign`](bt-bdaddr-2026-foreign/) | closed | lab-tool | Fremd: Vendor HCI BD_ADDR Rewrite (kein Espressif) · **0.7.1** |
 | [`bt-classic-gaps-2026-foreign`](bt-classic-gaps-2026-foreign/) | closed | lab-tool | Fremd: Classic HFP/SPP/HID/Dual-Mode Gaps · **0.7.1** |
 | [`bt-analysis-relay-2026-foreign`](bt-analysis-relay-2026-foreign/) | closed | lab-tool | Fremd: Analyse-Relais / Endpoint / Host-Sniff · **0.7.1** |

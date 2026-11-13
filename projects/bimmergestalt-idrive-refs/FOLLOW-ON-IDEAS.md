@@ -15,7 +15,7 @@ Keine automatische Engineering-Action. Nur nach eigener Evidence → Decision.
 | 8 | C1b B2: BCL-8-Byte-Header auf Bulk nach Switch | Rohr ja; **kein** HU-RX nach hex4 — Blind-B2 beendet bis #9 | `bmw-bcl` Wire; kein Auto-Framer vor Muster |
 | 9 | **PRIORITÄT:** Referenz-Capture Phone + Official/MyBMW Connected USB | Sniff/Analyzer; Checkliste hu-probe `docs/feld/2026-10-29-c1b-massnahmen-nach-b1-b2b.md` | Enum ohne Bulk + B1/B2b Negativ |
 | 10 | Kill-Kriterium C1b neu: „kein Bulk/Connected nach Accessory-Enum“ | Feld Already-Accessory (`EVID-AOA-030`) | ersetzt reines „kein Switch zu 0x18D1“ |
-| 11 | BT-SPP als paralleler ITransport-Kandidat | **erst nach #9**, wenn Capture USB-BCL absent | `bluetooth-spp` / `bmw-bcl` |
+| 11 | BT-SPP als paralleler ITransport-Kandidat | **erst nach #9**, wenn Capture USB-BCL absent; Secondary: MyBMW/AAIdrive Contention beachten | `bluetooth-spp` / `bmw-bcl` · [`supra-idrive6-android-auto-2026-secondary`](../../audits/supra-idrive6-android-auto-2026-secondary/) |
 | 12 | ~~hu-probe Knock hex4~~ | **done Feld 0.3.32** — TX ok, HU rx=0; kein weiteres Blind-Knock | Desk [`bmw-bcl-handshake`](applications/bmw-bcl-handshake.md) §5 |
 | 13 | Referenz-PCAP erste BCL-Pakete (BT und/oder USB) für Handshake-Hex | Autorisierung; Wireshark `bmw_bcl.lua` | schließt G-HS-1/G-USB-2 |
 

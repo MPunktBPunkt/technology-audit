@@ -22,7 +22,8 @@ pilot_order: [bmw-bcl, bmw-etch-rpc, bmw-sas-auth, bmw-rhmi, bmw-nbt-evo]
 | SAS Auth (Cert/Challenge/SecurityService) | `bmw-sas-auth` | Desk 2026-11-06: [`applications/bmw-sas-auth.md`](applications/bmw-sas-auth.md); Audit [`bmw-connected-sas-auth-2026-11-06`](../../audits/bmw-connected-sas-auth-2026-11-06/) |
 
 Kampagnen: [bimmergestalt-idrive-2026-foreign](../../audits/bimmergestalt-idrive-2026-foreign/) ·
-[bmw-connected-sas-auth-2026-11-06](../../audits/bmw-connected-sas-auth-2026-11-06/).
+[bmw-connected-sas-auth-2026-11-06](../../audits/bmw-connected-sas-auth-2026-11-06/) ·
+Secondary SPP/Owner: [supra-idrive6-android-auto-2026-secondary](../../audits/supra-idrive6-android-auto-2026-secondary/).
 
 ## 14-Repo-Inventar (Org-Stand 2026-10-28 via `gh api`)
 

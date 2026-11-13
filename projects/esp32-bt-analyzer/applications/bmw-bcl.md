@@ -12,7 +12,7 @@ maturity:
   implementation: R1
   field_evidence: R0   # lab TEST only — real HU still UNKNOWN
   reusability: W2
-updated: 2026-11-12
+updated: 2026-11-13
 ```
 
 ## Rolle im Projekt
@@ -22,6 +22,11 @@ BlueZ → RFCOMM → streaming 8-byte BCL framer works end-to-end with a **synth
 stream (hu-probe CaC1) and that a Dummy-HU can advertise SPP for B1 rehearsal.
 
 Real F20 / NBT Evo SDP/BCL remain **UNKNOWN** until car A6/B1/B2.
+
+**Messbedingung (Secondary):** Während A6/B1/B2 SDP- und RFCOMM-Captures **MyBMW und
+AAIdrive deaktivieren** (Force-Stop / nicht parallel), sonst SPP-/BCL-Kanal-Contention —
+[`supra-idrive6-android-auto-2026-secondary`](../../../audits/supra-idrive6-android-auto-2026-secondary/)
+(`EVID-SUPRA-2026-11-13-003`/`004`). Zustand im Protokoll dokumentieren.
 
 ## Architektur / Datenfluss (lab)
 
@@ -73,3 +78,6 @@ Desk CROSSREF (roles / source matrix): pidrive `HU-Technical-Facts.md` §10.1–
 
 A6 link `.87`↔HU → B1 SDP (UUID / name / **channel X**) → only then B2 RFCOMM payload.
 See upstream `docs/CAR_A6_B1.md`. Optional lab: B0.7 with **BclCarLink** as peer (not AAIdrive alone).
+
+**B1/B2 checklist addendum:** Phone: MyBMW + AAIdrive off; note if Connected Classic remains;
+no parallel nbt-aad session if testing BCL. Secondary contention is a known confounder, not a BCL decoder.

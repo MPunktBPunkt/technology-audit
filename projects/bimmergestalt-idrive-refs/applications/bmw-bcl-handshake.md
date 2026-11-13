@@ -250,10 +250,11 @@ AppTypes (Dissector): 0=A4A, 1=TouchCommand, 2=Carplay, 3=AndroidAuto. Code-Komm
 
 | Akteur | Rolle | Beleg |
 |--------|-------|-------|
-| **Offizielle MyBMW / Connected** | Primärer Tunnel-Owner: wartet auf USB-Accessory **oder** BT; führt BCL; startet localhost Etch-Proxy; broadcastet ATTACHED | Analysis `app-behavior.md` |
+| **Offizielle MyBMW / Connected** | Primärer Tunnel-Owner: wartet auf USB-Accessory **oder** BT; führt BCL; startet localhost Etch-Proxy; broadcastet ATTACHED | Analysis `app-behavior.md`; Secondary NBT-AAD: MyBMW belegt HU-SPP (`EVID-SUPRA-2026-11-13-003`/`007`) |
 | **BclCarLink** | **Ersatz**-Tunnel für BT RFCOMM: derselbe BCL-Client + Proxy + ATTACHED-Intent (`TRANSPORT_SWITCH=BT`) | `BtClientService` / `EtchProxyService` |
-| **AAIdrive** | **Kein** BCL-Transport. Lauscht ATTACHED / BCL-Reports; prüft USB-Accessory-Präsenz und SPP; spricht Etch als App | `IDriveConnectionReceiver`, `UsbStatus`, `CarConnectionDebugging` |
+| **AAIdrive** | **Kein** BCL-Transport. Lauscht ATTACHED / BCL-Reports; prüft USB-Accessory-Präsenz und SPP; spricht Etch als App | `IDriveConnectionReceiver`, `UsbStatus`, `CarConnectionDebugging`; Secondary: reitet auf MyBMW-BCL (`EVID-SUPRA-2026-11-13-006`/`008`); parallel zu nbt-aad problematisch (`004`) |
 | **IDriveConnectKit(+Android)** | Etch-Client-Factory, Intent-Listener, SecurityAccess — kein USB-Host/AOA, kein BCL-Framer | Kit-Repos |
+| **nbt-aad (native AA)** | **Nicht** BCL-Consumer: eigener AA-SPP-UUID / Wireless-Handshake; konkurriert um `/dev/btspp*` | Secondary only — [`supra-idrive6-android-auto-2026-secondary`](../../../audits/supra-idrive6-android-auto-2026-secondary/); ≠ BclCarLink-Pfad |
 
 ### 3.2 Was AAIdrive selbst macht vs. delegiert
 
