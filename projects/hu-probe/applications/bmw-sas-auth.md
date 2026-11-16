@@ -9,9 +9,9 @@ audit: ../../../audits/bmw-connected-sas-auth-2026-11-06/
 maturity:
   technology: R2
   implementation: R0
-  field_evidence: R0
+  field_evidence: R2   # FX-G3-01 proven on F20 over BT (esp32-bt-analyzer DEEP_FORENSIC_ETCH_SAS_20261116)
   reusability: W2
-updated: 2026-11-06
+updated: 2026-11-16
 standard_version: "0.7.1"
 ```
 
@@ -31,6 +31,7 @@ AAIdrive bleiben die Signing-Seite.
 
 Siehe Run-Sheet FX-G3-01 in
 [`AUDIT-REPORT.md` §22](../../../audits/bmw-connected-sas-auth-2026-11-06/AUDIT-REPORT.md).
+**Update 2026-11-16:** FX-G3-01 ist am F20 über Bluetooth (`SCN 6`) vollständig bewiesen (`esp32-bt-analyzer` `DEEP_FORENSIC_ETCH_SAS_20261116.md`: `_result_sas_certificate` 16-B-Challenge + `559 B` RSA-4096 `MD5withRSA` XOR-Signatur aus MyBMWs JNI-`SecurityModule` via `BMWTouchCommand_Connection_00.00.10` + `_result_sas_login`).
 
 ## Nicht tun
 

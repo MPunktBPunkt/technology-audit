@@ -59,3 +59,4 @@ Heute gemessen: MSC Device-Pfad. AOA wäre eine **andere** USB-Rolle/Klasse am O
 | 2026-10-29 Feld (Quellrepo) | `aoa_observe` Enum+UI ja; 51/52/53=0; Bulk=0 — Evidence `030` |
 | 2026-10-29 Desk continuation | Gap A/B + C1b-PLAN B1/B2; Applications aktualisiert |
 | 2026-11-06 Analyzer-Feld | MSC-Identity-Negativ verstärkt Gate-Hypothese; C1 phone-like Identity bleibt P0 |
+| 2026-11-16 Cross-Repo (`Bimmer/` + `bt-analyzer`) | `logcat.crash` Z. 34789–40412 zeigt die echten OEM-AOA-Strings (`"BMW Group"`, `"BMW"\|"MINI"`, `" "`, `"1.0"`, `"market://details?id=com.bmwgroup.connected.*"`, `"VIN"` + `bRequest=58` → `UsbAccessoryLaunchActivity` → BCL `127.0.0.1:4004`). Erklärt den 30.10.-Lab-Bulk-Timeout (`"BMW"`/`"NBT Evo"` verfehlte MyBMWs Filter; `UsbStatus.kt` machte nur AAIdrives UI grün) und die Ablehnung von `aoa_phone_like` (`0xFF` statt MTP `0x06`, `_ENT_MTP_OFF=false`). `--profile bmw_real` in `hu-probe/tools/lab_aoa_iface.py` ergänzt |

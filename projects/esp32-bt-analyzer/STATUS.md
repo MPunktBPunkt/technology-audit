@@ -1,11 +1,11 @@
 # Status / Gate exits — esp32.bt-analyzer
 
 ```yaml
-updated: 2026-11-13
-fw: "0.3.19"
+updated: 2026-11-16
+fw: "0.3.20"
 topology: HCI_TCP dual-leg (.131 phone · .87 car)
-upstream_commit: 0352824   # + local changes (coex API, a2dp_budget, framer session-init, pairing agent, btsnoop_decode), not yet pushed
-car_next: HFP off → B2-A ch 6 + 5 → B2-B (docs/CAR_FIELD_1H.md in upstream)
+upstream_commit: 0352824   # + local 0.3.20 (writeAll retry, task notify, prefer_bt default, etch_codec, f20_sim, :8081 BMW Connected Lab)
+car_next: Lab test `--hu-profile f20_sim` against OnePlus · Field B3 transparent RFCOMM relay (.131↔.87) for full 5298-B capabilities dump
 ```
 
 Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTED`
@@ -32,8 +32,10 @@ Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTE
 | B0.7 Dummy-HU SPP + A2DP sink, answers session init | UNKNOWN | tool `lab_bcl_dummy_hu_a2dp.py` + host tests; not yet run on .108 |
 | A6 HU link | MEASURED PASS | `FIELD_A6_HU_20261113T062824Z` · BMW 38304 / Numeric Comparison via `bt-pair-agent` |
 | B1 HU SDP state A/B | MEASURED | `FIELD_B1_FROM_A6_20261113T062824Z` (decoded from A6 btsnoop) · SPP `0x1101` ch 6–10, `deca-fade` ch 5 · [`bmw-nbt-evo`](applications/bmw-nbt-evo.md) |
-| HFP SLC .87 ↔ HU | MEASURED FAIL | HU drops at `AT+CHLD=?` → ERROR, retries every 20–35 s · `tools/lab_hfp_stack.py hfp-off` prepared, not applied |
-| B2 RFCOMM | UNKNOWN | **B2-A ch 6 + ch 5**, **B2-B** observe-only; initiator UNKNOWN; HFP off + **MyBMW/AAIdrive off** on baseline |
+| HFP SLC .87 ↔ HU | MEASURED FIXED | `lab_hfp_stack.py hfp-off --apply` → 0× `AT+` in B2 (`FIELD_B2_20261113T154728Z`) |
+| B2 / P0 BCL transport `.87` ↔ F20 SCN 6 | MEASURED PASS | `FIELD_P0_HOLD_20261115T132501Z` / `FIELD_BURST_20261115` · `HS v5/iid14/0x4000`, `SP2\|SP4`, WD `p50=159,5 ms`, `OPEN 4004` alone → `ACK 8` + silence |
+| F20 Connected Etch + SAS + AM/RHMI/CDS | MEASURED | `DEEP_FORENSIC_ETCH_SAS_20261116` · sdbm-5381 hashes resolve 100 % of F20 headers (`_result_sas_certificate` 16 B, 559-B RSA-4096 `sas_login`, `_result_sas_login`, `_result_rhmi_getCapabilities` 5306 B, 37× CDS) |
+| Full F20 HU Simulator (`f20_sim` + `:8081` BMW Lab UI) | TEST PASS (121/121) | `tools/etch_codec.py`, `controller/bmw_lab.py`, `tools/bcl_etch_stub.py` (`v0.3.20`) |
 
 ## Claim boundary
 

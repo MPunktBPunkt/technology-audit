@@ -2,9 +2,9 @@
 
 ```yaml
 project_id: esp32-bt-analyzer
-updated: 2026-11-13
+updated: 2026-11-16
 reviewed_commit: 0352824
-fw_pin: "0.3.19"
+fw_pin: "0.3.20"
 profile: lab-tool
 pilot_order: [esp-hub-telemetry, esp32-s3-silicon, esp32-s3-usb-wifi-coex, esp-usb-host]
 ```
@@ -57,6 +57,6 @@ Lab: `.88` Central · `.89` Peripheral peer · `.87` Classic+BLE.
 | Classic×Classic peer | limited (one Classic board) | second ESP32 or phone |
 | Profile Flavors (GATT/HOGP/FTMS/Classic) | desk only | [`host-profiles-2026-desk`](../../audits/esp32-bt-analyzer-host-profiles-2026-desk/) → upstream Flavor Bus |
 | RF/Air | out of scope | BT15 separate |
-| BMW HU über BT — BCL auf RFCOMM (B2) | UNKNOWN | HFP off, B2-A ch 6 + 5, B2-B (`CAR_FIELD_1H.md`) |
+| BMW HU über BT — BCL/Etch/SAS/RHMI/CDS | MEASURED (SCN 6 / Failover 10) | B3 RFCOMM-Relay für ungekürzten 5298-B-Capabilities-Dump (`DEEP_FORENSIC_ETCH_SAS_20261116.md`) |
 | Coex-API-Wirkung | UNKNOWN | `lab_hci_coex_ab.py` |
 | BLE-HR-Relay über BlueZ (zwei HCI) | not started | `ble-hr-relay` Fallstricke; zwei-HCI ≠ Dual-Role |

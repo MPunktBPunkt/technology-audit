@@ -8,10 +8,10 @@ sheet: ../../../technologies/bmw-nbt-evo/SHEET.md
 upstream: https://github.com/MPunktBPunkt/esp32.bt-analyzer
 maturity:
   technology: R2
-  implementation: R1
-  field_evidence: R1   # A6+B1A + B2 state A: SDP/A2DP/AVRCP MEASURED; ch5/6 accept empty; BCL UNKNOWN
-  reusability: W1
-updated: 2026-11-13
+  implementation: R2
+  field_evidence: R2   # A6 + B2/Hold/Burst + OnePlus/F20 deep forensic: SDP/Baseband/A2DP/AVRCP/HFP + BCL/Etch/SAS/RHMI/CDS MEASURED
+  reusability: W2
+updated: 2026-11-16
 ```
 
 ## Rolle im Projekt
@@ -39,11 +39,9 @@ BMW HU (D4:36:39:CF:E1:B5, ALPS-Modul) ──BR/EDR──► .87 (C8:C9:A3:CB:37
 |----------------------|-------|
 | `docs/evidence/FIELD_A6_HU_20261113T062824Z.*` | Pairing + btsnoop (192 s, 945 Records) |
 | `docs/evidence/FIELD_B1_FROM_A6_20261113T062824Z.{md,json}` | Dekodierte SDP-/RFCOMM-/AVDTP-/AVRCP-Tabelle |
-| `docs/evidence/FIELD_B2_20261113T154728Z.*` | B2-A ch5/6 + B2-B observe-only (HFP-off) |
 | `tools/btsnoop_decode.py` | Passiver Decoder (btmon 2001 / H4 1002) |
 | `docs/analysis/HFP_SLC_A6_20261113.md` | HFP-SLC-Abbruch |
 | `tools/lab_hfp_stack.py` | Stack-Diagnose `.108`, HFP an/aus |
-| `tools/field_b1_b2.py` | Feld-Orchestrierung B1/B2 + btmon |
 
 ## Konfiguration und Parameter
 
@@ -79,12 +77,12 @@ HU-SDP (Kanal → Dienst):
 | A2DP-Sink-SEPs: SBC (alle Modi, 44,1/48 kHz, **Bitpool 2..53**), AAC (MPEG-2/4 LC, VBR), MPEG-1,2; alle mit SCMS-T + Delay Report | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` |
 | HFP HF 1.6, `AT+BRSF=255`, `AT+BAC=1,2` (mSBC) | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` |
 | HU bricht HFP-SLC ab, wenn AG kein Three-Way meldet und `AT+CHLD=?` mit ERROR beantwortet; Retry alle 20–35 s | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` (gegen unseren AG) |
-| HU öffnet in state A (idle, keine Phone-App) keinen SPP-/`deca-fade`-Kanal | `FIELD_B1_FROM_A6_20261113T062824Z` | `MEASURED` (192 s, ein Termin) |
-| Phone→HU RFCOMM ch **6** und ch **5**: HU **UA**, 0 Payload (state A, HFP-off) | `FIELD_B2_20261113T154728Z` | `MEASURED` Transport; BCL `UNKNOWN` |
-| HU→unser SPP „BMW Connected“ in state A (HFP/Apps off) | `FIELD_B2B_20261113T1653Z` | `REJECTED` inbound (180 s) |
-| HFP-AG-off entfernt Kanal-13-Rauschen vollständig | `FIELD_B2_20261113T154728Z` | `MEASURED` (0× `AT+`) |
-| HU-Kanal für BCL / first UIH / BCL-Initiator | — | `UNKNOWN` (next: state C/D) |
-| Nutzer des `deca-fade`-Dienstes (MyBMW? Connected Classic?) | — | `UNKNOWN` (Server akzeptiert, sendet nichts ohne App) |
+| HU öffnet in state A (idle, keine Phone-App) keinen SPP-/`deca-fade`-Kanal | `FIELD_B1_FROM_A6_20261113T062824Z`, `FIELD_B2B_20261113T1653Z` | `MEASURED` |
+| Baseband & EIR: TI BT 4.0 (`0x06:0x000D:0x1B76`), EIR Alps `0x044E:0x3020` v`0xB39B`, LMP `fffe2dfedbff7b87`, `LE Host=OFF`, HU erzwingt Master (`0x21`), `LSTO=8000` (`5,000 s`), Key 128 Bit | `FIELD_A6` / `FIELD_B2` + `DEEP_FORENSIC_ETCH_SAS_20261116` | `MEASURED` |
+| OnePlus 12 (AAC-Offload aktiv) wählt gegenüber der F20-HU **SBC (`seid=1`, BP 2..35)**; SCMS-T `not required`; AVRCP-SDP `0x004d` (`browse=true`, `coverArt=false`, `absVol=false`); HFP `AT+NREC=0` + 3,0-s-Poll | `DEEP_FORENSIC_ETCH_SAS_20261116` | `MEASURED` |
+| BCL auf **SCN 6** (Failover **SCN 10**): `.87`→HU `INIT 12345678` → `HS v5/iid14/0x4000` → `SP2\|SP4` → `KNOCK` (kein ACK56) → `OPEN 5001`+WD (`p50=159,5 ms`); `OPEN 4004` allein → `ACK 8` + Stille | `FIELD_P0_HOLD_20261115T132501Z`, `FIELD_BURST_20261115` | `MEASURED` |
+| MyBMW/AAIdrive Golden Path: 20 ms HU-INIT-RTT (+ 3,000-s-App-Poll-Timer), `Pair(src,4004)` richtungsinvariant (`src=10..19`), `_result_sas_certificate` (16-B-Challenge), `559 B` RSA-4096-`sas_login`, `_result_sas_login`, `_result_rhmi_getCapabilities` (`plen=5306`, 149 Flags = `7×667+645` RFCOMM-UIHs), AM, RHMI, CDS (`50: engine.RPMSpeed`, `47: engine.info`, `93: sensors.SOCBatteryHybrid=255.00`) | `DEEP_FORENSIC_ETCH_SAS_20261116` (`bluetooth_20261115_*`) | `MEASURED` |
+| `deca-fade` (ch 5) = Apple iAP2/MFi, nicht Android/BCL | `FIELD_B2_20261113T154728Z` + spec | `FACT` / `MEASURED` (UA+empty) |
 | Gleiche UUID-Menge (1101, 111e, 1105, 110b, 110e, 1133, `deca-fade`) + zusätzlich `d31fbf50-5d57-2797-a240-41cd484388ec` bei einer HU im Fremd-Logcat | BimmerGestalt `IDriveExperiments/logcat.crash` Z. 41790–41798 (2022-03-29, Gerät `…:49:60`) | `INFERENCE` (secondary; HU-Identität im Log nicht genannt) |
 
 ## Beobachtungen (Lab / Feld)
@@ -94,8 +92,6 @@ HU-SDP (Kanal → Dienst):
 | 2026-11-13 A6 | HU startete A2DP (START) 11 s nach OPEN, ohne dass Media-Pakete flossen; wir SUSPEND nach 5,5 s |
 | 2026-11-13 A6 | Unser AG meldete HFP 1.9 + Super-Wideband → Stack auf `.108` vermutlich PipeWire native (Diagnose offen) |
 | 2026-11-13 A6 | Bimmer-Fremdlog zeigt `d31fbf50-…` zusätzlich — fehlt im F20-SDP state A/B |
-| 2026-11-13 A6 | HU AVRCP-CT features `0x004d` ohne Browsing-Bit, nutzt trotzdem PSM `0x1B` |
-| 2026-11-13 B2 | ch5/6 accept+empty; B2-B negativ; nach HU-Off Reconnect remote-init A2DP/AVRCP; Pass-Through PLAY1/FWD6/BWD7 |
 
 ## Abweichungen vom „Lehrbuch“
 
