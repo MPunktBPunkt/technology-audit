@@ -4,11 +4,12 @@
 updated: 2026-11-17
 fw: "0.3.20"
 topology: HCI_TCP dual-leg (.131 phone · .87 car)
-upstream_commit: 4b24cf4   # dual 0.3.20 align; P0–P2 in-process PASS; USB→.131 Air PARTIAL (WD abort); dual-ESP Air FAIL
+upstream_commit: 1100644   # PiDrive UI seq PASS; soak a5187cb; lifecycle after EAGAIN retry; write11 frozen
 audits:
+  - ../../../audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17/
   - ../../../audits/esp32-bt-analyzer-f20-connected-2026-11-17/
   - ../../../audits/bimmergestalt-rhmi-checkresource-2026-11-17/
-car_next: W0 Watchdog Air stabil → W1 checkResource → W2 digest-matched setResource → W3 initialize → W4 setData(447) → W5 paced Action; Resource-Auth = P0 blocker
+car_next: Feld-Übertragbarkeit — Resource-Auth + F20 Action/Model-IDs + SAS/App-Kontext; Lab actionId 200 / PI_DRIVE_TEST ≠ F20; write11/W0 nicht reopen
 ```
 
 Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTED`
@@ -44,7 +45,12 @@ Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTE
 | Feld RHMI Browse + YouTube + Screen-Mirror-Kandidat | MEASURED / STRONG | `19188` Spotify→YouTube; SE typ `0x5A6F115C`; ~216 KiB burst — Deep Forensic 2026-11-17 |
 | P0–P2 in-process (SE 213, digest whitelist, menu upload) | TEST PASS | `LAB_P0_P2_RESULT_20261117` |
 | FW 0.3.20 dual-align + USB→`.131` Air | PARTIAL | `LAB_P0P2_FW0320_RESULT_20261117` — AM+checkResource TX; abort `wd_echo_miss_limit`; dual-ESP FAIL |
-| Resource-Authorization (F20 digest whitelist) | OPEN (Hauptblocker) | Desk SHA-256 Digests; Lab stub PASS; Feld Auth fremder Bytes unbewiesen |
+| write11 / EAGAIN fail-fast → WATCHDOG | MEASURED + mitigated | `LAB_P0_WRITE11_MASTER` · Retry Default (`ffd28aa`); Panic/Dual als Primärursache `REJECTED` |
+| Lab RHMI lifecycle `RUNTIME_ACTIVE` ~90 s | TEST PASS | `LAB_P0_RHMI_LIFECYCLE_PASS` (Dual+Single after retry) |
+| Lab RHMI soak ~10 min + Actions | TEST PASS | `a5187cb` · 97 setData / 105 action+ack |
+| Lab Action→PiDrive sink | TEST PASS | `1100644` · actionId **200** → `PI_DRIVE_TEST` (**Lab-only**) |
+| Resource-Authorization (F20 digest whitelist) | OPEN (Hauptblocker Feld) | Desk SHA-256 Digests; Lab stub PASS; Feld Auth fremder Bytes unbewiesen |
+| F20 Action-/Model-ID-Map | OPEN | Feld onAction×2 ohne Hex-Bodies; Lab-200 nicht universell |
 
 ## Claim boundary
 
@@ -56,6 +62,10 @@ Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTE
 | Analyzer Core = Universal Host | **REJECTED** |
 | Better WiFi RSSI raises BT ACL rate | **REJECTED** (coex-bound) |
 | Dual A2DP relay = transparent audio proxy | **REJECTED** (two terminated links, BlueZ decode/encode) |
+| Lab Soak/Seq PASS = F20 Auto-ready | **REJECTED** |
+| Lab actionId 200 / `PI_DRIVE_TEST` = F20 OEM Action-Map | **REJECTED** |
+| FREEZE_C5CB0E6 ESP/RFCOMM still Connected-P0 | **SUPERSEDED** (write11 freeze) |
+| reopen write11 / W0 Fall A without new Evidence | **REJECTED** |
 
 ## Repro
 

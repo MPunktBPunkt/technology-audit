@@ -28,7 +28,7 @@ Follow-on Audit: [`bimmergestalt-rhmi-checkresource-2026-11-17`](../../../audits
 | `checkResource(true)` skips `setResource`; MD5 cache vs SHA-256 whitelist | `EVID-BG-RHMI-2026-11-17-001` (`RHMIUtils` + `authentication.md`) | `FACT` (Desk) |
 | App Resource-Matrix Music/Notification/Sneaky/ScreenMirror | `EVID-BG-RHMI-2026-11-17-002` | `FACT` (Desk Code) |
 | ScreenMirror JPEG → RaImageModel / IMAGEDATA setData | `EVID-BG-RHMI-2026-11-17-003` | `FACT` (Desk Code) |
-| ServiceException(213) on ImageID←0 (2019 mock) | `EVID-BG-RHMI-2026-11-17-004` | `FACT` (Desk Mock) |
+| ServiceException(213) on ImageID←0 (2019 mock) | `EVID-BG-RHMI-2026-11-17-004` | `FACT` (Desk Mock); Lab modelId 4 → 213 non-fatal ([transfer audit](../../../audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17/)) |
 | hmi.type/version steuern Layout (ID4/5/6) | `EVID-BG-2026-10-28-014` | `FACT` |
 | AV av_create + av_requestConnection Entertainment | `EVID-BG-2026-10-28-015` | `FACT` |
 | richtext List-Model Experiment | `EVID-BG-2026-10-28-017` | `FACT` (Code); HU-Verhalten `UNKNOWN` |

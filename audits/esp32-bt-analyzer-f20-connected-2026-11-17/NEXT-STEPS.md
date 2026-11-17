@@ -1,5 +1,9 @@
 # Nächste Schritte (gemeinsam aus Audit A + B) — Stand 2026-11-17
 
+> **Superseded for prioritization:** nach Lab Soak/Seq PASS siehe
+> [`../esp32-bt-analyzer-lab-field-transfer-2026-11-17/NEXT-STEPS.md`](../esp32-bt-analyzer-lab-field-transfer-2026-11-17/NEXT-STEPS.md)
+> (Feld-Auth/Action-Semantik zuerst; write11/W0 nicht reopen).
+
 Experimentplan-Mapping **W0–W5:** Watchdog → checkResource stabil → setResource →
 initialize → setData(447) → Action.
 
