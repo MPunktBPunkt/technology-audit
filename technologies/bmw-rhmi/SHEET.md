@@ -7,45 +7,57 @@ primary: H
 tags: [automotive, ui, foreign-desk]
 type: technology
 status: active
-seen_in: [bimmergestalt-idrive-refs]
+seen_in: [bimmergestalt-idrive-refs, esp32-bt-analyzer]
 maturity:
   technology: R2
-  implementation: R0
-  field_evidence: R0
+  implementation: R2
+  field_evidence: R2
   reusability: W2
-  evidence_scope: []
+  evidence_scope: [desk-bg, f20-field-2026-11, f20-sim-lab]
 ```
 
 Ebene **A**. Fremdquellen: `IDriveConnectKit` RHMI-Deserialization,
 AAIdrive/HassGestalt/Addons, `BMWConnectedAnalysis` RHMI-Docs, Simulator-Renderer.
+Eigene Evidence: esp32.bt-analyzer F20 Feld 16./17.11. + f20_sim Lab
+([`audits/esp32-bt-analyzer-f20-connected-2026-11-17`](../../audits/esp32-bt-analyzer-f20-connected-2026-11-17/),
+[`audits/bimmergestalt-rhmi-checkresource-2026-11-17`](../../audits/bimmergestalt-rhmi-checkresource-2026-11-17/)).
 
 ## Kurzfassung
 
 **RHMI** ist die Remote-HMI-Schicht für Connected Apps: die App lädt eine
 **UI-Beschreibung** (XML + Text-/Image-DBs), registriert sie per Etch
-(`rhmi_create` → `rhmi_setResource` → `rhmi_initialize`) und aktualisiert
+(`rhmi_create` → `checkResource`/`setResource` → `rhmi_initialize`) und aktualisiert
 **Models/Properties**; die HU liefert **HMI-/Action-Events** zurück. Layout hängt an
 Capabilities (`hmi.type` / `hmi.version` → ID4/ID5/ID6-Familien), nicht am
 Marketing-Label „NBT“.
 
+**Architektur:** A2DP allein ≠ RHMI. Connected + Browse/iDrive-Menü aktiviert RHMI-Wire.
+
 ## Abgrenzung
 
 - **Ist:** App↔HU UI-Session über Etch.
-- **Ist nicht:** natives iDrive-Menü der HU; USB-MSC Playlist-UI; Android-Phone-UI.
+- **Ist nicht:** natives iDrive-Menü der HU; USB-MSC Playlist-UI; Android-Phone-UI; A2DP-Audio.
 - **Grenzt an:** [`bmw-etch-rpc`](../bmw-etch-rpc/SHEET.md) (Transport der Calls),
-  AV-API für Audio-Fokus (Media ≠ nur RHMI-Widgets).
+  AV-API für Audio-Fokus (Media ≠ nur RHMI-Widgets); Resource-Auth via [`bmw-sas-auth`](../bmw-sas-auth/SHEET.md) Digests.
 
-## Lifecycle (Desk-FACT)
+## Lifecycle (Desk-FACT; Feld/Lab bestätigt Existenz)
 
 ```
 Application
   → Connection (Etch + SAS)
-    → RHMI session (rhmi_create / initialize)
-      → UI description (XML + DBs, digest-gebunden in Certs — Doc)
-        → Model / Property updates (rhmi_setData / setProperty)
-          → Action/HMI events ↔ ack
-            → iDrive/HU display
+    → rhmi_create → handle
+      → für Typ in {DESCRIPTION, TEXTDB?, IMAGEDB?, WIDGETDB?}:
+           checkResource(MD5, handle, size, name="", type)
+           if false: setResource(handle, bytes, type)
+      → rhmi_initialize(handle)
+      → addAction/Hmi handlers
+        → setData / setProperty
+          → onActionEvent ↔ ack
 ```
+
+Cache-Check = **MD5** der Bytes (`RHMIUtils.rhmi_setResourceCached`).  
+Whitelist = **SHA-256** in `SAS.Digests.*` (`verifyResource` / `libhmiremoting.so`).  
+Beide Prüfungen nicht vermischen.
 
 ## Komponenten / Events (Auszug)
 
@@ -78,10 +90,13 @@ Engineering.
 
 ## Offene Fragen (A)
 
-- Welche RHMI-Capabilities liefert genau die Ziel-NBT-Evo im Feld?
+- F20: exakte SHA-256-Digest-Liste der akzeptierten Resources (Whitelist-Korrelation).
 - Richtext-List-Model: HU-seitig bestätigt?
+- HU-Verhalten bei Whitelist-Reject vs. Cache-Miss (Return-Codes).
 
 ## Lessons
 
 - Marketing-Generation ≠ Capability-String.
-- Resource-Digests in Certs (Analysis-Doc) erklären Upload-Grenzen — Desk-INFERENCE bis eigenes Feld.
+- Resource-Digests in Certs sind der **Hauptblocker** für eigene Uploads (Desk Doc + Lab whitelist + Feld checkResource) — autorisierte Bytes nötig, nicht nur korrekte Etch-Calls.
+- `checkResource(true)` ⇒ kein `setResource` für diesen Typ; danach `initialize`.
+- Sneaky-Apps senden oft nur DESCRIPTION (keine TEXTDB/IMAGEDB), um Unsigned-Rejects zu vermeiden.

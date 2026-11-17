@@ -6,13 +6,14 @@ tech_slug: bmw-bcl
 status: active
 sheet: ../../../technologies/bmw-bcl/SHEET.md
 upstream: https://github.com/MPunktBPunkt/esp32.bt-analyzer
-upstream_commits: [0322f2d, 0352824]
+upstream_commits: [0322f2d, 0352824, 4b24cf4]
 maturity:
   technology: R2
   implementation: R2
   field_evidence: R2   # F20 BCL transport + Etch/SAS/AM/RHMI/CDS MEASURED (SCN 6 / failover 10)
   reusability: W2
-updated: 2026-11-16
+updated: 2026-11-17
+audit: ../../../audits/esp32-bt-analyzer-f20-connected-2026-11-17/
 ```
 
 ## Rolle im Projekt
