@@ -13,17 +13,20 @@ related:
 maturity:
   technology: R2
   implementation: R2   # fremd: AAIdrive + KitAndroid
-  field_evidence: R0
+  field_evidence: R2   # F20 DEEP_FORENSIC 2026-11-16/18 via esp32-bt-analyzer
   reusability: W2
-updated: 2026-11-06
+updated: 2026-11-19
 standard_version: "0.7.1"
+related_audits:
+  - ../../../audits/bmw-connected-sas-auth-2026-11-06/
+  - ../../../audits/idriveconnectkit-securityaccess-2026-11-19/
 ```
 
 ## Rolle
 
-Desk-Rekonstruktion der **SAS-Schicht** auf Basis BimmerGestalt-Quellen, als Grundlage
-für hu-probe / Analyzer Feldtests. Dieses Application-Dokument implementiert **keine**
-Auth und speichert **keine** Secrets.
+Desk-Rekonstruktion der **SAS-Schicht** auf Basis BimmerGestalt-Quellen + Crosswalk zum
+F20-Feld. Implementiert **keine** Auth und speichert **keine** Secrets. Blocker = OEM
+`signChallenge`, nicht BCL-HS/KNOCK.
 
 ## Evidenz (Kurz)
 
@@ -34,7 +37,9 @@ Auth und speichert **keine** Secrets.
 | Crypto MD5withRSA+XOR | `EVID-SAS-2026-11-06-009` | FACT (Phone recon) |
 | Digests / RHMI whitelist | `EVID-SAS-2026-11-06-010`/`012` | FACT Doc + Narrative |
 | Simulator open stub | `EVID-SAS-2026-11-06-017` | FACT |
-| Eigenes F20 SAS Capture | `EVID-SAS-2026-11-06-022` | UNKNOWN |
+| SecurityAccess / CertMangling / Packages | `EVID-SASACC-001`…`014` | FACT |
+| F20 16-B Challenge + 512-B Sig / 559-B Frame | `EVID-SASACC-F01`/`F02` | FIELD MEASURED |
+| Lab-sim Cert Auth REJECT am F20 | `EVID-SASACC-F04` | FIELD MEASURED |
 
 ## Gates (Audit-Definition)
 
