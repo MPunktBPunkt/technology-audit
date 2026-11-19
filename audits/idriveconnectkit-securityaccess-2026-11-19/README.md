@@ -67,15 +67,19 @@ Etch  BMWRemoting session
                  ↓
 SAS   sas_certificate(merged p7b)
                  ↓  16-B challenge   ← FIELD MEASURED
-      signChallenge(...)            ← OEM Security Module / Binder  ★ BLOCKER
+      signChallenge(...)            ← OEM Security Module / Binder  ★ GATE LOCATED
                  ↓
       sas_login(RSA-4096 sig)       ← 512-B sig in 559-B wire frame  FIELD MEASURED
 ```
 
+**Streng:** Der **Ort** des SAS-Gates ist identifiziert. Die kryptographische Erzeugung
+einer gültigen Produktion-Response (Schlüsselort A–D) ist **noch unbekannt** —
+nicht „SAS gelöst“. Folge: [`../signchallenge-pipeline-localize-2026-11-19/`](../signchallenge-pipeline-localize-2026-11-19/).
+
 **BclCarLink** = Tunnel + KNOCK-Struktur.  
 **IDriveConnectKitAndroid** = SAS-Client + OEM-Security-Anbindung.  
 **AAIdrive** = Consumer beider.  
-Lab/`f20_sim` mockt `signChallenge`-Verifikation → Lab PASS ≠ F20 Auth (FIELD REJECT 2026-11-18).
+Lab/`f20_sim` mockt Verifikation → Lab PASS ≠ F20 Auth (FIELD REJECT 2026-11-18).
 
 ## Leitplanke
 

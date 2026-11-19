@@ -2,15 +2,17 @@
 
 ## Urteil
 
-Der SAS-Blocker ist **Phone-seitiges OEM-`signChallenge`** nach erfolgreichem BCL/Etch — nicht der BCL-Handshake und nicht NBT-AAD. KitAndroid ist die richtige Referenz für Cert-Merge + Security-Provider; BclCarLink bleibt Transport/KNOCK.
+Der SAS-**Gate-Ort** ist **Phone-seitiges OEM-`signChallenge`** nach BCL/Etch — nicht HS/KNOCK, nicht NBT-AAD.  
+**Nicht gelöst:** wo der private Schlüssel / die Signaturfähigkeit sitzt (A–D).  
+→ [`../signchallenge-pipeline-localize-2026-11-19/`](../signchallenge-pipeline-localize-2026-11-19/).
 
 ## DO NEXT (≤5)
 
-1. **Phone inventory:** Welche `KnownSecurityServices`-Packages auf dem OnePlus 12 installiert/verbunden sind (`SecurityAccess.discover` / AAIdrive debug).  
-2. **Wire-only Vertiefung:** Bestehende Captures — Challenge-Hex ↔ `_result_sas_certificate` In-Reply-To / Session-Bindung (FX-G3-02: neue Challenge pro Session?).  
-3. **Sheet/App sync:** `bmw-sas-auth` field_evidence auf F20 MEASURED halten; G3 in Prior-Audit als superseded markieren (dieser Commit).  
-4. **ArtiDrive:** Auth-State explizit `UNSIGNED | CHALLENGE_RX | LOGIN_TX | AUTHENTICATED | REJECTED` — Lab stub getrennt von „OEM signed“.  
-5. **Optional:** Bei Auth-REJECT Captures Exception-Strings weiter gegen Analysis Doc mappen (bereits 18.11 begonnen).
+1. **signChallenge-Lokalisierung A–D** (MyBMW APK / native `.so` Katalog) — siehe Folge-Audit.  
+2. **Phone inventory:** `KnownSecurityServices`-Packages auf dem OnePlus 12.  
+3. **Public-Key Verify** Feld-`sas_login` gegen APP_AUTH leaf (Algorithmus-Check, kein Key-Export).  
+4. **ArtiDrive:** `CHALLENGE_RX → OEM_SIGN_PENDING → …`; Lab-Stub ≠ OEM signed.  
+5. **Wire:** Challenge-Session-Bindung (FX-G3-02) optional.
 
 ## DEFER (≤5)
 

@@ -17,7 +17,8 @@ maturity:
 ```
 
 Ebene **A** + F20-Feld. Desk: [`audits/bmw-connected-sas-auth-2026-11-06/`](../../audits/bmw-connected-sas-auth-2026-11-06/).  
-SecurityAccess/CertMangling-Deep-Dive: [`audits/idriveconnectkit-securityaccess-2026-11-19/`](../../audits/idriveconnectkit-securityaccess-2026-11-19/).
+SecurityAccess/CertMangling-Deep-Dive: [`audits/idriveconnectkit-securityaccess-2026-11-19/`](../../audits/idriveconnectkit-securityaccess-2026-11-19/).  
+**Gate lokalisiert ≠ Response gelöst** — Schlüsselort A–D: [`audits/signchallenge-pipeline-localize-2026-11-19/`](../../audits/signchallenge-pipeline-localize-2026-11-19/).
 
 ## Kurzfassung
 
