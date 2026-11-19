@@ -4,57 +4,60 @@
 
 | Ziel | Status |
 |------|--------|
-| MyBMW (`de.bmw.connected.mobile20.*`) | **NOT FOUND** |
-| BMW Connected Classic | **NOT FOUND** |
-| adb device | **none attached** |
+| MyBMW (`de.bmw.connected.mobile20.row`) | **FOUND** — 6.11.3 (56034) |
+| BMW Connected Classic | not pulled this run (MyBMW path sufficient for Fall D) |
+| adb device | none attached |
 
-## Suche (2026-11-19)
+## Source
 
-| Ort | Ergebnis |
-|-----|----------|
-| `/home/martin/projects/**` | keine `*.apk` |
-| `/home/martin/Downloads`, Desktop, Documents | leer / keine APK |
-| `/home/martin/.cursor/projects/.../uploads` | kein uploads-Verzeichnis mit APK |
-| `/tmp` | nur BimmerGestalt Git-Clones (kein OEM APK) |
-| `adb devices` | leere Geräteliste |
-| `find /home/martin -name '*.apk'` | keine Treffer |
+| Feld | Wert |
+|------|------|
+| User pointer | https://www.apkmirror.com/apk/bmw/my-bmw-2/ |
+| APKMirror direct download | **blocked** (Cloudflare challenge from this host) |
+| Alternate | APKPure via `apkeep -d apk-pure -o acknowledge_dangers=true` (research ack) |
+| Artifact | `de.bmw.connected.mobile20.row@6.11.3.xapk` |
+| SHA-256 (xapk) | `abd9dad0ed67455d242f9577bd23b61fe66d0f3d0baf875d7ffc74601e79f75c` |
+| Working copy | `/tmp/mybmw-apk/` (not committed) |
 
-Auftragstext: „Für die bereitgestellten APKs“ — im Chat/Workspace **keine** Anhänge gefunden.
+## Package metadata
 
-## Erwartete Felder (leer — Template für Folge)
+| Feld | Wert |
+|------|------|
+| package name | `de.bmw.connected.mobile20.row` |
+| versionName / versionCode | `6.11.3` / `56034` |
+| minSdk / targetSdk | 28 / 36 |
+| ABI in analyzed split | `arm64-v8a` (`config.arm64_v8a.apk`) |
+| XAPK members | base APK + `config.arm64_v8a` + `config.en` + `config.xxhdpi` + `manifest.json` |
 
-| Feld | MyBMW | Classic |
-|------|-------|---------|
-| package name | — | — |
-| versionName / versionCode | — | — |
-| ABI (`lib/<abi>/`) | — | — |
-| `lib/*/*.so` (security-relevant) | — | — |
-| Klassen hits: SecurityModule, signChallenge, … | — | — |
+## Native libraries (`lib/arm64-v8a/`)
 
-## Was wir **ohne** APK schon wissen (Package-Namen only)
+Security-relevant:
 
-Aus Kit `KnownSecurityServices` (nicht inventarisiert auf dem OnePlus):
+| Library | SHA-256 | Role |
+|---------|---------|------|
+| `libaudio.so` | `7bd16da13dc2662e505955425b16ce1facd78dbd81749356c3895d3f2b61ca90` | **SAS signer** — JNI `AudioModule_a`…`_g` |
+| other `.so` | see analysis notes | Flutter/Mapbox/Approov/Ramses/WebRTC — **not** signChallenge |
 
-| Region | MyBMW package |
-|--------|---------------|
-| ROW | `de.bmw.connected.mobile20.row` |
-| NA | `de.bmw.connected.mobile20.na` |
-| CN/HK/KR | `…cn` / `…hm` / `…kr` |
-| Mini / J29 | `de.mini…` / `de.j29…` |
+Full arm64 `.so` list (23): `libaudio`, `libapp`, `libapproov`, `libflutter`, Mapbox, Ramses, WebRTC, ML Kit, pdfium, etc.
 
-Klassennamen (Kit Reflect-Ziel):  
-`com.bmwgroup.connected.core.security.SecurityModule`  
-Fallback: `com.bmwgroup.connected.core.audio.AudioModule`
+## Class / method hits
 
-## Unblock
+| Symbol | Location |
+|--------|----------|
+| `com.bmwgroup.connected.core.security.SecurityModule` | `classes2.dex` — Java wrappers |
+| `com.bmwgroup.connected.core.audio.AudioModule` | `classes2.dex` — `native` methods + `loadLibrary("audio")` |
+| `com.bmwgroup.connected.core.services.security.CarSecurityService` | service, **`android:exported="false"`** |
+| `ICarSecurityService` AIDL stubs | present; used by internal Binder path |
+| `signChallenge` / `createSecurityContext` / `getCertificates` | SecurityModule + AudioModule + Binder stub |
 
-```bash
-# auf dem Phone
-adb shell pm path de.bmw.connected.mobile20.na   # oder .row
-adb pull <path> ./mybmw.apk
+## Cert assets (names only — no key material)
 
-# optional Classic
-adb shell pm path com.bmwgroup.connected.bmw
-```
+| Path | Note |
+|------|------|
+| `assets/carapplications/*/*.p7b` | app feature certs |
+| `assets/flutter_assets/assets/certificates/my_BMW-00.00.16.p7b` | Flutter-bundled cert |
+| No APP_AUTH `.pem` / `.p12` / `.bks` found under obvious names | key locus inside native still open |
 
-APK-Pfad hier ablegen oder im nächsten Prompt nennen → Inventar nachziehen.
+## Unblock note
+
+Prior run was blocked on missing APK. This inventory unblocks JNI mapping.
