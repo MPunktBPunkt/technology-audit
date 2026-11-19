@@ -10,7 +10,7 @@
 2. **Sim Runtime:** `idle|connecting|connected` + overlay + foreign-SPP hold als States aus NBT-AAD übernehmen (ohne AA-Protokollpflicht).  
 3. **Feld/Lab:** Open-Richtung SPP (Phone vs Car) am F20 mit Capture klären — bleibt Spannung Secondary vs BclCarLink.  
 4. **Negativ festhalten in Sheets:** Verweis dieses Audits unter `bmw-bcl` / `bmw-rhmi` als „native RA ≠ remote RHMI; AA UUID ≠ BCL“.  
-5. **CarLife.pbw auf Ziel-F20** nur wenn HMI-tile-Forschung gewünscht: `ls` auf HU (CONFIG-Zugang) — sonst DEFER.
+5. ~~**CarLife.pbw…**~~ / **SDP-Crosswalk:** erledigt → [`../f20-sdp-vs-nbt-aad-2026-11-19/`](../f20-sdp-vs-nbt-aad-2026-11-19/) — Stock-F20 hat keine AA-UUID; NBT-AAD-BT für Connected **NO-GO**.
 
 ## DEFER (≤5)
 
@@ -32,6 +32,7 @@
 | Credential-/Digest-Rekonstruktion aus Plugins | Leitplanke + kein Material |
 | „probably same protocol“ | explizit verboten |
 | Weitere NBT-AAD Desk-Blöcke nur für BCL-Wire | Prior Secondary + dieses Audit ausreichend |
+| NBT-AAD Bluetooth/WifiStart als Connected-Einstieg | SDP-Crosswalk: AA-UUID fehlt auf Stock-F20 ([`f20-sdp-vs-nbt-aad`](../f20-sdp-vs-nbt-aad-2026-11-19/)) |
 
 ## Rollenkarte (kurz)
 
