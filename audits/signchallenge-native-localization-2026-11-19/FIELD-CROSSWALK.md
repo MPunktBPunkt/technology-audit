@@ -5,29 +5,30 @@ Nicht: Byte-für-Byte Reproduktion.
 
 | Field | Phone implementation | Status |
 |-------|----------------------|--------|
-| 16-B Challenge | `_result_sas_certificate` → Kit `signChallenge(challenge)` Input | **MATCH** (size + sequencing) FACT/FIELD |
-| XOR | Doc + `PrivateKeyHandling` for APP_AUTH | **Algorithm MATCH** FACT; **executor component UNKNOWN** (no APK) |
-| MD5 | part of `MD5withRSA` / XOR helper | same |
-| RSA | RSA-4096 APP_AUTH | same; Feld CN `…TouchCommand_Connection…` SUPPORTS key identity |
-| 512-B Signature | OEM `signChallenge` return; Classic/Module tests 512 B, first byte `0x15` on fixed challenge | **Size MATCH** FACT; **producing `.so`/class UNKNOWN** |
-| 559-B sas_login frame | 8 BCL + 8 DEADBEEF + 30 Etch + 512 RSA + 1 END | **MATCH** FIELD forensic — wrapping outside signer |
+| 16-B Challenge | `_result_sas_certificate` → Kit `signChallenge(challenge)` Input | **MATCH** FACT/FIELD |
+| XOR | Doc + `PrivateKeyHandling`; DEX string `XOR` / Status XOR | **Algorithm MATCH**; executor inside `libaudio` **INFERENCE** |
+| MD5 | `md5WithRSA` / `md5WithRSAEncryption` in `libaudio.so` | **MATCH** naming FACT |
+| RSA | OpenSSL RSA in `libaudio.so`; Feld CN `…TouchCommand_Connection…` | **MATCH** component + prior key identity SUPPORTS |
+| 512-B Signature | `AudioModule.g` / `libaudio.so` return | **Size MATCH** FIELD; **producing `.so` IDENTIFIED** FACT |
+| 559-B sas_login frame | BCL + Etch wrap outside signer | **MATCH** FIELD forensic |
 
 ## Identifizierbare Komponente?
 
 | Kandidat | Identifiziert? |
 |----------|----------------|
 | Kit `SecurityAccess` | ja — ruft nur OEM |
-| Classic Binder service | Interface ja; Implementierung nein |
-| MyBMW `SecurityModule` | Klassenname ja; Bytecode/native nein |
-| Konkrete `.so` | **nein** |
+| Classic Binder service | Interface ja (prior) |
+| MyBMW `SecurityModule` | ja — Java wrapper |
+| MyBMW `AudioModule` | ja — `native` JNI surface |
+| Konkrete `.so` | **ja — `libaudio.so`** |
 
-**Antwort:** Die Response wird von einer **OEM-Phone-Komponente hinter** `SecurityModule`/`ICarSecurityService` erzeugt — lokal auf dem Gerät. Die **genaue** Bibliothek/Klasse unterhalb dieser Grenze ist in diesem Lauf **nicht** identifiziert (APK fehlt).
+**Antwort:** Die Feld-Response wird auf dem Phone in **`libaudio.so`** (`Java_…_AudioModule_g`) erzeugt, erreicht über `SecurityModule.signChallenge` (Reflect) bzw. denselben Pfad hinter `CarSecurityService`.
 
 ## Fallmatrix Update
 
 | Fall | Status nach diesem Lauf |
 |------|-------------------------|
-| A | UNKNOWN |
-| B | UNKNOWN |
-| C | Classic outer: FACT; MyBMW inner: UNKNOWN |
-| D | **STRONG INFERENCE** — not CONFIRMED |
+| A | **STRONG INFERENCE** (OpenSSL private-key load in `libaudio`); exact asset/path **UNKNOWN** |
+| B | **UNLIKELY** for signChallenge (no Keystore evidence in `libaudio`) |
+| C | Classic outer FACT; MyBMW Binder = thin wrapper → same native (**FACT**) |
+| D | **CONFIRMED** |

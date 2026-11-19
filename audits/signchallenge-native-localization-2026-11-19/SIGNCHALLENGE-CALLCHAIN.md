@@ -1,39 +1,37 @@
 # SIGNCHALLENGE-CALLCHAIN
 
-## Visualisierung (aktuell belegt)
+## Visualisierung (OEM MyBMW 6.11.3 ROW)
 
 ```text
-Caller (AAIdrive MusicApp / CarProber / …)
+Caller (AAIdrive / Kit consumer)
   ↓
-SecurityAccess.signChallenge(appName, challenge)     FACT — KitAndroid
+SecurityAccess.signChallenge(appName, challenge)          FACT — Kit
   ↓
-┌─────────────────────────────────────────────────────┐
-│ Classic path                                         │
-│   SecurityServiceManager                             │
-│     Intent(className).setPackage(packageName)        │
-│     bindService → ICarSecurityService                │
-│       createSecurityContext(pkg, appName)            │
-│       signChallenge(handle, challenge)  → byte[512]  │
-│       releaseSecurityContext(handle)                 │
-└─────────────────────────────────────────────────────┘
-  OR
-┌─────────────────────────────────────────────────────┐
-│ MyBMW path                                           │
-│   SecurityModuleManager                              │
-│     createPackageContext(mybmwPkg, INCLUDE_CODE)     │
-│     reflect SecurityModule / AudioModule             │
-│       init("bmw")                                    │
-│       createSecurityContext(pkg, appName) → int      │
-│       signChallenge(handle, challenge) → byte[]      │
-│       getCertificates(handle) → p7b                  │
-│       destroySecurityContext / deInit                │
-└─────────────────────────────────────────────────────┘
+SecurityModuleManager (createPackageContext + reflect)
   ↓
-??? OEM inner implementation                           UNKNOWN — needs APK
-  ↓  (Hypothesis D: JNI → .so; not CONFIRMED)
-512 B signature
+SecurityModule.init("bmw")                                FACT — Java → AudioModule.a
+SecurityModule.createSecurityContext(pkg, appName) → int  FACT — Java → AudioModule.c
+SecurityModule.signChallenge(handle, challenge) → byte[]  FACT — Java → AudioModule.g
   ↓
-carConnection.sas_login(response)
+AudioModule.<clinit>: System.loadLibrary("audio")         FACT
+AudioModule.g(I[B)[B   ACC_NATIVE                         FACT
+  ↓
+libaudio.so
+  Java_com_bmwgroup_connected_core_audio_AudioModule_g    FACT — readelf
+  (OpenSSL-style RSA / md5WithRSA path; private-key load)  FACT strings — no key dump
+  ↓
+512 B signature → sas_login
+```
+
+Parallel in-app Binder (not used by Kit for `mobile20`):
+
+```text
+CarSecurityService (exported=false)
+  → Stub.signChallenge(longHandle, challenge)
+      → verifyCaller(uid)
+      → SecurityContext.getmNativeHandle()
+      → SecurityModule.signChallenge(intHandle, challenge)
+          → same AudioModule.g / libaudio.so
 ```
 
 ## Stufen-Tabelle
@@ -42,68 +40,63 @@ carConnection.sas_login(response)
 
 | Feld | Wert |
 |------|------|
-| APK | AAIdrive (open source) — nicht MyBMW |
-| Class | z. B. `me.hufman.androidautoidrive.carapp.music.MusicApp` |
-| Method | auth sequence: `sas_certificate` → `securityAccess.signChallenge` → `sas_login` |
-| Descriptor | n/a (Kotlin) |
-| Evidence | AAIdrive `MusicApp.kt` @`cc81d8e` — **FACT** |
+| Evidence | AAIdrive / Kit — **FACT** (prior) |
 
 ### Stufe 2 — Kit SecurityAccess
 
 | Feld | Wert |
 |------|------|
-| APK | IDriveConnectKitAndroid library |
-| Class | `io.bimmergestalt.idriveconnectkit.android.security.SecurityAccess` |
-| Method | `signChallenge(appName: String, challenge: ByteArray): ByteArray` |
-| Descriptor | takes 16-B challenge (comment); returns OEM response |
-| Evidence | `SecurityAccess.kt` @`4a567bc` — **FACT** |
+| Evidence | `SecurityAccess.kt` — **FACT** (prior) |
 
-### Stufe 3a — Classic Binder
+### Stufe 3b — MyBMW SecurityModule (OEM bytecode)
 
 | Feld | Wert |
 |------|------|
-| APK | OEM Connected Classic (**not present this run**) |
-| Class / Action | `…SECURITY_SERVICE` (enum `KnownSecurityServices`) |
-| Method | AIDL `signChallenge(long, byte[])` |
-| Descriptor | `ICarSecurityService.aidl` |
-| Evidence | Kit bind + AIDL — **FACT** (interface). Inner body **UNKNOWN** ohne Classic APK |
+| APK | MyBMW ROW 6.11.3 |
+| Class | `com.bmwgroup.connected.core.security.SecurityModule` |
+| Method | `public static signChallenge(I[B)[B` |
+| Flags | **not native** — 5 code units: `invoke-static AudioModule.g` + `move-result-object` + `return-object` |
+| Evidence | DEX disassembly — **FACT** |
 
-### Stufe 3b — MyBMW SecurityModule (external surface only)
+Mapping SecurityModule → AudioModule:
+
+| SecurityModule | AudioModule (obfuscated) |
+|----------------|--------------------------|
+| `init(String)` | `a(String)` native |
+| `deInit()` | `b()` native |
+| `createSecurityContext(String,String)->int` | `c(String,String)->int` native |
+| `destroySecurityContext(int)` | `d(int)` native |
+| `addAndVerifyCertificateFromPackage(int,byte[])` | `e(int,byte[])` native |
+| `getCertificates(int)->byte[]` | `f(int)->byte[]` native |
+| **`signChallenge(int,byte[])->byte[]`** | **`g(int,byte[])->byte[]` native** |
+
+### Stufe 4 — JNI / native — **CONFIRMED**
 
 | Feld | Wert |
 |------|------|
-| APK | MyBMW (**not present**) |
-| Class | `com.bmwgroup.connected.core.security.SecurityModule` (or AudioModule) |
-| Method | reflected: `(String,String)->Int` create; `(Int,byte[])->byte[]` sign; `(Int)->byte[]` certs |
-| Descriptor | **kein** Smali/`native` Keyword hier — nur Reflect-Filter in Kit |
-| Evidence | `SecurityModuleManager.kt` — **FACT** that Kit *expects* these method shapes. **NOT** FACT that methods are `native` |
+| Library | `libaudio.so` (`arm64-v8a`) |
+| Load | `System.loadLibrary("audio")` in `AudioModule.<clinit>` |
+| JNI symbol | `Java_com_bmwgroup_connected_core_audio_AudioModule_g` @ `0xbda2c` size 324 |
+| Error string | `Error while calling native function signChallenge with handle %d. ErrorCode %d` |
+| Algo strings | `md5WithRSA`, `md5WithRSAEncryption`, `RSA-MD5`, OpenSSL `crypto/rsa/rsa_sign.c` |
+| NEEDED | only `libc`, `libm`, `libdl` (OpenSSL statically linked inside) |
+| Evidence | readelf + strings + DEX — **FACT** |
 
-### Stufe 4 — JNI / native
+### Stufe 3a — Classic / MyBMW Binder
 
 | Feld | Wert |
 |------|------|
-| APK | — |
-| Class / Method | — |
-| Evidence | Analysis Doc „JNI/NDK library“; Test message `native function signChallenge` |
-| Klassifikation | **STRONG INFERENCE** — **not** JNI FACT (no `native` declaration / `RegisterNatives` / `JNI_OnLoad` from OEM binary) |
+| MyBMW service | `com.bmwgroup.connected.core.services.security.CarSecurityService` |
+| Exported | **false** |
+| Inner call | Binder stub → `SecurityModule.signChallenge` |
+| Evidence | Manifest + DEX invokes — **FACT** |
 
-## Certificate entry (Pipeline, not re-audited)
+## Certificate entry (unchanged)
 
-```text
-getAppCertificate / mergeBMWCert(app, fetchBMWCerts)
-  → sas_certificate(mergedP7b)     ← cert NOT passed into signChallenge()
-  ← challenge[16]
-signChallenge(challenge)           ← only challenge (+ context handle from createSecurityContext)
-```
-
-| Frage | Antwort | Klassifikation |
-|-------|---------|----------------|
-| Cert an `signChallenge()` übergeben? | Nein — nur Challenge (+ zuvor Context) | FACT (Kit) |
-| Cert vorher verarbeitet? | Ja — merge vor `sas_certificate` | FACT |
-| SecurityModule lädt Cert? | `loadAppCert` / `getCertificates` für APP_AUTH bundle | FACT (Kit surface) |
-| Package/Cert Bindung | `createSecurityContext(packageName, …)`; Analysis: package must be valid for client | FACT Doc + Kit |
+Cert is **not** an argument to `signChallenge`; context + challenge only.  
+`getCertificates` / `addAndVerifyCertificateFromPackage` are sibling natives on the same module.
 
 ## STOP-Grenze
 
-Keine OEM-APK → keine Bestätigung von `native` keyword / `.so` Bindung.  
-Hypothese D **nicht** zu CONFIRMED hochstufen.
+Gate **located** at `libaudio.so` / `AudioModule.g`.  
+Gate **not solved**: no key extraction, no forge, no auth circumvention.

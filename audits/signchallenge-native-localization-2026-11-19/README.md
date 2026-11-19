@@ -5,20 +5,21 @@ id: signchallenge-native-localization-2026-11-19
 project_id: bimmergestalt-idrive-refs
 started: 2026-11-19
 ended: 2026-11-19
-status: blocked   # missing MyBMW/Classic APK input
+status: complete   # observe-only; Fall D CONFIRMED
 profile: planning
 standard_version: "0.7.1"
 continuation_of:
   - audits/signchallenge-pipeline-localize-2026-11-19/
   - audits/idriveconnectkit-securityaccess-2026-11-19/
-apk_input: null
+apk_input:
+  package: de.bmw.connected.mobile20.row
+  versionName: "6.11.3"
+  versionCode: 56034
+  abi: arm64-v8a
+  source: APKPure via apkeep (APKMirror blocked by Cloudflare from this host)
+  artifact: de.bmw.connected.mobile20.row@6.11.3.xapk
+  sha256_xapk: abd9dad0ed67455d242f9577bd23b61fe66d0f3d0baf875d7ffc74601e79f75c
 adb_devices: []
-search_roots_checked:
-  - /home/martin/projects
-  - /home/martin/Downloads
-  - /home/martin/.cursor/projects/.../uploads
-  - /tmp
-  - adb devices (empty)
 ```
 
 ## Fragestellung
@@ -31,66 +32,48 @@ Java/Kotlin → JNI? → native .so? → RSA / Keystore / TEE / Binder?
 
 Observe-only. Kein Key-Dump, kein Forge, kein Bypass.
 
-## Status dieses Laufs
+## Verdict
 
-**INPUT BLOCKED:** Es wurden **keine** MyBMW- oder Connected-Classic-APKs im Workspace /
-an diesem Chat gefunden. Ohne APK/Dex/`lib/*.so` kann JNI **nicht** als FACT bestätigt
-werden — auch nicht „weil Tests native function sagen“.
-
-| Geplant | Ergebnis |
-|---------|----------|
-| APK inventory | **BLOCKED** — keine APKs |
-| signChallenge call-chain (OEM) | nur **externe** Kit-Oberfläche (Prior) |
-| JNI/native mapping | **UNKNOWN** (keine `.so`) |
-| Keystore/Binder inside OEM | **UNKNOWN** |
-| Field crosswalk | strukturell (Prior MEASURED) — ohne Phone-Komponente-ID |
-
-## Wichtigste FACTs (unverändert / Prior)
-
-| FACT | Quelle |
-|------|--------|
-| Challenge 16 B nach `sas_certificate` | F20 DEEP_FORENSIC |
-| `sas_login` 512-B Sig / 559-B Frame | F20 DEEP_FORENSIC |
-| Kit ruft OEM `signChallenge(handle, challenge)` | KitAndroid `@4a567bc` |
-| Classic = Binder `*.SECURITY_SERVICE`; MyBMW = in-process `SecurityModule` | Kit + Analysis |
-| Analysis: JNI/NDK wird für Sign vorbereitet | `authentication.md` |
-| Kit-Test Exception enthält `native function signChallenge` | androidTest |
-| Algorithmus-Form XOR+MD5withRSA (Rekonstruktion) | Analysis + PrivateKeyHandling |
-
-## Aktuelle Architektur (was lokalisiert ist)
+**Fall D CONFIRMED.** MyBMW `SecurityModule.signChallenge` is a Java thin wrapper that
+calls obfuscated native `AudioModule.g`; that JNI symbol lives in **`libaudio.so`**.
 
 ```text
-AAIdrive / Kit
-  → SecurityAccess.signChallenge
-      → [Classic] ICarSecurityService Binder     FACT (Kit)
-      → [MyBMW]  SecurityModule via reflect      FACT (Kit surface)
-          → ??? JNI / .so / Keystore / Binder    UNKNOWN ohne APK
-              → 512-B signature
-  → sas_login → HU
+Kit SecurityAccess
+  → SecurityModule.signChallenge(handle, challenge)     FACT — Java, non-native
+      → AudioModule.g(handle, challenge)                FACT — ACC_NATIVE
+          → System.loadLibrary("audio")                 FACT — AudioModule.<clinit>
+          → libaudio.so
+               Java_com_bmwgroup_connected_core_audio_AudioModule_g   FACT — readelf
 ```
 
-## Fall A/B/C/D (dieser Lauf)
+Same native path is reached from in-app `CarSecurityService` (`exported=false`) after
+caller UID checks — Binder is a wrapper, not a separate signer.
+
+## Fall A/B/C/D
 
 | Fall | Status |
 |------|--------|
-| A Key in APK/managed | **UNKNOWN** (APK fehlt) |
-| B Keystore/TEE | **UNKNOWN** |
-| C OEM Binder (inner MyBMW) | Classic äußere IPC **FACT**; MyBMW-inner **UNKNOWN** |
-| D JNI/native OEM lib | **STRONG INFERENCE** (Doc + Exception-String) — **nicht CONFIRMED** |
+| A Key in APK/managed blob | **STRONG INFERENCE** — `libaudio.so` loads OpenSSL-style private-key material (`RSA PRIVATE KEY`, `cannot load private key`, `md5WithRSAEncryption`); no APP_AUTH `.pem`/`.p12` found in APK assets (only `.p7b` certs). Exact key file locus **UNKNOWN**. |
+| B Keystore/TEE | **UNLIKELY for signChallenge** — no `AndroidKeyStore` strings in `libaudio.so`; Java Keystore hits map to HU pairing cert store, not the JNI signer. |
+| C OEM Binder | **Outer Classic path FACT (prior).** MyBMW: `CarSecurityService` present, **`exported=false`**; Binder stub calls `SecurityModule.signChallenge` → same `libaudio.so`. |
+| D JNI/native OEM lib | **CONFIRMED** — `libaudio.so` / `AudioModule.g` |
 
-## Was weiterhin UNKNOWN
+## Wichtigste FACTs (dieser Lauf)
 
-- Package/Version/ABI der installierten MyBMW-Build  
-- `lib/*/*.so` Namen und `JNI_OnLoad` / `RegisterNatives`  
-- Ob `signChallenge` selbst `native` deklariert ist  
-- Keystore/KeyMint-Nutzung  
-- Private-Key location  
+| FACT | Evidence |
+|------|----------|
+| Package `de.bmw.connected.mobile20.row` 6.11.3 (56034) | APK manifest / androguard |
+| `SecurityModule.signChallenge` is **not** `native` | DEX access flags + bytecode → `AudioModule.g` |
+| `AudioModule` loads `libaudio` | `<clinit>`: `System.loadLibrary("audio")` |
+| JNI exports `AudioModule_a`…`_g` | `readelf -Ws libaudio.so` |
+| Error string `native function signChallenge` | UTF-8 string inside `libaudio.so` |
+| Algo form `md5WithRSA` / `md5WithRSAEncryption` in native | strings in `libaudio.so` (matches prior Analysis) |
+| `CarSecurityService` exported=false | AndroidManifest |
 
-## Nächster sinnvoller Schritt
+## STOP-Grenze
 
-1. MyBMW-APK (und optional Classic) bereitstellen: lokaler Pfad oder `adb pull $(adb shell pm path …)`.  
-2. Diesen Audit mit Inventar + JADX/readelf-Katalog fortsetzen (observe-only).  
-3. Parallel optional: Public-Key-Verify der Feld-512-B-Signatur (kein Key-Export).
+Identified **where** the signature is produced (`libaudio.so` via `AudioModule.g`).  
+**Not** done (and out of scope): private-key extraction, forge, SAS bypass, TEE attack.
 
 ## Artefakte
 
