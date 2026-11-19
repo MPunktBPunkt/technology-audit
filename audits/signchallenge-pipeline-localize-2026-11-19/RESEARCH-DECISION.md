@@ -7,8 +7,8 @@ Algorithmus/Format der Response sind desk-seitig rekonstruiert; der **Schlüssel
 
 ## DO NEXT (≤5)
 
-1. **Phone inventory:** installierte Mine/Classic-Packages + APK-Pfad (`pm path de.bmw.connected.mobile20.*`).  
-2. **APK Lokalisierung (observe):** `lib/*.so` Namen + `SecurityModule` / `native` Methodenliste — **nur Katalog**, kein Key-Export.  
+1. **APK bereitstellen** — Native-Lokalisierung **blocked** ohne Input: [`../signchallenge-native-localization-2026-11-19/`](../signchallenge-native-localization-2026-11-19/).  
+2. **Danach:** `lib/*.so` + `native`/`JNI_OnLoad` Katalog (observe-only).  
 3. **Public-Key Verify:** Feld-`sas_login`-512 gegen APP_AUTH Public Key aus gemergtem Cert (Verify bestätigt Algorithmus; ersetzt keinen Key).  
 4. **Fall B/C Screen:** kurze Suche nach Keystore/KeyMint/Binder-Aufrufen in SecurityModule-Call-Chain.  
 5. **ArtiDrive:** Auth-State `CHALLENGE_RX → OEM_SIGN_PENDING → LOGIN_TX` explizit; Lab-Stub nie als Fall A verkaufen.
