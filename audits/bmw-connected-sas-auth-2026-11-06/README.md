@@ -77,3 +77,8 @@ AAIdrive + ESP32-Analyzer.
 
 **AOA/BCL evidence ≠ SAS authentication evidence.**  
 Bestehende hu-probe AOA-Enum-/MSC-Messungen belegen **nicht** G3.
+
+**Update 2026-11-19:** G3 Field ist inzwischen über `esp32-bt-analyzer`
+`DEEP_FORENSIC_ETCH_SAS_20261116` MEASURED. SecurityAccess-Dependencies:
+[`../idriveconnectkit-securityaccess-2026-11-19/`](../idriveconnectkit-securityaccess-2026-11-19/).
+Dieser Desk-Audit bleibt die Auth-Architektur-Basis; G3-„absent“ unten ist **superseded**.

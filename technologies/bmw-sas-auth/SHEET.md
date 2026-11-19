@@ -7,17 +7,17 @@ primary: H
 tags: [automotive, protocol, security, foreign-desk]
 type: technology
 status: active
-seen_in: [bimmergestalt-idrive-refs, hu-probe]
+seen_in: [bimmergestalt-idrive-refs, hu-probe, esp32-bt-analyzer]
 maturity:
   technology: R2
-  implementation: R0
-  field_evidence: R0
+  implementation: R2
+  field_evidence: R2   # F20 DEEP_FORENSIC_ETCH_SAS_20261116 + AUTH_REJECT_20261118
   reusability: W2
-  evidence_scope: []
+  evidence_scope: [desk-bg, f20-field-2026-11]
 ```
 
-Ebene **A** (Desk aus Fremdquellen). **Keine** eigenen SAS-Wire-Captures.
-Vollaudit: [`audits/bmw-connected-sas-auth-2026-11-06/`](../../audits/bmw-connected-sas-auth-2026-11-06/).
+Ebene **A** + F20-Feld. Desk: [`audits/bmw-connected-sas-auth-2026-11-06/`](../../audits/bmw-connected-sas-auth-2026-11-06/).  
+SecurityAccess/CertMangling-Deep-Dive: [`audits/idriveconnectkit-securityaccess-2026-11-19/`](../../audits/idriveconnectkit-securityaccess-2026-11-19/).
 
 ## Kurzfassung
 
@@ -50,8 +50,10 @@ stellvertretend aus (ContentProvider-Cert). Analysis Doc: Tunnel **nicht verschl
 |-------|--------|
 | Simulator/Mock login = echte HU-Verifikation | `REJECTED` |
 | AOA/BCL Capture = SAS Erfolg | `REJECTED` |
-| Challenge immer 16 B auf allen HUs | `INFERENCE` (observed) |
-| Response immer 512 B | `INFERENCE` (Classic path); Dev-Key Tests 192 B |
+| Challenge immer 16 B auf allen HUs | `MEASURED` auf diesem F20 (`DEEP_FORENSIC_ETCH_SAS_20261116`); andere HUs `UNKNOWN` |
+| Response-Signatur 512 B (RSA-4096); Wire-Frame größer | `MEASURED` F20: 512-B Sig in 559-B `sas_login`-Frame |
+| HS/KNOCK/ACK10 = SAS-Challenge | `REJECTED` — BCL-Transport ≠ Etch-SAS ([SecurityAccess-Audit](../../audits/idriveconnectkit-securityaccess-2026-11-19/)) |
+| Lab/`f20_sim` Login = echte HU-Auth | `REJECTED` — FIELD AUTH REJECT 2026-11-18 |
 | USB und BT teilen SAS | `INFERENCE` (gleiche Etch-API) |
 
 ## Transfer
