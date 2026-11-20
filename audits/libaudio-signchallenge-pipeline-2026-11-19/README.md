@@ -104,6 +104,17 @@ OpenSSL PEM/`cannot load private key` strings exist in the static OpenSSL copy; 
 |--------|-------|
 | Android Keystore/TEE for this path | **NOT_FOUND** |
 
+### VIN-derived key (explicit)
+
+| Claim | Status |
+|-------|--------|
+| Embedded RSA key material in `libaudio.so` PKCS#12 @ fixed VA `0x5249e` (4338 B) | **FACT** |
+| `private_key = f(VIN)` / per-vehicle KDF into the sign path | **HYPOTHESIS / not evidenced** — treat as **REJECTED for planning** until a contrary dataflow appears |
+
+**Why VIN→key is incompatible with the FACTs above:** the PKCS#12 blob sits at a **fixed VA in a single public APK release binary**. A VIN-derived private key would require either (a) different key material per vehicle build or (b) a runtime KDF/VIN dataflow into key construction on the sign path. Disassembly shows **neither**: no `open`/`AAsset` on depth≤3, and the sign graph inputs are challenge + cert serial only. A universal release `.so` cannot hold a per-VIN RSA private key at a fixed offset.
+
+Do **not** open a “derive key from VIN” workstream from this audit.
+
 ---
 
 ## D. APP_AUTH / certificate binding
@@ -113,13 +124,16 @@ OpenSSL PEM/`cannot load private key` strings exist in the static OpenSSL copy; 
 | Observation | Class |
 |-------------|-------|
 | `createSecurityContext(package, appName)` stores strdup names on context (`+0x08`,`+0x10`) | **FACT** |
-| Sign uses **certificate serial** from `context+0x18` X509 for XOR pad | **FACT** |
+| Sign uses **MD5(cert_serial_u32)** as XOR **pad** (not raw serial in XOR) from `context+0x18` X509 | **FACT** |
 | Fallback embed cert CN/attrs include `SAS.CertificateType=APP`, BMW A4A FeatureCertificate | **FACT** |
 | PKEY lookup name hardcoded `"com.bmwgroup.connected.bmw"` | **FACT** |
+| That alias **maps to** the embedded PKCS#12 identity | **INFERENCE** (not dynamically proven; see §G) |
 | Literal `APP_AUTH` / `sas_certificate` strings inside `libaudio.so` | **NOT_FOUND** |
 | Java-side CertMangling / `sas_certificate` merge still outside this SO | prior audit — not re-proven here |
 
 Binding is via **security-context certificate + named PKEY alias**, not a string token `APP_AUTH` inside the .so.
+
+**A ↔ B (open link):** embedded PKCS#12 key material **(A)** vs wire `sas_certificate` / APP_AUTH context **(B)**. Protocol *math* is reconstructed; a successful Field `sas_login` still needs HU-accepted cert context **and** the matching private key. MyBMW is not required to *compute* the pad/hash pipeline, but remains required for an *accepted* constellation until A↔B is settled with a lawful matching pair.
 
 ---
 
@@ -131,11 +145,20 @@ Binding is via **security-context certificate + named PKEY alias**, not a string
 libaudio.so
   ↓  AudioModule.init embeds PKCS#12 (pkcs8ShroudedKeyBag)
   ↓  unwrap into OpenSSL EVP_PKEY (in-process; PBE-shrouded at rest)
-  ↓  AudioModule.g → XOR+MD5 → EVP_PKEY_sign (RSA)
+  ↓  AudioModule.g → MD5(serial)→XOR→MD5 → EVP_PKEY_sign (RSA)
   ↓  512-byte signature
 ```
 
 Not CASE B/C/D for the `signChallenge` path.
+
+### Dual-gate invariant (do not collapse)
+
+```text
+(A) Client sign mechanism     → FACT (this audit / CASE A)
+(B) HU acceptance of cert+sig → OPEN (Field / product gate)
+```
+
+“SAS is not an unknown protocol problem” applies to **(A) only**. Lab stub `AUTHENTICATED` ≠ Field `(B)`.
 
 ---
 
@@ -149,9 +172,23 @@ Not CASE B/C/D for the `signChallenge` path.
 
 ---
 
-## G. Next Step (optional)
+## G. Next Step
 
-Dynamic observe-only: break on `0xbe448` / PKCS#12 parse and on `EVP_PKEY_sign` to confirm which PKEY alias/`com.bmwgroup.connected.bmw` maps to after init — still without dumping key material.
+### Preferred — Test A: B3 / wire serial pad cross-check (no key access)
+
+Capture a real MyBMW/AAIdrive session (B3 relay or equivalent jsonl):
+
+1. `sas_certificate` → extract effective X509 **serial_u32**
+2. `_result_sas_certificate` → **challenge[16]**
+3. `sas_login` → signature bytes (for later; not required for pad-only check)
+
+Compute `pad16 = MD5(serial_u32_be)` and verify the native transform `challenge XOR pad → MD5` against the CASE A recipe. This bridges **APK ↔ Wire** without private-key access and feeds the A↔B identity question.
+
+Implementation live in `esp32.bt-analyzer`: `tools/sas_pad_crosscheck.py`, B3 `etch.sas` enrichment, `etch_codec.extract_pkcs7_cert_serials` — see consolidation doc below.
+
+### Optional — dynamic observe-only (alias binding)
+
+Break on `0xbe448` / PKCS#12 parse and on `EVP_PKEY_sign` to confirm which PKEY alias/`com.bmwgroup.connected.bmw` maps to after init — still without dumping key material. Useful for promoting alias↔PKCS#12 from **INFERENCE** → **FACT**; weaker than Test A for Field protocol work.
 
 ---
 
@@ -165,4 +202,7 @@ Dynamic observe-only: break on `0xbe448` / PKCS#12 parse and on `EVP_PKEY_sign` 
 ## Artefakte
 
 - This README (A–G report)
+- `SAS_SIGNER_CASE_A_CLOSED_20261119.md` — dual-gate / VIN / Test A consolidation
+- `FUNCTION-NOTES.md` — per-function FACT/INFERENCE
 - Prior: `audits/signchallenge-native-localization-2026-11-19/`
+- Product mirror + tooling: `esp32.bt-analyzer` `docs/analysis/SAS_SIGNER_CASE_A_CLOSED_20261119.md`
