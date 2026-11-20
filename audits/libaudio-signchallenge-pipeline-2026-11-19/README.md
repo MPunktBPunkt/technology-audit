@@ -30,7 +30,7 @@ native_sign_impl                                        @ 0xbd73c
   │  lookup security_context by handle (list @ 0x1eb110)
   │  ensure X509* at context+0x18 (fallback: embed cert @ 0x51987)
   │  serial = X509_get_serialNumber-style extract (@ 0x196240 → 0xc4cf0)
-  │  pad16 = MD5(serial_u32)                            @ 0x15523c/0x15466c/0x155170
+  │  pad16 = MD5(u32_be)  # APP_AUTH Wire: u32=0x02000000 @ 0x15523c/…
   │  xored = challenge[16] XOR pad16                    (NEON eor v0.16b)
   │  EVP_MD_CTX + EVP_md5 + DigestInit/Update(xored,16) @ 0xd75f4/0x12b08c/0xd7668/0xd78f0
   │  pkey = lookup(global@0x1eb108, "com.bmwgroup.connected.bmw")  @ 0xbdf84
@@ -62,7 +62,7 @@ AudioModule_a (init)
 ```text
 challenge[16]                         FACT — cmp w27,#0x10 rejects other lengths
       ↓
-MD5( cert_serial as 4 bytes ) → 16 B  FACT — MD5 IV constants @ 0x53770; MD5_Update len=4; MD5_Final
+MD5( u32_be as 4 bytes ) → 16 B       FACT — MD5 IV @ 0x53770; MD5_Update len=4; MD5_Final
       ↓
 XOR (16-byte NEON eor)                FACT — eor v0.16b,v1.16b,v0.16b @ 0xbd89c
       ↓
@@ -72,6 +72,13 @@ RSA via EVP_PKEY_sign                 FACT — pmeth_fn.c; size check w1=#0x200
       ↓
 signature length written to *out_len  FACT — typically 512 for RSA-4096
 ```
+
+**Wire FACT supersession (2026-11-20):** Disassembly shows `MD5(u32)` then XOR — **not**
+raw serial XOR. For APP_AUTH Wire sessions the effective u32 is **`0x02000000`**
+(CertificateType-shaped), **not** the TouchCommand X509 serial `0x0AA9`.  
+RSA-VERIFY 8/8 + 2³² unique hit — product
+`SAS_PAD_RSA_VERIFY_LAB_20261120.md` / gap audit
+[`docs/analysis/F20_CONNECTED_GAP_AUDIT_20261120.md`](../../docs/analysis/F20_CONNECTED_GAP_AUDIT_20261120.md).
 
 | offset | function (role) | input | output | calls | constants | confidence |
 |--------|-----------------|-------|--------|-------|-----------|------------|
@@ -113,7 +120,8 @@ OpenSSL PEM/`cannot load private key` strings exist in the static OpenSSL copy; 
 | Observation | Class |
 |-------------|-------|
 | `createSecurityContext(package, appName)` stores strdup names on context (`+0x08`,`+0x10`) | **FACT** |
-| Sign uses **certificate serial** from `context+0x18` X509 for XOR pad | **FACT** |
+| Sign uses **MD5(u32)** as XOR pad (u32 from cert/context path; **not** raw serial XOR) | **FACT** (native) |
+| APP_AUTH Wire pad-u32 = `0x02000000` (≠ X509 serial `0x0AA9`) | **FACT** (Wire 2026-11-20) |
 | Fallback embed cert CN/attrs include `SAS.CertificateType=APP`, BMW A4A FeatureCertificate | **FACT** |
 | PKEY lookup name hardcoded `"com.bmwgroup.connected.bmw"` | **FACT** |
 | Literal `APP_AUTH` / `sas_certificate` strings inside `libaudio.so` | **NOT_FOUND** |
@@ -149,9 +157,15 @@ Not CASE B/C/D for the `signChallenge` path.
 
 ---
 
-## G. Next Step (optional)
+## G. Next Step
 
-Dynamic observe-only: break on `0xbe448` / PKCS#12 parse and on `EVP_PKEY_sign` to confirm which PKEY alias/`com.bmwgroup.connected.bmw` maps to after init — still without dumping key material.
+**Preferred (Field):** controlled B3 run with authorized APP/APP_AUTH — see
+[`docs/analysis/F20_CONNECTED_GAP_AUDIT_20261120.md`](../../docs/analysis/F20_CONNECTED_GAP_AUDIT_20261120.md).  
+Crypto formula is **CLOSED**; remaining gate is F20 acceptance of a *reproduced*
+credential context (B2). OEM authorized context (B1) is already **FIELD FACT**.
+
+**Optional (observe-only):** break on `0xbe448` / PKCS#12 parse and on `EVP_PKEY_sign`
+to promote PKEY alias↔embedded PKCS#12 from INFERENCE→FACT — no key dump.
 
 ---
 

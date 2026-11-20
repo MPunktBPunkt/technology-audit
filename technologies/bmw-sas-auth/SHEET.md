@@ -18,7 +18,10 @@ maturity:
 
 Ebene **A** + F20-Feld. Desk: [`audits/bmw-connected-sas-auth-2026-11-06/`](../../audits/bmw-connected-sas-auth-2026-11-06/).  
 SecurityAccess/CertMangling-Deep-Dive: [`audits/idriveconnectkit-securityaccess-2026-11-19/`](../../audits/idriveconnectkit-securityaccess-2026-11-19/).  
-**Gate lokalisiert ≠ Response gelöst** — Schlüsselort A–D: [`audits/signchallenge-pipeline-localize-2026-11-19/`](../../audits/signchallenge-pipeline-localize-2026-11-19/).
+**Crypto CLOSED (2026-11-20):** Pad `0x02000000` · PKCS#1 v1.5 DigestInfo-MD5 · Wire Cert↔Sig 8/8.  
+CASE A Signer: [`audits/libaudio-signchallenge-pipeline-2026-11-19/`](../../audits/libaudio-signchallenge-pipeline-2026-11-19/).  
+**Gate B1** (OEM MyBMW/AAIdrive am F20) = FIELD FACT; **Gate B2** (reproduzierter Credential-Kontext) = OPEN.  
+Delta: [`docs/analysis/F20_CONNECTED_GAP_AUDIT_20261120.md`](../../docs/analysis/F20_CONNECTED_GAP_AUDIT_20261120.md).
 
 ## Kurzfassung
 
@@ -54,7 +57,9 @@ stellvertretend aus (ContentProvider-Cert). Analysis Doc: Tunnel **nicht verschl
 | Challenge immer 16 B auf allen HUs | `MEASURED` auf diesem F20 (`DEEP_FORENSIC_ETCH_SAS_20261116`); andere HUs `UNKNOWN` |
 | Response-Signatur 512 B (RSA-4096); Wire-Frame größer | `MEASURED` F20: 512-B Sig in 559-B `sas_login`-Frame |
 | HS/KNOCK/ACK10 = SAS-Challenge | `REJECTED` — BCL-Transport ≠ Etch-SAS ([SecurityAccess-Audit](../../audits/idriveconnectkit-securityaccess-2026-11-19/)) |
-| Lab/`f20_sim` Login = echte HU-Auth | `REJECTED` — FIELD AUTH REJECT 2026-11-18 |
+| Lab/`f20_sim` Login = echte HU-Auth | `REJECTED` — FIELD AUTH REJECT 2026-11-18 = Gate B2 OPEN; ≠ „F20 kann kein SAS“ (Gate B1 FIELD FACT) |
+| Pad-u32 APP_AUTH = X509-Serial | `REJECTED` — Wire FACT `0x02000000` |
+| MyBMW nötig für SAS-Protokollmathematik | `REJECTED` — Formel Wire-geschlossen; MyBMW bleibt Signer-Träger bis Standalone |
 | USB und BT teilen SAS | `INFERENCE` (gleiche Etch-API) |
 
 ## Transfer
