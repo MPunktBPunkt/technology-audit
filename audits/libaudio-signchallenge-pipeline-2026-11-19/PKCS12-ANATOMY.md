@@ -1,4 +1,4 @@
-# PKCS#12 Anatomy Addendum (2026-11-21 → rev. 2026-11-22b)
+# PKCS#12 Anatomy Addendum (2026-11-21 → rev. 2026-11-22d)
 
 ```yaml
 parent: README.md
@@ -6,28 +6,25 @@ subject: embedded PKCS#12 @ 0x5249e in libaudio.so
 lib_sha256: 7bd16da13dc2662e505955425b16ce1facd78dbd81749356c3895d3f2b61ca90
 build_id: cf781dbc8425a5fe2cbbd02be5cfc7630398301f
 elf: AArch64, stripped, size 1981072
-scope: key-origin + EVP_PKEY dataflow — observe/document only
+scope: key-origin + native SAS sign E2E — observe/document only
 status: >
-  PFX origin CLOSED; EVP_PKEY* from PKCS12_parse → x3 of 0x12e564 CLOSED (FACT);
-  plaintext credentials NOT published; deepest RSA pmeth inside 0x12e564 = next hop
+  Native SAS sign chain CLOSED end-to-end (PFX→pass→EVP_PKEY→MD5/XOR/MD5→
+  EVP_SignFinal→EVP_PKEY_sign→RSA-4096). Credentials withheld.
+  Micro-gap: ASN.1 field provenance of CertificateType integer (STRONG).
 ```
 
 ## Verdict
 
-> **Where does the private key come from?** → CLOSED (embedded PFX + local pass).  
-> **Does that `EVP_PKEY*` enter the sign path?** → **YES (FACT)** — same pointer is
-> returned from `0xbdf84` and passed as **x3** into `0x12e564` (prior: EVP_sign_finalize).
-
-Remaining hop:
+Native SAS signing in `libaudio.so` is **end-to-end CLOSED**:
 
 ```text
-0x12e564  ──?──►  innermost EVP_PKEY_sign / RSA private op
+Challenge[16] → MD5(LE32(certType)) → XOR → MD5 → EVP_SignFinal
+  → EVP_PKEY_sign → RSA-4096 PKCS#1 → 512 B
+         ▲
+         └── EVP_PKEY from embedded PFX (local pass + PKCS12_parse)
 ```
 
-Not a cryptography gap; not a missing key — one wrapper to resolve.
-
-**STOP (repo hygiene):** do **not** commit plaintext passphrase, PKCS#8, or usable private
-key material. Architecture + addresses + public cert fingerprints only.
+**STOP:** do not publish passphrase / PKCS#8 / private key in this repo.
 
 ---
 
@@ -132,76 +129,120 @@ Private-key → SPKI and certificate → SPKI match → same key material **FACT
 
 ---
 
-## SAS signer linkage — EVP_PKEY dataflow (rev. 2026-11-22c)
+## Native sign entry (rev. 2026-11-22d) — FACT
 
-### BMW PFX loader `0xbdf84` (FACT)
+**Correction:** `AudioModule_f` is **not** the signer. Symbol bounds:
 
-Called from `AudioModule_e` / `AudioModule_f` (e.g. `@bd8fc`):
-
-| Arg | Value |
-|-----|-------|
-| x0 | PFX / resource object |
-| x1 | NULL |
-| x2 | `&local_pkey` (`x29-0x88`) |
-| x3 | NULL |
-| x4 | `0x407df` = **`com.bmwgroup.connected.bmw`** |
-
-Inside loader: password path → `PKCS12_parse` (`0x164988`) → writes `EVP_PKEY*` to
-caller out-ptr (`str` via `[sp,#0x10]` / `[x29-0x88]`).
-
-### Same `EVP_PKEY*` → `0x12e564` (FACT)
+| Range | Role |
+|-------|------|
+| `0xbd674`–`0xbd738` | `Java_…AudioModule_f` |
+| `0xbd73c` | **`native_sign_impl`** (anonymous) |
+| `0xbda2c` | `Java_…AudioModule_g` → JNI get challenge bytes → **`bl 0xbd73c`** |
 
 ```text
-bd8fc  bl   0xbdf84
-bd908  ldur x0, [x29,#-0x88]     ; EVP_PKEY* from parse
-bd90c  bl   0x12d04c             ; key-method size → ~512 for RSA-4096
-bd918  bl   malloc               ; output buffers
-bd924  ldur x3, [x29,#-0x88]     ; SAME EVP_PKEY*
-bd938  bl   0x12e564             ; x0=ctx, x1=out, x2=&len, x3=pkey
+SecurityModule.signChallenge
+  → AudioModule.g
+  → GetByteArrayElements / GetArrayLength (challenge)
+  → 0xbd73c native_sign_impl
 ```
 
-`0x12e564` prologue: `w1=#0x200` (512), keeps `x22=pkey`. Prior parent audit named this
-**EVP_sign_finalize** (OPENSSL `pmeth_fn.c` / `pmeth_lib.c` tags).
-
-### Same function: 16-byte digest path (FACT structure)
-
-Immediately before the loader call: NEON XOR of 16 B → EVP digest update
-(`0xd75f4` / `0xd7668` / `0xd78f0`, `w2=#0x10`, source tag `crypto/evp/digest.c`).
-
-| Claim | Level |
-|-------|-------|
-| 16-byte block fed to digest ctx in this function | **FACT** |
-| Byte-identical to SAS `MD5(challenge XOR pad)` | **STRONG** (matches reconstructed schema; not yet byte-traced end-to-end here) |
-
-### Claim table (linkage)
-
-| Claim | Level |
-|-------|-------|
-| Alias `com.bmwgroup.connected.bmw` passed into PFX loader | **FACT** |
-| `PKCS12_parse` → `EVP_PKEY*` returned to caller | **FACT** |
-| That pointer is `x3` of `0x12e564` | **FACT** |
-| Key size path yields 512-capable output | **FACT** |
-| This PFX key is the SAS APP_AUTH signer key | **VERY STRONG INFERENCE** (dataflow + cert/SPKI + field 8/8) |
-| Innermost call inside `0x12e564` == `EVP_PKEY_sign` / RSA op | **NEXT** (prior audit already asserted; confirm callees `0x12a244`…`0x12ef34`) |
-
-Field: **8/8** VERIFY vs APP_AUTH leaf (unchanged).
+Intermediate wording that treated `AudioModule_f` as the signer is **REJECTED**.
 
 ---
 
-## Status ladder
+## Message preparation inside `0xbd73c` (FACT)
+
+### First MD5 — machine-code exact
+
+| Addr | Role |
+|------|------|
+| `0x15523c` | `MD5_Init` (IV @ `0x53770` = classic MD5 IVs) |
+| `0x15466c` | `MD5_Update` — here **exactly 4 bytes** `LE32(w20)` |
+| `0x155170` | `MD5_Final` → 16-byte pad |
+
+For Wire `CertificateType = 0x02000000` → bytes `02 00 00 00`:
+
+```text
+PAD = MD5(02 00 00 00) = F2DD0DEDB2C260419ECE4A9E03B2E828
+```
+
+### XOR + length gate
+
+```text
+cmp w27, #0x10          ; challenge length MUST be 16
+eor v0.16b, challenge, PAD
+```
+
+### Second MD5 (EVP)
+
+`EVP_MD_CTX` via `0xd75f4` / `0x12b08c` / `0xd7668` / `0xd78f0` with
+`Update(..., XOR_result, 16)` → digest into `EVP_SignFinal`.
+
+Closed formula (native ≡ Wire):
+
+```text
+D = MD5( Challenge[16] XOR MD5(LE32(CertificateType)) )
+```
+
+### CertificateType provenance (micro-gap)
+
+`0x196240` → `0xc4cf0` → `0xc4858(..., type=2)` extracts an **ASN.1 INTEGER** into `w20`.
+
+| Claim | Level |
+|-------|-------|
+| ASN.1 INTEGER extracted and MD5'd as LE32 | **FACT** |
+| That integer is Wire `CertificateType` / `0x02000000` | **STRONG** (Wire-closed; not hard-coded at this site) |
+
+---
+
+## PFX loader + `EVP_PKEY*` → sign (FACT)
+
+Loader `0xbdf84` (alias `com.bmwgroup.connected.bmw` @ `0x407df`): pass deobfuscate →
+`PKCS12_parse` → returns `EVP_PKEY*`.
+
+Inside sign path (`0xbd73c` region, e.g. `@bd8fc`):
+
+```text
+bl  0xbdf84
+ldur x0/x3, [x29,#-0x88]   ; SAME EVP_PKEY*
+bl  0x12e564               ; EVP_SignFinal(ctx, sig, &len, pkey)
+```
+
+---
+
+## `0x12e564` = `EVP_SignFinal` (FACT)
+
+Matched to classic OpenSSL `EVP_SignFinal` sequence:
+
+| Addr | Role |
+|------|------|
+| `0xd79a8` | `EVP_DigestFinal_ex` |
+| `0x12d04c` | `EVP_PKEY_size` → 512 for RSA-4096 |
+| `0x13048c` | `EVP_PKEY_CTX_new` |
+| `0x12ee9c` | `EVP_PKEY_sign_init` |
+| `0x130a68` | `EVP_PKEY_CTX_ctrl` (signature MD) |
+| **`0x12ef34`** | **`EVP_PKEY_sign`** (`pmeth->sign` dispatch) **FACT** |
+
+```text
+EVP_PKEY_sign(pkctx, sigret, &siglen, digest, digest_len)
+```
+
+RSA-4096 PKCS#1 v1.5 → 512-byte APP_AUTH signature. Field **8/8** VERIFY unchanged.
+
+**PFX key is the local SAS signer key** — **FACT** (dataflow + OpenSSL match + cert/SPKI + wire).
+
+---
+
+## Four layers (summary)
 
 | Layer | Status |
 |-------|--------|
-| SAS protocol / challenge / RSA params | CLOSED |
-| Field 8/8 VERIFY | CLOSED |
-| PFX location / structure / PBE / MAC | CLOSED |
-| Local password + `PKCS12_parse` / shrouded unwrap | CLOSED |
-| Key RSA-4096 e=3 + cert SPKI match | CLOSED |
-| Alias → PFX loader `0xbdf84` | CLOSED |
-| `EVP_PKEY*` → `0x12e564` (x3) | **CLOSED** |
-| Keystore/TEE / remote key source | REJECTED |
-| Deepest RSA/`EVP_PKEY_sign` inside `0x12e564` | **NEXT** |
-| Same key in every `libaudio.so` build | UNKNOWN |
+| A Secret/key material (embedded PFX RSA-4096) | CLOSED |
+| B Key unwrapping (local pass + MAC + parse) | CLOSED |
+| C Message prep (LE32 MD5 → XOR → MD5, len=16) | CLOSED |
+| D Signature (`EVP_SignFinal` → `EVP_PKEY_sign` → RSA) | CLOSED |
+| CertificateType ASN.1 field identity | STRONG / micro-OPEN |
+| Same key every `libaudio.so` build | UNKNOWN |
 | PiDrive standalone SAS product-ready | OPEN (Weg B + policy) |
 
 ---
@@ -210,30 +251,19 @@ Field: **8/8** VERIFY vs APP_AUTH leaf (unchanged).
 
 | Claim | Status |
 |-------|--------|
-| `0x19d860` / empty password explains SAS PFX | REJECTED |
-| `0x51987` / `0x5210d` = SAS PFX | REJECTED |
-| Password unknown / external | SUPERSEDED |
-| Unwrap callsite unknown | SUPERSEDED |
-| “Where is the key?” | CLOSED |
-| `EVP_PKEY*` never shown entering sign-capable path | **SUPERSEDED** → enters `0x12e564` FACT |
+| Empty password / Keystore / remote signer for this path | REJECTED |
+| `AudioModule_f` is the SAS signer | **REJECTED** (bounds; signer = `g` → `0xbd73c`) |
+| `0x12e564` only a vague “output wrapper” | **SUPERSEDED** → `EVP_SignFinal` FACT |
+| `EVP_PKEY_sign` not located | **SUPERSEDED** → `0x12ef34` FACT |
+| “Where is the key?” / “does PFX key sign?” | **CLOSED** |
 
 ---
 
 ## Next step
 
-Resolve **inside** `0x12e564` only:
-
-```text
-0x12e564
-  → 0x12a244 / 0xd79a8 / 0x12d04c / 0x13048c / 0x12ee9c / 0x130a68 / 0x12ef34
-  → EVP_PKEY_sign / RSA private operation
-```
-
-Then the native chain is fully closed:
-
-```text
-PFX → pass → PKCS12_parse → EVP_PKEY → 16-B digest path → 0x12e564 → 512-B APP_AUTH
-```
+1. Trace ASN.1 object into `0x196240` / `0xc4cf0` until the field that yields `0x02000000`
+   is named (CertificateType bind FACT).  
+2. Optional: instruction-level annotate of `0xbd73c` + `0xbdf84` (pass wipe, pkey store).
 
 **Not next for product:** publishing credentials. Menu work remains **Weg A** until an
 explicit Weg B decision.

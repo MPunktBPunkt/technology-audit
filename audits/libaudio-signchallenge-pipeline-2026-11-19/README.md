@@ -151,11 +151,12 @@ Not CASE B/C/D for the `signChallenge` path.
 
 **Known:** Java → JNI `AudioModule.g` → in-process OpenSSL RSA in `libaudio.so`, with embedded PKCS#12 providing shrouded private-key material.
 
-**PKCS#12 anatomy (rev. 2026-11-22c):** Key origin CLOSED. Loader `0xbdf84` + alias
-`com.bmwgroup.connected.bmw` — **FACT**. `EVP_PKEY*` from `PKCS12_parse` returned and
-passed as **x3** into `0x12e564` (EVP_sign_finalize) — **FACT**. Same function hosts
-16-B digest path — **FACT** (byte≡SAS MD5 = STRONG). Remaining: deepest RSA/`EVP_PKEY_sign`
-**inside** `0x12e564`. Details: [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
+**PKCS#12 / native SAS (rev. 2026-11-22d):** End-to-end **CLOSED**. Signer =
+`AudioModule.g` → `0xbd73c` (**not** `AudioModule_f`). Prep =
+`MD5(LE32(certType))` XOR challenge → MD5 (PAD for `0x02000000` =
+`F2DD0DED…E828`). `0x12e564` = **`EVP_SignFinal`**, `0x12ef34` = **`EVP_PKEY_sign`**
+— **FACT**. PFX `EVP_PKEY` is the local SAS key — **FACT**. Micro-gap: ASN.1 field
+that feeds certType (`0x196240`). Details: [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
 
 **STOP:** Do not publish passphrase / PKCS#8 / private key in this repo. No brute tooling.
 
@@ -165,8 +166,8 @@ passed as **x3** into `0x12e564` (EVP_sign_finalize) — **FACT**. Same function
 
 **Preferred (product):** Weg A / Music RHMI — menu work does not wait on Weg B.
 
-**Optional (Weg B):** resolve callees of `0x12e564` → innermost `EVP_PKEY_sign` / RSA op.
-See [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
+**Optional:** name ASN.1 CertificateType field via `0x196240`/`0xc4cf0`; optional
+full annotate `0xbd73c`/`0xbdf84`. See [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
 
 ---
 
