@@ -151,21 +151,28 @@ Not CASE B/C/D for the `signChallenge` path.
 
 **Known:** Java → JNI `AudioModule.g` → in-process OpenSSL RSA in `libaudio.so`, with embedded PKCS#12 providing shrouded private-key material.
 
-**Unknown:** PKCS#12 unlock passphrase / unwrap details (empty vs hardcoded vs derived) — static evidence shows PBE OIDs and a null-password-style call on the **feature-cert** branch (`0x19d860` with `x1=xzr`), but does **not** fully document the init unwrap password without dynamic observation.
+**PKCS#12 anatomy (2026-11-21):** Salt `8d6188b36bf04974`, **Iter=1**, Ciphertext 2376 B,
+SHA1-3DES-PBE — **FACT**. Empty/NULL passphrase **REJECTED** (MAC fail). Hotspot
+`bc7ec → c8484 → 167184` = **INFERENCE** until PLT. Full claim table:
+[`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
+
+**Unknown:** passphrase **origin** (hardcoded / derived / pool) — not “unknown PBE”.
+Feature-cert branch still shows a null-password-style call (`0x19d860` with `x1=xzr`);
+that does **not** unlock the shrouded key bag.
 
 **STOP:** No attempt to decrypt the shrouded key bag or export a usable private key.
+No passphrase brute-force tooling in this audit.
 
 ---
 
 ## G. Next Step
 
-**Preferred (Field):** controlled B3 run with authorized APP/APP_AUTH — see
-[`docs/analysis/F20_CONNECTED_GAP_AUDIT_20261120.md`](../../docs/analysis/F20_CONNECTED_GAP_AUDIT_20261120.md).  
-Crypto formula is **CLOSED**; remaining gate is F20 acceptance of a *reproduced*
-credential context (B2). OEM authorized context (B1) is already **FIELD FACT**.
+**Preferred (product):** Weg A / Music RHMI (Gate B CLOSED) — Standalone-Signer is **not**
+the blocker for PiDrive menu work.
 
-**Optional (observe-only):** break on `0xbe448` / PKCS#12 parse and on `EVP_PKEY_sign`
-to promote PKEY alias↔embedded PKCS#12 from INFERENCE→FACT — no key dump.
+**Optional (observe-only, Weg B prep):** break at **PLT `PKCS12_parse`** and capture
+password pointer + length (registers) to promote Alias↔PKCS#12 and passphrase origin
+INFERENCE→FACT — **no key dump**. See [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
 
 ---
 
@@ -175,8 +182,10 @@ to promote PKEY alias↔embedded PKCS#12 from INFERENCE→FACT — no key dump.
 - Embedded PKCS#12 **structure/OID inventory only** — no private-key extraction.
 - Imported `open`/`socket` ≠ use on sign path.
 - `CarSecurityService` not re-audited; prior: converges to same native.
+- Iter=1 = cheap KDF (**FACT-math**); does not imply a known passphrase (**UNKNOWN**).
 
 ## Artefakte
 
 - This README (A–G report)
+- [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md) — Salt/Iter/MAC claim table (2026-11-21)
 - Prior: `audits/signchallenge-native-localization-2026-11-19/`
