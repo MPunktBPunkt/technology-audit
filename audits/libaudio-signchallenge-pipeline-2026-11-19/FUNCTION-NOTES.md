@@ -127,15 +127,18 @@ input: adr 0x5249e ; length 0x10f2 (4338)
 output: resource/blob registration via 0xca93c (NOT PKCS12_parse)
 calls: 0xca93c
 downstream: 0xc8484 ; 0x167184 = generic resource/container consumer
-  (REJECTED as PFX unwrap — see PKCS12-ANATOMY.md 2026-11-22)
+  (REJECTED as PFX unwrap)
+password path: ~0x4e699 → 0xbe458 Base64 → 0xbe59c deobfuscator → 40-B pass (MAC FACT;
+  plaintext withheld — PKCS12-ANATOMY.md)
+parse: 0x164988 = PKCS12_parse ; 0x165b74 = PKCS12_verify_mac (FACT)
 relevant constants:
   - PKCS#12 DER @ 0x5249e
   - OID pkcs8ShroudedKeyBag ×1
   - OID pkcs7-encryptedData ×1
   - OID pbeWithSHAAnd3-KeyTripleDES-CBC ×2
   - PBE salts 8d6188b36bf04974 / 4b7f305e4f959733 iter=1
-  - MAC salt 38dbae698b76e656 iter=1 SHA-1
-confidence: FACT (presence/OID/PBE inventory — unwrap callsite OPEN)
+  - MAC salt 38dbae698b76e656 iter=1 ; MAC da709b8794d657ab786f8ea210da98955f4822c1
+confidence: FACT (origin + parse/MAC); EVP_PKEY*→sign OPEN
 ```
 
 ---

@@ -151,28 +151,23 @@ Not CASE B/C/D for the `signChallenge` path.
 
 **Known:** Java → JNI `AudioModule.g` → in-process OpenSSL RSA in `libaudio.so`, with embedded PKCS#12 providing shrouded private-key material.
 
-**PKCS#12 anatomy (revised 2026-11-22):** PFX @ `0x5249e` CLOSED; two PBE salts +
-separate MAC salt, all **Iter=1**, SHA1-3DES — **FACT**. Empty password **REJECTED**.
-`0xca93c` = resource **registration** (**REJECTED** as parse/unwrap). `0x167184` =
-generic consumer (**REJECTED** as PFX unwrap). Exact `PKCS12_*` callsite + passphrase
-origin = **OPEN**. Full table: [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
+**PKCS#12 anatomy (rev. 2026-11-22b):** Key **origin CLOSED**. Local 40-B passphrase
+via Base64+BMW deobfuscator (`0xbe458`/`0xbe59c`) + MAC match — **FACT** (plaintext
+**withheld**). `PKCS12_parse` @ `0x164988`, `PKCS12_verify_mac` @ `0x165b74` — **FACT**.
+RSA-4096 e=3 + TouchCommand cert SPKI match — **FACT**. `0xca93c`/`0x167184` still
+**REJECTED** as parser. Remaining: `EVP_PKEY*` → `EVP_PKEY_sign` pointer identity
+(**OPEN** / strong INFERENCE). Details: [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
 
-**Unknown:** passphrase **origin** + unwrap callsite — not “where is the key?”.
-Feature-cert `x1=xzr` paths ≠ SAS-PFX password (**REJECTED** conflation).
-
-**STOP:** No attempt to decrypt the shrouded key bag or export a usable private key.
-No passphrase brute-force tooling in this audit.
+**STOP:** Do not publish passphrase / PKCS#8 / private key in this repo. No brute tooling.
 
 ---
 
 ## G. Next Step
 
-**Preferred (product):** Weg A / Music RHMI (Gate B CLOSED) — Standalone-Signer is **not**
-the blocker for PiDrive menu work.
+**Preferred (product):** Weg A / Music RHMI — menu work does not wait on Weg B.
 
-**Optional (observe-only, Weg B prep):** break at **PLT `PKCS12_parse`** and capture
-password pointer + length (registers) to promote Alias↔PKCS#12 and passphrase origin
-INFERENCE→FACT — **no key dump**. See [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
+**Optional (Weg B):** close `PKCS12_parse` → `EVP_PKEY*` → `native_sign_impl` /
+`EVP_PKEY_sign` object graph only. See [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
 
 ---
 
