@@ -19,6 +19,7 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`bmw-nbt-media-index-2026-foreign`](bmw-nbt-media-index-2026-foreign/) | closed | lab-tool | Fremd: BMW Offline-Medien-/Forensikkontext · **0.7.1** |
 | [`bimmergestalt-idrive-2026-foreign`](bimmergestalt-idrive-2026-foreign/) | closed | lab-tool | Fremd: BimmerGestalt Connected-App BCL/Etch/RHMI Desk · **0.7.1** |
 | [`bimmergestalt-rhmi-checkresource-2026-11-17`](bimmergestalt-rhmi-checkresource-2026-11-17/) | closed | lab-tool | Fremd: RHMI nach checkResource — Sequenz, Resource-Matrix, Whitelist · **0.7.1** |
+| [`nbt-evo-bt-control-plane-closure-2026-11-21`](nbt-evo-bt-control-plane-closure-2026-11-21/) | closed | ops-field | Closure/Repro: NBT Evo BT Control Plane nach Gate B CLOSED (B3) — Protokoll vs Artefakt · **0.7.1** |
 | [`esp32-bt-analyzer-f20-connected-2026-11-17`](esp32-bt-analyzer-f20-connected-2026-11-17/) | closed | ops-field | Eigen: F20 Connected-Stack Freeze (22 Themen, FW 0.3.20, W0–W5) · **0.7.1** |
 | [`esp32-bt-analyzer-lab-field-transfer-2026-11-17`](esp32-bt-analyzer-lab-field-transfer-2026-11-17/) | closed | ops-field | Eigen: Lab≠Feld Claim-Grenze, Action→PiDrive, Resource-Lifecycle, Freeze-Hygiene (post-`1100644`) · **0.7.1** |
 | [`bmw-connected-sas-auth-2026-11-06`](bmw-connected-sas-auth-2026-11-06/) | closed | planning | Desk: BMW Connected SAS Auth (Etch) · **0.7.1** — RFCOMM-Rollen: siehe `bmw-bcl-rfcomm-role-2026-desk` |

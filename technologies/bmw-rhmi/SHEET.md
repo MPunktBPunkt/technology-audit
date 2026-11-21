@@ -18,11 +18,12 @@ maturity:
 
 Ebene **A**. Fremdquellen: `IDriveConnectKit` RHMI-Deserialization,
 AAIdrive/HassGestalt/Addons, `BMWConnectedAnalysis` RHMI-Docs, Simulator-Renderer.
-Eigene Evidence: esp32.bt-analyzer F20 Feld 16./17.11. + f20_sim Lab
+Eigene Evidence: esp32.bt-analyzer F20 Feld 16./17.11. + B3 Gate B 21.11. + f20_sim Lab
 ([`audits/esp32-bt-analyzer-f20-connected-2026-11-17`](../../audits/esp32-bt-analyzer-f20-connected-2026-11-17/),
 [`audits/bimmergestalt-rhmi-checkresource-2026-11-17`](../../audits/bimmergestalt-rhmi-checkresource-2026-11-17/),
-[`audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17`](../../audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17/)
-— Lab Soak/Seq PASS ≠ Auto; Action 200 Lab-only).
+[`audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17`](../../audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17/),
+[`audits/nbt-evo-bt-control-plane-closure-2026-11-21/`](../../audits/nbt-evo-bt-control-plane-closure-2026-11-21/)
+— Lab Soak/Seq PASS ≠ Auto; Action 200 Lab-only; B3: 11× checkResource / 0× setResource / Media via `…music`).
 
 ## Kurzfassung
 
@@ -76,7 +77,9 @@ Beide Prüfungen nicht vermischen.
 | Alle Generationen gleiche Widgets | `UNKNOWN`/`HYPOTHESIS` | Dimensions-Code unterscheidet ID4/5/6 |
 | RHMI ersetzt USB-MSC Audio | `REJECTED` (als Architektur-FACT) | anderer Kanal; PiDrive-MSC bleibt eigen |
 | SmartThings-Assets = offizielle Spec | `INFERENCE` | HassGestalt extrahiert APK-Ressourcen |
-| Lab `RUNTIME_ACTIVE` / Soak / Seq = F20 Auto-ready | `REJECTED` | Auth + echte Model-/Action-IDs fehlen |
+| Lab `RUNTIME_ACTIVE` / Soak / Seq = F20 Auto-ready | `REJECTED` | Auth am F20 CLOSED (B3); echte eigenen Model-/Action-IDs fehlen weiter |
+| `checkResource(true)` ⇒ Upload zwingend | `REJECTED` | B3: 11× check / 0× set / 5× initialize (Cache-Hit-Verhalten) |
+| Spotify = `am_registerApp` | `REJECTED` | B3: fünf AM-Apps ohne Spotify; Media = `…music` RHMI |
 | Lab actionId **200** / Sink `PI_DRIVE_TEST` = F20-Map | `REJECTED` | Demo-XML / Harness; Feld-IDs OPEN |
 | modelId 4 / SE 213 blockiert Session | `REJECTED` (Lab) | non-fatal; Nebenpfad |
 

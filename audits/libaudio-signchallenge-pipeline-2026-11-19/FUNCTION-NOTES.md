@@ -55,13 +55,17 @@ confidence: FACT (structure); INFERENCE name "Feature Certificate" path
 
 ### XOR pad from serial
 
+> **Caveat (Wire supersession 2026-11-20/21):** Native code may *extract* an X509
+> serial, but the **APP_AUTH Wire pad-u32 is `0x02000000`**, **not** X509 serial
+> `0x0AA9`. Pad = serial is **REJECTED**. See SAS pad lab + Gate B closure audit.
+
 ```
 offset: 0x196240 → 0xc4cf0 ; then 0x15523c / 0x15466c / 0x155170
 function: serial extract + MD5_Init/Update(4)/Final
 input: X509* from ctx+0x18
 output: 16-byte digest at [fp-0x20]
 relevant constants: MD5 IV @ 0x53770 = standard MD5
-confidence: FACT
+confidence: FACT (code path exists); Wire pad-u32 ≠ serial — see caveat
 ```
 
 ```

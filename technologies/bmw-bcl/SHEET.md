@@ -11,17 +11,19 @@ seen_in: [bimmergestalt-idrive-refs, esp32-usb-analyzer, hu-probe, esp32-bt-anal
 maturity:
   technology: R2
   implementation: R1
-  field_evidence: R0   # own HU wire still UNKNOWN; secondary NBT-AAD R1 observations (SPP contention) — see secondary note
+  field_evidence: R3   # F20 Connected + B3 GATEB 2026-11-21 (SCN6 SPP→BCL→Etch 4004)
   reusability: W2
-  evidence_scope: [LAB]
+  evidence_scope: [LAB, f20-field-2026-11]
 ```
 
-Ebene **A** (Protokollbeschreibung aus Fremdquellen) plus **erste eigene Lab-TEST-Kette**
+Ebene **A** (Protokollbeschreibung aus Fremdquellen) plus Lab-TEST-Kette
 in [`esp32-bt-analyzer` / `bmw-bcl`](../../projects/esp32-bt-analyzer/applications/bmw-bcl.md)
-(synth stream + Dummy-HU RFCOMM/SDP). **Keine** eigene HU-Wire-FACT. Herkunft Desk:
+und **F20 HU-Wire-FACT** (Connected SCN 6, BCL HS/MUX/WD, Etch dest 4004) —
+u. a. B3 `FIELD_B3_GATEB_20261121T112446Z`. Herkunft Desk:
 BimmerGestalt (`BclCarLink`, `wireshark_bmw_bcl`, `BMWConnectedAnalysis`).
 Secondary Field-Observation (SPP-Contention / Transport-Owner): NBT-AAD
 [`supra-idrive6-android-auto-2026-secondary`](../../audits/supra-idrive6-android-auto-2026-secondary/).
+Closure: [`audits/nbt-evo-bt-control-plane-closure-2026-11-21/`](../../audits/nbt-evo-bt-control-plane-closure-2026-11-21/).
 **Nicht** USB-MSC / NBT-Host-C.
 
 ## Kurzfassung
@@ -55,7 +57,7 @@ OPENING → init bytes → HANDSHAKE(version, instanceId, bufferSize)
   → OPEN/DATA/CLOSE Multiplex → HANGUP
 ```
 
-Klassifikation: **FACT** = so im Client-Code; **nicht** = eigenes Feld-MEASURED.
+Klassifikation: **FACT** = so im Client-Code; F20/B3 = eigenes Feld-MEASURED (HS/MUX/Etch dest).
 
 ## Typische Fallstricke
 
