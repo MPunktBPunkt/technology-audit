@@ -8,7 +8,16 @@ not: full technology re-audit
 canonical_product_status: esp32.bt-analyzer docs/analysis/SAS_STATUS_CRYPTO_CLOSED_20261120.md
 claim_levels: [FACT, FIELD FACT, LAB FACT, INFERENCE, HYPOTHESIS, UNKNOWN, OPEN, REJECTED]
 primary_next: B3 field run with authorized APP/APP_AUTH context
+superseded_p0_by: docs/analysis/F20_BT_CONTROL_PLANE_CLOSURE_20261121.md
+closure_audit: audits/nbt-evo-bt-control-plane-closure-2026-11-21/
 ```
+
+> **SUPERSEDED (P0 framing) — 2026-11-21:** Gate B / B3 ist **CLOSED**  
+> (`bt-analyzer` `FIELD_B3_GATEB_20261121T112446Z`, commit `4d05169`).  
+> Live MyBMW/AAIdrive → `_result_sas_login` → RHMI/AM/CDS/AV = **FIELD FACT**.  
+> Was **OPEN** bleibt: Standalone-Signer (B2), Music DESCRIPTION-Blob, Feld-Model/Action-IDs, eigener RHMI-PoC.  
+> Canonical status: [`F20_BT_CONTROL_PLANE_CLOSURE_20261121.md`](F20_BT_CONTROL_PLANE_CLOSURE_20261121.md).  
+> Der historische Text unten dokumentiert den **Stand 2026-11-20** und wird nicht als aktuelle P0-Lage gelesen.
 
 ## 1. Executive Status
 
@@ -20,11 +29,12 @@ Was noch unbekannt ist, ist **nicht** „ob F20 Connected-Auth überhaupt kann�
 1. **Gate B1 (autorisierter OEM-Kontext)** — bereits **FIELD FACT**
 2. **Gate B2 (reproduzierter / standalone Credential-Kontext)** — **OPEN**
 3. **MyBMW als Runtime-/Signer-Träger** — Protokoll **REJECTED**, Implementierung **OPEN**
-4. **F20 RHMI/AM/CDS unter unserem kontrollierten Client** — nach Auth **OPEN**
+4. **F20 RHMI/AM/CDS unter unserem kontrollierten Client** — nach Auth **OPEN** *(historisch 20.11.; B3 21.11. CLOSED für Relay-Pfad)*
 5. **F20 Model-/Action-IDs und echte PiDrive Control** — **UNKNOWN / OPEN** (LAB ≠ FIELD)
 
 **Ein Experiment reduziert diese Unknowns am stärksten:**  
-ein kontrollierter **B3-Feldlauf mit tatsächlich autorisiertem APP/APP_AUTH-Kontext** (live MyBMW/AAIdrive-Signer, keine Key-Extraktion).
+ein kontrollierter **B3-Feldlauf mit tatsächlich autorisiertem APP/APP_AUTH-Kontext** (live MyBMW/AAIdrive-Signer, keine Key-Extraktion).  
+*(B3 ist gelaufen — siehe Closure-Status 2026-11-21.)*
 
 ---
 
