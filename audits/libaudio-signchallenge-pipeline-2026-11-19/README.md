@@ -151,14 +151,14 @@ Not CASE B/C/D for the `signChallenge` path.
 
 **Known:** Java → JNI `AudioModule.g` → in-process OpenSSL RSA in `libaudio.so`, with embedded PKCS#12 providing shrouded private-key material.
 
-**PKCS#12 anatomy (2026-11-21):** Salt `8d6188b36bf04974`, **Iter=1**, Ciphertext 2376 B,
-SHA1-3DES-PBE — **FACT**. Empty/NULL passphrase **REJECTED** (MAC fail). Hotspot
-`bc7ec → c8484 → 167184` = **INFERENCE** until PLT. Full claim table:
-[`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
+**PKCS#12 anatomy (revised 2026-11-22):** PFX @ `0x5249e` CLOSED; two PBE salts +
+separate MAC salt, all **Iter=1**, SHA1-3DES — **FACT**. Empty password **REJECTED**.
+`0xca93c` = resource **registration** (**REJECTED** as parse/unwrap). `0x167184` =
+generic consumer (**REJECTED** as PFX unwrap). Exact `PKCS12_*` callsite + passphrase
+origin = **OPEN**. Full table: [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
 
-**Unknown:** passphrase **origin** (hardcoded / derived / pool) — not “unknown PBE”.
-Feature-cert branch still shows a null-password-style call (`0x19d860` with `x1=xzr`);
-that does **not** unlock the shrouded key bag.
+**Unknown:** passphrase **origin** + unwrap callsite — not “where is the key?”.
+Feature-cert `x1=xzr` paths ≠ SAS-PFX password (**REJECTED** conflation).
 
 **STOP:** No attempt to decrypt the shrouded key bag or export a usable private key.
 No passphrase brute-force tooling in this audit.
