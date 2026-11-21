@@ -121,17 +121,21 @@ confidence: FACT
 ## Init / key material
 
 ```
-offset: 0xbe448 (from AudioModule_a → 0xbc7b4)
-function: load_embedded_pkcs12
+offset: 0xbe448 (from AudioModule_a → 0xbc7b4 / 0xbc7ec)
+function: load_embedded_pkcs12_blob
 input: adr 0x5249e ; length 0x10f2 (4338)
-output: parsed crypto state (via 0xca93c)
+output: resource/blob registration via 0xca93c (NOT PKCS12_parse)
 calls: 0xca93c
+downstream: 0xc8484 ; 0x167184 = generic resource/container consumer
+  (REJECTED as PFX unwrap — see PKCS12-ANATOMY.md 2026-11-22)
 relevant constants:
   - PKCS#12 DER @ 0x5249e
   - OID pkcs8ShroudedKeyBag ×1
   - OID pkcs7-encryptedData ×1
   - OID pbeWithSHAAnd3-KeyTripleDES-CBC ×2
-confidence: FACT (presence/OID inventory only — no unwrap)
+  - PBE salts 8d6188b36bf04974 / 4b7f305e4f959733 iter=1
+  - MAC salt 38dbae698b76e656 iter=1 SHA-1
+confidence: FACT (presence/OID/PBE inventory — unwrap callsite OPEN)
 ```
 
 ---
