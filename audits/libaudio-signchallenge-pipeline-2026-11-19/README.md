@@ -151,12 +151,11 @@ Not CASE B/C/D for the `signChallenge` path.
 
 **Known:** Java → JNI `AudioModule.g` → in-process OpenSSL RSA in `libaudio.so`, with embedded PKCS#12 providing shrouded private-key material.
 
-**PKCS#12 anatomy (rev. 2026-11-22b):** Key **origin CLOSED**. Local 40-B passphrase
-via Base64+BMW deobfuscator (`0xbe458`/`0xbe59c`) + MAC match — **FACT** (plaintext
-**withheld**). `PKCS12_parse` @ `0x164988`, `PKCS12_verify_mac` @ `0x165b74` — **FACT**.
-RSA-4096 e=3 + TouchCommand cert SPKI match — **FACT**. `0xca93c`/`0x167184` still
-**REJECTED** as parser. Remaining: `EVP_PKEY*` → `EVP_PKEY_sign` pointer identity
-(**OPEN** / strong INFERENCE). Details: [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
+**PKCS#12 anatomy (rev. 2026-11-22c):** Key origin CLOSED. Loader `0xbdf84` + alias
+`com.bmwgroup.connected.bmw` — **FACT**. `EVP_PKEY*` from `PKCS12_parse` returned and
+passed as **x3** into `0x12e564` (EVP_sign_finalize) — **FACT**. Same function hosts
+16-B digest path — **FACT** (byte≡SAS MD5 = STRONG). Remaining: deepest RSA/`EVP_PKEY_sign`
+**inside** `0x12e564`. Details: [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
 
 **STOP:** Do not publish passphrase / PKCS#8 / private key in this repo. No brute tooling.
 
@@ -166,8 +165,8 @@ RSA-4096 e=3 + TouchCommand cert SPKI match — **FACT**. `0xca93c`/`0x167184` s
 
 **Preferred (product):** Weg A / Music RHMI — menu work does not wait on Weg B.
 
-**Optional (Weg B):** close `PKCS12_parse` → `EVP_PKEY*` → `native_sign_impl` /
-`EVP_PKEY_sign` object graph only. See [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
+**Optional (Weg B):** resolve callees of `0x12e564` → innermost `EVP_PKEY_sign` / RSA op.
+See [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
 
 ---
 
