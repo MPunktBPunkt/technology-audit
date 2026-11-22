@@ -151,23 +151,23 @@ Not CASE B/C/D for the `signChallenge` path.
 
 **Known:** Java → JNI `AudioModule.g` → in-process OpenSSL RSA in `libaudio.so`, with embedded PKCS#12 providing shrouded private-key material.
 
-**PKCS#12 / native SAS (rev. 2026-11-22d):** End-to-end **CLOSED**. Signer =
-`AudioModule.g` → `0xbd73c` (**not** `AudioModule_f`). Prep =
-`MD5(LE32(certType))` XOR challenge → MD5 (PAD for `0x02000000` =
-`F2DD0DED…E828`). `0x12e564` = **`EVP_SignFinal`**, `0x12ef34` = **`EVP_PKEY_sign`**
-— **FACT**. PFX `EVP_PKEY` is the local SAS key — **FACT**. Micro-gap: ASN.1 field
-that feeds certType (`0x196240`). Details: [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
+**Crypto systems (rev. 2026-11-22e):** **Three layers.** (1) Feature-PKI: PFX
+`0x5249e` + RSA-**1536** Feature Certificate + BMW pass + `PKCS12_parse` +
+`EVP_SignFinal` (~192 B) — CLOSED, **≠ APP_AUTH**. (2) Generic OpenSSL CMS/PKCS#7
+(`0x168374` = decrypt — REJECTED as APP_AUTH). (3) APP_AUTH RSA-**4096** + field
+MD5/XOR/MD5 + `createSecurityContext` — **OPEN**. Prior “PFX = APP_AUTH E2E CLOSED”
+**REJECTED**. Details: [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
 
-**STOP:** Do not publish passphrase / PKCS#8 / private key in this repo. No brute tooling.
+**STOP:** Do not publish passphrase / PKCS#8 / private key. No brute tooling.
 
 ---
 
 ## G. Next Step
 
-**Preferred (product):** Weg A / Music RHMI — menu work does not wait on Weg B.
+**Preferred (product):** Weg A / Music RHMI.
 
-**Optional:** name ASN.1 CertificateType field via `0x196240`/`0xc4cf0`; optional
-full annotate `0xbd73c`/`0xbdf84`. See [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md).
+**Weg B / binary:** resolve `createSecurityContext` → RSA-4096 `EVP_PKEY` (size 512,
+modulus ↔ APP_AUTH SPKI) + adjacent SAS prep. Do not re-hunt Feature PFX.
 
 ---
 

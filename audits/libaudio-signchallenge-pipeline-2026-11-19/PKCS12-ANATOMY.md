@@ -1,272 +1,166 @@
-# PKCS#12 Anatomy Addendum (2026-11-21 → rev. 2026-11-22d)
+# PKCS#12 / Crypto-Systems Addendum (rev. 2026-11-22e)
 
 ```yaml
 parent: README.md
-subject: embedded PKCS#12 @ 0x5249e in libaudio.so
+subject: libaudio.so crypto systems — Feature-PKI vs APP_AUTH/SAS
 lib_sha256: 7bd16da13dc2662e505955425b16ce1facd78dbd81749356c3895d3f2b61ca90
 build_id: cf781dbc8425a5fe2cbbd02be5cfc7630398301f
 elf: AArch64, stripped, size 1981072
-scope: key-origin + native SAS sign E2E — observe/document only
+scope: separate Feature Certificate PFX from APP_AUTH RSA-4096
 status: >
-  Native SAS sign chain CLOSED end-to-end (PFX→pass→EVP_PKEY→MD5/XOR/MD5→
-  EVP_SignFinal→EVP_PKEY_sign→RSA-4096). Credentials withheld.
-  Micro-gap: ASN.1 field provenance of CertificateType integer (STRONG).
+  Feature-PKI (PFX @ 0x5249e, RSA-1536) CLOSED as its own system.
+  Prior claim "this PFX is the APP_AUTH RSA-4096 signer key" REJECTED.
+  APP_AUTH native PKEY + MD5/XOR/MD5 site + createSecurityContext = OPEN.
+  Field SAS formula remains FACT (wire). Credentials withheld.
 ```
 
-## Verdict
+## Verdict (corrected)
 
-Native SAS signing in `libaudio.so` is **end-to-end CLOSED**:
+Three **different** crypto layers must stay separated:
 
-```text
-Challenge[16] → MD5(LE32(certType)) → XOR → MD5 → EVP_SignFinal
-  → EVP_PKEY_sign → RSA-4096 PKCS#1 → 512 B
-         ▲
-         └── EVP_PKEY from embedded PFX (local pass + PKCS12_parse)
-```
+| Layer | What | APP_AUTH? |
+|-------|------|-----------|
+| **1. Feature Certificate PKI** | X.509 @ `0x51987` (RSA-**1536**) + PFX @ `0x5249e` + BMW pass decoder + `PKCS12_parse` + `EVP_SignFinal` (~**192** B) | **NO** |
+| **2. Generic OpenSSL CMS/PKCS#7** | `EVP_PKEY_decrypt`, CMS `cms_sd.c`, many `EVP_SignFinal`/`EVP_PKEY_sign` sites | **NO** |
+| **3. BMW Security / SAS APP_AUTH** | Must use RSA-**4096**, field prep `MD5(LE32(0x02000000))→XOR→MD5→PKCS#1`, 512 B sig | **OPEN** (native site) |
 
-**STOP:** do not publish passphrase / PKCS#8 / private key in this repo.
+> **REJECTED (supersedes 2026-11-22b–d overclaim):**  
+> «Embedded PKCS#12 @ `0x5249e` is the RSA-4096 APP_AUTH private key.»
+
+It is the **Feature Certificate** shrouded key (RSA-1536).  
+`EVP_PKEY_size` on that path = **192**, not 512.
+
+**STOP:** no passphrase / private key in this repo.
 
 ---
 
-## Binary identity (FACT)
+## Field SAS (unchanged FACT)
+
+Wire / field (F20):
+
+```text
+CertificateType 0x02000000 LE → MD5 → 16-B pad
+  → Challenge XOR pad → MD5 → RSA-4096 PKCS#1 v1.5 → 512 B
+```
+
+Verified **8/8** against APP_AUTH leaf public key. Keystore/TEE / remote-only signer
+**REJECTED** as primary source (field + prior CASE A). Binary must still locate the
+**native** producer of that RSA-4096 `EVP_PKEY` and the prep block.
+
+---
+
+## Layer 1 — Feature Certificate + PFX (CLOSED as Feature-PKI)
+
+### Certificates
 
 | Item | Value |
 |------|-------|
-| Size | 1 981 072 B |
-| SHA-256 | `7bd16da13dc2662e505955425b16ce1facd78dbd81749356c3895d3f2b61ca90` |
-| Build ID | `cf781dbc8425a5fe2cbbd02be5cfc7630398301f` |
+| Feature cert VA | `0x51987` (~969 B) |
+| CN | `a4a_app_Android_FeatureCertificate_PIA_KML_VOICE_00.00.01` |
+| Serial | `0x1BB` |
+| Public key | **RSA-1536** |
+| Extensions (excerpt) | `SAS.CertificateType=APP`, CDS/AVS/RHMI/… |
+| Cert SHA-256 | `8C3359B8…3E3C1CAD` |
+| SPKI SHA-256 | `c00b5bac4b136d50a404d58f1bd03e3cbe5d448d959e7c7aa9e95f93284baa98` |
+| Nearby | `0x5210d` ~913 B self-signed BMW A4A root |
 
----
+### PFX @ `0x5249e` / `0x10f2`
 
-## Embedded PFX (FACT)
+Same DER inventory as before (BER `30 80`, one `pkcs8ShroudedKeyBag`, two PBE salts
+iter=1, MAC salt `38dbae…`, empty pw REJECTED). Belongs to **this Feature system**.
 
-| Item | Value |
-|------|-------|
-| VA / length | `0x5249e` / `0x10f2` (4338 B) |
-| Encoding | BER indefinite (`30 80…`), PKCS#12 v3 |
-| Contents | AuthenticatedSafe, MACData, CertificateBag, **one** `pkcs8ShroudedKeyBag` |
-| Load | `0xbe448`: `adr x0,#0x5249e` ; `mov w1,#0x10f2` ; `b 0xca93c` |
+### Loader `0xbdf84` (FACT)
 
-`0xca93c` = resource/blob **registration** — **REJECTED** as PKCS#12 parser
-(unchanged from rev. 2026-11-22).
+Called from `AudioModule_e` / `AudioModule_f` with alias
+`com.bmwgroup.connected.bmw` (`0x407df`). Password via Base64-ish decode (`0xbe458`)
++ BMW deobfuscator (`0xbe59c`, XOR `0x17` + LUT @ `0x1e9af0`) → `PKCS12_parse`
+(`0x164988`) → `EVP_PKEY` / `X509` / CA stack; password wiped after.
 
----
-
-## PBE + MAC (FACT)
-
-| Region | Salt | Iter | Alg |
-|--------|------|-----:|-----|
-| PBE #1 | `8d6188b36bf04974` | 1 | SHA1 + 3-Key 3DES-CBC |
-| PBE #2 | `4b7f305e4f959733` | 1 | same |
-| MAC | `38dbae698b76e656` | 1 | SHA-1 |
-
-Stored MAC digest: `da709b8794d657ab786f8ea210da98955f4822c1`  
-Reconstructed local passphrase → **same MAC** → passphrase correctness **FACT**
-(cryptographic), not mere plausibility.
-
-Empty/NULL password → **REJECTED**.
-
----
-
-## Local passphrase (FACT — value withheld)
+### Feature sign path (FACT — not APP_AUTH)
 
 ```text
-obfuscated material (@ ~0x4e699)
-        │
-        ▼
-0xbe458  Base64 decode
-        │
-        ▼
-0xbe59c  BMW deobfuscator (XOR const 0x17 + LUT + feedback)
-        │
-        ▼
-40-byte passphrase  →  PKCS12_verify_mac / PKCS12_parse
-        │
-        ▼
-password buffer wiped after parse
+AudioModule_f → 0xbdf84 → EVP_PKEY (RSA-1536)
+  → EVP_PKEY_size (0x12d04c) = 192
+  → EVP_SignFinal (0x12e564) @ bd938
 ```
 
 | Claim | Level |
 |-------|-------|
-| Passphrase is locally reconstructible inside `libaudio.so` | **FACT** |
-| Length 40 bytes | **FACT** |
-| MAC verifies reconstructed passphrase | **FACT** |
-| External/server-supplied passphrase required | **REJECTED** |
-| Plaintext passphrase published in this repo | **STOP** (withheld) |
+| This PFX/key signs in Feature path | **FACT** |
+| This is APP_AUTH / 512-B SAS | **REJECTED** |
 
 ---
 
-## OpenSSL unwrap callsites (FACT)
+## Layer 2 — OpenSSL wrappers (do not confuse with BMW SAS)
 
-| Address | Role |
-|---------|------|
-| `0x164988` | `PKCS12_parse(p12, pass, pkey**, cert**, ca**)` |
-| `0x165b74` | `PKCS12_verify_mac` (incl. NULL/`""` fallbacks then real pass) |
-| `0xbe100` area | caller: `x0=p12`, `x1=pass`, `x2..x4` out-ptrs → `bl 0x164988` |
-| `0x165348` / `0x1653b8` / `0x16561c` | shrouded-bag / PBE decrypt path |
-
-Generic init consumers `0xc8484`, `0x167184`, `0xc7950` remain **not** the parser
-(**REJECTED** as unwrap — prior correction stands).
-
----
-
-## Unwrapped key + certificate (FACT)
-
-After local unwrap:
-
-| Item | Value |
-|------|-------|
-| Key | RSA-4096, 2-prime, **e = 3** |
-| Form | PKCS#8 PrivateKeyInfo → `EVP_PKEY` |
-| Cert friendlyName / CN | `a4a_app_BMWTouchCommand_Connection_00.00.10` |
-| Issuer CN | `a4a_android-ca` |
-| Serial | `0x0AA9` |
-| Validity | 2014-10-31 – 2015-07-30 |
-| Cert SHA-256 | `991517428f7f5213897a9538e5deef7666ab3bc246a19b3a4289b04158626877` |
-| SPKI SHA-256 (key ≡ cert) | `3291483fe3170ccfdd44422ef7024e838753c1b31c75b4267be3ed13dcc7cf05` |
-
-Private-key → SPKI and certificate → SPKI match → same key material **FACT**.
+| Addr | Role | APP_AUTH? |
+|------|------|-----------|
+| `0x12e564` | **`EVP_SignFinal`** (calls `EVP_PKEY_sign` @ `0x12ef34`) | infrastructure FACT; site decides |
+| `0x12d04c` | `EVP_PKEY_size` | — |
+| `0x13048c` | `EVP_PKEY_CTX_new` | — |
+| `0x12ee9c` | `EVP_PKEY_sign_init` | — |
+| `0x130a68` | `EVP_PKEY_CTX_ctrl` | — |
+| `0x12ef34` | `EVP_PKEY_sign` | — |
+| `0xf247c` / `0xf2408` | CMS (`crypto/cms/cms_sd.c`) | **REJECTED** as APP_AUTH |
+| `0x168374` | **`EVP_PKEY_decrypt`** / PKCS#7 (`pk7_doit.c`, OAEP strings) | **REJECTED** as APP_AUTH |
+| `mov w9,#0x200` in that context | PKEY method control, **not** sig length 512 | **REJECTED** as RSA-4096 proof |
+| `0x168920` | another `EVP_SignFinal` site | UNKNOWN / not proven APP_AUTH |
+| `0x19e494` | `EVP_SignFinal` with external `EVP_PKEY*` | **interesting candidate**, APP_AUTH **UNKNOWN** |
 
 ---
 
-## Native sign entry (rev. 2026-11-22d) — FACT
+## Layer 3 — APP_AUTH / SAS (OPEN)
 
-**Correction:** `AudioModule_f` is **not** the signer. Symbol bounds:
+Still missing as a **united** native proof:
 
-| Range | Role |
-|-------|------|
-| `0xbd674`–`0xbd738` | `Java_…AudioModule_f` |
-| `0xbd73c` | **`native_sign_impl`** (anonymous) |
-| `0xbda2c` | `Java_…AudioModule_g` → JNI get challenge bytes → **`bl 0xbd73c`** |
+1. RSA-**4096** `EVP_PKEY` whose modulus matches the field APP_AUTH public key  
+2. Adjacent prep: `0x02000000` → MD5 → XOR challenge → MD5  
+3. Sign → 512 B  
+
+Highest-probability entry: string **`createSecurityContext`**
+(“Error while calling native function createSecurityContext”) → security object
+(cert + key + SAS params + sign).
 
 ```text
-SecurityModule.signChallenge
-  → AudioModule.g
-  → GetByteArrayElements / GetArrayLength (challenge)
-  → 0xbd73c native_sign_impl
+createSecurityContext
+  → Native Security Object
+  → EVP_PKEY (size 512?) + CertificateType + sign
 ```
 
-Intermediate wording that treated `AudioModule_f` as the signer is **REJECTED**.
+Prior 2026-11-22d narrative that closed APP_AUTH E2E via Feature PFX +
+`AudioModule.g`/`0xbd73c` MD5/XOR path is **superseded / under re-audit**: that
+material mixed Feature-PKI facts with APP_AUTH aspirations. Re-bind only after
+modulus match + prep co-location.
 
 ---
 
-## Message preparation inside `0xbd73c` (FACT)
-
-### First MD5 — machine-code exact
-
-| Addr | Role |
-|------|------|
-| `0x15523c` | `MD5_Init` (IV @ `0x53770` = classic MD5 IVs) |
-| `0x15466c` | `MD5_Update` — here **exactly 4 bytes** `LE32(w20)` |
-| `0x155170` | `MD5_Final` → 16-byte pad |
-
-For Wire `CertificateType = 0x02000000` → bytes `02 00 00 00`:
-
-```text
-PAD = MD5(02 00 00 00) = F2DD0DEDB2C260419ECE4A9E03B2E828
-```
-
-### XOR + length gate
-
-```text
-cmp w27, #0x10          ; challenge length MUST be 16
-eor v0.16b, challenge, PAD
-```
-
-### Second MD5 (EVP)
-
-`EVP_MD_CTX` via `0xd75f4` / `0x12b08c` / `0xd7668` / `0xd78f0` with
-`Update(..., XOR_result, 16)` → digest into `EVP_SignFinal`.
-
-Closed formula (native ≡ Wire):
-
-```text
-D = MD5( Challenge[16] XOR MD5(LE32(CertificateType)) )
-```
-
-### CertificateType provenance (micro-gap)
-
-`0x196240` → `0xc4cf0` → `0xc4858(..., type=2)` extracts an **ASN.1 INTEGER** into `w20`.
-
-| Claim | Level |
-|-------|-------|
-| ASN.1 INTEGER extracted and MD5'd as LE32 | **FACT** |
-| That integer is Wire `CertificateType` / `0x02000000` | **STRONG** (Wire-closed; not hard-coded at this site) |
-
----
-
-## PFX loader + `EVP_PKEY*` → sign (FACT)
-
-Loader `0xbdf84` (alias `com.bmwgroup.connected.bmw` @ `0x407df`): pass deobfuscate →
-`PKCS12_parse` → returns `EVP_PKEY*`.
-
-Inside sign path (`0xbd73c` region, e.g. `@bd8fc`):
-
-```text
-bl  0xbdf84
-ldur x0/x3, [x29,#-0x88]   ; SAME EVP_PKEY*
-bl  0x12e564               ; EVP_SignFinal(ctx, sig, &len, pkey)
-```
-
----
-
-## `0x12e564` = `EVP_SignFinal` (FACT)
-
-Matched to classic OpenSSL `EVP_SignFinal` sequence:
-
-| Addr | Role |
-|------|------|
-| `0xd79a8` | `EVP_DigestFinal_ex` |
-| `0x12d04c` | `EVP_PKEY_size` → 512 for RSA-4096 |
-| `0x13048c` | `EVP_PKEY_CTX_new` |
-| `0x12ee9c` | `EVP_PKEY_sign_init` |
-| `0x130a68` | `EVP_PKEY_CTX_ctrl` (signature MD) |
-| **`0x12ef34`** | **`EVP_PKEY_sign`** (`pmeth->sign` dispatch) **FACT** |
-
-```text
-EVP_PKEY_sign(pkctx, sigret, &siglen, digest, digest_len)
-```
-
-RSA-4096 PKCS#1 v1.5 → 512-byte APP_AUTH signature. Field **8/8** VERIFY unchanged.
-
-**PFX key is the local SAS signer key** — **FACT** (dataflow + OpenSSL match + cert/SPKI + wire).
-
----
-
-## Four layers (summary)
+## Status ladder
 
 | Layer | Status |
 |-------|--------|
-| A Secret/key material (embedded PFX RSA-4096) | CLOSED |
-| B Key unwrapping (local pass + MAC + parse) | CLOSED |
-| C Message prep (LE32 MD5 → XOR → MD5, len=16) | CLOSED |
-| D Signature (`EVP_SignFinal` → `EVP_PKEY_sign` → RSA) | CLOSED |
-| CertificateType ASN.1 field identity | STRONG / micro-OPEN |
-| Same key every `libaudio.so` build | UNKNOWN |
-| PiDrive standalone SAS product-ready | OPEN (Weg B + policy) |
-
----
-
-## Falsified / superseded
-
-| Claim | Status |
-|-------|--------|
-| Empty password / Keystore / remote signer for this path | REJECTED |
-| `AudioModule_f` is the SAS signer | **REJECTED** (bounds; signer = `g` → `0xbd73c`) |
-| `0x12e564` only a vague “output wrapper” | **SUPERSEDED** → `EVP_SignFinal` FACT |
-| `EVP_PKEY_sign` not located | **SUPERSEDED** → `0x12ef34` FACT |
-| “Where is the key?” / “does PFX key sign?” | **CLOSED** |
+| Field SAS formula + 8/8 VERIFY | CLOSED (wire) |
+| Feature cert + PFX + local pass + parse + Feature `EVP_SignFinal` | CLOSED (Feature-PKI) |
+| OpenSSL `EVP_SignFinal` / `EVP_PKEY_sign` / CMS / PKCS#7 decrypt IDs | CLOSED (infra) |
+| PFX @ `0x5249e` = APP_AUTH RSA-4096 | **REJECTED** |
+| `0x168374` = APP_AUTH | **REJECTED** |
+| Native APP_AUTH PKEY load | **OPEN** |
+| Native SAS MD5/XOR/MD5 co-located with that PKEY | **OPEN** |
+| `0x19e494` = APP_AUTH | UNKNOWN |
+| `createSecurityContext` chain | **OPEN** (priority) |
+| PiDrive standalone SAS product-ready | OPEN |
 
 ---
 
 ## Next step
 
-1. Trace ASN.1 object into `0x196240` / `0xc4cf0` until the field that yields `0x02000000`
-   is named (CertificateType bind FACT).  
-2. Optional: instruction-level annotate of `0xbd73c` + `0xbdf84` (pass wipe, pkey store).
+Do **not** broaden-hunt more RSA wrappers.
 
-**Not next for product:** publishing credentials. Menu work remains **Weg A** until an
-explicit Weg B decision.
+1. Resolve **`createSecurityContext`** → security object → `EVP_PKEY*`  
+2. Require `EVP_PKEY_size == 512` and modulus ↔ APP_AUTH SPKI fingerprint  
+3. Find prep `CertificateType` / MD5 / XOR next to that sign call  
+4. Keep Feature-PKI documented but **out of** the APP_AUTH claim set  
+
+**Product:** Weg A / Music RHMI unchanged; Weg B waits on Layer-3 closure.
 
 Cross-links: [`README.md`](README.md) · [`FUNCTION-NOTES.md`](FUNCTION-NOTES.md) ·
 bt-analyzer `SAS_STATUS_CRYPTO_CLOSED_20261120.md` · `SAS_SIGNER_CASE_A_CLOSED_20261119.md`
