@@ -166,8 +166,10 @@ MD5/XOR/MD5 + `createSecurityContext` — **OPEN**. Prior “PFX = APP_AUTH E2E 
 
 **Preferred (product):** Weg A / Music RHMI.
 
-**Weg B / binary:** resolve `createSecurityContext` → RSA-4096 `EVP_PKEY` (size 512,
-modulus ↔ APP_AUTH SPKI) + adjacent SAS prep. Do not re-hunt Feature PFX.
+**Weg B / binary (optional observe-only):** O1–O6 in
+[`PACK_A-N_EVAL_THREE_CHAINS_20261123.md`](PACK_A-N_EVAL_THREE_CHAINS_20261123.md) —
+`EVP_SignFinal` rückwärts → productive RSA-4096 `EVP_PKEY` (modulus ↔ APP_AUTH SPKI)
++ SAS prep. Credential provider O7 erst danach. Do not re-hunt Feature PFX.
 
 ---
 
@@ -182,5 +184,6 @@ modulus ↔ APP_AUTH SPKI) + adjacent SAS prep. Do not re-hunt Feature PFX.
 ## Artefakte
 
 - This README (A–G report)
-- [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md) — Salt/Iter/MAC claim table (2026-11-21)
+- [`PKCS12-ANATOMY.md`](PKCS12-ANATOMY.md) — Salt/Iter/MAC claim table (2026-11-21); Feature ≠ APP_AUTH
+- [`PACK_A-N_EVAL_THREE_CHAINS_20261123.md`](PACK_A-N_EVAL_THREE_CHAINS_20261123.md) — Pack A–N claim hygiene; O1–O6 backlog (optional)
 - Prior: `audits/signchallenge-native-localization-2026-11-19/`
