@@ -119,7 +119,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 |------|-------|---|------|-------|------------|
 | [`ble-http-gatt-probe`](ble-http-gatt-probe/SHEET.md) | HTTP-gesteuerte BLE-GATT-Sonde | W2 | R3 | LAB | `esp32-ftmsprobe` |
 | [`ble-rssi-proximity`](ble-rssi-proximity/SHEET.md) | BLE RSSI Proximity Hunt | W1 | R0 | — | `esp-ble-finder` |
-| [`bmw-av`](bmw-av/SHEET.md) | BMW AV — Connected Entertainment Session Control | W2 | R3 | FIELD | `esp32-bt-analyzer`, `bimmergestalt-idrive-refs` |
+| [`bmw-av`](bmw-av/SHEET.md) | BMW AV — Connected Entertainment Session Control | W2 | R3 | FIELD | `esp32-bt-analyzer` |
 | [`bmw-bcl`](bmw-bcl/SHEET.md) | BMW BCL — Connected-App Multiplex Tunnel | W2 | R3 | LAB, FIELD | `bimmergestalt-idrive-refs`, `esp32-usb-analyzer`, `hu-probe`, `esp32-bt-analyzer` |
 | [`bmw-etch-rpc`](bmw-etch-rpc/SHEET.md) | BMW Etch RPC — BMWRemoting Connected-App API | W2 | R3 | LAB, FIELD | `bimmergestalt-idrive-refs`, `hu-probe`, `esp32-bt-analyzer` |
 | [`bmw-rhmi`](bmw-rhmi/SHEET.md) | BMW RHMI — Remote HMI for Connected Apps | W2 | R3 | LAB, FIELD | `bimmergestalt-idrive-refs`, `esp32-bt-analyzer` |

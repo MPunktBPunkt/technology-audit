@@ -1,0 +1,54 @@
+schema: technology-audit.claims.v1
+audit_directory: bmw-rhmi-music-handle23-field-2026-11-21
+
+claims:
+  - id: C-RHMI-001
+    statement: RHMI Handle 23 maps to me.hufman.androidautoidrive.music on F20 B3.
+    status: FACT
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: RHMI
+    supported_by: [EVID-B3-RHMI-H23-MAP]
+    transfer_limits: [aaidrive_music_app_ids]
+    unknown_reason: null
+
+  - id: C-RHMI-002
+    statement: >
+      Music NP spine uses models 444/655 Spotify, 445 artist, 446/447 title,
+      actions 336/248, events 660/661.
+    status: FACT
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: RHMI
+    supported_by: [EVID-B3-RHMI-NP-SPINE]
+    transfer_limits: [lab_model_100_action_200_rejected]
+    unknown_reason: null
+
+  - id: C-RHMI-003
+    statement: Lab actionId 200 / modelId 100 equal F20 Music OEM IDs.
+    status: REJECTED
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: RHMI
+    supported_by: []
+    contradicted_by: [EVID-B3-RHMI-NP-SPINE]
+    transfer_limits: [lab_only_ids]
+    unknown_reason: null
+
+  - id: C-RHMI-004
+    statement: Music DESCRIPTION MD5 e9e31c31110680e13b7a112a7d77eb55 size 92085 B (extract CLOSED).
+    status: FACT
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: RHMI
+    supported_by: [EVID-B3-RHMI-DESC-E9E31C31]
+    transfer_limits: [textdb_imagedb_extract_open]
+    unknown_reason: null

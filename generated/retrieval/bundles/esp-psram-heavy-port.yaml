@@ -1,0 +1,70 @@
+# GENERATED retrieval bundle for esp-psram-heavy-port
+# generated: 2026-11-23
+
+topic: esp-psram-heavy-port
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-psram-heavy-port/SHEET.md
+  - audits/esp32-doom-2026-foreign/README.md
+  - audits/squeezelite-esp32-2026-foreign/README.md
+primary:
+  - esp-psram-heavy-port
+maturity:
+  technology: R1
+  field_evidence: R0
+  reusability: W1
+  evidence_scope: []
+applications:
+  - projects/esp32-doom/applications/esp-psram-heavy-port.md
+  - projects/squeezelite-esp32/applications/esp-psram-heavy-port.md
+audits:
+  -
+    audit_id: A-2026-072
+    directory: esp32-doom-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-doom-2026-foreign
+  -
+    audit_id: A-2026-078
+    directory: squeezelite-esp32-2026-foreign
+    status: active
+    environment: lab
+    path: audits/squeezelite-esp32-2026-foreign
+methods: []
+evidence_ids:
+  - EVID-DOOM-2026-10-25-001
+  - EVID-DOOM-2026-10-25-002
+  - EVID-DOOM-2026-10-25-003
+  - EVID-DOOM-2026-10-25-005
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Ohne PSRAM „reicht schon“ für denselben Port
+    status: REJECTED
+    source: technologies/esp-psram-heavy-port/SHEET.md
+  -
+    statement: Alles in PSRAM legen inkl. Framebuffer/DMA
+    status: REJECTED
+    source: technologies/esp-psram-heavy-port/SHEET.md
+  -
+    statement: Classic-Wrover-PoC = S3-Port ohne Gate
+    status: REJECTED
+    source: technologies/esp-psram-heavy-port/SHEET.md
+  -
+    statement: Tiny OLED-Sheet deckt Game-Framebuffer ab
+    status: REJECTED
+    source: technologies/esp-psram-heavy-port/SHEET.md
+  -
+    statement: PSRAM malloc = Errata gelöst
+    status: REJECTED
+    source: technologies/esp-psram-heavy-port/SHEET.md
+  -
+    statement: Sound/Save immer dabei
+    status: REJECTED
+    source: technologies/esp-psram-heavy-port/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -703,8 +703,28 @@ def _check_maturity_hints(root: Path, scan: ScanResult) -> list[Finding]:
 
 
 def _check_retrieval_fixtures(root: Path) -> list[Finding]:
-    """Structural check: retrieval-test expected paths exist."""
+    """Structural check: retrieval-test expected paths exist + generated index present."""
     out: list[Finding] = []
+    gen = root / "generated" / "retrieval" / "index.yaml"
+    audit_idx = root / "audits" / "INDEX.yaml"
+    if not gen.is_file():
+        out.append(
+            Finding(
+                "error",
+                "RT2",
+                "generated/retrieval/index.yaml missing — run python3 tools/ta-assist index",
+                "generated/retrieval/",
+            )
+        )
+    if not audit_idx.is_file():
+        out.append(
+            Finding(
+                "error",
+                "RT2",
+                "audits/INDEX.yaml missing — run python3 tools/ta-assist index",
+                "audits/INDEX.yaml",
+            )
+        )
     path = root / "docs" / "retrieval-tests.yaml"
     if not path.is_file():
         out.append(
@@ -717,10 +737,19 @@ def _check_retrieval_fixtures(root: Path) -> list[Finding]:
         )
         return out
     text = read_text(path)
-    # Minimal parse: lines "    - path: foo" under expect
+    # Support "- path: foo" and bare list items under expect.paths
     expect_paths = re.findall(r"^\s+-\s+path:\s+(\S+)\s*$", text, re.M)
+    expect_paths += re.findall(
+        r"^\s+-\s+((?:technologies|projects|audits|methods|docs|generated)/[^\s]+)\s*$",
+        text,
+        re.M,
+    )
+    seen: set[str] = set()
     for rel in expect_paths:
         rel = rel.strip().strip("'\"")
+        if rel in seen:
+            continue
+        seen.add(rel)
         if not (root / rel).exists():
             out.append(
                 Finding(

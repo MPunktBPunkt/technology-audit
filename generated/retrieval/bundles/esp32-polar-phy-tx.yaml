@@ -1,0 +1,94 @@
+# GENERATED retrieval bundle for esp32-polar-phy-tx
+# generated: 2026-11-23
+
+topic: esp32-polar-phy-tx
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp32-polar-phy-tx/SHEET.md
+  - audits/esp32-sdr-trx-2026-foreign/README.md
+  - audits/esp32sdr-2026-foreign/README.md
+primary:
+  - esp32-polar-phy-tx
+maturity:
+  technology: R1
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-sdr-trx/applications/esp32-polar-phy-tx.md
+audits:
+  -
+    audit_id: A-2026-030
+    directory: esp32-sdr-trx-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-sdr-trx-2026-foreign
+  -
+    audit_id: A-2026-043
+    directory: esp32sdr-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32sdr-2026-foreign
+methods:
+  - methods/hw-path-gate.md
+evidence_ids: []
+facts:
+  -
+    statement: Trägerquelle ohne Sample-Buffer
+    status: FACT
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+  -
+    statement: Schmalband-FM/SSB/RTTY
+    status: FACT
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+  -
+    statement: Polar (mag)
+    status: FACT
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+  -
+    statement: Live-Modulation
+    status: FACT
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+inferences:
+  -
+    statement: kHz-Drift ohne Korrektur
+    status: INFERENCE
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+hypotheses:
+  -
+    statement: S3 Universal-RF-Node „fertig“
+    status: HYPOTHESIS
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+unknowns:
+  -
+    statement: "Pegel, Nebenaussendungen"
+    status: UNKNOWN
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+  -
+    statement: Transfer
+    status: UNKNOWN
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+rejected:
+  -
+    statement: Polar-TX = APLL-FM auf anderem Chip
+    status: REJECTED
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+  -
+    statement: "Author-Hz/dB = KB-`MEASURED`"
+    status: REJECTED
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+  -
+    statement: Raw I/Q TX ist Release-Pfad
+    status: REJECTED
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+  -
+    statement: Thermal-Modell board-übertragbar
+    status: REJECTED
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+  -
+    statement: Ohne Lizenz Antenne ok
+    status: REJECTED
+    source: technologies/esp32-polar-phy-tx/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

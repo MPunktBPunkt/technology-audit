@@ -7,7 +7,7 @@ primary: H
 tags: [automotive, protocol, audio, foreign-desk]
 type: technology
 status: active
-seen_in: [esp32-bt-analyzer, bimmergestalt-idrive-refs]
+seen_in: [esp32-bt-analyzer]
 maturity:
   technology: R2
   implementation: R1

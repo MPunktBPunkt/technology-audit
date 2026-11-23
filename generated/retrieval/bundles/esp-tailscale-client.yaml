@@ -1,0 +1,56 @@
+# GENERATED retrieval bundle for esp-tailscale-client
+# generated: 2026-11-23
+
+topic: esp-tailscale-client
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-tailscale-client/SHEET.md
+  - audits/esp32-car-network-2026-foreign/README.md
+primary:
+  - esp-tailscale-client
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/esp32-car-network-refs/applications/esp-tailscale-client.md
+audits:
+  -
+    audit_id: A-2026-097
+    directory: esp32-car-network-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp32-car-network-2026-foreign
+methods: []
+evidence_ids:
+  - EVID-CARNET-2026-11-12-020
+  - EVID-CARNET-YYYY-MM-DD
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: SoftAP nötig für Car-Reachability
+    status: REJECTED
+    source: technologies/esp-tailscale-client/SHEET.md
+  -
+    statement: PreferredDERP advertise ≠ connected region
+    status: REJECTED
+    source: technologies/esp-tailscale-client/SHEET.md
+  -
+    statement: = esp_wireguard drop-in
+    status: REJECTED
+    source: technologies/esp-tailscale-client/SHEET.md
+  -
+    statement: "Cellular/CGNAT: direct UDP immer möglich"
+    status: REJECTED
+    source: technologies/esp-tailscale-client/SHEET.md
+  -
+    statement: Desk-Architektur = Lab MEASURED hinter Hotspot
+    status: REJECTED
+    source: technologies/esp-tailscale-client/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -162,7 +162,10 @@ def cmd_index(root: Path) -> int:
     print(
         f"index: {info['sheet_count']} sheets → {info['index_yaml']} + {info['readme']}; "
         f"maturity → {info.get('knowledge_maturity')}; "
-        f"{info['project_count']} projects → {info['projects_index']} + {info['projects_readme']} "
+        f"{info['project_count']} projects → {info['projects_index']} + {info['projects_readme']}; "
+        f"audits → {info.get('audit_index')} ({info.get('audits_indexed', 0)}); "
+        f"retrieval → {info.get('retrieval_index')} "
+        f"(tech_bundles={info.get('tech_bundles', 0)}, topic_bundles={info.get('topic_bundles', 0)}); "
         f"(planned={info['planned']}, sheet_errors={info.get('sheet_errors', 0)})"
     )
     return 1 if info.get("sheet_errors") else 0

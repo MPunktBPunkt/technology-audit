@@ -1,0 +1,50 @@
+# GENERATED retrieval bundle for pmr446
+# generated: 2026-11-23
+
+topic: pmr446
+generated: 2026-11-23
+source_of_truth:
+  - technologies/pmr446/SHEET.md
+  - audits/pidrive-2026-radio-bt/README.md
+primary:
+  - pmr446
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/pidrive/applications/pmr446.md
+audits:
+  -
+    audit_id: A-2026-026
+    directory: pidrive-2026-radio-bt
+    status: active
+    environment: field
+    path: audits/pidrive-2026-radio-bt
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Nur 8 Kanäle sind „das“ PMR446
+    status: REJECTED
+    source: technologies/pmr446/SHEET.md
+  -
+    statement: Peek unter Trigger = Activity
+    status: REJECTED
+    source: technologies/pmr446/SHEET.md
+  -
+    statement: Autotune während Spektrum-Capture unkritisch
+    status: REJECTED
+    source: technologies/pmr446/SHEET.md
+  -
+    statement: welle-cli spektrum für PMR
+    status: REJECTED
+    source: technologies/pmr446/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

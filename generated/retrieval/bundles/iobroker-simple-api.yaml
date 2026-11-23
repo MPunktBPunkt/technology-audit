@@ -1,0 +1,39 @@
+# GENERATED retrieval bundle for iobroker-simple-api
+# generated: 2026-11-23
+
+topic: iobroker-simple-api
+generated: 2026-11-23
+source_of_truth:
+  - technologies/iobroker-simple-api/SHEET.md
+primary:
+  - iobroker-simple-api
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-metermaster/applications/iobroker-simple-api.md
+audits: []
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: ESP ist HTTP-Server für ioBroker
+    status: HYPOTHESIS
+    source: technologies/iobroker-simple-api/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: "Simple-API kann nodes.* vor Registrierung anlegen"
+    status: REJECTED
+    source: technologies/iobroker-simple-api/SHEET.md
+  -
+    statement: Ein Port für alles (Werte + Config + Hub)
+    status: REJECTED
+    source: technologies/iobroker-simple-api/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

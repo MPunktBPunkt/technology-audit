@@ -1,0 +1,80 @@
+# Retrieval topic seeds (Query-Specs — NOT a second claim truth)
+# Bundles are generated into generated/retrieval/bundles/topic-<id>.yaml
+# SoT remains Sheets / Audits / optional audits/*/claims.yaml
+
+version: 1
+updated: 2026-11-23
+
+topics:
+  - id: bmw-connected-music
+    title: BMW Connected Music (SAS → RHMI → AV)
+    question: "Was wissen wir über Connected Music auf NBT Evo (Auth, UI, AV, Audio-Grenze)?"
+    technologies: [bmw-sas-auth, bmw-bcl, bmw-etch-rpc, bmw-rhmi, bmw-av, bmw-nbt-evo]
+    audits:
+      - bmw-sas-auth-field-crypto-2026-11-21
+      - bmw-rhmi-music-handle23-field-2026-11-21
+      - bmw-av-session-control-vs-audio-2026-11-21
+      - bmw-am-bootstrap-field-2026-11-21
+      - bmw-cds-menu-path-field-2026-11-21
+      - nbt-evo-bt-control-plane-closure-2026-11-21
+    methods: [methods/raw-bcl-etch-forensic.md]
+    transfer_limits:
+      - f20_nbt_evo_host_specific
+      - live_app_auth_not_standalone
+      - av_control_not_audio_transport
+      - spotify_not_am_registerapp
+
+  - id: bmw-sas-crypto
+    title: BMW SAS / APP_AUTH Crypto
+    question: "Wie ist SAS Auth kryptographisch geschlossen (Pad, Digest, RSA-Verify)?"
+    technologies: [bmw-sas-auth, bmw-etch-rpc, bmw-bcl]
+    audits:
+      - bmw-sas-auth-field-crypto-2026-11-21
+      - bmw-connected-sas-auth-2026-11-06
+      - libaudio-signchallenge-pipeline-2026-11-19
+    transfer_limits:
+      - pad_not_x509_serial
+      - standalone_signer_open
+      - field_leaf_touchcommand
+
+  - id: bmw-bcl-etch-transport
+    title: BCL + Etch Wire Transport
+    question: "Wie framen BCL und Etch auf dem F20 (Fragmentierung, dest 4004, Offsets)?"
+    technologies: [bmw-bcl, bmw-etch-rpc]
+    audits:
+      - bmw-bcl-bt-rfcomm-framing-2026-11-21
+      - bmw-etch-rpc-binary-reassembly-2026-11-21
+      - method-raw-bcl-etch-forensic-2026-11
+    methods: [methods/raw-bcl-etch-forensic.md]
+    transfer_limits:
+      - phone_frag_4000_hu_up_to_5306
+      - raw_primary_over_jsonl
+      - bridge_envelope_not_wire
+
+  - id: usb-msc-nbt-cache
+    title: USB-MSC Host Caching (NBT Evo)
+    question: "Welche USB-MSC-Caching-/Prefetch-Erkenntnisse gelten — und welche nur für BMW NBT Evo?"
+    technologies: [usb-msc, usb-msc-host-behaviour, bmw-nbt-evo]
+    audits:
+      - pidrive-2026-msc
+      - pidrive-2026-bmw-hu
+      - msc-host-read-semantics-s1s2s3-2026
+    methods:
+      - methods/msc-host-read-semantics.md
+      - methods/nbt-cache-eviction-play-intent.md
+    transfer_limits:
+      - not_general_usb_behavior
+      - bmw_host_specific
+      - desk_fact_ne_field_fact
+
+  - id: audio-boundary-dual-plane
+    title: Audio Boundary (Control vs Transport)
+    question: "Ist AV PLAY hörbares Audio — und was ist der nächste Dual-Plane-Beweis?"
+    technologies: [bmw-av, bmw-rhmi, bluetooth-a2dp, bmw-bcl]
+    audits:
+      - bmw-av-session-control-vs-audio-2026-11-21
+      - esp32-bt-analyzer-b3-relay-topology-2026-11-21
+    transfer_limits:
+      - post_play_4004_not_default_audio
+      - audible_not_observed_in_b3
+      - dual_plane_required

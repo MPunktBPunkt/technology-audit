@@ -23,18 +23,18 @@ audits/<kampagne> ──► Inventar + Methoden
 
 ## Einstieg
 
-1. [`docs/PROJECT-START.md`](docs/PROJECT-START.md) — **Neues Projekt starten (Permalink)**  
-2. [`technologies/`](technologies/) — Sheet-Index (Primary A–J) · [`index.yaml`](technologies/index.yaml)  
-3. [`docs/KNOWLEDGE-MATURITY.md`](docs/KNOWLEDGE-MATURITY.md) — **W vs Evidence (R) vs Scope** (generiert; nicht Pilot-Status)  
-4. [`docs/FAMILIES.md`](docs/FAMILIES.md) — Produktfamilien  
-5. [`docs/REUSE.md`](docs/REUSE.md) — Match-Regeln (Sprache ≠ Fork)  
-6. [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md) — SoT / Index regenerieren / Check-Stufen  
-7. [`docs/AUDIT-PROFILES.md`](docs/AUDIT-PROFILES.md) — Firmware / Lab / Planung / Ops / Adapter  
-8. [`docs/DOCUMENT-STANDARD.md`](docs/DOCUMENT-STANDARD.md) — Dokumenttypen  
-9. [`docs/KB-FIT.md`](docs/KB-FIT.md) — Eignung & Grenzen  
-10. [`docs/PROMPT-CONTRACT.md`](docs/PROMPT-CONTRACT.md) — Assistenz, kein Schreib-Bot  
-11. [`docs/REVIEW-CHECKS.md`](docs/REVIEW-CHECKS.md) — Qualitätsprüfungen  
-12. [`projects/`](projects/) · [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) · [`docs/TAXONOMY.md`](docs/TAXONOMY.md)
+1. [`AGENTS.md`](AGENTS.md) / [`generated/retrieval/`](generated/retrieval/) — **AI-Einstieg (Retrieval)**  
+2. [`docs/PROJECT-START.md`](docs/PROJECT-START.md) — **Neues Projekt starten (Permalink)**  
+3. [`technologies/`](technologies/) — Sheet-Index (Primary A–J) · [`index.yaml`](technologies/index.yaml)  
+4. [`docs/KNOWLEDGE-MATURITY.md`](docs/KNOWLEDGE-MATURITY.md) — **W vs Evidence (R) vs Scope** (generiert; nicht Pilot-Status)  
+5. [`docs/EVIDENCE-CLAIM-MODEL.md`](docs/EVIDENCE-CLAIM-MODEL.md) — Evidence/Claim/Scope für Skalierung  
+6. [`docs/FAMILIES.md`](docs/FAMILIES.md) — Produktfamilien  
+7. [`docs/REUSE.md`](docs/REUSE.md) — Match-Regeln (Sprache ≠ Fork)  
+8. [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md) — SoT / Index regenerieren / Check-Stufen  
+9. [`docs/AUDIT-PROFILES.md`](docs/AUDIT-PROFILES.md) — Firmware / Lab / Planung / Ops / Adapter  
+10. [`docs/DOCUMENT-STANDARD.md`](docs/DOCUMENT-STANDARD.md) — Dokumenttypen  
+11. [`docs/KB-FIT.md`](docs/KB-FIT.md) — Eignung & Grenzen  
+12. [`docs/PROMPT-CONTRACT.md`](docs/PROMPT-CONTRACT.md) · [`docs/REVIEW-CHECKS.md`](docs/REVIEW-CHECKS.md) · [`projects/`](projects/)
 
 Vorlagen: [`templates/`](templates/) · Prompt-Vorlagen: [`templates/prompts/`](templates/prompts/) · generierte Aufträge: [`artifacts/prompts/`](artifacts/prompts/).
 
@@ -60,7 +60,9 @@ Details: [`tools/README.md`](tools/README.md).
 | Aktive Feld-Kampagnen | BMW NBT Evo Host/C (historisch „Pilot 2“); MSC-Schema closed — **nicht** die Reife der gesamten KB |
 | Projekte | generierter Katalog: [`projects/`](projects/) · [`projects/index.yaml`](projects/index.yaml) |
 | Technologien | [`technologies/`](technologies/) · [`index.yaml`](technologies/index.yaml) · Reuse: [REUSE.md](docs/REUSE.md) |
-| Retrieval-Tests | [`docs/retrieval-tests.yaml`](docs/retrieval-tests.yaml) |
+| Audit-Index | generiert: [`audits/INDEX.yaml`](audits/INDEX.yaml) (`A-YYYY-NNN`) |
+| Retrieval (AI) | [`AGENTS.md`](AGENTS.md) · [`generated/retrieval/`](generated/retrieval/) · Modell: [EVIDENCE-CLAIM-MODEL](docs/EVIDENCE-CLAIM-MODEL.md) |
+| Retrieval-Tests | [`docs/retrieval-tests.yaml`](docs/retrieval-tests.yaml) · Topics: [retrieval-topics](docs/retrieval-topics.yaml) |
 | Assistenz | `ta-assist` index / check / prepare / bootstrap · Pflege: [MAINTENANCE.md](docs/MAINTENANCE.md) |
 
 ## Herkunft

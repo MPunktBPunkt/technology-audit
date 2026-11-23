@@ -1,0 +1,60 @@
+# GENERATED retrieval bundle for iobroker-fritzwireguard-adapter
+# generated: 2026-11-23
+
+topic: iobroker-fritzwireguard-adapter
+generated: 2026-11-23
+source_of_truth:
+  - technologies/iobroker-fritzwireguard-adapter/SHEET.md
+  - audits/esp32-car-network-2026-foreign/README.md
+primary:
+  - iobroker-fritzwireguard-adapter
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/iobroker-fritzwireguard/applications/iobroker-fritzwireguard-adapter.md
+audits:
+  -
+    audit_id: A-2026-097
+    directory: esp32-car-network-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp32-car-network-2026-foreign
+methods: []
+evidence_ids:
+  - EVID-CARNET-2026-11-12-020
+  - EVID-CARNET-YYYY-MM-DD
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: "Full-Tunnel (`0.0.0.0/0`) ist unkritisch auf dem ioBroker-Host"
+    status: REJECTED
+    source: technologies/iobroker-fritzwireguard-adapter/SHEET.md
+  -
+    statement: "Gleiches LAN-Subnet lokal+remote → ganze `/24` routen"
+    status: REJECTED
+    source: technologies/iobroker-fritzwireguard-adapter/SHEET.md
+  -
+    statement: "DNS aus Client-`.conf` immer übernehmen"
+    status: REJECTED
+    source: technologies/iobroker-fritzwireguard-adapter/SHEET.md
+  -
+    statement: TR-064 Pflicht für Tunnel
+    status: REJECTED
+    source: technologies/iobroker-fritzwireguard-adapter/SHEET.md
+  -
+    statement: "VPN ohne Host-Privilegien (`NET_ADMIN`/sudo)"
+    status: REJECTED
+    source: technologies/iobroker-fritzwireguard-adapter/SHEET.md
+  -
+    statement: Ein Tunnel = Full-Site-VPN für alle Adapter
+    status: REJECTED
+    source: technologies/iobroker-fritzwireguard-adapter/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

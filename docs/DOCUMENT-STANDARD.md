@@ -81,9 +81,14 @@ Enthält: relevante Pfade, Datenflüsse, Konfiguration, Feldbelege, offene Frage
 | **Vorlage** | [`templates/audit-campaign.md`](../templates/audit-campaign.md) |
 | **Zweck** | Zeitlich begrenzter Analyselauf mit Exit-Kriterien und Ergebnislinks |
 
-ID-Schema: `<project>-<YYYY>` oder `<project>-<YYYY>-<kurzname>` (z. B. `pidrive-2026`, `pidrive-2026-msc`).
+**Directory-Schema (Identifier, nicht Beschreibung):** `<project>-<YYYY>-<topic>`  
+(z. B. `pidrive-2026-msc`, `bmw-sas-auth-field-crypto-2026-11-21`). Keine Messdetails im Ordnernamen.
+
+**Stabile Audit-ID (ab 0.7.2):** `A-YYYY-NNN` — zugewiesen in generiertem [`audits/INDEX.yaml`](../audits/INDEX.yaml); optional explizit als `audit_id` in der Kampagnen-YAML. Display-Name = README-Titel (mutable). Ordner **nicht** massenhaft umbenennen.
 
 **Pflicht in der YAML:** `standard_version` — Semver aus [`VERSION`](../VERSION) zum Zeitpunkt des Audits. Changelog der Pflichtregeln: [`STANDARD-CHANGELOG.md`](STANDARD-CHANGELOG.md). Optional `standard_gaps` für bekannte Abweichungen gegenüber neueren Ständen. So erkennt man später, welche Checks/Profile damals noch nicht galten.
+
+**Optional (0.7.2+):** `audits/<dir>/claims.yaml` — Claim→Evidence mit Scope / REJECTED / UNKNOWN reason. Spezifikation: [`EVIDENCE-CLAIM-MODEL.md`](EVIDENCE-CLAIM-MODEL.md). Retrieval-Bundles: `generated/retrieval/` (nur generiert).
 
 Ab **0.7.0** gilt für experimentelle Kampagnen der Kreislauf **Evidence → Decision → Engineering Action → Lab/Field → Knowledge Feedback** (Vorlage: Decision Trace, Engineering Review Checks, Kill-Kriterien, Knowledge Feedback). Siehe [METHODOLOGY.md](METHODOLOGY.md#operationalisierung-070) und Review-Checks C10–C13.
 

@@ -1,13 +1,15 @@
 # Audit Campaign: \<ID\>
 
 ```yaml
-id: project-YYYY
+id: project-YYYY-topic          # directory = same kebab id; keep short
+# audit_id: A-YYYY-NNN          # optional; else assigned in audits/INDEX.yaml
 project_id: example
 started: YYYY-MM-DD
 ended: null
-status: planned   # planned | active | closed
+status: planned   # planned | active | closed | superseded | archived
 profile: firmware   # firmware | lab-tool | planning | ops-field — siehe docs/AUDIT-PROFILES.md
-standard_version: "0.7.1"   # = Inhalt von VERSION zum Audit-Zeitpunkt; Changelog: docs/STANDARD-CHANGELOG.md
+standard_version: "0.7.2"   # = Inhalt von VERSION zum Audit-Zeitpunkt; Changelog: docs/STANDARD-CHANGELOG.md
+# technologies: [usb-msc, bmw-nbt-evo]   # optional — improves INDEX/retrieval
 # standard_gaps: []         # optional: was gegenüber neuerem Standard noch fehlt
 # reuse_outcomes:           # am Ende ausfüllen (Transfer-Nachweis)
 #   reused: []
@@ -17,6 +19,8 @@ standard_version: "0.7.1"   # = Inhalt von VERSION zum Audit-Zeitpunkt; Changelo
 #   decisions_touched: []   # optional P2
 #   cycles_avoided: []      # optional P2
 ```
+
+Optional strukturierte Claims: `claims.yaml` — siehe [`docs/EVIDENCE-CLAIM-MODEL.md`](../docs/EVIDENCE-CLAIM-MODEL.md).
 
 ## Ziel
 

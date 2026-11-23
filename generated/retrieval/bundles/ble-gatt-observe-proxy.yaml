@@ -1,0 +1,70 @@
+# GENERATED retrieval bundle for ble-gatt-observe-proxy
+# generated: 2026-11-23
+
+topic: ble-gatt-observe-proxy
+generated: 2026-11-23
+source_of_truth:
+  - technologies/ble-gatt-observe-proxy/SHEET.md
+  - audits/ble-gatt-bluez-relay-2026-foreign/README.md
+  - audits/bt-analysis-relay-2026-foreign/README.md
+  - audits/bt-sniffing-capture-2026-foreign/README.md
+primary:
+  - ble-gatt-observe-proxy
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/bt-analysis-relay-refs/applications/ble-gatt-observe-proxy.md
+audits:
+  -
+    audit_id: A-2026-084
+    directory: bt-analysis-relay-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-analysis-relay-2026-foreign
+  -
+    audit_id: A-2026-086
+    directory: bt-sniffing-capture-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-sniffing-capture-2026-foreign
+  -
+    audit_id: A-2026-094
+    directory: ble-gatt-bluez-relay-2026-foreign
+    status: closed
+    environment: mixed
+    path: audits/ble-gatt-bluez-relay-2026-foreign
+methods:
+  - methods/bt-passive-host-sniff.md
+evidence_ids:
+  - EVID-BZGATT-2026-11-12
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Transparent Relais knackt jedes Bonding
+    status: REJECTED
+    source: technologies/ble-gatt-observe-proxy/SHEET.md
+  -
+    statement: CCCD Downstream steuert Upstream automatisch
+    status: REJECTED
+    source: technologies/ble-gatt-observe-proxy/SHEET.md
+  -
+    statement: MQTT-Gateway = Phone↔Device Relais
+    status: REJECTED
+    source: technologies/ble-gatt-observe-proxy/SHEET.md
+  -
+    statement: Notify-Congestion egal bei Analyse
+    status: REJECTED
+    source: technologies/ble-gatt-observe-proxy/SHEET.md
+  -
+    statement: Analyse-Proxy = Produktions-Bridge
+    status: REJECTED
+    source: technologies/ble-gatt-observe-proxy/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

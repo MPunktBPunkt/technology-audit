@@ -205,7 +205,7 @@ sheets:
     evidence_max: R3
     evidence_scope: [FIELD]
     evidence_scope_source: sheet
-    seen_in: [esp32-bt-analyzer, bimmergestalt-idrive-refs]
+    seen_in: [esp32-bt-analyzer]
     path: technologies/bmw-av/SHEET.md
   - slug: bmw-bcl
     title: BMW BCL — Connected-App Multiplex Tunnel

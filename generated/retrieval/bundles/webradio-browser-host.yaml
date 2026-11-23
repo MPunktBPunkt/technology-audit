@@ -1,0 +1,56 @@
+# GENERATED retrieval bundle for webradio-browser-host
+# generated: 2026-11-23
+
+topic: webradio-browser-host
+generated: 2026-11-23
+source_of_truth:
+  - technologies/webradio-browser-host/SHEET.md
+  - audits/esp32-audioi2s-2026-foreign/README.md
+  - audits/squeezelite-esp32-2026-foreign/README.md
+primary:
+  - webradio-browser-host
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-webradio/applications/webradio-browser-host.md
+audits:
+  -
+    audit_id: A-2026-053
+    directory: esp32-audioi2s-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-audioi2s-2026-foreign
+  -
+    audit_id: A-2026-078
+    directory: squeezelite-esp32-2026-foreign
+    status: active
+    environment: lab
+    path: audits/squeezelite-esp32-2026-foreign
+methods: []
+evidence_ids:
+  - EVID-AUDIOI2S-2026-10-13-001
+  - EVID-AUDIOI2S-2026-10-13-002
+  - EVID-AUDIOI2S-2026-10-13-003
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: radio-browser.info = Pflichtteil
+    status: HYPOTHESIS
+    source: technologies/webradio-browser-host/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: ESP streamt Audio per Classic-BT
+    status: REJECTED
+    source: technologies/webradio-browser-host/SHEET.md
+  -
+    statement: Proxy-URL ohne Allowlist ist harmlos
+    status: REJECTED
+    source: technologies/webradio-browser-host/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

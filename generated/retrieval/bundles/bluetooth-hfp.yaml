@@ -1,0 +1,91 @@
+# GENERATED retrieval bundle for bluetooth-hfp
+# generated: 2026-11-23
+
+topic: bluetooth-hfp
+generated: 2026-11-23
+source_of_truth:
+  - technologies/bluetooth-hfp/SHEET.md
+  - audits/bt-analysis-relay-2026-foreign/README.md
+  - audits/bt-classic-gaps-2026-foreign/README.md
+  - audits/bt-sniffing-capture-2026-foreign/README.md
+  - audits/esp32-bt-analyzer-host-profiles-2026-desk/README.md
+primary:
+  - bluetooth-hfp
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/bt-classic-profile-refs/applications/bluetooth-hfp.md
+audits:
+  -
+    audit_id: A-2026-084
+    directory: bt-analysis-relay-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-analysis-relay-2026-foreign
+  -
+    audit_id: A-2026-085
+    directory: bt-classic-gaps-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-classic-gaps-2026-foreign
+  -
+    audit_id: A-2026-086
+    directory: bt-sniffing-capture-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-sniffing-capture-2026-foreign
+  -
+    audit_id: A-2026-091
+    directory: esp32-bt-analyzer-host-profiles-2026-desk
+    status: closed
+    environment: lab
+    path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+methods:
+  - methods/bt-passive-host-sniff.md
+  - methods/ftms-capability-probe.md
+evidence_ids:
+  - EVID-BTHPF-2026-11-04-001
+  - EVID-BTHPF-2026-11-04-010
+  - EVID-BTHPF-2026-11-04-020
+  - EVID-BTHPF-2026-11-04-030
+  - EVID-BTHPF-2026-11-04-031
+  - EVID-BTHPF-2026-11-04-040
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Call startet immer automatisches A2DP-Suspend
+    status: HYPOTHESIS
+    source: technologies/bluetooth-hfp/SHEET.md
+unknowns:
+  -
+    statement: HFP auf ESP32-S3 wie Classic ESP32
+    status: UNKNOWN
+    source: technologies/bluetooth-hfp/SHEET.md
+rejected:
+  -
+    statement: A2DP deckt Anrufe ab
+    status: REJECTED
+    source: technologies/bluetooth-hfp/SHEET.md
+  -
+    statement: HFP HF = HSP
+    status: REJECTED
+    source: technologies/bluetooth-hfp/SHEET.md
+  -
+    statement: mSBC-Pfad decodiert still CVSD
+    status: REJECTED
+    source: technologies/bluetooth-hfp/SHEET.md
+  -
+    statement: PCM-GPIO und HCI-SCO sind austauschbar ohne Kconfig
+    status: REJECTED
+    source: technologies/bluetooth-hfp/SHEET.md
+  -
+    statement: "AG und HF APIs sind spiegelbar 1:1"
+    status: REJECTED
+    source: technologies/bluetooth-hfp/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

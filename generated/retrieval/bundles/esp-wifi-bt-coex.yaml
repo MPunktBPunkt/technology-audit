@@ -1,0 +1,112 @@
+# GENERATED retrieval bundle for esp-wifi-bt-coex
+# generated: 2026-11-23
+
+topic: esp-wifi-bt-coex
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-wifi-bt-coex/SHEET.md
+  - audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21/README.md
+  - audits/esp32-car-network-2026-foreign/README.md
+  - audits/esp32-wifi-bt-coex-2026-foreign/README.md
+primary:
+  - esp-wifi-bt-coex
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-bt-analyzer/applications/esp-wifi-bt-coex.md
+  - projects/esp32-wifi-bt-coex-refs/applications/esp-wifi-bt-coex.md
+audits:
+  -
+    audit_id: A-2026-097
+    directory: esp32-car-network-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp32-car-network-2026-foreign
+  -
+    audit_id: A-2026-099
+    directory: esp32-wifi-bt-coex-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp32-wifi-bt-coex-2026-foreign
+  -
+    audit_id: A-2026-116
+    directory: esp32-bt-analyzer-b3-relay-topology-2026-11-21
+    status: closed
+    environment: mixed
+    path: audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21
+methods:
+  - methods/usb-wifi-coex-discrimination.md
+evidence_ids:
+  - EVID-B3-CAPTURE-DISCIPLINE
+  - EVID-B3-DUAL-PLANE-PROTOCOL
+  - EVID-B3-RELAY-TOPO
+  - EVID-CARNET-2026-11-12-020
+  - EVID-CARNET-YYYY-MM-DD
+  - EVID-WBTCOEX-2026-11-12
+facts:
+  -
+    statement: "`CONFIG_ESP_COEX_SW_COEXIST_ENABLE` nötig für SW-Coex"
+    status: FACT
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: SoftAP CONNECTED + BT = C1 (instabil)
+    status: FACT
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: STA Connected + BT Connected = Y
+    status: FACT
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: WiFi- und BT-Stacks auf unterschiedliche Cores pinnen
+    status: FACT
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: "`ESP_COEX_BT_ST_A2DP_STREAMING` 0x10 / `A2DP_PAUSED` 0x20"
+    status: FACT
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: "Bluedroid setzt A2DP-Streaming via Vendor HCI `BTM_ConfigCoexStatus`"
+    status: FACT
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: "Historisch: prefer BT → A2DP smooth; WiFi RX ~1–5 Mbps; AMPDU ↓"
+    status: FACT
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: BLE Scan-Window kann von WiFi gekürzt werden
+    status: FACT
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: "`esp_coex_prefer_t` aktuell empfehlen"
+    status: REJECTED
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: "Public Repos messen systematisch `esp_coex_*`+A2DP+WiFi thr."
+    status: REJECTED
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: USB↔WiFi-Sheet erklärt RF WiFi↔BT
+    status: REJECTED
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: BTDM-Sheet ersetzt WiFi-Coex
+    status: REJECTED
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: Bessere WiFi-RSSI hebt Classic-ACL-Durchsatz
+    status: REJECTED
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+  -
+    statement: Externer Host (BlueZ via HCI) setzt A2DP-Status-Bit
+    status: REJECTED
+    source: technologies/esp-wifi-bt-coex/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -1,0 +1,220 @@
+# GENERATED retrieval bundle for avrcp
+# generated: 2026-11-23
+
+topic: avrcp
+generated: 2026-11-23
+source_of_truth:
+  - technologies/avrcp/SHEET.md
+  - audits/a2dpsinkhfpclient-2026-foreign/README.md
+  - audits/bluetooth-stack-2026-foreign/README.md
+  - audits/bt-classic-gaps-2026-foreign/README.md
+  - audits/esp-idf-classic-bt-2026-foreign/README.md
+  - audits/esp32-a2dp-2026-foreign/README.md
+  - audits/esp32-a2dp-codecs-2026-foreign/README.md
+  - audits/esp32-a2dp-source-2026-foreign/README.md
+  - audits/esp32-bt-analyzer-f20-connected-2026-11-17/README.md
+  - audits/esp32-bt-analyzer-host-profiles-2026-desk/README.md
+  - audits/esp32-bt-gateway-2026-planning/README.md
+  - audits/esp32-bt-iap-2026-foreign/README.md
+  - audits/espble-2026-foreign/README.md
+  - audits/esphome-a2dp-sink-2026-foreign/README.md
+  - audits/nbt-evo-bt-control-plane-closure-2026-11-21/README.md
+  - audits/pidrive-2026-bmw-hu/README.md
+  - audits/pidrive-2026-msc/README.md
+  - audits/pidrive-2026-radio-bt/README.md
+primary:
+  - avrcp
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/a2dpsinkhfpclient/applications/avrcp.md
+  - projects/bluetooth-stack/applications/avrcp.md
+  - projects/esp-idf-classic-bt/applications/avrcp.md
+  - projects/esp32-a2dp/applications/avrcp.md
+  - projects/esp32-a2dp-codecs/applications/avrcp.md
+  - projects/esp32-a2dp-source/applications/avrcp.md
+  - projects/esp32-bt-gateway/applications/avrcp.md
+  - projects/esp32-bt-iap/applications/avrcp.md
+  - projects/espble/applications/avrcp.md
+  - projects/esphome-a2dp-sink/applications/avrcp.md
+  - projects/pidrive/applications/avrcp.md
+audits:
+  -
+    audit_id: A-2026-001
+    directory: pidrive-2026-msc
+    status: closed
+    environment: mixed
+    path: audits/pidrive-2026-msc
+  -
+    audit_id: A-2026-002
+    directory: pidrive-2026-bmw-hu
+    status: active
+    environment: mixed
+    path: audits/pidrive-2026-bmw-hu
+  -
+    audit_id: A-2026-004
+    directory: esp32-bt-gateway-2026-planning
+    status: active
+    environment: desk
+    path: audits/esp32-bt-gateway-2026-planning
+  -
+    audit_id: A-2026-026
+    directory: pidrive-2026-radio-bt
+    status: active
+    environment: field
+    path: audits/pidrive-2026-radio-bt
+  -
+    audit_id: A-2026-034
+    directory: a2dpsinkhfpclient-2026-foreign
+    status: active
+    environment: lab
+    path: audits/a2dpsinkhfpclient-2026-foreign
+  -
+    audit_id: A-2026-035
+    directory: bluetooth-stack-2026-foreign
+    status: active
+    environment: lab
+    path: audits/bluetooth-stack-2026-foreign
+  -
+    audit_id: A-2026-036
+    directory: esp-idf-classic-bt-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp-idf-classic-bt-2026-foreign
+  -
+    audit_id: A-2026-038
+    directory: esp32-a2dp-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-a2dp-2026-foreign
+  -
+    audit_id: A-2026-039
+    directory: esp32-a2dp-codecs-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-a2dp-codecs-2026-foreign
+  -
+    audit_id: A-2026-040
+    directory: esp32-a2dp-source-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-a2dp-source-2026-foreign
+  -
+    audit_id: A-2026-041
+    directory: esp32-bt-iap-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-bt-iap-2026-foreign
+  -
+    audit_id: A-2026-044
+    directory: espble-2026-foreign
+    status: active
+    environment: lab
+    path: audits/espble-2026-foreign
+  -
+    audit_id: A-2026-045
+    directory: esphome-a2dp-sink-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esphome-a2dp-sink-2026-foreign
+  -
+    audit_id: A-2026-085
+    directory: bt-classic-gaps-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-classic-gaps-2026-foreign
+  -
+    audit_id: A-2026-091
+    directory: esp32-bt-analyzer-host-profiles-2026-desk
+    status: closed
+    environment: lab
+    path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+  -
+    audit_id: A-2026-102
+    directory: esp32-bt-analyzer-f20-connected-2026-11-17
+    status: closed
+    environment: mixed
+    path: audits/esp32-bt-analyzer-f20-connected-2026-11-17
+  -
+    audit_id: A-2026-119
+    directory: nbt-evo-bt-control-plane-closure-2026-11-21
+    status: closed
+    environment: mixed
+    path: audits/nbt-evo-bt-control-plane-closure-2026-11-21
+methods:
+  - methods/bt-passive-host-sniff.md
+  - methods/callback-reentry-state-lifetime.md
+  - methods/field-av-offset-correlation.md
+  - methods/ftms-capability-probe.md
+  - methods/msc-busy-retry-semantics.md
+  - methods/msc-trace-correlation.md
+  - methods/nbt-cache-eviction-play-intent.md
+  - methods/nbt-medium-identity-resume.md
+  - methods/plug-power-reset-isolation.md
+  - methods/usb-bot-command-observation.md
+evidence_ids:
+  - EVID-BMWHU-2026-10-05-001
+  - EVID-BMWHU-2026-10-12
+  - EVID-BMWHU-2026-10-12-001
+  - EVID-BMWHU-2026-10-12-002
+  - EVID-BMWHU-2026-10-12-005
+  - EVID-BMWHU-2026-10-12-006
+  - EVID-BMWHU-2026-10-12-007
+  - EVID-BTHPF-2026-11-04-001
+  - EVID-BTHPF-2026-11-04-010
+  - EVID-BTHPF-2026-11-04-020
+  - EVID-BTHPF-2026-11-04-030
+  - EVID-BTHPF-2026-11-04-031
+  - EVID-BTHPF-2026-11-04-040
+  - EVID-TINYUSB-MSC-2026-10-12
+  - EVID-TINYUSB-MSC-2026-10-12-001
+  - EVID-TINYUSB-MSC-2026-10-12-003
+  - EVID-USBMSC-2026-10-04-001
+  - EVID-USBMSC-2026-10-04-004
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: AVRCP-TG als Source vollständig
+    status: HYPOTHESIS
+    source: technologies/avrcp/SHEET.md
+unknowns:
+  -
+    statement: ESP-A2DP-Lib = Cover Art + Browse
+    status: UNKNOWN
+    source: technologies/avrcp/SHEET.md
+rejected:
+  -
+    statement: Standalone AVRCP ohne A2DP in Libraries
+    status: REJECTED
+    source: technologies/avrcp/SHEET.md
+  -
+    statement: Alle HU-Tasten = AVRCP
+    status: REJECTED
+    source: technologies/avrcp/SHEET.md
+  -
+    statement: Metadata = volle Playlist
+    status: REJECTED
+    source: technologies/avrcp/SHEET.md
+  -
+    statement: Absolute Volume immer
+    status: REJECTED
+    source: technologies/avrcp/SHEET.md
+  -
+    statement: Cover Art ohne IDF ≥5.4 / PSRAM
+    status: REJECTED
+    source: technologies/avrcp/SHEET.md
+  -
+    statement: BlueZ Target = volles Browse
+    status: REJECTED
+    source: technologies/avrcp/SHEET.md
+  -
+    statement: Altes Repo „Metadata unsupported“ = heute wahr
+    status: REJECTED
+    source: technologies/avrcp/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

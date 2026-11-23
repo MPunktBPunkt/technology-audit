@@ -1,0 +1,47 @@
+# GENERATED retrieval bundle for iobroker-metermaster-adapter
+# generated: 2026-11-23
+
+topic: iobroker-metermaster-adapter
+generated: 2026-11-23
+source_of_truth:
+  - technologies/iobroker-metermaster-adapter/SHEET.md
+primary:
+  - iobroker-metermaster-adapter
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/iobroker-metermaster/applications/iobroker-metermaster-adapter.md
+audits: []
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: WebUI braucht dieselbe Auth wie Writes
+    status: HYPOTHESIS
+    source: technologies/iobroker-metermaster-adapter/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: MeterMaster-Register = ESP-Hub-Register
+    status: REJECTED
+    source: technologies/iobroker-metermaster-adapter/SHEET.md
+  -
+    statement: Simple-API ersetzt Adapter-Readings
+    status: REJECTED
+    source: technologies/iobroker-metermaster-adapter/SHEET.md
+  -
+    statement: ESP-Nodes sind Pflicht für den Adapter
+    status: REJECTED
+    source: technologies/iobroker-metermaster-adapter/SHEET.md
+  -
+    statement: Ein Port für Hub + MeterMaster + Simple-API
+    status: REJECTED
+    source: technologies/iobroker-metermaster-adapter/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

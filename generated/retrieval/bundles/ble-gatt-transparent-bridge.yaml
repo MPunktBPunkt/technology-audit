@@ -1,0 +1,83 @@
+# GENERATED retrieval bundle for ble-gatt-transparent-bridge
+# generated: 2026-11-23
+
+topic: ble-gatt-transparent-bridge
+generated: 2026-11-23
+source_of_truth:
+  - technologies/ble-gatt-transparent-bridge/SHEET.md
+  - audits/ble-gatt-bluez-relay-2026-foreign/README.md
+  - audits/ble-gatt-bridge-refs-2026-foreign/README.md
+  - audits/bt-analysis-relay-2026-foreign/README.md
+primary:
+  - ble-gatt-transparent-bridge
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/ble-gatt-bluez-relay-refs/applications/ble-gatt-transparent-bridge.md
+  - projects/ble-gatt-bridge-refs/applications/ble-gatt-transparent-bridge.md
+audits:
+  -
+    audit_id: A-2026-083
+    directory: ble-gatt-bridge-refs-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/ble-gatt-bridge-refs-2026-foreign
+  -
+    audit_id: A-2026-084
+    directory: bt-analysis-relay-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-analysis-relay-2026-foreign
+  -
+    audit_id: A-2026-094
+    directory: ble-gatt-bluez-relay-2026-foreign
+    status: closed
+    environment: mixed
+    path: audits/ble-gatt-bluez-relay-2026-foreign
+methods:
+  - methods/bt-passive-host-sniff.md
+evidence_ids:
+  - EVID-BZGATT-2026-11-12
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: "CCCD-Descriptors 1:1 vom Profil klonen"
+    status: HYPOTHESIS
+    source: technologies/ble-gatt-transparent-bridge/SHEET.md
+  -
+    statement: Live-Read vom Target bei jedem Host-Read
+    status: HYPOTHESIS
+    source: technologies/ble-gatt-transparent-bridge/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Downstream-CCCD schreibt Upstream-CCCD mit
+    status: REJECTED
+    source: technologies/ble-gatt-transparent-bridge/SHEET.md
+  -
+    statement: Notify-Congestion ist gelöst wenn Relay existiert
+    status: REJECTED
+    source: technologies/ble-gatt-transparent-bridge/SHEET.md
+  -
+    statement: Handle-Layout egal für Android-Cache
+    status: REJECTED
+    source: technologies/ble-gatt-transparent-bridge/SHEET.md
+  -
+    statement: GATT↔MQTT-Gateway = BLE Peripheral Bridge
+    status: REJECTED
+    source: technologies/ble-gatt-transparent-bridge/SHEET.md
+  -
+    statement: BlueZ/bluer Two-Adapter Clone = on-chip Dual-Role Passthrough
+    status: REJECTED
+    source: technologies/ble-gatt-transparent-bridge/SHEET.md
+  -
+    statement: "CCCD am BlueZ-Clone muss 1:1 vom Target geklont werden"
+    status: REJECTED
+    source: technologies/ble-gatt-transparent-bridge/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

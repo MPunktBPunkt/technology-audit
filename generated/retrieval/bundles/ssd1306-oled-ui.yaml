@@ -1,0 +1,77 @@
+# GENERATED retrieval bundle for ssd1306-oled-ui
+# generated: 2026-11-23
+
+topic: ssd1306-oled-ui
+generated: 2026-11-23
+source_of_truth:
+  - technologies/ssd1306-oled-ui/SHEET.md
+  - audits/esp32-ai-2026-foreign/README.md
+  - audits/esp32-doom-2026-foreign/README.md
+  - audits/rnt-esp32-2026-foreign/README.md
+primary:
+  - ssd1306-oled-ui
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-ai/applications/ssd1306-oled-ui.md
+  - projects/esp32-metermaster/applications/ssd1306-oled-ui.md
+audits:
+  -
+    audit_id: A-2026-032
+    directory: rnt-esp32-2026-foreign
+    status: active
+    environment: lab
+    path: audits/rnt-esp32-2026-foreign
+  -
+    audit_id: A-2026-071
+    directory: esp32-ai-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-ai-2026-foreign
+  -
+    audit_id: A-2026-072
+    directory: esp32-doom-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-doom-2026-foreign
+methods: []
+evidence_ids:
+  - EVID-DOOM-2026-10-25-001
+  - EVID-DOOM-2026-10-25-002
+  - EVID-DOOM-2026-10-25-003
+  - EVID-DOOM-2026-10-25-005
+  - EVID-ESP32AI-2026-10-25-002
+  - EVID-ESP32AI-2026-10-25-003
+  - EVID-ESP32AI-2026-10-25-004
+  - EVID-ESP32AI-2026-10-25-005
+  - EVID-ESP32AI-2026-10-25-006
+  - EVID-ESP32AI-2026-10-25-008
+  - EVID-ESP32AI-2026-10-25-009
+  - EVID-ESP32AI-2026-10-25-012
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Alle 0.66″ OLEDs gleichen Konstruktor
+    status: REJECTED
+    source: technologies/ssd1306-oled-ui/SHEET.md
+  -
+    statement: Textgröße skaliert wie Desktop
+    status: REJECTED
+    source: technologies/ssd1306-oled-ui/SHEET.md
+  -
+    statement: Display ersetzt Remote-Config
+    status: REJECTED
+    source: technologies/ssd1306-oled-ui/SHEET.md
+  -
+    statement: Fehlendes Panel = Boot-Fail
+    status: REJECTED
+    source: technologies/ssd1306-oled-ui/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -1,0 +1,39 @@
+# GENERATED retrieval bundle for iobroker-kalender-adapter
+# generated: 2026-11-23
+
+topic: iobroker-kalender-adapter
+generated: 2026-11-23
+source_of_truth:
+  - technologies/iobroker-kalender-adapter/SHEET.md
+primary:
+  - iobroker-kalender-adapter
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/iobroker-kalender/applications/iobroker-kalender-adapter.md
+audits: []
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: ICS ist bidirektional sync
+    status: REJECTED
+    source: technologies/iobroker-kalender-adapter/SHEET.md
+  -
+    statement: Zeitzone egal
+    status: REJECTED
+    source: technologies/iobroker-kalender-adapter/SHEET.md
+  -
+    statement: Trigger = nur UI-Erinnerung
+    status: REJECTED
+    source: technologies/iobroker-kalender-adapter/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -1,0 +1,129 @@
+# GENERATED retrieval bundle for rpi-gpio-fm-tx
+# generated: 2026-11-23
+
+topic: rpi-gpio-fm-tx
+generated: 2026-11-23
+source_of_truth:
+  - technologies/rpi-gpio-fm-tx/SHEET.md
+  - audits/esp-fm-tx-2026-foreign/README.md
+  - audits/pi-fm-tx-2026-foreign/README.md
+  - audits/pidrive-2026-radio-bt/README.md
+  - audits/tinysstv-2026-foreign/README.md
+primary:
+  - rpi-gpio-fm-tx
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/pi-fm-tx/applications/rpi-gpio-fm-tx.md
+audits:
+  -
+    audit_id: A-2026-026
+    directory: pidrive-2026-radio-bt
+    status: active
+    environment: field
+    path: audits/pidrive-2026-radio-bt
+  -
+    audit_id: A-2026-027
+    directory: pi-fm-tx-2026-foreign
+    status: active
+    environment: lab
+    path: audits/pi-fm-tx-2026-foreign
+  -
+    audit_id: A-2026-029
+    directory: esp-fm-tx-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp-fm-tx-2026-foreign
+  -
+    audit_id: A-2026-079
+    directory: tinysstv-2026-foreign
+    status: active
+    environment: lab
+    path: audits/tinysstv-2026-foreign
+methods:
+  - methods/hw-path-gate.md
+  - methods/kb-cross-check.md
+evidence_ids: []
+facts:
+  -
+    statement: Clock-Quelle für GPCLK-Pfad
+    status: FACT
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: Trägerfrequenz + FM-Nudges
+    status: FACT
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: Sample-/Frac-Updates ohne reinen CPU-Pfad (optional CPU-Fallback)
+    status: FACT
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: klassisch GPIO4; Pi4 oft GPIO21
+    status: FACT
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: Emissionspunkt; Legal/Filter
+    status: FACT
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+inferences: []
+hypotheses: []
+unknowns:
+  -
+    statement: "Pegel, Spurious"
+    status: UNKNOWN
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: BCM-GPCLK-Äquivalent
+    status: UNKNOWN
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: Pi4-GPIO21-Pfad gilt auf Pi5/RP1
+    status: UNKNOWN
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+rejected:
+  -
+    statement: Antenne am GPIO = harmloses Experiment
+    status: REJECTED
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: Spektrum ist „sauberes FM“
+    status: REJECTED
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: DMA-Stop fehlt beim Exit → harmlos
+    status: REJECTED
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: Ein Binary / ein GPIO für alle Pi
+    status: REJECTED
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: „Pi kann Software-FM“ ohne SoC-Angabe
+    status: REJECTED
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: Empfangs-Sheets decken TX ab
+    status: REJECTED
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: PLL-Modulation löst Harmonic-Problem
+    status: REJECTED
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: Fork mit Install-Script = neue Tech
+    status: REJECTED
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: systemd-Player ändert RF-Recht
+    status: REJECTED
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+  -
+    statement: ESP32-APLL-Evidence überträgt sich auf BCM-GPCLK
+    status: REJECTED
+    source: technologies/rpi-gpio-fm-tx/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

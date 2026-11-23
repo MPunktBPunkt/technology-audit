@@ -1,0 +1,113 @@
+# GENERATED retrieval master index
+# generated: 2026-11-23
+
+schema: technology-audit.retrieval-index.v1
+generated: 2026-11-23
+model_doc: docs/EVIDENCE-CLAIM-MODEL.md
+audit_index: audits/INDEX.yaml
+bundle_count: 93
+tech_bundles:
+  - airband-am
+  - avrcp
+  - ble-gatt-dual-role
+  - ble-gatt-observe-proxy
+  - ble-gatt-semantic-bridge
+  - ble-gatt-transparent-bridge
+  - ble-hr-relay
+  - ble-hrm-gatt
+  - ble-http-gatt-probe
+  - ble-pcm-notify-stream
+  - ble-rssi-proximity
+  - bluetooth-a2dp
+  - bluetooth-ftms
+  - bluetooth-hfp
+  - bluetooth-hid
+  - bluetooth-spp
+  - bluez-pairing-agent
+  - bmw-av
+  - bmw-bcl
+  - bmw-etch-rpc
+  - bmw-nbt-evo
+  - bmw-rhmi
+  - bmw-sas-auth
+  - bt-analysis-endpoint
+  - bt-bdaddr-rewrite
+  - bt-dual-mode-coex
+  - bt-endpoint-event-stream
+  - dab-plus
+  - esp-embedded-web-sse
+  - esp-hci-uart-controller
+  - esp-hub-base-template
+  - esp-hub-telemetry
+  - esp-i2s-audio
+  - esp-lab-bus-tools
+  - esp-module-host
+  - esp-now-messaging
+  - esp-psram-heavy-port
+  - esp-tailscale-client
+  - esp-usb-audio-uac
+  - esp-usb-host
+  - esp-wifi-bt-coex
+  - esp-wifi-nat-router
+  - esp-wifi-promiscuous-pcap
+  - esp-wireguard
+  - esp32-apll-fm-tx
+  - esp32-polar-phy-tx
+  - esp32-s3-silicon
+  - esp32-s3-usb-wifi-coex
+  - esp32-undoc-iq-rx
+  - esp32-wifi-tone-tx
+  - fm-rds
+  - freeair-connect-portal
+  - fritzbox-tr064
+  - hammer-varon-xtr
+  - hid-cross-transport-bridge
+  - iobroker-esp-hub-adapter
+  - iobroker-fritzwireguard-adapter
+  - iobroker-kalender-adapter
+  - iobroker-linuxdashboard-adapter
+  - iobroker-mbrepository-adapter
+  - iobroker-metermaster-adapter
+  - iobroker-simple-api
+  - kostal-piko-http
+  - lan-device-inventory
+  - lms-squeezelite
+  - mcu-connectome-graph
+  - mcu-ple-inference
+  - metermaster-android-app
+  - mqtt-node-telemetry
+  - pdap
+  - pmr446
+  - pump-control-link
+  - rf-environment-monitor
+  - ride-ble-display
+  - rpi-gpio-fm-tx
+  - rpitx
+  - rtl-sdr
+  - sdr-spectrum-fft
+  - spotify-web-api-remote
+  - ssd1306-oled-ui
+  - sstv-martin-m1
+  - usb-aoa
+  - usb-dual-esp-observe-proxy
+  - usb-msc
+  - usb-msc-host-behaviour
+  - virtual-fat
+  - webradio-browser-host
+  - wifi-csi-motion
+topic_bundles:
+  - topic-bmw-connected-music
+  - topic-bmw-sas-crypto
+  - topic-bmw-bcl-etch-transport
+  - topic-usb-msc-nbt-cache
+  - topic-audio-boundary-dual-plane
+ai_entry:
+  - generated/retrieval/index.yaml
+  - audits/INDEX.yaml
+  - docs/EVIDENCE-CLAIM-MODEL.md
+  - docs/retrieval-topics.yaml
+  - docs/retrieval-tests.yaml
+rules:
+  - Bundles are derived views — Sheets/Audits remain SoT
+  - Always read rejected + transfer_limits + unknowns
+  - Do not invent a parallel AI_KNOWLEDGE.md

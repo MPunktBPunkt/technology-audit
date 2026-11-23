@@ -1,0 +1,54 @@
+# GENERATED retrieval bundle for spotify-web-api-remote
+# generated: 2026-11-23
+
+topic: spotify-web-api-remote
+generated: 2026-11-23
+source_of_truth:
+  - technologies/spotify-web-api-remote/SHEET.md
+  - audits/esp32-spotify-remote-2026-foreign/README.md
+primary:
+  - spotify-web-api-remote
+maturity:
+  technology: R1
+  field_evidence: R0
+  reusability: W1
+  evidence_scope: []
+applications:
+  - projects/esp32-spotify-remote/applications/spotify-web-api-remote.md
+audits:
+  -
+    audit_id: A-2026-075
+    directory: esp32-spotify-remote-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-spotify-remote-2026-foreign
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Client-Secret gehört in Firmware
+    status: REJECTED
+    source: technologies/spotify-web-api-remote/SHEET.md
+  -
+    statement: Web-API-Remote ≡ Spotify Connect Player
+    status: REJECTED
+    source: technologies/spotify-web-api-remote/SHEET.md
+  -
+    statement: Insecure TLS Fallback ok
+    status: REJECTED
+    source: technologies/spotify-web-api-remote/SHEET.md
+  -
+    statement: Ohne aktiven Spotify-Player steuerbar
+    status: REJECTED
+    source: technologies/spotify-web-api-remote/SHEET.md
+  -
+    statement: "HTTP `.local` als Spotify Redirect"
+    status: REJECTED
+    source: technologies/spotify-web-api-remote/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

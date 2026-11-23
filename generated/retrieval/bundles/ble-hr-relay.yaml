@@ -1,0 +1,77 @@
+# GENERATED retrieval bundle for ble-hr-relay
+# generated: 2026-11-23
+
+topic: ble-hr-relay
+generated: 2026-11-23
+source_of_truth:
+  - technologies/ble-hr-relay/SHEET.md
+  - audits/ble-gatt-bridge-refs-2026-foreign/README.md
+  - audits/esp32-ergo-2026-pilot/README.md
+  - audits/esp32-heartrate-2026-pilot/README.md
+primary:
+  - ble-hr-relay
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/esp32-ergo/applications/ble-hr-relay.md
+  - projects/esp32-heartrate/applications/ble-hr-relay.md
+audits:
+  -
+    audit_id: A-2026-003
+    directory: esp32-heartrate-2026-pilot
+    status: active
+    environment: desk
+    path: audits/esp32-heartrate-2026-pilot
+  -
+    audit_id: A-2026-006
+    directory: esp32-ergo-2026-pilot
+    status: active
+    environment: desk
+    path: audits/esp32-ergo-2026-pilot
+  -
+    audit_id: A-2026-083
+    directory: ble-gatt-bridge-refs-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/ble-gatt-bridge-refs-2026-foreign
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Advertising bleibt nach erstem Peripheral-Connect automatisch connectable
+    status: HYPOTHESIS
+    source: technologies/ble-hr-relay/SHEET.md
+unknowns:
+  -
+    statement: "S3-`MAX_CONNECTIONS=3` gilt auf jedem ESP32"
+    status: UNKNOWN
+    source: technologies/ble-hr-relay/SHEET.md
+rejected:
+  -
+    statement: Notify aus dem BLE-Callback ist immer sicher
+    status: REJECTED
+    source: technologies/ble-hr-relay/SHEET.md
+  -
+    statement: Beliebig viele Relay-Clients
+    status: REJECTED
+    source: technologies/ble-hr-relay/SHEET.md
+  -
+    statement: Relay muss imselben Firmware-Binary stecken wie der Consumer
+    status: REJECTED
+    source: technologies/ble-hr-relay/SHEET.md
+  -
+    statement: „ESP32 kann HR-Relay“ gilt für Classic wie S3
+    status: REJECTED
+    source: technologies/ble-hr-relay/SHEET.md
+  -
+    statement: "Downstream-CCCD steuert Upstream-Subscribe 1:1"
+    status: REJECTED
+    source: technologies/ble-hr-relay/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -1,0 +1,96 @@
+# GENERATED retrieval bundle for esp-wifi-promiscuous-pcap
+# generated: 2026-11-23
+
+topic: esp-wifi-promiscuous-pcap
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-wifi-promiscuous-pcap/SHEET.md
+  - audits/esp32-marauder-2026-foreign/README.md
+  - audits/esp32-rf-sensing-2026-desk/README.md
+  - audits/espectre-2026-foreign/README.md
+primary:
+  - esp-wifi-promiscuous-pcap
+maturity:
+  technology: R1
+  field_evidence: R0
+  reusability: W1
+  evidence_scope: []
+applications:
+  - projects/esp32-marauder/applications/esp-wifi-promiscuous-pcap.md
+audits:
+  -
+    audit_id: A-2026-073
+    directory: esp32-marauder-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-marauder-2026-foreign
+  -
+    audit_id: A-2026-076
+    directory: espectre-2026-foreign
+    status: active
+    environment: lab
+    path: audits/espectre-2026-foreign
+  -
+    audit_id: A-2026-080
+    directory: esp32-rf-sensing-2026-desk
+    status: active
+    environment: desk
+    path: audits/esp32-rf-sensing-2026-desk
+methods:
+  - methods/own-link-motion-sensitivity.md
+evidence_ids:
+  - EVID-ESPECTRE-2026-10-25-001
+  - EVID-ESPECTRE-2026-10-25-002
+  - EVID-ESPECTRE-2026-10-25-003
+  - EVID-ESPECTRE-2026-10-25-004
+  - EVID-MARAUDER-2026-10-25-002
+  - EVID-MARAUDER-2026-10-25-003
+  - EVID-MARAUDER-2026-10-25-004
+  - EVID-MARAUDER-2026-10-25-005
+  - EVID-RFSENSE-P0-001
+  - EVID-RFSENSE-P0-002
+  - EVID-RFSENSE-P0-003
+  - EVID-RFSENSE-P1-001
+  - EVID-RFSENSE-P1-002
+  - EVID-RFSENSE-P1-004
+  - EVID-RFSENSE-P1-007
+  - EVID-RFSENSE-P2-001
+  - EVID-RFSENSE-P2-002
+  - EVID-RFSENSE-P2-005
+  - EVID-RFSENSE-P2-008
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: WLAN+BLE Sniff parallel ohne Qualitätseinbuße
+    status: HYPOTHESIS
+    source: technologies/esp-wifi-promiscuous-pcap/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Promiscuous-Sniff ≡ RF-Environment-Monitor
+    status: REJECTED
+    source: technologies/esp-wifi-promiscuous-pcap/SHEET.md
+  -
+    statement: Promiscuous-Sniff ≡ CSI-Motion-Sensing
+    status: REJECTED
+    source: technologies/esp-wifi-promiscuous-pcap/SHEET.md
+  -
+    statement: Unbegrenzte Capture-Rate ohne Drop
+    status: REJECTED
+    source: technologies/esp-wifi-promiscuous-pcap/SHEET.md
+  -
+    statement: "Double-Buffer = immer `xTaskCreatePinnedToCore`"
+    status: REJECTED
+    source: technologies/esp-wifi-promiscuous-pcap/SHEET.md
+  -
+    statement: Classic / S3 / C5 gleiche Kanal-/Band-Fähigkeit
+    status: REJECTED
+    source: technologies/esp-wifi-promiscuous-pcap/SHEET.md
+  -
+    statement: Sheet deckt Deauth/Beacon-Spam ab
+    status: REJECTED
+    source: technologies/esp-wifi-promiscuous-pcap/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

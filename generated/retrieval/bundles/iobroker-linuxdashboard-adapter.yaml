@@ -1,0 +1,43 @@
+# GENERATED retrieval bundle for iobroker-linuxdashboard-adapter
+# generated: 2026-11-23
+
+topic: iobroker-linuxdashboard-adapter
+generated: 2026-11-23
+source_of_truth:
+  - technologies/iobroker-linuxdashboard-adapter/SHEET.md
+primary:
+  - iobroker-linuxdashboard-adapter
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/iobroker-linuxdashboard/applications/iobroker-linuxdashboard-adapter.md
+audits: []
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Kein Auth = LAN-sicher genug immer
+    status: REJECTED
+    source: technologies/iobroker-linuxdashboard-adapter/SHEET.md
+  -
+    statement: Command-Execution immer nötig
+    status: REJECTED
+    source: technologies/iobroker-linuxdashboard-adapter/SHEET.md
+  -
+    statement: filemanagerRoot=/ unkritisch
+    status: REJECTED
+    source: technologies/iobroker-linuxdashboard-adapter/SHEET.md
+  -
+    statement: Metrics-API = volle Shell
+    status: REJECTED
+    source: technologies/iobroker-linuxdashboard-adapter/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

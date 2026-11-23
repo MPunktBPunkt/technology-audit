@@ -1,0 +1,39 @@
+# GENERATED retrieval bundle for metermaster-android-app
+# generated: 2026-11-23
+
+topic: metermaster-android-app
+generated: 2026-11-23
+source_of_truth:
+  - technologies/metermaster-android-app/SHEET.md
+primary:
+  - metermaster-android-app
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/metermaster-app/applications/metermaster-android-app.md
+audits: []
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: App braucht immer ioBroker
+    status: REJECTED
+    source: technologies/metermaster-android-app/SHEET.md
+  -
+    statement: Adapter-Quellcode gehört ins App-Repo
+    status: REJECTED
+    source: technologies/metermaster-android-app/SHEET.md
+  -
+    statement: Privacy-Landing = App-Source
+    status: REJECTED
+    source: technologies/metermaster-android-app/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

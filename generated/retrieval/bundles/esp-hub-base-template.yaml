@@ -1,0 +1,78 @@
+# GENERATED retrieval bundle for esp-hub-base-template
+# generated: 2026-11-23
+
+topic: esp-hub-base-template
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-hub-base-template/SHEET.md
+  - audits/esp32-esp-hub-2026-1.10-validation/README.md
+  - audits/esp32-esp-hub-2026-pilot/README.md
+primary:
+  - esp-hub-base-template
+maturity:
+  technology: R4
+  field_evidence: R0
+  reusability: W4
+  evidence_scope: []
+applications:
+  - projects/esp32-esp-hub/applications/esp-hub-base-template.md
+audits:
+  -
+    audit_id: A-2026-007
+    directory: esp32-esp-hub-2026-pilot
+    status: closed
+    environment: desk
+    path: audits/esp32-esp-hub-2026-pilot
+  -
+    audit_id: A-2026-087
+    directory: esp32-esp-hub-2026-1.10-validation
+    status: closed
+    environment: desk
+    path: audits/esp32-esp-hub-2026-1.10-validation
+methods: []
+evidence_ids:
+  - EVID-BASE-2026-10-28-001
+  - EVID-BASE-2026-10-28-003
+  - EVID-BASE-2026-10-28-004
+  - EVID-HUB-2026-10-28
+  - EVID-HUB-2026-10-28-001
+  - EVID-HUB-2026-10-28-002
+  - EVID-HUB-2026-10-28-003
+  - EVID-WEB-2026-10-28
+  - EVID-WEB-2026-10-28-001
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Heartbeat-Kern für Features umbauen
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: WLAN-Secrets im Repo
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: Beliebige Bin-Namen
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: Jede Ableitung braucht neues Hub-Sheet
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: "Ableitung = einzelne `.ino` ohne Ordner"
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: Diag/Recovery still in A/B nachziehen
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: "`src/core/` für Sensorik umbauen"
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

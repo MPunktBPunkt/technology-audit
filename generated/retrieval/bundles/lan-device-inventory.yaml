@@ -1,0 +1,50 @@
+# GENERATED retrieval bundle for lan-device-inventory
+# generated: 2026-11-23
+
+topic: lan-device-inventory
+generated: 2026-11-23
+source_of_truth:
+  - technologies/lan-device-inventory/SHEET.md
+  - audits/esp32-marauder-2026-foreign/README.md
+primary:
+  - lan-device-inventory
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-network/applications/lan-device-inventory.md
+audits:
+  -
+    audit_id: A-2026-073
+    directory: esp32-marauder-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-marauder-2026-foreign
+methods: []
+evidence_ids:
+  - EVID-MARAUDER-2026-10-25-002
+  - EVID-MARAUDER-2026-10-25-003
+  - EVID-MARAUDER-2026-10-25-004
+  - EVID-MARAUDER-2026-10-25-005
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Scan ohne Rate-Limit ist LAN-freundlich
+    status: HYPOTHESIS
+    source: technologies/lan-device-inventory/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Gleicher Slug wie RF-Monitor
+    status: REJECTED
+    source: technologies/lan-device-inventory/SHEET.md
+  -
+    statement: Offene Ports = vollständige Identifikation
+    status: REJECTED
+    source: technologies/lan-device-inventory/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

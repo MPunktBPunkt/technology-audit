@@ -1,0 +1,47 @@
+# GENERATED retrieval bundle for iobroker-esp-hub-adapter
+# generated: 2026-11-23
+
+topic: iobroker-esp-hub-adapter
+generated: 2026-11-23
+source_of_truth:
+  - technologies/iobroker-esp-hub-adapter/SHEET.md
+primary:
+  - iobroker-esp-hub-adapter
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/iobroker-esp-hub/applications/iobroker-esp-hub-adapter.md
+audits: []
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Register-API braucht Auth im Heimnetz
+    status: HYPOTHESIS
+    source: technologies/iobroker-esp-hub-adapter/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Adapter = nur State-Spiegel
+    status: REJECTED
+    source: technologies/iobroker-esp-hub-adapter/SHEET.md
+  -
+    statement: USB in LXC ohne Geräte-Passthrough
+    status: REJECTED
+    source: technologies/iobroker-esp-hub-adapter/SHEET.md
+  -
+    statement: otaUrl-State bleibt nach Versand stehen
+    status: REJECTED
+    source: technologies/iobroker-esp-hub-adapter/SHEET.md
+  -
+    statement: WebRTC-Signaling = Medienrelay
+    status: REJECTED
+    source: technologies/iobroker-esp-hub-adapter/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

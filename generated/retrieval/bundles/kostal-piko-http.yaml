@@ -1,0 +1,58 @@
+# GENERATED retrieval bundle for kostal-piko-http
+# generated: 2026-11-23
+
+topic: kostal-piko-http
+generated: 2026-11-23
+source_of_truth:
+  - technologies/kostal-piko-http/SHEET.md
+  - audits/iobroker-kostalpiko-2026-pilot/README.md
+primary:
+  - kostal-piko-http
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/iobroker-kostalpiko/applications/kostal-piko-http.md
+audits:
+  -
+    audit_id: A-2026-020
+    directory: iobroker-kostalpiko-2026-pilot
+    status: active
+    environment: desk
+    path: audits/iobroker-kostalpiko-2026-pilot
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: JSON-API ist Standard auf PIKO
+    status: REJECTED
+    source: technologies/kostal-piko-http/SHEET.md
+  -
+    statement: UTF-8 reicht für alle Seiten
+    status: REJECTED
+    source: technologies/kostal-piko-http/SHEET.md
+  -
+    statement: String- und Phasen-Zellen sind getrennte Zeilenblöcke
+    status: REJECTED
+    source: technologies/kostal-piko-http/SHEET.md
+  -
+    statement: Parallel Live + LogDaten ist unkritisch
+    status: REJECTED
+    source: technologies/kostal-piko-http/SHEET.md
+  -
+    statement: "Offline-Zellen (`x x x`) = Energie verloren"
+    status: REJECTED
+    source: technologies/kostal-piko-http/SHEET.md
+  -
+    statement: "Jeder „kostal*“-Adapter teilt denselben Parser"
+    status: REJECTED
+    source: technologies/kostal-piko-http/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

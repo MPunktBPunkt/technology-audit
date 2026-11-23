@@ -1,0 +1,154 @@
+# GENERATED retrieval bundle for esp32-s3-usb-wifi-coex
+# generated: 2026-11-23
+
+topic: esp32-s3-usb-wifi-coex
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp32-s3-usb-wifi-coex/SHEET.md
+  - audits/esp32-car-network-2026-foreign/README.md
+  - audits/esp32-s3-hw-limits-2026/README.md
+  - audits/esp32-s3-usb-wifi-coexistence-2026/README.md
+  - audits/esp32-usb-analyzer-2026-0.0.50/README.md
+  - audits/esp32-usb-analyzer-2026-pilot/README.md
+  - audits/esp32-wifi-bt-coex-2026-foreign/README.md
+  - audits/hu-probe-bmw-s0s2-field-2026/README.md
+  - audits/hu-probe-heimfahrt-2026-10-22/README.md
+  - audits/hu-probe-media-ladder-2026-10-22/README.md
+  - audits/hu-probe-psram-board-free-2026-10-21/README.md
+primary:
+  - esp32-s3-usb-wifi-coex
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-usb-analyzer/applications/esp32-s3-usb-wifi-coex.md
+  - projects/hu-probe/applications/esp32-s3-usb-wifi-coex.md
+audits:
+  -
+    audit_id: A-2026-056
+    directory: esp32-s3-usb-wifi-coexistence-2026
+    status: closed
+    environment: lab
+    path: audits/esp32-s3-usb-wifi-coexistence-2026
+  -
+    audit_id: A-2026-060
+    directory: hu-probe-bmw-s0s2-field-2026
+    status: closed
+    environment: lab
+    path: audits/hu-probe-bmw-s0s2-field-2026
+  -
+    audit_id: A-2026-063
+    directory: esp32-s3-hw-limits-2026
+    status: closed
+    environment: lab
+    path: audits/esp32-s3-hw-limits-2026
+  -
+    audit_id: A-2026-067
+    directory: hu-probe-psram-board-free-2026-10-21
+    status: closed
+    environment: mixed
+    path: audits/hu-probe-psram-board-free-2026-10-21
+  -
+    audit_id: A-2026-068
+    directory: hu-probe-heimfahrt-2026-10-22
+    status: closed
+    environment: lab
+    path: audits/hu-probe-heimfahrt-2026-10-22
+  -
+    audit_id: A-2026-069
+    directory: hu-probe-media-ladder-2026-10-22
+    status: closed
+    environment: mixed
+    path: audits/hu-probe-media-ladder-2026-10-22
+  -
+    audit_id: A-2026-089
+    directory: esp32-usb-analyzer-2026-pilot
+    status: closed
+    environment: lab
+    path: audits/esp32-usb-analyzer-2026-pilot
+  -
+    audit_id: A-2026-090
+    directory: esp32-usb-analyzer-2026-0.0.50
+    status: closed
+    environment: lab
+    path: audits/esp32-usb-analyzer-2026-0.0.50
+  -
+    audit_id: A-2026-097
+    directory: esp32-car-network-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp32-car-network-2026-foreign
+  -
+    audit_id: A-2026-099
+    directory: esp32-wifi-bt-coex-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp32-wifi-bt-coex-2026-foreign
+methods:
+  - methods/msc-host-read-semantics.md
+  - methods/msc-lba-timing-instrument.md
+  - methods/msc-trace-correlation.md
+  - methods/plug-power-reset-isolation.md
+  - methods/usb-bot-command-observation.md
+  - methods/usb-otg-loop-baseline.md
+  - methods/usb-wifi-coex-discrimination.md
+evidence_ids:
+  - EVID-CARNET-2026-11-12-020
+  - EVID-CARNET-YYYY-MM-DD
+  - EVID-S3HW-2026-10-18
+  - EVID-USBA-2026-10-31-001
+  - EVID-USBA-2026-10-31-004
+  - EVID-USBA-2026-10-31-006
+  - EVID-USBA-2026-10-31-009
+  - EVID-USBA-2026-10-31-012
+  - EVID-USBA-2026-10-31-013
+  - EVID-USBA-2026-11-02-001
+  - EVID-USBA-2026-11-02-003
+  - EVID-USBA-2026-11-02-005
+  - EVID-USBA-2026-11-02-006
+  - EVID-USBA-2026-11-02-007
+  - EVID-USBA-2026-11-02-008
+  - EVID-USBWIFI-2026-10-14
+  - EVID-WBTCOEX-2026-11-12
+facts:
+  -
+    statement: "`esp_wifi_start` kann USB Device auf S3 brechen (historisch)"
+    status: FACT
+    source: technologies/esp32-s3-usb-wifi-coex/SHEET.md
+  -
+    statement: "`ESP_PHY_ENABLE_USB` / `phy_bbpll_en_usb` = S3/C3-Workaround"
+    status: FACT
+    source: technologies/esp32-s3-usb-wifi-coex/SHEET.md
+  -
+    statement: WiFi-Task prio 23 / Core 0 Default
+    status: FACT
+    source: technologies/esp32-s3-usb-wifi-coex/SHEET.md
+  -
+    statement: "Arduino 2.0.11 `usbd` prio 24, no affinity"
+    status: FACT
+    source: technologies/esp32-s3-usb-wifi-coex/SHEET.md
+inferences: []
+hypotheses:
+  -
+    statement: USB-Bulk verursacht WiFi-Tod
+    status: HYPOTHESIS
+    source: technologies/esp32-s3-usb-wifi-coex/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Mode-A TCP (auch Pipeline) ≥ USB-MSC Nutzrate auf S3 Lab
+    status: REJECTED
+    source: technologies/esp32-s3-usb-wifi-coex/SHEET.md
+  -
+    statement: esp-faq Coex gilt für USB
+    status: REJECTED
+    source: technologies/esp32-s3-usb-wifi-coex/SHEET.md
+  -
+    statement: IDF-Issue = Ursache Projekt X
+    status: REJECTED
+    source: technologies/esp32-s3-usb-wifi-coex/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

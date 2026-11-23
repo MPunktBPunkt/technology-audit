@@ -1,0 +1,75 @@
+# GENERATED retrieval bundle for ble-gatt-dual-role
+# generated: 2026-11-23
+
+topic: ble-gatt-dual-role
+generated: 2026-11-23
+source_of_truth:
+  - technologies/ble-gatt-dual-role/SHEET.md
+  - audits/ble-gatt-bluez-relay-2026-foreign/README.md
+  - audits/ble-gatt-bridge-refs-2026-foreign/README.md
+  - audits/bt-analysis-relay-2026-foreign/README.md
+primary:
+  - ble-gatt-dual-role
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/ble-gatt-bluez-relay-refs/applications/ble-gatt-dual-role.md
+  - projects/ble-gatt-bridge-refs/applications/ble-gatt-dual-role.md
+audits:
+  -
+    audit_id: A-2026-083
+    directory: ble-gatt-bridge-refs-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/ble-gatt-bridge-refs-2026-foreign
+  -
+    audit_id: A-2026-084
+    directory: bt-analysis-relay-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-analysis-relay-2026-foreign
+  -
+    audit_id: A-2026-094
+    directory: ble-gatt-bluez-relay-2026-foreign
+    status: closed
+    environment: mixed
+    path: audits/ble-gatt-bluez-relay-2026-foreign
+methods:
+  - methods/bt-passive-host-sniff.md
+evidence_ids:
+  - EVID-BZGATT-2026-11-12
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Advertising bleibt nach Peripheral-Accept connectable
+    status: HYPOTHESIS
+    source: technologies/ble-gatt-dual-role/SHEET.md
+  -
+    statement: Server-GATT vor Central-Connect immer unproblematisch
+    status: HYPOTHESIS
+    source: technologies/ble-gatt-dual-role/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: „ESP32 kann Dual-Role“ gilt Classic = S3
+    status: REJECTED
+    source: technologies/ble-gatt-dual-role/SHEET.md
+  -
+    statement: "`MAX_CONNECTIONS=1` reicht für Central+Peripheral+zweiten Host"
+    status: REJECTED
+    source: technologies/ble-gatt-dual-role/SHEET.md
+  -
+    statement: Dual-Role-Contention „kickt“ Target-Link nie
+    status: REJECTED
+    source: technologies/ble-gatt-dual-role/SHEET.md
+  -
+    statement: Zwei-HCI-Proxy = Ein-Chip-Dual-Role
+    status: REJECTED
+    source: technologies/ble-gatt-dual-role/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

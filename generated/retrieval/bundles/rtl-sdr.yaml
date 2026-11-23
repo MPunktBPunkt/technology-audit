@@ -1,0 +1,82 @@
+# GENERATED retrieval bundle for rtl-sdr
+# generated: 2026-11-23
+
+topic: rtl-sdr
+generated: 2026-11-23
+source_of_truth:
+  - technologies/rtl-sdr/SHEET.md
+  - audits/espargos-espsdr-2026-foreign/README.md
+  - audits/pidrive-2026-radio-bt/README.md
+  - audits/welle-io-2026-foreign/README.md
+primary:
+  - rtl-sdr
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/pidrive/applications/rtl-sdr.md
+  - projects/welle-io/applications/rtl-sdr.md
+audits:
+  -
+    audit_id: A-2026-026
+    directory: pidrive-2026-radio-bt
+    status: active
+    environment: field
+    path: audits/pidrive-2026-radio-bt
+  -
+    audit_id: A-2026-031
+    directory: espargos-espsdr-2026-foreign
+    status: active
+    environment: lab
+    path: audits/espargos-espsdr-2026-foreign
+  -
+    audit_id: A-2026-033
+    directory: welle-io-2026-foreign
+    status: active
+    environment: lab
+    path: audits/welle-io-2026-foreign
+methods:
+  - methods/hw-path-gate.md
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: PPM ist optional bei schmalen Kanälen
+    status: HYPOTHESIS
+    source: technologies/rtl-sdr/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Mehrere Apps öffnen den Stick parallel
+    status: REJECTED
+    source: technologies/rtl-sdr/SHEET.md
+  -
+    statement: DVB-Module dürfen geladen bleiben
+    status: REJECTED
+    source: technologies/rtl-sdr/SHEET.md
+  -
+    statement: usbreset allein reicht immer
+    status: REJECTED
+    source: technologies/rtl-sdr/SHEET.md
+  -
+    statement: Ein Gain-Wert passt FM/Airband/DAB
+    status: REJECTED
+    source: technologies/rtl-sdr/SHEET.md
+  -
+    statement: „Gain 40“ ist überall 40 dB
+    status: REJECTED
+    source: technologies/rtl-sdr/SHEET.md
+  -
+    statement: Hardware-AGC der Stick-API reicht für DAB-welle
+    status: REJECTED
+    source: technologies/rtl-sdr/SHEET.md
+  -
+    statement: Jeder USB-SDR erbt denselben Lock/Gain-Contract
+    status: REJECTED
+    source: technologies/rtl-sdr/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

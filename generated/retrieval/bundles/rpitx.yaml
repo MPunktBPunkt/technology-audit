@@ -1,0 +1,64 @@
+# GENERATED retrieval bundle for rpitx
+# generated: 2026-11-23
+
+topic: rpitx
+generated: 2026-11-23
+source_of_truth:
+  - technologies/rpitx/SHEET.md
+  - audits/pi-fm-tx-2026-foreign/README.md
+primary:
+  - rpitx
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/pi-fm-tx/applications/rpitx.md
+audits:
+  -
+    audit_id: A-2026-027
+    directory: pi-fm-tx-2026-foreign
+    status: active
+    environment: lab
+    path: audits/pi-fm-tx-2026-foreign
+methods:
+  - methods/hw-path-gate.md
+  - methods/kb-cross-check.md
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Easytest auf 434 MHz = überall frei nutzbar
+    status: HYPOTHESIS
+    source: technologies/rpitx/SHEET.md
+unknowns:
+  -
+    statement: Bandbreite/Modes gelten automatisch auf Pi5/RP1
+    status: UNKNOWN
+    source: technologies/rpitx/SHEET.md
+rejected:
+  -
+    statement: Ohne Filter „nur UKW-Problem“
+    status: REJECTED
+    source: technologies/rpitx/SHEET.md
+  -
+    statement: Install ohne config.txt-Änderung stabil
+    status: REJECTED
+    source: technologies/rpitx/SHEET.md
+  -
+    statement: rpitx = markondej/fm_transmitter
+    status: REJECTED
+    source: technologies/rpitx/SHEET.md
+  -
+    statement: Pi4 „OK“ wie Pi3
+    status: REJECTED
+    source: technologies/rpitx/SHEET.md
+  -
+    statement: rpitx = ESP32 Multi-Mode-Äquivalent
+    status: REJECTED
+    source: technologies/rpitx/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

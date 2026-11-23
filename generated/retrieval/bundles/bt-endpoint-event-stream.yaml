@@ -1,0 +1,55 @@
+# GENERATED retrieval bundle for bt-endpoint-event-stream
+# generated: 2026-11-23
+
+topic: bt-endpoint-event-stream
+generated: 2026-11-23
+source_of_truth:
+  - technologies/bt-endpoint-event-stream/SHEET.md
+  - audits/bt-sniffing-capture-2026-foreign/README.md
+primary:
+  - bt-endpoint-event-stream
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/bt-sniffing-capture-refs/applications/bt-endpoint-event-stream.md
+audits:
+  -
+    audit_id: A-2026-086
+    directory: bt-sniffing-capture-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-sniffing-capture-2026-foreign
+methods:
+  - methods/bt-passive-host-sniff.md
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: ESP ersetzt nRF Connection-Follow
+    status: REJECTED
+    source: technologies/bt-endpoint-event-stream/SHEET.md
+  -
+    statement: PCAP immer besser als JSONL für App-Events
+    status: REJECTED
+    source: technologies/bt-endpoint-event-stream/SHEET.md
+  -
+    statement: MQTT ohne Drop-Zähler ist verlustfrei
+    status: REJECTED
+    source: technologies/bt-endpoint-event-stream/SHEET.md
+  -
+    statement: Endpoint-Events = Phone↔Original Traffic
+    status: REJECTED
+    source: technologies/bt-endpoint-event-stream/SHEET.md
+  -
+    statement: OTA ohne Keys liest GATT-Payloads
+    status: REJECTED
+    source: technologies/bt-endpoint-event-stream/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

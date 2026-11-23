@@ -1,0 +1,28 @@
+schema: technology-audit.claims.v1
+audit_directory: bmw-am-bootstrap-field-2026-11-21
+
+claims:
+  - id: C-AM-001
+    statement: Exactly five am_registerApp entries in B3 (Google, Alexa, Bluetooth, YouTube, Screen Mirroring).
+    status: FACT
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: AM
+    supported_by: [EVID-B3-AM-FIVE-APPS]
+    transfer_limits: [five_apps_ne_five_menu_entries]
+    unknown_reason: null
+
+  - id: C-AM-002
+    statement: Spotify / com.spotify.music is registered via am_registerApp in B3.
+    status: REJECTED
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: AM
+    supported_by: []
+    contradicted_by: [EVID-B3-AM-SPOTIFY-REJECTED]
+    transfer_limits: [media_via_rhmi_music_plus_av]
+    unknown_reason: null

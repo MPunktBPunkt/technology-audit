@@ -1,0 +1,142 @@
+# GENERATED retrieval bundle for esp-i2s-audio
+# generated: 2026-11-23
+
+topic: esp-i2s-audio
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-i2s-audio/SHEET.md
+  - audits/esp-fm-rds-node-2026-foreign/README.md
+  - audits/esp-network-pcm-clock-2026-foreign/README.md
+  - audits/esp-usb-audio-example-2026-foreign/README.md
+  - audits/esp32-audioi2s-2026-foreign/README.md
+  - audits/esp32-i2s-ble-2026-foreign/README.md
+  - audits/squeezelite-esp32-2026-foreign/README.md
+primary:
+  - esp-i2s-audio
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp-fm-rds-node/applications/esp-i2s-audio.md
+  - projects/esp-network-pcm-clock/applications/esp-i2s-audio.md
+  - projects/esp-usb-audio-example/applications/esp-i2s-audio.md
+  - projects/esp32-audioi2s/applications/esp-i2s-audio.md
+  - projects/esp32-i2s-ble/applications/esp-i2s-audio.md
+  - projects/squeezelite-esp32/applications/esp-i2s-audio.md
+audits:
+  -
+    audit_id: A-2026-049
+    directory: esp-fm-rds-node-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp-fm-rds-node-2026-foreign
+  -
+    audit_id: A-2026-051
+    directory: esp-network-pcm-clock-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp-network-pcm-clock-2026-foreign
+  -
+    audit_id: A-2026-052
+    directory: esp-usb-audio-example-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp-usb-audio-example-2026-foreign
+  -
+    audit_id: A-2026-053
+    directory: esp32-audioi2s-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-audioi2s-2026-foreign
+  -
+    audit_id: A-2026-054
+    directory: esp32-i2s-ble-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-i2s-ble-2026-foreign
+  -
+    audit_id: A-2026-078
+    directory: squeezelite-esp32-2026-foreign
+    status: active
+    environment: lab
+    path: audits/squeezelite-esp32-2026-foreign
+methods:
+  - methods/hw-path-gate.md
+  - methods/kb-cross-check.md
+  - methods/pcm-clock-drift-jitter-buffer.md
+  - methods/rf-loopback-rds-acceptance.md
+evidence_ids:
+  - EVID-AUDIOI2S-2026-10-13-001
+  - EVID-AUDIOI2S-2026-10-13-002
+  - EVID-AUDIOI2S-2026-10-13-003
+  - EVID-FMRDS-2026-10-13-001
+  - EVID-FMRDS-2026-10-13-003
+  - EVID-FMRDS-2026-10-13-004
+  - EVID-FMRDS-2026-10-13-005
+  - EVID-FMRDS-2026-10-13-008
+  - EVID-FMRDS-2026-10-13-010
+  - EVID-FMRDS-2026-10-13-012
+  - EVID-FMRDS-2026-10-13-022
+  - EVID-FMRDS-2026-10-13-023
+  - EVID-FMRDS-2026-10-13-026
+  - EVID-FMRDS-2026-10-13-027
+  - EVID-FMRDS-2026-10-13-030
+  - EVID-I2SBLE-2026-10-13-001
+  - EVID-I2SBLE-2026-10-13-002
+  - EVID-I2SBLE-2026-10-13-003
+  - EVID-I2SBLE-2026-10-13-004
+  - EVID-PCMNET-2026-10-13-001
+  - EVID-PCMNET-2026-10-13-002
+  - EVID-PCMNET-2026-10-13-003
+  - EVID-PCMNET-2026-10-13-004
+  - EVID-PCMNET-2026-10-13-005
+  - EVID-PCMNET-2026-10-13-006
+  - EVID-PCMNET-2026-10-13-007
+  - EVID-PCMNET-2026-10-13-008
+  - EVID-PCMNET-2026-10-13-010
+  - EVID-PCMNET-2026-10-13-012
+  - EVID-PCMNET-2026-10-13-013
+  - EVID-PCMNET-2026-10-13-014
+  - EVID-PCMNET-YYYY-MM-DD
+  - EVID-USBAUD-EX-2026-10-13-001
+  - EVID-USBAUD-EX-2026-10-13-002
+  - EVID-USBAUD-EX-2026-10-13-003
+  - EVID-USBAUD-EX-2026-10-13-004
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Jede ESP32-Variante trägt schwere Decode-Player (MP3/FLAC/…)
+    status: REJECTED
+    source: technologies/esp-i2s-audio/SHEET.md
+  -
+    statement: PSRAM optional bei großen Decodern
+    status: REJECTED
+    source: technologies/esp-i2s-audio/SHEET.md
+  -
+    statement: Feste 48 kHz I2S-Out = Quell-Sample-Rate
+    status: REJECTED
+    source: technologies/esp-i2s-audio/SHEET.md
+  -
+    statement: MEMS 32-bit I2S = direkt int16 ohne Scale
+    status: REJECTED
+    source: technologies/esp-i2s-audio/SHEET.md
+  -
+    statement: SEL/LR-Kanal am Mic ignorieren
+    status: REJECTED
+    source: technologies/esp-i2s-audio/SHEET.md
+  -
+    statement: I2S-Player = Browser-Host-Webradio
+    status: REJECTED
+    source: technologies/esp-i2s-audio/SHEET.md
+  -
+    statement: I2S-DAC-Pfad = LMS/Squeezelite-Contract
+    status: REJECTED
+    source: technologies/esp-i2s-audio/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

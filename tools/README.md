@@ -2,16 +2,22 @@
 
 Assistenz für `technology-audit`: Strukturprüfung, Prompt-Vorbereitung, **Katalog-Index**.
 
-Schreibt **keine** Sheet-/Application-/Evidence-Inhalte. Erlaubt ist die Regenerierung von Katalogen aus YAML (`ta-assist index`): `technologies/index.yaml` + README, `projects/index.yaml` + README, `docs/KNOWLEDGE-MATURITY.md`.
+Schreibt **keine** Sheet-/Application-/Evidence-Inhalte. Erlaubt ist die Regenerierung von Katalogen aus YAML (`ta-assist index`): `technologies/index.yaml` + README, `projects/index.yaml` + README, `docs/KNOWLEDGE-MATURITY.md`, **`audits/INDEX.yaml`**, **`generated/retrieval/**`**.
 
-Vertrag: [`docs/PROMPT-CONTRACT.md`](../docs/PROMPT-CONTRACT.md) · Prüfliste: [`docs/REVIEW-CHECKS.md`](../docs/REVIEW-CHECKS.md) · Pflege: [`docs/MAINTENANCE.md`](../docs/MAINTENANCE.md)
+Vertrag: [`docs/PROMPT-CONTRACT.md`](../docs/PROMPT-CONTRACT.md) · Prüfliste: [`docs/REVIEW-CHECKS.md`](../docs/REVIEW-CHECKS.md) · Pflege: [`docs/MAINTENANCE.md`](../docs/MAINTENANCE.md) · Retrieval: [`docs/EVIDENCE-CLAIM-MODEL.md`](../docs/EVIDENCE-CLAIM-MODEL.md)
 
 ## Versionierung
 
 | Was | Wo | Bedeutung |
 |-----|-----|-----------|
-| **Framework** | [`VERSION`](../VERSION) | Dokumentenstandard (z. B. 0.6.4) |
-| **CLI** | `tools/ta_assist/__init__.py` → `__version__` | Assistenz-Tool (z. B. 0.1.5) |
+| **Framework** | [`VERSION`](../VERSION) | Dokumentenstandard (z. B. 0.7.2) |
+| **CLI** | `tools/ta_assist/__init__.py` → `__version__` | Assistenz-Tool (z. B. 0.1.8) |
+
+### CLI 0.1.8
+
+- Retrieval: `audits/INDEX.yaml` (`A-YYYY-NNN`) + `generated/retrieval/bundles/*`
+- Topic-Seeds: `docs/retrieval-topics.yaml`; optional `audits/*/claims.yaml`
+- Checks RT2 (generated index present); RT1 path lists
 
 ### CLI 0.1.7
 

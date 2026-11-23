@@ -27,6 +27,8 @@ from .util import (
     read_text,
     repo_root,
     today,
+    yaml_list,
+    yaml_scalar,
 )
 
 PRIMARY_LABELS = {
@@ -81,35 +83,6 @@ class ProjectEntry:
     status: str = ""
     app_count: int = 0
     path: str = ""
-
-
-def yaml_scalar(value: Any) -> str:
-    """Quote YAML scalars that would break naive dumps."""
-    if value is None:
-        return "null"
-    if isinstance(value, bool):
-        return "true" if value else "false"
-    if isinstance(value, int):
-        return str(value)
-    s = str(value)
-    if s == "":
-        return '""'
-    needs = (
-        s != s.strip()
-        or any(c in s for c in ":#{}[]&*!|>'\"%@`,\n\t")
-        or s.lower() in {"true", "false", "null", "yes", "no", "on", "off"}
-        or s.startswith(("-", "?", "*", "&", "!", "|", ">", "%", "@", "`"))
-    )
-    if needs:
-        esc = s.replace("\\", "\\\\").replace('"', '\\"')
-        return f'"{esc}"'
-    return s
-
-
-def yaml_list(items: list[str]) -> str:
-    if not items:
-        return "[]"
-    return "[" + ", ".join(yaml_scalar(x) for x in items) + "]"
 
 
 def md_cell(value: Any) -> str:
@@ -717,6 +690,10 @@ def regenerate(root: Path | None = None) -> dict[str, Any]:
     maturity_md = write_knowledge_maturity(root, entries)
     proj_yml = write_projects_index_yaml(root, projects)
     proj_md = write_projects_readme(root, projects)
+    # Lazy import avoids circular dependency (retrieval → collect_sheets)
+    from .retrieval import regenerate_retrieval
+
+    retrieval_info = regenerate_retrieval(root)
     return {
         "sheet_count": len(entries),
         "project_count": len(projects),
@@ -727,6 +704,11 @@ def regenerate(root: Path | None = None) -> dict[str, Any]:
         "projects_readme": str(proj_md.relative_to(root)),
         "planned": len(planned),
         "sheet_errors": sum(len(e.errors) for e in entries),
+        "audits_indexed": retrieval_info.get("audits_indexed", 0),
+        "tech_bundles": retrieval_info.get("tech_bundles", 0),
+        "topic_bundles": retrieval_info.get("topic_bundles", 0),
+        "audit_index": retrieval_info.get("audit_index"),
+        "retrieval_index": retrieval_info.get("retrieval_index"),
     }
 
 

@@ -1,0 +1,70 @@
+# GENERATED retrieval bundle for dab-plus
+# generated: 2026-11-23
+
+topic: dab-plus
+generated: 2026-11-23
+source_of_truth:
+  - technologies/dab-plus/SHEET.md
+  - audits/pidrive-2026-radio-bt/README.md
+  - audits/welle-io-2026-foreign/README.md
+primary:
+  - dab-plus
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/pidrive/applications/dab-plus.md
+  - projects/welle-io/applications/dab-plus.md
+audits:
+  -
+    audit_id: A-2026-026
+    directory: pidrive-2026-radio-bt
+    status: active
+    environment: field
+    path: audits/pidrive-2026-radio-bt
+  -
+    audit_id: A-2026-033
+    directory: welle-io-2026-foreign
+    status: active
+    environment: lab
+    path: audits/welle-io-2026-foreign
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: DAB-Audio folgt automatisch der BT/PipeWire-Politik
+    status: HYPOTHESIS
+    source: technologies/dab-plus/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Gain-Parameter = dB wie bei rtl_fm
+    status: REJECTED
+    source: technologies/dab-plus/SHEET.md
+  -
+    statement: "welle `/spectrum` ersetzt UKW/PMR-FFT"
+    status: REJECTED
+    source: technologies/dab-plus/SHEET.md
+  -
+    statement: Scan und Play teilen Stick konfliktfrei ohne Lock
+    status: REJECTED
+    source: technologies/dab-plus/SHEET.md
+  -
+    statement: Beliebiger SDR ohne Bandbreite/Tunability
+    status: REJECTED
+    source: technologies/dab-plus/SHEET.md
+  -
+    statement: "CLI `-g -1` und manueller Index sind austauschbar ohne Semantik"
+    status: REJECTED
+    source: technologies/dab-plus/SHEET.md
+  -
+    statement: Empfangs-Sheet deckt Software-FM-TX ab
+    status: REJECTED
+    source: technologies/dab-plus/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

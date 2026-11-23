@@ -7,7 +7,8 @@ from pathlib import Path
 from typing import Any
 
 YAML_FENCE = re.compile(r"```yaml\s*\n(.*?)\n```", re.DOTALL | re.IGNORECASE)
-EVIDENCE_ID = re.compile(r"EVID-[A-Z0-9]+-\d{4}-\d{2}-\d{2}-\d{3}")
+# Historic dated form + domain forms (EVID-B3-SAS-CRYPTO-18-18, EVID-SASACC-001, …)
+EVIDENCE_ID = re.compile(r"EVID-[A-Z0-9]+(?:-[A-Z0-9]+)+")
 MATURITY_R = re.compile(r"^R[0-5]$")
 MATURITY_W = re.compile(r"^W[0-5]$")
 KEBAB = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -155,6 +156,35 @@ def parse_md_tables(text: str) -> list[list[list[str]]]:
     if current:
         tables.append(current)
     return tables
+
+
+def yaml_scalar(value: Any) -> str:
+    """Quote YAML scalars that would break naive dumps."""
+    if value is None:
+        return "null"
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, int):
+        return str(value)
+    s = str(value)
+    if s == "":
+        return '""'
+    needs = (
+        s != s.strip()
+        or any(c in s for c in ":#{}[]&*!|>'\"%@`,\n\t")
+        or s.lower() in {"true", "false", "null", "yes", "no", "on", "off"}
+        or s.startswith(("-", "?", "*", "&", "!", "|", ">", "%", "@", "`"))
+    )
+    if needs:
+        esc = s.replace("\\", "\\\\").replace('"', '\\"')
+        return f'"{esc}"'
+    return s
+
+
+def yaml_list(items: list[str]) -> str:
+    if not items:
+        return "[]"
+    return "[" + ", ".join(yaml_scalar(x) for x in items) + "]"
 
 
 def today() -> str:

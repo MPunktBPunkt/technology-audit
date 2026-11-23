@@ -14,10 +14,12 @@ Verwandt: [`PROJECT-START.md`](PROJECT-START.md) · [`KB-FIT.md`](KB-FIT.md) · 
 | Geplante Slugs ohne Sheet | `technologies/_planned.txt` | landet im Tech-Index |
 | Projektkatalog (ID, Profil, Status) | `projects/<id>/SCOPE.md` YAML | `projects/index.yaml` + `projects/README.md` |
 | Projekt-Status/Coverage einer Tech | `projects/<id>/INVENTORY.md` | nicht in Sheet-Maturity spiegeln |
-| Kampagnen-Status / Exit | `audits/<id>/README.md` YAML + Exit-Tabelle | `audits/README.md` nur Kurzliste |
-| Evidence-IDs | `audits/<id>/evidence.md` | Apps zitieren, nicht neu erfinden |
+| Kampagnen-Status / Exit | `audits/<dir>/README.md` YAML + Exit-Tabelle | `audits/README.md` Kurzliste · **`audits/INDEX.yaml` generiert** (`A-YYYY-NNN`) |
+| Evidence-IDs / Claims | `audits/<dir>/evidence.md` und/oder `claims.yaml` | Apps/Bundles zitieren, nicht neu erfinden |
+| Retrieval-Bundles | abgeleitet aus Sheets + Audits + Topics | **`generated/retrieval/**`** — nie handeditieren |
 | Transfer-Nachweis | Kampagne YAML `reuse_outcomes` und/oder FOLLOW-ON | keine Schätzung von W* |
 | Audit-Standard | [`VERSION`](../VERSION) + [`STANDARD-CHANGELOG`](STANDARD-CHANGELOG.md) | Kampagne `standard_version` |
+| Evidence/Claim-Modell | [`EVIDENCE-CLAIM-MODEL.md`](EVIDENCE-CLAIM-MODEL.md) | AI-Entry [`AGENTS.md`](../AGENTS.md) |
 
 **Regel:** Status nur an der Wahrheitsquelle ändern; Indizes neu generieren, nicht handkorrigieren.
 
@@ -68,8 +70,10 @@ Vorlage: [`templates/follow-on-ideas.md`](../templates/follow-on-ideas.md).
 
 - Vektordatenbank / Auto-Schreib-Bot
 - Zweite parallele Statustabellen
+- **`AI_KNOWLEDGE.md`** oder manuell gepflegte AI-Zusammenfassungen als zweite Wahrheit
 - Method Notes spekulativ
 - Automatische fachliche Claim-Validierung
+- Massen-Umbenennung historischer Audit-Ordner (P3 only)
 
 ## Methoden
 

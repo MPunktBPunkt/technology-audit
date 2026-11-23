@@ -1,0 +1,122 @@
+# GENERATED retrieval bundle for virtual-fat
+# generated: 2026-11-23
+
+topic: virtual-fat
+generated: 2026-11-23
+source_of_truth:
+  - technologies/virtual-fat/SHEET.md
+  - audits/esp32-msc-gadget-refs-2026-foreign/README.md
+  - audits/hu-probe-bmw-s0s2-field-2026/README.md
+  - audits/msc-host-read-semantics-s1s2s3-2026/README.md
+  - audits/pidrive-2026-10-17-prefetch-livelock/README.md
+  - audits/pidrive-2026-storm-capture-tooling/README.md
+primary:
+  - virtual-fat
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/esp32-msc-gadget-refs/applications/virtual-fat.md
+  - projects/esp32-pidrive/applications/virtual-fat.md
+  - projects/pidrive/applications/virtual-fat.md
+audits:
+  -
+    audit_id: A-2026-042
+    directory: esp32-msc-gadget-refs-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-msc-gadget-refs-2026-foreign
+  -
+    audit_id: A-2026-060
+    directory: hu-probe-bmw-s0s2-field-2026
+    status: closed
+    environment: lab
+    path: audits/hu-probe-bmw-s0s2-field-2026
+  -
+    audit_id: A-2026-061
+    directory: msc-host-read-semantics-s1s2s3-2026
+    status: closed
+    environment: lab
+    path: audits/msc-host-read-semantics-s1s2s3-2026
+  -
+    audit_id: A-2026-062
+    directory: pidrive-2026-10-17-prefetch-livelock
+    status: active
+    environment: mixed
+    path: audits/pidrive-2026-10-17-prefetch-livelock
+  -
+    audit_id: A-2026-065
+    directory: pidrive-2026-storm-capture-tooling
+    status: closed
+    environment: lab
+    path: audits/pidrive-2026-storm-capture-tooling
+methods:
+  - methods/field-av-offset-correlation.md
+  - methods/hu-media-lifecycle.md
+  - methods/hw-path-gate.md
+  - methods/msc-host-read-semantics.md
+  - methods/msc-lba-timing-instrument.md
+  - methods/msc-trace-correlation.md
+  - methods/nbt-cache-eviction-play-intent.md
+  - methods/nbt-medium-identity-resume.md
+evidence_ids:
+  - EVID-BMWHU-2026-10-17-001
+  - EVID-HUPROBE-2026-10-15
+  - EVID-MSCRHS-2026-10-15
+  - EVID-MSCRHS-2026-10-15-001
+  - EVID-STORMTOOL-2026-10-18
+  - EVID-USBBOT-INST
+facts:
+  -
+    statement: Industry default für USB-Sticks
+    status: FACT
+    source: technologies/virtual-fat/SHEET.md
+  -
+    statement: Upstream FAT decision rule
+    status: FACT
+    source: technologies/virtual-fat/SHEET.md
+  -
+    statement: Hosts cachen oft darüber
+    status: FACT
+    source: technologies/virtual-fat/SHEET.md
+  -
+    statement: Layout-Wahl
+    status: FACT
+    source: technologies/virtual-fat/SHEET.md
+  -
+    statement: möglich über MSC Read-Callback
+    status: FACT
+    source: technologies/virtual-fat/SHEET.md
+inferences: []
+hypotheses:
+  -
+    statement: FAT32 immer „besser“ für Gadgets
+    status: HYPOTHESIS
+    source: technologies/virtual-fat/SHEET.md
+unknowns:
+  -
+    statement: C3 „native USB MSC“ wie S2/S3
+    status: UNKNOWN
+    source: technologies/virtual-fat/SHEET.md
+rejected:
+  -
+    statement: Virtuelles FAT = echtes Flash-Image nötig
+    status: REJECTED
+    source: technologies/virtual-fat/SHEET.md
+  -
+    statement: Volume Label ändern ist kosmetisch
+    status: REJECTED
+    source: technologies/virtual-fat/SHEET.md
+  -
+    statement: Unbegrenzte Dateizahl im Root
+    status: REJECTED
+    source: technologies/virtual-fat/SHEET.md
+  -
+    statement: Full-PSRAM-Disk skaliert auf große MP3-Libs
+    status: REJECTED
+    source: technologies/virtual-fat/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

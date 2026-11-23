@@ -1,0 +1,66 @@
+# GENERATED retrieval bundle for ble-http-gatt-probe
+# generated: 2026-11-23
+
+topic: ble-http-gatt-probe
+generated: 2026-11-23
+source_of_truth:
+  - technologies/ble-http-gatt-probe/SHEET.md
+  - audits/ble-gatt-bridge-refs-2026-foreign/README.md
+  - audits/esp32-ftmsprobe-2026-pilot/README.md
+primary:
+  - ble-http-gatt-probe
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-ftmsprobe/applications/ble-http-gatt-probe.md
+audits:
+  -
+    audit_id: A-2026-008
+    directory: esp32-ftmsprobe-2026-pilot
+    status: active
+    environment: lab
+    path: audits/esp32-ftmsprobe-2026-pilot
+  -
+    audit_id: A-2026-083
+    directory: ble-gatt-bridge-refs-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/ble-gatt-bridge-refs-2026-foreign
+methods:
+  - methods/ftms-capability-probe.md
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Probe-Code darf beliebige Product-API brechen
+    status: HYPOTHESIS
+    source: technologies/ble-http-gatt-probe/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: BlueZ im LXC reicht für Geräte-Lab
+    status: REJECTED
+    source: technologies/ble-http-gatt-probe/SHEET.md
+  -
+    statement: OTA während offener Links ist harmlos
+    status: REJECTED
+    source: technologies/ble-http-gatt-probe/SHEET.md
+  -
+    statement: Subjektives „zieht an“ ersetzt Wirkungsmessung
+    status: REJECTED
+    source: technologies/ble-http-gatt-probe/SHEET.md
+  -
+    statement: Dual-Link-Budget eines Envs gilt für alle ESP32
+    status: REJECTED
+    source: technologies/ble-http-gatt-probe/SHEET.md
+  -
+    statement: Probe-Peripheral „wie Ergo-Bridge“ ohne Umbau
+    status: REJECTED
+    source: technologies/ble-http-gatt-probe/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

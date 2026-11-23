@@ -1,0 +1,371 @@
+# GENERATED retrieval bundle for bmw-rhmi
+# generated: 2026-11-23
+
+topic: bmw-rhmi
+generated: 2026-11-23
+source_of_truth:
+  - technologies/bmw-rhmi/SHEET.md
+  - audits/bimmergestalt-idrive-2026-foreign/README.md
+  - audits/bimmergestalt-rhmi-checkresource-2026-11-17/README.md
+  - audits/bmw-am-bootstrap-field-2026-11-21/README.md
+  - audits/bmw-av-session-control-vs-audio-2026-11-21/README.md
+  - audits/bmw-cds-menu-path-field-2026-11-21/README.md
+  - audits/bmw-connected-sas-auth-2026-11-06/README.md
+  - audits/bmw-rhmi-music-handle23-field-2026-11-21/README.md
+  - audits/esp32-bt-analyzer-f20-connected-2026-11-17/README.md
+  - audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17/README.md
+  - audits/nbt-evo-bt-control-plane-closure-2026-11-21/README.md
+  - audits/nbt-evo-oss-runtime-hmi-bt-2026-11-19/README.md
+primary:
+  - bmw-rhmi
+maturity:
+  technology: R2
+  field_evidence: R3
+  reusability: W2
+  evidence_scope:
+    - LAB
+    - FIELD
+applications:
+  - projects/bimmergestalt-idrive-refs/applications/bmw-rhmi.md
+audits:
+  -
+    audit_id: A-2026-082
+    directory: bimmergestalt-idrive-2026-foreign
+    status: closed
+    environment: mixed
+    path: audits/bimmergestalt-idrive-2026-foreign
+  -
+    audit_id: A-2026-092
+    directory: bmw-connected-sas-auth-2026-11-06
+    status: closed
+    environment: desk
+    path: audits/bmw-connected-sas-auth-2026-11-06
+  -
+    audit_id: A-2026-101
+    directory: bimmergestalt-rhmi-checkresource-2026-11-17
+    status: closed
+    environment: mixed
+    path: audits/bimmergestalt-rhmi-checkresource-2026-11-17
+  -
+    audit_id: A-2026-102
+    directory: esp32-bt-analyzer-f20-connected-2026-11-17
+    status: closed
+    environment: mixed
+    path: audits/esp32-bt-analyzer-f20-connected-2026-11-17
+  -
+    audit_id: A-2026-103
+    directory: esp32-bt-analyzer-lab-field-transfer-2026-11-17
+    status: closed
+    environment: mixed
+    path: audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17
+  -
+    audit_id: A-2026-106
+    directory: nbt-evo-oss-runtime-hmi-bt-2026-11-19
+    status: closed
+    environment: lab
+    path: audits/nbt-evo-oss-runtime-hmi-bt-2026-11-19
+  -
+    audit_id: A-2026-109
+    directory: bmw-am-bootstrap-field-2026-11-21
+    status: closed
+    environment: field
+    path: audits/bmw-am-bootstrap-field-2026-11-21
+  -
+    audit_id: A-2026-110
+    directory: bmw-av-session-control-vs-audio-2026-11-21
+    status: closed
+    environment: field
+    path: audits/bmw-av-session-control-vs-audio-2026-11-21
+  -
+    audit_id: A-2026-112
+    directory: bmw-cds-menu-path-field-2026-11-21
+    status: closed
+    environment: field
+    path: audits/bmw-cds-menu-path-field-2026-11-21
+  -
+    audit_id: A-2026-114
+    directory: bmw-rhmi-music-handle23-field-2026-11-21
+    status: closed
+    environment: mixed
+    path: audits/bmw-rhmi-music-handle23-field-2026-11-21
+  -
+    audit_id: A-2026-119
+    directory: nbt-evo-bt-control-plane-closure-2026-11-21
+    status: closed
+    environment: mixed
+    path: audits/nbt-evo-bt-control-plane-closure-2026-11-21
+methods:
+  - methods/raw-bcl-etch-forensic.md
+evidence_ids:
+  - EVID-B3-AM-FIVE-APPS
+  - EVID-B3-AM-SPOTIFY-REJECTED
+  - EVID-B3-AUDIO-BOUNDARY-OPEN
+  - EVID-B3-AV-CONTROL-PATH
+  - EVID-B3-AV-PLAY-315A6
+  - EVID-B3-CDS-API
+  - EVID-B3-CDS-NOT-TRACK-BUS
+  - EVID-B3-CDS-VISCTX-50034
+  - EVID-B3-RHMI-DESC-E9E31C31
+  - EVID-B3-RHMI-H23-MAP
+  - EVID-B3-RHMI-NP-SPINE
+  - EVID-NBTOSS-001
+  - EVID-NBTOSS-010
+  - EVID-NBTOSS-030
+facts:
+  -
+    id: C-AM-001
+    statement: "Exactly five am_registerApp entries in B3 (Google, Alexa, Bluetooth, YouTube, Screen Mirroring)."
+    status: FACT
+    source: audits/bmw-am-bootstrap-field-2026-11-21/claims.yaml
+    supported_by:
+      - EVID-B3-AM-FIVE-APPS
+    transfer_limits:
+      - five_apps_ne_five_menu_entries
+    unknown_reason: null
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: AM
+      supported_by:
+        - EVID-B3-AM-FIVE-APPS
+      transfer_limits:
+        - five_apps_ne_five_menu_entries
+      unknown_reason: null
+    audit_id: A-2026-109
+  -
+    id: C-AV-001
+    statement: ">"
+    status: FACT
+    source: audits/bmw-av-session-control-vs-audio-2026-11-21/claims.yaml
+    supported_by:
+      - EVID-B3-AV-CONTROL-PATH
+      - EVID-B3-AV-PLAY-315A6
+    transfer_limits:
+      - control_plane_only
+    unknown_reason: null
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      transport: BCL/Etch
+      protocol: AV
+      project: esp32-bt-analyzer
+      supported_by:
+        - EVID-B3-AV-CONTROL-PATH
+        - EVID-B3-AV-PLAY-315A6
+      transfer_limits:
+        - control_plane_only
+      unknown_reason: null
+    audit_id: A-2026-110
+  -
+    id: C-RHMI-001
+    statement: RHMI Handle 23 maps to me.hufman.androidautoidrive.music on F20 B3.
+    status: FACT
+    source: audits/bmw-rhmi-music-handle23-field-2026-11-21/claims.yaml
+    supported_by:
+      - EVID-B3-RHMI-H23-MAP
+    transfer_limits:
+      - aaidrive_music_app_ids
+    unknown_reason: null
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: RHMI
+      supported_by:
+        - EVID-B3-RHMI-H23-MAP
+      transfer_limits:
+        - aaidrive_music_app_ids
+      unknown_reason: null
+    audit_id: A-2026-114
+  -
+    id: C-RHMI-002
+    statement: ">"
+    status: FACT
+    source: audits/bmw-rhmi-music-handle23-field-2026-11-21/claims.yaml
+    supported_by:
+      - EVID-B3-RHMI-NP-SPINE
+    transfer_limits:
+      - lab_model_100_action_200_rejected
+    unknown_reason: null
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: RHMI
+      supported_by:
+        - EVID-B3-RHMI-NP-SPINE
+      transfer_limits:
+        - lab_model_100_action_200_rejected
+      unknown_reason: null
+    audit_id: A-2026-114
+  -
+    id: C-RHMI-004
+    statement: Music DESCRIPTION MD5 e9e31c31110680e13b7a112a7d77eb55 size 92085 B (extract CLOSED).
+    status: FACT
+    source: audits/bmw-rhmi-music-handle23-field-2026-11-21/claims.yaml
+    supported_by:
+      - EVID-B3-RHMI-DESC-E9E31C31
+    transfer_limits:
+      - textdb_imagedb_extract_open
+    unknown_reason: null
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: RHMI
+      supported_by:
+        - EVID-B3-RHMI-DESC-E9E31C31
+      transfer_limits:
+        - textdb_imagedb_extract_open
+      unknown_reason: null
+    audit_id: A-2026-114
+inferences:
+  -
+    statement: SmartThings-Assets = offizielle Spec
+    status: INFERENCE
+    source: technologies/bmw-rhmi/SHEET.md
+hypotheses: []
+unknowns:
+  -
+    statement: Alle Generationen gleiche Widgets
+    status: UNKNOWN
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    id: C-AV-003
+    statement: Post-PLAY bulk traffic on BCL dest 4004 is an audio stream (PCM/A2DP/iAP).
+    status: NOT_PROVEN
+    source: audits/bmw-av-session-control-vs-audio-2026-11-21/claims.yaml
+    supported_by: []
+    transfer_limits:
+      - default_classify_as_rhmi_fragments_inference
+    unknown_reason: null
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      transport: BCL
+      protocol: AV
+      supported_by: []
+      transfer_limits:
+        - default_classify_as_rhmi_fragments_inference
+      unknown_reason: protocol_not_observed
+    audit_id: A-2026-110
+  -
+    id: C-AV-004
+    statement: Audible playback during B3 Music session.
+    status: NOT_OBSERVED
+    source: audits/bmw-av-session-control-vs-audio-2026-11-21/claims.yaml
+    supported_by:
+      - EVID-B3-AUDIO-BOUNDARY-OPEN
+    transfer_limits:
+      - operator_no_sound
+    unknown_reason: null
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      supported_by:
+        - EVID-B3-AUDIO-BOUNDARY-OPEN
+      transfer_limits:
+        - operator_no_sound
+      unknown_reason: conflicting_evidence
+    audit_id: A-2026-110
+rejected:
+  -
+    statement: RHMI = BCL
+    status: REJECTED
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    statement: „NBT“ erscheint als Protokollfeld
+    status: REJECTED
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    statement: RHMI ersetzt USB-MSC Audio
+    status: REJECTED
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    statement: "Lab `RUNTIME_ACTIVE` / Soak / Seq = F20 Auto-ready"
+    status: REJECTED
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    statement: "`checkResource(true)` ⇒ Upload zwingend"
+    status: REJECTED
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    statement: "Spotify = `am_registerApp`"
+    status: REJECTED
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    statement: "Lab actionId **200** / Sink `PI_DRIVE_TEST` = F20-Map"
+    status: REJECTED
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    statement: "Lab modelId **100** = F20 NP"
+    status: REJECTED
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    statement: modelId 4 / SE 213 blockiert Session
+    status: REJECTED
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    statement: RHMI PLAY-UI = hörbares Audio
+    status: REJECTED
+    source: technologies/bmw-rhmi/SHEET.md
+  -
+    id: C-AM-002
+    statement: Spotify / com.spotify.music is registered via am_registerApp in B3.
+    status: REJECTED
+    source: audits/bmw-am-bootstrap-field-2026-11-21/claims.yaml
+    supported_by: []
+    transfer_limits:
+      - media_via_rhmi_music_plus_av
+    unknown_reason: null
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: AM
+      supported_by: []
+      contradicted_by:
+        - EVID-B3-AM-SPOTIFY-REJECTED
+      transfer_limits:
+        - media_via_rhmi_music_plus_av
+      unknown_reason: null
+    audit_id: A-2026-109
+  -
+    id: C-AV-002
+    statement: AV PLAY control event proves audible audio playback.
+    status: REJECTED
+    source: audits/bmw-av-session-control-vs-audio-2026-11-21/claims.yaml
+    supported_by: []
+    transfer_limits:
+      - audible_not_observed
+    unknown_reason: null
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: AV
+      supported_by: []
+      contradicted_by:
+        - EVID-B3-AUDIO-BOUNDARY-OPEN
+      transfer_limits:
+        - audible_not_observed
+      unknown_reason: null
+    audit_id: A-2026-110
+  -
+    id: C-RHMI-003
+    statement: Lab actionId 200 / modelId 100 equal F20 Music OEM IDs.
+    status: REJECTED
+    source: audits/bmw-rhmi-music-handle23-field-2026-11-21/claims.yaml
+    supported_by: []
+    transfer_limits:
+      - lab_only_ids
+    unknown_reason: null
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: RHMI
+      supported_by: []
+      contradicted_by:
+        - EVID-B3-RHMI-NP-SPINE
+      transfer_limits:
+        - lab_only_ids
+      unknown_reason: null
+    audit_id: A-2026-114
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

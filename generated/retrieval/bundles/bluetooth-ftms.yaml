@@ -1,0 +1,107 @@
+# GENERATED retrieval bundle for bluetooth-ftms
+# generated: 2026-11-23
+
+topic: bluetooth-ftms
+generated: 2026-11-23
+source_of_truth:
+  - technologies/bluetooth-ftms/SHEET.md
+  - audits/ble-gatt-bridge-refs-2026-foreign/README.md
+  - audits/esp32-bt-analyzer-host-profiles-2026-desk/README.md
+  - audits/esp32-ergo-2026-pilot/README.md
+  - audits/esp32-ftmsprobe-2026-pilot/README.md
+  - audits/open-bike-computer-2026-foreign/README.md
+primary:
+  - bluetooth-ftms
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/esp32-ergo/applications/bluetooth-ftms.md
+  - projects/esp32-ftmsprobe/applications/bluetooth-ftms.md
+audits:
+  -
+    audit_id: A-2026-006
+    directory: esp32-ergo-2026-pilot
+    status: active
+    environment: desk
+    path: audits/esp32-ergo-2026-pilot
+  -
+    audit_id: A-2026-008
+    directory: esp32-ftmsprobe-2026-pilot
+    status: active
+    environment: lab
+    path: audits/esp32-ftmsprobe-2026-pilot
+  -
+    audit_id: A-2026-077
+    directory: open-bike-computer-2026-foreign
+    status: active
+    environment: lab
+    path: audits/open-bike-computer-2026-foreign
+  -
+    audit_id: A-2026-083
+    directory: ble-gatt-bridge-refs-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/ble-gatt-bridge-refs-2026-foreign
+  -
+    audit_id: A-2026-091
+    directory: esp32-bt-analyzer-host-profiles-2026-desk
+    status: closed
+    environment: lab
+    path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+methods:
+  - methods/bt-passive-host-sniff.md
+  - methods/ftms-capability-probe.md
+evidence_ids:
+  - EVID-BTHPF-2026-11-04-001
+  - EVID-BTHPF-2026-11-04-010
+  - EVID-BTHPF-2026-11-04-020
+  - EVID-BTHPF-2026-11-04-030
+  - EVID-BTHPF-2026-11-04-031
+  - EVID-BTHPF-2026-11-04-040
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: "`0x2AD9` ist immer Indicate"
+    status: HYPOTHESIS
+    source: technologies/bluetooth-ftms/SHEET.md
+  -
+    statement: Advertising enthält zuverlässig Name/Services
+    status: HYPOTHESIS
+    source: technologies/bluetooth-ftms/SHEET.md
+unknowns:
+  -
+    statement: FTMS-Bridge+Central auf Classic wie auf S3
+    status: UNKNOWN
+    source: technologies/bluetooth-ftms/SHEET.md
+rejected:
+  -
+    statement: "Jeder „Smart Trainer“ unterstützt Set Target Power (`0x05`)"
+    status: REJECTED
+    source: technologies/bluetooth-ftms/SHEET.md
+  -
+    statement: Control-Point-Success beweist Wirkung
+    status: REJECTED
+    source: technologies/bluetooth-ftms/SHEET.md
+  -
+    statement: Resistance immer 1-Byte
+    status: REJECTED
+    source: technologies/bluetooth-ftms/SHEET.md
+  -
+    statement: Feature-Bit „Resistance“ ⇒ IBD liefert Resistance-Feld
+    status: REJECTED
+    source: technologies/bluetooth-ftms/SHEET.md
+  -
+    statement: Control-Point Indicate ohne Client-CCCD
+    status: REJECTED
+    source: technologies/bluetooth-ftms/SHEET.md
+  -
+    statement: Exclusive Bridge ohne Lock wenn App+Coach steuern
+    status: REJECTED
+    source: technologies/bluetooth-ftms/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

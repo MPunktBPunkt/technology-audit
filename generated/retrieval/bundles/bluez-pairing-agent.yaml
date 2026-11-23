@@ -1,0 +1,66 @@
+# GENERATED retrieval bundle for bluez-pairing-agent
+# generated: 2026-11-23
+
+topic: bluez-pairing-agent
+generated: 2026-11-23
+source_of_truth:
+  - technologies/bluez-pairing-agent/SHEET.md
+  - audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21/README.md
+primary:
+  - bluez-pairing-agent
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/esp32-bt-analyzer/applications/bluez-pairing-agent.md
+  - projects/pidrive/applications/bluez-pairing-agent.md
+audits:
+  -
+    audit_id: A-2026-116
+    directory: esp32-bt-analyzer-b3-relay-topology-2026-11-21
+    status: closed
+    environment: mixed
+    path: audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21
+methods: []
+evidence_ids:
+  - EVID-B3-CAPTURE-DISCIPLINE
+  - EVID-B3-DUAL-PLANE-PROTOCOL
+  - EVID-B3-RELAY-TOPO
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: "`bluetoothctl agent X` als Einzelbefehl registriert einen dauerhaften Agenten"
+    status: REJECTED
+    source: technologies/bluez-pairing-agent/SHEET.md
+  -
+    statement: Interaktive bluetoothctl-Sitzung beantwortet auch fremd-initiierte Kopplungen
+    status: REJECTED
+    source: technologies/bluez-pairing-agent/SHEET.md
+  -
+    statement: "Zwei Agenten mit `RequestDefaultAgent` koexistieren sauber"
+    status: REJECTED
+    source: technologies/bluez-pairing-agent/SHEET.md
+  -
+    statement: "Ein `Pair()` nutzt immer den Default-Agenten"
+    status: REJECTED
+    source: technologies/bluez-pairing-agent/SHEET.md
+  -
+    statement: "Nach `Paired=true` ist alles erledigt"
+    status: REJECTED
+    source: technologies/bluez-pairing-agent/SHEET.md
+  -
+    statement: Class of Device ist pro Adapter per D-Bus setzbar
+    status: REJECTED
+    source: technologies/bluez-pairing-agent/SHEET.md
+  -
+    statement: "Link-Keys hängen an `hciN`"
+    status: REJECTED
+    source: technologies/bluez-pairing-agent/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -1,0 +1,74 @@
+# Structured claims — SoT alongside README (feeds generated retrieval bundles)
+schema: technology-audit.claims.v1
+audit_directory: bmw-sas-auth-field-crypto-2026-11-21
+
+claims:
+  - id: C-SAS-001
+    statement: >
+      All 18 HU-accepted B3 sas_login signatures verify against Wire-Leaf
+      a4a_app_BMWTouchCommand_Connection_00.00.10 (RSA-4096).
+    status: FACT
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      transport: BCL/RFCOMM
+      protocol: SAS/APP_AUTH
+      project: esp32-bt-analyzer
+    supported_by: [EVID-B3-SAS-CRYPTO-18-18, EVID-B3-SAS-LEAF-TOUCHCOMMAND]
+    contradicted_by: []
+    transfer_limits: [f20_capture_specific_counts, leaf_pubkey_only]
+    unknown_reason: null
+
+  - id: C-SAS-002
+    statement: >
+      APP_AUTH pad-u32 is 0x02000000; Digest = MD5(challenge XOR MD5(pad));
+      PKCS#1 v1.5 DigestInfo-MD5. Pad is not X509 serial 0x0AA9.
+    status: FACT
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: SAS/APP_AUTH
+    supported_by: [EVID-B3-SAS-CRYPTO-18-18]
+    contradicted_by: []
+    transfer_limits: [formula_wire_closed_signer_path_separate]
+    unknown_reason: null
+
+  - id: C-SAS-003
+    statement: Parallel SAS cert/login sequences run on multiple BCL src→dest 4004 channels.
+    status: FACT
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      transport: BCL
+      protocol: SAS
+    supported_by: [EVID-B3-SAS-MULTICHANNEL]
+    transfer_limits: [single_channel_sufficiency_unknown]
+    unknown_reason: null
+
+  - id: C-SAS-004
+    statement: Standalone credential acceptance without MyBMW/AAIdrive (Gate B2) is OPEN.
+    status: OPEN
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: SAS
+    supported_by: []
+    transfer_limits: [live_path_closed_standalone_open]
+    unknown_reason: implementation_unknown
+
+  - id: C-SAS-005
+    statement: Lab-stub / mybmw-sim certificate is accepted by F20 as live APP_AUTH.
+    status: REJECTED
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      protocol: SAS
+    supported_by: []
+    contradicted_by: [EVID-B3-SAS-CRYPTO-18-18]
+    transfer_limits: [stub_control_only]
+    unknown_reason: null

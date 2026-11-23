@@ -1,0 +1,58 @@
+# GENERATED retrieval bundle for ble-pcm-notify-stream
+# generated: 2026-11-23
+
+topic: ble-pcm-notify-stream
+generated: 2026-11-23
+source_of_truth:
+  - technologies/ble-pcm-notify-stream/SHEET.md
+  - audits/esp32-i2s-ble-2026-foreign/README.md
+primary:
+  - ble-pcm-notify-stream
+maturity:
+  technology: R1
+  field_evidence: R0
+  reusability: W1
+  evidence_scope: []
+applications:
+  - projects/esp32-i2s-ble/applications/ble-pcm-notify-stream.md
+audits:
+  -
+    audit_id: A-2026-054
+    directory: esp32-i2s-ble-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-i2s-ble-2026-foreign
+methods: []
+evidence_ids:
+  - EVID-I2SBLE-2026-10-13-001
+  - EVID-I2SBLE-2026-10-13-002
+  - EVID-I2SBLE-2026-10-13-003
+  - EVID-I2SBLE-2026-10-13-004
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Custom Notify-PCM = LE Audio
+    status: REJECTED
+    source: technologies/ble-pcm-notify-stream/SHEET.md
+  -
+    statement: Custom Notify-PCM = A2DP
+    status: REJECTED
+    source: technologies/ble-pcm-notify-stream/SHEET.md
+  -
+    statement: Ohne Batching/Ringbuffer „einfach streamen“
+    status: REJECTED
+    source: technologies/ble-pcm-notify-stream/SHEET.md
+  -
+    statement: README-Sample-Rate = Wire-Rate ohne Check
+    status: REJECTED
+    source: technologies/ble-pcm-notify-stream/SHEET.md
+  -
+    statement: Unbegrenzte Aufnahme ohne Overflow-Policy
+    status: REJECTED
+    source: technologies/ble-pcm-notify-stream/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

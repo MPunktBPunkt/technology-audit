@@ -1,0 +1,68 @@
+# GENERATED retrieval bundle for ble-rssi-proximity
+# generated: 2026-11-23
+
+topic: ble-rssi-proximity
+generated: 2026-11-23
+source_of_truth:
+  - technologies/ble-rssi-proximity/SHEET.md
+  - audits/esp-ble-finder-2026-foreign/README.md
+  - audits/esp32-rfmonitor-2026-motion-delta/README.md
+primary:
+  - ble-rssi-proximity
+maturity:
+  technology: R1
+  field_evidence: R0
+  reusability: W1
+  evidence_scope: []
+applications:
+  - projects/esp-ble-finder/applications/ble-rssi-proximity.md
+audits:
+  -
+    audit_id: A-2026-070
+    directory: esp-ble-finder-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp-ble-finder-2026-foreign
+  -
+    audit_id: A-2026-081
+    directory: esp32-rfmonitor-2026-motion-delta
+    status: active
+    environment: desk
+    path: audits/esp32-rfmonitor-2026-motion-delta
+methods:
+  - methods/own-link-motion-sensitivity.md
+evidence_ids:
+  - EVID-RF-2026-10-26-001
+  - EVID-RF-2026-10-26-002
+  - EVID-RF-2026-10-26-003
+  - EVID-RF-2026-10-26-004
+  - EVID-RF-2026-10-26-005
+  - EVID-WEB-2026-10-26-001
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: RSSI = exakte Distanz (m)
+    status: REJECTED
+    source: technologies/ble-rssi-proximity/SHEET.md
+  -
+    statement: Hunt ≡ Environment-Monitor Score
+    status: REJECTED
+    source: technologies/ble-rssi-proximity/SHEET.md
+  -
+    statement: Ständig Target wechseln ohne Hold
+    status: REJECTED
+    source: technologies/ble-rssi-proximity/SHEET.md
+  -
+    statement: GATT Connect für Hunt nötig
+    status: REJECTED
+    source: technologies/ble-rssi-proximity/SHEET.md
+  -
+    statement: Mute stoppt Scan
+    status: REJECTED
+    source: technologies/ble-rssi-proximity/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

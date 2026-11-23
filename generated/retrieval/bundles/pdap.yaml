@@ -1,0 +1,68 @@
+# GENERATED retrieval bundle for pdap
+# generated: 2026-11-23
+
+topic: pdap
+generated: 2026-11-23
+source_of_truth:
+  - technologies/pdap/SHEET.md
+  - audits/esp-network-pcm-clock-2026-foreign/README.md
+  - audits/esp32-bt-gateway-2026-planning/README.md
+primary:
+  - pdap
+maturity:
+  technology: R1
+  field_evidence: R0
+  reusability: W1
+  evidence_scope: []
+applications:
+  - projects/esp-network-pcm-clock/applications/pdap.md
+  - projects/esp32-bt-gateway/applications/pdap.md
+audits:
+  -
+    audit_id: A-2026-004
+    directory: esp32-bt-gateway-2026-planning
+    status: active
+    environment: desk
+    path: audits/esp32-bt-gateway-2026-planning
+  -
+    audit_id: A-2026-051
+    directory: esp-network-pcm-clock-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp-network-pcm-clock-2026-foreign
+methods:
+  - methods/pcm-clock-drift-jitter-buffer.md
+evidence_ids:
+  - EVID-PCMNET-2026-10-13-001
+  - EVID-PCMNET-2026-10-13-002
+  - EVID-PCMNET-2026-10-13-003
+  - EVID-PCMNET-2026-10-13-004
+  - EVID-PCMNET-2026-10-13-005
+  - EVID-PCMNET-2026-10-13-006
+  - EVID-PCMNET-2026-10-13-007
+  - EVID-PCMNET-2026-10-13-008
+  - EVID-PCMNET-2026-10-13-010
+  - EVID-PCMNET-2026-10-13-012
+  - EVID-PCMNET-2026-10-13-013
+  - EVID-PCMNET-2026-10-13-014
+  - EVID-PCMNET-YYYY-MM-DD
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Ein WiFi-Modus reicht immer (STA+BT)
+    status: HYPOTHESIS
+    source: technologies/pdap/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Gateway darf Sender-/App-Semantik kennen
+    status: REJECTED
+    source: technologies/pdap/SHEET.md
+  -
+    statement: Beliebiges PCM „was die Quelle liefert“
+    status: REJECTED
+    source: technologies/pdap/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

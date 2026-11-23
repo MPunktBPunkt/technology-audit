@@ -1,0 +1,54 @@
+# GENERATED retrieval bundle for pump-control-link
+# generated: 2026-11-23
+
+topic: pump-control-link
+generated: 2026-11-23
+source_of_truth:
+  - technologies/pump-control-link/SHEET.md
+  - audits/esp32-pidrive-2026-pilot/README.md
+primary:
+  - pump-control-link
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-pidrive/applications/pump-control-link.md
+audits:
+  -
+    audit_id: A-2026-012
+    directory: esp32-pidrive-2026-pilot
+    status: active
+    environment: desk
+    path: audits/esp32-pidrive-2026-pilot
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: play_uid bei Down-Link darf verworfen werden
+    status: HYPOTHESIS
+    source: technologies/pump-control-link/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Control-Link = MSC-Stream
+    status: REJECTED
+    source: technologies/pump-control-link/SHEET.md
+  -
+    statement: Ein Transport (nur UART) ist Teil der Spec
+    status: REJECTED
+    source: technologies/pump-control-link/SHEET.md
+  -
+    statement: "Unbegrenzte Menütiefe muss 1:1 auf Stick-Slots"
+    status: REJECTED
+    source: technologies/pump-control-link/SHEET.md
+  -
+    statement: Binary und JSON dürfen sich im Stream mischen ohne State-Machine
+    status: REJECTED
+    source: technologies/pump-control-link/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -1,0 +1,62 @@
+# GENERATED retrieval bundle for bt-bdaddr-rewrite
+# generated: 2026-11-23
+
+topic: bt-bdaddr-rewrite
+generated: 2026-11-23
+source_of_truth:
+  - technologies/bt-bdaddr-rewrite/SHEET.md
+  - audits/ble-gatt-bluez-relay-2026-foreign/README.md
+  - audits/bt-bdaddr-2026-foreign/README.md
+primary:
+  - bt-bdaddr-rewrite
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/bt-bdaddr-refs/applications/bt-bdaddr-rewrite.md
+audits:
+  -
+    audit_id: A-2026-094
+    directory: ble-gatt-bluez-relay-2026-foreign
+    status: closed
+    environment: mixed
+    path: audits/ble-gatt-bluez-relay-2026-foreign
+  -
+    audit_id: A-2026-096
+    directory: bt-bdaddr-2026-foreign
+    status: closed
+    environment: mixed
+    path: audits/bt-bdaddr-2026-foreign
+methods: []
+evidence_ids:
+  - EVID-BZGATT-2026-11-12
+facts: []
+inferences:
+  -
+    statement: Adresswechsel invalidiert alle Link-Keys automatisch
+    status: INFERENCE
+    source: technologies/bt-bdaddr-rewrite/SHEET.md
+hypotheses: []
+unknowns:
+  -
+    statement: HU / Peer akzeptiert geklonte BD_ADDR immer
+    status: UNKNOWN
+    source: technologies/bt-bdaddr-rewrite/SHEET.md
+rejected:
+  -
+    statement: Ein HCI-Opcode schreibt BD_ADDR auf allen Controllern
+    status: REJECTED
+    source: technologies/bt-bdaddr-rewrite/SHEET.md
+  -
+    statement: "`bdaddr` unterstützt Espressif/ESP32"
+    status: REJECTED
+    source: technologies/bt-bdaddr-rewrite/SHEET.md
+  -
+    statement: "ESP setzt Adresse wie CSR via Host-`bdaddr`"
+    status: REJECTED
+    source: technologies/bt-bdaddr-rewrite/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

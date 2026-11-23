@@ -1,0 +1,113 @@
+# GENERATED retrieval bundle for ble-hrm-gatt
+# generated: 2026-11-23
+
+topic: ble-hrm-gatt
+generated: 2026-11-23
+source_of_truth:
+  - technologies/ble-hrm-gatt/SHEET.md
+  - audits/ble-gatt-bridge-refs-2026-foreign/README.md
+  - audits/esp32-bt-analyzer-host-profiles-2026-desk/README.md
+  - audits/esp32-ergo-2026-pilot/README.md
+  - audits/esp32-ftmsprobe-2026-pilot/README.md
+  - audits/esp32-heartrate-2026-pilot/README.md
+  - audits/esp32-i2s-ble-2026-foreign/README.md
+  - audits/open-bike-computer-2026-foreign/README.md
+  - audits/rnt-esp32-2026-foreign/README.md
+primary:
+  - ble-hrm-gatt
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/esp32-ergo/applications/ble-hrm-gatt.md
+  - projects/esp32-ftmsprobe/applications/ble-hrm-gatt.md
+  - projects/esp32-heartrate/applications/ble-hrm-gatt.md
+audits:
+  -
+    audit_id: A-2026-003
+    directory: esp32-heartrate-2026-pilot
+    status: active
+    environment: desk
+    path: audits/esp32-heartrate-2026-pilot
+  -
+    audit_id: A-2026-006
+    directory: esp32-ergo-2026-pilot
+    status: active
+    environment: desk
+    path: audits/esp32-ergo-2026-pilot
+  -
+    audit_id: A-2026-008
+    directory: esp32-ftmsprobe-2026-pilot
+    status: active
+    environment: lab
+    path: audits/esp32-ftmsprobe-2026-pilot
+  -
+    audit_id: A-2026-032
+    directory: rnt-esp32-2026-foreign
+    status: active
+    environment: lab
+    path: audits/rnt-esp32-2026-foreign
+  -
+    audit_id: A-2026-054
+    directory: esp32-i2s-ble-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-i2s-ble-2026-foreign
+  -
+    audit_id: A-2026-077
+    directory: open-bike-computer-2026-foreign
+    status: active
+    environment: lab
+    path: audits/open-bike-computer-2026-foreign
+  -
+    audit_id: A-2026-083
+    directory: ble-gatt-bridge-refs-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/ble-gatt-bridge-refs-2026-foreign
+  -
+    audit_id: A-2026-091
+    directory: esp32-bt-analyzer-host-profiles-2026-desk
+    status: closed
+    environment: lab
+    path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+methods:
+  - methods/bt-passive-host-sniff.md
+  - methods/ftms-capability-probe.md
+evidence_ids:
+  - EVID-BTHPF-2026-11-04-001
+  - EVID-BTHPF-2026-11-04-010
+  - EVID-BTHPF-2026-11-04-020
+  - EVID-BTHPF-2026-11-04-030
+  - EVID-BTHPF-2026-11-04-031
+  - EVID-BTHPF-2026-11-04-040
+  - EVID-I2SBLE-2026-10-13-001
+  - EVID-I2SBLE-2026-10-13-002
+  - EVID-I2SBLE-2026-10-13-003
+  - EVID-I2SBLE-2026-10-13-004
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Sensor Contact Bit ist überall gesetzt
+    status: REJECTED
+    source: technologies/ble-hrm-gatt/SHEET.md
+  -
+    statement: Ein Gurt erlaubt beliebig viele gleichzeitige Centrals
+    status: REJECTED
+    source: technologies/ble-hrm-gatt/SHEET.md
+  -
+    statement: RR-Einheiten sind immer Millisekunden
+    status: REJECTED
+    source: technologies/ble-hrm-gatt/SHEET.md
+  -
+    statement: "„HR vom Bike“ ist immer `0x180D`"
+    status: REJECTED
+    source: technologies/ble-hrm-gatt/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

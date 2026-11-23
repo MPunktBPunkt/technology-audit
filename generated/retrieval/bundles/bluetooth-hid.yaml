@@ -1,0 +1,80 @@
+# GENERATED retrieval bundle for bluetooth-hid
+# generated: 2026-11-23
+
+topic: bluetooth-hid
+generated: 2026-11-23
+source_of_truth:
+  - technologies/bluetooth-hid/SHEET.md
+  - audits/bt-analysis-relay-2026-foreign/README.md
+  - audits/bt-classic-gaps-2026-foreign/README.md
+  - audits/esp32-bt-analyzer-host-profiles-2026-desk/README.md
+primary:
+  - bluetooth-hid
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/bt-classic-profile-refs/applications/bluetooth-hid.md
+audits:
+  -
+    audit_id: A-2026-084
+    directory: bt-analysis-relay-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-analysis-relay-2026-foreign
+  -
+    audit_id: A-2026-085
+    directory: bt-classic-gaps-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-classic-gaps-2026-foreign
+  -
+    audit_id: A-2026-091
+    directory: esp32-bt-analyzer-host-profiles-2026-desk
+    status: closed
+    environment: lab
+    path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+methods:
+  - methods/bt-passive-host-sniff.md
+  - methods/ftms-capability-probe.md
+evidence_ids:
+  - EVID-BTHPF-2026-11-04-001
+  - EVID-BTHPF-2026-11-04-010
+  - EVID-BTHPF-2026-11-04-020
+  - EVID-BTHPF-2026-11-04-030
+  - EVID-BTHPF-2026-11-04-031
+  - EVID-BTHPF-2026-11-04-040
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: SET_REPORT immer Success-Handshake
+    status: HYPOTHESIS
+    source: technologies/bluetooth-hid/SHEET.md
+  -
+    statement: HOGP und Classic HID byte-identisch austauschbar
+    status: HYPOTHESIS
+    source: technologies/bluetooth-hid/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: HID Device API = HID Host API
+    status: REJECTED
+    source: technologies/bluetooth-hid/SHEET.md
+  -
+    statement: Report Descriptor egal für Kompatibilität
+    status: REJECTED
+    source: technologies/bluetooth-hid/SHEET.md
+  -
+    statement: "IDF liefert Classic HID **Host**-Example"
+    status: REJECTED
+    source: technologies/bluetooth-hid/SHEET.md
+  -
+    statement: Keyboard/Mouse und Gamepad gleiche Queue-Strategie
+    status: REJECTED
+    source: technologies/bluetooth-hid/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

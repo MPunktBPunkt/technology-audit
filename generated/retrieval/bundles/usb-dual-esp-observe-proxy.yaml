@@ -1,0 +1,89 @@
+# GENERATED retrieval bundle for usb-dual-esp-observe-proxy
+# generated: 2026-11-23
+
+topic: usb-dual-esp-observe-proxy
+generated: 2026-11-23
+source_of_truth:
+  - technologies/usb-dual-esp-observe-proxy/SHEET.md
+  - audits/esp32-usb-analyzer-2026-0.0.50/README.md
+  - audits/esp32-usb-analyzer-2026-pilot/README.md
+primary:
+  - usb-dual-esp-observe-proxy
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope:
+    - LAB
+applications:
+  - projects/esp32-usb-analyzer/applications/usb-dual-esp-observe-proxy.md
+audits:
+  -
+    audit_id: A-2026-089
+    directory: esp32-usb-analyzer-2026-pilot
+    status: closed
+    environment: lab
+    path: audits/esp32-usb-analyzer-2026-pilot
+  -
+    audit_id: A-2026-090
+    directory: esp32-usb-analyzer-2026-0.0.50
+    status: closed
+    environment: lab
+    path: audits/esp32-usb-analyzer-2026-0.0.50
+methods:
+  - methods/usb-bot-command-observation.md
+  - methods/usb-otg-loop-baseline.md
+  - methods/usb-wifi-coex-discrimination.md
+evidence_ids:
+  - EVID-USBA-2026-10-31-001
+  - EVID-USBA-2026-10-31-004
+  - EVID-USBA-2026-10-31-006
+  - EVID-USBA-2026-10-31-009
+  - EVID-USBA-2026-10-31-012
+  - EVID-USBA-2026-10-31-013
+  - EVID-USBA-2026-11-02-001
+  - EVID-USBA-2026-11-02-003
+  - EVID-USBA-2026-11-02-005
+  - EVID-USBA-2026-11-02-006
+  - EVID-USBA-2026-11-02-007
+  - EVID-USBA-2026-11-02-008
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Dual-ESP Lab = transparent MITM
+    status: REJECTED
+    source: technologies/usb-dual-esp-observe-proxy/SHEET.md
+  -
+    statement: Capture Events = D+/D− Packets
+    status: REJECTED
+    source: technologies/usb-dual-esp-observe-proxy/SHEET.md
+  -
+    statement: GPIO19/20 CPU-Sample = FS Packet-Sniffer unter OTG
+    status: REJECTED
+    source: technologies/usb-dual-esp-observe-proxy/SHEET.md
+  -
+    statement: Cross-node µs timestamps sync by default
+    status: REJECTED
+    source: technologies/usb-dual-esp-observe-proxy/SHEET.md
+  -
+    statement: WiFi Mode-A rate ≥ USB MSC Nutzrate
+    status: REJECTED
+    source: technologies/usb-dual-esp-observe-proxy/SHEET.md
+  -
+    statement: OTG-Loop Topologie = MITM Wiring
+    status: REJECTED
+    source: technologies/usb-dual-esp-observe-proxy/SHEET.md
+  -
+    statement: Soft-Unplug / Soft-USB-Cycle = VBUS-Unplug
+    status: REJECTED
+    source: technologies/usb-dual-esp-observe-proxy/SHEET.md
+  -
+    statement: Phone HS-only auf S3 Host
+    status: REJECTED
+    source: technologies/usb-dual-esp-observe-proxy/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

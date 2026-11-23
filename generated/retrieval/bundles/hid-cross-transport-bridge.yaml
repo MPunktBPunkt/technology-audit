@@ -1,0 +1,62 @@
+# GENERATED retrieval bundle for hid-cross-transport-bridge
+# generated: 2026-11-23
+
+topic: hid-cross-transport-bridge
+generated: 2026-11-23
+source_of_truth:
+  - technologies/hid-cross-transport-bridge/SHEET.md
+  - audits/bt-analysis-relay-2026-foreign/README.md
+  - audits/bt-classic-gaps-2026-foreign/README.md
+primary:
+  - hid-cross-transport-bridge
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/bt-classic-profile-refs/applications/hid-cross-transport-bridge.md
+audits:
+  -
+    audit_id: A-2026-084
+    directory: bt-analysis-relay-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-analysis-relay-2026-foreign
+  -
+    audit_id: A-2026-085
+    directory: bt-classic-gaps-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-classic-gaps-2026-foreign
+methods:
+  - methods/bt-passive-host-sniff.md
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Descriptor unverändert immer kompatibel
+    status: HYPOTHESIS
+    source: technologies/hid-cross-transport-bridge/SHEET.md
+  -
+    statement: Event-driven Forward im HID-Callback sicher
+    status: HYPOTHESIS
+    source: technologies/hid-cross-transport-bridge/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: depth-1 latest-wins Queue für Keyboard OK
+    status: REJECTED
+    source: technologies/hid-cross-transport-bridge/SHEET.md
+  -
+    statement: Classic HID Host Example ersetzt Bridge
+    status: REJECTED
+    source: technologies/hid-cross-transport-bridge/SHEET.md
+  -
+    statement: Bridge ohne BTDM
+    status: REJECTED
+    source: technologies/hid-cross-transport-bridge/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

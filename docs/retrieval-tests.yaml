@@ -1,12 +1,13 @@
 # Retrieval / usability fixtures for the knowledge base (standard 0.6.5+)
-# Structural CI: expected paths must exist (ta-assist check RT1).
+# Structural CI: expected paths must exist (ta-assist check RT1/RT2).
 # Semantic pass: a human/agent answering the question should cite expect.paths
 # and must not treat reject.slugs as equally primary.
+# Prefer generated/retrieval/bundles for AI answers (incl. rejected + transfer_limits).
 #
-# Run mentally with: docs/PROJECT-START.md → technologies/index.yaml → FAMILIES
+# Run: docs/PROJECT-START.md → generated/retrieval/index.yaml → FAMILIES
 
-version: 1
-updated: 2026-10-11
+version: 2
+updated: 2026-11-23
 
 cases:
   - id: usb-msc-host-caching
@@ -166,5 +167,81 @@ cases:
         - docs/DOCUMENT-STANDARD.md
         - docs/KB-FIT.md
         - docs/MAINTENANCE.md
+    reject:
+      slugs: []
+
+  - id: bmw-sas-crypto-closed
+    question: "Ist SAS/APP_AUTH kryptographisch geschlossen — Pad, Digest, RSA-Verify?"
+    expect:
+      paths:
+        - generated/retrieval/bundles/topic-bmw-sas-crypto.yaml
+        - technologies/bmw-sas-auth/SHEET.md
+        - audits/bmw-sas-auth-field-crypto-2026-11-21/README.md
+        - audits/bmw-sas-auth-field-crypto-2026-11-21/claims.yaml
+        - docs/EVIDENCE-CLAIM-MODEL.md
+    reject:
+      slugs: [usb-msc, dab-plus]
+
+  - id: bmw-connected-music-e2e
+    question: "Was wissen wir über Connected Music auf NBT Evo (Auth, RHMI Handle 23, AV, Audio-Grenze)?"
+    expect:
+      paths:
+        - generated/retrieval/bundles/topic-bmw-connected-music.yaml
+        - technologies/bmw-rhmi/SHEET.md
+        - technologies/bmw-av/SHEET.md
+        - audits/bmw-av-session-control-vs-audio-2026-11-21/claims.yaml
+        - audits/INDEX.yaml
+    reject:
+      slugs: [usb-msc, rpi-gpio-fm-tx]
+
+  - id: av-play-not-audio
+    question: "Bedeutet av_playerStateChanged PLAY hörbares Audio?"
+    expect:
+      paths:
+        - generated/retrieval/bundles/topic-audio-boundary-dual-plane.yaml
+        - technologies/bmw-av/SHEET.md
+        - audits/bmw-av-session-control-vs-audio-2026-11-21/README.md
+    reject:
+      slugs: [bluetooth-a2dp]
+
+  - id: spotify-not-am
+    question: "Ist Spotify eine am_registerApp auf dem F20?"
+    expect:
+      paths:
+        - generated/retrieval/bundles/bmw-rhmi.yaml
+        - audits/bmw-am-bootstrap-field-2026-11-21/claims.yaml
+        - technologies/bmw-rhmi/SHEET.md
+    reject:
+      slugs: []
+
+  - id: bcl-fragmentation
+    question: "Wie fragmentiert BCL Etch-Payloads Phone vs HU?"
+    expect:
+      paths:
+        - generated/retrieval/bundles/topic-bmw-bcl-etch-transport.yaml
+        - technologies/bmw-bcl/SHEET.md
+        - methods/raw-bcl-etch-forensic.md
+    reject:
+      slugs: [usb-aoa]
+
+  - id: usb-msc-transfer-limits
+    question: "Welche USB-MSC-Caching-Erkenntnisse gelten allgemein vs nur BMW NBT Evo?"
+    expect:
+      paths:
+        - generated/retrieval/bundles/topic-usb-msc-nbt-cache.yaml
+        - technologies/usb-msc/SHEET.md
+        - technologies/bmw-nbt-evo/SHEET.md
+        - docs/EVIDENCE-CLAIM-MODEL.md
+    reject:
+      slugs: [bmw-sas-auth]
+
+  - id: retrieval-entry
+    question: "Wo startet eine AI-Suche in dieser Wissensbasis?"
+    expect:
+      paths:
+        - AGENTS.md
+        - generated/retrieval/index.yaml
+        - audits/INDEX.yaml
+        - docs/EVIDENCE-CLAIM-MODEL.md
     reject:
       slugs: []

@@ -1,0 +1,56 @@
+# GENERATED retrieval bundle for esp-wireguard
+# generated: 2026-11-23
+
+topic: esp-wireguard
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-wireguard/SHEET.md
+  - audits/esp32-car-network-2026-foreign/README.md
+primary:
+  - esp-wireguard
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/esp32-car-network-refs/applications/esp-wireguard.md
+audits:
+  -
+    audit_id: A-2026-097
+    directory: esp32-car-network-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp32-car-network-2026-foreign
+methods: []
+evidence_ids:
+  - EVID-CARNET-2026-11-12-020
+  - EVID-CARNET-YYYY-MM-DD
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Port immer beliebig
+    status: HYPOTHESIS
+    source: technologies/esp-wireguard/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: "`esp_wireguard_connect` ESP_OK = Tunnel up"
+    status: REJECTED
+    source: technologies/esp-wireguard/SHEET.md
+  -
+    statement: Hinter NAT ohne keepalive stabil
+    status: REJECTED
+    source: technologies/esp-wireguard/SHEET.md
+  -
+    statement: Component sync’t Zeit selbst
+    status: REJECTED
+    source: technologies/esp-wireguard/SHEET.md
+  -
+    statement: WG allein = Rendezvous hinter CGNAT ohne erreichbaren Endpoint
+    status: REJECTED
+    source: technologies/esp-wireguard/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

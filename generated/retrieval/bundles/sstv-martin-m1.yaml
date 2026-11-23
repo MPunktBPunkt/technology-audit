@@ -1,0 +1,58 @@
+# GENERATED retrieval bundle for sstv-martin-m1
+# generated: 2026-11-23
+
+topic: sstv-martin-m1
+generated: 2026-11-23
+source_of_truth:
+  - technologies/sstv-martin-m1/SHEET.md
+  - audits/tinysstv-2026-foreign/README.md
+primary:
+  - sstv-martin-m1
+maturity:
+  technology: R1
+  field_evidence: R0
+  reusability: W1
+  evidence_scope: []
+applications:
+  - projects/tinysstv/applications/sstv-martin-m1.md
+audits:
+  -
+    audit_id: A-2026-079
+    directory: tinysstv-2026-foreign
+    status: active
+    environment: lab
+    path: audits/tinysstv-2026-foreign
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: SSTV-PDM-GPIO = direkter UKW-Sender
+    status: REJECTED
+    source: technologies/sstv-martin-m1/SHEET.md
+  -
+    statement: PDM-Pin ohne LPF an Mic/Line
+    status: REJECTED
+    source: technologies/sstv-martin-m1/SHEET.md
+  -
+    statement: Martin M1 ≡ APLL-FM-Sheet
+    status: REJECTED
+    source: technologies/sstv-martin-m1/SHEET.md
+  -
+    statement: PTT-GPIO immer im Firmware-Scope
+    status: REJECTED
+    source: technologies/sstv-martin-m1/SHEET.md
+  -
+    statement: VIS/Farben egal
+    status: REJECTED
+    source: technologies/sstv-martin-m1/SHEET.md
+  -
+    statement: Ohne Amateurfunklizenz „Labor = On-Air ok“
+    status: REJECTED
+    source: technologies/sstv-martin-m1/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

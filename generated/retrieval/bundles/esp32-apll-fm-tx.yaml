@@ -1,0 +1,164 @@
+# GENERATED retrieval bundle for esp32-apll-fm-tx
+# generated: 2026-11-23
+
+topic: esp32-apll-fm-tx
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp32-apll-fm-tx/SHEET.md
+  - audits/esp-fm-rds-node-2026-foreign/README.md
+  - audits/esp-fm-tx-2026-foreign/README.md
+  - audits/esp32-sdr-trx-2026-foreign/README.md
+  - audits/pi-fm-tx-2026-foreign/README.md
+  - audits/pidrive-2026-radio-bt/README.md
+  - audits/tinysstv-2026-foreign/README.md
+primary:
+  - esp32-apll-fm-tx
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp-fm-tx/applications/esp32-apll-fm-tx.md
+audits:
+  -
+    audit_id: A-2026-026
+    directory: pidrive-2026-radio-bt
+    status: active
+    environment: field
+    path: audits/pidrive-2026-radio-bt
+  -
+    audit_id: A-2026-027
+    directory: pi-fm-tx-2026-foreign
+    status: active
+    environment: lab
+    path: audits/pi-fm-tx-2026-foreign
+  -
+    audit_id: A-2026-029
+    directory: esp-fm-tx-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp-fm-tx-2026-foreign
+  -
+    audit_id: A-2026-030
+    directory: esp32-sdr-trx-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-sdr-trx-2026-foreign
+  -
+    audit_id: A-2026-049
+    directory: esp-fm-rds-node-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp-fm-rds-node-2026-foreign
+  -
+    audit_id: A-2026-079
+    directory: tinysstv-2026-foreign
+    status: active
+    environment: lab
+    path: audits/tinysstv-2026-foreign
+methods:
+  - methods/hw-path-gate.md
+  - methods/kb-cross-check.md
+  - methods/rf-loopback-rds-acceptance.md
+evidence_ids:
+  - EVID-FMRDS-2026-10-13-001
+  - EVID-FMRDS-2026-10-13-003
+  - EVID-FMRDS-2026-10-13-004
+  - EVID-FMRDS-2026-10-13-005
+  - EVID-FMRDS-2026-10-13-008
+  - EVID-FMRDS-2026-10-13-010
+  - EVID-FMRDS-2026-10-13-012
+  - EVID-FMRDS-2026-10-13-022
+  - EVID-FMRDS-2026-10-13-023
+  - EVID-FMRDS-2026-10-13-026
+  - EVID-FMRDS-2026-10-13-027
+  - EVID-FMRDS-2026-10-13-030
+facts:
+  -
+    statement: Referenz für APLL
+    status: FACT
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: "Lock-Fenster; `o_div`/`sdm*`"
+    status: FACT
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: Träger im UKW-nahen Bereich
+    status: FACT
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: Pin-Mux Routing
+    status: FACT
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: GPIO0 oder GPIO16 (projektabhängig)
+    status: FACT
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: APLL vorhanden
+    status: FACT
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: I2S teilt APLL-Ausgang oft ÷2
+    status: FACT
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+inferences:
+  -
+    statement: LEDC als drop-in 32 MHz/UKW-Clock auf S3
+    status: INFERENCE
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: Naive APLL-Search = genaue Audio-/Trägerfreq
+    status: INFERENCE
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+hypotheses:
+  -
+    statement: Clock-Tree-Ausgang ist der einzige UKW-Kandidat auf S3
+    status: HYPOTHESIS
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+unknowns:
+  -
+    statement: "Pegel, Spurious"
+    status: UNKNOWN
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: Pi-DMA-Exit-Risiko existiert identisch am ESP
+    status: UNKNOWN
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+rejected:
+  -
+    statement: APLL-Äquivalent
+    status: REJECTED
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: „ESP32 kann FM“ gilt für alle ESP32-Serien
+    status: REJECTED
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: "Alexxdal `#error`-Text „S2 hat kein APLL“"
+    status: REJECTED
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: ESP32-S3 erbt APLL-FM automatisch
+    status: REJECTED
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: Antenne am GPIO = harmlos
+    status: REJECTED
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: Spektrum ist „sauberes FM“
+    status: REJECTED
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: GPIO0 immer ideal
+    status: REJECTED
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+  -
+    statement: RDS = Text an den Sender
+    status: REJECTED
+    source: technologies/esp32-apll-fm-tx/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

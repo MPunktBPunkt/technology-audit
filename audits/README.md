@@ -1,6 +1,9 @@
 # audits/
 
-Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VERSION`](../VERSION) / [`STANDARD-CHANGELOG`](../docs/STANDARD-CHANGELOG.md)). `audits/<id>/README.md` · Profile: [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md).
+Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VERSION`](../VERSION) / [`STANDARD-CHANGELOG`](../docs/STANDARD-CHANGELOG.md)). `audits/<dir>/README.md` · Profile: [`AUDIT-PROFILES.md`](../docs/AUDIT-PROFILES.md).
+
+**Maschinenindex (generiert):** [`INDEX.yaml`](INDEX.yaml) — stabile `audit_id: A-YYYY-NNN` ↔ Directory. Regenerieren: `python3 tools/ta-assist index`.  
+Retrieval-Bundles: [`../generated/retrieval/`](../generated/retrieval/) · Modell: [`EVIDENCE-CLAIM-MODEL.md`](../docs/EVIDENCE-CLAIM-MODEL.md).
 
 ## Index
 

@@ -1,0 +1,111 @@
+# GENERATED retrieval bundle for esp32-undoc-iq-rx
+# generated: 2026-11-23
+
+topic: esp32-undoc-iq-rx
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp32-undoc-iq-rx/SHEET.md
+  - audits/c5vrx-2026-foreign/README.md
+  - audits/esp-sdr-bridge-2026-foreign/README.md
+  - audits/esp32-sdr-trx-2026-foreign/README.md
+  - audits/esp32sdr-2026-foreign/README.md
+  - audits/espargos-espsdr-2026-foreign/README.md
+primary:
+  - esp32-undoc-iq-rx
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/c5vrx/applications/esp32-undoc-iq-rx.md
+  - projects/esp-sdr-bridge/applications/esp32-undoc-iq-rx.md
+  - projects/esp32-sdr-trx/applications/esp32-undoc-iq-rx.md
+  - projects/esp32sdr/applications/esp32-undoc-iq-rx.md
+  - projects/espargos-espsdr/applications/esp32-undoc-iq-rx.md
+audits:
+  -
+    audit_id: A-2026-028
+    directory: c5vrx-2026-foreign
+    status: active
+    environment: lab
+    path: audits/c5vrx-2026-foreign
+  -
+    audit_id: A-2026-030
+    directory: esp32-sdr-trx-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-sdr-trx-2026-foreign
+  -
+    audit_id: A-2026-031
+    directory: espargos-espsdr-2026-foreign
+    status: active
+    environment: lab
+    path: audits/espargos-espsdr-2026-foreign
+  -
+    audit_id: A-2026-037
+    directory: esp-sdr-bridge-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp-sdr-bridge-2026-foreign
+  -
+    audit_id: A-2026-043
+    directory: esp32sdr-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32sdr-2026-foreign
+methods:
+  - methods/hw-path-gate.md
+evidence_ids: []
+facts:
+  -
+    statement: I/Q oder Diagnose-Samples
+    status: FACT
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+  -
+    statement: chip-/projektabhängig
+    status: FACT
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+  -
+    statement: Bandbreite begrenzt Duty-Cycle
+    status: FACT
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+  -
+    statement: Backend-Portabilität (G7)
+    status: FACT
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+inferences: []
+hypotheses: []
+unknowns:
+  -
+    statement: "Sensitivität, Spurs, DC-Peak"
+    status: UNKNOWN
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+  -
+    statement: C5/S31 = gleiche Caps wie S3
+    status: UNKNOWN
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+rejected:
+  -
+    statement: „ESP32 kann SDR“ gilt für alle Targets gleich
+    status: REJECTED
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+  -
+    statement: S3-80 Msps ohne FPGA = Universal-Node
+    status: REJECTED
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+  -
+    statement: Undokumentiert = stabiler Vendor-Contract
+    status: REJECTED
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+  -
+    statement: TX öffentlich in ESPARGOS-Firmware
+    status: REJECTED
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+  -
+    statement: Tutorial/AI-Code ersetzt Messung
+    status: REJECTED
+    source: technologies/esp32-undoc-iq-rx/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

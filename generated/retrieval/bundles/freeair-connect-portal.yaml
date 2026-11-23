@@ -1,0 +1,43 @@
+# GENERATED retrieval bundle for freeair-connect-portal
+# generated: 2026-11-23
+
+topic: freeair-connect-portal
+generated: 2026-11-23
+source_of_truth:
+  - technologies/freeair-connect-portal/SHEET.md
+primary:
+  - freeair-connect-portal
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W1
+  evidence_scope: []
+applications:
+  - projects/iobroker-freeair100/applications/freeair-connect-portal.md
+audits: []
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: HTML-Keys sind stabil über Firmware
+    status: HYPOTHESIS
+    source: technologies/freeair-connect-portal/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Portal braucht Login-Token
+    status: REJECTED
+    source: technologies/freeair-connect-portal/SHEET.md
+  -
+    statement: AES-Payload ohne Key nutzbar
+    status: REJECTED
+    source: technologies/freeair-connect-portal/SHEET.md
+  -
+    statement: Cloud-Poll = lokales LAN-Gerät
+    status: REJECTED
+    source: technologies/freeair-connect-portal/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

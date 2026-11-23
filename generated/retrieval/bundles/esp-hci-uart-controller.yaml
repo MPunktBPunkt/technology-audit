@@ -1,0 +1,73 @@
+# GENERATED retrieval bundle for esp-hci-uart-controller
+# generated: 2026-11-23
+
+topic: esp-hci-uart-controller
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-hci-uart-controller/SHEET.md
+  - audits/esp32-hci-controller-2026-foreign/README.md
+primary:
+  - esp-hci-uart-controller
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-hci-controller-refs/applications/esp-hci-uart-controller.md
+audits:
+  -
+    audit_id: A-2026-098
+    directory: esp32-hci-controller-2026-foreign
+    status: closed
+    environment: mixed
+    path: audits/esp32-hci-controller-2026-foreign
+methods:
+  - methods/bt-hci-host-attach.md
+  - methods/bt-passive-host-sniff.md
+  - methods/bt-usb-hci-observe-baseline.md
+evidence_ids: []
+facts:
+  -
+    statement: ESP32 kann Dual-Mode Controller für BlueZ sein (UART H4)
+    status: FACT
+    source: technologies/esp-hci-uart-controller/SHEET.md
+  -
+    statement: "Default ESP32 HCI UART = Pins 5/18/19/23 @ 921600 + HWFC"
+    status: FACT
+    source: technologies/esp-hci-uart-controller/SHEET.md
+  -
+    statement: VS HCI muss für Third-Party-Hosts aus
+    status: FACT
+    source: technologies/esp-hci-uart-controller/SHEET.md
+inferences: []
+hypotheses: []
+unknowns:
+  -
+    statement: Reset Host vor Controller stabil
+    status: UNKNOWN
+    source: technologies/esp-hci-uart-controller/SHEET.md
+rejected:
+  -
+    statement: "`hciattach … noflow` = immer gleich gut wie HWFC"
+    status: REJECTED
+    source: technologies/esp-hci-uart-controller/SHEET.md
+  -
+    statement: UART-HCI-Throughput = Analyzer HCI_TCP ~41–45 kB/s
+    status: REJECTED
+    source: technologies/esp-hci-uart-controller/SHEET.md
+  -
+    statement: "SCO ohne `SCO_DATA_PATH_HCI` läuft über Host"
+    status: REJECTED
+    source: technologies/esp-hci-uart-controller/SHEET.md
+  -
+    statement: BLE-only Chip = Classic HCI Controller
+    status: REJECTED
+    source: technologies/esp-hci-uart-controller/SHEET.md
+  -
+    statement: "Zephyr `btattach -S 1000000` = ESP-IDF Default 921600"
+    status: REJECTED
+    source: technologies/esp-hci-uart-controller/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -1,0 +1,58 @@
+# GENERATED retrieval bundle for ble-gatt-semantic-bridge
+# generated: 2026-11-23
+
+topic: ble-gatt-semantic-bridge
+generated: 2026-11-23
+source_of_truth:
+  - technologies/ble-gatt-semantic-bridge/SHEET.md
+  - audits/ble-gatt-bridge-refs-2026-foreign/README.md
+primary:
+  - ble-gatt-semantic-bridge
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/ble-gatt-bridge-refs/applications/ble-gatt-semantic-bridge.md
+audits:
+  -
+    audit_id: A-2026-083
+    directory: ble-gatt-bridge-refs-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/ble-gatt-bridge-refs-2026-foreign
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Upstream-Notify immer vorhanden
+    status: HYPOTHESIS
+    source: technologies/ble-gatt-semantic-bridge/SHEET.md
+  -
+    statement: CPS/CSC-Felder „einfach weglassen“
+    status: HYPOTHESIS
+    source: technologies/ble-gatt-semantic-bridge/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Gleiche Physik-Größe ⇒ byte-identische Characteristic
+    status: REJECTED
+    source: technologies/ble-gatt-semantic-bridge/SHEET.md
+  -
+    statement: Control-Point Success = Wirkung am Gerät
+    status: REJECTED
+    source: technologies/ble-gatt-semantic-bridge/SHEET.md
+  -
+    statement: Multi-Client + Exclusive ohne Lock-Policy
+    status: REJECTED
+    source: technologies/ble-gatt-semantic-bridge/SHEET.md
+  -
+    statement: Semantic Bridge braucht Transparent-Clone
+    status: REJECTED
+    source: technologies/ble-gatt-semantic-bridge/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

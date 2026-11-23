@@ -1,0 +1,57 @@
+# GENERATED retrieval bundle for sdr-spectrum-fft
+# generated: 2026-11-23
+
+topic: sdr-spectrum-fft
+generated: 2026-11-23
+source_of_truth:
+  - technologies/sdr-spectrum-fft/SHEET.md
+  - audits/pidrive-2026-radio-bt/README.md
+  - audits/welle-io-2026-foreign/README.md
+primary:
+  - sdr-spectrum-fft
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/pidrive/applications/sdr-spectrum-fft.md
+audits:
+  -
+    audit_id: A-2026-026
+    directory: pidrive-2026-radio-bt
+    status: active
+    environment: field
+    path: audits/pidrive-2026-radio-bt
+  -
+    audit_id: A-2026-033
+    directory: welle-io-2026-foreign
+    status: active
+    environment: lab
+    path: audits/welle-io-2026-foreign
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: "JSON/`<pre>` reicht als UI"
+    status: HYPOTHESIS
+    source: technologies/sdr-spectrum-fft/SHEET.md
+  -
+    statement: Averaging optional ohne DC/Offset-Bewusstsein
+    status: HYPOTHESIS
+    source: technologies/sdr-spectrum-fft/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Ein Spektrum-Endpunkt für alle Bänder
+    status: REJECTED
+    source: technologies/sdr-spectrum-fft/SHEET.md
+  -
+    statement: FFT parallel zu Demod auf einem Stick
+    status: REJECTED
+    source: technologies/sdr-spectrum-fft/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

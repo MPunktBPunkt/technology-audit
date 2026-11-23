@@ -1,0 +1,73 @@
+# GENERATED retrieval bundle for fm-rds
+# generated: 2026-11-23
+
+topic: fm-rds
+generated: 2026-11-23
+source_of_truth:
+  - technologies/fm-rds/SHEET.md
+  - audits/esp-fm-rds-node-2026-foreign/README.md
+  - audits/pi-fm-tx-2026-foreign/README.md
+primary:
+  - fm-rds
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp-fm-rds-node/applications/fm-rds.md
+  - projects/pi-fm-tx/applications/fm-rds.md
+audits:
+  -
+    audit_id: A-2026-027
+    directory: pi-fm-tx-2026-foreign
+    status: active
+    environment: lab
+    path: audits/pi-fm-tx-2026-foreign
+  -
+    audit_id: A-2026-049
+    directory: esp-fm-rds-node-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp-fm-rds-node-2026-foreign
+methods:
+  - methods/hw-path-gate.md
+  - methods/kb-cross-check.md
+  - methods/rf-loopback-rds-acceptance.md
+evidence_ids:
+  - EVID-FMRDS-2026-10-13-001
+  - EVID-FMRDS-2026-10-13-003
+  - EVID-FMRDS-2026-10-13-004
+  - EVID-FMRDS-2026-10-13-005
+  - EVID-FMRDS-2026-10-13-008
+  - EVID-FMRDS-2026-10-13-010
+  - EVID-FMRDS-2026-10-13-012
+  - EVID-FMRDS-2026-10-13-022
+  - EVID-FMRDS-2026-10-13-023
+  - EVID-FMRDS-2026-10-13-026
+  - EVID-FMRDS-2026-10-13-027
+  - EVID-FMRDS-2026-10-13-030
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: PS/RT ändern = A2DP/AVRCP-Titel
+    status: REJECTED
+    source: technologies/fm-rds/SHEET.md
+  -
+    statement: RDS ohne sauberes MPX „einfach anhängen“
+    status: REJECTED
+    source: technologies/fm-rds/SHEET.md
+  -
+    statement: Jeder FM-RX zeigt RDS
+    status: REJECTED
+    source: technologies/fm-rds/SHEET.md
+  -
+    statement: RDS macht unlizenzierte Aussendung legal
+    status: REJECTED
+    source: technologies/fm-rds/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

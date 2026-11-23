@@ -1,0 +1,63 @@
+# GENERATED retrieval bundle for hammer-varon-xtr
+# generated: 2026-11-23
+
+topic: hammer-varon-xtr
+generated: 2026-11-23
+source_of_truth:
+  - technologies/hammer-varon-xtr/SHEET.md
+  - audits/esp32-ergo-2026-pilot/README.md
+  - audits/esp32-ftmsprobe-2026-pilot/README.md
+primary:
+  - hammer-varon-xtr
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope:
+    - LAB
+    - FIELD
+    - DEVICE-SPECIFIC
+applications:
+  - projects/esp32-ergo/applications/hammer-varon-xtr.md
+  - projects/esp32-ftmsprobe/applications/hammer-varon-xtr.md
+audits:
+  -
+    audit_id: A-2026-006
+    directory: esp32-ergo-2026-pilot
+    status: active
+    environment: desk
+    path: audits/esp32-ergo-2026-pilot
+  -
+    audit_id: A-2026-008
+    directory: esp32-ftmsprobe-2026-pilot
+    status: active
+    environment: lab
+    path: audits/esp32-ftmsprobe-2026-pilot
+methods:
+  - methods/ftms-capability-probe.md
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Marketing-Stufen/Watt = FTMS-Raster
+    status: REJECTED
+    source: technologies/hammer-varon-xtr/SHEET.md
+  -
+    statement: "Opcode `0x05` Success ⇒ Wattziel aktiv"
+    status: REJECTED
+    source: technologies/hammer-varon-xtr/SHEET.md
+  -
+    statement: Advertising allein reicht zum Wiederfinden
+    status: REJECTED
+    source: technologies/hammer-varon-xtr/SHEET.md
+  -
+    statement: Resistance-Feld in IBD spiegelt Ist-Stufe
+    status: REJECTED
+    source: technologies/hammer-varon-xtr/SHEET.md
+transfer_limits:
+  - device_specific
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

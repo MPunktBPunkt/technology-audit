@@ -1,0 +1,63 @@
+# GENERATED retrieval bundle for usb-msc-host-behaviour
+# generated: 2026-11-23
+
+topic: usb-msc-host-behaviour
+generated: 2026-11-23
+source_of_truth:
+  - technologies/usb-msc-host-behaviour/SHEET.md
+  - audits/esp32-usb-analyzer-2026-field-host-matrix/README.md
+primary:
+  - usb-msc-host-behaviour
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope:
+    - FIELD
+    - HOST-SPECIFIC
+applications:
+  - projects/esp32-usb-analyzer/applications/usb-msc-host-behaviour.md
+audits:
+  -
+    audit_id: A-2026-093
+    directory: esp32-usb-analyzer-2026-field-host-matrix
+    status: closed
+    environment: mixed
+    path: audits/esp32-usb-analyzer-2026-field-host-matrix
+methods:
+  - methods/usb-bot-command-observation.md
+  - methods/usb-msc-host-fingerprint.md
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns:
+  -
+    statement: "Windows Write-Bytes > Cache-Slots ⇒ Datenloch"
+    status: UNKNOWN
+    source: technologies/usb-msc-host-behaviour/SHEET.md
+rejected:
+  -
+    statement: Ein Host-Muster gilt für alle Hosts
+    status: REJECTED
+    source: technologies/usb-msc-host-behaviour/SHEET.md
+  -
+    statement: n=1 Gerät ⇒ Host-Klasse („TVs…“)
+    status: REJECTED
+    source: technologies/usb-msc-host-behaviour/SHEET.md
+  -
+    statement: AOA=0 an MSC-Identity ⇒ Host kann kein AOA
+    status: REJECTED
+    source: technologies/usb-msc-host-behaviour/SHEET.md
+  -
+    statement: UI-Stille ⇒ kein USB-Mount
+    status: REJECTED
+    source: technologies/usb-msc-host-behaviour/SHEET.md
+  -
+    statement: Capture-Ring-Overflow = vollständige Opcode-Historie
+    status: REJECTED
+    source: technologies/usb-msc-host-behaviour/SHEET.md
+transfer_limits:
+  - host_specific
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

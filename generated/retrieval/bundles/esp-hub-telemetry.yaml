@@ -1,0 +1,212 @@
+# GENERATED retrieval bundle for esp-hub-telemetry
+# generated: 2026-11-23
+
+topic: esp-hub-telemetry
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-hub-telemetry/SHEET.md
+  - audits/esp32-ergo-2026-pilot/README.md
+  - audits/esp32-esp-hub-2026-1.10-validation/README.md
+  - audits/esp32-esp-hub-2026-pilot/README.md
+  - audits/esp32-ftmsprobe-2026-pilot/README.md
+  - audits/esp32-heartrate-2026-pilot/README.md
+  - audits/esp32-rfmonitor-2026-motion-delta/README.md
+  - audits/esp32-rfmonitor-2026-pilot/README.md
+  - audits/esp32-rfmonitor-2026-v2-validation/README.md
+  - audits/esp32-usb-analyzer-2026-pilot/README.md
+  - audits/rnt-esp32-2026-foreign/README.md
+primary:
+  - esp-hub-telemetry
+maturity:
+  technology: R4
+  field_evidence: R0
+  reusability: W4
+  evidence_scope: []
+applications:
+  - projects/esp32-bt-analyzer/applications/esp-hub-telemetry.md
+  - projects/esp32-bt-gateway/applications/esp-hub-telemetry.md
+  - projects/esp32-communicator/applications/esp-hub-telemetry.md
+  - projects/esp32-ergo/applications/esp-hub-telemetry.md
+  - projects/esp32-esp-hub/applications/esp-hub-telemetry.md
+  - projects/esp32-ftmsprobe/applications/esp-hub-telemetry.md
+  - projects/esp32-heartrate/applications/esp-hub-telemetry.md
+  - projects/esp32-io-control/applications/esp-hub-telemetry.md
+  - projects/esp32-metermaster/applications/esp-hub-telemetry.md
+  - projects/esp32-network/applications/esp-hub-telemetry.md
+  - projects/esp32-pidrive/applications/esp-hub-telemetry.md
+  - projects/esp32-rfmonitor/applications/esp-hub-telemetry.md
+  - projects/esp32-toolnode/applications/esp-hub-telemetry.md
+  - projects/esp32-usb-analyzer/applications/esp-hub-telemetry.md
+  - projects/esp32-webradio/applications/esp-hub-telemetry.md
+  - projects/iobroker-esp-hub/applications/esp-hub-telemetry.md
+audits:
+  -
+    audit_id: A-2026-003
+    directory: esp32-heartrate-2026-pilot
+    status: active
+    environment: desk
+    path: audits/esp32-heartrate-2026-pilot
+  -
+    audit_id: A-2026-006
+    directory: esp32-ergo-2026-pilot
+    status: active
+    environment: desk
+    path: audits/esp32-ergo-2026-pilot
+  -
+    audit_id: A-2026-007
+    directory: esp32-esp-hub-2026-pilot
+    status: closed
+    environment: desk
+    path: audits/esp32-esp-hub-2026-pilot
+  -
+    audit_id: A-2026-008
+    directory: esp32-ftmsprobe-2026-pilot
+    status: active
+    environment: lab
+    path: audits/esp32-ftmsprobe-2026-pilot
+  -
+    audit_id: A-2026-013
+    directory: esp32-rfmonitor-2026-pilot
+    status: closed
+    environment: desk
+    path: audits/esp32-rfmonitor-2026-pilot
+  -
+    audit_id: A-2026-032
+    directory: rnt-esp32-2026-foreign
+    status: active
+    environment: lab
+    path: audits/rnt-esp32-2026-foreign
+  -
+    audit_id: A-2026-074
+    directory: esp32-rfmonitor-2026-v2-validation
+    status: closed
+    environment: desk
+    path: audits/esp32-rfmonitor-2026-v2-validation
+  -
+    audit_id: A-2026-081
+    directory: esp32-rfmonitor-2026-motion-delta
+    status: active
+    environment: desk
+    path: audits/esp32-rfmonitor-2026-motion-delta
+  -
+    audit_id: A-2026-087
+    directory: esp32-esp-hub-2026-1.10-validation
+    status: closed
+    environment: desk
+    path: audits/esp32-esp-hub-2026-1.10-validation
+  -
+    audit_id: A-2026-089
+    directory: esp32-usb-analyzer-2026-pilot
+    status: closed
+    environment: lab
+    path: audits/esp32-usb-analyzer-2026-pilot
+methods:
+  - methods/ftms-capability-probe.md
+  - methods/own-link-motion-sensitivity.md
+  - methods/usb-bot-command-observation.md
+  - methods/usb-otg-loop-baseline.md
+  - methods/usb-wifi-coex-discrimination.md
+evidence_ids:
+  - EVID-BASE-2026-10-28-001
+  - EVID-BASE-2026-10-28-003
+  - EVID-BASE-2026-10-28-004
+  - EVID-HUB-2026-10-25-001
+  - EVID-HUB-2026-10-28
+  - EVID-HUB-2026-10-28-001
+  - EVID-HUB-2026-10-28-002
+  - EVID-HUB-2026-10-28-003
+  - EVID-RF-2026-10-25-001
+  - EVID-RF-2026-10-25-002
+  - EVID-RF-2026-10-25-003
+  - EVID-RF-2026-10-25-004
+  - EVID-RF-2026-10-25-005
+  - EVID-RF-2026-10-26-001
+  - EVID-RF-2026-10-26-002
+  - EVID-RF-2026-10-26-003
+  - EVID-RF-2026-10-26-004
+  - EVID-RF-2026-10-26-005
+  - EVID-USBA-2026-10-31-001
+  - EVID-USBA-2026-10-31-004
+  - EVID-USBA-2026-10-31-006
+  - EVID-USBA-2026-10-31-009
+  - EVID-USBA-2026-10-31-012
+  - EVID-USBA-2026-10-31-013
+  - EVID-WEB-2026-10-26-001
+  - EVID-WEB-2026-10-28
+  - EVID-WEB-2026-10-28-001
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: Config-Änderungen dürfen bis zum nächsten Intervall warten
+    status: HYPOTHESIS
+    source: technologies/esp-hub-telemetry/SHEET.md
+unknowns:
+  -
+    statement: OTA aus Heartbeat-Response ist spezifiziert überall gleich
+    status: UNKNOWN
+    source: technologies/esp-hub-telemetry/SHEET.md
+rejected:
+  -
+    statement: Hub ist immer erreichbar
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: "Ein `fwType` reicht für alle Nodes"
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: "Hub-Anbindung erfordert Arduino-`esp-hub-base`"
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: OTA-URL im Heartbeat ist dauerhaft gültig
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: Hub-OTA funktioniert immer im Feld (Auto)
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: Produkt-Adapter-Register = ESP-Hub-Heartbeat
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: "Simple-API ersetzt `/api/register`"
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: "Jeder Hub-Node sendet `fwType`"
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: "Fehlendes `fwType` = kein Hub-Muster"
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: Contract ändert sich mit Programmiersprache
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: "Nested Domain-Blöcke (z. B. `rf.alert`) ersetzen den Basis-Heartbeat"
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: Device-Contract-Doku = Adapter spiegelt Felder End-to-End
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: Diag-/Recovery-Payload gehört in jeden Heartbeat
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: "Additive Keys (`hwSummary`/`cpu*`) brechen den Basis-Contract"
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+  -
+    statement: "Hub-Rename ohne `reply.name`-Konsum am Gerät"
+    status: REJECTED
+    source: technologies/esp-hub-telemetry/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

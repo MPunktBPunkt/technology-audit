@@ -1,0 +1,87 @@
+# GENERATED retrieval bundle for bluetooth-spp
+# generated: 2026-11-23
+
+topic: bluetooth-spp
+generated: 2026-11-23
+source_of_truth:
+  - technologies/bluetooth-spp/SHEET.md
+  - audits/bt-classic-gaps-2026-foreign/README.md
+  - audits/esp32-bt-analyzer-host-profiles-2026-desk/README.md
+  - audits/supra-idrive6-android-auto-2026-secondary/README.md
+  - audits/usb-aoa-bmw-connected-2026-desk/README.md
+primary:
+  - bluetooth-spp
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/bt-classic-profile-refs/applications/bluetooth-spp.md
+audits:
+  -
+    audit_id: A-2026-085
+    directory: bt-classic-gaps-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-classic-gaps-2026-foreign
+  -
+    audit_id: A-2026-088
+    directory: usb-aoa-bmw-connected-2026-desk
+    status: closed
+    environment: mixed
+    path: audits/usb-aoa-bmw-connected-2026-desk
+  -
+    audit_id: A-2026-091
+    directory: esp32-bt-analyzer-host-profiles-2026-desk
+    status: closed
+    environment: lab
+    path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+  -
+    audit_id: A-2026-100
+    directory: supra-idrive6-android-auto-2026-secondary
+    status: closed
+    environment: lab
+    path: audits/supra-idrive6-android-auto-2026-secondary
+methods:
+  - methods/bt-passive-host-sniff.md
+  - methods/ftms-capability-probe.md
+evidence_ids:
+  - EVID-AOA-030
+  - EVID-AOA-2026-10-28-020
+  - EVID-BG-020
+  - EVID-BTHPF-2026-11-04-001
+  - EVID-BTHPF-2026-11-04-010
+  - EVID-BTHPF-2026-11-04-020
+  - EVID-BTHPF-2026-11-04-030
+  - EVID-BTHPF-2026-11-04-031
+  - EVID-BTHPF-2026-11-04-040
+  - EVID-USBA-2026-11-06-008
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: SPP = BLE-UART mit anderem Namen
+    status: REJECTED
+    source: technologies/bluetooth-spp/SHEET.md
+  -
+    statement: SCN 0 ist immer Kanal 1
+    status: REJECTED
+    source: technologies/bluetooth-spp/SHEET.md
+  -
+    statement: "`ESP_SPP_SEC_NONE` + PIN 1234 produktionsreif"
+    status: REJECTED
+    source: technologies/bluetooth-spp/SHEET.md
+  -
+    statement: Unbegrenzte parallele SPP-Clients
+    status: REJECTED
+    source: technologies/bluetooth-spp/SHEET.md
+  -
+    statement: SPP auf BLE-only SoCs
+    status: REJECTED
+    source: technologies/bluetooth-spp/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

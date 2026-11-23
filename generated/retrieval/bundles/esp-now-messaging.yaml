@@ -1,0 +1,50 @@
+# GENERATED retrieval bundle for esp-now-messaging
+# generated: 2026-11-23
+
+topic: esp-now-messaging
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-now-messaging/SHEET.md
+  - audits/rnt-esp32-2026-foreign/README.md
+primary:
+  - esp-now-messaging
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-communicator/applications/esp-now-messaging.md
+audits:
+  -
+    audit_id: A-2026-032
+    directory: rnt-esp32-2026-foreign
+    status: active
+    environment: lab
+    path: audits/rnt-esp32-2026-foreign
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: WiFi + ESP-NOW immer verlustfrei parallel
+    status: HYPOTHESIS
+    source: technologies/esp-now-messaging/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: ESP-NOW unabhängig vom WiFi-Kanal
+    status: REJECTED
+    source: technologies/esp-now-messaging/SHEET.md
+  -
+    statement: "Pakete > ~250 B ohne Fragmentierung"
+    status: REJECTED
+    source: technologies/esp-now-messaging/SHEET.md
+  -
+    statement: Anruf-Audio läuft über ESP-NOW
+    status: REJECTED
+    source: technologies/esp-now-messaging/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -1,0 +1,172 @@
+# GENERATED retrieval bundle for usb-aoa
+# generated: 2026-11-23
+
+topic: usb-aoa
+generated: 2026-11-23
+source_of_truth:
+  - technologies/usb-aoa/SHEET.md
+  - audits/bmw-connected-sas-auth-2026-11-06/README.md
+  - audits/esp32-bt-analyzer-f20-connected-2026-11-17/README.md
+  - audits/esp32-usb-analyzer-2026-field-host-matrix/README.md
+  - audits/esp32-usb-analyzer-2026-pilot/README.md
+  - audits/usb-aoa-bmw-connected-2026-desk/README.md
+primary:
+  - usb-aoa
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope:
+    - FIELD
+applications:
+  - projects/bimmergestalt-idrive-refs/applications/usb-aoa.md
+  - projects/esp32-usb-analyzer/applications/usb-aoa.md
+  - projects/hu-probe/applications/usb-aoa.md
+  - projects/pidrive/applications/usb-aoa.md
+audits:
+  -
+    audit_id: A-2026-088
+    directory: usb-aoa-bmw-connected-2026-desk
+    status: closed
+    environment: mixed
+    path: audits/usb-aoa-bmw-connected-2026-desk
+  -
+    audit_id: A-2026-089
+    directory: esp32-usb-analyzer-2026-pilot
+    status: closed
+    environment: lab
+    path: audits/esp32-usb-analyzer-2026-pilot
+  -
+    audit_id: A-2026-092
+    directory: bmw-connected-sas-auth-2026-11-06
+    status: closed
+    environment: desk
+    path: audits/bmw-connected-sas-auth-2026-11-06
+  -
+    audit_id: A-2026-093
+    directory: esp32-usb-analyzer-2026-field-host-matrix
+    status: closed
+    environment: mixed
+    path: audits/esp32-usb-analyzer-2026-field-host-matrix
+  -
+    audit_id: A-2026-102
+    directory: esp32-bt-analyzer-f20-connected-2026-11-17
+    status: closed
+    environment: mixed
+    path: audits/esp32-bt-analyzer-f20-connected-2026-11-17
+methods:
+  - methods/usb-bot-command-observation.md
+  - methods/usb-msc-host-fingerprint.md
+  - methods/usb-otg-loop-baseline.md
+  - methods/usb-wifi-coex-discrimination.md
+evidence_ids:
+  - EVID-AOA-030
+  - EVID-AOA-2026-10-28-020
+  - EVID-BG-020
+  - EVID-USBA-2026-10-31-001
+  - EVID-USBA-2026-10-31-004
+  - EVID-USBA-2026-10-31-006
+  - EVID-USBA-2026-10-31-009
+  - EVID-USBA-2026-10-31-012
+  - EVID-USBA-2026-10-31-013
+  - EVID-USBA-2026-11-06-008
+facts:
+  -
+    statement: "Doc: Connected kann BT, **USB Accessory**, ENET"
+    status: FACT
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: BclCarLink implementiert nur BT RFCOMM
+    status: FACT
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: "AAIdrive: USB reliable; oft File Transfer → car startet Accessory"
+    status: FACT
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: "Phone erkennt BMW-Accessory via `UsbAccessory.manufacturer` enthält `\"BMW\"`"
+    status: FACT
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: NBT/NBT Evo Connected Apps über USB nutzbar
+    status: FACT
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: "**FACT:** MSC-Identity `303a:1001` am NBT erzeugt **keine** AOA-Initiation (`aoa51/52/53=0`) trotz Mount+SCSI"
+    status: FACT
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: Manufacturer/Model/Filter mismatch
+    status: FACT
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: AOA-Versuch auf jedem USB-Device
+    status: FACT
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: Kernel-Driver an IF0 blockiert Control
+    status: FACT
+    source: technologies/usb-aoa/SHEET.md
+inferences:
+  -
+    statement: "**INFERENCE:** AOA braucht Bedingungen jenseits eines responding MSC-Endpoints"
+    status: INFERENCE
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: "Strings ohne `\\0` immer ok"
+    status: INFERENCE
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: "ESP32 Host: Control-Paket von Hand bauen"
+    status: INFERENCE
+    source: technologies/usb-aoa/SHEET.md
+hypotheses:
+  -
+    statement: BCL Framing auf USB identisch zu BT
+    status: HYPOTHESIS
+    source: technologies/usb-aoa/SHEET.md
+unknowns:
+  -
+    statement: NBT Evo F20 speist AOA Host und spricht BCL über Bulk
+    status: UNKNOWN
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: "**UNKNOWN:** welche Identity/Config/State BMW-AOA startet"
+    status: UNKNOWN
+    source: technologies/usb-aoa/SHEET.md
+rejected:
+  -
+    statement: USB/ENET-BCL in BclCarLink Code
+    status: REJECTED
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: MSC-AOA-Negativ ⇒ „HU kann kein AOA“
+    status: REJECTED
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: Accessory = USB Device
+    status: REJECTED
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: AOA = Anwendungsprotokoll
+    status: REJECTED
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: Re-Enum nicht abwarten
+    status: REJECTED
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: AOAv2 Audio als zukunftssicherer Pfad
+    status: REJECTED
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: AOA Device-Mode parallel zu MSC/MTP
+    status: REJECTED
+    source: technologies/usb-aoa/SHEET.md
+  -
+    statement: Framing SOH/EOT = AOA
+    status: REJECTED
+    source: technologies/usb-aoa/SHEET.md
+transfer_limits:
+  - see_rejected_claims
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

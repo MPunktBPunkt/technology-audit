@@ -1,0 +1,39 @@
+schema: technology-audit.claims.v1
+audit_directory: bmw-bcl-bt-rfcomm-framing-2026-11-21
+
+claims:
+  - id: C-BCL-001
+    statement: BCL frame is u16BE cmd|src|dest|len + payload; dest 4004=Etch, 5001=Watchdog.
+    status: FACT
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      transport: RFCOMM/BCL
+    supported_by: [EVID-B3-BCL-GRAMMAR]
+    transfer_limits: [usb_enet_bcl_unknown]
+    unknown_reason: null
+
+  - id: C-BCL-002
+    statement: Phone fragments Etch at 4000 B BCL-DATA; HU may send up to 5306 B in one frame.
+    status: FACT
+    environment: field
+    scope:
+      vehicle: BMW F20
+      hu: NBT Evo
+      transport: BCL
+    supported_by: [EVID-B3-BCL-FRAG-4000-5306]
+    transfer_limits: [parser_max_payload_4000_insufficient]
+    unknown_reason: null
+
+  - id: C-BCL-003
+    statement: hu_to_phone BCL coverage 100%; phone_to_hu ~99.76% with classified desync gaps.
+    status: FACT
+    environment: field
+    scope:
+      vehicle: BMW F20
+      transport: BCL
+      project: esp32-bt-analyzer
+    supported_by: [EVID-B3-BCL-COVERAGE]
+    transfer_limits: [relay_capture_specific]
+    unknown_reason: null

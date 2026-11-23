@@ -1,0 +1,102 @@
+# GENERATED retrieval bundle for wifi-csi-motion
+# generated: 2026-11-23
+
+topic: wifi-csi-motion
+generated: 2026-11-23
+source_of_truth:
+  - technologies/wifi-csi-motion/SHEET.md
+  - audits/esp32-rf-sensing-2026-desk/README.md
+  - audits/esp32-rfmonitor-2026-motion-delta/README.md
+  - audits/espectre-2026-foreign/README.md
+primary:
+  - wifi-csi-motion
+maturity:
+  technology: R1
+  field_evidence: R0
+  reusability: W1
+  evidence_scope: []
+applications:
+  - projects/espectre/applications/wifi-csi-motion.md
+audits:
+  -
+    audit_id: A-2026-076
+    directory: espectre-2026-foreign
+    status: active
+    environment: lab
+    path: audits/espectre-2026-foreign
+  -
+    audit_id: A-2026-080
+    directory: esp32-rf-sensing-2026-desk
+    status: active
+    environment: desk
+    path: audits/esp32-rf-sensing-2026-desk
+  -
+    audit_id: A-2026-081
+    directory: esp32-rfmonitor-2026-motion-delta
+    status: active
+    environment: desk
+    path: audits/esp32-rfmonitor-2026-motion-delta
+methods:
+  - methods/own-link-motion-sensitivity.md
+evidence_ids:
+  - EVID-ESPECTRE-2026-10-25-001
+  - EVID-ESPECTRE-2026-10-25-002
+  - EVID-ESPECTRE-2026-10-25-003
+  - EVID-ESPECTRE-2026-10-25-004
+  - EVID-RF-2026-10-26-001
+  - EVID-RF-2026-10-26-002
+  - EVID-RF-2026-10-26-003
+  - EVID-RF-2026-10-26-004
+  - EVID-RF-2026-10-26-005
+  - EVID-RFSENSE-P0-001
+  - EVID-RFSENSE-P0-002
+  - EVID-RFSENSE-P0-003
+  - EVID-RFSENSE-P1-001
+  - EVID-RFSENSE-P1-002
+  - EVID-RFSENSE-P1-004
+  - EVID-RFSENSE-P1-007
+  - EVID-RFSENSE-P2-001
+  - EVID-RFSENSE-P2-002
+  - EVID-RFSENSE-P2-005
+  - EVID-RFSENSE-P2-008
+  - EVID-WEB-2026-10-26-001
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: CSI-Motion ≡ Packet-Sniffer/PCAP
+    status: REJECTED
+    source: technologies/wifi-csi-motion/SHEET.md
+  -
+    statement: CSI-Motion ≡ RF-Environment-Score
+    status: REJECTED
+    source: technologies/wifi-csi-motion/SHEET.md
+  -
+    statement: Beliebige pps ohne Admission = bessere Detection
+    status: REJECTED
+    source: technologies/wifi-csi-motion/SHEET.md
+  -
+    statement: Alle ESP32-Chips gleiche CSI/ACK-Fähigkeit
+    status: REJECTED
+    source: technologies/wifi-csi-motion/SHEET.md
+  -
+    statement: Detektor beweist leeren Raum / zählt Personen
+    status: REJECTED
+    source: technologies/wifi-csi-motion/SHEET.md
+  -
+    statement: Cloud nötig für Inference
+    status: REJECTED
+    source: technologies/wifi-csi-motion/SHEET.md
+  -
+    statement: CSI-MLP ≡ On-Device-LLM
+    status: REJECTED
+    source: technologies/wifi-csi-motion/SHEET.md
+  -
+    statement: Privacy egal weil „keine Kamera“
+    status: REJECTED
+    source: technologies/wifi-csi-motion/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

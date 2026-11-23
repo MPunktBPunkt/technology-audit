@@ -1,0 +1,319 @@
+# GENERATED retrieval bundle for bmw-nbt-evo
+# generated: 2026-11-23
+
+topic: bmw-nbt-evo
+generated: 2026-11-23
+source_of_truth:
+  - technologies/bmw-nbt-evo/SHEET.md
+  - audits/bimmergestalt-idrive-2026-foreign/README.md
+  - audits/bmw-nbt-media-index-2026-foreign/README.md
+  - audits/esp32-msc-gadget-refs-2026-foreign/README.md
+  - audits/esp32-usb-analyzer-2026-field-host-matrix/README.md
+  - audits/f20-sdp-vs-nbt-aad-2026-11-19/README.md
+  - audits/hu-probe-bmw-s0s2-field-2026/README.md
+  - audits/hu-probe-bmw-s2-abend-offline-2026-10-18/README.md
+  - audits/hu-probe-heimfahrt-2026-10-22/README.md
+  - audits/hu-probe-media-ladder-2026-10-22/README.md
+  - audits/hu-probe-psram-board-free-2026-10-21/README.md
+  - audits/msc-host-read-semantics-s1s2s3-2026/README.md
+  - audits/nbt-evo-oss-runtime-hmi-bt-2026-11-19/README.md
+  - audits/pidrive-2026-10-17-prefetch-livelock/README.md
+  - audits/pidrive-2026-bmw-hu/README.md
+  - audits/pidrive-2026-msc/README.md
+  - audits/pidrive-2026-storm-capture-tooling/README.md
+  - audits/prefetch-livelock-public-gap-2026/README.md
+  - audits/tinyusb-msc-busy-retry-2026/README.md
+  - audits/usb-aoa-bmw-connected-2026-desk/README.md
+primary:
+  - bmw-nbt-evo
+maturity:
+  technology: R2
+  field_evidence: R3
+  reusability: W1
+  evidence_scope:
+    - LAB
+    - FIELD
+    - HOST-SPECIFIC
+applications:
+  - projects/bmw-nbt-media-index/applications/bmw-nbt-evo.md
+  - projects/esp32-bt-analyzer/applications/bmw-nbt-evo.md
+  - projects/esp32-bt-gateway/applications/bmw-nbt-evo.md
+  - projects/esp32-usb-analyzer/applications/bmw-nbt-evo.md
+  - projects/hu-probe/applications/bmw-nbt-evo.md
+  - projects/pidrive/applications/bmw-nbt-evo.md
+audits:
+  -
+    audit_id: A-2026-001
+    directory: pidrive-2026-msc
+    status: closed
+    environment: mixed
+    path: audits/pidrive-2026-msc
+  -
+    audit_id: A-2026-002
+    directory: pidrive-2026-bmw-hu
+    status: active
+    environment: mixed
+    path: audits/pidrive-2026-bmw-hu
+  -
+    audit_id: A-2026-042
+    directory: esp32-msc-gadget-refs-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp32-msc-gadget-refs-2026-foreign
+  -
+    audit_id: A-2026-047
+    directory: tinyusb-msc-busy-retry-2026
+    status: closed
+    environment: lab
+    path: audits/tinyusb-msc-busy-retry-2026
+  -
+    audit_id: A-2026-048
+    directory: bmw-nbt-media-index-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bmw-nbt-media-index-2026-foreign
+  -
+    audit_id: A-2026-060
+    directory: hu-probe-bmw-s0s2-field-2026
+    status: closed
+    environment: lab
+    path: audits/hu-probe-bmw-s0s2-field-2026
+  -
+    audit_id: A-2026-061
+    directory: msc-host-read-semantics-s1s2s3-2026
+    status: closed
+    environment: lab
+    path: audits/msc-host-read-semantics-s1s2s3-2026
+  -
+    audit_id: A-2026-062
+    directory: pidrive-2026-10-17-prefetch-livelock
+    status: active
+    environment: mixed
+    path: audits/pidrive-2026-10-17-prefetch-livelock
+  -
+    audit_id: A-2026-064
+    directory: hu-probe-bmw-s2-abend-offline-2026-10-18
+    status: closed
+    environment: lab
+    path: audits/hu-probe-bmw-s2-abend-offline-2026-10-18
+  -
+    audit_id: A-2026-065
+    directory: pidrive-2026-storm-capture-tooling
+    status: closed
+    environment: lab
+    path: audits/pidrive-2026-storm-capture-tooling
+  -
+    audit_id: A-2026-066
+    directory: prefetch-livelock-public-gap-2026
+    status: closed
+    environment: lab
+    path: audits/prefetch-livelock-public-gap-2026
+  -
+    audit_id: A-2026-067
+    directory: hu-probe-psram-board-free-2026-10-21
+    status: closed
+    environment: mixed
+    path: audits/hu-probe-psram-board-free-2026-10-21
+  -
+    audit_id: A-2026-068
+    directory: hu-probe-heimfahrt-2026-10-22
+    status: closed
+    environment: lab
+    path: audits/hu-probe-heimfahrt-2026-10-22
+  -
+    audit_id: A-2026-069
+    directory: hu-probe-media-ladder-2026-10-22
+    status: closed
+    environment: mixed
+    path: audits/hu-probe-media-ladder-2026-10-22
+  -
+    audit_id: A-2026-082
+    directory: bimmergestalt-idrive-2026-foreign
+    status: closed
+    environment: mixed
+    path: audits/bimmergestalt-idrive-2026-foreign
+  -
+    audit_id: A-2026-088
+    directory: usb-aoa-bmw-connected-2026-desk
+    status: closed
+    environment: mixed
+    path: audits/usb-aoa-bmw-connected-2026-desk
+  -
+    audit_id: A-2026-093
+    directory: esp32-usb-analyzer-2026-field-host-matrix
+    status: closed
+    environment: mixed
+    path: audits/esp32-usb-analyzer-2026-field-host-matrix
+  -
+    audit_id: A-2026-104
+    directory: f20-sdp-vs-nbt-aad-2026-11-19
+    status: closed
+    environment: field
+    path: audits/f20-sdp-vs-nbt-aad-2026-11-19
+  -
+    audit_id: A-2026-106
+    directory: nbt-evo-oss-runtime-hmi-bt-2026-11-19
+    status: closed
+    environment: lab
+    path: audits/nbt-evo-oss-runtime-hmi-bt-2026-11-19
+methods:
+  - methods/callback-reentry-state-lifetime.md
+  - methods/field-av-offset-correlation.md
+  - methods/hu-media-lifecycle.md
+  - methods/hw-path-gate.md
+  - methods/msc-busy-retry-semantics.md
+  - methods/msc-host-read-semantics.md
+  - methods/msc-lba-timing-instrument.md
+  - methods/msc-trace-correlation.md
+  - methods/nbt-cache-eviction-play-intent.md
+  - methods/nbt-medium-identity-resume.md
+  - methods/plug-power-reset-isolation.md
+  - methods/usb-bot-command-observation.md
+  - methods/usb-msc-host-fingerprint.md
+evidence_ids:
+  - EVID-AOA-030
+  - EVID-AOA-2026-10-28-020
+  - EVID-BG-020
+  - EVID-BMWHU-2026-10-05-001
+  - EVID-BMWHU-2026-10-12
+  - EVID-BMWHU-2026-10-12-001
+  - EVID-BMWHU-2026-10-12-002
+  - EVID-BMWHU-2026-10-12-005
+  - EVID-BMWHU-2026-10-12-006
+  - EVID-BMWHU-2026-10-12-007
+  - EVID-BMWHU-2026-10-17-001
+  - EVID-BMWMEDIA-2026-10-13-001
+  - EVID-BMWMEDIA-2026-10-13-003
+  - EVID-BMWMEDIA-2026-10-13-006
+  - EVID-BMWMEDIA-2026-10-13-007
+  - EVID-BMWMEDIA-2026-10-13-009
+  - EVID-BMWMEDIA-2026-10-13-010
+  - EVID-BMWMEDIA-2026-10-13-011
+  - EVID-BMWMEDIA-2026-10-13-015
+  - EVID-HUPROBE-2026-10-15
+  - EVID-MSCRHS-2026-10-15
+  - EVID-MSCRHS-2026-10-15-001
+  - EVID-NBTOSS-001
+  - EVID-NBTOSS-010
+  - EVID-NBTOSS-030
+  - EVID-PREFGAP-2026-10-18
+  - EVID-STORMTOOL-2026-10-18
+  - EVID-TINYUSB-MSC-2026-10-12
+  - EVID-TINYUSB-MSC-2026-10-12-001
+  - EVID-TINYUSB-MSC-2026-10-12-002
+  - EVID-TINYUSB-MSC-2026-10-12-003
+  - EVID-TINYUSB-MSC-2026-10-12-006
+  - EVID-USBA-2026-11-06-008
+  - EVID-USBBOT-INST
+  - EVID-USBMSC-2026-10-04-001
+  - EVID-USBMSC-2026-10-04-004
+facts:
+  -
+    statement: "Cover über BT kommt via iAP/Connected/USB, nicht AVRCP"
+    status: FACT
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: Absolute Volume erzeugt Sprünge / Konflikt mit HU-DSP
+    status: FACT
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: HU registriert PlaybackStatus/TrackChanged/… und braucht TrackChanged bei jedem Quellen-/Titelwechsel
+    status: FACT
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: HU-SBC-Bitpool max 53; Smartphone-Codec-Wahl
+    status: FACT
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: Funk-Chip / Baseband der HU
+    status: FACT
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: HU bietet SPP über BT
+    status: FACT
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: HU spricht BCL → Etch → SAS → AM/RHMI/CDS über SPP
+    status: FACT
+    source: technologies/bmw-nbt-evo/SHEET.md
+inferences:
+  -
+    statement: MSC und BT können parallel als PiDrive-Ziel laufen
+    status: INFERENCE
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: "HU verlangt A2DP Source `0x110A` + AVRCP TG `0x110C` beim Phone"
+    status: INFERENCE
+    source: technologies/bmw-nbt-evo/SHEET.md
+hypotheses:
+  -
+    statement: AVRCP 1.6 Cover Art (BIP) bricht Track-Info/Playback
+    status: HYPOTHESIS
+    source: technologies/bmw-nbt-evo/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: „NBT liest wie jeder PC-Stick“
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: "„NBT scannt nur Ordnerstruktur, nie Dateiinhalt“"
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: „Remount = Cold Start / Cache-Flush“
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: „Prefetch-Lead = 8 s“ / „globaler Elevator“
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: Lab-Host-Replay ersetzt HU-Beweis
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: Erfolg = nur SCSI-konforme Antworten
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: NBT-Evo-Timing gilt für alle BMW-HU
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: Lab-Menü-PASS = Feld-Ohr-PASS
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: Host-BUSY-Toleranz aus MSC-/TinyUSB-Spec ableiten
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: Dynamische Datei ohne stabile Geometrie/Index
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: "MODE_SENSE(6) / PREVENT/ALLOW nur „erwartete“ MSC-Kommandos, nie am NBT gesehen"
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: "Responding MSC-Endpoint (`303a:1001`) ⇒ AOA/Connected-Apps"
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: "F20 2017 / NBT Evo ID5–ID6 = AVRCP **1.4** (ID6 teils 1.5)"
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: AVRCP-Browsing am F20 nicht genutzt
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+  -
+    statement: HU baut HFP-SLC mit AG ohne Three-Way auf
+    status: REJECTED
+    source: technologies/bmw-nbt-evo/SHEET.md
+transfer_limits:
+  - host_specific
+  - see_rejected_claims
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

@@ -1,0 +1,107 @@
+# GENERATED retrieval bundle for bt-dual-mode-coex
+# generated: 2026-11-23
+
+topic: bt-dual-mode-coex
+generated: 2026-11-23
+source_of_truth:
+  - technologies/bt-dual-mode-coex/SHEET.md
+  - audits/bt-analysis-relay-2026-foreign/README.md
+  - audits/bt-classic-gaps-2026-foreign/README.md
+  - audits/esp32-bt-analyzer-host-profiles-2026-desk/README.md
+  - audits/esp32-car-network-2026-foreign/README.md
+  - audits/esp32-hci-controller-2026-foreign/README.md
+  - audits/esp32-wifi-bt-coex-2026-foreign/README.md
+primary:
+  - bt-dual-mode-coex
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W3
+  evidence_scope: []
+applications:
+  - projects/bt-classic-profile-refs/applications/bt-dual-mode-coex.md
+audits:
+  -
+    audit_id: A-2026-084
+    directory: bt-analysis-relay-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-analysis-relay-2026-foreign
+  -
+    audit_id: A-2026-085
+    directory: bt-classic-gaps-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/bt-classic-gaps-2026-foreign
+  -
+    audit_id: A-2026-091
+    directory: esp32-bt-analyzer-host-profiles-2026-desk
+    status: closed
+    environment: lab
+    path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+  -
+    audit_id: A-2026-097
+    directory: esp32-car-network-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp32-car-network-2026-foreign
+  -
+    audit_id: A-2026-098
+    directory: esp32-hci-controller-2026-foreign
+    status: closed
+    environment: mixed
+    path: audits/esp32-hci-controller-2026-foreign
+  -
+    audit_id: A-2026-099
+    directory: esp32-wifi-bt-coex-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp32-wifi-bt-coex-2026-foreign
+methods:
+  - methods/bt-hci-host-attach.md
+  - methods/bt-passive-host-sniff.md
+  - methods/bt-usb-hci-observe-baseline.md
+  - methods/ftms-capability-probe.md
+  - methods/usb-wifi-coex-discrimination.md
+evidence_ids:
+  - EVID-BTHPF-2026-11-04-001
+  - EVID-BTHPF-2026-11-04-010
+  - EVID-BTHPF-2026-11-04-020
+  - EVID-BTHPF-2026-11-04-030
+  - EVID-BTHPF-2026-11-04-031
+  - EVID-BTHPF-2026-11-04-040
+  - EVID-CARNET-2026-11-12-020
+  - EVID-CARNET-YYYY-MM-DD
+  - EVID-WBTCOEX-2026-11-12
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: IDF Classic-Examples = BTDM-Referenz
+    status: REJECTED
+    source: technologies/bt-dual-mode-coex/SHEET.md
+  -
+    statement: BLE mem_release + später BLE nutzen
+    status: REJECTED
+    source: technologies/bt-dual-mode-coex/SHEET.md
+  -
+    statement: EspBle Dual-Host auf S3
+    status: REJECTED
+    source: technologies/bt-dual-mode-coex/SHEET.md
+  -
+    statement: BTDM in sdkconfig ⇒ App nutzt beide
+    status: REJECTED
+    source: technologies/bt-dual-mode-coex/SHEET.md
+  -
+    statement: Unbegrenzte Classic+BLE+WiFi+SCO
+    status: REJECTED
+    source: technologies/bt-dual-mode-coex/SHEET.md
+  -
+    statement: Connection Interval egal bei HID Bridge
+    status: REJECTED
+    source: technologies/bt-dual-mode-coex/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

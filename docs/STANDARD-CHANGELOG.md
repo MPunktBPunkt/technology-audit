@@ -16,6 +16,20 @@ CLI `tools/ta-assist` hat eine **eigene** Semver und ist davon unabhängig.
 
 ## Versionen
 
+### 0.7.2 — 2026-11-23
+
+**PATCH — Retrieval-/Evidence-Schicht (AI-Skalierung, ohne SoT-Umbau):**
+
+- **Evidence/Claim-Modell:** [`EVIDENCE-CLAIM-MODEL.md`](EVIDENCE-CLAIM-MODEL.md) — stabile Audit-IDs `A-YYYY-NNN`, Evidence-IDs, Claim→Evidence, Scope, UNKNOWN reasons, REJECTED, transfer_limits.
+- **Generated retrieval:** `python3 tools/ta-assist index` erzeugt `audits/INDEX.yaml` + `generated/retrieval/**` (keine zweite Wahrheit).
+- **Topic-Seeds:** [`retrieval-topics.yaml`](retrieval-topics.yaml) als Query-Specs.
+- **Optional** `audits/*/claims.yaml` für maschinenlesbare Claims.
+- **Checks:** RT2 (generierte Indizes vorhanden); RT1 erkennt auch Listenpfade.
+- **AI entry:** [`AGENTS.md`](../AGENTS.md).
+- **Nicht:** Massen-Umbenennung alter Audit-Ordner; kein `AI_KNOWLEDGE.md`.
+
+CLI `ta-assist` **0.1.8**. Bestehende Kampagnen auf 0.7.1 bleiben gültig; neue Audits sollen `standard_version: "0.7.2"` tragen.
+
 ### 0.7.1 — 2026-10-13
 
 **PATCH — Klarstellungen nach Validierung** ([Change Proposal](reports/2026-10-13-v0.7.0-to-v0.7.1-change-proposal.md) · [Release Review](reports/2026-10-13-v0.7.1-release-review.md)):

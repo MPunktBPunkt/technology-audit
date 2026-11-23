@@ -1,0 +1,74 @@
+# GENERATED retrieval bundle for esp-usb-audio-uac
+# generated: 2026-11-23
+
+topic: esp-usb-audio-uac
+generated: 2026-11-23
+source_of_truth:
+  - technologies/esp-usb-audio-uac/SHEET.md
+  - audits/esp-iot-solution-2026-foreign/README.md
+  - audits/esp-usb-audio-example-2026-foreign/README.md
+primary:
+  - esp-usb-audio-uac
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp-iot-solution/applications/esp-usb-audio-uac.md
+  - projects/esp-usb-audio-example/applications/esp-usb-audio-uac.md
+audits:
+  -
+    audit_id: A-2026-050
+    directory: esp-iot-solution-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp-iot-solution-2026-foreign
+  -
+    audit_id: A-2026-052
+    directory: esp-usb-audio-example-2026-foreign
+    status: active
+    environment: lab
+    path: audits/esp-usb-audio-example-2026-foreign
+methods:
+  - methods/hw-path-gate.md
+evidence_ids:
+  - EVID-IOTSOL-UAC-2026-10-13-001
+  - EVID-IOTSOL-UAC-2026-10-13-003
+  - EVID-IOTSOL-USBH-2026-10-13-001
+  - EVID-USBAUD-EX-2026-10-13-001
+  - EVID-USBAUD-EX-2026-10-13-002
+  - EVID-USBAUD-EX-2026-10-13-003
+  - EVID-USBAUD-EX-2026-10-13-004
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: Classic ESP32 = UAC Device ohne Gate
+    status: REJECTED
+    source: technologies/esp-usb-audio-uac/SHEET.md
+  -
+    statement: "`esp-usb-host` Sheet deckt Device-Headset ab"
+    status: REJECTED
+    source: technologies/esp-usb-audio-uac/SHEET.md
+  -
+    statement: UAC ≡ MSC-Gadget
+    status: REJECTED
+    source: technologies/esp-usb-audio-uac/SHEET.md
+  -
+    statement: Ein Descriptor für Windows und Linux „immer“
+    status: REJECTED
+    source: technologies/esp-usb-audio-uac/SHEET.md
+  -
+    statement: Dynamische Sample-Rate-Umschaltung „einfach“
+    status: REJECTED
+    source: technologies/esp-usb-audio-uac/SHEET.md
+  -
+    statement: LE Audio / A2DP = gleicher Contract
+    status: REJECTED
+    source: technologies/esp-usb-audio-uac/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

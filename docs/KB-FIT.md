@@ -1,12 +1,12 @@
 # Eignung der Wissensbasis für Neuentwicklung
 
-Stand: **2026-10-11** · Audit-Standard [`0.6.6`](../VERSION) · inkl. KB-Cross-Check ESP-FM / Pi-TX.
+Stand: **2026-11-23** · Audit-Standard [`0.7.2`](../VERSION) · Retrieval-Schicht + KB-Cross-Check ESP-FM / Pi-TX.
 
 ## Kurzurteil
 
-**Ja — Zweck erfüllt; Cross-Check zeigt Reasoning-Tauglichkeit, nicht nur Dokumentationsabdeckung.**
-Geeignet als Referenz beim Projektstart über Index → Familie → 1–3 Sheets.
-Nächster Hebel: Gate-Messungen (Desk≪Lab) und gezielte Signalpfad-Tiefe — nicht neue Dokumenttypen.
+**Ja — Zweck erfüllt; ab 0.7.2 zusätzlich AI-Retrieval über generierte Bundles.**
+Einstieg Agents: [`AGENTS.md`](../AGENTS.md) → `generated/retrieval/` → Sheets/Audits.
+Nächster Hebel: mehr `claims.yaml` + Retrieval-Regressionstests; Gate-Messungen Desk≪Lab.
 
 | Kriterium | Note | Kommentar |
 |-----------|------|-----------|

@@ -1,0 +1,48 @@
+# GENERATED retrieval bundle for fritzbox-tr064
+# generated: 2026-11-23
+
+topic: fritzbox-tr064
+generated: 2026-11-23
+source_of_truth:
+  - technologies/fritzbox-tr064/SHEET.md
+primary:
+  - fritzbox-tr064
+maturity:
+  technology: R2
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/esp32-network/applications/fritzbox-tr064.md
+  - projects/iobroker-fritzwireguard/applications/fritzbox-tr064.md
+audits: []
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses:
+  -
+    statement: TR-064 ersetzt Subnetz-Scan
+    status: HYPOTHESIS
+    source: technologies/fritzbox-tr064/SHEET.md
+unknowns: []
+rejected:
+  -
+    statement: Port 49000 HTTP immer offen
+    status: REJECTED
+    source: technologies/fritzbox-tr064/SHEET.md
+  -
+    statement: Zertifikat immer vertrauenswürdig
+    status: REJECTED
+    source: technologies/fritzbox-tr064/SHEET.md
+  -
+    statement: Gleiches Subnet lokal+remote → TR-064 trifft immer die Remote-Box
+    status: REJECTED
+    source: technologies/fritzbox-tr064/SHEET.md
+  -
+    statement: TR-064 ist Pflicht für Remote-TCP-Zugriffe
+    status: REJECTED
+    source: technologies/fritzbox-tr064/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index

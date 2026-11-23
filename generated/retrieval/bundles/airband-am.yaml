@@ -1,0 +1,46 @@
+# GENERATED retrieval bundle for airband-am
+# generated: 2026-11-23
+
+topic: airband-am
+generated: 2026-11-23
+source_of_truth:
+  - technologies/airband-am/SHEET.md
+  - audits/pidrive-2026-radio-bt/README.md
+primary:
+  - airband-am
+maturity:
+  technology: R3
+  field_evidence: R0
+  reusability: W2
+  evidence_scope: []
+applications:
+  - projects/pidrive/applications/airband-am.md
+audits:
+  -
+    audit_id: A-2026-026
+    directory: pidrive-2026-radio-bt
+    status: active
+    environment: field
+    path: audits/pidrive-2026-radio-bt
+methods: []
+evidence_ids: []
+facts: []
+inferences: []
+hypotheses: []
+unknowns: []
+rejected:
+  -
+    statement: spectrum scan 118–137 = Airband hören
+    status: REJECTED
+    source: technologies/airband-am/SHEET.md
+  -
+    statement: Airband-Gain = FM-Gain
+    status: REJECTED
+    source: technologies/airband-am/SHEET.md
+  -
+    statement: Eine globale Stationstabelle reicht überall
+    status: REJECTED
+    source: technologies/airband-am/SHEET.md
+transfer_limits:
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED — do not hand-edit; regenerate via ta-assist index
