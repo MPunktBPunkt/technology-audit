@@ -30,6 +30,7 @@ Vorlage: [`templates/method-note.md`](../templates/method-note.md)
 | [`own-link-motion-sensitivity`](own-link-motion-sensitivity.md) | Own-Link RSSI-Feinring Walk-by (≠ Presence/CSI) | active |
 | [`bt-passive-host-sniff`](bt-passive-host-sniff.md) | nRF Sniffer / Android HCI snoop (passiv, ≠ ESP-MITM) | active |
 | [`bt-hci-host-attach`](bt-hci-host-attach.md) | BlueZ `btattach`/`hciattach` an ESP32 UART H4 Controller | active |
+| [`raw-bcl-etch-forensic`](raw-bcl-etch-forensic.md) | Raw-Bin → BCL → Etch Reassembly → Coverage → Crypto → Timeline | active |
 
 ## Gate-Coverage aus `next-audits.md`
 

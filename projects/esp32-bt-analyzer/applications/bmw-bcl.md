@@ -10,10 +10,10 @@ upstream_commits: [0322f2d, 0352824, 4b24cf4]
 maturity:
   technology: R2
   implementation: R2
-  field_evidence: R2   # F20 BCL transport + Etch/SAS/AM/RHMI/CDS MEASURED (SCN 6 / failover 10)
+  field_evidence: R3   # F20 + B3 Gate B Raw framing/fragmentation/coverage
   reusability: W2
-updated: 2026-11-17
-audit: ../../../audits/esp32-bt-analyzer-f20-connected-2026-11-17/
+updated: 2026-11-23
+audit: ../../../audits/bmw-bcl-bt-rfcomm-framing-2026-11-21/
 ```
 
 ## Rolle im Projekt

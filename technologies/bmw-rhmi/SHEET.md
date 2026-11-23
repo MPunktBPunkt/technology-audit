@@ -11,9 +11,9 @@ seen_in: [bimmergestalt-idrive-refs, esp32-bt-analyzer]
 maturity:
   technology: R2
   implementation: R2
-  field_evidence: R2
+  field_evidence: R3   # B3 Handle-23 Music NP catalog + DESCRIPTION extract
   reusability: W2
-  evidence_scope: [desk-bg, f20-field-2026-11, f20-sim-lab]
+  evidence_scope: [LAB, FIELD]
 ```
 
 Ebene **A**. Fremdquellen: `IDriveConnectKit` RHMI-Deserialization,
@@ -22,8 +22,9 @@ Eigene Evidence: esp32.bt-analyzer F20 Feld 16./17.11. + B3 Gate B 21.11. + f20_
 ([`audits/esp32-bt-analyzer-f20-connected-2026-11-17`](../../audits/esp32-bt-analyzer-f20-connected-2026-11-17/),
 [`audits/bimmergestalt-rhmi-checkresource-2026-11-17`](../../audits/bimmergestalt-rhmi-checkresource-2026-11-17/),
 [`audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17`](../../audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17/),
-[`audits/nbt-evo-bt-control-plane-closure-2026-11-21/`](../../audits/nbt-evo-bt-control-plane-closure-2026-11-21/)
-— Lab Soak/Seq PASS ≠ Auto; Action 200 Lab-only; B3: 11× checkResource / 0× setResource / Media via `…music`).
+[`audits/nbt-evo-bt-control-plane-closure-2026-11-21/`](../../audits/nbt-evo-bt-control-plane-closure-2026-11-21/),
+[`audits/bmw-rhmi-music-handle23-field-2026-11-21/`](../../audits/bmw-rhmi-music-handle23-field-2026-11-21/)
+— Lab Soak/Seq PASS ≠ Auto; Action 200 Lab-only; B3: Handle **23** Music NP catalog).
 
 ## Kurzfassung
 
@@ -65,8 +66,23 @@ Beide Prüfungen nicht vermischen.
 ## Komponenten / Events (Auszug)
 
 - Komponenten: List, Label, Image, Gauge, EntryButton, ToolbarButton, Input, …
-- HMI-Event-IDs in Kit-Code u. a.: Focus=1, RequestData=2, Visible=11 (Implementierungswissen).
-- Media: oft RHMI-Views **plus** `av_*` für Entertainment-Connection.
+- HMI-Event-IDs in Kit-Code u. a.: Focus=1, RequestData=2, Visible=11 (Implementierungswissen; B3 Wire bestätigt 1/2/11).
+- Media: RHMI-Views **plus** [`bmw-av`](../bmw-av/SHEET.md) Session-Control (≠ Audio-Transport).
+
+### Music Handle 23 (FIELD FACT — B3)
+
+| Item | Wert |
+|------|------|
+| App-ID | `me.hufman.androidautoidrive.music` |
+| Handles (create) | 21 calendar · 22 readout · **23 music** · 24 mapview · 25 screenmirror |
+| DESCRIPTION | MD5 `e9e31c31110680e13b7a112a7d77eb55`, 92085 B — extract CLOSED |
+| NP models | **444**/655 `"Spotify"` · **445** artist · **446/447** title · **456** cover · **458** playlist |
+| Actions | **336**, **248** |
+| Events | **660** multimediaInfo · **661** statusbar |
+| Cache | 11× `checkResource` True · 0× `setResource` · then `initialize` |
+
+Audit: [`bmw-rhmi-music-handle23-field-2026-11-21`](../../audits/bmw-rhmi-music-handle23-field-2026-11-21/).  
+CDS menu path (Media/Radio → visCtx **50034**) ist separat — Track-Bus bleibt RHMI, nicht CDS.
 
 ## Typische Fallstricke
 
@@ -77,11 +93,13 @@ Beide Prüfungen nicht vermischen.
 | Alle Generationen gleiche Widgets | `UNKNOWN`/`HYPOTHESIS` | Dimensions-Code unterscheidet ID4/5/6 |
 | RHMI ersetzt USB-MSC Audio | `REJECTED` (als Architektur-FACT) | anderer Kanal; PiDrive-MSC bleibt eigen |
 | SmartThings-Assets = offizielle Spec | `INFERENCE` | HassGestalt extrahiert APK-Ressourcen |
-| Lab `RUNTIME_ACTIVE` / Soak / Seq = F20 Auto-ready | `REJECTED` | Auth am F20 CLOSED (B3); echte eigenen Model-/Action-IDs fehlen weiter |
-| `checkResource(true)` ⇒ Upload zwingend | `REJECTED` | B3: 11× check / 0× set / 5× initialize (Cache-Hit-Verhalten) |
-| Spotify = `am_registerApp` | `REJECTED` | B3: fünf AM-Apps ohne Spotify; Media = `…music` RHMI |
-| Lab actionId **200** / Sink `PI_DRIVE_TEST` = F20-Map | `REJECTED` | Demo-XML / Harness; Feld-IDs OPEN |
+| Lab `RUNTIME_ACTIVE` / Soak / Seq = F20 Auto-ready | `REJECTED` | Auth CLOSED; eigener Client PoC weiter OPEN |
+| `checkResource(true)` ⇒ Upload zwingend | `REJECTED` | B3: 11× check / 0× set / initialize |
+| Spotify = `am_registerApp` | `REJECTED` | Media = `…music` RHMI + AV |
+| Lab actionId **200** / Sink `PI_DRIVE_TEST` = F20-Map | `REJECTED` | Field: **336/248** |
+| Lab modelId **100** = F20 NP | `REJECTED` | Field: **444–447** (+655/458/…) |
 | modelId 4 / SE 213 blockiert Session | `REJECTED` (Lab) | non-fatal; Nebenpfad |
+| RHMI PLAY-UI = hörbares Audio | `REJECTED` | siehe [`bmw-av`](../bmw-av/SHEET.md) |
 
 ## Transfer
 
@@ -99,9 +117,10 @@ Engineering.
 ## Offene Fragen (A)
 
 - F20: exakte SHA-256-Digest-Liste der akzeptierten Resources (Whitelist-Korrelation).
-- F20: Action-ID / Handle / Model-Map (Lab-200/100 nicht übertragen).
+- Eigener RHMI-Client PoC mit Field-IDs 444/445/446·447/660/661/336/248.
+- TEXTDB/IMAGEDB Extract (DESCRIPTION CLOSED).
 - Richtext-List-Model: HU-seitig bestätigt?
-- HU-Verhalten bei Whitelist-Reject vs. Cache-Miss (Return-Codes).
+- Home/Launcher Entry Object-ID (**NOT OBSERVED** in B3).
 
 ## Lessons
 
@@ -109,5 +128,5 @@ Engineering.
 - Resource-Digests in Certs sind der **Hauptblocker** für eigene Uploads (Desk Doc + Lab whitelist + Feld checkResource) — autorisierte Bytes nötig, nicht nur korrekte Etch-Calls.
 - `checkResource(true)` ⇒ kein `setResource` für diesen Typ; danach `initialize`.
 - Sneaky-Apps senden oft nur DESCRIPTION (keine TEXTDB/IMAGEDB), um Unsigned-Rejects zu vermeiden.
-- Lab Action→eigene Sink beweist Verdrahtbarkeit, nicht OEM-Semantik am F20.
+- Lab Action→eigene Sink beweist Verdrahtbarkeit, nicht OEM-Semantik am F20 — Field-IDs jetzt bekannt.
 - Ältere Freezes (ESP/RFCOMM „OPEN P0“ in FREEZE_C5CB0E6) durch write11-Retry-Stand **SUPERSEDED** — Connected-Transport nicht erneut aufmachen.

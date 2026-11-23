@@ -13,7 +13,7 @@ maturity:
   implementation: R1
   field_evidence: R3   # F20 Connected + B3 GATEB 2026-11-21 (SCN6 SPP→BCL→Etch 4004)
   reusability: W2
-  evidence_scope: [LAB, f20-field-2026-11]
+  evidence_scope: [LAB, FIELD]
 ```
 
 Ebene **A** (Protokollbeschreibung aus Fremdquellen) plus Lab-TEST-Kette
@@ -39,15 +39,25 @@ den BCL-Zielport **0x0FA4 (4004)**. BCL ist der Tunnel; Etch/RHMI liegen darübe
 - **Ist nicht:** Etch-RPC-Semantik; RHMI-UI; USB-MSC-Hostverhalten; PiDrive-Audio-Pfad.
 - **Grenzt an:** [`bmw-etch-rpc`](../bmw-etch-rpc/SHEET.md), [`bmw-rhmi`](../bmw-rhmi/SHEET.md), [`bmw-nbt-evo`](../bmw-nbt-evo/SHEET.md) (andere Schicht); physischer USB-Transport-Kandidat [`usb-aoa`](../usb-aoa/SHEET.md) (AOA ≠ BCL).
 
-## Framing (Desk-FACT aus Code/Doc)
+## Framing (Desk-FACT + FIELD FACT B3)
 
 | Feld | Typ | Bemerkung |
 |------|-----|-----------|
-| command | u16 BE | OPEN=1, DATA=2, CLOSE=3, HANDSHAKE=4, SELECTPROTO=5, DATAACK=6, … |
-| src | u16 BE | virtuelle Source-ID |
-| dest | u16 BE | Dienst in der HU; **0x0FA4 = Etch**, **0x1389 = Watchdog** |
-| dataLen | u16 BE | Payload-Länge; Docs/Buffers ≈ 4000 Bytes praktisches Limit |
+| command | u16 BE | OPEN=1, DATA=2, CLOSE=3, HANDSHAKE=4, SELECTPROTO=5, DATAACK=6, KNOCK=8, … |
+| src | u16 BE | virtuelle Source-ID (B3 Etch: oft 10–19) |
+| dest | u16 BE | Dienst in der HU; **0x0FA4 (4004) = Etch**, **0x1389 (5001) = Watchdog** |
+| dataLen | u16 BE | Payload-Länge |
 | data | bytes | Payload |
+
+**Fragmentierung (FIELD FACT — B3 Raw):** Phone splittet große Etch-Bodies typisch bei
+**4000** B BCL-DATA; HU sendet bis **5306** B in einem Frame. Reassembly längenbasiert auf
+`(src,dest)` ohne Seq-Feld; nur das erste Fragment trägt `DEADBEEF`.  
+Audit: [`bmw-bcl-bt-rfcomm-framing-2026-11-21`](../../audits/bmw-bcl-bt-rfcomm-framing-2026-11-21/).  
+Methode: [`raw-bcl-etch-forensic`](../../methods/raw-bcl-etch-forensic.md).
+
+**Coverage (B3):** `hu_to_phone` 100 % BCL-dekodiert; `phone_to_hu` ≈99.76 % mit Desync-Gaps
+(Capture/Relay-Loss **HYPOTHESIS**, kein Protokollwechsel). Bridge-UUID-Preamble und isolierte
+`13371337` außerhalb WD ≠ BT-Wire (**STRONG** Bridge).
 
 ## Session-Skizze (Implementierung BclCarLink)
 
@@ -57,7 +67,8 @@ OPENING → init bytes → HANDSHAKE(version, instanceId, bufferSize)
   → OPEN/DATA/CLOSE Multiplex → HANGUP
 ```
 
-Klassifikation: **FACT** = so im Client-Code; F20/B3 = eigenes Feld-MEASURED (HS/MUX/Etch dest).
+Klassifikation: **FACT** = so im Client-Code; F20/B3 = eigenes Feld-MEASURED (HS/MUX/Etch dest,
+Fragmentierung, WD `13 37 13 37`).
 
 ## Typische Fallstricke
 
@@ -93,8 +104,8 @@ Messbedingung A6/B1/B2: MyBMW und AAIdrive während SDP/RFCOMM-Captures **deakti
 ## Transfer
 
 Wiederverwendbar als **Protokollkarte** für eigene Captures (Wireshark-Dissector-Pin).
-Keine Engineering-Action ohne eigene Trace-Korrelation. Knowledge-Value **HIGH**,
-eigene Evidence weiterhin **R0** bis Lab/Field.
+B3 liefert Field-Grammar + Fragmentierung; Parser mit `MAX_PAYLOAD=4000` riskieren HU-Fails.
+Knowledge-Value **HIGH**, `field_evidence` **R3**.
 
 ### Projektstart-Checkliste
 

@@ -1,15 +1,19 @@
 # Status / Gate exits — esp32.bt-analyzer
 
 ```yaml
-updated: 2026-11-17
+updated: 2026-11-23
 fw: "0.3.20"
-topology: HCI_TCP dual-leg (.131 phone · .87 car)
-upstream_commit: 1100644   # PiDrive UI seq PASS; soak a5187cb; lifecycle after EAGAIN retry; write11 frozen
+topology: HCI_TCP dual-leg (.131 phone · .87 car); B3 profile-relay Gate B
+upstream_commit: 4d05169   # FIELD_B3_GATEB; prior UI seq 1100644
 audits:
   - ../../../audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17/
   - ../../../audits/esp32-bt-analyzer-f20-connected-2026-11-17/
   - ../../../audits/bimmergestalt-rhmi-checkresource-2026-11-17/
-car_next: Feld-Übertragbarkeit — Resource-Auth + F20 Action/Model-IDs + SAS/App-Kontext; Lab actionId 200 / PI_DRIVE_TEST ≠ F20; write11/W0 nicht reopen
+  - ../../../audits/nbt-evo-bt-control-plane-closure-2026-11-21/
+  - ../../../audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21/
+  - ../../../audits/bmw-sas-auth-field-crypto-2026-11-21/
+  - ../../../audits/bmw-av-session-control-vs-audio-2026-11-21/
+car_next: Dual-Plane Audio-Boundary nach PLAY; eigener RHMI PoC mit Field-IDs 444–447/336/248/660/661; Gate B2 Standalone OPEN; write11/W0 nicht reopen
 ```
 
 Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTED`
@@ -49,8 +53,12 @@ Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTE
 | Lab RHMI lifecycle `RUNTIME_ACTIVE` ~90 s | TEST PASS | `LAB_P0_RHMI_LIFECYCLE_PASS` (Dual+Single after retry) |
 | Lab RHMI soak ~10 min + Actions | TEST PASS | `a5187cb` · 97 setData / 105 action+ack |
 | Lab Action→PiDrive sink | TEST PASS | `1100644` · actionId **200** → `PI_DRIVE_TEST` (**Lab-only**) |
-| Resource-Authorization (F20 digest whitelist) | OPEN (Hauptblocker Feld) | Desk SHA-256 Digests; Lab stub PASS; Feld Auth fremder Bytes unbewiesen |
-| F20 Action-/Model-ID-Map | OPEN | Feld onAction×2 ohne Hex-Bodies; Lab-200 nicht universell |
+| Resource-Authorization (F20 digest whitelist) | OPEN (Hauptblocker eigene App) | Desk SHA-256 Digests; B3 Music DESCRIPTION Cache-Hit (kein setResource) |
+| F20 Action-/Model-ID-Map (Music H23) | **FIELD FACT** | 444–447/655/458 · Actions 336/248 · Events 660/661 — `bmw-rhmi-music-handle23-field-2026-11-21` |
+| Gate B live APP_AUTH + RSA-VERIFY 18/18 | **FIELD FACT** | `FIELD_B3_GATEB_20261121T112446Z` · `bmw-sas-auth-field-crypto-2026-11-21` |
+| AV Control `av_create`→PLAY | **FIELD FACT** | `bmw-av-session-control-vs-audio-2026-11-21` |
+| Audio transport / audible after PLAY | **NOT PROVEN** / **NOT OBSERVED** | Dual-Plane next — `NEXT_AUDIO_BOUNDARY_PROOF.md` |
+| B3 Profile-Relay topology | **FIELD FACT** | Phone→.131↔relay↔.87→F20 ch6 — `esp32-bt-analyzer-b3-relay-topology-2026-11-21` |
 
 ## Claim boundary
 
@@ -63,9 +71,12 @@ Classification key: `FACT` · `MEASURED` · `INFERENCE` · `UNKNOWN` · `REJECTE
 | Better WiFi RSSI raises BT ACL rate | **REJECTED** (coex-bound) |
 | Dual A2DP relay = transparent audio proxy | **REJECTED** (two terminated links, BlueZ decode/encode) |
 | Lab Soak/Seq PASS = F20 Auto-ready | **REJECTED** |
-| Lab actionId 200 / `PI_DRIVE_TEST` = F20 OEM Action-Map | **REJECTED** |
+| Lab actionId 200 / `PI_DRIVE_TEST` = F20 OEM Action-Map | **REJECTED** (Field: 336/248) |
+| Spotify = `am_registerApp` | **REJECTED** |
+| AV PLAY on Etch = audible audio proven | **REJECTED** / **NOT OBSERVED** |
 | FREEZE_C5CB0E6 ESP/RFCOMM still Connected-P0 | **SUPERSEDED** (write11 freeze) |
 | reopen write11 / W0 Fall A without new Evidence | **REJECTED** |
+| RSA-VERIFY B3 pending | **SUPERSEDED** (18/18 CLOSED) |
 
 ## Repro
 

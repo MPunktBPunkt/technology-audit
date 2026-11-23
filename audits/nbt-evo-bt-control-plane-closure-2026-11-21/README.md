@@ -83,7 +83,7 @@ Begründung:
 | SAS CertificateType / pad-u32 `0x02000000` | LAB FACT + FIELD (transform) | 2³²; B3 pad crosscheck | Ja | P0 |
 | RSA-4096 PKCS#1 v1.5 DigestInfo-MD5, 512-B sig | LAB FACT | 8/8 VERIFY vs APP_AUTH pubkey | Ja (lab wire) | P0 |
 | MyBMW/AAIdrive live login am F20 (Gate B) | FIELD FACT | B3 EVAL; `_result_sas_login` ×2 | Ja (Feld + Relay) | P0 |
-| RSA-VERIFY **dieses** B3-Captures | OPEN | MANIFEST: cert PEM not in etch decode | Noch nicht | P1 |
+| RSA-VERIFY **dieses** B3-Captures | **CLOSED** (superseded 2026-11-22) | `SAS_CRYPTO_VERIFY.json` 18/18 — [`bmw-sas-auth-field-crypto-2026-11-21`](../bmw-sas-auth-field-crypto-2026-11-21/) | Ja (offline Raw) | P0 |
 | RHMI create/check/init/setData | FIELD FACT | B3 method histogram | Ja (Methoden) | P0 |
 | AM `am_registerApp` ×5 | FIELD FACT | B3 jsonl + addendum packages | Ja | P0 |
 | CDS properties / handlers | FIELD FACT | B3 cds_* + raw property names | Ja (Namen) | P1 |
@@ -120,7 +120,7 @@ Begründung:
 | MyBMW zwingend für Wire-Protokoll | REJECTED |
 | MyBMW aktuell bekannter Signer-Träger | FACT |
 | Standalone Credential Acceptance (Gate B2 / Weg B) | OPEN |
-| RSA-VERIFY B3 raw cert reassembled | OPEN (Implementierungsnachzug) |
+| RSA-VERIFY B3 raw cert reassembled | **CLOSED** 18/18 — see `bmw-sas-auth-field-crypto-2026-11-21` |
 
 `*` = CLOSED für **akzeptierten autorisierten Live-Pfad**; nicht für Standalone-Reproduktion ohne MyBMW.
 

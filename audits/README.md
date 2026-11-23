@@ -20,6 +20,15 @@ Zeitlich begrenzte Analyse-Kampagnen. Jede Kampagne: `standard_version` (= [`VER
 | [`bimmergestalt-idrive-2026-foreign`](bimmergestalt-idrive-2026-foreign/) | closed | lab-tool | Fremd: BimmerGestalt Connected-App BCL/Etch/RHMI Desk · **0.7.1** |
 | [`bimmergestalt-rhmi-checkresource-2026-11-17`](bimmergestalt-rhmi-checkresource-2026-11-17/) | closed | lab-tool | Fremd: RHMI nach checkResource — Sequenz, Resource-Matrix, Whitelist · **0.7.1** |
 | [`nbt-evo-bt-control-plane-closure-2026-11-21`](nbt-evo-bt-control-plane-closure-2026-11-21/) | closed | ops-field | Closure/Repro: NBT Evo BT Control Plane nach Gate B CLOSED (B3) — Protokoll vs Artefakt · **0.7.1** |
+| [`bmw-sas-auth-field-crypto-2026-11-21`](bmw-sas-auth-field-crypto-2026-11-21/) | closed | ops-field | B3: SAS Crypto 18/18 RSA-VERIFY · Pad/Digest/Multi-Channel · **0.7.1** |
+| [`bmw-bcl-bt-rfcomm-framing-2026-11-21`](bmw-bcl-bt-rfcomm-framing-2026-11-21/) | closed | ops-field | B3: BCL Grammar/Fragmentierung 4000 vs 5306/Coverage · **0.7.1** |
+| [`bmw-etch-rpc-binary-reassembly-2026-11-21`](bmw-etch-rpc-binary-reassembly-2026-11-21/) | closed | ops-field | B3: Etch DEADBEEF Reassembly + Offset-Konventionen · **0.7.1** |
+| [`bmw-rhmi-music-handle23-field-2026-11-21`](bmw-rhmi-music-handle23-field-2026-11-21/) | closed | ops-field | B3: RHMI Handle 23 Music NP Catalog · **0.7.1** |
+| [`bmw-av-session-control-vs-audio-2026-11-21`](bmw-av-session-control-vs-audio-2026-11-21/) | closed | ops-field | B3: AV Control vs Audio-Boundary + Dual-Plane · **0.7.1** |
+| [`bmw-cds-menu-path-field-2026-11-21`](bmw-cds-menu-path-field-2026-11-21/) | closed | ops-field | B3: CDS Menu-Pfad visCtx 50034 · Track-Bus NOT PROVEN · **0.7.1** |
+| [`bmw-am-bootstrap-field-2026-11-21`](bmw-am-bootstrap-field-2026-11-21/) | closed | ops-field | B3: AM Bootstrap ×5 · Spotify≠AM · **0.7.1** |
+| [`esp32-bt-analyzer-b3-relay-topology-2026-11-21`](esp32-bt-analyzer-b3-relay-topology-2026-11-21/) | closed | ops-field | B3: Profile-Relay Topologie + Capture-Discipline · **0.7.1** |
+| [`method-raw-bcl-etch-forensic-2026-11`](method-raw-bcl-etch-forensic-2026-11/) | closed | lab-tool | Methode: Raw-Bin→BCL→Etch→Crypto→Timeline · **0.7.1** |
 | [`esp32-bt-analyzer-f20-connected-2026-11-17`](esp32-bt-analyzer-f20-connected-2026-11-17/) | closed | ops-field | Eigen: F20 Connected-Stack Freeze (22 Themen, FW 0.3.20, W0–W5) · **0.7.1** |
 | [`esp32-bt-analyzer-lab-field-transfer-2026-11-17`](esp32-bt-analyzer-lab-field-transfer-2026-11-17/) | closed | ops-field | Eigen: Lab≠Feld Claim-Grenze, Action→PiDrive, Resource-Lifecycle, Freeze-Hygiene (post-`1100644`) · **0.7.1** |
 | [`bmw-connected-sas-auth-2026-11-06`](bmw-connected-sas-auth-2026-11-06/) | closed | planning | Desk: BMW Connected SAS Auth (Etch) · **0.7.1** — RFCOMM-Rollen: siehe `bmw-bcl-rfcomm-role-2026-desk` |

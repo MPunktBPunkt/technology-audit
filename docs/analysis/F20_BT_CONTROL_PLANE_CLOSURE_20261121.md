@@ -37,8 +37,21 @@ Own App                    OPEN
 - `setResource` always required → **REJECTED**
 - Lab `modelId=100` / `actionId=200` = F20 → **REJECTED**
 
+## Topic audits (ingested 2026-11-23)
+
+| # | Audit | Sheet delta |
+|---|-------|-------------|
+| 1 | [`bmw-sas-auth-field-crypto-2026-11-21`](../../audits/bmw-sas-auth-field-crypto-2026-11-21/) | `bmw-sas-auth` — 18/18 VERIFY |
+| 2 | [`bmw-bcl-bt-rfcomm-framing-2026-11-21`](../../audits/bmw-bcl-bt-rfcomm-framing-2026-11-21/) | `bmw-bcl` — frag 4000/5306 |
+| 3 | [`bmw-etch-rpc-binary-reassembly-2026-11-21`](../../audits/bmw-etch-rpc-binary-reassembly-2026-11-21/) | `bmw-etch-rpc` — DEADBEEF |
+| 4 | [`bmw-rhmi-music-handle23-field-2026-11-21`](../../audits/bmw-rhmi-music-handle23-field-2026-11-21/) | `bmw-rhmi` — H23 catalog |
+| 5 | [`bmw-av-session-control-vs-audio-2026-11-21`](../../audits/bmw-av-session-control-vs-audio-2026-11-21/) | **new** `bmw-av` |
+| 6–7 | CDS / AM field audits | `bmw-etch-rpc` + `bmw-rhmi` |
+| 8 | [`esp32-bt-analyzer-b3-relay-topology-2026-11-21`](../../audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21/) | project STATUS |
+| 9 | [`method-raw-bcl-etch-forensic-2026-11`](../../audits/method-raw-bcl-etch-forensic-2026-11/) | `methods/raw-bcl-etch-forensic` |
+
 ## Next (ordered)
 
-1. Extract Music DESCRIPTION `e9e31c31…` (92085 B)  
-2. Catalog field model/action/event IDs  
-3. Lab minimal template → one field variable (Weg A)
+1. Dual-Plane Audio-Boundary nach PLAY (`bmw-av` / `NEXT_AUDIO_BOUNDARY_PROOF.md`)  
+2. Lab minimal Music stub mit Field-IDs 444–447 / 336·248 / 660·661 → ein F20-Versuch  
+3. Gate B2 Standalone-Signer (nicht Protokoll-RE)
