@@ -3,6 +3,73 @@
 
 topic: esp32-polar-phy-tx
 generated: 2026-11-23
+current:
+  family: esp32-polar-phy-tx
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed:
+    -
+      id: null
+      statement: Trägerquelle ohne Sample-Buffer
+      supported_by: []
+    -
+      id: null
+      statement: Schmalband-FM/SSB/RTTY
+      supported_by: []
+    -
+      id: null
+      statement: Polar (mag)
+      supported_by: []
+    -
+      id: null
+      statement: Live-Modulation
+      supported_by: []
+  open_points:
+    - "[UNKNOWN] Pegel, Nebenaussendungen"
+    - "[UNKNOWN] Transfer"
+    - Reproduktion polar-TX auf zweitem Lab-Board (fremde Messung)?
+    - Spurious / ACLR / Harmonics messbar?
+    - Übertragbarkeit C5 5 GHz-PHY (vermutlich nein ohne Gate)?
+  next_evidence: "[UNKNOWN] Pegel, Nebenaussendungen"
+  rejected_highlights:
+    -
+      id: null
+      statement: Polar-TX = APLL-FM auf anderem Chip
+      status: REJECTED
+    -
+      id: null
+      statement: "Author-Hz/dB = KB-`MEASURED`"
+      status: REJECTED
+    -
+      id: null
+      statement: Raw I/Q TX ist Release-Pfad
+      status: REJECTED
+    -
+      id: null
+      statement: Thermal-Modell board-übertragbar
+      status: REJECTED
+    -
+      id: null
+      statement: Ohne Lizenz Antenne ok
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-030
+      directory: esp32-sdr-trx-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-043
+      directory: esp32sdr-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+  last_relevant_change: 2026-10-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp32-polar-phy-tx/SHEET.md
   - audits/esp32-sdr-trx-2026-foreign/README.md
@@ -23,12 +90,14 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-sdr-trx-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-043
     directory: esp32sdr-2026-foreign
     status: active
     environment: lab
     path: audits/esp32sdr-2026-foreign
+    started: 2026-10-12
 methods:
   - methods/hw-path-gate.md
 evidence_ids: []

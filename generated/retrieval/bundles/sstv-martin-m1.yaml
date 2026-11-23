@@ -3,6 +3,52 @@
 
 topic: sstv-martin-m1
 generated: 2026-11-23
+current:
+  family: sstv-martin-m1
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - Welche Mindest-LPF-Ordnungen für saubere Demod-Sync?
+    - Scottie/PD-Modes als eigene Slugs oder Mode-Tabelle im Sheet?
+  next_evidence: Welche Mindest-LPF-Ordnungen für saubere Demod-Sync?
+  rejected_highlights:
+    -
+      id: null
+      statement: SSTV-PDM-GPIO = direkter UKW-Sender
+      status: REJECTED
+    -
+      id: null
+      statement: PDM-Pin ohne LPF an Mic/Line
+      status: REJECTED
+    -
+      id: null
+      statement: Martin M1 ≡ APLL-FM-Sheet
+      status: REJECTED
+    -
+      id: null
+      statement: PTT-GPIO immer im Firmware-Scope
+      status: REJECTED
+    -
+      id: null
+      statement: VIS/Farben egal
+      status: REJECTED
+    -
+      id: null
+      statement: Ohne Amateurfunklizenz „Labor = On-Air ok“
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-079
+      directory: tinysstv-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/sstv-martin-m1/SHEET.md
   - audits/tinysstv-2026-foreign/README.md
@@ -22,6 +68,7 @@ audits:
     status: active
     environment: lab
     path: audits/tinysstv-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids: []
 facts: []

@@ -3,6 +3,72 @@
 
 topic: bluetooth-spp
 generated: 2026-11-23
+current:
+  family: bluetooth-spp
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-AOA-030
+    - EVID-AOA-2026-10-28-020
+    - EVID-BG-020
+    - EVID-BTHPF-2026-11-04-001
+    - EVID-BTHPF-2026-11-04-010
+    - EVID-BTHPF-2026-11-04-020
+    - EVID-BTHPF-2026-11-04-030
+    - EVID-BTHPF-2026-11-04-031
+  confirmed: []
+  open_points:
+    - "VFS-SPP vs Raw-Callback: wann welcher Pfad auf ESP-IDF?"
+  next_evidence: "VFS-SPP vs Raw-Callback: wann welcher Pfad auf ESP-IDF?"
+  rejected_highlights:
+    -
+      id: null
+      statement: SPP = BLE-UART mit anderem Namen
+      status: REJECTED
+    -
+      id: null
+      statement: SCN 0 ist immer Kanal 1
+      status: REJECTED
+    -
+      id: null
+      statement: "`ESP_SPP_SEC_NONE` + PIN 1234 produktionsreif"
+      status: REJECTED
+    -
+      id: null
+      statement: Unbegrenzte parallele SPP-Clients
+      status: REJECTED
+    -
+      id: null
+      statement: SPP auf BLE-only SoCs
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-085
+      directory: bt-classic-gaps-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-088
+      directory: usb-aoa-bmw-connected-2026-desk
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-091
+      directory: esp32-bt-analyzer-host-profiles-2026-desk
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-100
+      directory: supra-idrive6-android-auto-2026-secondary
+      status: closed
+      environment: lab
+  methods:
+    - methods/bt-passive-host-sniff.md
+    - methods/ftms-capability-probe.md
+  last_relevant_change: 2026-11-13
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bluetooth-spp/SHEET.md
   - audits/bt-classic-gaps-2026-foreign/README.md
@@ -25,24 +91,28 @@ audits:
     status: closed
     environment: lab
     path: audits/bt-classic-gaps-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-088
     directory: usb-aoa-bmw-connected-2026-desk
     status: closed
     environment: mixed
     path: audits/usb-aoa-bmw-connected-2026-desk
+    started: 2026-10-28
   -
     audit_id: A-2026-091
     directory: esp32-bt-analyzer-host-profiles-2026-desk
     status: closed
     environment: lab
     path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+    started: 2026-11-04
   -
     audit_id: A-2026-100
     directory: supra-idrive6-android-auto-2026-secondary
     status: closed
     environment: lab
     path: audits/supra-idrive6-android-auto-2026-secondary
+    started: 2026-11-13
 methods:
   - methods/bt-passive-host-sniff.md
   - methods/ftms-capability-probe.md

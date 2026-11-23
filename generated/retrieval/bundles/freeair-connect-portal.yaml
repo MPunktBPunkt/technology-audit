@@ -3,6 +3,34 @@
 
 topic: freeair-connect-portal
 generated: 2026-11-23
+current:
+  family: freeair-connect-portal
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - UNKNOWN
+  next_evidence: UNKNOWN
+  rejected_highlights:
+    -
+      id: null
+      statement: Portal braucht Login-Token
+      status: REJECTED
+    -
+      id: null
+      statement: AES-Payload ohne Key nutzbar
+      status: REJECTED
+    -
+      id: null
+      statement: Cloud-Poll = lokales LAN-Gerät
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits: []
+  methods: []
+  last_relevant_change: UNKNOWN
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/freeair-connect-portal/SHEET.md
 primary:

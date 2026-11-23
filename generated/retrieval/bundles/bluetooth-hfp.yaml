@@ -3,6 +3,72 @@
 
 topic: bluetooth-hfp
 generated: 2026-11-23
+current:
+  family: bluetooth-hfp
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BTHPF-2026-11-04-001
+    - EVID-BTHPF-2026-11-04-010
+    - EVID-BTHPF-2026-11-04-020
+    - EVID-BTHPF-2026-11-04-030
+    - EVID-BTHPF-2026-11-04-031
+    - EVID-BTHPF-2026-11-04-040
+  confirmed: []
+  open_points:
+    - "[UNKNOWN] HFP auf ESP32-S3 wie Classic ESP32"
+    - Einheitliche Call→A2DP-Suspend-Policy für Gateway-Produkte?
+    - "LC3-SWB auf ESP-IDF: wann produktiv vs CI-only?"
+  next_evidence: "[UNKNOWN] HFP auf ESP32-S3 wie Classic ESP32"
+  rejected_highlights:
+    -
+      id: null
+      statement: A2DP deckt Anrufe ab
+      status: REJECTED
+    -
+      id: null
+      statement: HFP HF = HSP
+      status: REJECTED
+    -
+      id: null
+      statement: mSBC-Pfad decodiert still CVSD
+      status: REJECTED
+    -
+      id: null
+      statement: PCM-GPIO und HCI-SCO sind austauschbar ohne Kconfig
+      status: REJECTED
+    -
+      id: null
+      statement: "AG und HF APIs sind spiegelbar 1:1"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-084
+      directory: bt-analysis-relay-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-085
+      directory: bt-classic-gaps-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-086
+      directory: bt-sniffing-capture-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-091
+      directory: esp32-bt-analyzer-host-profiles-2026-desk
+      status: closed
+      environment: lab
+  methods:
+    - methods/bt-passive-host-sniff.md
+    - methods/ftms-capability-probe.md
+  last_relevant_change: 2026-11-04
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bluetooth-hfp/SHEET.md
   - audits/bt-analysis-relay-2026-foreign/README.md
@@ -25,24 +91,28 @@ audits:
     status: closed
     environment: lab
     path: audits/bt-analysis-relay-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-085
     directory: bt-classic-gaps-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-classic-gaps-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-086
     directory: bt-sniffing-capture-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-sniffing-capture-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-091
     directory: esp32-bt-analyzer-host-profiles-2026-desk
     status: closed
     environment: lab
     path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+    started: 2026-11-04
 methods:
   - methods/bt-passive-host-sniff.md
   - methods/ftms-capability-probe.md

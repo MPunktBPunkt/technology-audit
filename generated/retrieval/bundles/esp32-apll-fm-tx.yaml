@@ -3,6 +3,131 @@
 
 topic: esp32-apll-fm-tx
 generated: 2026-11-23
+current:
+  family: esp32-apll-fm-tx
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-FMRDS-2026-10-13-001
+    - EVID-FMRDS-2026-10-13-003
+    - EVID-FMRDS-2026-10-13-004
+    - EVID-FMRDS-2026-10-13-005
+    - EVID-FMRDS-2026-10-13-008
+    - EVID-FMRDS-2026-10-13-010
+    - EVID-FMRDS-2026-10-13-012
+    - EVID-FMRDS-2026-10-13-022
+  confirmed:
+    -
+      id: null
+      statement: Referenz für APLL
+      supported_by: []
+    -
+      id: null
+      statement: "Lock-Fenster; `o_div`/`sdm*`"
+      supported_by: []
+    -
+      id: null
+      statement: Träger im UKW-nahen Bereich
+      supported_by: []
+    -
+      id: null
+      statement: Pin-Mux Routing
+      supported_by: []
+    -
+      id: null
+      statement: GPIO0 oder GPIO16 (projektabhängig)
+      supported_by: []
+    -
+      id: null
+      statement: APLL vorhanden
+      supported_by: []
+    -
+      id: null
+      statement: I2S teilt APLL-Ausgang oft ÷2
+      supported_by: []
+  open_points:
+    - "[UNKNOWN] Pegel, Spurious"
+    - "[UNKNOWN] Pi-DMA-Exit-Risiko existiert identisch am ESP"
+    - "Welche max. Clock-Out-Frequenz erreicht ein **ESP32-S3**-Pad messbar? (E-0/E-1; LCD-PCLK-Kandidat aus Forum)"
+    - Harmonic-Pegel / benötigte Filterdämpfung im Lab?
+    - Glitches beim SDM-Umschalten unter Last (WiFi gleichzeitig)?
+    - S2 APLL-FM (nicht nur CW) messbar?
+    - "G-MPX-0, G-IC-1 und G-LIC-1 als nächste Desk-Gates."
+    - "Lab/Field bleiben `UNKNOWN`."
+    - Keine Folgedatei oder Shared-Navigation wurde in dieser Kampagne geändert.
+  next_evidence: "[UNKNOWN] Pegel, Spurious"
+  rejected_highlights:
+    -
+      id: null
+      statement: APLL-Äquivalent
+      status: REJECTED
+    -
+      id: null
+      statement: „ESP32 kann FM“ gilt für alle ESP32-Serien
+      status: REJECTED
+    -
+      id: null
+      statement: "Alexxdal `#error`-Text „S2 hat kein APLL“"
+      status: REJECTED
+    -
+      id: null
+      statement: ESP32-S3 erbt APLL-FM automatisch
+      status: REJECTED
+    -
+      id: null
+      statement: Antenne am GPIO = harmlos
+      status: REJECTED
+    -
+      id: null
+      statement: Spektrum ist „sauberes FM“
+      status: REJECTED
+    -
+      id: null
+      statement: GPIO0 immer ideal
+      status: REJECTED
+    -
+      id: null
+      statement: RDS = Text an den Sender
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-026
+      directory: pidrive-2026-radio-bt
+      status: active
+      environment: field
+    -
+      audit_id: A-2026-027
+      directory: pi-fm-tx-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-029
+      directory: esp-fm-tx-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-030
+      directory: esp32-sdr-trx-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-049
+      directory: esp-fm-rds-node-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-079
+      directory: tinysstv-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+    - methods/kb-cross-check.md
+    - methods/rf-loopback-rds-acceptance.md
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp32-apll-fm-tx/SHEET.md
   - audits/esp-fm-rds-node-2026-foreign/README.md
@@ -27,36 +152,42 @@ audits:
     status: active
     environment: field
     path: audits/pidrive-2026-radio-bt
+    started: 2026-10-09
   -
     audit_id: A-2026-027
     directory: pi-fm-tx-2026-foreign
     status: active
     environment: lab
     path: audits/pi-fm-tx-2026-foreign
+    started: 2026-10-10
   -
     audit_id: A-2026-029
     directory: esp-fm-tx-2026-foreign
     status: active
     environment: lab
     path: audits/esp-fm-tx-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-030
     directory: esp32-sdr-trx-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-sdr-trx-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-049
     directory: esp-fm-rds-node-2026-foreign
     status: closed
     environment: lab
     path: audits/esp-fm-rds-node-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-079
     directory: tinysstv-2026-foreign
     status: active
     environment: lab
     path: audits/tinysstv-2026-foreign
+    started: 2026-10-25
 methods:
   - methods/hw-path-gate.md
   - methods/kb-cross-check.md

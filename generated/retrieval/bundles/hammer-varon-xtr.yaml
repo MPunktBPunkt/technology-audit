@@ -3,6 +3,54 @@
 
 topic: hammer-varon-xtr
 generated: 2026-11-23
+current:
+  family: hammer-varon-xtr
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - "Weitere Firmware-Revisions des gleichen Gehäuses mit abweichendem `2ACC`?"
+    - Evidence für Bridge-Abnahme und Nachtest 6
+    - "Sheet `ftms-erg-control` nur bei Transferbedarf + Gate"
+    - "Exit 6: weiteres Bike oder deferred dokumentieren"
+    - "Optional: Application für Web/SSE der Sonde"
+  next_evidence: "Weitere Firmware-Revisions des gleichen Gehäuses mit abweichendem `2ACC`?"
+  rejected_highlights:
+    -
+      id: null
+      statement: Marketing-Stufen/Watt = FTMS-Raster
+      status: REJECTED
+    -
+      id: null
+      statement: "Opcode `0x05` Success ⇒ Wattziel aktiv"
+      status: REJECTED
+    -
+      id: null
+      statement: Advertising allein reicht zum Wiederfinden
+      status: REJECTED
+    -
+      id: null
+      statement: Resistance-Feld in IBD spiegelt Ist-Stufe
+      status: REJECTED
+  transfer_limits:
+    - device_specific
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-006
+      directory: esp32-ergo-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-008
+      directory: esp32-ftmsprobe-2026-pilot
+      status: active
+      environment: lab
+  methods:
+    - methods/ftms-capability-probe.md
+  last_relevant_change: 2026-10-09
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/hammer-varon-xtr/SHEET.md
   - audits/esp32-ergo-2026-pilot/README.md
@@ -27,12 +75,14 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-ergo-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-008
     directory: esp32-ftmsprobe-2026-pilot
     status: active
     environment: lab
     path: audits/esp32-ftmsprobe-2026-pilot
+    started: 2026-10-09
 methods:
   - methods/ftms-capability-probe.md
 evidence_ids: []

@@ -6,7 +6,8 @@ alwaysApply: true
 # Retrieval discipline
 
 1. Start at `AGENTS.md` → `generated/retrieval/index.yaml` → relevant `bundles/*.yaml`.
-2. Always surface **rejected**, **unknowns**, and **transfer_limits** with answers.
-3. Sheets / audits / `claims.yaml` are source of truth; never invent `AI_KNOWLEDGE.md`.
-4. After structural SoT edits: `python3 tools/ta-assist index` (regenerates `audits/INDEX.yaml` + bundles).
-5. Prefer Evidence/Claim IDs (`EVID-…`, `C-…`, `A-YYYY-NNN`) over fragile path-only citations.
+2. Read **`current:`** first (status, open_points, next_evidence, rejected_highlights).
+3. Always surface **rejected**, **unknowns**, and **transfer_limits** with answers.
+4. Sheets / audits / `claims.yaml` are source of truth; never invent `AI_KNOWLEDGE.md`.
+5. After structural SoT edits: `python3 tools/ta-assist index` (regenerates `audits/INDEX.yaml` + bundles).
+6. Prefer Evidence/Claim IDs (`EVID-…`, `C-…`, `A-YYYY-NNN`) over fragile path-only citations.

@@ -3,6 +3,132 @@
 
 topic: bluetooth-a2dp
 generated: 2026-11-23
+current:
+  family: bluetooth-a2dp
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-B3-AV-CONTROL-PATH
+    - EVID-B3-AV-PLAY-315A6
+  confirmed:
+    -
+      id: C-AV-001
+      statement: AV control path av_create(…music) → requestConnection(ENTERTAINMENT) → connectionGranted → av_playerStateChanged(PLAY) is FIELD FACT in B3.
+      supported_by:
+        - EVID-B3-AV-CONTROL-PATH
+        - EVID-B3-AV-PLAY-315A6
+  open_points:
+    - "[C-AV-003] Post-PLAY bulk traffic on BCL dest 4004 is an audio stream (PCM/A2DP/iAP)."
+    - "[C-AV-004] Audible playback during B3 Music session."
+    - NBT-Evo Bitpool/Buffer Defaults?
+    - ESP32-S31 Classic-Caps im Lab?
+    - Audio-Transport-Identifikation (P0 Dual-Plane)
+    - Track A→B Re-Init vs Metadata-only
+    - Home Entry Object-ID (P4)
+    - "A17, Q12, Phase −1 (siehe STATE.md Upstream)"
+  next_evidence: Audio-Transport-Identifikation (P0 Dual-Plane)
+  rejected_highlights:
+    -
+      id: null
+      statement: A2DP-Sink ohne Default-Route = hörbar
+      status: REJECTED
+    -
+      id: null
+      statement: Ein Gerät gleichzeitig Sink und Source
+      status: REJECTED
+    -
+      id: null
+      statement: ESP32-S3 on-chip A2DP
+      status: REJECTED
+    -
+      id: null
+      statement: AAC/aptX/LDAC „überall“
+      status: REJECTED
+    -
+      id: null
+      statement: AAC ohne PSRAM auf Classic
+      status: REJECTED
+    -
+      id: null
+      statement: Pi BlueZ beweist ESP-Gateway
+      status: REJECTED
+    -
+      id: null
+      statement: Externer HCI „ESP32“ = Bluedroid-FW
+      status: REJECTED
+    -
+      id: null
+      statement: Multi-Codec-Fork = drop-in Arduino-Library
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-004
+      directory: esp32-bt-gateway-2026-planning
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-026
+      directory: pidrive-2026-radio-bt
+      status: active
+      environment: field
+    -
+      audit_id: A-2026-032
+      directory: rnt-esp32-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-034
+      directory: a2dpsinkhfpclient-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-035
+      directory: bluetooth-stack-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-036
+      directory: esp-idf-classic-bt-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-038
+      directory: esp32-a2dp-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-039
+      directory: esp32-a2dp-codecs-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-040
+      directory: esp32-a2dp-source-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-041
+      directory: esp32-bt-iap-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-044
+      directory: espble-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-045
+      directory: esphome-a2dp-sink-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/bt-passive-host-sniff.md
+    - methods/ftms-capability-probe.md
+    - methods/raw-bcl-etch-forensic.md
+  last_relevant_change: 2026-11-21
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bluetooth-a2dp/SHEET.md
   - audits/a2dpsinkhfpclient-2026-foreign/README.md
@@ -17,14 +143,6 @@ source_of_truth:
   - audits/esp32-a2dp-source-2026-foreign/README.md
   - audits/esp32-audioi2s-2026-foreign/README.md
   - audits/esp32-bt-analyzer-f20-connected-2026-11-17/README.md
-  - audits/esp32-bt-analyzer-host-profiles-2026-desk/README.md
-  - audits/esp32-bt-gateway-2026-planning/README.md
-  - audits/esp32-bt-iap-2026-foreign/README.md
-  - audits/esp32-i2s-ble-2026-foreign/README.md
-  - audits/espble-2026-foreign/README.md
-  - audits/esphome-a2dp-sink-2026-foreign/README.md
-  - audits/pidrive-2026-radio-bt/README.md
-  - audits/rnt-esp32-2026-foreign/README.md
 primary:
   - bluetooth-a2dp
 maturity:
@@ -53,126 +171,147 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-bt-gateway-2026-planning
+    started: 2026-10-09
   -
     audit_id: A-2026-026
     directory: pidrive-2026-radio-bt
     status: active
     environment: field
     path: audits/pidrive-2026-radio-bt
+    started: 2026-10-09
   -
     audit_id: A-2026-032
     directory: rnt-esp32-2026-foreign
     status: active
     environment: lab
     path: audits/rnt-esp32-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-034
     directory: a2dpsinkhfpclient-2026-foreign
     status: active
     environment: lab
     path: audits/a2dpsinkhfpclient-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-035
     directory: bluetooth-stack-2026-foreign
     status: active
     environment: lab
     path: audits/bluetooth-stack-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-036
     directory: esp-idf-classic-bt-2026-foreign
     status: active
     environment: lab
     path: audits/esp-idf-classic-bt-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-038
     directory: esp32-a2dp-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-a2dp-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-039
     directory: esp32-a2dp-codecs-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-a2dp-codecs-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-040
     directory: esp32-a2dp-source-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-a2dp-source-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-041
     directory: esp32-bt-iap-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-bt-iap-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-044
     directory: espble-2026-foreign
     status: active
     environment: lab
     path: audits/espble-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-045
     directory: esphome-a2dp-sink-2026-foreign
     status: active
     environment: lab
     path: audits/esphome-a2dp-sink-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-053
     directory: esp32-audioi2s-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-audioi2s-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-054
     directory: esp32-i2s-ble-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-i2s-ble-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-078
     directory: squeezelite-esp32-2026-foreign
     status: active
     environment: lab
     path: audits/squeezelite-esp32-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-084
     directory: bt-analysis-relay-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-analysis-relay-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-085
     directory: bt-classic-gaps-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-classic-gaps-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-086
     directory: bt-sniffing-capture-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-sniffing-capture-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-091
     directory: esp32-bt-analyzer-host-profiles-2026-desk
     status: closed
     environment: lab
     path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+    started: 2026-11-04
   -
     audit_id: A-2026-102
     directory: esp32-bt-analyzer-f20-connected-2026-11-17
     status: closed
     environment: mixed
     path: audits/esp32-bt-analyzer-f20-connected-2026-11-17
+    started: 2026-11-17
   -
     audit_id: A-2026-110
     directory: bmw-av-session-control-vs-audio-2026-11-21
     status: closed
     environment: field
     path: audits/bmw-av-session-control-vs-audio-2026-11-21
+    started: 2026-11-21
 methods:
   - methods/bt-passive-host-sniff.md
   - methods/ftms-capability-probe.md
@@ -201,7 +340,7 @@ facts:
     source: technologies/bluetooth-a2dp/SHEET.md
   -
     id: C-AV-001
-    statement: ">"
+    statement: AV control path av_create(…music) → requestConnection(ENTERTAINMENT) → connectionGranted → av_playerStateChanged(PLAY) is FIELD FACT in B3.
     status: FACT
     source: audits/bmw-av-session-control-vs-audio-2026-11-21/claims.yaml
     supported_by:
@@ -216,13 +355,8 @@ facts:
       transport: BCL/Etch
       protocol: AV
       project: esp32-bt-analyzer
-      supported_by:
-        - EVID-B3-AV-CONTROL-PATH
-        - EVID-B3-AV-PLAY-315A6
-      transfer_limits:
-        - control_plane_only
-      unknown_reason: null
     audit_id: A-2026-110
+    environment: field
 inferences: []
 hypotheses:
   -
@@ -238,17 +372,14 @@ unknowns:
     supported_by: []
     transfer_limits:
       - default_classify_as_rhmi_fragments_inference
-    unknown_reason: null
+    unknown_reason: protocol_not_observed
     scope:
       vehicle: BMW F20
       hu: NBT Evo
       transport: BCL
       protocol: AV
-      supported_by: []
-      transfer_limits:
-        - default_classify_as_rhmi_fragments_inference
-      unknown_reason: protocol_not_observed
     audit_id: A-2026-110
+    environment: field
   -
     id: C-AV-004
     statement: Audible playback during B3 Music session.
@@ -258,16 +389,12 @@ unknowns:
       - EVID-B3-AUDIO-BOUNDARY-OPEN
     transfer_limits:
       - operator_no_sound
-    unknown_reason: null
+    unknown_reason: conflicting_evidence
     scope:
       vehicle: BMW F20
       hu: NBT Evo
-      supported_by:
-        - EVID-B3-AUDIO-BOUNDARY-OPEN
-      transfer_limits:
-        - operator_no_sound
-      unknown_reason: conflicting_evidence
     audit_id: A-2026-110
+    environment: field
 rejected:
   -
     statement: A2DP-Sink ohne Default-Route = hörbar
@@ -318,13 +445,8 @@ rejected:
       vehicle: BMW F20
       hu: NBT Evo
       protocol: AV
-      supported_by: []
-      contradicted_by:
-        - EVID-B3-AUDIO-BOUNDARY-OPEN
-      transfer_limits:
-        - audible_not_observed
-      unknown_reason: null
     audit_id: A-2026-110
+    environment: field
 transfer_limits:
   - sheet_abgrenzung_ist_nicht
 note: GENERATED — do not hand-edit; regenerate via ta-assist index

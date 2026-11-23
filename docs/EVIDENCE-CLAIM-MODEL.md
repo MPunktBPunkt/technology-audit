@@ -123,8 +123,10 @@ Erzeugt durch `python3 tools/ta-assist index` (Modul `retrieval`):
 |----------|--------|
 | [`audits/INDEX.yaml`](../audits/INDEX.yaml) | alle Audits: `audit_id`, dir, project, status, profile, techs, env |
 | [`generated/retrieval/index.yaml`](../generated/retrieval/index.yaml) | Master: bundles + topics |
-| [`generated/retrieval/bundles/<slug>.yaml`](../generated/retrieval/bundles/) | pro Tech/Topic: facts, rejected, unknowns, audits, apps, methods, transfer_limits |
+| [`generated/retrieval/bundles/<slug>.yaml`](../generated/retrieval/bundles/) | pro Tech/Topic: **`current:`** Snapshot + facts/rejected/unknowns/audits/methods/transfer_limits |
 | Topic-Seeds | [`docs/retrieval-topics.yaml`](retrieval-topics.yaml) — **Query-Specs**, keine zweite Claim-Wahrheit |
+
+`current:` wird nur abgeleitet (Claims + „Offene …“-Bullets + Maturity). Keine manuelle Statusdatei.
 
 **Hand-edit von `generated/` und `audits/INDEX.yaml` ist verboten** — regenerieren.
 

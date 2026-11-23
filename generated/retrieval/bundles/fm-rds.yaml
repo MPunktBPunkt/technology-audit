@@ -3,6 +3,62 @@
 
 topic: fm-rds
 generated: 2026-11-23
+current:
+  family: fm-rds
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-FMRDS-2026-10-13-001
+    - EVID-FMRDS-2026-10-13-003
+    - EVID-FMRDS-2026-10-13-004
+    - EVID-FMRDS-2026-10-13-005
+    - EVID-FMRDS-2026-10-13-008
+    - EVID-FMRDS-2026-10-13-010
+    - EVID-FMRDS-2026-10-13-012
+    - EVID-FMRDS-2026-10-13-022
+  confirmed: []
+  open_points:
+    - Welche Gruppen außer 0A/2A braucht ein gezielter Lab-Empfänger minimal?
+    - "G-MPX-0, G-IC-1 und G-LIC-1 als nächste Desk-Gates."
+    - "Lab/Field bleiben `UNKNOWN`."
+    - Keine Folgedatei oder Shared-Navigation wurde in dieser Kampagne geändert.
+  next_evidence: Welche Gruppen außer 0A/2A braucht ein gezielter Lab-Empfänger minimal?
+  rejected_highlights:
+    -
+      id: null
+      statement: PS/RT ändern = A2DP/AVRCP-Titel
+      status: REJECTED
+    -
+      id: null
+      statement: RDS ohne sauberes MPX „einfach anhängen“
+      status: REJECTED
+    -
+      id: null
+      statement: Jeder FM-RX zeigt RDS
+      status: REJECTED
+    -
+      id: null
+      statement: RDS macht unlizenzierte Aussendung legal
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-027
+      directory: pi-fm-tx-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-049
+      directory: esp-fm-rds-node-2026-foreign
+      status: closed
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+    - methods/kb-cross-check.md
+    - methods/rf-loopback-rds-acceptance.md
+  last_relevant_change: 2026-10-13
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/fm-rds/SHEET.md
   - audits/esp-fm-rds-node-2026-foreign/README.md
@@ -24,12 +80,14 @@ audits:
     status: active
     environment: lab
     path: audits/pi-fm-tx-2026-foreign
+    started: 2026-10-10
   -
     audit_id: A-2026-049
     directory: esp-fm-rds-node-2026-foreign
     status: closed
     environment: lab
     path: audits/esp-fm-rds-node-2026-foreign
+    started: 2026-10-13
 methods:
   - methods/hw-path-gate.md
   - methods/kb-cross-check.md

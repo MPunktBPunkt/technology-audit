@@ -3,6 +3,44 @@
 
 topic: ble-gatt-semantic-bridge
 generated: 2026-11-23
+current:
+  family: ble-gatt-semantic-bridge
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - Einheitliches Exclusive-Control-Muster über Profile hinweg?
+    - Wann synthetische CPS-Crank-Felder Watch-tauglich genug?
+  next_evidence: Einheitliches Exclusive-Control-Muster über Profile hinweg?
+  rejected_highlights:
+    -
+      id: null
+      statement: Gleiche Physik-Größe ⇒ byte-identische Characteristic
+      status: REJECTED
+    -
+      id: null
+      statement: Control-Point Success = Wirkung am Gerät
+      status: REJECTED
+    -
+      id: null
+      statement: Multi-Client + Exclusive ohne Lock-Policy
+      status: REJECTED
+    -
+      id: null
+      statement: Semantic Bridge braucht Transparent-Clone
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-083
+      directory: ble-gatt-bridge-refs-2026-foreign
+      status: closed
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-28
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ble-gatt-semantic-bridge/SHEET.md
   - audits/ble-gatt-bridge-refs-2026-foreign/README.md
@@ -22,6 +60,7 @@ audits:
     status: closed
     environment: lab
     path: audits/ble-gatt-bridge-refs-2026-foreign
+    started: 2026-10-28
 methods: []
 evidence_ids: []
 facts: []

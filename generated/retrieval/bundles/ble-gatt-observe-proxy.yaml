@@ -3,6 +3,59 @@
 
 topic: ble-gatt-observe-proxy
 generated: 2026-11-23
+current:
+  family: ble-gatt-observe-proxy
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BZGATT-2026-11-12
+  confirmed: []
+  open_points:
+    - Minimales Capture-Schema (JSONL) für KB-Evidence?
+  next_evidence: Minimales Capture-Schema (JSONL) für KB-Evidence?
+  rejected_highlights:
+    -
+      id: null
+      statement: Transparent Relais knackt jedes Bonding
+      status: REJECTED
+    -
+      id: null
+      statement: CCCD Downstream steuert Upstream automatisch
+      status: REJECTED
+    -
+      id: null
+      statement: MQTT-Gateway = Phone↔Device Relais
+      status: REJECTED
+    -
+      id: null
+      statement: Notify-Congestion egal bei Analyse
+      status: REJECTED
+    -
+      id: null
+      statement: Analyse-Proxy = Produktions-Bridge
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-084
+      directory: bt-analysis-relay-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-086
+      directory: bt-sniffing-capture-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-094
+      directory: ble-gatt-bluez-relay-2026-foreign
+      status: closed
+      environment: mixed
+  methods:
+    - methods/bt-passive-host-sniff.md
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ble-gatt-observe-proxy/SHEET.md
   - audits/ble-gatt-bluez-relay-2026-foreign/README.md
@@ -24,18 +77,21 @@ audits:
     status: closed
     environment: lab
     path: audits/bt-analysis-relay-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-086
     directory: bt-sniffing-capture-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-sniffing-capture-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-094
     directory: ble-gatt-bluez-relay-2026-foreign
     status: closed
     environment: mixed
     path: audits/ble-gatt-bluez-relay-2026-foreign
+    started: 2026-11-12
 methods:
   - methods/bt-passive-host-sniff.md
 evidence_ids:

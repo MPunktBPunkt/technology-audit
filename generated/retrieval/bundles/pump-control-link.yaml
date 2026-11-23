@@ -3,6 +3,44 @@
 
 topic: pump-control-link
 generated: 2026-11-23
+current:
+  family: pump-control-link
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - "Wie weit sich PUMP von produkt-spezifischen UIDs (`pump:page_*`) lösen lässt."
+    - Ob ein zweites Sheet für „virtuelles Soft-Paging“ nötig wird (eher Application).
+  next_evidence: "Wie weit sich PUMP von produkt-spezifischen UIDs (`pump:page_*`) lösen lässt."
+  rejected_highlights:
+    -
+      id: null
+      statement: Control-Link = MSC-Stream
+      status: REJECTED
+    -
+      id: null
+      statement: Ein Transport (nur UART) ist Teil der Spec
+      status: REJECTED
+    -
+      id: null
+      statement: "Unbegrenzte Menütiefe muss 1:1 auf Stick-Slots"
+      status: REJECTED
+    -
+      id: null
+      statement: Binary und JSON dürfen sich im Stream mischen ohne State-Machine
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-012
+      directory: esp32-pidrive-2026-pilot
+      status: active
+      environment: desk
+  methods: []
+  last_relevant_change: 2026-10-09
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/pump-control-link/SHEET.md
   - audits/esp32-pidrive-2026-pilot/README.md
@@ -22,6 +60,7 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-pidrive-2026-pilot
+    started: 2026-10-09
 methods: []
 evidence_ids: []
 facts: []

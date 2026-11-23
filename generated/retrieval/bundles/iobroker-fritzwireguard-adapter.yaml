@@ -3,6 +3,53 @@
 
 topic: iobroker-fritzwireguard-adapter
 generated: 2026-11-23
+current:
+  family: iobroker-fritzwireguard-adapter
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-CARNET-2026-11-12-020
+    - EVID-CARNET-YYYY-MM-DD
+  confirmed: []
+  open_points:
+    - Einheitliche Port-Defaults für Tunnel-Konsumenten (Kostal etc.)?
+  next_evidence: Einheitliche Port-Defaults für Tunnel-Konsumenten (Kostal etc.)?
+  rejected_highlights:
+    -
+      id: null
+      statement: "Full-Tunnel (`0.0.0.0/0`) ist unkritisch auf dem ioBroker-Host"
+      status: REJECTED
+    -
+      id: null
+      statement: "Gleiches LAN-Subnet lokal+remote → ganze `/24` routen"
+      status: REJECTED
+    -
+      id: null
+      statement: "DNS aus Client-`.conf` immer übernehmen"
+      status: REJECTED
+    -
+      id: null
+      statement: TR-064 Pflicht für Tunnel
+      status: REJECTED
+    -
+      id: null
+      statement: "VPN ohne Host-Privilegien (`NET_ADMIN`/sudo)"
+      status: REJECTED
+    -
+      id: null
+      statement: Ein Tunnel = Full-Site-VPN für alle Adapter
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-097
+      directory: esp32-car-network-2026-foreign
+      status: closed
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/iobroker-fritzwireguard-adapter/SHEET.md
   - audits/esp32-car-network-2026-foreign/README.md
@@ -22,6 +69,7 @@ audits:
     status: closed
     environment: lab
     path: audits/esp32-car-network-2026-foreign
+    started: 2026-11-12
 methods: []
 evidence_ids:
   - EVID-CARNET-2026-11-12-020

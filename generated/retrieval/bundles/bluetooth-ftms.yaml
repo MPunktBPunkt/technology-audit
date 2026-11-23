@@ -3,6 +3,85 @@
 
 topic: bluetooth-ftms
 generated: 2026-11-23
+current:
+  family: bluetooth-ftms
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BTHPF-2026-11-04-001
+    - EVID-BTHPF-2026-11-04-010
+    - EVID-BTHPF-2026-11-04-020
+    - EVID-BTHPF-2026-11-04-030
+    - EVID-BTHPF-2026-11-04-031
+    - EVID-BTHPF-2026-11-04-040
+  confirmed: []
+  open_points:
+    - "[UNKNOWN] FTMS-Bridge+Central auf Classic wie auf S3"
+    - "Wie häufig ist Notify-statt-Indicate auf `0x2AD9` außerhalb einzelner ASR/Varon-Geräte?"
+    - Gute Defaults für ERG-Slew bei Resistance-Emulation (zyklusübergreifend)?
+    - Evidence für Bridge-Abnahme und Nachtest 6
+    - "Sheet `ftms-erg-control` nur bei Transferbedarf + Gate"
+    - "Exit 6: weiteres Bike oder deferred dokumentieren"
+    - "Optional: Application für Web/SSE der Sonde"
+  next_evidence: "[UNKNOWN] FTMS-Bridge+Central auf Classic wie auf S3"
+  rejected_highlights:
+    -
+      id: null
+      statement: "Jeder „Smart Trainer“ unterstützt Set Target Power (`0x05`)"
+      status: REJECTED
+    -
+      id: null
+      statement: Control-Point-Success beweist Wirkung
+      status: REJECTED
+    -
+      id: null
+      statement: Resistance immer 1-Byte
+      status: REJECTED
+    -
+      id: null
+      statement: Feature-Bit „Resistance“ ⇒ IBD liefert Resistance-Feld
+      status: REJECTED
+    -
+      id: null
+      statement: Control-Point Indicate ohne Client-CCCD
+      status: REJECTED
+    -
+      id: null
+      statement: Exclusive Bridge ohne Lock wenn App+Coach steuern
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-006
+      directory: esp32-ergo-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-008
+      directory: esp32-ftmsprobe-2026-pilot
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-077
+      directory: open-bike-computer-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-083
+      directory: ble-gatt-bridge-refs-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-091
+      directory: esp32-bt-analyzer-host-profiles-2026-desk
+      status: closed
+      environment: lab
+  methods:
+    - methods/bt-passive-host-sniff.md
+    - methods/ftms-capability-probe.md
+  last_relevant_change: 2026-11-04
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bluetooth-ftms/SHEET.md
   - audits/ble-gatt-bridge-refs-2026-foreign/README.md
@@ -27,30 +106,35 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-ergo-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-008
     directory: esp32-ftmsprobe-2026-pilot
     status: active
     environment: lab
     path: audits/esp32-ftmsprobe-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-077
     directory: open-bike-computer-2026-foreign
     status: active
     environment: lab
     path: audits/open-bike-computer-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-083
     directory: ble-gatt-bridge-refs-2026-foreign
     status: closed
     environment: lab
     path: audits/ble-gatt-bridge-refs-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-091
     directory: esp32-bt-analyzer-host-profiles-2026-desk
     status: closed
     environment: lab
     path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+    started: 2026-11-04
 methods:
   - methods/bt-passive-host-sniff.md
   - methods/ftms-capability-probe.md

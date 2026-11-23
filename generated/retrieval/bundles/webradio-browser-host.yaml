@@ -3,6 +3,43 @@
 
 topic: webradio-browser-host
 generated: 2026-11-23
+current:
+  family: webradio-browser-host
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-AUDIOI2S-2026-10-13-001
+    - EVID-AUDIOI2S-2026-10-13-002
+    - EVID-AUDIOI2S-2026-10-13-003
+  confirmed: []
+  open_points:
+    - Einheitliches Now-Playing-Schema über Nodes?
+  next_evidence: Einheitliches Now-Playing-Schema über Nodes?
+  rejected_highlights:
+    -
+      id: null
+      statement: ESP streamt Audio per Classic-BT
+      status: REJECTED
+    -
+      id: null
+      statement: Proxy-URL ohne Allowlist ist harmlos
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-053
+      directory: esp32-audioi2s-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-078
+      directory: squeezelite-esp32-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/webradio-browser-host/SHEET.md
   - audits/esp32-audioi2s-2026-foreign/README.md
@@ -23,12 +60,14 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-audioi2s-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-078
     directory: squeezelite-esp32-2026-foreign
     status: active
     environment: lab
     path: audits/squeezelite-esp32-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids:
   - EVID-AUDIOI2S-2026-10-13-001

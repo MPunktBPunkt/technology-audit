@@ -3,6 +3,34 @@
 
 topic: metermaster-android-app
 generated: 2026-11-23
+current:
+  family: metermaster-android-app
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - UNKNOWN
+  next_evidence: UNKNOWN
+  rejected_highlights:
+    -
+      id: null
+      statement: App braucht immer ioBroker
+      status: REJECTED
+    -
+      id: null
+      statement: Adapter-Quellcode gehört ins App-Repo
+      status: REJECTED
+    -
+      id: null
+      statement: Privacy-Landing = App-Source
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits: []
+  methods: []
+  last_relevant_change: UNKNOWN
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/metermaster-android-app/SHEET.md
 primary:

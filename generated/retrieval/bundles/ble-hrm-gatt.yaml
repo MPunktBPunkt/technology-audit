@@ -3,6 +3,96 @@
 
 topic: ble-hrm-gatt
 generated: 2026-11-23
+current:
+  family: ble-hrm-gatt
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BTHPF-2026-11-04-001
+    - EVID-BTHPF-2026-11-04-010
+    - EVID-BTHPF-2026-11-04-020
+    - EVID-BTHPF-2026-11-04-030
+    - EVID-BTHPF-2026-11-04-031
+    - EVID-BTHPF-2026-11-04-040
+    - EVID-I2SBLE-2026-10-13-001
+    - EVID-I2SBLE-2026-10-13-002
+  confirmed: []
+  open_points:
+    - Welche weiteren Gurte außer Polar H9 verhalten sich bzgl. Flags/RR identisch?
+    - "Wie stabil ist Session-Reconnect geräteübergreifend (Fenster, Backoff)?"
+    - Evidence für Bridge-Abnahme und Nachtest 6
+    - "Sheet `ftms-erg-control` nur bei Transferbedarf + Gate"
+    - "Exit 6: weiteres Bike oder deferred dokumentieren"
+    - "Optional: Application für Web/SSE der Sonde"
+    - Lab-Protokoll Relay-Abnahme mit Evidence-IDs
+    - Continuity-KPIs vs. PFLICHTENHEFT
+    - "Optional: Sheets für `rr-quality-pipeline` / `littlefs-session-archive` nur bei Transferbedarf + Gate"
+  next_evidence: Welche weiteren Gurte außer Polar H9 verhalten sich bzgl. Flags/RR identisch?
+  rejected_highlights:
+    -
+      id: null
+      statement: Sensor Contact Bit ist überall gesetzt
+      status: REJECTED
+    -
+      id: null
+      statement: Ein Gurt erlaubt beliebig viele gleichzeitige Centrals
+      status: REJECTED
+    -
+      id: null
+      statement: RR-Einheiten sind immer Millisekunden
+      status: REJECTED
+    -
+      id: null
+      statement: "„HR vom Bike“ ist immer `0x180D`"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-003
+      directory: esp32-heartrate-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-006
+      directory: esp32-ergo-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-008
+      directory: esp32-ftmsprobe-2026-pilot
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-032
+      directory: rnt-esp32-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-054
+      directory: esp32-i2s-ble-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-077
+      directory: open-bike-computer-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-083
+      directory: ble-gatt-bridge-refs-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-091
+      directory: esp32-bt-analyzer-host-profiles-2026-desk
+      status: closed
+      environment: lab
+  methods:
+    - methods/bt-passive-host-sniff.md
+    - methods/ftms-capability-probe.md
+  last_relevant_change: 2026-11-04
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ble-hrm-gatt/SHEET.md
   - audits/ble-gatt-bridge-refs-2026-foreign/README.md
@@ -31,48 +121,56 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-heartrate-2026-pilot
+    started: 2026-10-08
   -
     audit_id: A-2026-006
     directory: esp32-ergo-2026-pilot
     status: active
     environment: desk
     path: audits/esp32-ergo-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-008
     directory: esp32-ftmsprobe-2026-pilot
     status: active
     environment: lab
     path: audits/esp32-ftmsprobe-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-032
     directory: rnt-esp32-2026-foreign
     status: active
     environment: lab
     path: audits/rnt-esp32-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-054
     directory: esp32-i2s-ble-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-i2s-ble-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-077
     directory: open-bike-computer-2026-foreign
     status: active
     environment: lab
     path: audits/open-bike-computer-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-083
     directory: ble-gatt-bridge-refs-2026-foreign
     status: closed
     environment: lab
     path: audits/ble-gatt-bridge-refs-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-091
     directory: esp32-bt-analyzer-host-profiles-2026-desk
     status: closed
     environment: lab
     path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+    started: 2026-11-04
 methods:
   - methods/bt-passive-host-sniff.md
   - methods/ftms-capability-probe.md

@@ -3,6 +3,49 @@
 
 topic: esp-wifi-nat-router
 generated: 2026-11-23
+current:
+  family: esp-wifi-nat-router
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-CARNET-2026-11-12-020
+    - EVID-CARNET-YYYY-MM-DD
+  confirmed: []
+  open_points:
+    - "Eigenes Sheet `esp-wifi-bt-coex` lohnt sich erst bei SoftAP+BT Produktivpfad?"
+  next_evidence: "Eigenes Sheet `esp-wifi-bt-coex` lohnt sich erst bei SoftAP+BT Produktivpfad?"
+  rejected_highlights:
+    -
+      id: null
+      statement: SoftAP+BT/BLE connecting/connected = stabil
+      status: REJECTED
+    -
+      id: null
+      statement: SoftAP-Wait = bestes Car-Rendezvous
+      status: REJECTED
+    -
+      id: null
+      statement: Optional WG ersetzt NAT-Traversal-Rendezvous
+      status: REJECTED
+    -
+      id: null
+      statement: nat_router = esp_wireguard API selbst
+      status: REJECTED
+    -
+      id: null
+      statement: USB-WiFi-Coex-Sheet deckt SoftAP+BT ab
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-097
+      directory: esp32-car-network-2026-foreign
+      status: closed
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-wifi-nat-router/SHEET.md
   - audits/esp32-car-network-2026-foreign/README.md
@@ -22,6 +65,7 @@ audits:
     status: closed
     environment: lab
     path: audits/esp32-car-network-2026-foreign
+    started: 2026-11-12
 methods: []
 evidence_ids:
   - EVID-CARNET-2026-11-12-020

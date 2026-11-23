@@ -3,6 +3,57 @@
 
 topic: usb-msc-host-behaviour
 generated: 2026-11-23
+current:
+  family: usb-msc-host-behaviour
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - "[UNKNOWN] Windows Write-Bytes > Cache-Slots ⇒ Datenloch"
+    - Welche stabilen Host-Klassen ergeben sich bei n≥3 Geräten pro Klasse?
+    - "Welche Aggregate (Opcode-Hist, READ-size-Hist, remount count) reichen trotz Ring-Overflow?"
+    - Ab wann ist WRITE-Eviction MEASURED vs. HYPOTHESIS?
+    - "**P0 C0:** gleiche Identity + echtes FAT/Media (Identity vs Content)"
+    - "**P0 C1:** hu-probe `aoa_phone_like` / `aoa_observe` am Analyzer — dann Full Audit prüfen"
+    - "**P0:** SCSI Aggregate Counters + Write-LBA-Audit (Upstream Software)"
+    - "Write-Cache Eviction (`010`) bleibt UNKNOWN bis Audit"
+  next_evidence: "**P0 C0:** gleiche Identity + echtes FAT/Media (Identity vs Content)"
+  rejected_highlights:
+    -
+      id: null
+      statement: Ein Host-Muster gilt für alle Hosts
+      status: REJECTED
+    -
+      id: null
+      statement: n=1 Gerät ⇒ Host-Klasse („TVs…“)
+      status: REJECTED
+    -
+      id: null
+      statement: AOA=0 an MSC-Identity ⇒ Host kann kein AOA
+      status: REJECTED
+    -
+      id: null
+      statement: UI-Stille ⇒ kein USB-Mount
+      status: REJECTED
+    -
+      id: null
+      statement: Capture-Ring-Overflow = vollständige Opcode-Historie
+      status: REJECTED
+  transfer_limits:
+    - host_specific
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-093
+      directory: esp32-usb-analyzer-2026-field-host-matrix
+      status: closed
+      environment: mixed
+  methods:
+    - methods/usb-bot-command-observation.md
+    - methods/usb-msc-host-fingerprint.md
+  last_relevant_change: 2026-11-06
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/usb-msc-host-behaviour/SHEET.md
   - audits/esp32-usb-analyzer-2026-field-host-matrix/README.md
@@ -24,6 +75,7 @@ audits:
     status: closed
     environment: mixed
     path: audits/esp32-usb-analyzer-2026-field-host-matrix
+    started: 2026-11-06
 methods:
   - methods/usb-bot-command-observation.md
   - methods/usb-msc-host-fingerprint.md

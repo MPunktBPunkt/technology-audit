@@ -3,6 +3,47 @@
 
 topic: ride-ble-display
 generated: 2026-11-23
+current:
+  family: ride-ble-display
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - UNKNOWN
+  next_evidence: UNKNOWN
+  rejected_highlights:
+    -
+      id: null
+      statement: Ride-Display ≡ FTMS Trainer
+      status: REJECTED
+    -
+      id: null
+      statement: Unauthenticated Nav/Map writes ok
+      status: REJECTED
+    -
+      id: null
+      statement: GATT-Cache ohne Fallback
+      status: REJECTED
+    -
+      id: null
+      statement: Device-ID aus eFuse ohne Fail-Lock
+      status: REJECTED
+    -
+      id: null
+      statement: Proximity-Hunt als Ride-Pattern
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-077
+      directory: open-bike-computer-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ride-ble-display/SHEET.md
   - audits/open-bike-computer-2026-foreign/README.md
@@ -22,6 +63,7 @@ audits:
     status: active
     environment: lab
     path: audits/open-bike-computer-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids: []
 facts: []

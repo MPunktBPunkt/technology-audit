@@ -3,6 +3,35 @@
 
 topic: esp-lab-bus-tools
 generated: 2026-11-23
+current:
+  family: esp-lab-bus-tools
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - Scope/DMM-Capture als eigenes Method-Note?
+  next_evidence: Scope/DMM-Capture als eigenes Method-Note?
+  rejected_highlights:
+    -
+      id: null
+      statement: BOOT/USB/UART-Pins jederzeit schreiben
+      status: REJECTED
+    -
+      id: null
+      statement: Einzweck und Modul brauchen getrennte Slugs
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-032
+      directory: rnt-esp32-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-11
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-lab-bus-tools/SHEET.md
   - audits/rnt-esp32-2026-foreign/README.md
@@ -23,6 +52,7 @@ audits:
     status: active
     environment: lab
     path: audits/rnt-esp32-2026-foreign
+    started: 2026-10-11
 methods: []
 evidence_ids: []
 facts: []

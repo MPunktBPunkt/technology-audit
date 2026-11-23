@@ -3,6 +3,124 @@
 
 topic: esp32-s3-usb-wifi-coex
 generated: 2026-11-23
+current:
+  family: esp32-s3-usb-wifi-coex
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-CARNET-2026-11-12-020
+    - EVID-CARNET-YYYY-MM-DD
+    - EVID-S3HW-2026-10-18
+    - EVID-USBA-2026-10-31-001
+    - EVID-USBA-2026-10-31-004
+    - EVID-USBA-2026-10-31-006
+    - EVID-USBA-2026-10-31-009
+    - EVID-USBA-2026-10-31-012
+  confirmed:
+    -
+      id: null
+      statement: "`esp_wifi_start` kann USB Device auf S3 brechen (historisch)"
+      supported_by: []
+    -
+      id: null
+      statement: "`ESP_PHY_ENABLE_USB` / `phy_bbpll_en_usb` = S3/C3-Workaround"
+      supported_by: []
+    -
+      id: null
+      statement: WiFi-Task prio 23 / Core 0 Default
+      supported_by: []
+    -
+      id: null
+      statement: "Arduino 2.0.11 `usbd` prio 24, no affinity"
+      supported_by: []
+  open_points:
+    - SOF/ISR-Lastanteil unter Full-Speed Bulk?
+    - Ob Host-Reads vs. bloßes Enum denselben WiFi-Effekt auslösen (Lab)?
+    - Ab welcher Proxy-Last ist Store-and-Forward Pflicht trotz Pipeline?
+    - "Lab: Light-Sleep aus vs. an unter USB-MSC + WiFi (Coex-Method)."
+    - "Feld: Chip-Revision / Date Code der eingesetzten Module dokumentieren."
+    - "PSRAM-Pfad in `esp32.pidrive` (falls Octal): #18806 beobachten."
+    - "Lab nach Method `usb-wifi-coex-discrimination`"
+    - Runtime-Prios im hu-probe-Image bestätigen
+    - "Auto-HU: derselbe Kill? (Feld, nach Lab)"
+    - "Live Path-B PHY / echte `.l0samp` Korrelation n≥100"
+  next_evidence: Power-Cycle-Persistenz ≠ Soft-Reboot (Upstream Handover P0)
+  rejected_highlights:
+    -
+      id: null
+      statement: Mode-A TCP (auch Pipeline) ≥ USB-MSC Nutzrate auf S3 Lab
+      status: REJECTED
+    -
+      id: null
+      statement: esp-faq Coex gilt für USB
+      status: REJECTED
+    -
+      id: null
+      statement: IDF-Issue = Ursache Projekt X
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-056
+      directory: esp32-s3-usb-wifi-coexistence-2026
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-060
+      directory: hu-probe-bmw-s0s2-field-2026
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-063
+      directory: esp32-s3-hw-limits-2026
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-067
+      directory: hu-probe-psram-board-free-2026-10-21
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-068
+      directory: hu-probe-heimfahrt-2026-10-22
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-069
+      directory: hu-probe-media-ladder-2026-10-22
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-089
+      directory: esp32-usb-analyzer-2026-pilot
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-090
+      directory: esp32-usb-analyzer-2026-0.0.50
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-097
+      directory: esp32-car-network-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-099
+      directory: esp32-wifi-bt-coex-2026-foreign
+      status: closed
+      environment: lab
+  methods:
+    - methods/msc-host-read-semantics.md
+    - methods/msc-lba-timing-instrument.md
+    - methods/msc-trace-correlation.md
+    - methods/plug-power-reset-isolation.md
+    - methods/usb-bot-command-observation.md
+    - methods/usb-otg-loop-baseline.md
+    - methods/usb-wifi-coex-discrimination.md
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp32-s3-usb-wifi-coex/SHEET.md
   - audits/esp32-car-network-2026-foreign/README.md
@@ -32,60 +150,70 @@ audits:
     status: closed
     environment: lab
     path: audits/esp32-s3-usb-wifi-coexistence-2026
+    started: 2026-10-14
   -
     audit_id: A-2026-060
     directory: hu-probe-bmw-s0s2-field-2026
     status: closed
     environment: lab
     path: audits/hu-probe-bmw-s0s2-field-2026
+    started: 2026-10-15
   -
     audit_id: A-2026-063
     directory: esp32-s3-hw-limits-2026
     status: closed
     environment: lab
     path: audits/esp32-s3-hw-limits-2026
+    started: 2026-10-18
   -
     audit_id: A-2026-067
     directory: hu-probe-psram-board-free-2026-10-21
     status: closed
     environment: mixed
     path: audits/hu-probe-psram-board-free-2026-10-21
+    started: 2026-10-21
   -
     audit_id: A-2026-068
     directory: hu-probe-heimfahrt-2026-10-22
     status: closed
     environment: lab
     path: audits/hu-probe-heimfahrt-2026-10-22
+    started: 2026-10-22
   -
     audit_id: A-2026-069
     directory: hu-probe-media-ladder-2026-10-22
     status: closed
     environment: mixed
     path: audits/hu-probe-media-ladder-2026-10-22
+    started: 2026-10-22
   -
     audit_id: A-2026-089
     directory: esp32-usb-analyzer-2026-pilot
     status: closed
     environment: lab
     path: audits/esp32-usb-analyzer-2026-pilot
+    started: 2026-10-31
   -
     audit_id: A-2026-090
     directory: esp32-usb-analyzer-2026-0.0.50
     status: closed
     environment: lab
     path: audits/esp32-usb-analyzer-2026-0.0.50
+    started: 2026-11-02
   -
     audit_id: A-2026-097
     directory: esp32-car-network-2026-foreign
     status: closed
     environment: lab
     path: audits/esp32-car-network-2026-foreign
+    started: 2026-11-12
   -
     audit_id: A-2026-099
     directory: esp32-wifi-bt-coex-2026-foreign
     status: closed
     environment: lab
     path: audits/esp32-wifi-bt-coex-2026-foreign
+    started: 2026-11-12
 methods:
   - methods/msc-host-read-semantics.md
   - methods/msc-lba-timing-instrument.md

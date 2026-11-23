@@ -3,6 +3,63 @@
 
 topic: esp32-wifi-tone-tx
 generated: 2026-11-23
+current:
+  family: esp32-wifi-tone-tx
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed:
+    -
+      id: null
+      statement: CW carrier on Wi-Fi channel
+      supported_by: []
+    -
+      id: null
+      statement: "`chan = (freq_mhz-2412)/5+1`"
+      supported_by: []
+    -
+      id: null
+      statement: Bit-Keying
+      supported_by: []
+    -
+      id: null
+      statement: Freq keying
+      supported_by: []
+  open_points:
+    - "[UNKNOWN] —"
+    - "[UNKNOWN] Alle ESP32-Serien gleich"
+    - Tone-API Stabilität über IDF/PHY-Rev?
+    - Übertragbarkeit C5/S31?
+  next_evidence: "[UNKNOWN] —"
+  rejected_highlights:
+    -
+      id: null
+      statement: Phase / DAC replay
+      status: REJECTED
+    -
+      id: null
+      statement: Tone-TX = polar PHY TX
+      status: REJECTED
+    -
+      id: null
+      statement: DAC-Replay auf S3 strahlt I/Q
+      status: REJECTED
+    -
+      id: null
+      statement: GFSK = echte Gauss-Formung
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-043
+      directory: esp32sdr-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+  last_relevant_change: 2026-10-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp32-wifi-tone-tx/SHEET.md
   - audits/esp32sdr-2026-foreign/README.md
@@ -22,6 +79,7 @@ audits:
     status: active
     environment: lab
     path: audits/esp32sdr-2026-foreign
+    started: 2026-10-12
 methods:
   - methods/hw-path-gate.md
 evidence_ids: []

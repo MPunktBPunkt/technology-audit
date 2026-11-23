@@ -3,6 +3,107 @@
 
 topic: rf-environment-monitor
 generated: 2026-11-23
+current:
+  family: rf-environment-monitor
+  status: UNKNOWN
+  evidence_maturity: R1
+  strongest_evidence:
+    - EVID-ESPECTRE-2026-10-25-001
+    - EVID-ESPECTRE-2026-10-25-002
+    - EVID-ESPECTRE-2026-10-25-003
+    - EVID-ESPECTRE-2026-10-25-004
+    - EVID-HUB-2026-10-25-001
+    - EVID-MARAUDER-2026-10-25-002
+    - EVID-MARAUDER-2026-10-25-003
+    - EVID-MARAUDER-2026-10-25-004
+  confirmed: []
+  open_points:
+    - Wie portabel ist die Heuristik zwischen Standorten ohne Location Profile?
+    - "Reicht AP-Count-Proxy für Coexistence-Baseline, oder braucht es Hub-seitige Aggregation?"
+    - Wann lohnt eine dritte Score-Version vs. nur Feature-Gewichte drehen?
+    - Wie weit trägt Own-Link-Motion über Küchen-Geometrie hinaus?
+    - "Externes Review der [TECHNOLOGY-MATRIX](TECHNOLOGY-MATRIX.md)"
+    - "Danach **explizite** Technologie-/Projektentscheidung (oder Pause)"
+    - Lab nur nach Go; Instrument-Working-Tree lokal eingefroren (nicht Teil dieses Review-Push)
+    - CCA / Presence-Grundfähigkeit / ML-Radar / rfmonitor-Umbau bleiben draußen
+    - "Exit #6: ioBroker.esp-hub Contract-v2-Spiegelung"
+    - Score-Transfer / Drift Mini↔S3 Nachlauf (Upstream Next)
+  next_evidence: Wie portabel ist die Heuristik zwischen Standorten ohne Location Profile?
+  rejected_highlights:
+    -
+      id: null
+      statement: RF-Score ist kalibrierte Messgröße
+      status: REJECTED
+    -
+      id: null
+      statement: "`channel_*` / density / pressure = Airtime / CCA"
+      status: REJECTED
+    -
+      id: null
+      statement: measurementQuality ersetzt / ist der Score
+      status: REJECTED
+    -
+      id: null
+      statement: Location Deviation = Score-Offset
+      status: REJECTED
+    -
+      id: null
+      statement: Own-Link Motion = Presence / Personenzählung
+      status: REJECTED
+    -
+      id: null
+      statement: Assessment-Score-Fenster reicht für Walk-by-Zeitauflösung
+      status: REJECTED
+    -
+      id: null
+      statement: Schwacher Char-Stimulus = Score-Formel kaputt
+      status: REJECTED
+    -
+      id: null
+      statement: Monitor = Connection-Central
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-013
+      directory: esp32-rfmonitor-2026-pilot
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-070
+      directory: esp-ble-finder-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-073
+      directory: esp32-marauder-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-074
+      directory: esp32-rfmonitor-2026-v2-validation
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-076
+      directory: espectre-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-080
+      directory: esp32-rf-sensing-2026-desk
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-081
+      directory: esp32-rfmonitor-2026-motion-delta
+      status: active
+      environment: desk
+  methods:
+    - methods/own-link-motion-sensitivity.md
+  last_relevant_change: 2026-10-26
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/rf-environment-monitor/SHEET.md
   - audits/esp-ble-finder-2026-foreign/README.md
@@ -29,42 +130,49 @@ audits:
     status: closed
     environment: desk
     path: audits/esp32-rfmonitor-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-070
     directory: esp-ble-finder-2026-foreign
     status: active
     environment: lab
     path: audits/esp-ble-finder-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-073
     directory: esp32-marauder-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-marauder-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-074
     directory: esp32-rfmonitor-2026-v2-validation
     status: closed
     environment: desk
     path: audits/esp32-rfmonitor-2026-v2-validation
+    started: 2026-10-25
   -
     audit_id: A-2026-076
     directory: espectre-2026-foreign
     status: active
     environment: lab
     path: audits/espectre-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-080
     directory: esp32-rf-sensing-2026-desk
     status: active
     environment: desk
     path: audits/esp32-rf-sensing-2026-desk
+    started: 2026-10-26
   -
     audit_id: A-2026-081
     directory: esp32-rfmonitor-2026-motion-delta
     status: active
     environment: desk
     path: audits/esp32-rfmonitor-2026-motion-delta
+    started: 2026-10-26
 methods:
   - methods/own-link-motion-sensitivity.md
 evidence_ids:

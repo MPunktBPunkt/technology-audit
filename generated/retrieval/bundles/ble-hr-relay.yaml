@@ -3,6 +3,65 @@
 
 topic: ble-hr-relay
 generated: 2026-11-23
+current:
+  family: ble-hr-relay
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - "[UNKNOWN] S3-`MAX_CONNECTIONS=3` gilt auf jedem ESP32"
+    - "Byte-identische Weiterleitung vs. Re-Encode: wann ist was spezkonform genug?"
+    - "Idle-Policies: Central-Link halten solange Peripheral-Subscriber existieren?"
+    - "Classic ESP32: Dual-Role-Relay mit ≥2 Peripheral-Clients messbar/stabil? (Gate — kein Sheet-Ausweiten vorher)"
+    - Evidence für Bridge-Abnahme und Nachtest 6
+    - "Sheet `ftms-erg-control` nur bei Transferbedarf + Gate"
+    - Lab-Protokoll Relay-Abnahme mit Evidence-IDs
+    - Continuity-KPIs vs. PFLICHTENHEFT
+    - "Optional: Sheets für `rr-quality-pipeline` / `littlefs-session-archive` nur bei Transferbedarf + Gate"
+  next_evidence: "[UNKNOWN] S3-`MAX_CONNECTIONS=3` gilt auf jedem ESP32"
+  rejected_highlights:
+    -
+      id: null
+      statement: Notify aus dem BLE-Callback ist immer sicher
+      status: REJECTED
+    -
+      id: null
+      statement: Beliebig viele Relay-Clients
+      status: REJECTED
+    -
+      id: null
+      statement: Relay muss imselben Firmware-Binary stecken wie der Consumer
+      status: REJECTED
+    -
+      id: null
+      statement: „ESP32 kann HR-Relay“ gilt für Classic wie S3
+      status: REJECTED
+    -
+      id: null
+      statement: "Downstream-CCCD steuert Upstream-Subscribe 1:1"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-003
+      directory: esp32-heartrate-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-006
+      directory: esp32-ergo-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-083
+      directory: ble-gatt-bridge-refs-2026-foreign
+      status: closed
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-28
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ble-hr-relay/SHEET.md
   - audits/ble-gatt-bridge-refs-2026-foreign/README.md
@@ -25,18 +84,21 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-heartrate-2026-pilot
+    started: 2026-10-08
   -
     audit_id: A-2026-006
     directory: esp32-ergo-2026-pilot
     status: active
     environment: desk
     path: audits/esp32-ergo-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-083
     directory: ble-gatt-bridge-refs-2026-foreign
     status: closed
     environment: lab
     path: audits/ble-gatt-bridge-refs-2026-foreign
+    started: 2026-10-28
 methods: []
 evidence_ids: []
 facts: []

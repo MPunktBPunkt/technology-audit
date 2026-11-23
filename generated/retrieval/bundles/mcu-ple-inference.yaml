@@ -3,6 +3,75 @@
 
 topic: mcu-ple-inference
 generated: 2026-11-23
+current:
+  family: mcu-ple-inference
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-ESP32AI-2026-10-25-002
+    - EVID-ESP32AI-2026-10-25-003
+    - EVID-ESP32AI-2026-10-25-004
+    - EVID-ESP32AI-2026-10-25-005
+    - EVID-ESP32AI-2026-10-25-006
+    - EVID-ESP32AI-2026-10-25-008
+    - EVID-ESP32AI-2026-10-25-009
+    - EVID-ESP32AI-2026-10-25-012
+  confirmed: []
+  open_points:
+    - Wann int8-Staging des Heads die Numerics/Latency-Tradeoffs rechtfertigt (zweites Upstream)?
+    - Welche Flash-Random-Latenz-Budgets andere MCUs brauchen?
+    - Lab-Remessung Bandwidth/tok/s
+    - "Method Note `host-gold-before-flash` bei zweitem Projekt"
+  next_evidence: Wann int8-Staging des Heads die Numerics/Latency-Tradeoffs rechtfertigt (zweites Upstream)?
+  rejected_highlights:
+    -
+      id: null
+      statement: „28.9M Parameter“ = 28.9M Dense-Compute-äquivalent
+      status: REJECTED
+    -
+      id: null
+      statement: Flash-Tabelle dominiert per-token Zeit
+      status: REJECTED
+    -
+      id: null
+      statement: Dual-Core ist optional Deko
+      status: REJECTED
+    -
+      id: null
+      statement: Dual-Core ≡ SIMD-Assembly
+      status: REJECTED
+    -
+      id: null
+      statement: PLE ohne große Vocab-/Tabellen-Rows lohnt immer
+      status: REJECTED
+    -
+      id: null
+      statement: Classic ESP32 ohne PSRAM = gleicher Port
+      status: REJECTED
+    -
+      id: null
+      statement: Weights flashen ohne Host-Golden
+      status: REJECTED
+    -
+      id: null
+      statement: Asym. Output-Vocab (Klassen ≠ Input-IDs) ohne Mapping
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-071
+      directory: esp32-ai-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-076
+      directory: espectre-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/mcu-ple-inference/SHEET.md
   - audits/esp32-ai-2026-foreign/README.md
@@ -23,12 +92,14 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-ai-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-076
     directory: espectre-2026-foreign
     status: active
     environment: lab
     path: audits/espectre-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids:
   - EVID-ESP32AI-2026-10-25-002

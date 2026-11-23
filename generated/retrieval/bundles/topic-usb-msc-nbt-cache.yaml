@@ -5,6 +5,99 @@ topic: usb-msc-nbt-cache
 title: USB-MSC Host Caching (NBT Evo)
 question: Welche USB-MSC-Caching-/Prefetch-Erkenntnisse gelten — und welche nur für BMW NBT Evo?
 generated: 2026-11-23
+current:
+  family: usb-msc-nbt-cache
+  status: UNKNOWN
+  evidence_maturity: R3
+  strongest_evidence:
+    - EVID-AOA-030
+    - EVID-AOA-2026-10-28-020
+    - EVID-BG-020
+    - EVID-BMWHU-2026-10-05-001
+    - EVID-BMWHU-2026-10-12
+    - EVID-BMWHU-2026-10-12-001
+    - EVID-BMWHU-2026-10-12-002
+    - EVID-BMWHU-2026-10-12-005
+  confirmed: []
+  open_points:
+    - "~~Feld Transport S0/S2~~ → erledigt in [`hu-probe-bmw-s0s2-field-2026`](../hu-probe-bmw-s0s2-field-2026/) (`EVID-HUPROBE-2026-10-15-*`); Semantik Prefetch/Eager/Cache weiter offen"
+    - "~~hu-probe-Profil P1c~~ **done 2026-10-17**: `origin: hu_probe_field` + Epistemik (Upstream schema 3)"
+    - HU-A1 Startgate bleibt Voraussetzung für kausale Prefetch/Cache-Claims
+    - "Exit #6 Feld-Ohr PASS upstream (Menü/Sender-Gate) — nicht durch Busy-Pacing-Session erfüllt"
+    - "Mechanismus Menü-~20 s unter Stall: Phänomen `MEASURED` (`006`); Ursache weiter `INFERRED`/`UNKNOWN`"
+    - "Rock 8 MiB oft stumm: Session-`MEASURED` (`007`); Ursache offen."
+    - "Nächster Gate-Lauf: Reihenfolge und Kill-Regeln aus"
+    - "Nach Exit #6 PASS: Maturity (`field_evidence` R4+) prüfen; AV-Follow-on nach"
+    - "Pilot 3 `avrcp` — BT-Host-Profil in [`pidrive-2026-radio-bt`](../pidrive-2026-radio-bt/) / Gateway, nicht USB-C duplizieren"
+    - "Feld-AV schließen (Ursprungsrepo) → Evidence/Maturity in `bmw-nbt-evo` + `usb-msc` nachziehen"
+  next_evidence: "~~Feld Transport S0/S2~~ → erledigt in [`hu-probe-bmw-s0s2-field-2026`](../hu-probe-bmw-s0s2-field-2026/) (`EVID-HUPROBE-2026-10-15-*`); Semantik Prefetch/Eager/Cache weiter offen"
+  rejected_highlights:
+    -
+      id: null
+      statement: MSC „streamt Audio“
+      status: REJECTED
+    -
+      id: null
+      statement: Ein READ-Muster gilt für alle Hosts
+      status: REJECTED
+    -
+      id: null
+      statement: Callback darf beliebig lange blockieren
+      status: REJECTED
+    -
+      id: null
+      statement: "`bufsize` immer 512"
+      status: REJECTED
+    -
+      id: null
+      statement: USB FS Average ≫ 1 MB/s auf ESP MSC
+      status: REJECTED
+    -
+      id: null
+      statement: 320 kb/s MP3 sprengt USB FS
+      status: REJECTED
+    -
+      id: null
+      statement: App und Host gleichzeitig dieselbe Partition
+      status: REJECTED
+    -
+      id: null
+      statement: Single-sector SD API = Multi-sector Perf
+      status: REJECTED
+  transfer_limits:
+    - bmw_host_specific
+    - desk_fact_ne_field_fact
+    - host_specific
+    - not_general_usb_behavior
+    - see_rejected_claims
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-001
+      directory: pidrive-2026-msc
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-002
+      directory: pidrive-2026-bmw-hu
+      status: active
+      environment: mixed
+    -
+      audit_id: A-2026-061
+      directory: msc-host-read-semantics-s1s2s3-2026
+      status: closed
+      environment: lab
+  methods:
+    - methods/callback-reentry-state-lifetime.md
+    - methods/field-av-offset-correlation.md
+    - methods/hu-media-lifecycle.md
+    - methods/hw-path-gate.md
+    - methods/msc-busy-retry-semantics.md
+    - methods/msc-host-read-semantics.md
+    - methods/msc-lba-timing-instrument.md
+    - methods/msc-trace-correlation.md
+  last_relevant_change: 2026-10-15
+  note: GENERATED snapshot from SoT — not a second truth
 primary:
   - usb-msc
   - usb-msc-host-behaviour
@@ -30,180 +123,21 @@ audits:
     status: closed
     environment: mixed
     path: audits/pidrive-2026-msc
+    started: 2026-10-04
   -
     audit_id: A-2026-002
     directory: pidrive-2026-bmw-hu
     status: active
     environment: mixed
     path: audits/pidrive-2026-bmw-hu
-  -
-    audit_id: A-2026-012
-    directory: esp32-pidrive-2026-pilot
-    status: active
-    environment: desk
-    path: audits/esp32-pidrive-2026-pilot
-  -
-    audit_id: A-2026-042
-    directory: esp32-msc-gadget-refs-2026-foreign
-    status: active
-    environment: lab
-    path: audits/esp32-msc-gadget-refs-2026-foreign
-  -
-    audit_id: A-2026-046
-    directory: espusbhost-2026-foreign
-    status: active
-    environment: lab
-    path: audits/espusbhost-2026-foreign
-  -
-    audit_id: A-2026-047
-    directory: tinyusb-msc-busy-retry-2026
-    status: closed
-    environment: lab
-    path: audits/tinyusb-msc-busy-retry-2026
-  -
-    audit_id: A-2026-050
-    directory: esp-iot-solution-2026-foreign
-    status: active
-    environment: lab
-    path: audits/esp-iot-solution-2026-foreign
-  -
-    audit_id: A-2026-055
-    directory: usb-bot-observation-2026-foreign
-    status: closed
-    environment: lab
-    path: audits/usb-bot-observation-2026-foreign
-  -
-    audit_id: A-2026-056
-    directory: esp32-s3-usb-wifi-coexistence-2026
-    status: closed
-    environment: lab
-    path: audits/esp32-s3-usb-wifi-coexistence-2026
-  -
-    audit_id: A-2026-058
-    directory: usb-bot-observation-2026-instrument-sources
-    status: closed
-    environment: lab
-    path: audits/usb-bot-observation-2026-instrument-sources
-  -
-    audit_id: A-2026-059
-    directory: usb-control-stall-recovery-2026
-    status: closed
-    environment: lab
-    path: audits/usb-control-stall-recovery-2026
-  -
-    audit_id: A-2026-060
-    directory: hu-probe-bmw-s0s2-field-2026
-    status: closed
-    environment: lab
-    path: audits/hu-probe-bmw-s0s2-field-2026
+    started: 2026-10-05
   -
     audit_id: A-2026-061
     directory: msc-host-read-semantics-s1s2s3-2026
     status: closed
     environment: lab
     path: audits/msc-host-read-semantics-s1s2s3-2026
-  -
-    audit_id: A-2026-062
-    directory: pidrive-2026-10-17-prefetch-livelock
-    status: active
-    environment: mixed
-    path: audits/pidrive-2026-10-17-prefetch-livelock
-  -
-    audit_id: A-2026-063
-    directory: esp32-s3-hw-limits-2026
-    status: closed
-    environment: lab
-    path: audits/esp32-s3-hw-limits-2026
-  -
-    audit_id: A-2026-064
-    directory: hu-probe-bmw-s2-abend-offline-2026-10-18
-    status: closed
-    environment: lab
-    path: audits/hu-probe-bmw-s2-abend-offline-2026-10-18
-  -
-    audit_id: A-2026-065
-    directory: pidrive-2026-storm-capture-tooling
-    status: closed
-    environment: lab
-    path: audits/pidrive-2026-storm-capture-tooling
-  -
-    audit_id: A-2026-066
-    directory: prefetch-livelock-public-gap-2026
-    status: closed
-    environment: lab
-    path: audits/prefetch-livelock-public-gap-2026
-  -
-    audit_id: A-2026-067
-    directory: hu-probe-psram-board-free-2026-10-21
-    status: closed
-    environment: mixed
-    path: audits/hu-probe-psram-board-free-2026-10-21
-  -
-    audit_id: A-2026-068
-    directory: hu-probe-heimfahrt-2026-10-22
-    status: closed
-    environment: lab
-    path: audits/hu-probe-heimfahrt-2026-10-22
-  -
-    audit_id: A-2026-069
-    directory: hu-probe-media-ladder-2026-10-22
-    status: closed
-    environment: mixed
-    path: audits/hu-probe-media-ladder-2026-10-22
-  -
-    audit_id: A-2026-082
-    directory: bimmergestalt-idrive-2026-foreign
-    status: closed
-    environment: mixed
-    path: audits/bimmergestalt-idrive-2026-foreign
-  -
-    audit_id: A-2026-088
-    directory: usb-aoa-bmw-connected-2026-desk
-    status: closed
-    environment: mixed
-    path: audits/usb-aoa-bmw-connected-2026-desk
-  -
-    audit_id: A-2026-089
-    directory: esp32-usb-analyzer-2026-pilot
-    status: closed
-    environment: lab
-    path: audits/esp32-usb-analyzer-2026-pilot
-  -
-    audit_id: A-2026-090
-    directory: esp32-usb-analyzer-2026-0.0.50
-    status: closed
-    environment: lab
-    path: audits/esp32-usb-analyzer-2026-0.0.50
-  -
-    audit_id: A-2026-093
-    directory: esp32-usb-analyzer-2026-field-host-matrix
-    status: closed
-    environment: mixed
-    path: audits/esp32-usb-analyzer-2026-field-host-matrix
-  -
-    audit_id: A-2026-119
-    directory: nbt-evo-bt-control-plane-closure-2026-11-21
-    status: closed
-    environment: mixed
-    path: audits/nbt-evo-bt-control-plane-closure-2026-11-21
-  -
-    audit_id: A-2026-048
-    directory: bmw-nbt-media-index-2026-foreign
-    status: closed
-    environment: lab
-    path: audits/bmw-nbt-media-index-2026-foreign
-  -
-    audit_id: A-2026-104
-    directory: f20-sdp-vs-nbt-aad-2026-11-19
-    status: closed
-    environment: field
-    path: audits/f20-sdp-vs-nbt-aad-2026-11-19
-  -
-    audit_id: A-2026-106
-    directory: nbt-evo-oss-runtime-hmi-bt-2026-11-19
-    status: closed
-    environment: lab
-    path: audits/nbt-evo-oss-runtime-hmi-bt-2026-11-19
+    started: 2026-10-15
 methods:
   - methods/callback-reentry-state-lifetime.md
   - methods/field-av-offset-correlation.md
@@ -291,77 +225,9 @@ evidence_ids:
   - EVID-USBMSC-2026-10-04-001
   - EVID-USBMSC-2026-10-04-004
   - EVID-USBWIFI-2026-10-14
-facts:
-  -
-    statement: BOT + SCSI Transparent üblich
-    status: FACT
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: LBA linear über Kapazität
-    status: FACT
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: Partial-Read ist spezifiziert
-    status: FACT
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: "Arduino `onRead` Return mappt 1:1 auf TinyUSB"
-    status: FACT
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: CBW 31 B / CSW 13 B mit USBC/USBS
-    status: FACT
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: Ungültiger CBW → Stall + Reset-Recovery
-    status: FACT
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: "Cover über BT kommt via iAP/Connected/USB, nicht AVRCP"
-    status: FACT
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: Absolute Volume erzeugt Sprünge / Konflikt mit HU-DSP
-    status: FACT
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: HU registriert PlaybackStatus/TrackChanged/… und braucht TrackChanged bei jedem Quellen-/Titelwechsel
-    status: FACT
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: HU-SBC-Bitpool max 53; Smartphone-Codec-Wahl
-    status: FACT
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: Funk-Chip / Baseband der HU
-    status: FACT
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: HU bietet SPP über BT
-    status: FACT
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: HU spricht BCL → Etch → SAS → AM/RHMI/CDS über SPP
-    status: FACT
-    source: technologies/bmw-nbt-evo/SHEET.md
-inferences:
-  -
-    statement: MSC und BT können parallel als PiDrive-Ziel laufen
-    status: INFERENCE
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: "HU verlangt A2DP Source `0x110A` + AVRCP TG `0x110C` beim Phone"
-    status: INFERENCE
-    source: technologies/bmw-nbt-evo/SHEET.md
-unknowns:
-  -
-    statement: Partial-Read immer endpoint-sicher auf allen Ports
-    status: UNKNOWN
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: "Windows Write-Bytes > Cache-Slots ⇒ Datenloch"
-    status: UNKNOWN
-    source: technologies/usb-msc-host-behaviour/SHEET.md
+facts: []
+inferences: []
+unknowns: []
 rejected:
   -
     statement: MSC „streamt Audio“
@@ -393,50 +259,6 @@ rejected:
     source: technologies/usb-msc/SHEET.md
   -
     statement: Single-sector SD API = Multi-sector Perf
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: On-the-fly braucht Full-Disk in PSRAM
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: "`return 0` = „fertig, 0 Bytes / neuer Befehl“"
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: "`return 0` gibt `tud_task`/Main-Loop zuverlässig frei"
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: TinyUSB Device timeoutet BUSY selbst
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: Arduino-ESP32 TinyUSB 0.15 = Upstream ASYNC
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: "App-`onRead` = vollständiges CBW-Event"
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: Clear-Halt beendet NEED_RESET
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: SET_ADDRESS = Klassen-EPs aktiv / mounted
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: "Unplug feuert immer `tud_umount_cb` auf ESP"
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: USB↔WiFi-Issue = Root-Cause jeder Sonde
-    status: REJECTED
-    source: technologies/usb-msc/SHEET.md
-  -
-    statement: Host-eBPF-Decode = physische Paketebene
     status: REJECTED
     source: technologies/usb-msc/SHEET.md
   -
@@ -491,36 +313,11 @@ rejected:
     statement: Lab-Menü-PASS = Feld-Ohr-PASS
     status: REJECTED
     source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: Host-BUSY-Toleranz aus MSC-/TinyUSB-Spec ableiten
-    status: REJECTED
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: Dynamische Datei ohne stabile Geometrie/Index
-    status: REJECTED
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: "MODE_SENSE(6) / PREVENT/ALLOW nur „erwartete“ MSC-Kommandos, nie am NBT gesehen"
-    status: REJECTED
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: "Responding MSC-Endpoint (`303a:1001`) ⇒ AOA/Connected-Apps"
-    status: REJECTED
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: "F20 2017 / NBT Evo ID5–ID6 = AVRCP **1.4** (ID6 teils 1.5)"
-    status: REJECTED
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: AVRCP-Browsing am F20 nicht genutzt
-    status: REJECTED
-    source: technologies/bmw-nbt-evo/SHEET.md
-  -
-    statement: HU baut HFP-SLC mit AG ohne Three-Way auf
-    status: REJECTED
-    source: technologies/bmw-nbt-evo/SHEET.md
 transfer_limits:
+  - bmw_host_specific
+  - desk_fact_ne_field_fact
   - host_specific
+  - not_general_usb_behavior
   - see_rejected_claims
   - sheet_abgrenzung_ist_nicht
 note: GENERATED from docs/retrieval-topics.yaml + SoT — do not hand-edit

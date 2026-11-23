@@ -3,6 +3,132 @@
 
 topic: usb-aoa
 generated: 2026-11-23
+current:
+  family: usb-aoa
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-AOA-030
+    - EVID-AOA-2026-10-28-020
+    - EVID-BG-020
+    - EVID-USBA-2026-10-31-001
+    - EVID-USBA-2026-10-31-004
+    - EVID-USBA-2026-10-31-006
+    - EVID-USBA-2026-10-31-009
+    - EVID-USBA-2026-10-31-012
+  confirmed:
+    -
+      id: null
+      statement: "Doc: Connected kann BT, **USB Accessory**, ENET"
+      supported_by: []
+    -
+      id: null
+      statement: BclCarLink implementiert nur BT RFCOMM
+      supported_by: []
+    -
+      id: null
+      statement: "AAIdrive: USB reliable; oft File Transfer → car startet Accessory"
+      supported_by: []
+    -
+      id: null
+      statement: "Phone erkennt BMW-Accessory via `UsbAccessory.manufacturer` enthält `\"BMW\"`"
+      supported_by: []
+    -
+      id: null
+      statement: NBT/NBT Evo Connected Apps über USB nutzbar
+      supported_by: []
+    -
+      id: null
+      statement: "**FACT:** MSC-Identity `303a:1001` am NBT erzeugt **keine** AOA-Initiation (`aoa51/52/53=0`) trotz Mount+SCSI"
+      supported_by: []
+    -
+      id: null
+      statement: Manufacturer/Model/Filter mismatch
+      supported_by: []
+    -
+      id: null
+      statement: AOA-Versuch auf jedem USB-Device
+      supported_by: []
+  open_points:
+    - "[UNKNOWN] NBT Evo F20 speist AOA Host und spricht BCL über Bulk"
+    - "[UNKNOWN] **UNKNOWN:** welche Identity/Config/State BMW-AOA startet"
+    - Welche Manufacturer/Model-Strings sendet die NBT-/NBT-Evo-HU beim AOA-Switch?
+    - Welche PID erscheint nach Switch am Phone (2D00 vs 2D01 vs Audio-Mix)?
+    - Trägt der Bulk-Stream BCL-Frames (Header 8 B BE) wie auf BT?
+    - "Kann ein ESP32-S3 als **Host-Accessory** oder nur als **Device-in-AOA** relevant sein für unser Zielbild?"
+    - Interferenz AOA vs. bestehendem MSC-Gadget am selben OTG-Port?
+    - "Welche **Identity** (phone-like / `aoa_observe` / AAIdrive-Pfad) löst AOA am NBT aus — jenseits `303a:1001` MSC?"
+    - "**P0 C0:** gleiche Identity + echtes FAT/Media (Identity vs Content)"
+    - "**P0 C1:** hu-probe `aoa_phone_like` / `aoa_observe` am Analyzer — dann Full Audit prüfen"
+  next_evidence: "**P0 C0:** gleiche Identity + echtes FAT/Media (Identity vs Content)"
+  rejected_highlights:
+    -
+      id: null
+      statement: USB/ENET-BCL in BclCarLink Code
+      status: REJECTED
+    -
+      id: null
+      statement: MSC-AOA-Negativ ⇒ „HU kann kein AOA“
+      status: REJECTED
+    -
+      id: null
+      statement: Accessory = USB Device
+      status: REJECTED
+    -
+      id: null
+      statement: AOA = Anwendungsprotokoll
+      status: REJECTED
+    -
+      id: null
+      statement: Re-Enum nicht abwarten
+      status: REJECTED
+    -
+      id: null
+      statement: AOAv2 Audio als zukunftssicherer Pfad
+      status: REJECTED
+    -
+      id: null
+      statement: AOA Device-Mode parallel zu MSC/MTP
+      status: REJECTED
+    -
+      id: null
+      statement: Framing SOH/EOT = AOA
+      status: REJECTED
+  transfer_limits:
+    - see_rejected_claims
+  audits:
+    -
+      audit_id: A-2026-088
+      directory: usb-aoa-bmw-connected-2026-desk
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-089
+      directory: esp32-usb-analyzer-2026-pilot
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-092
+      directory: bmw-connected-sas-auth-2026-11-06
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-093
+      directory: esp32-usb-analyzer-2026-field-host-matrix
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-102
+      directory: esp32-bt-analyzer-f20-connected-2026-11-17
+      status: closed
+      environment: mixed
+  methods:
+    - methods/usb-bot-command-observation.md
+    - methods/usb-msc-host-fingerprint.md
+    - methods/usb-otg-loop-baseline.md
+    - methods/usb-wifi-coex-discrimination.md
+  last_relevant_change: 2026-11-17
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/usb-aoa/SHEET.md
   - audits/bmw-connected-sas-auth-2026-11-06/README.md
@@ -30,30 +156,35 @@ audits:
     status: closed
     environment: mixed
     path: audits/usb-aoa-bmw-connected-2026-desk
+    started: 2026-10-28
   -
     audit_id: A-2026-089
     directory: esp32-usb-analyzer-2026-pilot
     status: closed
     environment: lab
     path: audits/esp32-usb-analyzer-2026-pilot
+    started: 2026-10-31
   -
     audit_id: A-2026-092
     directory: bmw-connected-sas-auth-2026-11-06
     status: closed
     environment: desk
     path: audits/bmw-connected-sas-auth-2026-11-06
+    started: 2026-11-06
   -
     audit_id: A-2026-093
     directory: esp32-usb-analyzer-2026-field-host-matrix
     status: closed
     environment: mixed
     path: audits/esp32-usb-analyzer-2026-field-host-matrix
+    started: 2026-11-06
   -
     audit_id: A-2026-102
     directory: esp32-bt-analyzer-f20-connected-2026-11-17
     status: closed
     environment: mixed
     path: audits/esp32-bt-analyzer-f20-connected-2026-11-17
+    started: 2026-11-17
 methods:
   - methods/usb-bot-command-observation.md
   - methods/usb-msc-host-fingerprint.md

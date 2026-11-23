@@ -3,6 +3,88 @@
 
 topic: esp32-undoc-iq-rx
 generated: 2026-11-23
+current:
+  family: esp32-undoc-iq-rx
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed:
+    -
+      id: null
+      statement: I/Q oder Diagnose-Samples
+      supported_by: []
+    -
+      id: null
+      statement: chip-/projektabhängig
+      supported_by: []
+    -
+      id: null
+      statement: Bandbreite begrenzt Duty-Cycle
+      supported_by: []
+    -
+      id: null
+      statement: Backend-Portabilität (G7)
+      supported_by: []
+  open_points:
+    - "[UNKNOWN] Sensitivität, Spurs, DC-Peak"
+    - "[UNKNOWN] C5/S31 = gleiche Caps wie S3"
+    - Welche Dump-Register bleiben über IDF-Versionen stabil?
+    - S31 DC-Peak / Signalqualität nach Upstream-Hinweis?
+    - Phase-Kohärenz Multi-Chip (ESPARGOS-Array) für Hub-Szenarien?
+  next_evidence: "[UNKNOWN] Sensitivität, Spurs, DC-Peak"
+  rejected_highlights:
+    -
+      id: null
+      statement: „ESP32 kann SDR“ gilt für alle Targets gleich
+      status: REJECTED
+    -
+      id: null
+      statement: S3-80 Msps ohne FPGA = Universal-Node
+      status: REJECTED
+    -
+      id: null
+      statement: Undokumentiert = stabiler Vendor-Contract
+      status: REJECTED
+    -
+      id: null
+      statement: TX öffentlich in ESPARGOS-Firmware
+      status: REJECTED
+    -
+      id: null
+      statement: Tutorial/AI-Code ersetzt Messung
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-028
+      directory: c5vrx-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-030
+      directory: esp32-sdr-trx-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-031
+      directory: espargos-espsdr-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-037
+      directory: esp-sdr-bridge-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-043
+      directory: esp32sdr-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+  last_relevant_change: 2026-10-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp32-undoc-iq-rx/SHEET.md
   - audits/c5vrx-2026-foreign/README.md
@@ -30,30 +112,35 @@ audits:
     status: active
     environment: lab
     path: audits/c5vrx-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-030
     directory: esp32-sdr-trx-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-sdr-trx-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-031
     directory: espargos-espsdr-2026-foreign
     status: active
     environment: lab
     path: audits/espargos-espsdr-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-037
     directory: esp-sdr-bridge-2026-foreign
     status: active
     environment: lab
     path: audits/esp-sdr-bridge-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-043
     directory: esp32sdr-2026-foreign
     status: active
     environment: lab
     path: audits/esp32sdr-2026-foreign
+    started: 2026-10-12
 methods:
   - methods/hw-path-gate.md
 evidence_ids: []

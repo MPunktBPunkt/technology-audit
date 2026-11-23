@@ -3,6 +3,45 @@
 
 topic: esp-wireguard
 generated: 2026-11-23
+current:
+  family: esp-wireguard
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-CARNET-2026-11-12-020
+    - EVID-CARNET-YYYY-MM-DD
+  confirmed: []
+  open_points:
+    - Empfohlenes keepalive-Intervall vs. typische Carrier/Phone NAT timers (Lab)?
+  next_evidence: Empfohlenes keepalive-Intervall vs. typische Carrier/Phone NAT timers (Lab)?
+  rejected_highlights:
+    -
+      id: null
+      statement: "`esp_wireguard_connect` ESP_OK = Tunnel up"
+      status: REJECTED
+    -
+      id: null
+      statement: Hinter NAT ohne keepalive stabil
+      status: REJECTED
+    -
+      id: null
+      statement: Component sync’t Zeit selbst
+      status: REJECTED
+    -
+      id: null
+      statement: WG allein = Rendezvous hinter CGNAT ohne erreichbaren Endpoint
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-097
+      directory: esp32-car-network-2026-foreign
+      status: closed
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-wireguard/SHEET.md
   - audits/esp32-car-network-2026-foreign/README.md
@@ -22,6 +61,7 @@ audits:
     status: closed
     environment: lab
     path: audits/esp32-car-network-2026-foreign
+    started: 2026-11-12
 methods: []
 evidence_ids:
   - EVID-CARNET-2026-11-12-020

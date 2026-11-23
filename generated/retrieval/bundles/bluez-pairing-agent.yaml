@@ -3,6 +3,61 @@
 
 topic: bluez-pairing-agent
 generated: 2026-11-23
+current:
+  family: bluez-pairing-agent
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-B3-CAPTURE-DISCIPLINE
+    - EVID-B3-DUAL-PLANE-PROTOCOL
+    - EVID-B3-RELAY-TOPO
+  confirmed: []
+  open_points:
+    - "Fallback-Verhalten von bluetoothd, wenn der Default-Agent sich abmeldet (nächster registrierter Agent vs keiner) — Version prüfen."
+    - "Hält eine per HCI gesetzte Class of Device einen Power-Zyklus durch bluetoothd? (`UNKNOWN`)"
+    - Relay-Tool Quellcode-Pin vs Bridge-Envelope
+    - Automatisches Dual-Plane-Logging im Lab-Harness
+  next_evidence: Automatisches Dual-Plane-Logging im Lab-Harness
+  rejected_highlights:
+    -
+      id: null
+      statement: "`bluetoothctl agent X` als Einzelbefehl registriert einen dauerhaften Agenten"
+      status: REJECTED
+    -
+      id: null
+      statement: Interaktive bluetoothctl-Sitzung beantwortet auch fremd-initiierte Kopplungen
+      status: REJECTED
+    -
+      id: null
+      statement: "Zwei Agenten mit `RequestDefaultAgent` koexistieren sauber"
+      status: REJECTED
+    -
+      id: null
+      statement: "Ein `Pair()` nutzt immer den Default-Agenten"
+      status: REJECTED
+    -
+      id: null
+      statement: "Nach `Paired=true` ist alles erledigt"
+      status: REJECTED
+    -
+      id: null
+      statement: Class of Device ist pro Adapter per D-Bus setzbar
+      status: REJECTED
+    -
+      id: null
+      statement: "Link-Keys hängen an `hciN`"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-116
+      directory: esp32-bt-analyzer-b3-relay-topology-2026-11-21
+      status: closed
+      environment: mixed
+  methods: []
+  last_relevant_change: 2026-11-21
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bluez-pairing-agent/SHEET.md
   - audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21/README.md
@@ -23,6 +78,7 @@ audits:
     status: closed
     environment: mixed
     path: audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21
+    started: 2026-11-21
 methods: []
 evidence_ids:
   - EVID-B3-CAPTURE-DISCIPLINE

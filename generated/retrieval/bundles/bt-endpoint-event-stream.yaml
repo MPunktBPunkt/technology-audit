@@ -3,6 +3,49 @@
 
 topic: bt-endpoint-event-stream
 generated: 2026-11-23
+current:
+  family: bt-endpoint-event-stream
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - "Einheitliche `layer`/`op` Enum für HFP AT + AVRCP?"
+    - TLS/Auth für TCP im Heimnetz nötig?
+  next_evidence: "Einheitliche `layer`/`op` Enum für HFP AT + AVRCP?"
+  rejected_highlights:
+    -
+      id: null
+      statement: ESP ersetzt nRF Connection-Follow
+      status: REJECTED
+    -
+      id: null
+      statement: PCAP immer besser als JSONL für App-Events
+      status: REJECTED
+    -
+      id: null
+      statement: MQTT ohne Drop-Zähler ist verlustfrei
+      status: REJECTED
+    -
+      id: null
+      statement: Endpoint-Events = Phone↔Original Traffic
+      status: REJECTED
+    -
+      id: null
+      statement: OTA ohne Keys liest GATT-Payloads
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-086
+      directory: bt-sniffing-capture-2026-foreign
+      status: closed
+      environment: lab
+  methods:
+    - methods/bt-passive-host-sniff.md
+  last_relevant_change: 2026-10-28
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bt-endpoint-event-stream/SHEET.md
   - audits/bt-sniffing-capture-2026-foreign/README.md
@@ -22,6 +65,7 @@ audits:
     status: closed
     environment: lab
     path: audits/bt-sniffing-capture-2026-foreign
+    started: 2026-10-28
 methods:
   - methods/bt-passive-host-sniff.md
 evidence_ids: []

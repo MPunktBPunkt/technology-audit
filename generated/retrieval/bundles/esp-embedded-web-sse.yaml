@@ -3,6 +3,110 @@
 
 topic: esp-embedded-web-sse
 generated: 2026-11-23
+current:
+  family: esp-embedded-web-sse
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BASE-2026-10-28-001
+    - EVID-BASE-2026-10-28-003
+    - EVID-BASE-2026-10-28-004
+    - EVID-ESPECTRE-2026-10-25-001
+    - EVID-ESPECTRE-2026-10-25-002
+    - EVID-ESPECTRE-2026-10-25-003
+    - EVID-ESPECTRE-2026-10-25-004
+    - EVID-HUB-2026-10-25-001
+  confirmed: []
+  open_points:
+    - "Wann AsyncWebServer vs. synchrone `WebServer`-Loop?"
+    - Maximale parallele SSE-Clients auf typischem ESP32-Heap?
+    - Evidence für Bridge-Abnahme und Nachtest 6
+    - "Sheet `ftms-erg-control` nur bei Transferbedarf + Gate"
+    - "Bootstrap-Prompt (`ta-assist prepare bootstrap`) Ableiten-Checkliste nachziehen"
+    - BOOT 3 s WLAN-Reset manuell an Base
+    - "MeterMaster optional Hub-`interval`/`otaUrl`; Ergo `HwInfo`→`HardwareInfo`"
+    - "Adapter-Kampagne `iobroker-esp-hub` separat nachziehen (0.5.x / Rename)"
+    - Lab-Protokoll Relay-Abnahme mit Evidence-IDs
+    - Continuity-KPIs vs. PFLICHTENHEFT
+  next_evidence: "Wann AsyncWebServer vs. synchrone `WebServer`-Loop?"
+  rejected_highlights:
+    -
+      id: null
+      statement: Eingebettete UI skaliert wie ein SPA-Build
+      status: REJECTED
+    -
+      id: null
+      statement: Eine UI-Rolle reicht immer
+      status: REJECTED
+    -
+      id: null
+      statement: Eingebettete HTML-UI = dieses Sheet
+      status: REJECTED
+    -
+      id: null
+      statement: UI-Quelle im Flash ohne Pack-Schritt ändern
+      status: REJECTED
+    -
+      id: null
+      statement: B64-PROGMEM und gzip-PROGMEM sind austauschbar ohne Header
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-003
+      directory: esp32-heartrate-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-006
+      directory: esp32-ergo-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-007
+      directory: esp32-esp-hub-2026-pilot
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-010
+      directory: esp32-metermaster-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-013
+      directory: esp32-rfmonitor-2026-pilot
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-032
+      directory: rnt-esp32-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-074
+      directory: esp32-rfmonitor-2026-v2-validation
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-076
+      directory: espectre-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-081
+      directory: esp32-rfmonitor-2026-motion-delta
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-087
+      directory: esp32-esp-hub-2026-1.10-validation
+      status: closed
+      environment: desk
+  methods:
+    - methods/own-link-motion-sensitivity.md
+  last_relevant_change: 2026-10-28
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-embedded-web-sse/SHEET.md
   - audits/esp32-ergo-2026-pilot/README.md
@@ -38,60 +142,70 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-heartrate-2026-pilot
+    started: 2026-10-08
   -
     audit_id: A-2026-006
     directory: esp32-ergo-2026-pilot
     status: active
     environment: desk
     path: audits/esp32-ergo-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-007
     directory: esp32-esp-hub-2026-pilot
     status: closed
     environment: desk
     path: audits/esp32-esp-hub-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-010
     directory: esp32-metermaster-2026-pilot
     status: active
     environment: desk
     path: audits/esp32-metermaster-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-013
     directory: esp32-rfmonitor-2026-pilot
     status: closed
     environment: desk
     path: audits/esp32-rfmonitor-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-032
     directory: rnt-esp32-2026-foreign
     status: active
     environment: lab
     path: audits/rnt-esp32-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-074
     directory: esp32-rfmonitor-2026-v2-validation
     status: closed
     environment: desk
     path: audits/esp32-rfmonitor-2026-v2-validation
+    started: 2026-10-25
   -
     audit_id: A-2026-076
     directory: espectre-2026-foreign
     status: active
     environment: lab
     path: audits/espectre-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-081
     directory: esp32-rfmonitor-2026-motion-delta
     status: active
     environment: desk
     path: audits/esp32-rfmonitor-2026-motion-delta
+    started: 2026-10-26
   -
     audit_id: A-2026-087
     directory: esp32-esp-hub-2026-1.10-validation
     status: closed
     environment: desk
     path: audits/esp32-esp-hub-2026-1.10-validation
+    started: 2026-10-28
 methods:
   - methods/own-link-motion-sensitivity.md
 evidence_ids:

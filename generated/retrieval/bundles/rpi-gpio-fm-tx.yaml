@@ -3,6 +3,100 @@
 
 topic: rpi-gpio-fm-tx
 generated: 2026-11-23
+current:
+  family: rpi-gpio-fm-tx
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed:
+    -
+      id: null
+      statement: Clock-Quelle für GPCLK-Pfad
+      supported_by: []
+    -
+      id: null
+      statement: Trägerfrequenz + FM-Nudges
+      supported_by: []
+    -
+      id: null
+      statement: Sample-/Frac-Updates ohne reinen CPU-Pfad (optional CPU-Fallback)
+      supported_by: []
+    -
+      id: null
+      statement: klassisch GPIO4; Pi4 oft GPIO21
+      supported_by: []
+    -
+      id: null
+      statement: Emissionspunkt; Legal/Filter
+      supported_by: []
+  open_points:
+    - "[UNKNOWN] Pegel, Spurious"
+    - "[UNKNOWN] BCM-GPCLK-Äquivalent"
+    - "[UNKNOWN] Pi4-GPIO21-Pfad gilt auf Pi5/RP1"
+    - "Pi5/RP1: konkretisierbarer Clock→Pad-Pfad (E-0) und messbarer Träger (E-1)?"
+    - Wann BPF Pflicht auch bei geschirmtem Lab-Kabel?
+  next_evidence: "[UNKNOWN] Pegel, Spurious"
+  rejected_highlights:
+    -
+      id: null
+      statement: Antenne am GPIO = harmloses Experiment
+      status: REJECTED
+    -
+      id: null
+      statement: Spektrum ist „sauberes FM“
+      status: REJECTED
+    -
+      id: null
+      statement: DMA-Stop fehlt beim Exit → harmlos
+      status: REJECTED
+    -
+      id: null
+      statement: Ein Binary / ein GPIO für alle Pi
+      status: REJECTED
+    -
+      id: null
+      statement: „Pi kann Software-FM“ ohne SoC-Angabe
+      status: REJECTED
+    -
+      id: null
+      statement: Empfangs-Sheets decken TX ab
+      status: REJECTED
+    -
+      id: null
+      statement: PLL-Modulation löst Harmonic-Problem
+      status: REJECTED
+    -
+      id: null
+      statement: Fork mit Install-Script = neue Tech
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-026
+      directory: pidrive-2026-radio-bt
+      status: active
+      environment: field
+    -
+      audit_id: A-2026-027
+      directory: pi-fm-tx-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-029
+      directory: esp-fm-tx-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-079
+      directory: tinysstv-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+    - methods/kb-cross-check.md
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/rpi-gpio-fm-tx/SHEET.md
   - audits/esp-fm-tx-2026-foreign/README.md
@@ -25,24 +119,28 @@ audits:
     status: active
     environment: field
     path: audits/pidrive-2026-radio-bt
+    started: 2026-10-09
   -
     audit_id: A-2026-027
     directory: pi-fm-tx-2026-foreign
     status: active
     environment: lab
     path: audits/pi-fm-tx-2026-foreign
+    started: 2026-10-10
   -
     audit_id: A-2026-029
     directory: esp-fm-tx-2026-foreign
     status: active
     environment: lab
     path: audits/esp-fm-tx-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-079
     directory: tinysstv-2026-foreign
     status: active
     environment: lab
     path: audits/tinysstv-2026-foreign
+    started: 2026-10-25
 methods:
   - methods/hw-path-gate.md
   - methods/kb-cross-check.md

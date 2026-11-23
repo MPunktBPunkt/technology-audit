@@ -3,6 +3,47 @@
 
 topic: bt-bdaddr-rewrite
 generated: 2026-11-23
+current:
+  family: bt-bdaddr-rewrite
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BZGATT-2026-11-12
+  confirmed: []
+  open_points:
+    - "[UNKNOWN] HU / Peer akzeptiert geklonte BD_ADDR immer"
+    - Welche USB-Dongles im Lab-Inventar haben unterstützte Manufacturer-IDs?
+    - HU-Reaktion auf BD_ADDR-Wechsel am Analyse-Adapter?
+  next_evidence: "[UNKNOWN] HU / Peer akzeptiert geklonte BD_ADDR immer"
+  rejected_highlights:
+    -
+      id: null
+      statement: Ein HCI-Opcode schreibt BD_ADDR auf allen Controllern
+      status: REJECTED
+    -
+      id: null
+      statement: "`bdaddr` unterstützt Espressif/ESP32"
+      status: REJECTED
+    -
+      id: null
+      statement: "ESP setzt Adresse wie CSR via Host-`bdaddr`"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-094
+      directory: ble-gatt-bluez-relay-2026-foreign
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-096
+      directory: bt-bdaddr-2026-foreign
+      status: closed
+      environment: mixed
+  methods: []
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bt-bdaddr-rewrite/SHEET.md
   - audits/ble-gatt-bluez-relay-2026-foreign/README.md
@@ -23,12 +64,14 @@ audits:
     status: closed
     environment: mixed
     path: audits/ble-gatt-bluez-relay-2026-foreign
+    started: 2026-11-12
   -
     audit_id: A-2026-096
     directory: bt-bdaddr-2026-foreign
     status: closed
     environment: mixed
     path: audits/bt-bdaddr-2026-foreign
+    started: 2026-11-12
 methods: []
 evidence_ids:
   - EVID-BZGATT-2026-11-12

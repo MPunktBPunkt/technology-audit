@@ -3,6 +3,92 @@
 
 topic: bt-dual-mode-coex
 generated: 2026-11-23
+current:
+  family: bt-dual-mode-coex
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BTHPF-2026-11-04-001
+    - EVID-BTHPF-2026-11-04-010
+    - EVID-BTHPF-2026-11-04-020
+    - EVID-BTHPF-2026-11-04-030
+    - EVID-BTHPF-2026-11-04-031
+    - EVID-BTHPF-2026-11-04-040
+    - EVID-CARNET-2026-11-12-020
+    - EVID-CARNET-YYYY-MM-DD
+  confirmed: []
+  open_points:
+    - "Messbare Coex-Matrix WiFi+A2DP+HFP+BLE GATT auf ESP32? (WiFi-TDM-Anteil → [`esp-wifi-bt-coex`](../esp-wifi-bt-coex/SHEET.md))"
+    - Lab SoftAP vs STA unter HCI_TCP + Classic
+    - Status-Bit / Vendor-HCI Wirkung unter Last
+    - bt-analyzer Topology-Entscheidung (UART vs WiFi SoftAP/STA)
+  next_evidence: "Messbare Coex-Matrix WiFi+A2DP+HFP+BLE GATT auf ESP32? (WiFi-TDM-Anteil → [`esp-wifi-bt-coex`](../esp-wifi-bt-coex/SHEET.md))"
+  rejected_highlights:
+    -
+      id: null
+      statement: IDF Classic-Examples = BTDM-Referenz
+      status: REJECTED
+    -
+      id: null
+      statement: BLE mem_release + später BLE nutzen
+      status: REJECTED
+    -
+      id: null
+      statement: EspBle Dual-Host auf S3
+      status: REJECTED
+    -
+      id: null
+      statement: BTDM in sdkconfig ⇒ App nutzt beide
+      status: REJECTED
+    -
+      id: null
+      statement: Unbegrenzte Classic+BLE+WiFi+SCO
+      status: REJECTED
+    -
+      id: null
+      statement: Connection Interval egal bei HID Bridge
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-084
+      directory: bt-analysis-relay-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-085
+      directory: bt-classic-gaps-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-091
+      directory: esp32-bt-analyzer-host-profiles-2026-desk
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-097
+      directory: esp32-car-network-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-098
+      directory: esp32-hci-controller-2026-foreign
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-099
+      directory: esp32-wifi-bt-coex-2026-foreign
+      status: closed
+      environment: lab
+  methods:
+    - methods/bt-hci-host-attach.md
+    - methods/bt-passive-host-sniff.md
+    - methods/bt-usb-hci-observe-baseline.md
+    - methods/ftms-capability-probe.md
+    - methods/usb-wifi-coex-discrimination.md
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bt-dual-mode-coex/SHEET.md
   - audits/bt-analysis-relay-2026-foreign/README.md
@@ -27,36 +113,42 @@ audits:
     status: closed
     environment: lab
     path: audits/bt-analysis-relay-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-085
     directory: bt-classic-gaps-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-classic-gaps-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-091
     directory: esp32-bt-analyzer-host-profiles-2026-desk
     status: closed
     environment: lab
     path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+    started: 2026-11-04
   -
     audit_id: A-2026-097
     directory: esp32-car-network-2026-foreign
     status: closed
     environment: lab
     path: audits/esp32-car-network-2026-foreign
+    started: 2026-11-12
   -
     audit_id: A-2026-098
     directory: esp32-hci-controller-2026-foreign
     status: closed
     environment: mixed
     path: audits/esp32-hci-controller-2026-foreign
+    started: 2026-11-12
   -
     audit_id: A-2026-099
     directory: esp32-wifi-bt-coex-2026-foreign
     status: closed
     environment: lab
     path: audits/esp32-wifi-bt-coex-2026-foreign
+    started: 2026-11-12
 methods:
   - methods/bt-hci-host-attach.md
   - methods/bt-passive-host-sniff.md

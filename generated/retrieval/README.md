@@ -17,5 +17,6 @@ Model: [`docs/EVIDENCE-CLAIM-MODEL.md`](../../docs/EVIDENCE-CLAIM-MODEL.md).
 ## AI usage
 
 1. Open `index.yaml` or a topic/tech bundle.
-2. Honor `rejected`, `unknowns`, `transfer_limits`.
-3. Follow `source_of_truth` / audit paths for depth.
+2. Read **`current:`** first (status, open_points, next_evidence, rejected_highlights).
+3. Honor `rejected`, `unknowns`, `transfer_limits`.
+4. Follow `source_of_truth` / audit paths only for depth.

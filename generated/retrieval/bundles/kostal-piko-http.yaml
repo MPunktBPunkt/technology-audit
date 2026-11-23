@@ -3,6 +3,52 @@
 
 topic: kostal-piko-http
 generated: 2026-11-23
+current:
+  family: kostal-piko-http
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - Firmware-Varianten jenseits ver 3.62?
+    - Ob neuere PIKO-Generationen dasselbe HTML behalten?
+  next_evidence: Firmware-Varianten jenseits ver 3.62?
+  rejected_highlights:
+    -
+      id: null
+      statement: JSON-API ist Standard auf PIKO
+      status: REJECTED
+    -
+      id: null
+      statement: UTF-8 reicht für alle Seiten
+      status: REJECTED
+    -
+      id: null
+      statement: String- und Phasen-Zellen sind getrennte Zeilenblöcke
+      status: REJECTED
+    -
+      id: null
+      statement: Parallel Live + LogDaten ist unkritisch
+      status: REJECTED
+    -
+      id: null
+      statement: "Offline-Zellen (`x x x`) = Energie verloren"
+      status: REJECTED
+    -
+      id: null
+      statement: "Jeder „kostal*“-Adapter teilt denselben Parser"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-020
+      directory: iobroker-kostalpiko-2026-pilot
+      status: active
+      environment: desk
+  methods: []
+  last_relevant_change: 2026-10-09
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/kostal-piko-http/SHEET.md
   - audits/iobroker-kostalpiko-2026-pilot/README.md
@@ -22,6 +68,7 @@ audits:
     status: active
     environment: desk
     path: audits/iobroker-kostalpiko-2026-pilot
+    started: 2026-10-09
 methods: []
 evidence_ids: []
 facts: []

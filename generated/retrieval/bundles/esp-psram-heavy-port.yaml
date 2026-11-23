@@ -3,6 +3,61 @@
 
 topic: esp-psram-heavy-port
 generated: 2026-11-23
+current:
+  family: esp-psram-heavy-port
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-DOOM-2026-10-25-001
+    - EVID-DOOM-2026-10-25-002
+    - EVID-DOOM-2026-10-25-003
+    - EVID-DOOM-2026-10-25-005
+  confirmed: []
+  open_points:
+    - Welche FPS-Budgets bei 240 MHz + SPI LCD realistisch (Lab)?
+    - "Moderne IDF `esp_heap_caps` vs. historisches `pvPortMallocCaps`-API?"
+  next_evidence: Welche FPS-Budgets bei 240 MHz + SPI LCD realistisch (Lab)?
+  rejected_highlights:
+    -
+      id: null
+      statement: Ohne PSRAM „reicht schon“ für denselben Port
+      status: REJECTED
+    -
+      id: null
+      statement: Alles in PSRAM legen inkl. Framebuffer/DMA
+      status: REJECTED
+    -
+      id: null
+      statement: Classic-Wrover-PoC = S3-Port ohne Gate
+      status: REJECTED
+    -
+      id: null
+      statement: Tiny OLED-Sheet deckt Game-Framebuffer ab
+      status: REJECTED
+    -
+      id: null
+      statement: PSRAM malloc = Errata gelöst
+      status: REJECTED
+    -
+      id: null
+      statement: Sound/Save immer dabei
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-072
+      directory: esp32-doom-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-078
+      directory: squeezelite-esp32-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-psram-heavy-port/SHEET.md
   - audits/esp32-doom-2026-foreign/README.md
@@ -24,12 +79,14 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-doom-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-078
     directory: squeezelite-esp32-2026-foreign
     status: active
     environment: lab
     path: audits/squeezelite-esp32-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids:
   - EVID-DOOM-2026-10-25-001

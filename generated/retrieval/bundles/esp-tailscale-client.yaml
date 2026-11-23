@@ -3,6 +3,49 @@
 
 topic: esp-tailscale-client
 generated: 2026-11-23
+current:
+  family: esp-tailscale-client
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-CARNET-2026-11-12-020
+    - EVID-CARNET-YYYY-MM-DD
+  confirmed: []
+  open_points:
+    - Minimales Task-/Heap-Budget parallel zu Classic BT Analyzer?
+  next_evidence: Minimales Task-/Heap-Budget parallel zu Classic BT Analyzer?
+  rejected_highlights:
+    -
+      id: null
+      statement: SoftAP nötig für Car-Reachability
+      status: REJECTED
+    -
+      id: null
+      statement: PreferredDERP advertise ≠ connected region
+      status: REJECTED
+    -
+      id: null
+      statement: = esp_wireguard drop-in
+      status: REJECTED
+    -
+      id: null
+      statement: "Cellular/CGNAT: direct UDP immer möglich"
+      status: REJECTED
+    -
+      id: null
+      statement: Desk-Architektur = Lab MEASURED hinter Hotspot
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-097
+      directory: esp32-car-network-2026-foreign
+      status: closed
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-tailscale-client/SHEET.md
   - audits/esp32-car-network-2026-foreign/README.md
@@ -22,6 +65,7 @@ audits:
     status: closed
     environment: lab
     path: audits/esp32-car-network-2026-foreign
+    started: 2026-11-12
 methods: []
 evidence_ids:
   - EVID-CARNET-2026-11-12-020

@@ -3,6 +3,164 @@
 
 topic: bmw-bcl
 generated: 2026-11-23
+current:
+  family: bmw-bcl
+  status: partial
+  evidence_maturity: R3
+  strongest_evidence:
+    - EVID-B3-BCL-GRAMMAR
+    - EVID-B3-BCL-FRAG-4000-5306
+    - EVID-B3-BCL-COVERAGE
+    - EVID-B3-SAS-CRYPTO-18-18
+    - EVID-B3-SAS-LEAF-TOUCHCOMMAND
+    - EVID-B3-SAS-MULTICHANNEL
+  confirmed:
+    -
+      id: C-BCL-001
+      statement: "BCL frame is u16BE cmd|src|dest|len + payload; dest 4004=Etch, 5001=Watchdog."
+      supported_by:
+        - EVID-B3-BCL-GRAMMAR
+    -
+      id: C-BCL-002
+      statement: Phone fragments Etch at 4000 B BCL-DATA; HU may send up to 5306 B in one frame.
+      supported_by:
+        - EVID-B3-BCL-FRAG-4000-5306
+    -
+      id: C-BCL-003
+      statement: "hu_to_phone BCL coverage 100%; phone_to_hu ~99.76% with classified desync gaps."
+      supported_by:
+        - EVID-B3-BCL-COVERAGE
+    -
+      id: C-SAS-001
+      statement: All 18 HU-accepted B3 sas_login signatures verify against Wire-Leaf a4a_app_BMWTouchCommand_Connection_00.00.10 (RSA-4096).
+      supported_by:
+        - EVID-B3-SAS-CRYPTO-18-18
+        - EVID-B3-SAS-LEAF-TOUCHCOMMAND
+    -
+      id: C-SAS-002
+      statement: "APP_AUTH pad-u32 is 0x02000000; Digest = MD5(challenge XOR MD5(pad)); PKCS#1 v1.5 DigestInfo-MD5. Pad is not X509 serial 0x0AA9."
+      supported_by:
+        - EVID-B3-SAS-CRYPTO-18-18
+    -
+      id: C-SAS-003
+      statement: Parallel SAS cert/login sequences run on multiple BCL src→dest 4004 channels.
+      supported_by:
+        - EVID-B3-SAS-MULTICHANNEL
+  open_points:
+    - "[C-SAS-004] Standalone credential acceptance without MyBMW/AAIdrive (Gate B2) is OPEN."
+    - "[UNKNOWN] BCL-Akronym offiziell ausgeschrieben"
+    - "[UNKNOWN] Gleiches Framing auf allen HU-Generationen"
+    - "[UNKNOWN] HU Watchdog-Pong = exakt `13371337`"
+    - "[UNKNOWN] HU = RFCOMM/SPP-Server immer / Phone immer Client"
+    - Exakte Semantik aller Knock-Felder / AppTypes jenseits Dissector-Namen?
+    - "USB Accessory / ENET: gleiches Handshake?"
+    - BCL v4 „unknown watchdog“ — HU-seitig bestätigt?
+    - USB/ENET gleiches Framing?
+    - REGISTER/BROADCAST in anderen Captures?
+  next_evidence: "[C-SAS-004] Standalone credential acceptance without MyBMW/AAIdrive (Gate B2) is OPEN."
+  rejected_highlights:
+    -
+      id: null
+      statement: BCL = Etch
+      status: REJECTED
+    -
+      id: null
+      statement: "Phone-App ist RFCOMM **Server**"
+      status: REJECTED
+    -
+      id: null
+      statement: "`SDP_BCL` = BMW-proprietäre UUID"
+      status: REJECTED
+    -
+      id: null
+      statement: Watchdog nur „alive“ ohne Timing
+      status: REJECTED
+    -
+      id: null
+      statement: "OPEN dest **4004** folgt deterministisch auf HANDSHAKE"
+      status: REJECTED
+    -
+      id: null
+      statement: A2DP = BCL-Transport
+      status: REJECTED
+    -
+      id: null
+      statement: Native AA (nbt-aad) = BCL-Pfad von BclCarLink
+      status: REJECTED
+    -
+      id: C-SAS-005
+      statement: Lab-stub / mybmw-sim certificate is accepted by F20 as live APP_AUTH.
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-082
+      directory: bimmergestalt-idrive-2026-foreign
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-088
+      directory: usb-aoa-bmw-connected-2026-desk
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-089
+      directory: esp32-usb-analyzer-2026-pilot
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-092
+      directory: bmw-connected-sas-auth-2026-11-06
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-095
+      directory: bmw-bcl-rfcomm-role-2026-desk
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-100
+      directory: supra-idrive6-android-auto-2026-secondary
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-101
+      directory: bimmergestalt-rhmi-checkresource-2026-11-17
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-102
+      directory: esp32-bt-analyzer-f20-connected-2026-11-17
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-103
+      directory: esp32-bt-analyzer-lab-field-transfer-2026-11-17
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-104
+      directory: f20-sdp-vs-nbt-aad-2026-11-19
+      status: closed
+      environment: field
+    -
+      audit_id: A-2026-105
+      directory: idriveconnectkit-securityaccess-2026-11-19
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-106
+      directory: nbt-evo-oss-runtime-hmi-bt-2026-11-19
+      status: closed
+      environment: lab
+  methods:
+    - methods/raw-bcl-etch-forensic.md
+    - methods/usb-bot-command-observation.md
+    - methods/usb-otg-loop-baseline.md
+    - methods/usb-wifi-coex-discrimination.md
+  last_relevant_change: 2026-11-21
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bmw-bcl/SHEET.md
   - audits/bimmergestalt-idrive-2026-foreign/README.md
@@ -17,10 +175,6 @@ source_of_truth:
   - audits/esp32-usb-analyzer-2026-pilot/README.md
   - audits/f20-sdp-vs-nbt-aad-2026-11-19/README.md
   - audits/idriveconnectkit-securityaccess-2026-11-19/README.md
-  - audits/nbt-evo-bt-control-plane-closure-2026-11-21/README.md
-  - audits/nbt-evo-oss-runtime-hmi-bt-2026-11-19/README.md
-  - audits/supra-idrive6-android-auto-2026-secondary/README.md
-  - audits/usb-aoa-bmw-connected-2026-desk/README.md
 primary:
   - bmw-bcl
 maturity:
@@ -41,96 +195,112 @@ audits:
     status: closed
     environment: mixed
     path: audits/bimmergestalt-idrive-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-088
     directory: usb-aoa-bmw-connected-2026-desk
     status: closed
     environment: mixed
     path: audits/usb-aoa-bmw-connected-2026-desk
+    started: 2026-10-28
   -
     audit_id: A-2026-089
     directory: esp32-usb-analyzer-2026-pilot
     status: closed
     environment: lab
     path: audits/esp32-usb-analyzer-2026-pilot
+    started: 2026-10-31
   -
     audit_id: A-2026-092
     directory: bmw-connected-sas-auth-2026-11-06
     status: closed
     environment: desk
     path: audits/bmw-connected-sas-auth-2026-11-06
+    started: 2026-11-06
   -
     audit_id: A-2026-095
     directory: bmw-bcl-rfcomm-role-2026-desk
     status: closed
     environment: mixed
     path: audits/bmw-bcl-rfcomm-role-2026-desk
+    started: 2026-11-12
   -
     audit_id: A-2026-100
     directory: supra-idrive6-android-auto-2026-secondary
     status: closed
     environment: lab
     path: audits/supra-idrive6-android-auto-2026-secondary
+    started: 2026-11-13
   -
     audit_id: A-2026-101
     directory: bimmergestalt-rhmi-checkresource-2026-11-17
     status: closed
     environment: mixed
     path: audits/bimmergestalt-rhmi-checkresource-2026-11-17
+    started: 2026-11-17
   -
     audit_id: A-2026-102
     directory: esp32-bt-analyzer-f20-connected-2026-11-17
     status: closed
     environment: mixed
     path: audits/esp32-bt-analyzer-f20-connected-2026-11-17
+    started: 2026-11-17
   -
     audit_id: A-2026-103
     directory: esp32-bt-analyzer-lab-field-transfer-2026-11-17
     status: closed
     environment: mixed
     path: audits/esp32-bt-analyzer-lab-field-transfer-2026-11-17
+    started: 2026-11-17
   -
     audit_id: A-2026-104
     directory: f20-sdp-vs-nbt-aad-2026-11-19
     status: closed
     environment: field
     path: audits/f20-sdp-vs-nbt-aad-2026-11-19
+    started: 2026-11-19
   -
     audit_id: A-2026-105
     directory: idriveconnectkit-securityaccess-2026-11-19
     status: closed
     environment: mixed
     path: audits/idriveconnectkit-securityaccess-2026-11-19
+    started: 2026-11-19
   -
     audit_id: A-2026-106
     directory: nbt-evo-oss-runtime-hmi-bt-2026-11-19
     status: closed
     environment: lab
     path: audits/nbt-evo-oss-runtime-hmi-bt-2026-11-19
+    started: 2026-11-19
   -
     audit_id: A-2026-111
     directory: bmw-bcl-bt-rfcomm-framing-2026-11-21
     status: closed
     environment: mixed
     path: audits/bmw-bcl-bt-rfcomm-framing-2026-11-21
+    started: 2026-11-21
   -
     audit_id: A-2026-113
     directory: bmw-etch-rpc-binary-reassembly-2026-11-21
     status: closed
     environment: field
     path: audits/bmw-etch-rpc-binary-reassembly-2026-11-21
+    started: 2026-11-21
   -
     audit_id: A-2026-115
     directory: bmw-sas-auth-field-crypto-2026-11-21
     status: closed
     environment: mixed
     path: audits/bmw-sas-auth-field-crypto-2026-11-21
+    started: 2026-11-21
   -
     audit_id: A-2026-119
     directory: nbt-evo-bt-control-plane-closure-2026-11-21
     status: closed
     environment: mixed
     path: audits/nbt-evo-bt-control-plane-closure-2026-11-21
+    started: ""
 methods:
   - methods/raw-bcl-etch-forensic.md
   - methods/usb-bot-command-observation.md
@@ -178,12 +348,8 @@ facts:
       vehicle: BMW F20
       hu: NBT Evo
       transport: RFCOMM/BCL
-      supported_by:
-        - EVID-B3-BCL-GRAMMAR
-      transfer_limits:
-        - usb_enet_bcl_unknown
-      unknown_reason: null
     audit_id: A-2026-111
+    environment: field
   -
     id: C-BCL-002
     statement: Phone fragments Etch at 4000 B BCL-DATA; HU may send up to 5306 B in one frame.
@@ -198,12 +364,8 @@ facts:
       vehicle: BMW F20
       hu: NBT Evo
       transport: BCL
-      supported_by:
-        - EVID-B3-BCL-FRAG-4000-5306
-      transfer_limits:
-        - parser_max_payload_4000_insufficient
-      unknown_reason: null
     audit_id: A-2026-111
+    environment: field
   -
     id: C-BCL-003
     statement: "hu_to_phone BCL coverage 100%; phone_to_hu ~99.76% with classified desync gaps."
@@ -218,15 +380,11 @@ facts:
       vehicle: BMW F20
       transport: BCL
       project: esp32-bt-analyzer
-      supported_by:
-        - EVID-B3-BCL-COVERAGE
-      transfer_limits:
-        - relay_capture_specific
-      unknown_reason: null
     audit_id: A-2026-111
+    environment: field
   -
     id: C-SAS-001
-    statement: ">"
+    statement: All 18 HU-accepted B3 sas_login signatures verify against Wire-Leaf a4a_app_BMWTouchCommand_Connection_00.00.10 (RSA-4096).
     status: FACT
     source: audits/bmw-sas-auth-field-crypto-2026-11-21/claims.yaml
     supported_by:
@@ -242,18 +400,11 @@ facts:
       transport: BCL/RFCOMM
       protocol: SAS/APP_AUTH
       project: esp32-bt-analyzer
-      supported_by:
-        - EVID-B3-SAS-CRYPTO-18-18
-        - EVID-B3-SAS-LEAF-TOUCHCOMMAND
-      contradicted_by: []
-      transfer_limits:
-        - f20_capture_specific_counts
-        - leaf_pubkey_only
-      unknown_reason: null
     audit_id: A-2026-115
+    environment: field
   -
     id: C-SAS-002
-    statement: ">"
+    statement: "APP_AUTH pad-u32 is 0x02000000; Digest = MD5(challenge XOR MD5(pad)); PKCS#1 v1.5 DigestInfo-MD5. Pad is not X509 serial 0x0AA9."
     status: FACT
     source: audits/bmw-sas-auth-field-crypto-2026-11-21/claims.yaml
     supported_by:
@@ -265,13 +416,8 @@ facts:
       vehicle: BMW F20
       hu: NBT Evo
       protocol: SAS/APP_AUTH
-      supported_by:
-        - EVID-B3-SAS-CRYPTO-18-18
-      contradicted_by: []
-      transfer_limits:
-        - formula_wire_closed_signer_path_separate
-      unknown_reason: null
     audit_id: A-2026-115
+    environment: field
   -
     id: C-SAS-003
     statement: Parallel SAS cert/login sequences run on multiple BCL src→dest 4004 channels.
@@ -287,12 +433,8 @@ facts:
       hu: NBT Evo
       transport: BCL
       protocol: SAS
-      supported_by:
-        - EVID-B3-SAS-MULTICHANNEL
-      transfer_limits:
-        - single_channel_sufficiency_unknown
-      unknown_reason: null
     audit_id: A-2026-115
+    environment: field
 inferences:
   -
     statement: Dest-Port-Namen aus Lua = BMW-Spec
@@ -332,16 +474,13 @@ unknowns:
     supported_by: []
     transfer_limits:
       - live_path_closed_standalone_open
-    unknown_reason: null
+    unknown_reason: implementation_unknown
     scope:
       vehicle: BMW F20
       hu: NBT Evo
       protocol: SAS
-      supported_by: []
-      transfer_limits:
-        - live_path_closed_standalone_open
-      unknown_reason: implementation_unknown
     audit_id: A-2026-115
+    environment: field
 rejected:
   -
     statement: BCL = Etch
@@ -384,13 +523,8 @@ rejected:
       vehicle: BMW F20
       hu: NBT Evo
       protocol: SAS
-      supported_by: []
-      contradicted_by:
-        - EVID-B3-SAS-CRYPTO-18-18
-      transfer_limits:
-        - stub_control_only
-      unknown_reason: null
     audit_id: A-2026-115
+    environment: field
 transfer_limits:
   - sheet_abgrenzung_ist_nicht
 note: GENERATED — do not hand-edit; regenerate via ta-assist index

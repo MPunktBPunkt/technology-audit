@@ -3,6 +3,50 @@
 
 topic: rpitx
 generated: 2026-11-23
+current:
+  family: rpitx
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - "[UNKNOWN] Bandbreite/Modes gelten automatisch auf Pi5/RP1"
+    - Welche Modes auf Pi5/RP1 überhaupt noch tragfähig sind? (E-0 Desk → E-1 Lab; kein Sheet vorher)
+  next_evidence: "[UNKNOWN] Bandbreite/Modes gelten automatisch auf Pi5/RP1"
+  rejected_highlights:
+    -
+      id: null
+      statement: Ohne Filter „nur UKW-Problem“
+      status: REJECTED
+    -
+      id: null
+      statement: Install ohne config.txt-Änderung stabil
+      status: REJECTED
+    -
+      id: null
+      statement: rpitx = markondej/fm_transmitter
+      status: REJECTED
+    -
+      id: null
+      statement: Pi4 „OK“ wie Pi3
+      status: REJECTED
+    -
+      id: null
+      statement: rpitx = ESP32 Multi-Mode-Äquivalent
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-027
+      directory: pi-fm-tx-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+    - methods/kb-cross-check.md
+  last_relevant_change: 2026-10-10
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/rpitx/SHEET.md
   - audits/pi-fm-tx-2026-foreign/README.md
@@ -22,6 +66,7 @@ audits:
     status: active
     environment: lab
     path: audits/pi-fm-tx-2026-foreign
+    started: 2026-10-10
 methods:
   - methods/hw-path-gate.md
   - methods/kb-cross-check.md

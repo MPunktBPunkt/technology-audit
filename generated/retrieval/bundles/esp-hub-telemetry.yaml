@@ -3,6 +3,126 @@
 
 topic: esp-hub-telemetry
 generated: 2026-11-23
+current:
+  family: esp-hub-telemetry
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BASE-2026-10-28-001
+    - EVID-BASE-2026-10-28-003
+    - EVID-BASE-2026-10-28-004
+    - EVID-HUB-2026-10-25-001
+    - EVID-HUB-2026-10-28
+    - EVID-HUB-2026-10-28-001
+    - EVID-HUB-2026-10-28-002
+    - EVID-HUB-2026-10-28-003
+  confirmed: []
+  open_points:
+    - "[UNKNOWN] OTA aus Heartbeat-Response ist spezifiziert überall gleich"
+    - Einheitliches Meta-Schema der IO-Keys?
+    - "Auth für `/api/register` (heute LAN-offen)?"
+    - Evidence für Bridge-Abnahme und Nachtest 6
+    - "Sheet `ftms-erg-control` nur bei Transferbedarf + Gate"
+    - "Bootstrap-Prompt (`ta-assist prepare bootstrap`) Ableiten-Checkliste nachziehen"
+    - BOOT 3 s WLAN-Reset manuell an Base
+    - "MeterMaster optional Hub-`interval`/`otaUrl`; Ergo `HwInfo`→`HardwareInfo`"
+    - "Adapter-Kampagne `iobroker-esp-hub` separat nachziehen (0.5.x / Rename)"
+    - "Exit 6: weiteres Bike oder deferred dokumentieren"
+  next_evidence: "[UNKNOWN] OTA aus Heartbeat-Response ist spezifiziert überall gleich"
+  rejected_highlights:
+    -
+      id: null
+      statement: Hub ist immer erreichbar
+      status: REJECTED
+    -
+      id: null
+      statement: "Ein `fwType` reicht für alle Nodes"
+      status: REJECTED
+    -
+      id: null
+      statement: "Hub-Anbindung erfordert Arduino-`esp-hub-base`"
+      status: REJECTED
+    -
+      id: null
+      statement: OTA-URL im Heartbeat ist dauerhaft gültig
+      status: REJECTED
+    -
+      id: null
+      statement: Hub-OTA funktioniert immer im Feld (Auto)
+      status: REJECTED
+    -
+      id: null
+      statement: Produkt-Adapter-Register = ESP-Hub-Heartbeat
+      status: REJECTED
+    -
+      id: null
+      statement: "Simple-API ersetzt `/api/register`"
+      status: REJECTED
+    -
+      id: null
+      statement: "Jeder Hub-Node sendet `fwType`"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-003
+      directory: esp32-heartrate-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-006
+      directory: esp32-ergo-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-007
+      directory: esp32-esp-hub-2026-pilot
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-008
+      directory: esp32-ftmsprobe-2026-pilot
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-013
+      directory: esp32-rfmonitor-2026-pilot
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-032
+      directory: rnt-esp32-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-074
+      directory: esp32-rfmonitor-2026-v2-validation
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-081
+      directory: esp32-rfmonitor-2026-motion-delta
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-087
+      directory: esp32-esp-hub-2026-1.10-validation
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-089
+      directory: esp32-usb-analyzer-2026-pilot
+      status: closed
+      environment: lab
+  methods:
+    - methods/ftms-capability-probe.md
+    - methods/own-link-motion-sensitivity.md
+    - methods/usb-bot-command-observation.md
+    - methods/usb-otg-loop-baseline.md
+    - methods/usb-wifi-coex-discrimination.md
+  last_relevant_change: 2026-10-31
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-hub-telemetry/SHEET.md
   - audits/esp32-ergo-2026-pilot/README.md
@@ -46,60 +166,70 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-heartrate-2026-pilot
+    started: 2026-10-08
   -
     audit_id: A-2026-006
     directory: esp32-ergo-2026-pilot
     status: active
     environment: desk
     path: audits/esp32-ergo-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-007
     directory: esp32-esp-hub-2026-pilot
     status: closed
     environment: desk
     path: audits/esp32-esp-hub-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-008
     directory: esp32-ftmsprobe-2026-pilot
     status: active
     environment: lab
     path: audits/esp32-ftmsprobe-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-013
     directory: esp32-rfmonitor-2026-pilot
     status: closed
     environment: desk
     path: audits/esp32-rfmonitor-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-032
     directory: rnt-esp32-2026-foreign
     status: active
     environment: lab
     path: audits/rnt-esp32-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-074
     directory: esp32-rfmonitor-2026-v2-validation
     status: closed
     environment: desk
     path: audits/esp32-rfmonitor-2026-v2-validation
+    started: 2026-10-25
   -
     audit_id: A-2026-081
     directory: esp32-rfmonitor-2026-motion-delta
     status: active
     environment: desk
     path: audits/esp32-rfmonitor-2026-motion-delta
+    started: 2026-10-26
   -
     audit_id: A-2026-087
     directory: esp32-esp-hub-2026-1.10-validation
     status: closed
     environment: desk
     path: audits/esp32-esp-hub-2026-1.10-validation
+    started: 2026-10-28
   -
     audit_id: A-2026-089
     directory: esp32-usb-analyzer-2026-pilot
     status: closed
     environment: lab
     path: audits/esp32-usb-analyzer-2026-pilot
+    started: 2026-10-31
 methods:
   - methods/ftms-capability-probe.md
   - methods/own-link-motion-sensitivity.md

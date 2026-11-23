@@ -3,6 +3,56 @@
 
 topic: ble-gatt-dual-role
 generated: 2026-11-23
+current:
+  family: ble-gatt-dual-role
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BZGATT-2026-11-12
+  confirmed: []
+  open_points:
+    - "Classic ESP32: stabiles Dual-Role mit ≥2 Peripheral-Clients?"
+    - Wann Reboot-before-GATT-Server nötig vs. Live-Init?
+  next_evidence: "Classic ESP32: stabiles Dual-Role mit ≥2 Peripheral-Clients?"
+  rejected_highlights:
+    -
+      id: null
+      statement: „ESP32 kann Dual-Role“ gilt Classic = S3
+      status: REJECTED
+    -
+      id: null
+      statement: "`MAX_CONNECTIONS=1` reicht für Central+Peripheral+zweiten Host"
+      status: REJECTED
+    -
+      id: null
+      statement: Dual-Role-Contention „kickt“ Target-Link nie
+      status: REJECTED
+    -
+      id: null
+      statement: Zwei-HCI-Proxy = Ein-Chip-Dual-Role
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-083
+      directory: ble-gatt-bridge-refs-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-084
+      directory: bt-analysis-relay-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-094
+      directory: ble-gatt-bluez-relay-2026-foreign
+      status: closed
+      environment: mixed
+  methods:
+    - methods/bt-passive-host-sniff.md
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ble-gatt-dual-role/SHEET.md
   - audits/ble-gatt-bluez-relay-2026-foreign/README.md
@@ -25,18 +75,21 @@ audits:
     status: closed
     environment: lab
     path: audits/ble-gatt-bridge-refs-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-084
     directory: bt-analysis-relay-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-analysis-relay-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-094
     directory: ble-gatt-bluez-relay-2026-foreign
     status: closed
     environment: mixed
     path: audits/ble-gatt-bluez-relay-2026-foreign
+    started: 2026-11-12
 methods:
   - methods/bt-passive-host-sniff.md
 evidence_ids:

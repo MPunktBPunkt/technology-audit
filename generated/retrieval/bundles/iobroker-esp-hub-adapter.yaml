@@ -3,6 +3,38 @@
 
 topic: iobroker-esp-hub-adapter
 generated: 2026-11-23
+current:
+  family: iobroker-esp-hub-adapter
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - Multi-Instance / mehrere Hub-Ports?
+  next_evidence: Multi-Instance / mehrere Hub-Ports?
+  rejected_highlights:
+    -
+      id: null
+      statement: Adapter = nur State-Spiegel
+      status: REJECTED
+    -
+      id: null
+      statement: USB in LXC ohne Geräte-Passthrough
+      status: REJECTED
+    -
+      id: null
+      statement: otaUrl-State bleibt nach Versand stehen
+      status: REJECTED
+    -
+      id: null
+      statement: WebRTC-Signaling = Medienrelay
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits: []
+  methods: []
+  last_relevant_change: UNKNOWN
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/iobroker-esp-hub-adapter/SHEET.md
 primary:

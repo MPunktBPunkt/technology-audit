@@ -3,6 +3,57 @@
 
 topic: lms-squeezelite
 generated: 2026-11-23
+current:
+  family: lms-squeezelite
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - Welche Sync-Toleranzen im eigenen Lab messbar sind?
+    - Slimproto vs. SqueezeNet Details als eigenes Protokoll-Sheet?
+  next_evidence: Welche Sync-Toleranzen im eigenen Lab messbar sind?
+  rejected_highlights:
+    -
+      id: null
+      statement: WROOM ohne PSRAM reicht
+      status: REJECTED
+    -
+      id: null
+      statement: BT/AirPlay/Spotify = gleicher Reifegrad wie LMS
+      status: REJECTED
+    -
+      id: null
+      statement: 192 kHz immer stabil
+      status: REJECTED
+    -
+      id: null
+      statement: Display-Last gratis
+      status: REJECTED
+    -
+      id: null
+      statement: S3 hat Classic BT Audio wie ESP32
+      status: REJECTED
+    -
+      id: null
+      statement: Browser-Host-Webradio ≡ Squeezelite
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-075
+      directory: esp32-spotify-remote-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-078
+      directory: squeezelite-esp32-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/lms-squeezelite/SHEET.md
   - audits/esp32-spotify-remote-2026-foreign/README.md
@@ -23,12 +74,14 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-spotify-remote-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-078
     directory: squeezelite-esp32-2026-foreign
     status: active
     environment: lab
     path: audits/squeezelite-esp32-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids: []
 facts: []

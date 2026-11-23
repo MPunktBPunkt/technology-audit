@@ -3,6 +3,61 @@
 
 topic: bluetooth-hid
 generated: 2026-11-23
+current:
+  family: bluetooth-hid
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BTHPF-2026-11-04-001
+    - EVID-BTHPF-2026-11-04-010
+    - EVID-BTHPF-2026-11-04-020
+    - EVID-BTHPF-2026-11-04-030
+    - EVID-BTHPF-2026-11-04-031
+    - EVID-BTHPF-2026-11-04-040
+  confirmed: []
+  open_points:
+    - Stabiler Classic HID Host auf ESP-Bluedroid ohne Community-Hilfe?
+  next_evidence: Stabiler Classic HID Host auf ESP-Bluedroid ohne Community-Hilfe?
+  rejected_highlights:
+    -
+      id: null
+      statement: HID Device API = HID Host API
+      status: REJECTED
+    -
+      id: null
+      statement: Report Descriptor egal für Kompatibilität
+      status: REJECTED
+    -
+      id: null
+      statement: "IDF liefert Classic HID **Host**-Example"
+      status: REJECTED
+    -
+      id: null
+      statement: Keyboard/Mouse und Gamepad gleiche Queue-Strategie
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-084
+      directory: bt-analysis-relay-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-085
+      directory: bt-classic-gaps-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-091
+      directory: esp32-bt-analyzer-host-profiles-2026-desk
+      status: closed
+      environment: lab
+  methods:
+    - methods/bt-passive-host-sniff.md
+    - methods/ftms-capability-probe.md
+  last_relevant_change: 2026-11-04
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bluetooth-hid/SHEET.md
   - audits/bt-analysis-relay-2026-foreign/README.md
@@ -24,18 +79,21 @@ audits:
     status: closed
     environment: lab
     path: audits/bt-analysis-relay-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-085
     directory: bt-classic-gaps-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-classic-gaps-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-091
     directory: esp32-bt-analyzer-host-profiles-2026-desk
     status: closed
     environment: lab
     path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+    started: 2026-11-04
 methods:
   - methods/bt-passive-host-sniff.md
   - methods/ftms-capability-probe.md

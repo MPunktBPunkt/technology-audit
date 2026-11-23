@@ -3,6 +3,87 @@
 
 topic: wifi-csi-motion
 generated: 2026-11-23
+current:
+  family: wifi-csi-motion
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-ESPECTRE-2026-10-25-001
+    - EVID-ESPECTRE-2026-10-25-002
+    - EVID-ESPECTRE-2026-10-25-003
+    - EVID-ESPECTRE-2026-10-25-004
+    - EVID-RF-2026-10-26-001
+    - EVID-RF-2026-10-26-002
+    - EVID-RF-2026-10-26-003
+    - EVID-RF-2026-10-26-004
+  confirmed: []
+  open_points:
+    - Welche Mindest-Luftzeit-Budgets bei mehreren Sensoren auf einem Kanal?
+    - Wann Peer-Null-Data besser als AP-Pfad ist (Placement)?
+    - "Externes Review der [TECHNOLOGY-MATRIX](TECHNOLOGY-MATRIX.md)"
+    - "Danach **explizite** Technologie-/Projektentscheidung (oder Pause)"
+    - Lab nur nach Go; Instrument-Working-Tree lokal eingefroren (nicht Teil dieses Review-Push)
+    - CCA / Presence-Grundfähigkeit / ML-Radar / rfmonitor-Umbau bleiben draußen
+    - "Exit #6: ioBroker.esp-hub Contract-v2-Spiegelung"
+    - Score-Transfer / Drift Mini↔S3 Nachlauf (Upstream Next)
+    - "Optional: Method Note `rf-score-characterization`"
+    - "Raum-/Geometrie-Transfer Motion (`UNKNOWN`)"
+  next_evidence: Welche Mindest-Luftzeit-Budgets bei mehreren Sensoren auf einem Kanal?
+  rejected_highlights:
+    -
+      id: null
+      statement: CSI-Motion ≡ Packet-Sniffer/PCAP
+      status: REJECTED
+    -
+      id: null
+      statement: CSI-Motion ≡ RF-Environment-Score
+      status: REJECTED
+    -
+      id: null
+      statement: Beliebige pps ohne Admission = bessere Detection
+      status: REJECTED
+    -
+      id: null
+      statement: Alle ESP32-Chips gleiche CSI/ACK-Fähigkeit
+      status: REJECTED
+    -
+      id: null
+      statement: Detektor beweist leeren Raum / zählt Personen
+      status: REJECTED
+    -
+      id: null
+      statement: Cloud nötig für Inference
+      status: REJECTED
+    -
+      id: null
+      statement: CSI-MLP ≡ On-Device-LLM
+      status: REJECTED
+    -
+      id: null
+      statement: Privacy egal weil „keine Kamera“
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-076
+      directory: espectre-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-080
+      directory: esp32-rf-sensing-2026-desk
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-081
+      directory: esp32-rfmonitor-2026-motion-delta
+      status: active
+      environment: desk
+  methods:
+    - methods/own-link-motion-sensitivity.md
+  last_relevant_change: 2026-10-26
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/wifi-csi-motion/SHEET.md
   - audits/esp32-rf-sensing-2026-desk/README.md
@@ -24,18 +105,21 @@ audits:
     status: active
     environment: lab
     path: audits/espectre-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-080
     directory: esp32-rf-sensing-2026-desk
     status: active
     environment: desk
     path: audits/esp32-rf-sensing-2026-desk
+    started: 2026-10-26
   -
     audit_id: A-2026-081
     directory: esp32-rfmonitor-2026-motion-delta
     status: active
     environment: desk
     path: audits/esp32-rfmonitor-2026-motion-delta
+    started: 2026-10-26
 methods:
   - methods/own-link-motion-sensitivity.md
 evidence_ids:

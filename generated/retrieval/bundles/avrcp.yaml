@@ -3,6 +3,135 @@
 
 topic: avrcp
 generated: 2026-11-23
+current:
+  family: avrcp
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BMWHU-2026-10-05-001
+    - EVID-BMWHU-2026-10-12
+    - EVID-BMWHU-2026-10-12-001
+    - EVID-BMWHU-2026-10-12-002
+    - EVID-BMWHU-2026-10-12-005
+    - EVID-BMWHU-2026-10-12-006
+    - EVID-BMWHU-2026-10-12-007
+    - EVID-BTHPF-2026-11-04-001
+  confirmed: []
+  open_points:
+    - "[UNKNOWN] ESP-A2DP-Lib = Cover Art + Browse"
+    - NBT-Evo Browse-Subset und Abs-Volume-Support?
+    - EspBle Target-Notification-Limits im Lab vs. custom Classic host?
+    - "A17, Q12, Phase −1 (siehe STATE.md Upstream)"
+    - "Exit #6 Feld-Ohr PASS upstream (Menü/Sender-Gate) — nicht durch Busy-Pacing-Session erfüllt"
+    - "Mechanismus Menü-~20 s unter Stall: Phänomen `MEASURED` (`006`); Ursache weiter `INFERRED`/`UNKNOWN`"
+    - "Rock 8 MiB oft stumm: Session-`MEASURED` (`007`); Ursache offen."
+    - "Nächster Gate-Lauf: Reihenfolge und Kill-Regeln aus"
+    - "Nach Exit #6 PASS: Maturity (`field_evidence` R4+) prüfen; AV-Follow-on nach"
+    - "Pilot 3 `avrcp` — BT-Host-Profil in [`pidrive-2026-radio-bt`](../pidrive-2026-radio-bt/) / Gateway, nicht USB-C duplizieren"
+  next_evidence: "[UNKNOWN] ESP-A2DP-Lib = Cover Art + Browse"
+  rejected_highlights:
+    -
+      id: null
+      statement: Standalone AVRCP ohne A2DP in Libraries
+      status: REJECTED
+    -
+      id: null
+      statement: Alle HU-Tasten = AVRCP
+      status: REJECTED
+    -
+      id: null
+      statement: Metadata = volle Playlist
+      status: REJECTED
+    -
+      id: null
+      statement: Absolute Volume immer
+      status: REJECTED
+    -
+      id: null
+      statement: Cover Art ohne IDF ≥5.4 / PSRAM
+      status: REJECTED
+    -
+      id: null
+      statement: BlueZ Target = volles Browse
+      status: REJECTED
+    -
+      id: null
+      statement: Altes Repo „Metadata unsupported“ = heute wahr
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-001
+      directory: pidrive-2026-msc
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-002
+      directory: pidrive-2026-bmw-hu
+      status: active
+      environment: mixed
+    -
+      audit_id: A-2026-004
+      directory: esp32-bt-gateway-2026-planning
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-026
+      directory: pidrive-2026-radio-bt
+      status: active
+      environment: field
+    -
+      audit_id: A-2026-034
+      directory: a2dpsinkhfpclient-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-035
+      directory: bluetooth-stack-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-036
+      directory: esp-idf-classic-bt-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-038
+      directory: esp32-a2dp-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-039
+      directory: esp32-a2dp-codecs-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-040
+      directory: esp32-a2dp-source-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-041
+      directory: esp32-bt-iap-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-044
+      directory: espble-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/bt-passive-host-sniff.md
+    - methods/callback-reentry-state-lifetime.md
+    - methods/field-av-offset-correlation.md
+    - methods/ftms-capability-probe.md
+    - methods/msc-busy-retry-semantics.md
+    - methods/msc-trace-correlation.md
+    - methods/nbt-cache-eviction-play-intent.md
+    - methods/nbt-medium-identity-resume.md
+  last_relevant_change: 2026-11-17
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/avrcp/SHEET.md
   - audits/a2dpsinkhfpclient-2026-foreign/README.md
@@ -17,11 +146,6 @@ source_of_truth:
   - audits/esp32-bt-gateway-2026-planning/README.md
   - audits/esp32-bt-iap-2026-foreign/README.md
   - audits/espble-2026-foreign/README.md
-  - audits/esphome-a2dp-sink-2026-foreign/README.md
-  - audits/nbt-evo-bt-control-plane-closure-2026-11-21/README.md
-  - audits/pidrive-2026-bmw-hu/README.md
-  - audits/pidrive-2026-msc/README.md
-  - audits/pidrive-2026-radio-bt/README.md
 primary:
   - avrcp
 maturity:
@@ -48,102 +172,119 @@ audits:
     status: closed
     environment: mixed
     path: audits/pidrive-2026-msc
+    started: 2026-10-04
   -
     audit_id: A-2026-002
     directory: pidrive-2026-bmw-hu
     status: active
     environment: mixed
     path: audits/pidrive-2026-bmw-hu
+    started: 2026-10-05
   -
     audit_id: A-2026-004
     directory: esp32-bt-gateway-2026-planning
     status: active
     environment: desk
     path: audits/esp32-bt-gateway-2026-planning
+    started: 2026-10-09
   -
     audit_id: A-2026-026
     directory: pidrive-2026-radio-bt
     status: active
     environment: field
     path: audits/pidrive-2026-radio-bt
+    started: 2026-10-09
   -
     audit_id: A-2026-034
     directory: a2dpsinkhfpclient-2026-foreign
     status: active
     environment: lab
     path: audits/a2dpsinkhfpclient-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-035
     directory: bluetooth-stack-2026-foreign
     status: active
     environment: lab
     path: audits/bluetooth-stack-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-036
     directory: esp-idf-classic-bt-2026-foreign
     status: active
     environment: lab
     path: audits/esp-idf-classic-bt-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-038
     directory: esp32-a2dp-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-a2dp-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-039
     directory: esp32-a2dp-codecs-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-a2dp-codecs-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-040
     directory: esp32-a2dp-source-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-a2dp-source-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-041
     directory: esp32-bt-iap-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-bt-iap-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-044
     directory: espble-2026-foreign
     status: active
     environment: lab
     path: audits/espble-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-045
     directory: esphome-a2dp-sink-2026-foreign
     status: active
     environment: lab
     path: audits/esphome-a2dp-sink-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-085
     directory: bt-classic-gaps-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-classic-gaps-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-091
     directory: esp32-bt-analyzer-host-profiles-2026-desk
     status: closed
     environment: lab
     path: audits/esp32-bt-analyzer-host-profiles-2026-desk
+    started: 2026-11-04
   -
     audit_id: A-2026-102
     directory: esp32-bt-analyzer-f20-connected-2026-11-17
     status: closed
     environment: mixed
     path: audits/esp32-bt-analyzer-f20-connected-2026-11-17
+    started: 2026-11-17
   -
     audit_id: A-2026-119
     directory: nbt-evo-bt-control-plane-closure-2026-11-21
     status: closed
     environment: mixed
     path: audits/nbt-evo-bt-control-plane-closure-2026-11-21
+    started: ""
 methods:
   - methods/bt-passive-host-sniff.md
   - methods/callback-reentry-state-lifetime.md

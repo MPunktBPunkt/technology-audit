@@ -3,6 +3,169 @@
 
 topic: bmw-nbt-evo
 generated: 2026-11-23
+current:
+  family: bmw-nbt-evo
+  status: partial
+  evidence_maturity: R3
+  strongest_evidence:
+    - EVID-AOA-030
+    - EVID-AOA-2026-10-28-020
+    - EVID-BG-020
+    - EVID-BMWHU-2026-10-05-001
+    - EVID-BMWHU-2026-10-12
+    - EVID-BMWHU-2026-10-12-001
+    - EVID-BMWHU-2026-10-12-002
+    - EVID-BMWHU-2026-10-12-005
+  confirmed:
+    -
+      id: null
+      statement: "Cover über BT kommt via iAP/Connected/USB, nicht AVRCP"
+      supported_by: []
+    -
+      id: null
+      statement: Absolute Volume erzeugt Sprünge / Konflikt mit HU-DSP
+      supported_by: []
+    -
+      id: null
+      statement: HU registriert PlaybackStatus/TrackChanged/… und braucht TrackChanged bei jedem Quellen-/Titelwechsel
+      supported_by: []
+    -
+      id: null
+      statement: HU-SBC-Bitpool max 53; Smartphone-Codec-Wahl
+      supported_by: []
+    -
+      id: null
+      statement: Funk-Chip / Baseband der HU
+      supported_by: []
+    -
+      id: null
+      statement: HU bietet SPP über BT
+      supported_by: []
+    -
+      id: null
+      statement: HU spricht BCL → Etch → SAS → AM/RHMI/CDS über SPP
+      supported_by: []
+  open_points:
+    - "Welche NBT-Varianten (Evo vs. Evo2, iDrive-Generation) teilen dasselbe USB-Read-Profil?"
+    - Wann reicht Korrelation (Fenster × Bytes) vs. zwingend Ohr-Beweis für „AV PASS“?
+    - "~~Vollständiger HU-SDP-Record~~ → für den F20 `MEASURED` (esp32-bt-analyzer A6). Offen: zustandsabhängige Records (SCN 10), andere NBT-Varianten."
+    - "~~Wofür dient der HU-Dienst `00000000-deca-fade-deca-deafdecacaff` (ch 5)?~~ → **Apple iAP2/MFi**; BMW Connected auf Android nutzt `0x1101` ch 6 (Failover ch 10)."
+    - "**P0 C0:** gleiche Identity + echtes FAT/Media (Identity vs Content)"
+    - "**P0 C1:** hu-probe `aoa_phone_like` / `aoa_observe` am Analyzer — dann Full Audit prüfen"
+    - "**P0:** SCSI Aggregate Counters + Write-LBA-Audit (Upstream Software)"
+    - "Write-Cache Eviction (`010`) bleibt UNKNOWN bis Audit"
+    - "~~**P1c** Upstream `bmw_nbt_evo.json`~~ **done 2026-10-17** (schema 3)"
+    - P0a Offline-Skript blocks/gap/LBA · P0b S2 Formalauswertung · P0c Auto-Offline
+  next_evidence: "**P0 C0:** gleiche Identity + echtes FAT/Media (Identity vs Content)"
+  rejected_highlights:
+    -
+      id: null
+      statement: „NBT liest wie jeder PC-Stick“
+      status: REJECTED
+    -
+      id: null
+      statement: "„NBT scannt nur Ordnerstruktur, nie Dateiinhalt“"
+      status: REJECTED
+    -
+      id: null
+      statement: „Remount = Cold Start / Cache-Flush“
+      status: REJECTED
+    -
+      id: null
+      statement: „Prefetch-Lead = 8 s“ / „globaler Elevator“
+      status: REJECTED
+    -
+      id: null
+      statement: Lab-Host-Replay ersetzt HU-Beweis
+      status: REJECTED
+    -
+      id: null
+      statement: Erfolg = nur SCSI-konforme Antworten
+      status: REJECTED
+    -
+      id: null
+      statement: NBT-Evo-Timing gilt für alle BMW-HU
+      status: REJECTED
+    -
+      id: null
+      statement: Lab-Menü-PASS = Feld-Ohr-PASS
+      status: REJECTED
+  transfer_limits:
+    - host_specific
+    - see_rejected_claims
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-001
+      directory: pidrive-2026-msc
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-002
+      directory: pidrive-2026-bmw-hu
+      status: active
+      environment: mixed
+    -
+      audit_id: A-2026-042
+      directory: esp32-msc-gadget-refs-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-047
+      directory: tinyusb-msc-busy-retry-2026
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-048
+      directory: bmw-nbt-media-index-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-060
+      directory: hu-probe-bmw-s0s2-field-2026
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-061
+      directory: msc-host-read-semantics-s1s2s3-2026
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-062
+      directory: pidrive-2026-10-17-prefetch-livelock
+      status: active
+      environment: mixed
+    -
+      audit_id: A-2026-064
+      directory: hu-probe-bmw-s2-abend-offline-2026-10-18
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-065
+      directory: pidrive-2026-storm-capture-tooling
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-066
+      directory: prefetch-livelock-public-gap-2026
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-067
+      directory: hu-probe-psram-board-free-2026-10-21
+      status: closed
+      environment: mixed
+  methods:
+    - methods/callback-reentry-state-lifetime.md
+    - methods/field-av-offset-correlation.md
+    - methods/hu-media-lifecycle.md
+    - methods/hw-path-gate.md
+    - methods/msc-busy-retry-semantics.md
+    - methods/msc-host-read-semantics.md
+    - methods/msc-lba-timing-instrument.md
+    - methods/msc-trace-correlation.md
+  last_relevant_change: 2026-11-19
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bmw-nbt-evo/SHEET.md
   - audits/bimmergestalt-idrive-2026-foreign/README.md
@@ -17,13 +180,6 @@ source_of_truth:
   - audits/hu-probe-psram-board-free-2026-10-21/README.md
   - audits/msc-host-read-semantics-s1s2s3-2026/README.md
   - audits/nbt-evo-oss-runtime-hmi-bt-2026-11-19/README.md
-  - audits/pidrive-2026-10-17-prefetch-livelock/README.md
-  - audits/pidrive-2026-bmw-hu/README.md
-  - audits/pidrive-2026-msc/README.md
-  - audits/pidrive-2026-storm-capture-tooling/README.md
-  - audits/prefetch-livelock-public-gap-2026/README.md
-  - audits/tinyusb-msc-busy-retry-2026/README.md
-  - audits/usb-aoa-bmw-connected-2026-desk/README.md
 primary:
   - bmw-nbt-evo
 maturity:
@@ -48,114 +204,133 @@ audits:
     status: closed
     environment: mixed
     path: audits/pidrive-2026-msc
+    started: 2026-10-04
   -
     audit_id: A-2026-002
     directory: pidrive-2026-bmw-hu
     status: active
     environment: mixed
     path: audits/pidrive-2026-bmw-hu
+    started: 2026-10-05
   -
     audit_id: A-2026-042
     directory: esp32-msc-gadget-refs-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-msc-gadget-refs-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-047
     directory: tinyusb-msc-busy-retry-2026
     status: closed
     environment: lab
     path: audits/tinyusb-msc-busy-retry-2026
+    started: 2026-10-12
   -
     audit_id: A-2026-048
     directory: bmw-nbt-media-index-2026-foreign
     status: closed
     environment: lab
     path: audits/bmw-nbt-media-index-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-060
     directory: hu-probe-bmw-s0s2-field-2026
     status: closed
     environment: lab
     path: audits/hu-probe-bmw-s0s2-field-2026
+    started: 2026-10-15
   -
     audit_id: A-2026-061
     directory: msc-host-read-semantics-s1s2s3-2026
     status: closed
     environment: lab
     path: audits/msc-host-read-semantics-s1s2s3-2026
+    started: 2026-10-15
   -
     audit_id: A-2026-062
     directory: pidrive-2026-10-17-prefetch-livelock
     status: active
     environment: mixed
     path: audits/pidrive-2026-10-17-prefetch-livelock
+    started: 2026-10-17
   -
     audit_id: A-2026-064
     directory: hu-probe-bmw-s2-abend-offline-2026-10-18
     status: closed
     environment: lab
     path: audits/hu-probe-bmw-s2-abend-offline-2026-10-18
+    started: 2026-10-18
   -
     audit_id: A-2026-065
     directory: pidrive-2026-storm-capture-tooling
     status: closed
     environment: lab
     path: audits/pidrive-2026-storm-capture-tooling
+    started: 2026-10-18
   -
     audit_id: A-2026-066
     directory: prefetch-livelock-public-gap-2026
     status: closed
     environment: lab
     path: audits/prefetch-livelock-public-gap-2026
+    started: 2026-10-18
   -
     audit_id: A-2026-067
     directory: hu-probe-psram-board-free-2026-10-21
     status: closed
     environment: mixed
     path: audits/hu-probe-psram-board-free-2026-10-21
+    started: 2026-10-21
   -
     audit_id: A-2026-068
     directory: hu-probe-heimfahrt-2026-10-22
     status: closed
     environment: lab
     path: audits/hu-probe-heimfahrt-2026-10-22
+    started: 2026-10-22
   -
     audit_id: A-2026-069
     directory: hu-probe-media-ladder-2026-10-22
     status: closed
     environment: mixed
     path: audits/hu-probe-media-ladder-2026-10-22
+    started: 2026-10-22
   -
     audit_id: A-2026-082
     directory: bimmergestalt-idrive-2026-foreign
     status: closed
     environment: mixed
     path: audits/bimmergestalt-idrive-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-088
     directory: usb-aoa-bmw-connected-2026-desk
     status: closed
     environment: mixed
     path: audits/usb-aoa-bmw-connected-2026-desk
+    started: 2026-10-28
   -
     audit_id: A-2026-093
     directory: esp32-usb-analyzer-2026-field-host-matrix
     status: closed
     environment: mixed
     path: audits/esp32-usb-analyzer-2026-field-host-matrix
+    started: 2026-11-06
   -
     audit_id: A-2026-104
     directory: f20-sdp-vs-nbt-aad-2026-11-19
     status: closed
     environment: field
     path: audits/f20-sdp-vs-nbt-aad-2026-11-19
+    started: 2026-11-19
   -
     audit_id: A-2026-106
     directory: nbt-evo-oss-runtime-hmi-bt-2026-11-19
     status: closed
     environment: lab
     path: audits/nbt-evo-oss-runtime-hmi-bt-2026-11-19
+    started: 2026-11-19
 methods:
   - methods/callback-reentry-state-lifetime.md
   - methods/field-av-offset-correlation.md

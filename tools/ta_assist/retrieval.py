@@ -17,6 +17,8 @@ from .util import (
     yaml_scalar,
 )
 
+# parse_simple_yaml still used by load_retrieval_topics
+
 # Broader than historic EVID-…-YYYY-MM-DD-NNN
 EVIDENCE_ID_RE = re.compile(r"\bEVID-[A-Z0-9]+(?:-[A-Z0-9]+)+\b")
 STATUS_RE = re.compile(
@@ -64,6 +66,7 @@ class AuditRecord:
     environment: str = ""
     evidence_ids: list[str] = field(default_factory=list)
     claims: list[dict[str, Any]] = field(default_factory=list)
+    open_points: list[str] = field(default_factory=list)
     path: str = ""
 
 
@@ -141,16 +144,83 @@ def _extract_fallstricke(text: str) -> list[dict[str, str]]:
     return out
 
 
+_SCOPE_KEYS = {
+    "vehicle",
+    "hu",
+    "firmware",
+    "transport",
+    "protocol",
+    "device",
+    "environment",
+    "project",
+}
+_OPEN_STATUSES = {
+    "OPEN",
+    "UNKNOWN",
+    "NOT_PROVEN",
+    "NOT_OBSERVED",
+    "HYPOTHESIS",
+}
+
+
+def _folded_scalar(body: str, key: str) -> str | None:
+    """Parse `key: >` / `key: |` folded blocks or a single-line scalar (any indent)."""
+    m = re.search(
+        rf"(?m)^([ \t]*){re.escape(key)}:\s*([>|]-?)\s*$",
+        body,
+    )
+    if m:
+        indent = len(m.group(1).expandtabs(2))
+        # Collect only deeper-indented continuation lines
+        start = m.end() + 1  # after newline following key line
+        parts: list[str] = []
+        for ln in body[start:].splitlines():
+            if not ln.strip():
+                continue
+            lead = len(ln) - len(ln.lstrip(" \t"))
+            if lead <= indent:
+                break
+            parts.append(ln.strip())
+        return " ".join(parts).strip() or None
+    m2 = re.search(rf"(?m)^[ \t]*{re.escape(key)}:\s*(.+?)\s*$", body)
+    if not m2:
+        return None
+    val = m2.group(1).strip().strip("'\"")
+    if val in {">", "|", ">-", "|-"}:
+        return None
+    return val or None
+
+
+def _bracket_list(body: str, key: str) -> list[str]:
+    m = re.search(rf"(?m)^[ \t]*{re.escape(key)}:\s*\[(.*?)\]\s*$", body, re.S)
+    if not m:
+        return []
+    inner = m.group(1).strip()
+    if not inner:
+        return []
+    return [x.strip().strip("'\"") for x in inner.split(",") if x.strip()]
+
+
+def _extract_scope_block(body: str) -> dict[str, str]:
+    m = re.search(r"(?m)^[ \t]*scope:\s*\n((?:[ \t]+.+\n?)*)", body)
+    if not m:
+        return {}
+    out: dict[str, str] = {}
+    for line in m.group(1).splitlines():
+        line = line.strip()
+        if ":" not in line:
+            continue
+        k, v = line.split(":", 1)
+        k, v = k.strip(), v.strip().strip("'\"")
+        if k in _SCOPE_KEYS and v:
+            out[k] = v
+    return out
+
+
 def _load_claims_yaml(path: Path) -> list[dict[str, Any]]:
     if not path.is_file():
         return []
     text = read_text(path)
-    # allow fenced or raw yaml
-    blocks = extract_yaml_blocks(text)
-    if blocks and "claims" in blocks[0]:
-        # simple parser may not parse list-of-maps; fall through to line scan
-        pass
-    # Prefer full parse via naive split on "- id:"
     claims: list[dict[str, Any]] = []
     if "claims:" not in text:
         return claims
@@ -161,39 +231,205 @@ def _load_claims_yaml(path: Path) -> list[dict[str, Any]]:
             continue
         cid = lines[0].strip().strip("'\"")
         body = "id: " + cid + "\n" + "\n".join(lines[1:])
-        # Take until next top-level key that isn't indented claim fields — parse_simple works for flat
-        data = parse_simple_yaml(body)
-        # lists in supported_by etc.
+        statement = _folded_scalar(body, "statement") or ""
+        status_raw = _folded_scalar(body, "status") or "UNKNOWN"
+        env = _folded_scalar(body, "environment")
+        unknown_reason = _folded_scalar(body, "unknown_reason")
+        if unknown_reason in {"null", "None", "~"}:
+            unknown_reason = None
         claim = {
             "id": cid,
-            "statement": str(data.get("statement") or "").strip(),
-            "status": _norm_status(str(data.get("status") or "UNKNOWN")),
-            "supported_by": data.get("supported_by") if isinstance(data.get("supported_by"), list) else [],
-            "contradicted_by": data.get("contradicted_by")
-            if isinstance(data.get("contradicted_by"), list)
-            else [],
-            "transfer_limits": data.get("transfer_limits")
-            if isinstance(data.get("transfer_limits"), list)
-            else [],
-            "unknown_reason": data.get("unknown_reason"),
-            "environment": data.get("environment"),
+            "statement": statement,
+            "status": _norm_status(status_raw),
+            "supported_by": _bracket_list(body, "supported_by"),
+            "contradicted_by": _bracket_list(body, "contradicted_by"),
+            "transfer_limits": _bracket_list(body, "transfer_limits"),
+            "limited_by": _bracket_list(body, "limited_by"),
+            "unknown_reason": unknown_reason,
+            "environment": env,
         }
-        scope = data.get("scope") if isinstance(data.get("scope"), dict) else {}
+        scope = _extract_scope_block(body)
         if scope:
             claim["scope"] = scope
-        # Fix list fields if scalars were empty
-        for key in ("supported_by", "contradicted_by", "transfer_limits"):
-            if not isinstance(claim[key], list):
-                claim[key] = []
-        # Re-read list lines manually for reliability
-        for key in ("supported_by", "contradicted_by", "transfer_limits", "limited_by"):
-            m = re.search(rf"{key}:\s*\[(.*?)\]", body, re.S)
-            if m:
-                inner = m.group(1).strip()
-                claim[key] = [x.strip().strip("'\"") for x in inner.split(",") if x.strip()] if inner else []
-        if claim["statement"]:
+        if claim["statement"] and claim["statement"] not in {">", "|"}:
             claims.append(claim)
     return claims
+
+
+def _section_bullets(text: str, headings: tuple[str, ...]) -> list[str]:
+    """Extract markdown bullets under any of the given ## headings."""
+    lines = text.splitlines()
+    out: list[str] = []
+    capture = False
+    for line in lines:
+        if line.startswith("## "):
+            title = line[3:].strip().lower()
+            capture = any(h.lower() in title for h in headings)
+            continue
+        if capture:
+            if line.startswith("#"):
+                break
+            m = re.match(r"^\s*[-*]\s+(.+)$", line)
+            if m:
+                bullet = m.group(1).strip()
+                bullet = re.sub(r"\s+", " ", bullet)
+                if bullet and bullet not in out:
+                    out.append(bullet)
+    return out[:12]
+
+
+def _claim_entry(c: dict[str, Any], *, source: str, audit_id: str = "") -> dict[str, Any]:
+    entry: dict[str, Any] = {
+        "id": c.get("id"),
+        "statement": c.get("statement"),
+        "status": c.get("status"),
+        "source": source,
+        "supported_by": c.get("supported_by") or [],
+        "transfer_limits": c.get("transfer_limits") or [],
+        "unknown_reason": c.get("unknown_reason"),
+    }
+    if c.get("scope"):
+        entry["scope"] = {k: v for k, v in c["scope"].items() if k in _SCOPE_KEYS}
+    if audit_id:
+        entry["audit_id"] = audit_id
+    if c.get("environment"):
+        entry["environment"] = c.get("environment")
+    return entry
+
+
+def _build_current_view(
+    *,
+    family: str,
+    maturity: dict[str, Any] | None,
+    facts: list[dict[str, Any]],
+    rejected: list[dict[str, Any]],
+    unknowns: list[dict[str, Any]],
+    open_bullets: list[str],
+    audits: list[dict[str, Any]],
+    methods: list[str],
+    transfer_limits: list[str],
+    evidence_ids: list[str],
+) -> dict[str, Any]:
+    """Compact derived snapshot — not SoT; UNKNOWN when not derivable."""
+    fact_claims = [f for f in facts if f.get("id") and str(f.get("status", "")).upper() in {"FACT", "MEASURED"}]
+    if not fact_claims:
+        fact_claims = [f for f in facts if str(f.get("status", "")).upper() in {"FACT", "MEASURED"}][:8]
+
+    open_claims = [
+        u
+        for u in unknowns
+        if str(u.get("status", "")).upper() in _OPEN_STATUSES
+    ]
+    # Prefer id'd OPEN/NOT_* claims, then anonymous claim rows, then sheet bullets
+    open_points: list[str] = []
+    for c in open_claims:
+        if not c.get("id"):
+            continue
+        stmt = str(c.get("statement") or "").strip()
+        if stmt and stmt not in {">", "|"}:
+            open_points.append(f"[{c.get('id')}] {stmt}")
+    for c in open_claims:
+        if c.get("id"):
+            continue
+        stmt = str(c.get("statement") or "").strip()
+        if not stmt or stmt in {">", "|"}:
+            continue
+        tag = c.get("status") or "OPEN"
+        line = f"[{tag}] {stmt}"
+        if line not in open_points and not any(stmt in p for p in open_points):
+            open_points.append(line)
+    for b in open_bullets:
+        if b not in open_points and not any(b in p for p in open_points):
+            open_points.append(b)
+    open_points = open_points[:10] or ["UNKNOWN"]
+
+    strongest: list[str] = []
+    for f in fact_claims:
+        for e in f.get("supported_by") or []:
+            if e not in strongest:
+                strongest.append(e)
+    if not strongest:
+        strongest = list(evidence_ids[:8])
+
+    rejected_hi = []
+    for r in rejected:
+        stmt = str(r.get("statement") or "").strip()
+        if not stmt or stmt in {">", "|"}:
+            continue
+        rejected_hi.append(
+            {
+                "id": r.get("id"),
+                "statement": stmt,
+                "status": r.get("status"),
+            }
+        )
+        if len(rejected_hi) >= 8:
+            break
+
+    next_step = "UNKNOWN"
+    # Prefer explicit P0 / dual-plane bullets from SoT sections before scanning all claims
+    for b in open_bullets:
+        if re.search(r"\bP0\b|dual-?plane", b, re.I):
+            next_step = b
+            break
+    if next_step == "UNKNOWN":
+        for c in open_claims:
+            stmt = str(c.get("statement") or "")
+            if re.search(r"\bP0\b|dual-?plane|audio.transport", stmt, re.I):
+                next_step = stmt
+                break
+    if next_step == "UNKNOWN":
+        for c in open_claims:
+            if str(c.get("status") or "").upper() == "OPEN" and c.get("id"):
+                next_step = f"[{c.get('id')}] {c.get('statement')}"
+                break
+    if next_step == "UNKNOWN" and open_points:
+        next_step = open_points[0]
+
+    dates = [str(a.get("started") or "") for a in audits if a.get("started")]
+    last_change = max(dates) if dates else "UNKNOWN"
+
+    fe = str((maturity or {}).get("field_evidence") or "UNKNOWN")
+    if open_points and fact_claims:
+        status = "partial"
+    elif fact_claims and not open_points:
+        status = "closed_known_scope"
+    elif fact_claims:
+        status = "partial"
+    else:
+        status = "UNKNOWN"
+
+    return {
+        "family": family,
+        "status": status,
+        "evidence_maturity": fe,
+        "strongest_evidence": strongest[:12],
+        "confirmed": [
+            {
+                "id": f.get("id"),
+                "statement": f.get("statement"),
+                "supported_by": f.get("supported_by") or [],
+            }
+            for f in fact_claims[:8]
+            if f.get("statement") not in {None, "", ">", "|"}
+        ],
+        "open_points": open_points or ["UNKNOWN"],
+        "next_evidence": next_step,
+        "rejected_highlights": rejected_hi,
+        "transfer_limits": sorted(set(transfer_limits))[:20],
+        "audits": [
+            {
+                "audit_id": a.get("audit_id"),
+                "directory": a.get("directory"),
+                "status": a.get("status"),
+                "environment": a.get("environment"),
+            }
+            for a in audits[:12]
+        ],
+        "methods": methods[:8],
+        "last_relevant_change": last_change,
+        "note": "GENERATED snapshot from SoT — not a second truth",
+    }
 
 
 def collect_audits(root: Path, known_slugs: set[str]) -> list[AuditRecord]:
@@ -226,7 +462,10 @@ def collect_audits(root: Path, known_slugs: set[str]) -> list[AuditRecord]:
         techs = meta.get("technologies") if isinstance(meta.get("technologies"), list) else []
         if not techs:
             techs = _infer_technologies(text, known_slugs)
-        # related from YAML related_audits unused for tech
+        open_pts = _section_bullets(
+            text,
+            ("Offene Punkte", "Offene Fragen", "Next", "Next steps", "Open"),
+        )
         rec = AuditRecord(
             directory=d.name,
             id=str(meta.get("id") or d.name),
@@ -241,6 +480,7 @@ def collect_audits(root: Path, known_slugs: set[str]) -> list[AuditRecord]:
             environment=_infer_environment(str(meta.get("profile") or ""), text),
             evidence_ids=evid,
             claims=claims,
+            open_points=open_pts,
             path=f"audits/{d.name}",
         )
         # optional explicit audit_id in YAML
@@ -270,25 +510,43 @@ def _assign_audit_ids(records: list[AuditRecord]) -> None:
                 r.audit_id = f"A-{year}-{i:03d}"
 
 
+def _yaml_str_list(body: str, key: str) -> list[str]:
+    """Parse either `key: [a, b]` or a block list under key."""
+    bracket = _bracket_list(body, key)
+    if bracket:
+        return bracket
+    m = re.search(rf"(?m)^[ \t]*{re.escape(key)}:\s*\n((?:[ \t]+- .+\n?)+)", body)
+    if not m:
+        # also allow key: with empty / next sibling
+        return []
+    out: list[str] = []
+    for ln in m.group(1).splitlines():
+        lm = re.match(r"^[ \t]+-\s+(.+)$", ln)
+        if lm:
+            out.append(lm.group(1).strip().strip("'\""))
+    return out
+
+
 def load_retrieval_topics(root: Path) -> list[dict[str, Any]]:
     path = root / "docs" / "retrieval-topics.yaml"
     if not path.is_file():
         return []
     text = read_text(path)
     topics: list[dict[str, Any]] = []
-    # split on "- id:"
+    # split on top-level topic entries: "  - id:"
     parts = re.split(r"\n\s*-\s+id:\s*", "\n" + text)
     for part in parts[1:]:
         lines = part.splitlines()
         tid = lines[0].strip().strip("'\"")
         body = "id: " + tid + "\n" + "\n".join(lines[1:])
         data = parse_simple_yaml(body)
-        topic = {"id": tid, **{k: v for k, v in data.items() if k != "id"}}
+        topic: dict[str, Any] = {
+            "id": tid,
+            "title": data.get("title") or tid,
+            "question": data.get("question") or "",
+        }
         for key in ("technologies", "audits", "methods", "applications", "transfer_limits", "keywords"):
-            m = re.search(rf"{key}:\s*\[(.*?)\]", body, re.S)
-            if m:
-                inner = m.group(1).strip()
-                topic[key] = [x.strip().strip("'\"") for x in inner.split(",") if x.strip()] if inner else []
+            topic[key] = _yaml_str_list(body, key)
         topics.append(topic)
     return topics
 
@@ -351,17 +609,7 @@ def build_bundle_for_slug(
 
     for a in related_audits:
         for c in a.claims:
-            entry = {
-                "id": c.get("id"),
-                "statement": c.get("statement"),
-                "status": c.get("status"),
-                "source": f"{a.path}/claims.yaml",
-                "supported_by": c.get("supported_by") or [],
-                "transfer_limits": c.get("transfer_limits") or [],
-                "unknown_reason": c.get("unknown_reason"),
-                "scope": c.get("scope") or {},
-                "audit_id": a.audit_id,
-            }
+            entry = _claim_entry(c, source=f"{a.path}/claims.yaml", audit_id=a.audit_id)
             bucket = _bucket_for(str(c.get("status") or "UNKNOWN"))
             {
                 "facts": facts,
@@ -381,7 +629,6 @@ def build_bundle_for_slug(
     if any("nicht" in (x.get("statement") or "").lower() for x in rejected):
         transfer_limits.append("see_rejected_claims")
 
-    # Abgrenzung bullets as soft transfer limits
     if "## Abgrenzung" in sheet_text:
         section = sheet_text.split("## Abgrenzung", 1)[1].split("\n## ", 1)[0]
         for line in section.splitlines():
@@ -395,38 +642,68 @@ def build_bundle_for_slug(
         methods.extend(_methods_mentioned(read_text(root / a.path / "README.md"), root))
     methods = sorted(set(methods))
 
+    audit_refs = [
+        {
+            "audit_id": a.audit_id,
+            "directory": a.directory,
+            "status": a.status,
+            "environment": a.environment,
+            "path": a.path,
+            "started": a.started,
+        }
+        for a in sorted(related_audits, key=lambda x: x.audit_id)
+    ]
+    open_bullets = _section_bullets(
+        sheet_text, ("Offene Fragen", "Offene Punkte", "Open")
+    )
+    for a in related_audits:
+        open_bullets.extend(a.open_points)
+    # dedupe preserve order
+    seen_b: set[str] = set()
+    open_dedup: list[str] = []
+    for b in open_bullets:
+        if b not in seen_b:
+            seen_b.add(b)
+            open_dedup.append(b)
+
+    maturity_map = {
+        "technology": maturity.get("technology"),
+        "field_evidence": maturity.get("field_evidence"),
+        "reusability": maturity.get("reusability"),
+        "evidence_scope": scope_list,
+    }
+    current = _build_current_view(
+        family=slug,
+        maturity=maturity_map,
+        facts=facts,
+        rejected=rejected,
+        unknowns=unknowns,
+        open_bullets=open_dedup,
+        audits=audit_refs,
+        methods=methods,
+        transfer_limits=transfer_limits,
+        evidence_ids=evid,
+    )
+
     return {
         "topic": slug,
         "generated": today(),
+        "current": current,
         "source_of_truth": [
             f"technologies/{slug}/SHEET.md",
-            *[f"{a.path}/README.md" for a in related_audits[:20]],
+            *[f"{a.path}/README.md" for a in related_audits[:12]],
         ],
         "primary": [slug],
-        "maturity": {
-            "technology": maturity.get("technology"),
-            "field_evidence": maturity.get("field_evidence"),
-            "reusability": maturity.get("reusability"),
-            "evidence_scope": scope_list,
-        },
+        "maturity": maturity_map,
         "applications": _apps_for_slug(root, slug),
-        "audits": [
-            {
-                "audit_id": a.audit_id,
-                "directory": a.directory,
-                "status": a.status,
-                "environment": a.environment,
-                "path": a.path,
-            }
-            for a in sorted(related_audits, key=lambda x: x.audit_id)
-        ],
+        "audits": audit_refs,
         "methods": methods,
         "evidence_ids": evid,
-        "facts": facts[:80],
-        "inferences": inferences[:40],
-        "hypotheses": hypotheses[:40],
-        "unknowns": unknowns[:40],
-        "rejected": rejected[:40],
+        "facts": facts[:40],
+        "inferences": inferences[:20],
+        "hypotheses": hypotheses[:20],
+        "unknowns": unknowns[:30],
+        "rejected": rejected[:30],
         "transfer_limits": sorted(set(transfer_limits)),
         "note": "GENERATED — do not hand-edit; regenerate via ta-assist index",
     }
@@ -440,84 +717,131 @@ def build_topic_bundle(
 ) -> dict[str, Any]:
     tid = topic["id"]
     techs = topic.get("technologies") or []
-    facts, rejected, unknowns, inferences = [], [], [], []
+    facts: list[dict[str, Any]] = []
+    rejected: list[dict[str, Any]] = []
+    unknowns: list[dict[str, Any]] = []
+    inferences: list[dict[str, Any]] = []
     evid: list[str] = []
-    audit_refs = []
     apps: list[str] = []
     methods: list[str] = []
     transfer = list(topic.get("transfer_limits") or [])
+    open_bullets: list[str] = []
+    maturity_best: dict[str, Any] = {}
 
+    # Seed audits only (avoid dumping every tech-related historical audit)
+    dir_set = set(topic.get("audits") or [])
+    seed_audits = [a for a in audits if a.directory in dir_set or a.audit_id in dir_set]
+    audits_out = [
+        {
+            "audit_id": a.audit_id,
+            "directory": a.directory,
+            "status": a.status,
+            "environment": a.environment,
+            "path": a.path,
+            "started": a.started,
+        }
+        for a in sorted(seed_audits, key=lambda x: x.audit_id)
+    ]
+
+    for a in seed_audits:
+        evid.extend(a.evidence_ids)
+        open_bullets.extend(a.open_points)
+        for c in a.claims:
+            entry = _claim_entry(c, source=f"{a.path}/claims.yaml", audit_id=a.audit_id)
+            bucket = _bucket_for(str(c.get("status") or "UNKNOWN"))
+            {
+                "facts": facts,
+                "inferences": inferences,
+                "hypotheses": unknowns,
+                "unknowns": unknowns,
+                "rejected": rejected,
+            }.get(bucket, unknowns).append(entry)
+
+    # Sheet maturity + limited fallstricke / apps / methods (not full audit fan-out)
     for slug in techs:
         b = sheet_bundles.get(slug)
         if not b:
             continue
-        facts.extend(b.get("facts") or [])
-        rejected.extend(b.get("rejected") or [])
-        unknowns.extend(b.get("unknowns") or [])
-        inferences.extend(b.get("inferences") or [])
-        evid.extend(b.get("evidence_ids") or [])
         apps.extend(b.get("applications") or [])
         methods.extend(b.get("methods") or [])
         transfer.extend(b.get("transfer_limits") or [])
-        audit_refs.extend(b.get("audits") or [])
-
-    # explicit audit dirs from topic
-    dir_set = set(topic.get("audits") or [])
-    for a in audits:
-        if a.directory in dir_set or a.audit_id in dir_set:
-            audit_refs.append(
-                {
-                    "audit_id": a.audit_id,
-                    "directory": a.directory,
-                    "status": a.status,
-                    "environment": a.environment,
-                    "path": a.path,
-                }
+        evid.extend(b.get("evidence_ids") or [])
+        m = b.get("maturity") or {}
+        # keep highest field_evidence label lexicographically weak — prefer R3>R2
+        fe = str(m.get("field_evidence") or "")
+        prev = str(maturity_best.get("field_evidence") or "R0")
+        if fe.startswith("R") and (not prev.startswith("R") or fe > prev):
+            maturity_best = dict(m)
+        # Sheet REJECTED fallstricke only — do not import sheet-bundle unknowns
+        # (those fan out unrelated audit claims via tech keyword matching).
+        for item in (b.get("rejected") or [])[:8]:
+            if item not in rejected:
+                rejected.append(item)
+        sheet_path = root / "technologies" / slug / "SHEET.md"
+        if sheet_path.is_file():
+            open_bullets.extend(
+                _section_bullets(
+                    read_text(sheet_path),
+                    ("Offene Fragen", "Offene Punkte", "Open"),
+                )
             )
-            evid.extend(a.evidence_ids)
-            for c in a.claims:
-                entry = {
-                    "id": c.get("id"),
-                    "statement": c.get("statement"),
-                    "status": c.get("status"),
-                    "source": f"{a.path}/claims.yaml",
-                    "supported_by": c.get("supported_by") or [],
-                    "transfer_limits": c.get("transfer_limits") or [],
-                    "audit_id": a.audit_id,
-                }
-                bucket = _bucket_for(str(c.get("status") or "UNKNOWN"))
-                {
-                    "facts": facts,
-                    "inferences": inferences,
-                    "hypotheses": [],
-                    "unknowns": unknowns,
-                    "rejected": rejected,
-                }.get(bucket, unknowns).append(entry)
 
-    # dedupe audits by directory
-    seen_a = set()
-    audits_out = []
-    for a in audit_refs:
-        key = a.get("directory") or a.get("audit_id")
-        if key in seen_a:
-            continue
-        seen_a.add(key)
-        audits_out.append(a)
+    methods = sorted(set(methods + (topic.get("methods") or [])))
+    evid = sorted(set(evid))
+    # Deduplicate claim-like entries by id or statement
+    def _dedupe(items: list[dict[str, Any]], limit: int) -> list[dict[str, Any]]:
+        seen: set[str] = set()
+        out: list[dict[str, Any]] = []
+        for it in items:
+            key = str(it.get("id") or it.get("statement") or "")
+            if not key or key in seen or key in {">", "|"}:
+                continue
+            seen.add(key)
+            out.append(it)
+            if len(out) >= limit:
+                break
+        return out
+
+    facts = _dedupe(facts, 40)
+    rejected = _dedupe(rejected, 30)
+    unknowns = _dedupe(unknowns, 30)
+    inferences = _dedupe(inferences, 20)
+
+    seen_b: set[str] = set()
+    open_dedup: list[str] = []
+    for b in open_bullets:
+        if b not in seen_b:
+            seen_b.add(b)
+            open_dedup.append(b)
+
+    current = _build_current_view(
+        family=tid,
+        maturity=maturity_best,
+        facts=facts,
+        rejected=rejected,
+        unknowns=unknowns,
+        open_bullets=open_dedup,
+        audits=audits_out,
+        methods=methods,
+        transfer_limits=transfer,
+        evidence_ids=evid,
+    )
 
     return {
         "topic": tid,
         "title": topic.get("title") or tid,
         "question": topic.get("question") or "",
         "generated": today(),
+        "current": current,
         "primary": techs,
-        "applications": sorted(set(apps)),
+        "applications": sorted(set(apps))[:20],
         "audits": audits_out,
-        "methods": sorted(set(methods + (topic.get("methods") or []))),
-        "evidence_ids": sorted(set(evid)),
-        "facts": facts[:100],
-        "inferences": inferences[:50],
-        "unknowns": unknowns[:50],
-        "rejected": rejected[:50],
+        "methods": methods,
+        "evidence_ids": evid,
+        "facts": facts,
+        "inferences": inferences,
+        "unknowns": unknowns,
+        "rejected": rejected,
         "transfer_limits": sorted(set(transfer)),
         "note": "GENERATED from docs/retrieval-topics.yaml + SoT — do not hand-edit",
     }
@@ -678,6 +1002,7 @@ def regenerate_retrieval(root: Path) -> dict[str, Any]:
         ],
         "rules": [
             "Bundles are derived views — Sheets/Audits remain SoT",
+            "Read current: first (status / open_points / next_evidence)",
             "Always read rejected + transfer_limits + unknowns",
             "Do not invent a parallel AI_KNOWLEDGE.md",
         ],
@@ -707,8 +1032,9 @@ def regenerate_retrieval(root: Path) -> dict[str, Any]:
                 "## AI usage",
                 "",
                 "1. Open `index.yaml` or a topic/tech bundle.",
-                "2. Honor `rejected`, `unknowns`, `transfer_limits`.",
-                "3. Follow `source_of_truth` / audit paths for depth.",
+                "2. Read **`current:`** first (status, open_points, next_evidence, rejected_highlights).",
+                "3. Honor `rejected`, `unknowns`, `transfer_limits`.",
+                "4. Follow `source_of_truth` / audit paths only for depth.",
                 "",
             ]
         ),

@@ -3,6 +3,40 @@
 
 topic: sdr-spectrum-fft
 generated: 2026-11-23
+current:
+  family: sdr-spectrum-fft
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - UNKNOWN
+  next_evidence: UNKNOWN
+  rejected_highlights:
+    -
+      id: null
+      statement: Ein Spektrum-Endpunkt für alle Bänder
+      status: REJECTED
+    -
+      id: null
+      statement: FFT parallel zu Demod auf einem Stick
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-026
+      directory: pidrive-2026-radio-bt
+      status: active
+      environment: field
+    -
+      audit_id: A-2026-033
+      directory: welle-io-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-11
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/sdr-spectrum-fft/SHEET.md
   - audits/pidrive-2026-radio-bt/README.md
@@ -23,12 +57,14 @@ audits:
     status: active
     environment: field
     path: audits/pidrive-2026-radio-bt
+    started: 2026-10-09
   -
     audit_id: A-2026-033
     directory: welle-io-2026-foreign
     status: active
     environment: lab
     path: audits/welle-io-2026-foreign
+    started: 2026-10-11
 methods: []
 evidence_ids: []
 facts: []

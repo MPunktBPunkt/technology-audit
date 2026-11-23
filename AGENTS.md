@@ -5,14 +5,15 @@ This repo is a **layered knowledge base**. Do **not** invent a parallel `AI_KNOW
 ## Start here (retrieval)
 
 1. [`generated/retrieval/index.yaml`](generated/retrieval/index.yaml) — master index  
-2. Topic or tech bundle under [`generated/retrieval/bundles/`](generated/retrieval/bundles/)  
+2. Topic/tech bundle under [`generated/retrieval/bundles/`](generated/retrieval/bundles/) — read **`current:` first**  
 3. [`audits/INDEX.yaml`](audits/INDEX.yaml) — stable `A-YYYY-NNN` ↔ directory  
 4. Model: [`docs/EVIDENCE-CLAIM-MODEL.md`](docs/EVIDENCE-CLAIM-MODEL.md)
 
-Then open the cited Sheets / Audits / `claims.yaml` for depth.
+`current:` is a **generated snapshot** (status, strongest evidence, open_points, next_evidence, rejected_highlights). Not SoT. Depth: cited Sheets / Audits / `claims.yaml`.
 
 ## Always return with the answer
 
+- **current.status** / **open_points** / **next_evidence** (from bundle)  
 - **facts** / measurements  
 - **rejected** (negative evidence)  
 - **unknowns** (+ reason if present)  

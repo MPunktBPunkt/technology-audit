@@ -3,6 +3,46 @@
 
 topic: bt-analysis-endpoint
 generated: 2026-11-23
+current:
+  family: bt-analysis-endpoint
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - "[UNKNOWN] Ein Endpoint deckt proprietäre Auto-Erweiterungen"
+    - Minimale AVRCP/HFP Event-Taxonomie für Captures?
+  next_evidence: "[UNKNOWN] Ein Endpoint deckt proprietäre Auto-Erweiterungen"
+  rejected_highlights:
+    -
+      id: null
+      statement: Endpoint sieht denselben Traffic wie Phone↔Original
+      status: REJECTED
+    -
+      id: null
+      statement: A2DP-MITM = Endpoint
+      status: REJECTED
+    -
+      id: null
+      statement: Classic Endpoint auf BLE-only SoC
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-084
+      directory: bt-analysis-relay-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-086
+      directory: bt-sniffing-capture-2026-foreign
+      status: closed
+      environment: lab
+  methods:
+    - methods/bt-passive-host-sniff.md
+  last_relevant_change: 2026-10-28
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bt-analysis-endpoint/SHEET.md
   - audits/bt-analysis-relay-2026-foreign/README.md
@@ -23,12 +63,14 @@ audits:
     status: closed
     environment: lab
     path: audits/bt-analysis-relay-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-086
     directory: bt-sniffing-capture-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-sniffing-capture-2026-foreign
+    started: 2026-10-28
 methods:
   - methods/bt-passive-host-sniff.md
 evidence_ids: []

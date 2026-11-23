@@ -3,6 +3,115 @@
 
 topic: esp32-s3-silicon
 generated: 2026-11-23
+current:
+  family: esp32-s3-silicon
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-DOOM-2026-10-25-001
+    - EVID-DOOM-2026-10-25-002
+    - EVID-DOOM-2026-10-25-003
+    - EVID-DOOM-2026-10-25-005
+    - EVID-ESP32AI-2026-10-25-002
+    - EVID-ESP32AI-2026-10-25-003
+    - EVID-ESP32AI-2026-10-25-004
+    - EVID-ESP32AI-2026-10-25-005
+  confirmed:
+    -
+      id: null
+      statement: CACHE-126 Write-Back Hit-Fehler; No fix; IDF-Bypass
+      supported_by: []
+    -
+      id: null
+      statement: ANALOG-160 kann Chip zerstören (BIAS_SLEEP∧PD_CUR)
+      supported_by: []
+    -
+      id: null
+      statement: RTC-126 nach Light-Sleep; RTC nicht power-down
+      supported_by: []
+    -
+      id: null
+      statement: "USBOTG-4289: alte Batches ohne OTG Download"
+      supported_by: []
+  open_points:
+    - Lab-Remessung Bandwidth/tok/s
+    - "Method Note `host-gold-before-flash` bei zweitem Projekt"
+    - "Lab: Light-Sleep aus vs. an unter USB-MSC + WiFi (Coex-Method)."
+    - "Feld: Chip-Revision / Date Code der eingesetzten Module dokumentieren."
+    - "PSRAM-Pfad in `esp32.pidrive` (falls Octal): #18806 beobachten."
+    - "Exit 7/8: transparent MITM / HU deferred — Nachzug Soft-Lab: [`esp32-usb-analyzer-2026-0.0.50`](../esp32-usb-analyzer-2026-0.0.50/)"
+    - "Upstream `docs/GATES.md` „Current pointer“ vs Gate-7 Badge — Doc-Drift notieren (kein Auto-Fix im Fremdrepo)"
+    - "P0: audible-Tap → GATE-01 / Read↔Play-Intent"
+    - "P0: Play-Intent-Unterscheidung (Eager ≠ hörbar)"
+    - "P1: Cache-Key / Identity (`seq_ident`)"
+  next_evidence: "P0: audible-Tap → GATE-01 / Read↔Play-Intent"
+  rejected_highlights:
+    -
+      id: null
+      statement: Light-Sleep + USB-MSC Freeze = Silicon-Erratum
+      status: REJECTED
+    -
+      id: null
+      statement: GDMA I2S→AES = Silicon-Erratum
+      status: REJECTED
+    -
+      id: null
+      statement: 16 MB Octal-PSRAM offiziell supported
+      status: REJECTED
+    -
+      id: null
+      statement: Verbautes PSRAM = automatisch genutzt
+      status: REJECTED
+    -
+      id: null
+      statement: Issue-Tracker-Titel = Root-Cause Projekt X
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-063
+      directory: esp32-s3-hw-limits-2026
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-067
+      directory: hu-probe-psram-board-free-2026-10-21
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-068
+      directory: hu-probe-heimfahrt-2026-10-22
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-069
+      directory: hu-probe-media-ladder-2026-10-22
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-071
+      directory: esp32-ai-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-072
+      directory: esp32-doom-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-089
+      directory: esp32-usb-analyzer-2026-pilot
+      status: closed
+      environment: lab
+  methods:
+    - methods/msc-host-read-semantics.md
+    - methods/msc-lba-timing-instrument.md
+    - methods/usb-bot-command-observation.md
+    - methods/usb-otg-loop-baseline.md
+    - methods/usb-wifi-coex-discrimination.md
+  last_relevant_change: 2026-10-31
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp32-s3-silicon/SHEET.md
   - audits/esp32-ai-2026-foreign/README.md
@@ -31,42 +140,49 @@ audits:
     status: closed
     environment: lab
     path: audits/esp32-s3-hw-limits-2026
+    started: 2026-10-18
   -
     audit_id: A-2026-067
     directory: hu-probe-psram-board-free-2026-10-21
     status: closed
     environment: mixed
     path: audits/hu-probe-psram-board-free-2026-10-21
+    started: 2026-10-21
   -
     audit_id: A-2026-068
     directory: hu-probe-heimfahrt-2026-10-22
     status: closed
     environment: lab
     path: audits/hu-probe-heimfahrt-2026-10-22
+    started: 2026-10-22
   -
     audit_id: A-2026-069
     directory: hu-probe-media-ladder-2026-10-22
     status: closed
     environment: mixed
     path: audits/hu-probe-media-ladder-2026-10-22
+    started: 2026-10-22
   -
     audit_id: A-2026-071
     directory: esp32-ai-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-ai-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-072
     directory: esp32-doom-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-doom-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-089
     directory: esp32-usb-analyzer-2026-pilot
     status: closed
     environment: lab
     path: audits/esp32-usb-analyzer-2026-pilot
+    started: 2026-10-31
 methods:
   - methods/msc-host-read-semantics.md
   - methods/msc-lba-timing-instrument.md

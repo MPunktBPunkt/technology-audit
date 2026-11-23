@@ -3,6 +3,62 @@
 
 topic: ble-rssi-proximity
 generated: 2026-11-23
+current:
+  family: ble-rssi-proximity
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-RF-2026-10-26-001
+    - EVID-RF-2026-10-26-002
+    - EVID-RF-2026-10-26-003
+    - EVID-RF-2026-10-26-004
+    - EVID-RF-2026-10-26-005
+    - EVID-WEB-2026-10-26-001
+  confirmed: []
+  open_points:
+    - "Exit #6: ioBroker.esp-hub Contract-v2-Spiegelung"
+    - Score-Transfer / Drift Mini↔S3 Nachlauf (Upstream Next)
+    - "Optional: Method Note `rf-score-characterization`"
+    - "Raum-/Geometrie-Transfer Motion (`UNKNOWN`)"
+  next_evidence: "Exit #6: ioBroker.esp-hub Contract-v2-Spiegelung"
+  rejected_highlights:
+    -
+      id: null
+      statement: RSSI = exakte Distanz (m)
+      status: REJECTED
+    -
+      id: null
+      statement: Hunt ≡ Environment-Monitor Score
+      status: REJECTED
+    -
+      id: null
+      statement: Ständig Target wechseln ohne Hold
+      status: REJECTED
+    -
+      id: null
+      statement: GATT Connect für Hunt nötig
+      status: REJECTED
+    -
+      id: null
+      statement: Mute stoppt Scan
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-070
+      directory: esp-ble-finder-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-081
+      directory: esp32-rfmonitor-2026-motion-delta
+      status: active
+      environment: desk
+  methods:
+    - methods/own-link-motion-sensitivity.md
+  last_relevant_change: 2026-10-26
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ble-rssi-proximity/SHEET.md
   - audits/esp-ble-finder-2026-foreign/README.md
@@ -23,12 +79,14 @@ audits:
     status: active
     environment: lab
     path: audits/esp-ble-finder-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-081
     directory: esp32-rfmonitor-2026-motion-delta
     status: active
     environment: desk
     path: audits/esp32-rfmonitor-2026-motion-delta
+    started: 2026-10-26
 methods:
   - methods/own-link-motion-sensitivity.md
 evidence_ids:

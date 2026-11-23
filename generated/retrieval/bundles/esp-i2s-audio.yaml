@@ -3,6 +3,99 @@
 
 topic: esp-i2s-audio
 generated: 2026-11-23
+current:
+  family: esp-i2s-audio
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-AUDIOI2S-2026-10-13-001
+    - EVID-AUDIOI2S-2026-10-13-002
+    - EVID-AUDIOI2S-2026-10-13-003
+    - EVID-FMRDS-2026-10-13-001
+    - EVID-FMRDS-2026-10-13-003
+    - EVID-FMRDS-2026-10-13-004
+    - EVID-FMRDS-2026-10-13-005
+    - EVID-FMRDS-2026-10-13-008
+  confirmed: []
+  open_points:
+    - Einheitliche Resampler-Policy IDF vs. Arduino-Libs?
+    - Wann PWM-Audio statt I2S-DAC vertretbar ist?
+    - "G-MPX-0, G-IC-1 und G-LIC-1 als nächste Desk-Gates."
+    - "Lab/Field bleiben `UNKNOWN`."
+    - Keine Folgedatei oder Shared-Navigation wurde in dieser Kampagne geändert.
+    - Lab-Gates ausführen und neue Evidence-IDs anlegen.
+    - Variantenentscheidung erst nach Gates treffen.
+    - "Danach prüfen, ob generalisierbares A-Delta einen separaten Sheet-Review"
+  next_evidence: Einheitliche Resampler-Policy IDF vs. Arduino-Libs?
+  rejected_highlights:
+    -
+      id: null
+      statement: Jede ESP32-Variante trägt schwere Decode-Player (MP3/FLAC/…)
+      status: REJECTED
+    -
+      id: null
+      statement: PSRAM optional bei großen Decodern
+      status: REJECTED
+    -
+      id: null
+      statement: Feste 48 kHz I2S-Out = Quell-Sample-Rate
+      status: REJECTED
+    -
+      id: null
+      statement: MEMS 32-bit I2S = direkt int16 ohne Scale
+      status: REJECTED
+    -
+      id: null
+      statement: SEL/LR-Kanal am Mic ignorieren
+      status: REJECTED
+    -
+      id: null
+      statement: I2S-Player = Browser-Host-Webradio
+      status: REJECTED
+    -
+      id: null
+      statement: I2S-DAC-Pfad = LMS/Squeezelite-Contract
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-049
+      directory: esp-fm-rds-node-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-051
+      directory: esp-network-pcm-clock-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-052
+      directory: esp-usb-audio-example-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-053
+      directory: esp32-audioi2s-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-054
+      directory: esp32-i2s-ble-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-078
+      directory: squeezelite-esp32-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+    - methods/kb-cross-check.md
+    - methods/pcm-clock-drift-jitter-buffer.md
+    - methods/rf-loopback-rds-acceptance.md
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-i2s-audio/SHEET.md
   - audits/esp-fm-rds-node-2026-foreign/README.md
@@ -32,36 +125,42 @@ audits:
     status: closed
     environment: lab
     path: audits/esp-fm-rds-node-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-051
     directory: esp-network-pcm-clock-2026-foreign
     status: active
     environment: lab
     path: audits/esp-network-pcm-clock-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-052
     directory: esp-usb-audio-example-2026-foreign
     status: active
     environment: lab
     path: audits/esp-usb-audio-example-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-053
     directory: esp32-audioi2s-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-audioi2s-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-054
     directory: esp32-i2s-ble-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-i2s-ble-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-078
     directory: squeezelite-esp32-2026-foreign
     status: active
     environment: lab
     path: audits/squeezelite-esp32-2026-foreign
+    started: 2026-10-25
 methods:
   - methods/hw-path-gate.md
   - methods/kb-cross-check.md

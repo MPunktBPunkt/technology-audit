@@ -3,6 +3,70 @@
 
 topic: bmw-av
 generated: 2026-11-23
+current:
+  family: bmw-av
+  status: partial
+  evidence_maturity: R3
+  strongest_evidence:
+    - EVID-B3-AV-CONTROL-PATH
+    - EVID-B3-AV-PLAY-315A6
+  confirmed:
+    -
+      id: C-AV-001
+      statement: AV control path av_create(…music) → requestConnection(ENTERTAINMENT) → connectionGranted → av_playerStateChanged(PLAY) is FIELD FACT in B3.
+      supported_by:
+        - EVID-B3-AV-CONTROL-PATH
+        - EVID-B3-AV-PLAY-315A6
+  open_points:
+    - "[C-AV-003] Post-PLAY bulk traffic on BCL dest 4004 is an audio stream (PCM/A2DP/iAP)."
+    - "[C-AV-004] Audible playback during B3 Music session."
+    - "[NOT_PROVEN] Post-PLAY Bulk auf BCL dest 4004 = Audio-Stream"
+    - Welcher Transport trägt B3-hörbares Audio (falls überhaupt unter Relay)?
+    - "Track-Wechsel: neuer AV-Zyklus oder nur RHMI-Metadata?"
+    - "Zusammenhang AVRCP ↔ `av_*` auf NBT Evo"
+    - Audio-Transport-Identifikation (P0 Dual-Plane)
+    - Track A→B Re-Init vs Metadata-only
+    - Home Entry Object-ID (P4)
+    - Relay-Tool Quellcode-Pin vs Bridge-Envelope
+  next_evidence: Audio-Transport-Identifikation (P0 Dual-Plane)
+  rejected_highlights:
+    -
+      id: null
+      statement: AV PLAY = hörbares Audio bewiesen
+      status: REJECTED
+    -
+      id: null
+      statement: AV Control = A2DP
+      status: REJECTED
+    -
+      id: null
+      statement: "Lab NP stub ohne av_* = Field PLAY-Pfad"
+      status: REJECTED
+    -
+      id: null
+      statement: Dual-Plane Capture unnötig wenn UI sichtbar
+      status: REJECTED
+    -
+      id: C-AV-002
+      statement: AV PLAY control event proves audible audio playback.
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-110
+      directory: bmw-av-session-control-vs-audio-2026-11-21
+      status: closed
+      environment: field
+    -
+      audit_id: A-2026-116
+      directory: esp32-bt-analyzer-b3-relay-topology-2026-11-21
+      status: closed
+      environment: mixed
+  methods:
+    - methods/raw-bcl-etch-forensic.md
+  last_relevant_change: 2026-11-21
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/bmw-av/SHEET.md
   - audits/bmw-av-session-control-vs-audio-2026-11-21/README.md
@@ -24,12 +88,14 @@ audits:
     status: closed
     environment: field
     path: audits/bmw-av-session-control-vs-audio-2026-11-21
+    started: 2026-11-21
   -
     audit_id: A-2026-116
     directory: esp32-bt-analyzer-b3-relay-topology-2026-11-21
     status: closed
     environment: mixed
     path: audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21
+    started: 2026-11-21
 methods:
   - methods/raw-bcl-etch-forensic.md
 evidence_ids:
@@ -42,7 +108,7 @@ evidence_ids:
 facts:
   -
     id: C-AV-001
-    statement: ">"
+    statement: AV control path av_create(…music) → requestConnection(ENTERTAINMENT) → connectionGranted → av_playerStateChanged(PLAY) is FIELD FACT in B3.
     status: FACT
     source: audits/bmw-av-session-control-vs-audio-2026-11-21/claims.yaml
     supported_by:
@@ -57,13 +123,8 @@ facts:
       transport: BCL/Etch
       protocol: AV
       project: esp32-bt-analyzer
-      supported_by:
-        - EVID-B3-AV-CONTROL-PATH
-        - EVID-B3-AV-PLAY-315A6
-      transfer_limits:
-        - control_plane_only
-      unknown_reason: null
     audit_id: A-2026-110
+    environment: field
 inferences: []
 hypotheses: []
 unknowns:
@@ -79,17 +140,14 @@ unknowns:
     supported_by: []
     transfer_limits:
       - default_classify_as_rhmi_fragments_inference
-    unknown_reason: null
+    unknown_reason: protocol_not_observed
     scope:
       vehicle: BMW F20
       hu: NBT Evo
       transport: BCL
       protocol: AV
-      supported_by: []
-      transfer_limits:
-        - default_classify_as_rhmi_fragments_inference
-      unknown_reason: protocol_not_observed
     audit_id: A-2026-110
+    environment: field
   -
     id: C-AV-004
     statement: Audible playback during B3 Music session.
@@ -99,16 +157,12 @@ unknowns:
       - EVID-B3-AUDIO-BOUNDARY-OPEN
     transfer_limits:
       - operator_no_sound
-    unknown_reason: null
+    unknown_reason: conflicting_evidence
     scope:
       vehicle: BMW F20
       hu: NBT Evo
-      supported_by:
-        - EVID-B3-AUDIO-BOUNDARY-OPEN
-      transfer_limits:
-        - operator_no_sound
-      unknown_reason: conflicting_evidence
     audit_id: A-2026-110
+    environment: field
 rejected:
   -
     statement: AV PLAY = hörbares Audio bewiesen
@@ -139,13 +193,8 @@ rejected:
       vehicle: BMW F20
       hu: NBT Evo
       protocol: AV
-      supported_by: []
-      contradicted_by:
-        - EVID-B3-AUDIO-BOUNDARY-OPEN
-      transfer_limits:
-        - audible_not_observed
-      unknown_reason: null
     audit_id: A-2026-110
+    environment: field
 transfer_limits:
   - sheet_abgrenzung_ist_nicht
 note: GENERATED — do not hand-edit; regenerate via ta-assist index

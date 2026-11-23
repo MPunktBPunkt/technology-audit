@@ -3,6 +3,38 @@
 
 topic: iobroker-linuxdashboard-adapter
 generated: 2026-11-23
+current:
+  family: iobroker-linuxdashboard-adapter
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - UNKNOWN
+  next_evidence: UNKNOWN
+  rejected_highlights:
+    -
+      id: null
+      statement: Kein Auth = LAN-sicher genug immer
+      status: REJECTED
+    -
+      id: null
+      statement: Command-Execution immer nötig
+      status: REJECTED
+    -
+      id: null
+      statement: filemanagerRoot=/ unkritisch
+      status: REJECTED
+    -
+      id: null
+      statement: Metrics-API = volle Shell
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits: []
+  methods: []
+  last_relevant_change: UNKNOWN
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/iobroker-linuxdashboard-adapter/SHEET.md
 primary:

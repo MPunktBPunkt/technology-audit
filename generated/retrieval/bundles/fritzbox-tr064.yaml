@@ -3,6 +3,39 @@
 
 topic: fritzbox-tr064
 generated: 2026-11-23
+current:
+  family: fritzbox-tr064
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - Welche Hostlist-Felder portabel über FritzOS-Versionen?
+    - "Ob VPN-Clients HTTPS :49443 zuverlässig nutzen können?"
+  next_evidence: Welche Hostlist-Felder portabel über FritzOS-Versionen?
+  rejected_highlights:
+    -
+      id: null
+      statement: Port 49000 HTTP immer offen
+      status: REJECTED
+    -
+      id: null
+      statement: Zertifikat immer vertrauenswürdig
+      status: REJECTED
+    -
+      id: null
+      statement: Gleiches Subnet lokal+remote → TR-064 trifft immer die Remote-Box
+      status: REJECTED
+    -
+      id: null
+      statement: TR-064 ist Pflicht für Remote-TCP-Zugriffe
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits: []
+  methods: []
+  last_relevant_change: UNKNOWN
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/fritzbox-tr064/SHEET.md
 primary:

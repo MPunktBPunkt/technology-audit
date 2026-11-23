@@ -3,6 +3,54 @@
 
 topic: mcu-connectome-graph
 generated: 2026-11-23
+current:
+  family: mcu-connectome-graph
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-ESP32AI-2026-10-25-002
+    - EVID-ESP32AI-2026-10-25-003
+    - EVID-ESP32AI-2026-10-25-004
+    - EVID-ESP32AI-2026-10-25-005
+    - EVID-ESP32AI-2026-10-25-006
+    - EVID-ESP32AI-2026-10-25-008
+    - EVID-ESP32AI-2026-10-25-009
+    - EVID-ESP32AI-2026-10-25-012
+  confirmed: []
+  open_points:
+    - Welche Kompressions-/Blockgrößen auf anderen Flash-Controllern stabil sind?
+    - Wann SIMD-Assembly portabel vs. C-Fallback Pflicht ist?
+    - Lab-Remessung Bandwidth/tok/s
+    - "Method Note `host-gold-before-flash` bei zweitem Projekt"
+  next_evidence: Welche Kompressions-/Blockgrößen auf anderen Flash-Controllern stabil sind?
+  rejected_highlights:
+    -
+      id: null
+      statement: Ganzes Nervous System passt immer in 16 MB Flash
+      status: REJECTED
+    -
+      id: null
+      statement: Demo-Verhalten = trainiertes Modell
+      status: REJECTED
+    -
+      id: null
+      statement: Graph ohne Host-Gold flashen
+      status: REJECTED
+    -
+      id: null
+      statement: LLM-Runtime deckt Connectome ab
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-071
+      directory: esp32-ai-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/mcu-connectome-graph/SHEET.md
   - audits/esp32-ai-2026-foreign/README.md
@@ -22,6 +70,7 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-ai-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids:
   - EVID-ESP32AI-2026-10-25-002

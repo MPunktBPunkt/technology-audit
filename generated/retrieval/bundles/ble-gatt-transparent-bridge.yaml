@@ -3,6 +3,64 @@
 
 topic: ble-gatt-transparent-bridge
 generated: 2026-11-23
+current:
+  family: ble-gatt-transparent-bridge
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BZGATT-2026-11-12
+  confirmed: []
+  open_points:
+    - Wann Snapshot-Read spezkonform genug vs. Live-Proxy-Read?
+    - Backpressure-Muster für Notify-Stürme auf ESP?
+  next_evidence: Wann Snapshot-Read spezkonform genug vs. Live-Proxy-Read?
+  rejected_highlights:
+    -
+      id: null
+      statement: Downstream-CCCD schreibt Upstream-CCCD mit
+      status: REJECTED
+    -
+      id: null
+      statement: Notify-Congestion ist gelöst wenn Relay existiert
+      status: REJECTED
+    -
+      id: null
+      statement: Handle-Layout egal für Android-Cache
+      status: REJECTED
+    -
+      id: null
+      statement: GATT↔MQTT-Gateway = BLE Peripheral Bridge
+      status: REJECTED
+    -
+      id: null
+      statement: BlueZ/bluer Two-Adapter Clone = on-chip Dual-Role Passthrough
+      status: REJECTED
+    -
+      id: null
+      statement: "CCCD am BlueZ-Clone muss 1:1 vom Target geklont werden"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-083
+      directory: ble-gatt-bridge-refs-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-084
+      directory: bt-analysis-relay-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-094
+      directory: ble-gatt-bluez-relay-2026-foreign
+      status: closed
+      environment: mixed
+  methods:
+    - methods/bt-passive-host-sniff.md
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ble-gatt-transparent-bridge/SHEET.md
   - audits/ble-gatt-bluez-relay-2026-foreign/README.md
@@ -25,18 +83,21 @@ audits:
     status: closed
     environment: lab
     path: audits/ble-gatt-bridge-refs-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-084
     directory: bt-analysis-relay-2026-foreign
     status: closed
     environment: lab
     path: audits/bt-analysis-relay-2026-foreign
+    started: 2026-10-28
   -
     audit_id: A-2026-094
     directory: ble-gatt-bluez-relay-2026-foreign
     status: closed
     environment: mixed
     path: audits/ble-gatt-bluez-relay-2026-foreign
+    started: 2026-11-12
 methods:
   - methods/bt-passive-host-sniff.md
 evidence_ids:

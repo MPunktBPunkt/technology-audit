@@ -3,6 +3,94 @@
 
 topic: esp-usb-host
 generated: 2026-11-23
+current:
+  family: esp-usb-host
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-AOA-030
+    - EVID-AOA-2026-10-28-020
+    - EVID-BG-020
+    - EVID-IOTSOL-UAC-2026-10-13-001
+    - EVID-IOTSOL-UAC-2026-10-13-003
+    - EVID-IOTSOL-USBH-2026-10-13-001
+    - EVID-USBA-2026-10-31-001
+    - EVID-USBA-2026-10-31-004
+  confirmed:
+    -
+      id: null
+      statement: "Config-Descriptor &gt; Control-Transfer-Max"
+      supported_by: []
+  open_points:
+    - Welche MSC-Sticks unter Hub-OTA-Last stabil sind?
+    - P4 HS FIFO-Split Defaults für Audio/UVC?
+    - "Live Path-B PHY / echte `.l0samp` Korrelation n≥100"
+    - Transparent MITM mit Kontroll-Host (nicht nur Loop)
+    - HU/Feld AOA·MSC (Analyzer + hu-probe/pidrive)
+    - Power-Cycle-Persistenz ≠ Soft-Reboot (Upstream Handover P0)
+    - "Exit 7/8: transparent MITM / HU deferred — Nachzug Soft-Lab: [`esp32-usb-analyzer-2026-0.0.50`](../esp32-usb-analyzer-2026-0.0.50/)"
+    - "Upstream `docs/GATES.md` „Current pointer“ vs Gate-7 Badge — Doc-Drift notieren (kein Auto-Fix im Fremdrepo)"
+  next_evidence: Power-Cycle-Persistenz ≠ Soft-Reboot (Upstream Handover P0)
+  rejected_highlights:
+    -
+      id: null
+      statement: USB-MSC Sheet = Host kann Sticks lesen
+      status: REJECTED
+    -
+      id: null
+      statement: S2/S3 hosten HS-only Devices
+      status: REJECTED
+    -
+      id: null
+      statement: Jedes DevKit speist VBUS
+      status: REJECTED
+    -
+      id: null
+      statement: Hub auf P4-HS „einfach“
+      status: REJECTED
+    -
+      id: null
+      statement: Library-API 1.x ≡ 2.x
+      status: REJECTED
+    -
+      id: null
+      statement: "Host-`usb_stream` (UVC+UAC) = Device-UAC-Headset"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-046
+      directory: espusbhost-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-050
+      directory: esp-iot-solution-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-088
+      directory: usb-aoa-bmw-connected-2026-desk
+      status: closed
+      environment: mixed
+    -
+      audit_id: A-2026-089
+      directory: esp32-usb-analyzer-2026-pilot
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-090
+      directory: esp32-usb-analyzer-2026-0.0.50
+      status: closed
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+    - methods/usb-bot-command-observation.md
+    - methods/usb-otg-loop-baseline.md
+    - methods/usb-wifi-coex-discrimination.md
+  last_relevant_change: 2026-11-02
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-usb-host/SHEET.md
   - audits/esp-iot-solution-2026-foreign/README.md
@@ -29,30 +117,35 @@ audits:
     status: active
     environment: lab
     path: audits/espusbhost-2026-foreign
+    started: 2026-10-12
   -
     audit_id: A-2026-050
     directory: esp-iot-solution-2026-foreign
     status: active
     environment: lab
     path: audits/esp-iot-solution-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-088
     directory: usb-aoa-bmw-connected-2026-desk
     status: closed
     environment: mixed
     path: audits/usb-aoa-bmw-connected-2026-desk
+    started: 2026-10-28
   -
     audit_id: A-2026-089
     directory: esp32-usb-analyzer-2026-pilot
     status: closed
     environment: lab
     path: audits/esp32-usb-analyzer-2026-pilot
+    started: 2026-10-31
   -
     audit_id: A-2026-090
     directory: esp32-usb-analyzer-2026-0.0.50
     status: closed
     environment: lab
     path: audits/esp32-usb-analyzer-2026-0.0.50
+    started: 2026-11-02
 methods:
   - methods/hw-path-gate.md
   - methods/usb-bot-command-observation.md

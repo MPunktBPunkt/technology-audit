@@ -3,6 +3,63 @@
 
 topic: ssd1306-oled-ui
 generated: 2026-11-23
+current:
+  family: ssd1306-oled-ui
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-DOOM-2026-10-25-001
+    - EVID-DOOM-2026-10-25-002
+    - EVID-DOOM-2026-10-25-003
+    - EVID-DOOM-2026-10-25-005
+    - EVID-ESP32AI-2026-10-25-002
+    - EVID-ESP32AI-2026-10-25-003
+    - EVID-ESP32AI-2026-10-25-004
+    - EVID-ESP32AI-2026-10-25-005
+  confirmed: []
+  open_points:
+    - Welche Mindest-Font-Strategien für Alarm+Wert auf 64×48?
+    - Lab-Remessung Bandwidth/tok/s
+    - "Method Note `host-gold-before-flash` bei zweitem Projekt"
+  next_evidence: Welche Mindest-Font-Strategien für Alarm+Wert auf 64×48?
+  rejected_highlights:
+    -
+      id: null
+      statement: Alle 0.66″ OLEDs gleichen Konstruktor
+      status: REJECTED
+    -
+      id: null
+      statement: Textgröße skaliert wie Desktop
+      status: REJECTED
+    -
+      id: null
+      statement: Display ersetzt Remote-Config
+      status: REJECTED
+    -
+      id: null
+      statement: Fehlendes Panel = Boot-Fail
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-032
+      directory: rnt-esp32-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-071
+      directory: esp32-ai-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-072
+      directory: esp32-doom-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ssd1306-oled-ui/SHEET.md
   - audits/esp32-ai-2026-foreign/README.md
@@ -25,18 +82,21 @@ audits:
     status: active
     environment: lab
     path: audits/rnt-esp32-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-071
     directory: esp32-ai-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-ai-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-072
     directory: esp32-doom-2026-foreign
     status: active
     environment: lab
     path: audits/esp32-doom-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids:
   - EVID-DOOM-2026-10-25-001

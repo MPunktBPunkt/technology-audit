@@ -3,6 +3,66 @@
 
 topic: rtl-sdr
 generated: 2026-11-23
+current:
+  family: rtl-sdr
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - UNKNOWN
+  next_evidence: UNKNOWN
+  rejected_highlights:
+    -
+      id: null
+      statement: Mehrere Apps öffnen den Stick parallel
+      status: REJECTED
+    -
+      id: null
+      statement: DVB-Module dürfen geladen bleiben
+      status: REJECTED
+    -
+      id: null
+      statement: usbreset allein reicht immer
+      status: REJECTED
+    -
+      id: null
+      statement: Ein Gain-Wert passt FM/Airband/DAB
+      status: REJECTED
+    -
+      id: null
+      statement: „Gain 40“ ist überall 40 dB
+      status: REJECTED
+    -
+      id: null
+      statement: Hardware-AGC der Stick-API reicht für DAB-welle
+      status: REJECTED
+    -
+      id: null
+      statement: Jeder USB-SDR erbt denselben Lock/Gain-Contract
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-026
+      directory: pidrive-2026-radio-bt
+      status: active
+      environment: field
+    -
+      audit_id: A-2026-031
+      directory: espargos-espsdr-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-033
+      directory: welle-io-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+  last_relevant_change: 2026-10-11
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/rtl-sdr/SHEET.md
   - audits/espargos-espsdr-2026-foreign/README.md
@@ -25,18 +85,21 @@ audits:
     status: active
     environment: field
     path: audits/pidrive-2026-radio-bt
+    started: 2026-10-09
   -
     audit_id: A-2026-031
     directory: espargos-espsdr-2026-foreign
     status: active
     environment: lab
     path: audits/espargos-espsdr-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-033
     directory: welle-io-2026-foreign
     status: active
     environment: lab
     path: audits/welle-io-2026-foreign
+    started: 2026-10-11
 methods:
   - methods/hw-path-gate.md
 evidence_ids: []

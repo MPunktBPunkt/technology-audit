@@ -3,6 +3,55 @@
 
 topic: ble-http-gatt-probe
 generated: 2026-11-23
+current:
+  family: ble-http-gatt-probe
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - Wie generisch lässt sich die Probe-API über FTMS hinaus halten (Profil-Plugins)?
+    - "Exit 6: weiteres Bike oder deferred dokumentieren"
+    - "Optional: Application für Web/SSE der Sonde"
+  next_evidence: Wie generisch lässt sich die Probe-API über FTMS hinaus halten (Profil-Plugins)?
+  rejected_highlights:
+    -
+      id: null
+      statement: BlueZ im LXC reicht für Geräte-Lab
+      status: REJECTED
+    -
+      id: null
+      statement: OTA während offener Links ist harmlos
+      status: REJECTED
+    -
+      id: null
+      statement: Subjektives „zieht an“ ersetzt Wirkungsmessung
+      status: REJECTED
+    -
+      id: null
+      statement: Dual-Link-Budget eines Envs gilt für alle ESP32
+      status: REJECTED
+    -
+      id: null
+      statement: Probe-Peripheral „wie Ergo-Bridge“ ohne Umbau
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-008
+      directory: esp32-ftmsprobe-2026-pilot
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-083
+      directory: ble-gatt-bridge-refs-2026-foreign
+      status: closed
+      environment: lab
+  methods:
+    - methods/ftms-capability-probe.md
+  last_relevant_change: 2026-10-28
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ble-http-gatt-probe/SHEET.md
   - audits/ble-gatt-bridge-refs-2026-foreign/README.md
@@ -23,12 +72,14 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-ftmsprobe-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-083
     directory: ble-gatt-bridge-refs-2026-foreign
     status: closed
     environment: lab
     path: audits/ble-gatt-bridge-refs-2026-foreign
+    started: 2026-10-28
 methods:
   - methods/ftms-capability-probe.md
 evidence_ids: []

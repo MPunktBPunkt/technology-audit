@@ -3,6 +3,83 @@
 
 topic: usb-dual-esp-observe-proxy
 generated: 2026-11-23
+current:
+  family: usb-dual-esp-observe-proxy
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-USBA-2026-10-31-001
+    - EVID-USBA-2026-10-31-004
+    - EVID-USBA-2026-10-31-006
+    - EVID-USBA-2026-10-31-009
+    - EVID-USBA-2026-10-31-012
+    - EVID-USBA-2026-10-31-013
+    - EVID-USBA-2026-11-02-001
+    - EVID-USBA-2026-11-02-003
+  confirmed: []
+  open_points:
+    - Wann ist Mode-A + Pipeline ausreichend vs. Store-and-Forward?
+    - Minimales Observer-effect Protokoll für „transparent genug“ (Kontroll-Host)?
+    - "Path-B Bring-up: welche erste Korrelations-Schwelle?"
+    - "Live Path-B PHY / echte `.l0samp` Korrelation n≥100"
+    - Transparent MITM mit Kontroll-Host (nicht nur Loop)
+    - HU/Feld AOA·MSC (Analyzer + hu-probe/pidrive)
+    - Power-Cycle-Persistenz ≠ Soft-Reboot (Upstream Handover P0)
+    - "Exit 7/8: transparent MITM / HU deferred — Nachzug Soft-Lab: [`esp32-usb-analyzer-2026-0.0.50`](../esp32-usb-analyzer-2026-0.0.50/)"
+    - "Upstream `docs/GATES.md` „Current pointer“ vs Gate-7 Badge — Doc-Drift notieren (kein Auto-Fix im Fremdrepo)"
+  next_evidence: Power-Cycle-Persistenz ≠ Soft-Reboot (Upstream Handover P0)
+  rejected_highlights:
+    -
+      id: null
+      statement: Dual-ESP Lab = transparent MITM
+      status: REJECTED
+    -
+      id: null
+      statement: Capture Events = D+/D− Packets
+      status: REJECTED
+    -
+      id: null
+      statement: GPIO19/20 CPU-Sample = FS Packet-Sniffer unter OTG
+      status: REJECTED
+    -
+      id: null
+      statement: Cross-node µs timestamps sync by default
+      status: REJECTED
+    -
+      id: null
+      statement: WiFi Mode-A rate ≥ USB MSC Nutzrate
+      status: REJECTED
+    -
+      id: null
+      statement: OTG-Loop Topologie = MITM Wiring
+      status: REJECTED
+    -
+      id: null
+      statement: Soft-Unplug / Soft-USB-Cycle = VBUS-Unplug
+      status: REJECTED
+    -
+      id: null
+      statement: Phone HS-only auf S3 Host
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-089
+      directory: esp32-usb-analyzer-2026-pilot
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-090
+      directory: esp32-usb-analyzer-2026-0.0.50
+      status: closed
+      environment: lab
+  methods:
+    - methods/usb-bot-command-observation.md
+    - methods/usb-otg-loop-baseline.md
+    - methods/usb-wifi-coex-discrimination.md
+  last_relevant_change: 2026-11-02
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/usb-dual-esp-observe-proxy/SHEET.md
   - audits/esp32-usb-analyzer-2026-0.0.50/README.md
@@ -24,12 +101,14 @@ audits:
     status: closed
     environment: lab
     path: audits/esp32-usb-analyzer-2026-pilot
+    started: 2026-10-31
   -
     audit_id: A-2026-090
     directory: esp32-usb-analyzer-2026-0.0.50
     status: closed
     environment: lab
     path: audits/esp32-usb-analyzer-2026-0.0.50
+    started: 2026-11-02
 methods:
   - methods/usb-bot-command-observation.md
   - methods/usb-otg-loop-baseline.md

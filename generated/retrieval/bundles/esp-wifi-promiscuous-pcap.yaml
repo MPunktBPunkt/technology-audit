@@ -3,6 +3,75 @@
 
 topic: esp-wifi-promiscuous-pcap
 generated: 2026-11-23
+current:
+  family: esp-wifi-promiscuous-pcap
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-ESPECTRE-2026-10-25-001
+    - EVID-ESPECTRE-2026-10-25-002
+    - EVID-ESPECTRE-2026-10-25-003
+    - EVID-ESPECTRE-2026-10-25-004
+    - EVID-MARAUDER-2026-10-25-002
+    - EVID-MARAUDER-2026-10-25-003
+    - EVID-MARAUDER-2026-10-25-004
+    - EVID-MARAUDER-2026-10-25-005
+  confirmed: []
+  open_points:
+    - Welche Drop-Raten typisch bei 8 KiB×2 ohne PSRAM?
+    - C5 Dual-Band Channel-Walk vs. Classic 1–13 Budget?
+    - "Externes Review der [TECHNOLOGY-MATRIX](TECHNOLOGY-MATRIX.md)"
+    - "Danach **explizite** Technologie-/Projektentscheidung (oder Pause)"
+    - Lab nur nach Go; Instrument-Working-Tree lokal eingefroren (nicht Teil dieses Review-Push)
+    - CCA / Presence-Grundfähigkeit / ML-Radar / rfmonitor-Umbau bleiben draußen
+  next_evidence: Welche Drop-Raten typisch bei 8 KiB×2 ohne PSRAM?
+  rejected_highlights:
+    -
+      id: null
+      statement: Promiscuous-Sniff ≡ RF-Environment-Monitor
+      status: REJECTED
+    -
+      id: null
+      statement: Promiscuous-Sniff ≡ CSI-Motion-Sensing
+      status: REJECTED
+    -
+      id: null
+      statement: Unbegrenzte Capture-Rate ohne Drop
+      status: REJECTED
+    -
+      id: null
+      statement: "Double-Buffer = immer `xTaskCreatePinnedToCore`"
+      status: REJECTED
+    -
+      id: null
+      statement: Classic / S3 / C5 gleiche Kanal-/Band-Fähigkeit
+      status: REJECTED
+    -
+      id: null
+      statement: Sheet deckt Deauth/Beacon-Spam ab
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-073
+      directory: esp32-marauder-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-076
+      directory: espectre-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-080
+      directory: esp32-rf-sensing-2026-desk
+      status: active
+      environment: desk
+  methods:
+    - methods/own-link-motion-sensitivity.md
+  last_relevant_change: 2026-10-26
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-wifi-promiscuous-pcap/SHEET.md
   - audits/esp32-marauder-2026-foreign/README.md
@@ -24,18 +93,21 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-marauder-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-076
     directory: espectre-2026-foreign
     status: active
     environment: lab
     path: audits/espectre-2026-foreign
+    started: 2026-10-25
   -
     audit_id: A-2026-080
     directory: esp32-rf-sensing-2026-desk
     status: active
     environment: desk
     path: audits/esp32-rf-sensing-2026-desk
+    started: 2026-10-26
 methods:
   - methods/own-link-motion-sensitivity.md
 evidence_ids:

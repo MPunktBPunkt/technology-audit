@@ -3,6 +3,65 @@
 
 topic: esp-hci-uart-controller
 generated: 2026-11-23
+current:
+  family: esp-hci-uart-controller
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed:
+    -
+      id: null
+      statement: ESP32 kann Dual-Mode Controller für BlueZ sein (UART H4)
+      supported_by: []
+    -
+      id: null
+      statement: "Default ESP32 HCI UART = Pins 5/18/19/23 @ 921600 + HWFC"
+      supported_by: []
+    -
+      id: null
+      statement: VS HCI muss für Third-Party-Hosts aus
+      supported_by: []
+  open_points:
+    - "[UNKNOWN] Reset Host vor Controller stabil"
+    - "Lab MEASURED: HCI ACL Throughput UART@921600+HWFC vs USB-UART noflow?"
+    - Stabilste Reset-Reihenfolge BlueZ ↔ ESP Controllers?
+    - "SCO MTU 255:4 (dakhnod Example) vs moderne BlueZ Defaults?"
+  next_evidence: "[UNKNOWN] Reset Host vor Controller stabil"
+  rejected_highlights:
+    -
+      id: null
+      statement: "`hciattach … noflow` = immer gleich gut wie HWFC"
+      status: REJECTED
+    -
+      id: null
+      statement: UART-HCI-Throughput = Analyzer HCI_TCP ~41–45 kB/s
+      status: REJECTED
+    -
+      id: null
+      statement: "SCO ohne `SCO_DATA_PATH_HCI` läuft über Host"
+      status: REJECTED
+    -
+      id: null
+      statement: BLE-only Chip = Classic HCI Controller
+      status: REJECTED
+    -
+      id: null
+      statement: "Zephyr `btattach -S 1000000` = ESP-IDF Default 921600"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-098
+      directory: esp32-hci-controller-2026-foreign
+      status: closed
+      environment: mixed
+  methods:
+    - methods/bt-hci-host-attach.md
+    - methods/bt-passive-host-sniff.md
+    - methods/bt-usb-hci-observe-baseline.md
+  last_relevant_change: 2026-11-12
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-hci-uart-controller/SHEET.md
   - audits/esp32-hci-controller-2026-foreign/README.md
@@ -22,6 +81,7 @@ audits:
     status: closed
     environment: mixed
     path: audits/esp32-hci-controller-2026-foreign
+    started: 2026-11-12
 methods:
   - methods/bt-hci-host-attach.md
   - methods/bt-passive-host-sniff.md

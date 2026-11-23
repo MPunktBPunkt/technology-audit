@@ -3,6 +3,107 @@
 
 topic: esp-wifi-bt-coex
 generated: 2026-11-23
+current:
+  family: esp-wifi-bt-coex
+  status: partial
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-B3-CAPTURE-DISCIPLINE
+    - EVID-B3-DUAL-PLANE-PROTOCOL
+    - EVID-B3-RELAY-TOPO
+    - EVID-CARNET-2026-11-12-020
+    - EVID-CARNET-YYYY-MM-DD
+    - EVID-WBTCOEX-2026-11-12
+  confirmed:
+    -
+      id: null
+      statement: "`CONFIG_ESP_COEX_SW_COEXIST_ENABLE` nötig für SW-Coex"
+      supported_by: []
+    -
+      id: null
+      statement: SoftAP CONNECTED + BT = C1 (instabil)
+      supported_by: []
+    -
+      id: null
+      statement: STA Connected + BT Connected = Y
+      supported_by: []
+    -
+      id: null
+      statement: WiFi- und BT-Stacks auf unterschiedliche Cores pinnen
+      supported_by: []
+    -
+      id: null
+      statement: "`ESP_COEX_BT_ST_A2DP_STREAMING` 0x10 / `A2DP_PAUSED` 0x20"
+      supported_by: []
+    -
+      id: null
+      statement: "Bluedroid setzt A2DP-Streaming via Vendor HCI `BTM_ConfigCoexStatus`"
+      supported_by: []
+    -
+      id: null
+      statement: "Historisch: prefer BT → A2DP smooth; WiFi RX ~1–5 Mbps; AMPDU ↓"
+      supported_by: []
+    -
+      id: null
+      statement: BLE Scan-Window kann von WiFi gekürzt werden
+      supported_by: []
+  open_points:
+    - "Aktuelle IDF-Releases: WiFi-Throughput unter Classic A2DP bei STA+`SW_COEXIST` (Lab)?"
+    - Wann EXTERNAL PTA vs. reines Software-Coex?
+    - "Für Analyzer: ab welcher HCI_TCP-Last ist UART-HCI Pflicht trotz Coex-Tuning?"
+    - Relay-Tool Quellcode-Pin vs Bridge-Envelope
+    - Automatisches Dual-Plane-Logging im Lab-Harness
+    - Lab SoftAP vs STA unter HCI_TCP + Classic
+    - Status-Bit / Vendor-HCI Wirkung unter Last
+    - bt-analyzer Topology-Entscheidung (UART vs WiFi SoftAP/STA)
+  next_evidence: Automatisches Dual-Plane-Logging im Lab-Harness
+  rejected_highlights:
+    -
+      id: null
+      statement: "`esp_coex_prefer_t` aktuell empfehlen"
+      status: REJECTED
+    -
+      id: null
+      statement: "Public Repos messen systematisch `esp_coex_*`+A2DP+WiFi thr."
+      status: REJECTED
+    -
+      id: null
+      statement: USB↔WiFi-Sheet erklärt RF WiFi↔BT
+      status: REJECTED
+    -
+      id: null
+      statement: BTDM-Sheet ersetzt WiFi-Coex
+      status: REJECTED
+    -
+      id: null
+      statement: Bessere WiFi-RSSI hebt Classic-ACL-Durchsatz
+      status: REJECTED
+    -
+      id: null
+      statement: Externer Host (BlueZ via HCI) setzt A2DP-Status-Bit
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-097
+      directory: esp32-car-network-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-099
+      directory: esp32-wifi-bt-coex-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-116
+      directory: esp32-bt-analyzer-b3-relay-topology-2026-11-21
+      status: closed
+      environment: mixed
+  methods:
+    - methods/usb-wifi-coex-discrimination.md
+  last_relevant_change: 2026-11-21
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-wifi-bt-coex/SHEET.md
   - audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21/README.md
@@ -25,18 +126,21 @@ audits:
     status: closed
     environment: lab
     path: audits/esp32-car-network-2026-foreign
+    started: 2026-11-12
   -
     audit_id: A-2026-099
     directory: esp32-wifi-bt-coex-2026-foreign
     status: closed
     environment: lab
     path: audits/esp32-wifi-bt-coex-2026-foreign
+    started: 2026-11-12
   -
     audit_id: A-2026-116
     directory: esp32-bt-analyzer-b3-relay-topology-2026-11-21
     status: closed
     environment: mixed
     path: audits/esp32-bt-analyzer-b3-relay-topology-2026-11-21
+    started: 2026-11-21
 methods:
   - methods/usb-wifi-coex-discrimination.md
 evidence_ids:

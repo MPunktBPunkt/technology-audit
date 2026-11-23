@@ -245,3 +245,31 @@ cases:
         - docs/EVIDENCE-CLAIM-MODEL.md
     reject:
       slugs: []
+
+  - id: bmw-av-current-state
+    question: "Wo stehen wir bei AV Control vs Audio — Status, offen, nächster Evidenzschritt?"
+    expect:
+      paths:
+        - generated/retrieval/bundles/topic-audio-boundary-dual-plane.yaml
+        - generated/retrieval/bundles/bmw-av.yaml
+        - audits/bmw-av-session-control-vs-audio-2026-11-21/claims.yaml
+    reject:
+      slugs: [usb-msc]
+
+  - id: bmw-connected-music-open-next
+    question: "Connected Music: was ist offen und was ist der nächste sinnvolle Test?"
+    expect:
+      paths:
+        - generated/retrieval/bundles/topic-bmw-connected-music.yaml
+        - AGENTS.md
+    reject:
+      slugs: [dab-plus]
+
+  - id: claims-multiline-not-broken
+    question: "Sind multiline claims.yaml statements im Bundle lesbar (nicht statement: '>')?"
+    expect:
+      paths:
+        - generated/retrieval/bundles/bmw-av.yaml
+        - audits/bmw-av-session-control-vs-audio-2026-11-21/claims.yaml
+    reject:
+      slugs: []

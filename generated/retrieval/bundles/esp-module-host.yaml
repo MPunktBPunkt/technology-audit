@@ -3,6 +3,37 @@
 
 topic: esp-module-host
 generated: 2026-11-23
+current:
+  family: esp-module-host
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - Wie weit lässt sich das Interface über Arduino hinaus (IDF) portieren?
+    - Exit 5 RF-Score-Parität
+    - Lab-Bus jetzt mit io-control als Geschwister (Sheet aktiv)
+  next_evidence: Wie weit lässt sich das Interface über Arduino hinaus (IDF) portieren?
+  rejected_highlights:
+    -
+      id: null
+      statement: Alle Module immer compilieren
+      status: REJECTED
+    -
+      id: null
+      statement: Module dürfen Pins ungeprüft teilen
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-014
+      directory: esp32-toolnode-2026-pilot
+      status: active
+      environment: desk
+  methods: []
+  last_relevant_change: 2026-10-09
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-module-host/SHEET.md
   - audits/esp32-toolnode-2026-pilot/README.md
@@ -22,6 +53,7 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-toolnode-2026-pilot
+    started: 2026-10-09
 methods: []
 evidence_ids: []
 facts: []

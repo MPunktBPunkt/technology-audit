@@ -3,6 +3,51 @@
 
 topic: mqtt-node-telemetry
 generated: 2026-11-23
+current:
+  family: mqtt-node-telemetry
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-ESPECTRE-2026-10-25-001
+    - EVID-ESPECTRE-2026-10-25-002
+    - EVID-ESPECTRE-2026-10-25-003
+    - EVID-ESPECTRE-2026-10-25-004
+  confirmed: []
+  open_points:
+    - Einheitliches Command-Schema über Node-Familien?
+    - Exit 5 RF-Score-Parität
+    - Lab-Bus jetzt mit io-control als Geschwister (Sheet aktiv)
+  next_evidence: Einheitliches Command-Schema über Node-Familien?
+  rejected_highlights:
+    -
+      id: null
+      statement: Ein Topic-Schema für alle Nodes
+      status: REJECTED
+    -
+      id: null
+      statement: Broker immer erreichbar
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-014
+      directory: esp32-toolnode-2026-pilot
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-032
+      directory: rnt-esp32-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-076
+      directory: espectre-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/mqtt-node-telemetry/SHEET.md
   - audits/esp32-toolnode-2026-pilot/README.md
@@ -24,18 +69,21 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-toolnode-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-032
     directory: rnt-esp32-2026-foreign
     status: active
     environment: lab
     path: audits/rnt-esp32-2026-foreign
+    started: 2026-10-11
   -
     audit_id: A-2026-076
     directory: espectre-2026-foreign
     status: active
     environment: lab
     path: audits/espectre-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids:
   - EVID-ESPECTRE-2026-10-25-001

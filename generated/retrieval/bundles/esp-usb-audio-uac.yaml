@@ -3,6 +3,65 @@
 
 topic: esp-usb-audio-uac
 generated: 2026-11-23
+current:
+  family: esp-usb-audio-uac
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-IOTSOL-UAC-2026-10-13-001
+    - EVID-IOTSOL-UAC-2026-10-13-003
+    - EVID-IOTSOL-USBH-2026-10-13-001
+    - EVID-USBAUD-EX-2026-10-13-001
+    - EVID-USBAUD-EX-2026-10-13-002
+    - EVID-USBAUD-EX-2026-10-13-003
+    - EVID-USBAUD-EX-2026-10-13-004
+  confirmed: []
+  open_points:
+    - Welche Host-OS-Kombinationen mit Feedback-EP stabil sind?
+    - P4 HS vs. FS Bandbreiten-Budget für Stereo 48 kHz?
+  next_evidence: Welche Host-OS-Kombinationen mit Feedback-EP stabil sind?
+  rejected_highlights:
+    -
+      id: null
+      statement: Classic ESP32 = UAC Device ohne Gate
+      status: REJECTED
+    -
+      id: null
+      statement: "`esp-usb-host` Sheet deckt Device-Headset ab"
+      status: REJECTED
+    -
+      id: null
+      statement: UAC ≡ MSC-Gadget
+      status: REJECTED
+    -
+      id: null
+      statement: Ein Descriptor für Windows und Linux „immer“
+      status: REJECTED
+    -
+      id: null
+      statement: Dynamische Sample-Rate-Umschaltung „einfach“
+      status: REJECTED
+    -
+      id: null
+      statement: LE Audio / A2DP = gleicher Contract
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-050
+      directory: esp-iot-solution-2026-foreign
+      status: active
+      environment: lab
+    -
+      audit_id: A-2026-052
+      directory: esp-usb-audio-example-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/hw-path-gate.md
+  last_relevant_change: 2026-10-13
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-usb-audio-uac/SHEET.md
   - audits/esp-iot-solution-2026-foreign/README.md
@@ -24,12 +83,14 @@ audits:
     status: active
     environment: lab
     path: audits/esp-iot-solution-2026-foreign
+    started: 2026-10-13
   -
     audit_id: A-2026-052
     directory: esp-usb-audio-example-2026-foreign
     status: active
     environment: lab
     path: audits/esp-usb-audio-example-2026-foreign
+    started: 2026-10-13
 methods:
   - methods/hw-path-gate.md
 evidence_ids:

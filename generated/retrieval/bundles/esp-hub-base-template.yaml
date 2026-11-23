@@ -3,6 +3,73 @@
 
 topic: esp-hub-base-template
 generated: 2026-11-23
+current:
+  family: esp-hub-base-template
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-BASE-2026-10-28-001
+    - EVID-BASE-2026-10-28-003
+    - EVID-BASE-2026-10-28-004
+    - EVID-HUB-2026-10-28
+    - EVID-HUB-2026-10-28-001
+    - EVID-HUB-2026-10-28-002
+    - EVID-HUB-2026-10-28-003
+    - EVID-WEB-2026-10-28
+  confirmed: []
+  open_points:
+    - "Wann Template vs. `esp-module-host` (toolnode)?"
+    - "Stufe C/D: welche Diag-APIs gehören in Produkt-Nodes?"
+    - "Bootstrap-Prompt (`ta-assist prepare bootstrap`) Ableiten-Checkliste nachziehen"
+    - BOOT 3 s WLAN-Reset manuell an Base
+    - "MeterMaster optional Hub-`interval`/`otaUrl`; Ergo `HwInfo`→`HardwareInfo`"
+    - "Adapter-Kampagne `iobroker-esp-hub` separat nachziehen (0.5.x / Rename)"
+  next_evidence: "Wann Template vs. `esp-module-host` (toolnode)?"
+  rejected_highlights:
+    -
+      id: null
+      statement: Heartbeat-Kern für Features umbauen
+      status: REJECTED
+    -
+      id: null
+      statement: WLAN-Secrets im Repo
+      status: REJECTED
+    -
+      id: null
+      statement: Beliebige Bin-Namen
+      status: REJECTED
+    -
+      id: null
+      statement: Jede Ableitung braucht neues Hub-Sheet
+      status: REJECTED
+    -
+      id: null
+      statement: "Ableitung = einzelne `.ino` ohne Ordner"
+      status: REJECTED
+    -
+      id: null
+      statement: Diag/Recovery still in A/B nachziehen
+      status: REJECTED
+    -
+      id: null
+      statement: "`src/core/` für Sensorik umbauen"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-007
+      directory: esp32-esp-hub-2026-pilot
+      status: closed
+      environment: desk
+    -
+      audit_id: A-2026-087
+      directory: esp32-esp-hub-2026-1.10-validation
+      status: closed
+      environment: desk
+  methods: []
+  last_relevant_change: 2026-10-28
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-hub-base-template/SHEET.md
   - audits/esp32-esp-hub-2026-1.10-validation/README.md
@@ -23,12 +90,14 @@ audits:
     status: closed
     environment: desk
     path: audits/esp32-esp-hub-2026-pilot
+    started: 2026-10-09
   -
     audit_id: A-2026-087
     directory: esp32-esp-hub-2026-1.10-validation
     status: closed
     environment: desk
     path: audits/esp32-esp-hub-2026-1.10-validation
+    started: 2026-10-28
 methods: []
 evidence_ids:
   - EVID-BASE-2026-10-28-001

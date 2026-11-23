@@ -3,6 +3,52 @@
 
 topic: ble-pcm-notify-stream
 generated: 2026-11-23
+current:
+  family: ble-pcm-notify-stream
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-I2SBLE-2026-10-13-001
+    - EVID-I2SBLE-2026-10-13-002
+    - EVID-I2SBLE-2026-10-13-003
+    - EVID-I2SBLE-2026-10-13-004
+  confirmed: []
+  open_points:
+    - Praktische Dauerlimits bei iOS ohne LE Audio?
+    - Opus-über-Notify vs. PCM Trade-offs?
+  next_evidence: Praktische Dauerlimits bei iOS ohne LE Audio?
+  rejected_highlights:
+    -
+      id: null
+      statement: Custom Notify-PCM = LE Audio
+      status: REJECTED
+    -
+      id: null
+      statement: Custom Notify-PCM = A2DP
+      status: REJECTED
+    -
+      id: null
+      statement: Ohne Batching/Ringbuffer „einfach streamen“
+      status: REJECTED
+    -
+      id: null
+      statement: README-Sample-Rate = Wire-Rate ohne Check
+      status: REJECTED
+    -
+      id: null
+      statement: Unbegrenzte Aufnahme ohne Overflow-Policy
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-054
+      directory: esp32-i2s-ble-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-13
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/ble-pcm-notify-stream/SHEET.md
   - audits/esp32-i2s-ble-2026-foreign/README.md
@@ -22,6 +68,7 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-i2s-ble-2026-foreign
+    started: 2026-10-13
 methods: []
 evidence_ids:
   - EVID-I2SBLE-2026-10-13-001

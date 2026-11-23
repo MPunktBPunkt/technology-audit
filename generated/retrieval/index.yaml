@@ -109,5 +109,6 @@ ai_entry:
   - docs/retrieval-tests.yaml
 rules:
   - Bundles are derived views — Sheets/Audits remain SoT
+  - "Read current: first (status / open_points / next_evidence)"
   - Always read rejected + transfer_limits + unknowns
   - Do not invent a parallel AI_KNOWLEDGE.md

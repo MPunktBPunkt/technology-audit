@@ -3,6 +3,39 @@
 
 topic: lan-device-inventory
 generated: 2026-11-23
+current:
+  family: lan-device-inventory
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-MARAUDER-2026-10-25-002
+    - EVID-MARAUDER-2026-10-25-003
+    - EVID-MARAUDER-2026-10-25-004
+    - EVID-MARAUDER-2026-10-25-005
+  confirmed: []
+  open_points:
+    - ARP/mDNS als Ergänzung zu TCP-Proben?
+  next_evidence: ARP/mDNS als Ergänzung zu TCP-Proben?
+  rejected_highlights:
+    -
+      id: null
+      statement: Gleicher Slug wie RF-Monitor
+      status: REJECTED
+    -
+      id: null
+      statement: Offene Ports = vollständige Identifikation
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-073
+      directory: esp32-marauder-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/lan-device-inventory/SHEET.md
   - audits/esp32-marauder-2026-foreign/README.md
@@ -22,6 +55,7 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-marauder-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids:
   - EVID-MARAUDER-2026-10-25-002

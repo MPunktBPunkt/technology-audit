@@ -457,8 +457,8 @@ audits:
     technologies:
       - sdr-spectrum-fft
       - esp32-apll-fm-tx
-      - rpi-gpio-fm-tx
       - bluetooth-a2dp
+      - rpi-gpio-fm-tx
       - airband-am
       - dab-plus
       - rtl-sdr
@@ -574,9 +574,9 @@ audits:
     technologies:
       - esp-embedded-web-sse
       - mqtt-node-telemetry
-      - esp-hub-telemetry
-      - esp-lab-bus-tools
       - esp-now-messaging
+      - esp-lab-bus-tools
+      - esp-hub-telemetry
       - ssd1306-oled-ui
       - bluetooth-a2dp
       - ble-hrm-gatt
@@ -758,8 +758,8 @@ audits:
     ended: null
     standard_version: 0.6.6
     technologies:
-      - virtual-fat
       - bmw-nbt-evo
+      - virtual-fat
       - usb-msc
     evidence_count: 0
     claims_count: 0
@@ -1084,8 +1084,8 @@ audits:
     standard_version: 0.7.1
     technologies:
       - esp32-s3-usb-wifi-coex
-      - virtual-fat
       - bmw-nbt-evo
+      - virtual-fat
       - usb-msc
     evidence_count: 0
     claims_count: 0
@@ -1103,8 +1103,8 @@ audits:
     ended: 2026-10-15
     standard_version: 0.7.1
     technologies:
-      - virtual-fat
       - bmw-nbt-evo
+      - virtual-fat
       - usb-msc
     evidence_count: 3
     claims_count: 0
@@ -1122,8 +1122,8 @@ audits:
     ended: null
     standard_version: 0.7.1
     technologies:
-      - virtual-fat
       - bmw-nbt-evo
+      - virtual-fat
       - usb-msc
     evidence_count: 1
     claims_count: 0
@@ -1178,8 +1178,8 @@ audits:
     ended: 2026-10-18
     standard_version: 0.7.1
     technologies:
-      - virtual-fat
       - bmw-nbt-evo
+      - virtual-fat
       - usb-msc
     evidence_count: 2
     claims_count: 0
@@ -1709,8 +1709,8 @@ audits:
     standard_version: 0.7.1
     technologies:
       - bt-dual-mode-coex
-      - bluetooth-ftms
       - bluetooth-a2dp
+      - bluetooth-ftms
       - bluetooth-hid
       - bluetooth-spp
       - bluetooth-hfp

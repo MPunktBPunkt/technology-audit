@@ -3,6 +3,38 @@
 
 topic: iobroker-metermaster-adapter
 generated: 2026-11-23
+current:
+  family: iobroker-metermaster-adapter
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - Einheitliches Auth-Modell für Node-Register im LAN?
+  next_evidence: Einheitliches Auth-Modell für Node-Register im LAN?
+  rejected_highlights:
+    -
+      id: null
+      statement: MeterMaster-Register = ESP-Hub-Register
+      status: REJECTED
+    -
+      id: null
+      statement: Simple-API ersetzt Adapter-Readings
+      status: REJECTED
+    -
+      id: null
+      statement: ESP-Nodes sind Pflicht für den Adapter
+      status: REJECTED
+    -
+      id: null
+      statement: Ein Port für Hub + MeterMaster + Simple-API
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits: []
+  methods: []
+  last_relevant_change: UNKNOWN
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/iobroker-metermaster-adapter/SHEET.md
 primary:

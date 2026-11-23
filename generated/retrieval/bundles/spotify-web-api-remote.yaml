@@ -3,6 +3,47 @@
 
 topic: spotify-web-api-remote
 generated: 2026-11-23
+current:
+  family: spotify-web-api-remote
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence: []
+  confirmed: []
+  open_points:
+    - UNKNOWN
+  next_evidence: UNKNOWN
+  rejected_highlights:
+    -
+      id: null
+      statement: Client-Secret gehört in Firmware
+      status: REJECTED
+    -
+      id: null
+      statement: Web-API-Remote ≡ Spotify Connect Player
+      status: REJECTED
+    -
+      id: null
+      statement: Insecure TLS Fallback ok
+      status: REJECTED
+    -
+      id: null
+      statement: Ohne aktiven Spotify-Player steuerbar
+      status: REJECTED
+    -
+      id: null
+      statement: "HTTP `.local` als Spotify Redirect"
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-075
+      directory: esp32-spotify-remote-2026-foreign
+      status: active
+      environment: lab
+  methods: []
+  last_relevant_change: 2026-10-25
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/spotify-web-api-remote/SHEET.md
   - audits/esp32-spotify-remote-2026-foreign/README.md
@@ -22,6 +63,7 @@ audits:
     status: active
     environment: lab
     path: audits/esp32-spotify-remote-2026-foreign
+    started: 2026-10-25
 methods: []
 evidence_ids: []
 facts: []

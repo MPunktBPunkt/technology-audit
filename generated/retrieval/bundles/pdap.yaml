@@ -3,6 +3,53 @@
 
 topic: pdap
 generated: 2026-11-23
+current:
+  family: pdap
+  status: UNKNOWN
+  evidence_maturity: R0
+  strongest_evidence:
+    - EVID-PCMNET-2026-10-13-001
+    - EVID-PCMNET-2026-10-13-002
+    - EVID-PCMNET-2026-10-13-003
+    - EVID-PCMNET-2026-10-13-004
+    - EVID-PCMNET-2026-10-13-005
+    - EVID-PCMNET-2026-10-13-006
+    - EVID-PCMNET-2026-10-13-007
+    - EVID-PCMNET-2026-10-13-008
+  confirmed: []
+  open_points:
+    - Framing (Roh-TCP vs. Chunks vs. RTP-ähnlich) — Entscheidung vor Phase 0
+    - Lab-Gates ausführen und neue Evidence-IDs anlegen.
+    - Variantenentscheidung erst nach Gates treffen.
+    - "Danach prüfen, ob generalisierbares A-Delta einen separaten Sheet-Review"
+    - "A17, Q12, Phase −1 (siehe STATE.md Upstream)"
+  next_evidence: Framing (Roh-TCP vs. Chunks vs. RTP-ähnlich) — Entscheidung vor Phase 0
+  rejected_highlights:
+    -
+      id: null
+      statement: Gateway darf Sender-/App-Semantik kennen
+      status: REJECTED
+    -
+      id: null
+      statement: Beliebiges PCM „was die Quelle liefert“
+      status: REJECTED
+  transfer_limits:
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-004
+      directory: esp32-bt-gateway-2026-planning
+      status: active
+      environment: desk
+    -
+      audit_id: A-2026-051
+      directory: esp-network-pcm-clock-2026-foreign
+      status: active
+      environment: lab
+  methods:
+    - methods/pcm-clock-drift-jitter-buffer.md
+  last_relevant_change: 2026-10-13
+  note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/pdap/SHEET.md
   - audits/esp-network-pcm-clock-2026-foreign/README.md
@@ -24,12 +71,14 @@ audits:
     status: active
     environment: desk
     path: audits/esp32-bt-gateway-2026-planning
+    started: 2026-10-09
   -
     audit_id: A-2026-051
     directory: esp-network-pcm-clock-2026-foreign
     status: active
     environment: lab
     path: audits/esp-network-pcm-clock-2026-foreign
+    started: 2026-10-13
 methods:
   - methods/pcm-clock-drift-jitter-buffer.md
 evidence_ids:
