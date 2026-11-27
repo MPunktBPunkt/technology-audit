@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for ble-pcm-notify-stream
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: ble-pcm-notify-stream
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: ble-pcm-notify-stream
   status: UNKNOWN

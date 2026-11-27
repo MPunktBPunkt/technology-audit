@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for iobroker-mbrepository-adapter
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: iobroker-mbrepository-adapter
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: iobroker-mbrepository-adapter
   status: UNKNOWN

@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for usb-msc-host-behaviour
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: usb-msc-host-behaviour
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: usb-msc-host-behaviour
   status: UNKNOWN

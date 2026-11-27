@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for esp-hub-base-template
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: esp-hub-base-template
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: esp-hub-base-template
   status: UNKNOWN
@@ -20,6 +20,8 @@ current:
   open_points:
     - "Wann Template vs. `esp-module-host` (toolnode)?"
     - "Stufe C/D: welche Diag-APIs gehören in Produkt-Nodes?"
+    - "M12 (Base **1.11.0** / D-021): `Lifecycle`/`SystemState` + `Fsm<>` — Sheet/Application/Evidence nachziehen (`sysState` additiv; Domain-FSMs bleiben lokal; `allowOta`-Hook)?"
+    - "**1.12.0 / D-022:** UiTab-Shell — Application `esp32-wireguard` / Sheet `esp-module-host` (Flash-Budget dokumentiert)."
     - "Bootstrap-Prompt (`ta-assist prepare bootstrap`) Ableiten-Checkliste nachziehen"
     - BOOT 3 s WLAN-Reset manuell an Base
     - "MeterMaster optional Hub-`interval`/`otaUrl`; Ergo `HwInfo`→`HardwareInfo`"
@@ -83,6 +85,7 @@ maturity:
   evidence_scope: []
 applications:
   - projects/esp32-esp-hub/applications/esp-hub-base-template.md
+  - projects/esp32-wireguard/applications/esp-hub-base-template.md
 audits:
   -
     audit_id: A-2026-007

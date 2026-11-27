@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for iobroker-linuxdashboard-adapter
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: iobroker-linuxdashboard-adapter
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: iobroker-linuxdashboard-adapter
   status: UNKNOWN

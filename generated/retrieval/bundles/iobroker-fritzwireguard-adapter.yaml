@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for iobroker-fritzwireguard-adapter
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: iobroker-fritzwireguard-adapter
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: iobroker-fritzwireguard-adapter
   status: UNKNOWN

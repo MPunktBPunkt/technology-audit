@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for esp-usb-host
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: esp-usb-host
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: esp-usb-host
   status: partial

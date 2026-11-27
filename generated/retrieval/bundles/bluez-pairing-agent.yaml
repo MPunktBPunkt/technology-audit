@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for bluez-pairing-agent
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: bluez-pairing-agent
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: bluez-pairing-agent
   status: UNKNOWN

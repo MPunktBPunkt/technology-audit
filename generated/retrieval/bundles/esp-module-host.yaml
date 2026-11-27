@@ -1,12 +1,12 @@
 # GENERATED retrieval bundle for esp-module-host
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: esp-module-host
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: esp-module-host
   status: UNKNOWN
-  evidence_maturity: R0
+  evidence_maturity: R1
   strongest_evidence: []
   confirmed: []
   open_points:
@@ -22,6 +22,14 @@ current:
     -
       id: null
       statement: Module dürfen Pins ungeprüft teilen
+      status: REJECTED
+    -
+      id: null
+      statement: "Modul-UI muss in Base-`index.html` hardcodiert sein"
+      status: REJECTED
+    -
+      id: null
+      statement: UiTab-Infra kostet »mehrere zehn KiB«
       status: REJECTED
   transfer_limits:
     - sheet_abgrenzung_ist_nicht
@@ -40,12 +48,14 @@ source_of_truth:
 primary:
   - esp-module-host
 maturity:
-  technology: R2
-  field_evidence: R0
-  reusability: W2
+  technology: R3
+  field_evidence: R1
+  reusability: W3
   evidence_scope: []
 applications:
+  - projects/esp32-esp-hub/applications/esp-module-host.md
   - projects/esp32-toolnode/applications/esp-module-host.md
+  - projects/esp32-wireguard/applications/esp-module-host.md
 audits:
   -
     audit_id: A-2026-014
@@ -71,6 +81,14 @@ rejected:
     source: technologies/esp-module-host/SHEET.md
   -
     statement: Module dürfen Pins ungeprüft teilen
+    status: REJECTED
+    source: technologies/esp-module-host/SHEET.md
+  -
+    statement: "Modul-UI muss in Base-`index.html` hardcodiert sein"
+    status: REJECTED
+    source: technologies/esp-module-host/SHEET.md
+  -
+    statement: UiTab-Infra kostet »mehrere zehn KiB«
     status: REJECTED
     source: technologies/esp-module-host/SHEET.md
 transfer_limits:

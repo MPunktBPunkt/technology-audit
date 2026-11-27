@@ -15,7 +15,7 @@ maturity:
 
 ## Rolle im Projekt
 
-Kanonische Vorlage `esp-hub-base` **v1.10.5**: AppCore-Plattform unter `src/core/`; Ableiten über `ProjectConfig.h`, `.ino`-Zonen und optional BaseModule. Derived A/B-Rollout belegt Transfer.
+Kanonische Vorlage `esp-hub-base` (**v1.10.5** validiert; **v1.11.0** M12 Lifecycle/`Fsm<>` — Evidence offen): AppCore-Plattform unter `src/core/`; Ableiten über `ProjectConfig.h`, `.ino`-Zonen und optional BaseModule. Derived A/B-Rollout belegt Transfer.
 
 ## Relevante Pfade
 
@@ -23,8 +23,9 @@ Kanonische Vorlage `esp-hub-base` **v1.10.5**: AppCore-Plattform unter `src/core
 |------|-------|
 | `esp-hub-base/ProjectConfig.h` | DEVICE_NAME, FW_VERSION, Hub, Portal |
 | `esp-hub-base/esp-hub-base.ino` | Hardware / ios / `updateIoValues()` |
-| `esp-hub-base/src/core/` | AppCore, Hub, Web, OTA, Lifecycle (Plattform) |
-| `esp-hub-base/src/modules/` | BaseModule-Beispiel |
+| `esp-hub-base/src/core/` | AppCore, Hub, Web, OTA, `Lifecycle`/`Fsm<>` (Plattform) |
+| `esp-hub-base/src/modules/` | BaseModule-Beispiel (+ Mini-`Fsm` ab 1.11.0) |
+| `docs/update/M12_SYSTEM_LIFECYCLE.md` | SystemState / OTA-Gate / Abgrenzung D-004 |
 | `docs/update/ROLLOUT_DERIVED.md` | A/B-Matrix |
 | `docs/update/AUDIT_BASE_A-B_2026-10-27.md` | Freeze-Grenze Base-only vs A/B |
 | README „Neue Firmware ableiten“ | Prozess |

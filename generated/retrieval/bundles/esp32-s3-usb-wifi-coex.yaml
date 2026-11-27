@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for esp32-s3-usb-wifi-coex
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: esp32-s3-usb-wifi-coex
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: esp32-s3-usb-wifi-coex
   status: partial

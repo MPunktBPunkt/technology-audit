@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for esp-wireguard
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: esp-wireguard
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: esp-wireguard
   status: UNKNOWN
@@ -54,6 +54,7 @@ maturity:
   evidence_scope: []
 applications:
   - projects/esp32-car-network-refs/applications/esp-wireguard.md
+  - projects/esp32-wireguard/applications/esp-wireguard.md
 audits:
   -
     audit_id: A-2026-097

@@ -7,7 +7,7 @@ primary: J
 tags: [arduino, esp-idf]
 type: pattern
 status: active
-seen_in: [esp32-esp-hub]
+seen_in: [esp32-esp-hub, esp32-wireguard]
 maturity:
   technology: R4
   implementation: R0

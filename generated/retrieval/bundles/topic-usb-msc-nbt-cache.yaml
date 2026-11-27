@@ -1,10 +1,10 @@
 # GENERATED topic bundle usb-msc-nbt-cache
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: usb-msc-nbt-cache
 title: USB-MSC Host Caching (NBT Evo)
 question: Welche USB-MSC-Caching-/Prefetch-Erkenntnisse gelten — und welche nur für BMW NBT Evo?
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: usb-msc-nbt-cache
   status: UNKNOWN

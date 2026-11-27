@@ -7,16 +7,18 @@ primary: D
 tags: [esp-idf, networking, vpn]
 type: component
 status: active
-seen_in: [esp32-car-network-refs]
+seen_in: [esp32-car-network-refs, esp32-wireguard]
 maturity:
   technology: R3
-  implementation: R0
+  implementation: R1
   field_evidence: R0
   reusability: W3
 pilot: audits/esp32-car-network-2026-foreign
 ```
 
 Nur Ebene **A**. Projekt-/NAT-Lab → Application. Pin-Referenz: trombik/esp_wireguard. Host-WG → `iobroker-fritzwireguard-adapter` (Kontrast).
+
+Referenz-Firmware **esp32.wireguard** (0.2.0+): Fassade/UiTab/NVS auf Hub-Base; echter Stack-Link und Tunnel-Evidence folgen in Application.
 
 ## Kurzfassung
 

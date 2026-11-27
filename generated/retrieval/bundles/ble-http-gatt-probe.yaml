@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for ble-http-gatt-probe
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: ble-http-gatt-probe
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: ble-http-gatt-probe
   status: UNKNOWN

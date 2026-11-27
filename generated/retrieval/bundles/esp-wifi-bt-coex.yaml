@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for esp-wifi-bt-coex
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: esp-wifi-bt-coex
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: esp-wifi-bt-coex
   status: partial

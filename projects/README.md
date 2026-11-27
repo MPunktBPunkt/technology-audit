@@ -2,7 +2,7 @@
 
 Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technologies/`](../technologies/).
 
-**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-23`, 76 Projekte). `python3 tools/ta-assist index`
+**Maschinenindex:** [`index.yaml`](index.yaml) (generiert — `2026-11-27`, 77 Projekte). `python3 tools/ta-assist index`
 
 | Projekt | Titel | Profil | Status | Apps |
 |---------|-------|--------|--------|------|
@@ -37,7 +37,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-communicator`](esp32-communicator/) | esp32-communicator | firmware | — | 3 |
 | [`esp32-doom`](esp32-doom/) | ESP32-DOOM — PrBoom PoC + PSRAM (Fremd) | lab-tool | active | 1 |
 | [`esp32-ergo`](esp32-ergo/) | esp32-ergo | — | — | 6 |
-| [`esp32-esp-hub`](esp32-esp-hub/) | esp32-esp-hub | firmware | — | 3 |
+| [`esp32-esp-hub`](esp32-esp-hub/) | esp32-esp-hub | firmware | — | 4 |
 | [`esp32-ftmsprobe`](esp32-ftmsprobe/) | esp32-ftmsprobe | — | — | 5 |
 | [`esp32-hci-controller-refs`](esp32-hci-controller-refs/) | ESP32 as Bluetooth HCI Controller for Linux Hosts (Fremd) | lab-tool | active | 1 |
 | [`esp32-heartrate`](esp32-heartrate/) | esp32-heartrate | — | — | 4 |
@@ -56,6 +56,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-usb-analyzer`](esp32-usb-analyzer/) | Dual ESP32-S3 USB Protocol Analyzer / MITM Lab | lab-tool | active | 10 |
 | [`esp32-webradio`](esp32-webradio/) | esp32-webradio | firmware | — | 2 |
 | [`esp32-wifi-bt-coex-refs`](esp32-wifi-bt-coex-refs/) | ESP32 WiFi ↔ Classic Bluetooth RF Coexistence (esp_coex_*) | lab-tool | active | 1 |
+| [`esp32-wireguard`](esp32-wireguard/) | esp32-wireguard | — | — | 3 |
 | [`esp32sdr`](esp32sdr/) | ESP32SDR — S3 Burst RX + Wi-Fi Tone Keying TX (Fremd) | lab-tool | active | 2 |
 | [`espargos-espsdr`](espargos-espsdr/) | ESPARGOS ESP-SDR — Multi-Chip Undocumented I/Q RX (Fremd) | lab-tool | active | 1 |
 | [`espble`](espble/) | EspBle — NimBLE + Classic A2DP/AVRCP CT/TG (Fremd) | lab-tool | active | 2 |

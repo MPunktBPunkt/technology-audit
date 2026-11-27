@@ -1,10 +1,10 @@
 # GENERATED topic bundle bmw-connected-music
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: bmw-connected-music
 title: BMW Connected Music (SAS → RHMI → AV)
 question: "Was wissen wir über Connected Music auf NBT Evo (Auth, UI, AV, Audio-Grenze)?"
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: bmw-connected-music
   status: partial

@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for esp-hub-telemetry
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: esp-hub-telemetry
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: esp-hub-telemetry
   status: UNKNOWN
@@ -21,13 +21,13 @@ current:
     - "[UNKNOWN] OTA aus Heartbeat-Response ist spezifiziert überall gleich"
     - Einheitliches Meta-Schema der IO-Keys?
     - "Auth für `/api/register` (heute LAN-offen)?"
+    - "Base 1.11.0: `/api/status` Additive `sysState` / `sysStateAgeMs` (nicht Heartbeat) — Application + Evidence?"
     - Evidence für Bridge-Abnahme und Nachtest 6
     - "Sheet `ftms-erg-control` nur bei Transferbedarf + Gate"
     - "Bootstrap-Prompt (`ta-assist prepare bootstrap`) Ableiten-Checkliste nachziehen"
     - BOOT 3 s WLAN-Reset manuell an Base
     - "MeterMaster optional Hub-`interval`/`otaUrl`; Ergo `HwInfo`→`HardwareInfo`"
     - "Adapter-Kampagne `iobroker-esp-hub` separat nachziehen (0.5.x / Rename)"
-    - "Exit 6: weiteres Bike oder deferred dokumentieren"
   next_evidence: "[UNKNOWN] OTA aus Heartbeat-Response ist spezifiziert überall gleich"
   rejected_highlights:
     -

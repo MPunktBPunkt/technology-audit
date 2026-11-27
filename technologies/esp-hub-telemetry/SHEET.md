@@ -79,3 +79,4 @@ Voraussetzung: Hub erreichbar im LAN (typisch :8093), dokumentierte `ios`-Keys p
 
 - Einheitliches Meta-Schema der IO-Keys?
 - Auth für `/api/register` (heute LAN-offen)?
+- Base 1.11.0: `/api/status` Additive `sysState` / `sysStateAgeMs` (nicht Heartbeat) — Application + Evidence?

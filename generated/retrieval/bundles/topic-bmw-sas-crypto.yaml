@@ -1,10 +1,10 @@
 # GENERATED topic bundle bmw-sas-crypto
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: bmw-sas-crypto
 title: BMW SAS / APP_AUTH Crypto
 question: "Wie ist SAS Auth kryptographisch geschlossen (Pad, Digest, RSA-Verify)?"
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: bmw-sas-crypto
   status: partial

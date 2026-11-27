@@ -1,10 +1,10 @@
 # GENERATED topic bundle bmw-bcl-etch-transport
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: bmw-bcl-etch-transport
 title: BCL + Etch Wire Transport
 question: "Wie framen BCL und Etch auf dem F20 (Fragmentierung, dest 4004, Offsets)?"
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: bmw-bcl-etch-transport
   status: partial

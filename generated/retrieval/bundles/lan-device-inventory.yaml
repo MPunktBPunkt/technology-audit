@@ -1,8 +1,8 @@
 # GENERATED retrieval bundle for lan-device-inventory
-# generated: 2026-11-23
+# generated: 2026-11-27
 
 topic: lan-device-inventory
-generated: 2026-11-23
+generated: 2026-11-27
 current:
   family: lan-device-inventory
   status: UNKNOWN
