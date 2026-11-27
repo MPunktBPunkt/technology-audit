@@ -17,7 +17,7 @@ maturity:
 
 ## Kurzfassung
 
-Ableitungsmuster für Hub-Nodes: gemeinsame Plattform (WiFiManager, Heartbeat, OTA, Status-Web/SSE, Lifecycle) **unverändert lassen**; nur markierte Abschnitte anfassen (`ProjectConfig`, Hardware/`ios`, optional BaseModule / eigene Web-Tabs). Ab **1.9+** ist die Vorlage ein **Ordner** (`esp-hub-base/` + `src/core/`), kein Einzel-`.ino`-Monolith. Ergebnis: konsistente Familie + schneller Start; Derived A/B belegt Transfer.
+Ableitungsmuster für Hub-Nodes: gemeinsame Plattform (WiFiManager, Heartbeat, OTA, Status-Web/SSE, Lifecycle/`SystemState`, `Fsm<>`) **unverändert lassen**; nur markierte Abschnitte anfassen (`ProjectConfig`, Hardware/`ios`, optional BaseModule / eigene Web-Tabs). Ab **1.9+** ist die Vorlage ein **Ordner** (`esp-hub-base/` + `src/core/`), kein Einzel-`.ino`-Monolith. Ab **1.11** grober Infra-Lifecycle + FSM-Helper (Domain-Graphen bleiben lokal). Ergebnis: konsistente Familie + schneller Start; Derived A/B belegt Transfer.
 
 ## Abgrenzung
 
@@ -42,9 +42,11 @@ Ableitungsmuster für Hub-Nodes: gemeinsame Plattform (WiFiManager, Heartbeat, O
 - [ ] `ProjectConfig.h`: DEVICE_NAME, FW_VERSION, Portal-SSID, Hub
 - [ ] `.ino`: Hardware + ios + `updateIoValues()`; optional BaseModule
 - [ ] `src/core/` belassen; HI/CpuLoad-Kopien bei Patch syncen
+- [ ] Domain-FSM: `Fsm<>` / lokales Enum — nicht `SystemState` erweitern
+- [ ] OTA-Policy nötig? `Lifecycle::setAllowOta` (nicht OtaService forken)
 - [ ] Web: `web/` + `pack_ui.py` (gzip) wenn UI geändert
-- [ ] Diag/Recovery nur bewusst (nicht still A/B)
-- [ ] Contract-Checkliste `esp-hub-telemetry`
+- [ ] Diag/Recovery nur bewusst (nicht still A/B); `Lifecycle`/`Fsm` sind A/B-fähig
+- [ ] Contract-Checkliste `esp-hub-telemetry` (Status-Additive `sysState*`)
 - [ ] Application + `seen_in`
 
 ## Referenzen
@@ -55,3 +57,5 @@ Ableitungsmuster für Hub-Nodes: gemeinsame Plattform (WiFiManager, Heartbeat, O
 
 - Wann Template vs. `esp-module-host` (toolnode)?
 - Stufe C/D: welche Diag-APIs gehören in Produkt-Nodes?
+- M12 (Base **1.11.0** / D-021): `Lifecycle`/`SystemState` + `Fsm<>` — Sheet/Application/Evidence nachziehen (`sysState` additiv; Domain-FSMs bleiben lokal; `allowOta`-Hook)?
+- **1.12.0 / D-022:** UiTab-Shell — Application `esp32-wireguard` / Sheet `esp-module-host` (Flash-Budget dokumentiert).

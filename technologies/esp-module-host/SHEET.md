@@ -7,17 +7,19 @@ primary: J
 tags: [esp-idf]
 type: pattern
 status: active
-seen_in: [esp32-toolnode]
+seen_in: [esp32-toolnode, esp32-esp-hub, esp32-wireguard]
 maturity:
-  technology: R2
-  implementation: R0
-  field_evidence: R0
-  reusability: W2
+  technology: R3
+  implementation: R2
+  field_evidence: R1
+  reusability: W3
 ```
 
 ## Kurzfassung
 
 Firmware-Muster: gemeinsamer Core (Config, Web/SSE, Hub, Events, History) plus **aktivierbare Module** hinter einem gemeinsamen Interface (`begin`/`loop`/Status/IO/Commands/Routes), gesteuert über Build-Flags und optional Setup-Wizard/Profile.
+
+Ab **esp-hub-base 1.12** (ADR D-022): optionale SPA-Tabs via `BaseModule::uiTab()` + `GET /api/ui/tabs`; Panel/JS bleiben modul-owned (`/ui/tab/<id>`). Kein generisches Plugin-Framework. Infra-Flash-Kosten lab-gemessen ≈ **+2 KiB** vs 1.11.1.
 
 ## Abgrenzung
 
@@ -39,6 +41,8 @@ Firmware-Muster: gemeinsamer Core (Config, Web/SSE, Hub, Events, History) plus *
 | Alle Module immer compilieren | `REJECTED` | Flash/RAM; Flags pro Env |
 | Module dürfen Pins ungeprüft teilen | `REJECTED` | Claim/Guard nötig |
 | Wizard ersetzt Build-Flags vollständig | `HYPOTHESIS` | oft beides: Compile-Zeit + Runtime-Enable |
+| Modul-UI muss in Base-`index.html` hardcodiert sein | `REJECTED` | D-022: Shell lädt Tabs dynamisch |
+| UiTab-Infra kostet »mehrere zehn KiB« | `REJECTED` | Lab: ≈ +2 KiB sketch vs 1.11.1 (esp32) |
 
 ## Transfer
 
