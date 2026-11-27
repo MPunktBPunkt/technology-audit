@@ -27,14 +27,18 @@ tech_slug: esp-wireguard
 
 Hub artifacts: `hu-probe.0.3.41.esp32s3.bin`, `hu-probe.0.3.42-wg.esp32s3.bin`.
 
-## FACT — Second consumer scaffold: bt-analyzer 0.3.21-wg
+## FACT — Second consumer: bt-analyzer 0.3.21-wg (Lab E2E 2026-11-27)
 
 | ID | Claim | Status |
 |----|-------|--------|
 | EVID-BT-WG-2026-11-27-001 | `analyzer-s3-wg` links stack; default `analyzer-s3` WG=0 / 0.3.20 | `FACT` (build) |
-| EVID-BT-WG-2026-11-27-002 | Lab peer_up / guest E2E on analyzer | `UNKNOWN` (compile-only so far) |
+| EVID-BT-WG-2026-11-27-002 | Lab `.88` guest WAN → Fritz → WG `peer_up=1` | `FACT` |
+| EVID-BT-WG-2026-11-27-003 | Selective `/24` route on guest (`192.168.179.3`) | `FACT` |
+| EVID-BT-WG-2026-11-27-004 | Hub heartbeat over WG from guest (`[HB] -> …113:8093`) | `FACT` |
 
 Hub artifact: `bt-analyzer.0.3.21-wg.esp32s3.bin`.
+
+Two independent consumers of esp32.wireguard **0.4.9** now Lab-validated: hu-probe **0.3.42**, bt-analyzer **0.3.21**.
 
 ## UNKNOWN (field)
 
