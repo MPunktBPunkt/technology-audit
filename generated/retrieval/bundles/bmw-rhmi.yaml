@@ -140,7 +140,7 @@ current:
       status: closed
       environment: mixed
     -
-      audit_id: A-2026-119
+      audit_id: A-2026-120
       directory: nbt-evo-bt-control-plane-closure-2026-11-21
       status: closed
       environment: mixed
@@ -244,7 +244,7 @@ audits:
     path: audits/bmw-rhmi-music-handle23-field-2026-11-21
     started: 2026-11-21
   -
-    audit_id: A-2026-119
+    audit_id: A-2026-120
     directory: nbt-evo-bt-control-plane-closure-2026-11-21
     status: closed
     environment: mixed

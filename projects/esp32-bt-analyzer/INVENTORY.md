@@ -22,7 +22,7 @@ Lab: `.88` Central · `.89` Peripheral peer · `.87` Classic+BLE.
 | WiFi + BT coexistence (S3 BT13 stress) | `esp32-s3-usb-wifi-coex` | BT13 stress MEASURED |
 | WiFi STA + Classic ACL (D1 HCI agent) | `esp-wifi-bt-coex` | Application — wifi_ps sweeps MEASURED |
 | UART-HCI-Offload (Ausweg aus dem Coex-Boden) | `esp-hci-uart-controller` | nicht gebaut — Desk `esp32-hci-controller-2026-foreign` |
-| Car-Netz hinter Handy-Hotspot (A6/B1) | `esp-tailscale-client` / `esp-wireguard` | nicht gebaut — Desk `esp32-car-network-2026-foreign` |
+| Car-Netz hinter Handy-Hotspot (A6/B1) | `esp-tailscale-client` / `esp-wireguard` | WG optional Lab-E2E `0.3.21-wg` — Audit `esp32-wireguard-2026-11-dod-close` |
 | A2DP über BlueZ + HCI TCP | `bluetooth-a2dp` | Application — single path / dual relay MEASURED |
 | BCL über RFCOMM | `bmw-bcl` | Application — lab TEST |
 | Pairing-Agent auf .108 (Handy→.131, HU→.87) | `bluez-pairing-agent` | Application — HU-Kopplung A6 MEASURED |

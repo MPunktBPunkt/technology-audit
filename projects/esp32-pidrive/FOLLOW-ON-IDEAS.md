@@ -2,6 +2,7 @@
 
 | Idee | Nutzt | Lücke |
 |------|-------|-------|
+| **WireGuard Integration Readiness** (nach WG-DoD-Close) | `esp-wireguard` (0.4.9 Lab-DoD) | Separater Audit: welcher Verkehr (ESP↔Pi/Collector/Heimnetz), reicht `/24`, Failure-Semantics — **keine Implementierung vor Readiness** |
 | Sheets `scsi` / `fat` aus Geometrie-Leitern (L0/L3) | `usb-msc`, `virtual-fat` | A-Abgrenzung |
 | SSE/Live-Status für SoftAP-UI | `esp-embedded-web-sse` | heute REST-Polling |
 | LBA/Timing-Instrumentierung am Read-Callback | `msc-lba-timing-instrument`, Gadget-Refs | HU-Burst/Latenz messen |

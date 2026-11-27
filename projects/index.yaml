@@ -153,7 +153,7 @@ projects:
     title: ESP32 On-Chip Bluetooth HCI Analyzer (VHCI)
     profile: lab-tool
     status: active
-    applications: 8
+    applications: 9
     path: projects/esp32-bt-analyzer/
   - id: esp32-bt-gateway
     title: esp32-bt-gateway
@@ -309,7 +309,7 @@ projects:
     title: esp32-wireguard
     profile: firmware
     status: —
-    applications: 5
+    applications: 6
     path: projects/esp32-wireguard/
   - id: esp32sdr
     title: ESP32SDR — S3 Burst RX + Wi-Fi Tone Keying TX (Fremd)
@@ -351,7 +351,7 @@ projects:
     title: hu-probe — ESP32-S3 USB-MSC Head-Unit Messsonde
     profile: lab-tool
     status: active
-    applications: 6
+    applications: 7
     path: projects/hu-probe/
   - id: iobroker-esp-hub
     title: iobroker-esp-hub

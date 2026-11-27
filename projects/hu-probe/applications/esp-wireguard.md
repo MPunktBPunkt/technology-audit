@@ -26,9 +26,10 @@ Optionaler Overlay-Transport (`WireGuardTransport`) hinter compile-time Gate.
 
 | Claim | Status |
 |-------|--------|
-| peer_up + Guest-WAN + selective /24 | `FACT` |
+| peer_up + Guest-WAN + selektive `/24` | `FACT` |
 | Hub lastOk über WG | `FACT` |
 | WG-Ausfall blockiert keine MSC-Session | `FACT` |
+| Natürlicher WiFi-Failover | `UNKNOWN` |
 | Feld Langzeit / Roaming | `UNKNOWN` |
 
-Siehe `../../esp32-wireguard/applications/EVIDENCE-2026-11-27-v049-closed.md`.
+Abschlussaudit: [`../../../audits/esp32-wireguard-2026-11-dod-close/`](../../../audits/esp32-wireguard-2026-11-dod-close/).

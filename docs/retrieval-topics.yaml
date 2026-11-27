@@ -3,9 +3,22 @@
 # SoT remains Sheets / Audits / optional audits/*/claims.yaml
 
 version: 1
-updated: 2026-11-23
+updated: 2026-11-27
 
 topics:
+  - id: esp-wireguard-transport-dod
+    title: ESP WireGuard Transport DoD (v0.4.9)
+    question: "Was ist Lab-geschlossen für esp32.wireguard 0.4.9 und welche Consumer sind validiert?"
+    technologies: [esp-wireguard, esp-hub-base-template, esp-module-host]
+    audits:
+      - esp32-wireguard-2026-11-dod-close
+      - esp32-car-network-2026-foreign
+    transfer_limits:
+      - lab_not_field
+      - optional_overlay_not_hard_dep
+      - natural_wifi_failover_unknown
+      - pidrive_needs_readiness_first
+
   - id: bmw-connected-music
     title: BMW Connected Music (SAS → RHMI → AV)
     question: "Was wissen wir über Connected Music auf NBT Evo (Auth, UI, AV, Audio-Grenze)?"

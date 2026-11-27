@@ -40,6 +40,10 @@ Hub artifact: `bt-analyzer.0.3.21-wg.esp32s3.bin`.
 
 Two independent consumers of esp32.wireguard **0.4.9** now Lab-validated: hu-probe **0.3.42**, bt-analyzer **0.3.21**.
 
-## UNKNOWN (field)
+## UNKNOWN (bewusst)
 
-- Langzeit im Fahrzeug / Mobilfunk-Roaming / reale HU-Bedingungen.
+- Natürlicher WiFi-Failover (unattended Multi-AP) — `EVID-WG-2026-11-27-066`
+- Feld: Langzeit / Mobilfunk-Roaming / reale Fahrzeug-Bedingungen
+- Carrier/Phone NAT keepalive-Feintuning jenseits Keepalive=25 Lab
+
+Abschlussaudit: [`../../../audits/esp32-wireguard-2026-11-dod-close/`](../../../audits/esp32-wireguard-2026-11-dod-close/).

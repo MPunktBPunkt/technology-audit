@@ -40,20 +40,20 @@ and duplicate `field_evidence` R0–R5. Map “evidence strength” → **R**.
 | Stufe | Anzahl |
 |-------|--------|
 | R0 | 27 |
-| R1 | 15 |
-| R2 | 31 |
+| R1 | 14 |
+| R2 | 32 |
 | R3 | 15 |
 
 ## Distribution — Evidence scope (multi-label)
 
 | Scope | Sheets (count) |
 |-------|----------------|
-| LAB | 15 |
+| LAB | 16 |
 | FIELD | 9 |
 | HOST-SPECIFIC | 2 |
 | DEVICE-SPECIFIC | 1 |
-| GENERAL | 7 |
-| (none) | 70 |
+| GENERAL | 8 |
+| (none) | 69 |
 
 ## Strong reuse + strong evidence (W≥3 and evidence_max≥R3)
 
@@ -76,7 +76,6 @@ Reusable on paper; do **not** treat as empirically settled.
 | [`esp-lab-bus-tools`](../technologies/esp-lab-bus-tools/SHEET.md) | W3 | R1 | — |
 | [`esp-module-host`](../technologies/esp-module-host/SHEET.md) | W3 | R1 | — |
 | [`esp-tailscale-client`](../technologies/esp-tailscale-client/SHEET.md) | W3 | R0 | — |
-| [`esp-wireguard`](../technologies/esp-wireguard/SHEET.md) | W3 | R1 | — |
 | [`rpi-gpio-fm-tx`](../technologies/rpi-gpio-fm-tx/SHEET.md) | W3 | R0 | — |
 
 ## Strong evidence, limited generalizability

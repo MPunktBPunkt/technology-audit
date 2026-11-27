@@ -39,12 +39,18 @@ current:
       directory: esp32-toolnode-2026-pilot
       status: active
       environment: desk
+    -
+      audit_id: A-2026-118
+      directory: esp32-wireguard-2026-11-dod-close
+      status: closed
+      environment: mixed
   methods: []
-  last_relevant_change: 2026-10-09
+  last_relevant_change: 2026-11-27
   note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-module-host/SHEET.md
   - audits/esp32-toolnode-2026-pilot/README.md
+  - audits/esp32-wireguard-2026-11-dod-close/README.md
 primary:
   - esp-module-host
 maturity:
@@ -64,6 +70,13 @@ audits:
     environment: desk
     path: audits/esp32-toolnode-2026-pilot
     started: 2026-10-09
+  -
+    audit_id: A-2026-118
+    directory: esp32-wireguard-2026-11-dod-close
+    status: closed
+    environment: mixed
+    path: audits/esp32-wireguard-2026-11-dod-close
+    started: 2026-11-27
 methods: []
 evidence_ids: []
 facts: []

@@ -1,0 +1,201 @@
+# GENERATED topic bundle esp-wireguard-transport-dod
+# generated: 2026-11-27
+
+topic: esp-wireguard-transport-dod
+title: ESP WireGuard Transport DoD (v0.4.9)
+question: Was ist Lab-geschlossen für esp32.wireguard 0.4.9 und welche Consumer sind validiert?
+generated: 2026-11-27
+current:
+  family: esp-wireguard-transport-dod
+  status: UNKNOWN
+  evidence_maturity: R2
+  strongest_evidence:
+    - EVID-BASE-2026-10-28-001
+    - EVID-BASE-2026-10-28-003
+    - EVID-BASE-2026-10-28-004
+    - EVID-CARNET-2026-11-12-020
+    - EVID-CARNET-YYYY-MM-DD
+    - EVID-HUB-2026-10-28
+    - EVID-HUB-2026-10-28-001
+    - EVID-HUB-2026-10-28-002
+  confirmed: []
+  open_points:
+    - Natürlicher WiFi-Failover (Multi-AP ohne Lab-Kommando) — Lab/Feld
+    - Keepalive vs. Carrier/Phone NAT timers (Feintuning)
+    - "Feld: Langzeit / Roaming / Fahrzeug"
+    - "Wann Template vs. `esp-module-host` (toolnode)?"
+    - "Stufe C/D: welche Diag-APIs gehören in Produkt-Nodes?"
+    - "M12 (Base **1.11.0** / D-021): `Lifecycle`/`SystemState` + `Fsm<>` — Sheet/Application/Evidence nachziehen (`sysState` additiv; Domain-FSMs bleiben lokal; `allowOta`-Hook)?"
+    - "**1.12.0 / D-022:** UiTab-Shell — Application `esp32-wireguard` / Sheet `esp-module-host` (Flash-Budget dokumentiert)."
+    - Wie weit lässt sich das Interface über Arduino hinaus (IDF) portieren?
+  next_evidence: Natürlicher WiFi-Failover (Multi-AP ohne Lab-Kommando) — Lab/Feld
+  rejected_highlights:
+    -
+      id: null
+      statement: "`esp_wireguard_connect` ESP_OK = Tunnel up"
+      status: REJECTED
+    -
+      id: null
+      statement: Hinter NAT ohne keepalive stabil
+      status: REJECTED
+    -
+      id: null
+      statement: Component sync’t Zeit selbst
+      status: REJECTED
+    -
+      id: null
+      statement: WG allein = Rendezvous hinter CGNAT ohne Endpoint
+      status: REJECTED
+    -
+      id: null
+      statement: Same-LAN STA + AllowedIPs = sichere Default-Route
+      status: REJECTED
+    -
+      id: null
+      statement: Heartbeat-Kern für Features umbauen
+      status: REJECTED
+    -
+      id: null
+      statement: WLAN-Secrets im Repo
+      status: REJECTED
+    -
+      id: null
+      statement: Beliebige Bin-Namen
+      status: REJECTED
+  transfer_limits:
+    - lab_not_field
+    - natural_wifi_failover_unknown
+    - optional_overlay_not_hard_dep
+    - pidrive_needs_readiness_first
+    - sheet_abgrenzung_ist_nicht
+  audits:
+    -
+      audit_id: A-2026-097
+      directory: esp32-car-network-2026-foreign
+      status: closed
+      environment: lab
+    -
+      audit_id: A-2026-118
+      directory: esp32-wireguard-2026-11-dod-close
+      status: closed
+      environment: mixed
+  methods: []
+  last_relevant_change: 2026-11-27
+  note: GENERATED snapshot from SoT — not a second truth
+primary:
+  - esp-wireguard
+  - esp-hub-base-template
+  - esp-module-host
+applications:
+  - projects/esp32-bt-analyzer/applications/esp-wireguard.md
+  - projects/esp32-car-network-refs/applications/esp-wireguard.md
+  - projects/esp32-esp-hub/applications/esp-hub-base-template.md
+  - projects/esp32-esp-hub/applications/esp-module-host.md
+  - projects/esp32-toolnode/applications/esp-module-host.md
+  - projects/esp32-wireguard/applications/esp-hub-base-template.md
+  - projects/esp32-wireguard/applications/esp-module-host.md
+  - projects/esp32-wireguard/applications/esp-wireguard.md
+  - projects/hu-probe/applications/esp-wireguard.md
+audits:
+  -
+    audit_id: A-2026-097
+    directory: esp32-car-network-2026-foreign
+    status: closed
+    environment: lab
+    path: audits/esp32-car-network-2026-foreign
+    started: 2026-11-12
+  -
+    audit_id: A-2026-118
+    directory: esp32-wireguard-2026-11-dod-close
+    status: closed
+    environment: mixed
+    path: audits/esp32-wireguard-2026-11-dod-close
+    started: 2026-11-27
+methods: []
+evidence_ids:
+  - EVID-BASE-2026-10-28-001
+  - EVID-BASE-2026-10-28-003
+  - EVID-BASE-2026-10-28-004
+  - EVID-CARNET-2026-11-12-020
+  - EVID-CARNET-YYYY-MM-DD
+  - EVID-HUB-2026-10-28
+  - EVID-HUB-2026-10-28-001
+  - EVID-HUB-2026-10-28-002
+  - EVID-HUB-2026-10-28-003
+  - EVID-WEB-2026-10-28
+  - EVID-WEB-2026-10-28-001
+facts: []
+inferences: []
+unknowns: []
+rejected:
+  -
+    statement: "`esp_wireguard_connect` ESP_OK = Tunnel up"
+    status: REJECTED
+    source: technologies/esp-wireguard/SHEET.md
+  -
+    statement: Hinter NAT ohne keepalive stabil
+    status: REJECTED
+    source: technologies/esp-wireguard/SHEET.md
+  -
+    statement: Component sync’t Zeit selbst
+    status: REJECTED
+    source: technologies/esp-wireguard/SHEET.md
+  -
+    statement: WG allein = Rendezvous hinter CGNAT ohne Endpoint
+    status: REJECTED
+    source: technologies/esp-wireguard/SHEET.md
+  -
+    statement: Same-LAN STA + AllowedIPs = sichere Default-Route
+    status: REJECTED
+    source: technologies/esp-wireguard/SHEET.md
+  -
+    statement: Heartbeat-Kern für Features umbauen
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: WLAN-Secrets im Repo
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: Beliebige Bin-Namen
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: Jede Ableitung braucht neues Hub-Sheet
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: "Ableitung = einzelne `.ino` ohne Ordner"
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: Diag/Recovery still in A/B nachziehen
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: "`src/core/` für Sensorik umbauen"
+    status: REJECTED
+    source: technologies/esp-hub-base-template/SHEET.md
+  -
+    statement: Alle Module immer compilieren
+    status: REJECTED
+    source: technologies/esp-module-host/SHEET.md
+  -
+    statement: Module dürfen Pins ungeprüft teilen
+    status: REJECTED
+    source: technologies/esp-module-host/SHEET.md
+  -
+    statement: "Modul-UI muss in Base-`index.html` hardcodiert sein"
+    status: REJECTED
+    source: technologies/esp-module-host/SHEET.md
+  -
+    statement: UiTab-Infra kostet »mehrere zehn KiB«
+    status: REJECTED
+    source: technologies/esp-module-host/SHEET.md
+transfer_limits:
+  - lab_not_field
+  - natural_wifi_failover_unknown
+  - optional_overlay_not_hard_dep
+  - pidrive_needs_readiness_first
+  - sheet_abgrenzung_ist_nicht
+note: GENERATED from docs/retrieval-topics.yaml + SoT — do not hand-edit

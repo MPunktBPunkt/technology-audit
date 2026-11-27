@@ -6,14 +6,16 @@ generated: 2026-11-27
 current:
   family: esp-wireguard
   status: UNKNOWN
-  evidence_maturity: R1
+  evidence_maturity: R2
   strongest_evidence:
     - EVID-CARNET-2026-11-12-020
     - EVID-CARNET-YYYY-MM-DD
   confirmed: []
   open_points:
-    - Empfohlenes keepalive-Intervall vs. typische Carrier/Phone NAT timers (Lab)?
-  next_evidence: Empfohlenes keepalive-Intervall vs. typische Carrier/Phone NAT timers (Lab)?
+    - Natürlicher WiFi-Failover (Multi-AP ohne Lab-Kommando) — Lab/Feld
+    - Keepalive vs. Carrier/Phone NAT timers (Feintuning)
+    - "Feld: Langzeit / Roaming / Fahrzeug"
+  next_evidence: Natürlicher WiFi-Failover (Multi-AP ohne Lab-Kommando) — Lab/Feld
   rejected_highlights:
     -
       id: null
@@ -29,7 +31,11 @@ current:
       status: REJECTED
     -
       id: null
-      statement: WG allein = Rendezvous hinter CGNAT ohne erreichbaren Endpoint
+      statement: WG allein = Rendezvous hinter CGNAT ohne Endpoint
+      status: REJECTED
+    -
+      id: null
+      statement: Same-LAN STA + AllowedIPs = sichere Default-Route
       status: REJECTED
   transfer_limits:
     - sheet_abgrenzung_ist_nicht
@@ -39,22 +45,32 @@ current:
       directory: esp32-car-network-2026-foreign
       status: closed
       environment: lab
+    -
+      audit_id: A-2026-118
+      directory: esp32-wireguard-2026-11-dod-close
+      status: closed
+      environment: mixed
   methods: []
-  last_relevant_change: 2026-11-12
+  last_relevant_change: 2026-11-27
   note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-wireguard/SHEET.md
   - audits/esp32-car-network-2026-foreign/README.md
+  - audits/esp32-wireguard-2026-11-dod-close/README.md
 primary:
   - esp-wireguard
 maturity:
   technology: R3
-  field_evidence: R1
+  field_evidence: R2
   reusability: W3
-  evidence_scope: []
+  evidence_scope:
+    - LAB
+    - GENERAL
 applications:
+  - projects/esp32-bt-analyzer/applications/esp-wireguard.md
   - projects/esp32-car-network-refs/applications/esp-wireguard.md
   - projects/esp32-wireguard/applications/esp-wireguard.md
+  - projects/hu-probe/applications/esp-wireguard.md
 audits:
   -
     audit_id: A-2026-097
@@ -63,6 +79,13 @@ audits:
     environment: lab
     path: audits/esp32-car-network-2026-foreign
     started: 2026-11-12
+  -
+    audit_id: A-2026-118
+    directory: esp32-wireguard-2026-11-dod-close
+    status: closed
+    environment: mixed
+    path: audits/esp32-wireguard-2026-11-dod-close
+    started: 2026-11-27
 methods: []
 evidence_ids:
   - EVID-CARNET-2026-11-12-020
@@ -89,7 +112,11 @@ rejected:
     status: REJECTED
     source: technologies/esp-wireguard/SHEET.md
   -
-    statement: WG allein = Rendezvous hinter CGNAT ohne erreichbaren Endpoint
+    statement: WG allein = Rendezvous hinter CGNAT ohne Endpoint
+    status: REJECTED
+    source: technologies/esp-wireguard/SHEET.md
+  -
+    statement: Same-LAN STA + AllowedIPs = sichere Default-Route
     status: REJECTED
     source: technologies/esp-wireguard/SHEET.md
 transfer_limits:

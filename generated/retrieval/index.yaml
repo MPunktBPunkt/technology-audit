@@ -5,7 +5,7 @@ schema: technology-audit.retrieval-index.v1
 generated: 2026-11-27
 model_doc: docs/EVIDENCE-CLAIM-MODEL.md
 audit_index: audits/INDEX.yaml
-bundle_count: 93
+bundle_count: 94
 tech_bundles:
   - airband-am
   - avrcp
@@ -96,6 +96,7 @@ tech_bundles:
   - webradio-browser-host
   - wifi-csi-motion
 topic_bundles:
+  - topic-esp-wireguard-transport-dod
   - topic-bmw-connected-music
   - topic-bmw-sas-crypto
   - topic-bmw-bcl-etch-transport

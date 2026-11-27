@@ -30,7 +30,7 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-a2dp-source`](esp32-a2dp-source/) | ESP32_A2DP_Source — schreibfaul1 (Fremd) | lab-tool | active | 2 |
 | [`esp32-ai`](esp32-ai/) | esp32-ai — On-Device PLE LLM + Fly Connectome (Fremd) | lab-tool | active | 4 |
 | [`esp32-audioi2s`](esp32-audioi2s/) | ESP32-audioI2S — schreibfaul1 (Fremd) | lab-tool | active | 1 |
-| [`esp32-bt-analyzer`](esp32-bt-analyzer/) | ESP32 On-Chip Bluetooth HCI Analyzer (VHCI) | lab-tool | active | 8 |
+| [`esp32-bt-analyzer`](esp32-bt-analyzer/) | ESP32 On-Chip Bluetooth HCI Analyzer (VHCI) | lab-tool | active | 9 |
 | [`esp32-bt-gateway`](esp32-bt-gateway/) | esp32-bt-gateway | planning | — | 5 |
 | [`esp32-bt-iap`](esp32-bt-iap/) | esp32-bt-iap — A2DP + Apple Dock (historisch) | lab-tool | active | 2 |
 | [`esp32-car-network-refs`](esp32-car-network-refs/) | ESP32 Car-Side Networking — Hotspot/NAT Outbound (Fremd) | lab-tool | active | 3 |
@@ -56,14 +56,14 @@ Projektkontext: Scope, Inventar, Applications. Technologie-Wissen → [`technolo
 | [`esp32-usb-analyzer`](esp32-usb-analyzer/) | Dual ESP32-S3 USB Protocol Analyzer / MITM Lab | lab-tool | active | 10 |
 | [`esp32-webradio`](esp32-webradio/) | esp32-webradio | firmware | — | 2 |
 | [`esp32-wifi-bt-coex-refs`](esp32-wifi-bt-coex-refs/) | ESP32 WiFi ↔ Classic Bluetooth RF Coexistence (esp_coex_*) | lab-tool | active | 1 |
-| [`esp32-wireguard`](esp32-wireguard/) | esp32-wireguard | firmware | — | 5 |
+| [`esp32-wireguard`](esp32-wireguard/) | esp32-wireguard | firmware | — | 6 |
 | [`esp32sdr`](esp32sdr/) | ESP32SDR — S3 Burst RX + Wi-Fi Tone Keying TX (Fremd) | lab-tool | active | 2 |
 | [`espargos-espsdr`](espargos-espsdr/) | ESPARGOS ESP-SDR — Multi-Chip Undocumented I/Q RX (Fremd) | lab-tool | active | 1 |
 | [`espble`](espble/) | EspBle — NimBLE + Classic A2DP/AVRCP CT/TG (Fremd) | lab-tool | active | 2 |
 | [`espectre`](espectre/) | ESPectre — Wi-Fi CSI Motion Sensing (Fremd) | lab-tool | active | 1 |
 | [`esphome-a2dp-sink`](esphome-a2dp-sink/) | PxPert a2dp_sink — ESPHome A2DP Sink Component (Fremd) | lab-tool | active | 2 |
 | [`espusbhost`](espusbhost/) | EspUsbHost — ESP32 USB Host Library (Fremd) | lab-tool | active | 1 |
-| [`hu-probe`](hu-probe/) | hu-probe — ESP32-S3 USB-MSC Head-Unit Messsonde | lab-tool | active | 6 |
+| [`hu-probe`](hu-probe/) | hu-probe — ESP32-S3 USB-MSC Head-Unit Messsonde | lab-tool | active | 7 |
 | [`iobroker-esp-hub`](iobroker-esp-hub/) | iobroker-esp-hub | adapter | — | 2 |
 | [`iobroker-freeair100`](iobroker-freeair100/) | iobroker-freeair100 | adapter | — | 1 |
 | [`iobroker-fritzwireguard`](iobroker-fritzwireguard/) | iobroker-fritzwireguard | adapter | — | 2 |

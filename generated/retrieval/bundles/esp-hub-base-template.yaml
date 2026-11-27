@@ -69,13 +69,19 @@ current:
       directory: esp32-esp-hub-2026-1.10-validation
       status: closed
       environment: desk
+    -
+      audit_id: A-2026-118
+      directory: esp32-wireguard-2026-11-dod-close
+      status: closed
+      environment: mixed
   methods: []
-  last_relevant_change: 2026-10-28
+  last_relevant_change: 2026-11-27
   note: GENERATED snapshot from SoT — not a second truth
 source_of_truth:
   - technologies/esp-hub-base-template/SHEET.md
   - audits/esp32-esp-hub-2026-1.10-validation/README.md
   - audits/esp32-esp-hub-2026-pilot/README.md
+  - audits/esp32-wireguard-2026-11-dod-close/README.md
 primary:
   - esp-hub-base-template
 maturity:
@@ -101,6 +107,13 @@ audits:
     environment: desk
     path: audits/esp32-esp-hub-2026-1.10-validation
     started: 2026-10-28
+  -
+    audit_id: A-2026-118
+    directory: esp32-wireguard-2026-11-dod-close
+    status: closed
+    environment: mixed
+    path: audits/esp32-wireguard-2026-11-dod-close
+    started: 2026-11-27
 methods: []
 evidence_ids:
   - EVID-BASE-2026-10-28-001

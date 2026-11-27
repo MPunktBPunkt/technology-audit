@@ -18,6 +18,7 @@ pilot_order: [esp32-s3-usb-wifi-coex, usb-msc, bmw-nbt-evo, esp32-s3-silicon]
 | Connected SAS Auth (Desk) | `bmw-sas-auth` | Desk 2026-11-06 — Field G3 absent; [`applications/bmw-sas-auth.md`](applications/bmw-sas-auth.md) |
 | S3 Board / PSRAM / Flash | `esp32-s3-silicon` | documented → applied light (N8R2 field pin) |
 | Virtual FAT Demo | `virtual-fat` | reuse (Medium/Slots) |
+| Optional WG Overlay (Heimnetz unterwegs) | `esp-wireguard` | Lab-E2E `0.3.42-wg` — Audit `esp32-wireguard-2026-11-dod-close` |
 
 Kampagnen: [`esp32-s3-usb-wifi-coexistence-2026`](../../audits/esp32-s3-usb-wifi-coexistence-2026/) ·
 [`msc-host-read-semantics-s1s2s3-2026`](../../audits/msc-host-read-semantics-s1s2s3-2026/) ·

@@ -487,11 +487,11 @@ sheets:
     primary: D
     reusability: W3
     technology: R3
-    field_evidence_sheet: R1
-    evidence_max: R1
-    evidence_scope: []
-    evidence_scope_source: derived
-    seen_in: [esp32-car-network-refs, esp32-wireguard]
+    field_evidence_sheet: R2
+    evidence_max: R2
+    evidence_scope: [LAB, GENERAL]
+    evidence_scope_source: sheet
+    seen_in: [esp32-car-network-refs, esp32-wireguard, hu-probe, esp32-bt-analyzer]
     path: technologies/esp-wireguard/SHEET.md
   - slug: esp32-apll-fm-tx
     title: ESP32 APLL / MCLK FM Transmit

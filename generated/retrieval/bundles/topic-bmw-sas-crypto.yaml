@@ -91,7 +91,7 @@ current:
       status: closed
       environment: mixed
     -
-      audit_id: A-2026-118
+      audit_id: A-2026-119
       directory: libaudio-signchallenge-pipeline-2026-11-19
       status: complete
       environment: mixed
@@ -129,7 +129,7 @@ audits:
     path: audits/bmw-sas-auth-field-crypto-2026-11-21
     started: 2026-11-21
   -
-    audit_id: A-2026-118
+    audit_id: A-2026-119
     directory: libaudio-signchallenge-pipeline-2026-11-19
     status: complete
     environment: mixed
