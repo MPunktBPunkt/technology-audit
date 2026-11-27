@@ -69,7 +69,7 @@ Spalten: **W** = Reusability · **Evid** = `evidence_max` (stärkste Lab/Feld-Be
 | [`esp-tailscale-client`](esp-tailscale-client/SHEET.md) | ESP Tailscale-Compatible Client (WG + DERP + STUN) | W3 | R0 | — | `esp32-car-network-refs` |
 | [`esp-wifi-bt-coex`](esp-wifi-bt-coex/SHEET.md) | ESP32 WiFi ↔ Classic Bluetooth RF Coexistence (esp_coex_*) | W2 | R2 | — | `esp32-wifi-bt-coex-refs`, `esp32-bt-analyzer` |
 | [`esp-wifi-nat-router`](esp-wifi-nat-router/SHEET.md) | ESP WiFi NAT Router (SoftAP+STA) | W2 | R0 | — | `esp32-car-network-refs` |
-| [`esp-wireguard`](esp-wireguard/SHEET.md) | ESP WireGuard (IDF Component) | W3 | R0 | — | `esp32-car-network-refs`, `esp32-wireguard` |
+| [`esp-wireguard`](esp-wireguard/SHEET.md) | ESP WireGuard (IDF Component) | W3 | R1 | — | `esp32-car-network-refs`, `esp32-wireguard` |
 | [`esp32-apll-fm-tx`](esp32-apll-fm-tx/SHEET.md) | ESP32 APLL / MCLK FM Transmit | W2 | R0 | — | `esp-fm-tx` |
 | [`esp32-polar-phy-tx`](esp32-polar-phy-tx/SHEET.md) | ESP32-S3 Polar PHY Test-Tone TX | W2 | R0 | — | `esp32-sdr-trx` |
 | [`esp32-s3-silicon`](esp32-s3-silicon/SHEET.md) | ESP32-S3 Silicon Errata & Hardware Limits | W2 | R1 | — | `esp32-pidrive`, `hu-probe`, `pidrive`, `esp32-ai`, `esp32-usb-analyzer` |

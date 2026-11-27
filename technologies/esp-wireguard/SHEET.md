@@ -10,15 +10,15 @@ status: active
 seen_in: [esp32-car-network-refs, esp32-wireguard]
 maturity:
   technology: R3
-  implementation: R1
-  field_evidence: R0
+  implementation: R2
+  field_evidence: R1
   reusability: W3
 pilot: audits/esp32-car-network-2026-foreign
 ```
 
-Nur Ebene **A**. Projekt-/NAT-Lab → Application. Pin-Referenz: trombik/esp_wireguard. Host-WG → `iobroker-fritzwireguard-adapter` (Kontrast).
+Nur Ebene **A**. Projekt-/NAT-Lab → Application. Pin-Referenz: trombik/esp_wireguard **v0.9.0**. Host-WG → `iobroker-fritzwireguard-adapter` (Kontrast).
 
-Referenz-Firmware **esp32.wireguard** (0.2.0+): Fassade/UiTab/NVS auf Hub-Base; echter Stack-Link und Tunnel-Evidence folgen in Application.
+Referenz-Firmware **esp32.wireguard** **0.4.0**: Stack gelinkt (Arduino-Library-Vendor); Flash-Δ Stack ≈ +22 KiB (esp32) — Details in Application.
 
 ## Kurzfassung
 

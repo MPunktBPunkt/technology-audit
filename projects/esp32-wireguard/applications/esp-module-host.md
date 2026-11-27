@@ -39,10 +39,14 @@ Sketch: modules().add(&gWireGuard)  [Compile-Time Opt-in]
 |-------|-------------|--------|
 | UiTab-Infra ≈ +2 KiB Flash vs 1.11.1 (esp32) | `EVID-WG-2026-11-27-001` | `FACT` (Build-Host) |
 | WireGuard-Modul 0.2.0 ≈ +17.9 KiB / +312 B Globals vs Base-only | `EVID-WG-2026-11-27-002` | `FACT` (Build-Host) |
-| OTA .87/.88/.131 liefern `/api/ui/tabs` mit `wg` | `EVID-WG-2026-11-27-003` | `FACT` (Lab) |
+| OTA .87/.88/.131 liefern `/api/ui/tabs` mit `wg` | `EVID-WG-2026-11-27-003` / `EVID-WG-2026-11-27-010` | `FACT` (Lab) |
+| Base 1.12.0 ohne WG: `tabs=[]`, kein `/api/wg` | `EVID-WG-2026-11-27-011` | `FACT` (Lab .131) |
 | Modul-UI muss in Base-index hardcodiert sein | — | `REJECTED` |
+| kMaxModules=6 erhöhen | — | `REJECTED` (kein Bedarf) |
+| Multi-Tab pro Modul jetzt | — | `REJECTED` (kein Bedarf) |
+
+Siehe `EVIDENCE-2026-11-27-phase1.md`.
 
 ## Offene Fragen
 
-- Multi-Tab pro Modul: kein Bedarf (bleibt 0|1)
-- kMaxModules=6: kein Bedarf zu erhöhen
+- Multi-Tab / kMaxModules: unverändert bis reales Modul begründet

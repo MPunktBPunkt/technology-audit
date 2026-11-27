@@ -7,14 +7,14 @@ status: active
 sheet: ../../../technologies/esp-wireguard/SHEET.md
 maturity:
   technology: R3
-  implementation: R1
-  field_evidence: R0
+  implementation: R2
+  field_evidence: R1
   reusability: W3
 ```
 
 ## Rolle
 
-Referenz-Client für trombik/esp_wireguard hinter Hub-Base. Stand **0.2.0**: Fassade + UiTab/NVS/Parser; Stack noch `stack_not_linked`.
+Referenz-Client für trombik/esp_wireguard hinter Hub-Base. Stand **0.4.0**: Stack gelinkt; Storage-Blob+Obfuscation; Tunnel-Lab (Handshake/Hotspot) offen.
 
 ## Ebene C
 
@@ -23,8 +23,9 @@ Referenz-Client für trombik/esp_wireguard hinter Hub-Base. Stand **0.2.0**: Fas
 | connect ESP_OK ≠ peer up | sheet | `REJECTED` (übernommen) |
 | NAT ohne keepalive stabil | sheet | `REJECTED` |
 | Library sync’t Zeit selbst | sheet | `REJECTED` |
-| Echter Tunnel / peer_is_up Lab | — | `UNKNOWN` (Phase 11+) |
+| Stack gelinkt (nm + OTA 0.4.0) | `EVID-WG-2026-11-27-030`/`033` | `FACT` |
+| Δ real stack esp32 ≈ +22.0 KiB / +1576 B Globals | `EVID-WG-2026-11-27-031` | `FACT` (Build-Host) |
+| Peer AllowedIPs selektiv via High-Level-API | — | `CONSTRAINT` (upstream 0.0.0.0/0) |
+| Fritz!Box peer_is_up / Heimnetz / Hotspot | — | `UNKNOWN` |
 
-## Nächste Evidence
-
-Fritz!Box Handshake + Hotspot + SNTP auf Lab-ESPs.
+Siehe `EVIDENCE-2026-11-27-storage-stack.md`.

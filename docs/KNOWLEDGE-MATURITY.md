@@ -39,8 +39,8 @@ and duplicate `field_evidence` R0–R5. Map “evidence strength” → **R**.
 
 | Stufe | Anzahl |
 |-------|--------|
-| R0 | 28 |
-| R1 | 14 |
+| R0 | 27 |
+| R1 | 15 |
 | R2 | 31 |
 | R3 | 15 |
 
@@ -76,7 +76,7 @@ Reusable on paper; do **not** treat as empirically settled.
 | [`esp-lab-bus-tools`](../technologies/esp-lab-bus-tools/SHEET.md) | W3 | R1 | — |
 | [`esp-module-host`](../technologies/esp-module-host/SHEET.md) | W3 | R1 | — |
 | [`esp-tailscale-client`](../technologies/esp-tailscale-client/SHEET.md) | W3 | R0 | — |
-| [`esp-wireguard`](../technologies/esp-wireguard/SHEET.md) | W3 | R0 | — |
+| [`esp-wireguard`](../technologies/esp-wireguard/SHEET.md) | W3 | R1 | — |
 | [`rpi-gpio-fm-tx`](../technologies/rpi-gpio-fm-tx/SHEET.md) | W3 | R0 | — |
 
 ## Strong evidence, limited generalizability

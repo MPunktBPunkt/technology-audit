@@ -307,9 +307,9 @@ projects:
     path: projects/esp32-wifi-bt-coex-refs/
   - id: esp32-wireguard
     title: esp32-wireguard
-    profile: —
+    profile: firmware
     status: —
-    applications: 3
+    applications: 5
     path: projects/esp32-wireguard/
   - id: esp32sdr
     title: ESP32SDR — S3 Burst RX + Wi-Fi Tone Keying TX (Fremd)

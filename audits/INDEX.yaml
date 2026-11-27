@@ -455,8 +455,8 @@ audits:
     ended: null
     standard_version: 0.6.6
     technologies:
-      - esp32-apll-fm-tx
       - sdr-spectrum-fft
+      - esp32-apll-fm-tx
       - rpi-gpio-fm-tx
       - bluetooth-a2dp
       - airband-am
@@ -574,9 +574,9 @@ audits:
     technologies:
       - esp-embedded-web-sse
       - mqtt-node-telemetry
+      - esp-now-messaging
       - esp-hub-telemetry
       - esp-lab-bus-tools
-      - esp-now-messaging
       - ssd1306-oled-ui
       - bluetooth-a2dp
       - ble-hrm-gatt
@@ -758,8 +758,8 @@ audits:
     ended: null
     standard_version: 0.6.6
     technologies:
-      - virtual-fat
       - bmw-nbt-evo
+      - virtual-fat
       - usb-msc
     evidence_count: 0
     claims_count: 0
@@ -777,8 +777,8 @@ audits:
     ended: null
     standard_version: 0.6.6
     technologies:
-      - esp32-wifi-tone-tx
       - esp32-polar-phy-tx
+      - esp32-wifi-tone-tx
       - esp32-undoc-iq-rx
     evidence_count: 0
     claims_count: 0
@@ -1084,8 +1084,8 @@ audits:
     standard_version: 0.7.1
     technologies:
       - esp32-s3-usb-wifi-coex
-      - virtual-fat
       - bmw-nbt-evo
+      - virtual-fat
       - usb-msc
     evidence_count: 0
     claims_count: 0
@@ -1103,8 +1103,8 @@ audits:
     ended: 2026-10-15
     standard_version: 0.7.1
     technologies:
-      - virtual-fat
       - bmw-nbt-evo
+      - virtual-fat
       - usb-msc
     evidence_count: 3
     claims_count: 0
@@ -1122,8 +1122,8 @@ audits:
     ended: null
     standard_version: 0.7.1
     technologies:
-      - virtual-fat
       - bmw-nbt-evo
+      - virtual-fat
       - usb-msc
     evidence_count: 1
     claims_count: 0
@@ -1178,8 +1178,8 @@ audits:
     ended: 2026-10-18
     standard_version: 0.7.1
     technologies:
-      - virtual-fat
       - bmw-nbt-evo
+      - virtual-fat
       - usb-msc
     evidence_count: 2
     claims_count: 0
@@ -1560,8 +1560,8 @@ audits:
       - ble-gatt-dual-role
       - bt-dual-mode-coex
       - bluetooth-a2dp
-      - bluetooth-hfp
       - bluetooth-hid
+      - bluetooth-hfp
     evidence_count: 0
     claims_count: 0
     path: audits/bt-analysis-relay-2026-foreign
@@ -1581,9 +1581,9 @@ audits:
       - hid-cross-transport-bridge
       - bt-dual-mode-coex
       - bluetooth-a2dp
-      - bluetooth-hfp
-      - bluetooth-spp
       - bluetooth-hid
+      - bluetooth-spp
+      - bluetooth-hfp
       - avrcp
     evidence_count: 0
     claims_count: 0
@@ -1645,8 +1645,8 @@ audits:
       - esp-usb-host
       - bmw-etch-rpc
       - bmw-nbt-evo
-      - usb-msc
       - usb-aoa
+      - usb-msc
       - bmw-bcl
     evidence_count: 4
     claims_count: 0
@@ -1669,8 +1669,8 @@ audits:
       - esp-hub-telemetry
       - esp32-s3-silicon
       - esp-usb-host
-      - usb-msc
       - usb-aoa
+      - usb-msc
       - bmw-bcl
     evidence_count: 6
     claims_count: 0
@@ -1709,11 +1709,11 @@ audits:
     standard_version: 0.7.1
     technologies:
       - bt-dual-mode-coex
-      - bluetooth-ftms
       - bluetooth-a2dp
-      - bluetooth-hfp
-      - bluetooth-spp
+      - bluetooth-ftms
       - bluetooth-hid
+      - bluetooth-spp
+      - bluetooth-hfp
       - ble-hrm-gatt
       - avrcp
     evidence_count: 6
@@ -1732,8 +1732,8 @@ audits:
     ended: 2026-11-06
     standard_version: 0.7.1
     technologies:
-      - bmw-etch-rpc
       - bmw-sas-auth
+      - bmw-etch-rpc
       - bmw-rhmi
       - usb-aoa
       - bmw-bcl
@@ -1755,8 +1755,8 @@ audits:
     technologies:
       - usb-msc-host-behaviour
       - bmw-nbt-evo
-      - usb-msc
       - usb-aoa
+      - usb-msc
     evidence_count: 0
     claims_count: 0
     path: audits/esp32-usb-analyzer-2026-field-host-matrix
@@ -1905,8 +1905,8 @@ audits:
     ended: 2026-11-17
     standard_version: 0.7.1
     technologies:
-      - bmw-etch-rpc
       - bmw-sas-auth
+      - bmw-etch-rpc
       - bmw-rhmi
       - bmw-bcl
     evidence_count: 0
@@ -1926,8 +1926,8 @@ audits:
     standard_version: 0.7.1
     technologies:
       - bluetooth-a2dp
-      - bmw-etch-rpc
       - bmw-sas-auth
+      - bmw-etch-rpc
       - bmw-rhmi
       - usb-aoa
       - bmw-bcl
@@ -1948,8 +1948,8 @@ audits:
     ended: 2026-11-17
     standard_version: 0.7.1
     technologies:
-      - bmw-etch-rpc
       - bmw-sas-auth
+      - bmw-etch-rpc
       - bmw-rhmi
       - bmw-bcl
     evidence_count: 0
@@ -1986,8 +1986,8 @@ audits:
     ended: 2026-11-19
     standard_version: 0.7.1
     technologies:
-      - bmw-etch-rpc
       - bmw-sas-auth
+      - bmw-etch-rpc
       - bmw-bcl
     evidence_count: 0
     claims_count: 0
@@ -2005,8 +2005,8 @@ audits:
     ended: 2026-11-19
     standard_version: 0.7.1
     technologies:
-      - bmw-etch-rpc
       - bmw-sas-auth
+      - bmw-etch-rpc
       - bmw-nbt-evo
       - bmw-rhmi
       - bmw-bcl
@@ -2167,8 +2167,8 @@ audits:
     ended: 2026-11-23
     standard_version: 0.7.1
     technologies:
-      - bmw-etch-rpc
       - bmw-sas-auth
+      - bmw-etch-rpc
       - bmw-bcl
     evidence_count: 3
     claims_count: 5

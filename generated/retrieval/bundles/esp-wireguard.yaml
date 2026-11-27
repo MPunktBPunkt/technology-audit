@@ -6,7 +6,7 @@ generated: 2026-11-27
 current:
   family: esp-wireguard
   status: UNKNOWN
-  evidence_maturity: R0
+  evidence_maturity: R1
   strongest_evidence:
     - EVID-CARNET-2026-11-12-020
     - EVID-CARNET-YYYY-MM-DD
@@ -49,7 +49,7 @@ primary:
   - esp-wireguard
 maturity:
   technology: R3
-  field_evidence: R0
+  field_evidence: R1
   reusability: W3
   evidence_scope: []
 applications:
