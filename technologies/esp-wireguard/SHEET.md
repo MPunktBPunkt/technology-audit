@@ -7,18 +7,18 @@ primary: D
 tags: [esp-idf, networking, vpn]
 type: component
 status: active
-seen_in: [esp32-car-network-refs, esp32-wireguard]
+seen_in: [esp32-car-network-refs, esp32-wireguard, hu-probe, esp32-bt-analyzer]
 maturity:
   technology: R3
-  implementation: R2
-  field_evidence: R1
+  implementation: R3
+  field_evidence: R2
   reusability: W3
 pilot: audits/esp32-car-network-2026-foreign
 ```
 
 Nur Ebene **A**. Projekt-/NAT-Lab → Application. Pin-Referenz: trombik/esp_wireguard **v0.9.0**. Host-WG → `iobroker-fritzwireguard-adapter` (Kontrast).
 
-Referenz-Firmware **esp32.wireguard** **0.4.0**: Stack gelinkt (Arduino-Library-Vendor); Flash-Δ Stack ≈ +22 KiB (esp32) — Details in Application.
+Referenz-Firmware **esp32.wireguard** **v0.4.9** (Lab-DoD geschlossen). Consumer: hu-probe **0.3.42**, bt-analyzer **0.3.21-wg** — Details in Applications.
 
 ## Kurzfassung
 
